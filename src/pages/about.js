@@ -63,8 +63,14 @@ export const query = graphql`
     }
     topLogo: file(relativePath: { eq: "about-top.png" }) {
       childImageSharp {
-        fixed(width: 697) {
-          ...GatsbyImageSharpFixed_withWebp
+        fixed(width: 697,
+          traceSVG: {
+            color: "#6159F5"
+            optTolerance: 0.2,
+            turdSize: 100,
+            turnPolicy: TURNPOLICY_MINORITY
+          }) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }

@@ -237,29 +237,35 @@ export const query = graphql`
     }
     homeTopRight: file(relativePath: { eq: "home-top-right.png" }) {
       childImageSharp {
-        fixed(width: 934, webpQuality: 100) {
-          ...GatsbyImageSharpFixed_withWebp
+        fixed(width: 934, webpQuality: 100,
+          traceSVG: {
+            color: "#6159F5"
+            optTolerance: 0.2,
+            turdSize: 100,
+            turnPolicy: TURNPOLICY_MINORITY
+          }) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     feature1: file(relativePath: { eq: "img-add.png" }) {
       childImageSharp {
         fixed(width: 640, webpQuality: 100) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     feature2: file(relativePath: { eq: "img-scan.png" }) {
       childImageSharp {
         fixed(width: 597, webpQuality: 100) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     feature3: file(relativePath: { eq: "img-grouping.png" }) {
       childImageSharp {
         fixed(width: 624, webpQuality: 100) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
