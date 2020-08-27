@@ -1,0 +1,55 @@
+.headerContainer {
+  margin: 0;
+  width: 100%;
+  height: var(--height-top-menu);
+}
+
+.menuContainer {
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-size: 13px;
+}
+
+.menuContainer > *:not(:nth-child(1)) {
+  margin-left: 50px;
+}
+
+.menuContainer a {
+  color: inherit;
+}
+
+.padding {
+  margin: 0px;
+  flex: 1;
+}
+
+.biLogo {
+  width: 113px;
+}
+
+.loginButton {
+  border: solid 1px black;
+  background: transparent;
+  color: inherit;
+
+  padding: 10px 25px;
+}
+
+/* float container */
+
+.floatContainer {
+  position: absolute;
+}
+
+.floatContainer .menuContainer {
+  color: white;
+}
+
+.floatContainer .loginButton {
+  border-color: white;
+}

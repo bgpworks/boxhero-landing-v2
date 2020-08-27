@@ -1,0 +1,141 @@
+.verticalCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.startNowContainer {
+  composes: verticalCenter;
+
+  height: 404px;
+  background-color: var(--color-bg-dark-black);
+}
+
+.startNowDescription {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: white;
+  margin: 18px 0px 40px;
+}
+
+.startNowButton {
+  width: 243px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: #4f67ff;
+
+  font-weight: bold;
+  color: white;
+}
+
+/* Platforms */
+
+.platformContainer {
+  composes: verticalCenter;
+  height: 213px;
+  text-align: center;
+}
+
+.platformButtons {
+  margin-bottom: 13px;
+}
+
+.platformButtons > *:not(:nth-child(1)) {
+  margin-left: 15px;
+}
+
+.platformButton {
+  height: 44px;
+  border-radius: 6px;
+  border: solid 1px #cbccd3;
+  background: transparent;
+  color: #585a6c;
+
+  padding: 0px 15px;
+  vertical-align: middle;
+}
+
+.platformButton img {
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 24px;
+  heigth: 24px;
+}
+
+/* Footer Menus + Company info */
+
+.footerMenusAndInfoContainer {
+  composes: verticalCenter;
+
+  height: 503px;
+  background-color: #f7f9fc;
+  font-size: 14px;
+}
+
+.px10 {
+  padding: 0px 10px;
+}
+
+/* Footer Menus */
+
+.footerMenusContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 72px;
+}
+
+.footerMenusContainer a {
+  color: inherit;
+}
+
+.footerMenusContainer a:visited {
+  color: inherit;
+}
+
+@value footer-menu-width: 193px;
+@value wide-footer-menu-width: 314px;
+
+.footerMenusColumn {
+  width: footer-menu-width;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.footerMenusColumn > div:not(:nth-child(1)) {
+  margin-top: 16px;
+}
+
+.footerMenuLabel {
+  font-weight: bold;
+  color: var(--color-font-darker);
+}
+
+.wideFooterMenusColumn {
+  composes: footerMenusColumn;
+  width: wide-footer-menu-width;
+}
+
+/* Company info */
+
+.companyInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.logoContainer {
+  width: footer-menu-width;
+}
+
+.companyLogo {
+  width: 145px;
+}
+
+.copyRight {
+  margin-top: 20px;
+}

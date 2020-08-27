@@ -1,0 +1,221 @@
+/* top */
+
+.topContainer {
+  padding-top: var(--height-top-menu);
+  height: 800px;
+  z-index: -999;
+  color: white;
+  overflow: hidden;
+}
+
+.topContentContainer {
+  padding: 0px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.topRightContainer {
+  width: 100px;
+  overflow: visible;
+}
+
+.topLeftTitle {
+  font-size: 52px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 70px;
+}
+
+.topLeftDescription {
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: -0.2px;
+}
+
+.startNowButton {
+  background: black;
+  color: inherit;
+  padding: 10px 76px;
+  font-weight: bold;
+}
+
+/* keyFeature */
+
+.keyFeatureContainer {
+  height: 880px;
+  overflow: hidden;
+}
+
+.darkBg {
+  background: var(--color-bg-light);
+}
+
+.keyFeatureContentContainer {
+  padding: 0px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.keyFeatureLeftContainer {
+  width: 526px;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.keyFeatureLeftTitle {
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 0.85;
+  letter-spacing: -1px;
+  color: black;
+}
+
+.keyFeatureLeftTitle strong {
+  color: var(--color-font-blue);
+}
+
+.keyFeatureLeftDescription {
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: -0.22px;
+}
+
+.keyFeatureLeftSubTitle {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  line-height: 1.8;
+}
+
+.keyFeatureLeftSubDesc {
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: -0.22px;
+}
+
+.keyFeatureDetail {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+}
+
+.keyFeatureDetail a {
+  color: var(--color-font-blue);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rightArrow {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.keyFeatureRightContainer {
+  width: 100px;
+  overflow: visible;
+}
+
+/* team play */
+
+.teamPlayContainer {
+  height: 856px;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.teamPlayTitle {
+  height: 44px;
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 0.85;
+  letter-spacing: -1px;
+}
+
+.teamPlayDesc {
+  font-size: 18px;
+  line-height: 1.67;
+  letter-spacing: -0.2px;
+  text-align: center;
+}
+
+/* Customers  */
+
+.customersContainer {
+  height: 830px;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customersTitle {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.39;
+  letter-spacing: -2px;
+  text-align: center;
+}
+
+.customersTitle strong {
+  font-size: 48px;
+  letter-spacing: normal;
+  color: var(--color-font-blue);
+}
+
+.customersDetailButton {
+  width: 257px;
+  height: 44px;
+  border-radius: 22px;
+  background-color: #50a4fa;
+
+  color: white;
+  font-weight: bold;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Features */
+
+.featuresContainer {
+  composes: darkBg;
+
+  height: 1011px;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featuresTitle {
+  width: 648px;
+  height: 100px;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.39;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.featuresTitle strong {
+  color: var(--color-font-blue);
+}
