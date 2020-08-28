@@ -68,13 +68,13 @@ const FooterMenus = () => (
         Service
       </div>
       <div>
-        <Link to="/about">박스히어로는?</Link>
+        <Link to="/about/">박스히어로는?</Link>
       </div>
       <div>
-        <Link to="/features">편의기능</Link>
+        <Link to="/features/">편의기능</Link>
       </div>
       <div>
-        <Link to="/pricing">요금안내</Link>
+        <Link to="/pricing/">요금안내</Link>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>

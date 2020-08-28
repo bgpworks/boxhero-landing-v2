@@ -21,15 +21,15 @@ const Header = ({ isFloatMenu }) => (
 
       <div className={styles.padding}/>
 
-      <Link to="/about">
+      <Link to="/about/">
         박스히어로는?
       </Link>
 
-      <Link to="/features">
+      <Link to="/features/">
         편의기능
       </Link>
 
-      <Link to="/pricing">
+      <Link to="/pricing/">
         요금안내
       </Link>
 
