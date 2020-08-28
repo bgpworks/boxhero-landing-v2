@@ -1,86 +1,65 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# BoxHero Landing
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
-
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+Gatsby 기본 boilerplate 템플릿을 확장해서 개발함. 대부분은 [튜토리얼](https://www.gatsbyjs.com/tutorial/)을 따름.
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+```shell
+gatsby develop
+```
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+`http://localhost:8000` 접속.
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
 
-1.  **Start developing.**
+### Tools
 
-    Navigate into your new site’s directory and start it up.
+- [EditorConfig](https://editorconfig.org/)
+- [Prettier](https://prettier.io/)
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+## 🧐 메모
 
-1.  **Open the source code and start editing!**
+### Gatsby API 사용 현황.
 
-    Your site is now running at `http://localhost:8000`!
+**`gatsby-browser.js`**: [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/)
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+`gatsby-background-img`에서 쓰이는 `intersection-observer` 설치에 사용.
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+**`gatsby-node.js`**: [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/)
 
-## 🧐 What's inside?
+안 쓰고 있음.
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+**`gatsby-ssr.js`**: [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/)
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+spoqaHanSans 폰트 적용과 [css variable polyfil](https://github.com/nuxodin/ie11CustomProperties) 적용에 쓰고 있음. 이전 버전에서는 layout에서 react-helmet을 써서 적용했는데, page 내용과 관련이 없는 이런 외적인 요소는 이런 부분으로 빼는게 더 적절한 것 같음. google analytics 같은 것도 이쪽에 적용하는게 어울릴 듯.
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+[gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/)도 있는 걸로 보면 SSR을 사용했을 때 단점이 있는건지 확인 필요.
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+### 이미지 처리
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+`png`는 기본 모듈인 [gatsby-image](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-image)를 최대한 활용함. webp, [tracedsvg](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#tracedsvg) 기능 활성화함.
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+`gatsby-image`가 브라우저 지원 여부를 판단해서 구형 브라우저는 `png`를 쓰기 때문에 `webp polyfill`은 적용 안함.
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+TODO: 이쁘게 보이기 위해 tracedsvg 옵션 튜닝이 필요하다. 옵션 값에 따라 결과 미리보기 할 수 있는 페이지 있으면 좋겠다.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
+이미지를 배경으로 써야할 때는 [gatsby-background-image](https://www.gatsbyjs.com/plugins/gatsby-background-image/)를 활용했다.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+`svg`일 때는 소스에서 `import`해서 `img` 태그로 사용.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+### CSS
 
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+styled-component는 취향이 아니어서 css module 사용.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+변수 공유는 css custom variable 기능을 활용해서 `src/styles/global.css` 에 정의하고, 각종 모듈에서 참조해서 씀.
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+코드에서 참조해야할 일이 있으면 css module의 변수 기능을 쓸 수는 있는데, 기능이 약해서 쓰고 싶진 않음. (잘못된 참조를 해도 아무런 에러가 발생하지 않고, 참조할 때 뒤에 px 같은 단위를 붙일 수 없으며, 변수라는 걸 인식하기가 어려움.)
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+### TODO: Fade-in effect
+
+[Triple](https://triple.guide/intro/) 처럼 화면에 진입했을 떄 `fade-in`으로 나타나는 효과를 주고 싶다.
+[gatsby-plugin-scroll-reveal](https://www.gatsbyjs.com/plugins/gatsby-plugin-scroll-reveal/)를 적용해보면 될 듯.
+
+[페이지간 전환 효과](https://www.gatsbyjs.com/docs/adding-page-transitions-with-plugin-transition-link/)도 있는 고려해보기.
 
 ## 🎓 Learning Gatsby
 
@@ -92,8 +71,26 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+**[Vercel](https://vercel.com/)**:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+한국에서 가끔 접속이 안되는 문제가 발생해서 버림.
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+** [AWS Amplify](https://aws.amazon.com/amplify) **
+
+테스트로 여기 써보고 있음. 실수로 한국 리젼에 만듬. 관리 편의를 위해 N.virginia로 옮겨야함. global edge network 쓰는건지 확인 필요.
+
+[가격](https://aws.amazon.com/amplify/pricing/?nc=sn&loc=3)
+
+Bandwidth: $15 / 100GB served
+
+Build: $0.01 / minutes
+Hosting: $0.023 / GB / month
+
+** [Netlify](https://www.netlify.com)** 
+
+많이 쓰던데. [가격](https://www.netlify.com/pricing/)
+
+Bandwith: 100GB/month 무료. 이후 $20/100GB
+Build: 300 minutes/month 무료. 이후 $7 / 500 minutes
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bgpworks/boxhero-landing-v2)
