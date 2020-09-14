@@ -32,3 +32,16 @@ Padding.defaultProps= {
   x: 0,
   y: 0,
 };
+
+export const SimpleTop = ({title, desc}) => (
+  <div>
+    <Padding y={100}/>
+    <div className={styles.simpleTopTitle}>
+      {title}
+    </div>
+    <Padding y={30}/>
+    <div className={styles.simpleTopDesc}>
+      {desc}
+    </div>
+  </div>
+);

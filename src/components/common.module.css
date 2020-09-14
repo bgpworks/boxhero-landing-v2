@@ -2,3 +2,21 @@
   margin: 0 auto;
   width: 1024px;
 }
+
+.simpleTopTitle {
+  height: 70px;
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 1.35;
+  letter-spacing: -1px;
+  text-align: center;
+  color: black;
+}
+
+.simpleTopDesc {
+  font-size: 20px;
+  line-height: 1.6;
+  letter-spacing: -0.2px;
+  text-align: center;
+  color: var(--color-font-darker);
+}
