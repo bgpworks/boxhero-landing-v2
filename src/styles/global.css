@@ -8,7 +8,7 @@
 }
 
 html {
-  font-family: "Spoqa Han Sans", sans-serif;
+  font-family: "Noto Sans KR", "Roboto", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -68,7 +68,7 @@ button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 html {
-  font: "Spoqa Han Sans", serif;
+  font: "Noto Sans KR", "Roboto", serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -83,7 +83,7 @@ html {
 }
 body {
   color: var(--color-font-primary);
-  font-family: "Spoqa Han Sans", georgia, serif;
+  font-family: "Noto Sans KR", "Roboto", georgia, serif;
   font-size: 16px;
   font-weight: normal;
   word-wrap: break-word;

@@ -12,10 +12,10 @@ import React from "react"
 export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, pluginOptions) => {
   setHeadComponents([
     <link
-      key="font-SpoqaHanSans"
-      href="https://cdn.bgp.works/boxhero-fonts/SpoqaHanSans_20200227/SpoqaHanSans-kr-fallback.css"
-      rel="stylesheet"
-      type="text/css"
+      key="font"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel='stylesheet'
+      type='text/css'
     />,
     // https://github.com/nuxodin/ie11CustomProperties
     <script
@@ -28,4 +28,3 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
   setPostBodyComponents([
   ])
 }
-// https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js
