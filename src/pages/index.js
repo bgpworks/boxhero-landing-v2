@@ -178,7 +178,10 @@ const IndexPage = ({data}) => (
     closingEmoji={data.coffee}
     closingMsg="재고관리, 이제는 쉬워질 때."
   >
-    <SEO title="박스히어로 - 가장 쉬운 재고 관리" />
+    <SEO
+      lang="ko"
+      title="박스히어로 - 가장 쉬운 재고 관리"
+    />
 
     <Top data={data} />
 
