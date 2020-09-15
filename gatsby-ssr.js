@@ -13,7 +13,7 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
   setHeadComponents([
     <link
       key="font"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=fallback"
       rel='stylesheet'
       type='text/css'
     />,
