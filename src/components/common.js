@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types";
 import styles from "./common.module.css";
+import svgDown from "../images/down.svg";
+import svgUp from "../images/up.svg";
 
 export const Container1024 = ({ className, children }) => (
   <div
@@ -45,3 +48,49 @@ export const SimpleTop = ({title, desc}) => (
     </div>
   </div>
 );
+
+export const DropDownQNA = ({ isFirst, title, content, children }) => {
+  const [isShow, setShow] = useState(false);
+
+  return (
+    <div className={styles.dropDownQNA}>
+      <div
+        role="presentation"
+        className={styles.dropDownQNATitle}
+        onClick={() => setShow(!isShow)}
+      >
+        <span className={isShow ? styles.open : ""} >
+          {title}
+        </span>
+        <img
+          src={isShow ? svgUp : svgDown}
+          alt="자세히 보기" />
+      </div>
+      {isShow && (
+        <div className={styles.dropDownQNABody}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export const SupportEmail = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            email
+          }
+        }
+      }
+    `
+  );
+  const email = data.site.siteMetadata.email;
+  return (
+    <a href={`mailto:${email}`} >
+      {email}
+    </a>
+  );
+}

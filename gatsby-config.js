@@ -4,6 +4,7 @@ module.exports = {
     description: "박스히어로는 PC, 모바일에서 쉽게 사용할 수 있는 재고관리 플랫폼 입니다. 언제 어디서나 간편하게 재고관리를 해보세요.",
     author: `@bgpworks`,
     keywords: `재고관리, 자산관리, 바코드, QR코드, RFID, 재고, 자산, 엑셀, 제품`,
+    email: "support+boxhero@bgpworks.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

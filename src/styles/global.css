@@ -1,9 +1,11 @@
 :root {
   --color-font-primary: #585a6c;
   --color-font-darker: #292a2f;
+  --color-font-header: #8f91a0;
   --color-bg-dark-black: #292a2f;
   --color-bg-light: #f7f9fc;
   --color-font-blue: #4f67ff;
+  --color-ribbon-green: #3cb9a0;
   --height-top-menu: 79px;
 }
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Glyphs/down</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M9.5,18 C9.372,18 9.244,17.951 9.146,17.854 C8.951,17.658 8.951,17.342 9.146,17.146 L13.793,12.5 L9.146,7.854 C8.951,7.658 8.951,7.342 9.146,7.146 C9.342,6.951 9.658,6.951 9.854,7.146 L14.854,12.146 C15.049,12.342 15.049,12.658 14.854,12.854 L9.854,17.854 C9.756,17.951 9.628,18 9.5,18" id="path-1"></path>
+    </defs>
+    <g id="Glyphs/down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#000000" transform="translate(12.000000, 12.499875) rotate(-270.000000) translate(-12.000000, -12.499875) " xlink:href="#path-1"></use>
+        <rect id="Rectangle" fill="#292A2F" mask="url(#mask-2)" x="0" y="0" width="24" height="24"></rect>
+    </g>
+</svg>
