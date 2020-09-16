@@ -1,12 +1,15 @@
-import React from "react"
+import React, {useContext, useState, useEffect} from "react"
 import PropTypes from "prop-types"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot, CarouselContext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 // js
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Container1024, Padding } from "../components/common";
+import * as constants from "../components/constants";
 // css
 import styles from "./index.module.css";
 // img
@@ -16,6 +19,8 @@ import svgCounting from "../images/counting.svg";
 import svgDashboard from "../images/dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
+import svgSwipeLeft from "../images/swipeleft.svg";
+import svgSwipeRight from "../images/swiperight.svg";
 
 const Top = ({data}) => (
   <BackgroundImage
@@ -159,6 +164,69 @@ const Customers = ({data}) => (
   </div>
 );
 
+const WithCurrentSlide = ({children}) => {
+  const carouselContext = useContext(CarouselContext);
+  const [currentSlide, setCurrentSlide] = useState(carouselContext.state.currentSlide);
+  useEffect(() => {
+    function onChange() {
+      setCurrentSlide(carouselContext.state.currentSlide);
+    }
+    carouselContext.subscribe(onChange);
+    return () => carouselContext.unsubscribe(onChange);
+  }, [carouselContext]);
+  if (children && children instanceof Function) {
+    return children(currentSlide);
+  }
+  return "";
+};
+
+const featureData = [
+  {
+    title: "유통기한 관리",
+    link: `/features/#${constants.idFeatureExpiry}`,
+  },
+  {
+    title: "안전재고",
+    link: `/features/#${constants.idFeatureLowstock}`,
+  },
+  {
+    title: "바코드 커스터마이징",
+    link: `/features/#${constants.idFeatureBarcodelabel}`,
+  },
+  {
+    title: "입출고 요약",
+    link: `/features/#${constants.idFeatureSummary}`,
+  },
+  {
+    title: "상태 관리",
+    link: `/features/#${constants.idFeatureStatus}`,
+  },
+  {
+    title: "위치 관리",
+    link: `/features/#${constants.idFeatureLocation}`,
+  },
+];
+
+function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
+  const dots = [];
+  for (let i = 0; i < totalSlides; i += 1) {
+    const multipleSelected = i >= currentSlide && i < (currentSlide + visibleSlides);
+    const selected = multipleSelected;
+    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
+    dots.push(
+      <Dot
+        key={i}
+        slide={slide}
+        selected={selected}
+        className={`${styles.slideDetailDot} ${selected ? styles.slideDetailDotSelected : ""}`}
+      >
+        {allData[slide].title}
+      </Dot>,
+    );
+  }
+  return dots;
+}
+
 const Features = ({data}) => (
   <div className={styles.featuresContainer}>
     <div className={styles.featuresTitle}>
@@ -166,9 +234,62 @@ const Features = ({data}) => (
       다양한 편의기능을 제공합니다
     </div>
     <Padding y={80} />
-    <div>
-      TODO
-    </div>
+
+    <CarouselProvider
+      naturalSlideWidth={495}
+      naturalSlideHeight={360}
+      totalSlides={featureData.length}
+    >
+      <DotGroup
+        renderDots={(props) => renderDots(featureData, props)}
+      />
+
+      <Padding y={80} />
+
+      <div className={styles.slideAndNavButtons}>
+        <ButtonBack className={styles.slideNavButton}>
+          <img
+            src={svgSwipeLeft}
+            alt="이전"
+          />
+        </ButtonBack>
+        <Slider className={styles.sliderWrapper}>
+          {featureData.map((data, index) => (
+            <Slide
+              key={index}
+              index={index}>
+              {data.title}
+            </Slide>
+          ))}
+        </Slider>
+        <ButtonNext className={styles.slideNavButton}>
+          <img
+            src={svgSwipeRight}
+            alt="다음"
+          />
+        </ButtonNext>
+      </div>
+
+      <Padding y={40} />
+
+      <div className={styles.slideDetailLinkContainer}>
+        <WithCurrentSlide>
+          { currentSlide => (
+            <Link
+              to={featureData[currentSlide].link}
+              className={styles.slideDetailLink}
+            >
+              자세히 알아보기
+              <img
+                src={svgSmallRight}
+                className={styles.rightArrow}
+                alt="자세히 알아보기"
+              />
+            </Link>
+          )}
+        </WithCurrentSlide>
+      </div>
+    </CarouselProvider>
   </div>
 );
 

@@ -219,3 +219,63 @@
 .featuresTitle strong {
   color: var(--color-font-blue);
 }
+
+.slideAndNavButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sliderWrapper {
+  margin: 0px 40px;
+  width: 495px;
+  height: 360px;
+  border-radius: 12px;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
+  background-color: #ffffff;
+}
+
+.slideNavButton {
+  background-color: transparent;
+}
+
+.slideNavButton:disabled {
+  filter: opacity(0.3);
+}
+
+.slideDetailLink {
+  width: 136px;
+  height: 29px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  color: var(--color-font-blue);
+}
+
+.slideDetailLinkContainer {
+  text-align: center;
+}
+
+.slideDetailLink img {
+  vertical-align: middle;
+}
+
+.slideDetailDot {
+  padding: 7px 25px 8px;
+  border-radius: 21px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: transparent;
+  color: var(--color-font-darker);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.slideDetailDot:not(:first-child) {
+  margin-left: 54px;
+}
+
+.slideDetailDotSelected {
+  background-color: var(--color-carousel-dot);
+  color: white;
+}
