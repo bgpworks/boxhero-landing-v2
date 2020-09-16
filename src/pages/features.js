@@ -5,6 +5,7 @@ import Img from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Container1024, Padding, SimpleTop } from "../components/common";
+import * as constants from "../components/constants";
 // css
 import styles from "./features.module.css";
 // img
@@ -14,16 +15,6 @@ import iconMenuCustomization from "../images/features-menu-customization.svg";
 import iconMenuSummary from "../images/features-menu-summary.svg";
 import iconMenuStatus from "../images/features-menu-status.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
-
-
-// function.name 으로 했더니 해당 화면에서 새로고침 했을 때 망가짐.
-// navigation으로 들어가면 잘 동작하나 새로고침하면 id 부분은 mangle된 이름을 쓰고, link 부분에서는 원래 이름을 씀.
-const idFeatureExpiry = "feature-expiry";
-const idFeatureLowstock = "feature-lowstock";
-const idFeatureBarcodelabel = "feature-barcodelabel";
-const idFeatureSummary = "feature-summary";
-const idFeatureStatus = "feature-status";
-const idFeatureLocation = "feature-location";
 
 const bgOrange = "rgba(245, 166, 35, 0.2)";
 const barOrange = "#f5a623";
@@ -52,32 +43,32 @@ const MenuItem = ({to, icon, label}) => (
 const Menu = () => (
   <Container1024 className={styles.menuContainer}>
     <MenuItem
-      to={`#${idFeatureExpiry}`}
+      to={`#${constants.idFeatureExpiry}`}
       icon={iconMenuExpiry}
       label="유통기한 관리"
     />
     <MenuItem
-      to={`#${idFeatureLowstock}`}
+      to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
       label="안전재고"
     />
     <MenuItem
-      to={`#${idFeatureBarcodelabel}`}
+      to={`#${constants.idFeatureBarcodelabel}`}
       icon={iconMenuCustomization}
       label={<>바코드<br/>커스터마이징</>}
     />
     <MenuItem
-      to={`#${idFeatureSummary}`}
+      to={`#${constants.idFeatureSummary}`}
       icon={iconMenuSummary}
       label="입출고 요약"
     />
     <MenuItem
-      to={`#${idFeatureStatus}`}
+      to={`#${constants.idFeatureStatus}`}
       icon={iconMenuStatus}
       label="상태 관리"
     />
     <MenuItem
-      to={`#${idFeatureLocation}`}
+      to={`#${constants.idFeatureLocation}`}
       icon={iconMenuLocationmode}
       label="위치 관리"
     />
@@ -175,7 +166,7 @@ function FeatureTemplate(props) {
 
 const FeatureExpiry = (props) => (
   <FeatureTemplate
-    id={idFeatureExpiry}
+    id={constants.idFeatureExpiry}
     bgColor={bgOrange}
     title="유통기한 관리"
     figure={props.data.expiryFig.childImageSharp.fixed}
@@ -200,7 +191,7 @@ const FeatureExpiry = (props) => (
 
 const FeatureLowstock = (props) => (
   <FeatureTemplate
-    id={idFeatureLowstock}
+    id={constants.idFeatureLowstock}
     bgColor={bgGreen}
     title="안전재고"
     figure={props.data.lowstockFig.childImageSharp.fixed}
@@ -225,7 +216,7 @@ const FeatureLowstock = (props) => (
 
 const FeatureBarcodelabel = (props) => (
   <FeatureTemplate
-    id={idFeatureBarcodelabel}
+    id={constants.idFeatureBarcodelabel}
     bgColor={bgBlue}
     title="바코드 커스터마이징"
     figure={props.data.barcodelabelFig.childImageSharp.fixed}
@@ -250,7 +241,7 @@ const FeatureBarcodelabel = (props) => (
 
 const FeatureSummary = (props) => (
   <FeatureTemplate
-    id={idFeatureSummary}
+    id={constants.idFeatureSummary}
     bgColor={bgOrange}
     title="입출고 요약"
     figure={props.data.summaryFig.childImageSharp.fixed}
@@ -275,7 +266,7 @@ const FeatureSummary = (props) => (
 
 const FeatureStatus = (props) => (
   <FeatureTemplate
-    id={idFeatureStatus}
+    id={constants.idFeatureStatus}
     bgColor={bgGreen}
     title="상태 관리"
     figure={props.data.statusFig.childImageSharp.fixed}
@@ -300,7 +291,7 @@ const FeatureStatus = (props) => (
 
 const FeatureLocation = (props) => (
   <FeatureTemplate
-    id={idFeatureLocation}
+    id={constants.idFeatureLocation}
     bgColor={bgBlue}
     title="위치 관리"
     figure={props.data.locationFig.childImageSharp.fixed}
