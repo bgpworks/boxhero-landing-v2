@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from "react"
 import PropTypes from "prop-types"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot, CarouselContext } from 'pure-react-carousel';
@@ -275,8 +276,9 @@ const Features = ({data}) => (
       <div className={styles.slideDetailLinkContainer}>
         <WithCurrentSlide>
           { currentSlide => (
-            <Link
+            <AnchorLink
               to={featureData[currentSlide].link}
+              title={featureData[currentSlide].title}
               className={styles.slideDetailLink}
             >
               자세히 알아보기
@@ -285,7 +287,7 @@ const Features = ({data}) => (
                 className={styles.rightArrow}
                 alt="자세히 알아보기"
               />
-            </Link>
+            </AnchorLink>
           )}
         </WithCurrentSlide>
       </div>

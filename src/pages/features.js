@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Img from "gatsby-image";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 // js
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -23,9 +24,10 @@ const barGreen = "#3cb9a0";
 const bgBlue= "#f7f9fc";
 const barBlue = "#50a4fa";
 
-const MenuItem = ({to, icon, label}) => (
-  <Link
-    to={to}
+const MenuItem = ({to, icon, label, title}) => (
+  <AnchorLink
+    to={`/features/${to}`}
+    title={title}
     className={styles.menuItem}>
     <div>
     <img
@@ -37,7 +39,7 @@ const MenuItem = ({to, icon, label}) => (
     <div className={styles.menuItemLabel}>
       {label}
     </div>
-  </Link>
+  </AnchorLink>
 );
 
 const Menu = () => (
@@ -46,31 +48,37 @@ const Menu = () => (
       to={`#${constants.idFeatureExpiry}`}
       icon={iconMenuExpiry}
       label="유통기한 관리"
+      title="유통기한 관리"
     />
     <MenuItem
       to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
       label="안전재고"
+      title="안전재고"
     />
     <MenuItem
       to={`#${constants.idFeatureBarcodelabel}`}
       icon={iconMenuCustomization}
       label={<>바코드<br/>커스터마이징</>}
+      title="바코드 커스터마이징"
     />
     <MenuItem
       to={`#${constants.idFeatureSummary}`}
       icon={iconMenuSummary}
       label="입출고 요약"
+      title="입출고 요약"
     />
     <MenuItem
       to={`#${constants.idFeatureStatus}`}
       icon={iconMenuStatus}
       label="상태 관리"
+      title="상태 관리"
     />
     <MenuItem
       to={`#${constants.idFeatureLocation}`}
       icon={iconMenuLocationmode}
       label="위치 관리"
+      title="위치 관리"
     />
   </Container1024>
 );
