@@ -250,3 +250,8 @@ button:active {
 h1 {
   margin: 0;
 }
+
+/* sal animation */
+[data-sal='slide-up-10'] {
+   transform: translateY(10%);
+ }

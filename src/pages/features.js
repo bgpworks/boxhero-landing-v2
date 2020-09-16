@@ -102,15 +102,31 @@ function FeatureTemplate(props) {
       <Container1024>
         <div className={styles.halfContainer}>
           <div>
-            <div className={styles.featureTemplateTitle}>
+            <div
+              className={styles.featureTemplateTitle}
+              data-sal="slide-up-10"
+              data-sal-duration="500"
+              data-sal-easing="ease"
+            >
               {props.title}
             </div>
             <Padding y={35}/>
-            <div className={styles.featureTemplateDesc}>
+            <div
+              className={styles.featureTemplateDesc}
+              data-sal="slide-up-10"
+              data-sal-duration="500"
+              data-sal-delay="300"
+              data-sal-easing="ease"
+            >
               {props.desc}
             </div>
           </div>
-          <div className={styles.featureTemplateFigureContainer}>
+          <div
+            className={styles.featureTemplateFigureContainer}
+            data-sal="slide-up-10"
+            data-sal-duration="500"
+            data-sal-easing="ease"
+          >
             <Img
               fixed={props.figure}
               style={props.figureStyle}
@@ -119,7 +135,12 @@ function FeatureTemplate(props) {
           </div>
         </div>
         <Padding y={50}/>
-        <div className={styles.halfContainer}>
+        <div
+          className={styles.halfContainer}
+          data-sal="slide-up-10"
+          data-sal-duration="500"
+          data-sal-delay="300"
+          data-sal-easing="ease">
           {props.demoData.slice(0, 2).map((data, index) => (
             <DemoTemplate
               key={index}
