@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 // js
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { Container1024, Padding, SimpleTop, DropDownQNA, SupportEmail } from "../components/common";
+import { Container1024, Padding, SimpleTop, DropDownQNA } from "../components/common";
 // css
 import styles from "./pricing.module.css";
 // img
