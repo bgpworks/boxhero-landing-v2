@@ -37,7 +37,7 @@ const Header = ({ isFloatMenu }) => (
         고객센터
       </a>
 
-      <a href="https://www.boxhero-app.com/login">
+      <a href="https://web.boxhero-app.com/team">
         <button className={styles.loginButton}>
           로그인
         </button>
