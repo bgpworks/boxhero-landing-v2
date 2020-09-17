@@ -181,32 +181,40 @@ const WithCurrentSlide = ({children}) => {
   return "";
 };
 
-const featureData = [
-  {
-    title: "유통기한 관리",
-    link: `/features/#${constants.idFeatureExpiry}`,
-  },
-  {
-    title: "안전재고",
-    link: `/features/#${constants.idFeatureLowstock}`,
-  },
-  {
-    title: "바코드 커스터마이징",
-    link: `/features/#${constants.idFeatureBarcodelabel}`,
-  },
-  {
-    title: "입출고 요약",
-    link: `/features/#${constants.idFeatureSummary}`,
-  },
-  {
-    title: "상태 관리",
-    link: `/features/#${constants.idFeatureStatus}`,
-  },
-  {
-    title: "위치 관리",
-    link: `/features/#${constants.idFeatureLocation}`,
-  },
-];
+function genFeatureData(data) {
+  return [
+    {
+      title: "유통기한 관리",
+      link: `/features/#${constants.idFeatureExpiry}`,
+      img: data.featureExpiry.childImageSharp.fixed,
+    },
+    {
+      title: "안전재고",
+      link: `/features/#${constants.idFeatureLowstock}`,
+      img: data.featureLowstock.childImageSharp.fixed,
+    },
+    {
+      title: "바코드 커스터마이징",
+      link: `/features/#${constants.idFeatureBarcodelabel}`,
+      img: data.featureBarcodelabel.childImageSharp.fixed,
+    },
+    {
+      title: "입출고 요약",
+      link: `/features/#${constants.idFeatureSummary}`,
+      img: data.featureSummary.childImageSharp.fixed,
+    },
+    {
+      title: "상태 관리",
+      link: `/features/#${constants.idFeatureStatus}`,
+      img: data.featureStatus.childImageSharp.fixed,
+    },
+    {
+      title: "위치 관리",
+      link: `/features/#${constants.idFeatureLocation}`,
+      img: data.featureLocation.childImageSharp.fixed,
+    },
+  ];
+}
 
 function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
   const dots = [];
@@ -228,72 +236,78 @@ function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
   return dots;
 }
 
-const Features = ({data}) => (
-  <div className={styles.featuresContainer}>
-    <div className={styles.featuresTitle}>
-      빈틈없는 <strong>재고관리</strong>를 위해<br/>
-      다양한 편의기능을 제공합니다
-    </div>
-    <Padding y={80} />
-
-    <CarouselProvider
-      naturalSlideWidth={495}
-      naturalSlideHeight={360}
-      totalSlides={featureData.length}
-    >
-      <DotGroup
-        renderDots={(props) => renderDots(featureData, props)}
-      />
-
+const Features = ({data}) => {
+  const featureData = genFeatureData(data);
+  return (
+    <div className={styles.featuresContainer}>
+      <div className={styles.featuresTitle}>
+        빈틈없는 <strong>재고관리</strong>를 위해<br/>
+        다양한 편의기능을 제공합니다
+      </div>
       <Padding y={80} />
 
-      <div className={styles.slideAndNavButtons}>
-        <ButtonBack className={styles.slideNavButton}>
-          <img
-            src={svgSwipeLeft}
-            alt="이전"
-          />
-        </ButtonBack>
-        <Slider className={styles.sliderWrapper}>
-          {featureData.map((data, index) => (
-            <Slide
-              key={index}
-              index={index}>
-              {data.title}
-            </Slide>
-          ))}
-        </Slider>
-        <ButtonNext className={styles.slideNavButton}>
-          <img
-            src={svgSwipeRight}
-            alt="다음"
-          />
-        </ButtonNext>
-      </div>
+      <CarouselProvider
+        naturalSlideWidth={495}
+        naturalSlideHeight={360}
+        totalSlides={featureData.length}
+      >
+        <DotGroup
+          renderDots={(props) => renderDots(featureData, props)}
+        />
 
-      <Padding y={40} />
+        <Padding y={80} />
 
-      <div className={styles.slideDetailLinkContainer}>
-        <WithCurrentSlide>
-          { currentSlide => (
-            <AnchorLink
-              to={featureData[currentSlide].link}
-              title={featureData[currentSlide].title}
-              className={styles.slideDetailLink}
-            >
-              자세히 알아보기
-              <img
-                src={svgSmallRight}
-                className={styles.rightArrow}
-                alt="자세히 알아보기"
-              />
-            </AnchorLink>
-          )}
-        </WithCurrentSlide>
-      </div>
-    </CarouselProvider>
-  </div>
-);
+        <div className={styles.slideAndNavButtons}>
+          <ButtonBack className={styles.slideNavButton}>
+            <img
+              src={svgSwipeLeft}
+              alt="이전"
+            />
+          </ButtonBack>
+          <Slider className={styles.sliderWrapper}>
+            {featureData.map((data, index) => (
+              <Slide
+                key={index}
+                index={index}>
+                <Img
+                  fixed={data.img}
+                  alt={data.title}
+                />
+              </Slide>
+            ))}
+          </Slider>
+          <ButtonNext className={styles.slideNavButton}>
+            <img
+              src={svgSwipeRight}
+              alt="다음"
+            />
+          </ButtonNext>
+        </div>
+
+        <Padding y={40} />
+
+        <div className={styles.slideDetailLinkContainer}>
+          <WithCurrentSlide>
+            { currentSlide => (
+              <AnchorLink
+                to={featureData[currentSlide].link}
+                title={featureData[currentSlide].title}
+                className={styles.slideDetailLink}
+              >
+                자세히 알아보기
+                <img
+                  src={svgSmallRight}
+                  className={styles.rightArrow}
+                  alt="자세히 알아보기"
+                />
+              </AnchorLink>
+            )}
+          </WithCurrentSlide>
+        </div>
+      </CarouselProvider>
+    </div>
+  );
+};
 
 const IndexPage = ({data}) => (
   <Layout
@@ -420,6 +434,48 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 72, height: 72, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    featureExpiry: file(relativePath: { eq: "index-feature-expiry.png" }) {
+      childImageSharp {
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    featureLowstock: file(relativePath: { eq: "index-feature-lowstock.png" }) {
+      childImageSharp {
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    featureBarcodelabel: file(relativePath: { eq: "index-feature-barcodelabel.png" }) {
+      childImageSharp {
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    featureSummary: file(relativePath: { eq: "index-feature-summary.png" }) {
+      childImageSharp {
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    featureStatus: file(relativePath: { eq: "index-feature-status.png" }) {
+      childImageSharp {
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    featureLocation: file(relativePath: { eq: "index-feature-location.png" }) {
+      childImageSharp {
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
