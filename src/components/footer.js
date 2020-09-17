@@ -32,7 +32,7 @@ StartNow.propTypes = {
 const Platforms = () => (
   <div className={styles.platformContainer}>
     <div className={styles.platformButtons}>
-      <a href="https://web.boxhero-wep.com/login">
+      <a href="https://web.boxhero-app.com/team">
         <button className={styles.platformButton}>
           <img
             src={svgPcWeb}
