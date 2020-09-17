@@ -6,6 +6,8 @@
 
 
 import React from "react"
+import { mediaStyles } from "./src/media"
+import { Boot } from "./src/Boot"
 
 // https://isamrish.com/how-to-add-3rd-party-script-in-your-gatsby-website/
 
@@ -22,9 +24,14 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
       key="cssVariableIEPolyfill"
       dangerouslySetInnerHTML={{
         __html: `window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\\x2fscript>');`,
-      }}/>
+      }}/>,
+    <style key="artsy/fresnel_style" >
+      {mediaStyles}
+    </style>
   ])
 
   setPostBodyComponents([
   ])
 }
+
+export const wrapRootElement = Boot;

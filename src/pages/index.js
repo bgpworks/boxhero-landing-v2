@@ -11,6 +11,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Container1024, Padding } from "../components/common";
 import * as constants from "../components/constants";
+import { Media } from "../media"
 // css
 import styles from "./index.module.css";
 // img
@@ -321,6 +322,9 @@ const IndexPage = ({data}) => (
     />
 
     <Top data={data} />
+
+    <Media at="xs">Hello mobile!</Media>
+    <Media greaterThan="xs">Hello desktop!</Media>
 
     <KeyFeature
       icon={svgAddProduct}

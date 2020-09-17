@@ -24,4 +24,25 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+export const DesktopLayout = ({ isFloatMenu, closingEmoji, closingMsg, children }) => (
+  <>
+    <Header
+      isFloatMenu={isFloatMenu}
+    />
+    <main>{children}</main>
+    <Footer
+      closingEmoji={closingEmoji}
+      closingMsg={closingMsg}
+    />
+  </>
+);
+
+DesktopLayout.propTypes = {
+  isFloatMenu: PropTypes.bool,
+  closingEmoji: PropTypes.object.isRequired,
+  closingMsg: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+
 export default Layout;
