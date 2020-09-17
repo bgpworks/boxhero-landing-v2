@@ -134,36 +134,94 @@ const TeamPlay = ({data}) => (
   </BackgroundImage>
 );
 
-const Customers = ({data}) => (
-  <div className={styles.customersContainer}>
-    <div className={styles.customersTitle}>
-      이미 다양한 업종의 <strong>20,000+</strong>팀이<br/>
-      박스히어로를 사용하고 있습니다.
+const Customers = ({data}) => {
+  const customerData = [
+    {
+      title: "식품마트",
+      img: data.customerMart.childImageSharp.fixed,
+      link: "/",
+    },
+    {
+      title: "의류",
+      img: data.customerFasion.childImageSharp.fixed,
+      link: "/",
+    },
+    {
+      title: "화장품",
+      img: data.customerCosmetics.childImageSharp.fixed,
+      link: "/",
+    },
+    {
+      title: "카페",
+      img: data.customerCafe.childImageSharp.fixed,
+      link: "/",
+    },
+    {
+      title: "의약품",
+      img: data.customerPharmacy.childImageSharp.fixed,
+      link: "/",
+    },
+    {
+      title: "핸드메이드",
+      img: data.customerHandmade.childImageSharp.fixed,
+      link: "/",
+    },
+    {
+      title: "학원교재",
+      img: data.customerLocation.childImageSharp.fixed,
+      link: "/",
+    },
+    {
+      title: "창고",
+      img: data.customerTextbook.childImageSharp.fixed,
+      link: "/",
+    }
+  ];
+  return (
+    <div className={styles.customersContainer}>
+      <div className={styles.customersTitle}>
+        이미 다양한 업종의 <strong>20,000+</strong>팀이<br/>
+        박스히어로를 사용하고 있습니다.
+      </div>
+      <Padding y={40} />
+      <button className={styles.customersDetailButton}>
+        업종별 사용법 알아보기
+        <Padding x={10} />
+        <img
+          src={svgSmallRight}
+          className={styles.rightArrow}
+          alt="자세히 알아보기"
+        />
+      </button>
+      <div className={styles.customersWrapper}>
+        {customerData.map((customer, index) => (
+          <a key={index}
+             href={customer.link}>
+            <div className={styles.customerButton}>
+              <div className={styles.customerButtonBackground}>
+                <Img
+                  fixed={customer.img}
+                />
+              </div>
+              <div className={styles.customerButtonContent}>
+                <span className={styles.customButtonContentNumber}>
+                  {("0" + (index + 1)).slice(-2)}
+                </span>
+                <span className={styles.customButtonContentTitle}>
+                  {customer.title}
+                </span>
+                <span className={styles.customButtonContentPadding}></span>
+                <span className={styles.customButtonContentLink}>
+                  자세히 보기 &gt;
+                </span>
+              </div>
+            </div>
+          </a>))}
+        <Padding x={500} />
+      </div>
     </div>
-    <Padding y={40} />
-    <button className={styles.customersDetailButton}>
-      업종별 사용법 알아보기
-      <Padding x={10} />
-      <img
-        src={svgSmallRight}
-        className={styles.rightArrow}
-        alt="자세히 알아보기"
-      />
-    </button>
-    <Padding y={80} />
-    <div>
-      <Img
-        fixed={data.customerMart.childImageSharp.fixed}
-      />
-      <Img
-        fixed={data.customerMart.childImageSharp.fixed}
-      />
-      <Img
-        fixed={data.customerMart.childImageSharp.fixed}
-      />
-    </div>
-  </div>
-);
+  );
+}
 
 const WithCurrentSlide = ({children}) => {
   const carouselContext = useContext(CarouselContext);
@@ -423,13 +481,6 @@ export const query = graphql`
         }
       }
     }
-    customerMart: file(relativePath: { eq: "customer-mart-preview.png" }) {
-      childImageSharp {
-        fixed(width: 298, webpQuality: 100) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
     coffee: file(relativePath: { eq: "emoji-coffee.png" }) {
       childImageSharp {
         fixed(width: 72, height: 72, fit: FILL) {
@@ -475,6 +526,62 @@ export const query = graphql`
     featureLocation: file(relativePath: { eq: "index-feature-location.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerMart: file(relativePath: { eq: "customer-mart.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerFasion: file(relativePath: { eq: "customer-fasion.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerCosmetics: file(relativePath: { eq: "customer-cosmetics.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerCafe: file(relativePath: { eq: "customer-cafe.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerPharmacy: file(relativePath: { eq: "customer-pharmacy.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerHandmade: file(relativePath: { eq: "customer-handmade.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerLocation: file(relativePath: { eq: "customer-location.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    customerTextbook: file(relativePath: { eq: "customer-textbook.png" }) {
+      childImageSharp {
+        fixed(width: 220, height: 280, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }

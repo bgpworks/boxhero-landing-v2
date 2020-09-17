@@ -23,7 +23,7 @@ Container1024.defaultProps = {
 
 
 export const Padding = ({x, y}) => (
-  <div style={{width: x, height: y}}/>
+  <div style={{paddingLeft: x, height: y, minHeight: 1}}/>
 );
 
 Padding.propTypes = {
