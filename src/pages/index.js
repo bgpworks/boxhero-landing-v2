@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot, CarouselContext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import ScrollContainer from 'react-indiana-drag-scroll';
 // js
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -184,41 +185,54 @@ const Customers = ({data}) => {
         박스히어로를 사용하고 있습니다.
       </div>
       <Padding y={40} />
-      <button className={styles.customersDetailButton}>
-        업종별 사용법 알아보기
-        <Padding x={10} />
-        <img
-          src={svgSmallRight}
-          className={styles.rightArrow}
-          alt="자세히 알아보기"
-        />
-      </button>
-      <div className={styles.customersWrapper}>
+      <Link
+        to="/features/"
+        title="업종별 사용법 알아보기"
+      >
+        <button className={styles.customersDetailButton}>
+          업종별 사용법 알아보기
+          <Padding x={10} />
+          <img
+            src={svgSmallRight}
+            className={styles.rightArrow}
+            alt="자세히 알아보기"
+          />
+        </button>
+      </Link>
+      <ScrollContainer
+        className={styles.customersWrapper}
+        vertical={false}
+        horizontal={true}
+        hideScrollbars={true}
+      >
+
         {customerData.map((customer, index) => (
-          <a key={index}
-             href={customer.link}>
-            <div className={styles.customerButton}>
-              <div className={styles.customerButtonBackground}>
-                <Img
-                  fixed={customer.img}
-                />
-              </div>
-              <div className={styles.customerButtonContent}>
-                <span className={styles.customButtonContentNumber}>
-                  {("0" + (index + 1)).slice(-2)}
-                </span>
-                <span className={styles.customButtonContentTitle}>
-                  {customer.title}
-                </span>
-                <span className={styles.customButtonContentPadding}></span>
-                <span className={styles.customButtonContentLink}>
-                  자세히 보기 &gt;
-                </span>
-              </div>
+          <div
+            key={index}
+            className={styles.customerButton}>
+            <div className={styles.customerButtonBackground}>
+              <Img
+                fixed={customer.img}
+              />
             </div>
-          </a>))}
+            <div className={styles.customerButtonContent}>
+              <span className={styles.customButtonContentNumber}>
+                {("0" + (index + 1)).slice(-2)}
+              </span>
+              <span className={styles.customButtonContentTitle}>
+                {customer.title}
+              </span>
+              <span className={styles.customButtonContentPadding}></span>
+              <a
+                href={customer.link}
+                className={styles.customButtonContentLink}>
+                자세히 보기 &gt;
+              </a>
+            </div>
+          </div>
+        ))}
         <Padding x={500} />
-      </div>
+      </ScrollContainer>
     </div>
   );
 }
