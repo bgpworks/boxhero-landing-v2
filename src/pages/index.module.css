@@ -177,7 +177,7 @@
 }
 
 .customersWrapper {
-  width: 100vw;
+  width: 100%;
   padding-left: 50px;
   display: flex;
   flex-direction: row;
