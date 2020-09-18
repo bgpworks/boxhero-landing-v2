@@ -139,3 +139,7 @@
 .copyRight {
   margin-top: 20px;
 }
+
+.companyInfoContainer a {
+  color: inherit;
+}

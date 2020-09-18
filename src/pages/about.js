@@ -6,6 +6,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Container1024, Padding } from "../components/common";
 import BackgroundImage from "gatsby-background-image";
+import * as constants from "../components/constants";
 // css
 import styles from "./about.module.css";
 // img
@@ -124,26 +125,32 @@ const StrongPoints = ({data}) => (
   </>
 );
 
-const FeatureCard = ({img, title, content}) => (
-  <div className={styles.featureCard}>
-    <img
-      className={styles.featureIcon}
-      src={img}
-      alt={title}
-    />
-    <Padding y={10} />
-    <div className={styles.featureCardTitle}>
-      {title}
+const FeatureCard = ({img, title, content, link}) => (
+  <a
+    href={link}
+    title={title}>
+    <div className={styles.featureCard}>
+      <img
+        className={styles.featureIcon}
+        src={img}
+        alt={title}
+      />
+      <Padding y={10} />
+      <div className={styles.featureCardTitle}>
+        {title}
+      </div>
+      <Padding y={15} />
+      <div className={styles.featureCardContent}>
+        {content}
+      </div>
     </div>
-    <Padding y={15} />
-    <div className={styles.featureCardContent}>
-      {content}
-    </div>
-  </div>
+  </a>
 );
 
-const FeatureRow = ({title, columns}) => (
-  <div className={styles.featureRow}>
+const FeatureRow = ({id, title, columns}) => (
+  <div
+    id={id}
+    className={styles.featureRow}>
     <div className={styles.featureRowTitle}>
       {title}
     </div>
@@ -155,6 +162,7 @@ const FeatureRow = ({title, columns}) => (
           img={column.img}
           title={column.title}
           content={column.content}
+          link={column.link}
         />
       ))}
     </div>
@@ -177,77 +185,92 @@ const OtherFeatures = ({data}) => (
         핵심적인 기능을 제공합니다.
       </div>
       <FeatureRow
+        id={constants.idAboutFeatureAddProduct}
         title="제품 등록"
         columns={[
           {
             img: iconCategory,
             title: "속성선택",
             content: "제품에 필요한 속성을 추천 속성에서 선택하거나 추가해 사용할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EC%86%8D%EC%84%B1-%EC%84%A0%ED%83%9D",
           },
           {
             img: iconAddProduct,
             title: "바코드 등록",
             content: "바코드를 스캔해 제품을 등록하거나 새로운 바코드를 생성할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EB%B0%94%EC%BD%94%EB%93%9C-%EB%93%B1%EB%A1%9D",
           },
           {
             img: iconImage,
             title: "제품 이미지 등록",
             content: "제품 별로 이미지를 등록해 관리할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EC%A0%9C%ED%92%88-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D",
           },
           {
             img: iconBulkAdd,
             title: "엑셀 대량 추가",
             content: "기존의 엑셀파일에 저장된 제품을 불러올 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EC%97%91%EC%85%80-%EB%8C%80%EB%9F%89%EC%B6%94%EA%B0%80",
           },
         ]}
       />
       <FeatureRow
+        id={constants.idAboutFeatureTx}
         title="입출고"
         columns={[
           {
             img: iconMobilescan,
             title: "모바일 스캐너",
             content: "모바일을 바코드 스캐너로 활용해 스캔 한 번으로 입출고할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%8A%A4%EC%BA%90%EB%84%88",
           },
           {
             img: iconPartner,
             title: "거래처 관리",
             content: "거래처 정보를 등록해 편리하게 활용할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EA%B1%B0%EB%9E%98%EC%B2%98-%EA%B4%80%EB%A6%AC",
           },
           {
             img: iconHistory,
             title: "히스토리",
             content: "팀원들의 입출고 기록을 다양한 옵션으로 검색할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC",
           },
           {
             img: iconUppdown,
             title: "엑셀 연동",
             content: "엑셀 파일을 가져오거나 내보낼 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EC%97%91%EC%85%80-%EC%97%B0%EB%8F%99",
           },
         ]}
       />
       <FeatureRow
+        id={constants.idAboutFeatureStatus}
         title="재고확인"
         columns={[
           {
             img: iconBasicmode,
             title: "제품 목록",
             content: "원하는 속성 별로 제품을 묶어 재고를 확인할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EC%A0%9C%ED%92%88%EB%AA%A9%EB%A1%9D",
           },
           {
             img: iconCounting,
             title: "바코드 스캔",
             content: "바코드 스캔 한 번으로 재고를 파악할 수 있습니다. ",
+            link: "https://docs-ko.boxhero.io/docs/features#%EB%B0%94%EC%BD%94%EB%93%9C-%EC%8A%A4%EC%BA%94",
           },
           {
             img: iconGraph,
             title: "재고 변동",
             content: "재고 변동 내역을 제품 별로 한 눈에 확인할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EC%9E%AC%EA%B3%A0-%EB%B3%80%EB%8F%99",
           },
           {
             img: iconDashboard,
             title: "대시 보드",
             content: "다양하게 제공되는 재고 분석을 활용할 수 있습니다.",
+            link: "https://docs-ko.boxhero.io/docs/features#%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C",
           },
         ]}
       />

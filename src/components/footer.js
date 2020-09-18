@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import { Container1024 } from "./common";
+import { urlStart } from "../components/constants";
+import * as constants from "../components/constants";
 // css
 import styles from "./footer.module.css";
 // images
@@ -17,10 +19,12 @@ const StartNow = ({emoji, message}) => (
     <div className={styles.startNowDescription}>
       {message}
     </div>
-    <button
-      className={styles.startNowButton}>
-      지금 시작하기
-    </button>
+    <a href={constants.urlStart}>
+      <button
+        className={styles.startNowButton}>
+        지금 시작하기
+      </button>
+    </a>
   </div>
 );
 
@@ -32,7 +36,7 @@ StartNow.propTypes = {
 const Platforms = () => (
   <div className={styles.platformContainer}>
     <div className={styles.platformButtons}>
-      <a href="https://web.boxhero-app.com/team">
+      <a href={urlStart}>
         <button className={styles.platformButton}>
           <img
             src={svgPcWeb}
@@ -82,16 +86,13 @@ const FooterMenus = () => (
         Support
       </div>
       <div>
-        <Link to="/">고객센터</Link>
+        <a href="https://docs-ko.boxhero.io/">고객센터</a>
       </div>
       <div>
-        <Link to="/">자주 묻는 질문</Link>
+        <a href="https://docs-ko.boxhero.io/docs/faq-signup">자주 묻는 질문</a>
       </div>
       <div>
-        <Link to="/">매뉴얼</Link>
-      </div>
-      <div>
-        <Link to="/">앱 다운로드</Link>
+        <a href="https://docs-ko.boxhero.io/docs/manual">매뉴얼</a>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
@@ -119,7 +120,7 @@ const FooterMenus = () => (
         사업문의 : <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </div>
       <div>
-        카카오톡 : @boxhero
+        카카오톡 : <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
       </div>
     </div>
     <div>
@@ -142,7 +143,7 @@ const CompanyInfo = () => (
       <div>
         (주)비지피웍스 ㅣ 사업자 등록 번호 : 832-86-00696 ㅣ 대표 : 문희홍
         <br />
-        04778 서울특별시 성동구 왕십리로 10길 6 216호 ㅣ 이용약관 ㅣ 개인정보처리방침
+        04778 서울특별시 성동구 왕십리로 10길 6 216호 ㅣ <a href="https://www.boxhero.io/ko/tos/">이용약관</a> ㅣ <a href="https://www.boxhero.io/ko/privacy/">개인정보처리방침</a>
       </div>
       <div className={styles.copyRight}>
         © {new Date().getFullYear()}, BGPworks. All rights reserved.

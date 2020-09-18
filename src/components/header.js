@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 // js
 import { Container1024 } from "./common"
+import { urlStart } from "../components/constants";
 // css
 import styles from "./header.module.css";
 // images
@@ -37,7 +38,7 @@ const Header = ({ isFloatMenu }) => (
         고객센터
       </a>
 
-      <a href="https://web.boxhero-app.com/team">
+      <a href={urlStart}>
         <button className={styles.loginButton}>
           로그인
         </button>

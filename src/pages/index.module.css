@@ -3,7 +3,6 @@
 .topContainer {
   padding-top: var(--height-top-menu);
   height: 800px;
-  z-index: -999;
   color: white;
   overflow: hidden;
 }
@@ -37,7 +36,7 @@
 
 .startNowButton {
   background: black;
-  color: inherit;
+  color: whiteinherit;
   padding: 10px 76px;
   font-weight: bold;
 }
@@ -180,17 +179,13 @@
 .customersWrapper {
   width: 100vw;
   padding-left: 50px;
-  padding-right: 50vw;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  overflow: scroll;
-  -ms-overflow-style: none;
 }
 
-.customersWrapper::-webkit-scrollbar {
-  display: none;
+.customerScrollInnerWrapper {
 }
 
 .customersDetailButton {
@@ -213,6 +208,7 @@
   height: 280px;
   position: relative;
   margin: 80px 17px 140px;
+  flex-shrink: 0;
 }
 
 .customerButtonBackground {
@@ -269,6 +265,11 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
+  transition: color 0.3s;
+}
+
+.customButtonContentLink:hover {
+  color: var(--color-carousel-dot);
 }
 
 /* Features */

@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react"
 import PropTypes from "prop-types"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
@@ -26,7 +26,7 @@ import svgSwipeRight from "../images/swiperight.svg";
 
 const Top = ({data}) => (
   <BackgroundImage
-    Tag="section"
+    Tag="div"
     className={styles.topContainer}
     fluid={data.homeTopBg.childImageSharp.fluid}
     backgroundColor="#6159F5"
@@ -45,9 +45,11 @@ const Top = ({data}) => (
           재고관리는 박스히어로 하나면 충분합니다.
         </div>
         <Padding y={30} />
-        <button className={styles.startNowButton}>
-          지금 시작하기
-        </button>
+        <a href={constants.urlStart}>
+          <button className={styles.startNowButton}>
+            지금 시작하기
+          </button>
+        </a>
         <Padding y={161} />
       </div>
       <div className={styles.topRightContainer}>
@@ -80,14 +82,14 @@ const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, de
         </div>
         <Padding y={20} />
         <div className={styles.keyFeatureDetail}>
-          <a href={detailUrl}>
+          <AnchorLink to={detailUrl}>
             자세히 알아보기
             <img
               src={svgSmallRightBlue}
               className={styles.rightArrow}
               alt="자세히 알아보기"
             />
-          </a>
+          </AnchorLink>
         </div>
       </div>
       <div className={styles.keyFeatureRightContainer}>
@@ -140,42 +142,42 @@ const Customers = ({data}) => {
     {
       title: "식품마트",
       img: data.customerMart.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%EB%A7%88%ED%8A%B8-%EC%9E%AC%EA%B3%A0%EA%B4%80%EB%A6%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%B0%95%EC%8A%A4%ED%9E%88%EC%96%B4%EB%A1%9C-d2bdf52b8e69",
     },
     {
       title: "의류",
       img: data.customerFasion.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%EC%98%A8%EB%9D%BC%EC%9D%B8-%ED%8C%A8%EC%85%98-%EC%8A%A4%ED%86%A0%EC%96%B4-%EC%9E%AC%EA%B3%A0%EA%B4%80%EB%A6%AC-743890f85af3",
     },
     {
       title: "화장품",
       img: data.customerCosmetics.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%ED%99%94%EC%9E%A5%ED%92%88-%EC%9E%AC%EA%B3%A0%EA%B4%80%EB%A6%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%B0%95%EC%8A%A4%ED%9E%88%EC%96%B4%EB%A1%9C-4e65a68babc5",
     },
     {
       title: "카페",
       img: data.customerCafe.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%EC%B9%B4%ED%8E%98-%EC%9E%AC%EA%B3%A0%EA%B4%80%EB%A6%AC-%EB%B0%95%EC%8A%A4%ED%9E%88%EC%96%B4%EB%A1%9C-d56cecc7d553",
     },
     {
       title: "의약품",
       img: data.customerPharmacy.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%EC%9D%98%EC%95%BD%ED%92%88-%EC%9E%AC%EA%B3%A0%EA%B4%80%EB%A6%AC-%EB%B0%95%EC%8A%A4%ED%9E%88%EC%96%B4%EB%A1%9C-2779d7c48a9",
     },
     {
       title: "핸드메이드",
       img: data.customerHandmade.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%EC%A5%AC%EC%96%BC%EB%A6%AC-%EC%9E%AC%EA%B3%A0%EA%B4%80%EB%A6%AC-%EB%B0%95%EC%8A%A4%ED%9E%88%EC%96%B4%EB%A1%9C-97d094c4f7d6",
     },
     {
       title: "학원교재",
       img: data.customerLocation.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%ED%95%99%EC%9B%90-%EA%B5%90%EC%9E%AC-%EC%9E%AC%EA%B3%A0%EA%B4%80%EB%A6%AC-%EB%B0%95%EC%8A%A4%ED%9E%88%EC%96%B4%EB%A1%9C-eb2806819502",
     },
     {
       title: "창고",
       img: data.customerTextbook.childImageSharp.fixed,
-      link: "/",
+      link: "https://medium.com/boxhero-ko/%EC%B0%BD%EA%B3%A0-%EA%B4%80%EB%A6%AC-%EA%B0%9C%EC%84%A0-%EC%86%94%EB%A3%A8%EC%85%98-%EB%B0%95%EC%8A%A4%ED%9E%88%EC%96%B4%EB%A1%9C-2aa475804eba",
     }
   ];
   return (
@@ -401,7 +403,7 @@ const IndexPage = ({data}) => (
       desc={(<span>업종 별로 필요한 정보만 입력해 제품을 쉽게 등록하세요.<br/>제품 등록에 필요한 속성은 박스히어로가 추천해드립니다.</span>)}
       subTitle="지금까지 엑셀을 사용했어도 걱정하지 마세요!"
       subDesc="박스히어로에서 엑셀에 저장했던 제품을 쉽게 불러올 수 있습니다."
-      detailUrl=""
+      detailUrl={`/about/#${constants.idAboutFeatureAddProduct}`}
       image={data.feature1}
     />
 
@@ -413,7 +415,7 @@ const IndexPage = ({data}) => (
       desc={(<span>제품 선택, 수량 입력, 입출고 버튼 누르면 끝!<br/>스마트폰으로 바코드를 스캔하면 입출고가 더욱 빨라집니다.</span>)}
       subTitle="바코드가 없어도 걱정하지 마세요!"
       subDesc={<span>박스히어로에서 당신에게 맞는 바코드를 만들어<br/>인쇄할 수 있습니다.</span>}
-      detailUrl=""
+      detailUrl={`/about/#${constants.idAboutFeatureTx}`}
       image={data.feature2}
     />
 
@@ -424,7 +426,7 @@ const IndexPage = ({data}) => (
       desc={(<span>보기 쉬운 제품목록으로 재고관리가 편해집니다.<br/>수많은 데이터 중 원하는 재고정보를 한 눈에 확인하세요.</span>)}
       subTitle="어려운 재고분석도 이제는 걱정하지 마세요!"
       subDesc="박스히어로에서 쉽고 직관적인 재고분석 정보를 제공합니다."
-      detailUrl=""
+      detailUrl={`/about/#${constants.idAboutFeatureStatus}`}
       image={data.feature3}
     />
 

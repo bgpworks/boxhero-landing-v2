@@ -100,11 +100,6 @@ const DemoTemplate = ({barColor, icon, title, desc}) => (
     <div className={styles.demoDesc}>
       {desc}
     </div>
-    <button
-      className={styles.demoButton}
-    >
-      체험하기
-    </button>
   </div>
 );
 
@@ -136,6 +131,13 @@ function FeatureTemplate(props) {
             >
               {props.desc}
             </div>
+            <Padding y={30}/>
+            <a
+              href={constants.urlStart}>
+              <button className={styles.featureTemplateStartNow}>
+                지금 시작하기
+              </button>
+            </a>
           </div>
           <div
             className={styles.featureTemplateFigureContainer}
@@ -150,7 +152,7 @@ function FeatureTemplate(props) {
             />
           </div>
         </div>
-        <Padding y={50}/>
+        <Padding y={150}/>
         <div
           className={styles.halfContainer}
           data-sal="slide-up-10"
