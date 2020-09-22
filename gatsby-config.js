@@ -40,5 +40,25 @@ module.exports = {
         once: true, // Defines if animation needs to be launched once
       },
     },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        path: `${__dirname}/locales`,
+        languages: [`en`, `ko`],
+        defaultLanguage: `en`,
+
+        // you can pass any i18next options
+        // pass following options to allow message content as a key
+        i18nextOptions: {
+          ns: ['translation', 'index', 'footer', 'header', 'url'],
+          fallbackLng: false,
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+        },
+        pages: [
+        ],
+      },
+    },
   ],
 }

@@ -36,7 +36,7 @@
 
 .startNowButton {
   background: black;
-  color: whiteinherit;
+  color: white;
   padding: 10px 76px;
   font-weight: bold;
 }
@@ -189,7 +189,7 @@
 }
 
 .customersDetailButton {
-  width: 257px;
+  padding: 0px 35px;
   height: 44px;
   border-radius: 22px;
   background-color: #50a4fa;
@@ -341,6 +341,13 @@
   vertical-align: middle;
 }
 
+.slideDetailDotGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .slideDetailDot {
   padding: 7px 25px 8px;
   border-radius: 21px;
@@ -352,7 +359,7 @@
 }
 
 .slideDetailDot:not(:first-child) {
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .slideDetailDotSelected {

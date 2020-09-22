@@ -1,0 +1,22 @@
+{
+  "startNowButton": "지금 시작하기",
+  "platformsPC": "PC 웹",
+  "platformsIOS": "아이폰",
+  "platformsAndroid": "안드로이드",
+  "platformsLastMessage": "박스히어로는 모든 디바이스를 지원합니다.",
+  "footerMenuServiceAbout": "박스히어로는?",
+  "footerMenuServiceFeatures": "편의기능",
+  "footerMenuServicePricing": "요금안내",
+  "footerMenuSupportDocs": "고객센터",
+  "footerMenuSupportFaq": "자주 묻는 질문",
+  "footerMenuSupportManual": "매뉴얼",
+  "footerMenuCompanyHome": "회사 소개",
+  "footerMenuCompanyBlog": "블로그",
+  "footerMenuContactTel": "전화 : 070-8670-4320",
+  "footerMenuContactEmail": "이메일 :",
+  "footerMenuContactBusiness": "사업문의 :",
+  "footerMenuContactKakao": "카카오톡 :",
+  "footerMenuLanguage": "언어",
+  "companyInfoRegisterNo": "(주)비지피웍스 ㅣ 사업자 등록 번호 : 832-86-00696 ㅣ 대표 : 문희홍",
+  "companyInfoAddress": "04778 서울특별시 성동구 왕십리로 10길 6 216호 ㅣ <tosLink>이용약관</tosLink> ㅣ <privacyLink>개인정보처리방침</privacyLink>"
+}

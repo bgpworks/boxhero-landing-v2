@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
 import Img from "gatsby-image";
+import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
+// js
 import { Container1024 } from "./common";
 import { urlStart } from "../components/constants";
 import * as constants from "../components/constants";
@@ -13,7 +14,7 @@ import svgIOS from "../images/ios.svg";
 import svgAndroid from "../images/android.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 
-const StartNow = ({emoji, message}) => (
+const StartNow = ({emoji, message, t}) => (
   <div className={styles.startNowContainer}>
     <Img fixed={emoji.childImageSharp.fixed} />
     <div className={styles.startNowDescription}>
@@ -22,7 +23,7 @@ const StartNow = ({emoji, message}) => (
     <a href={constants.urlStart}>
       <button
         className={styles.startNowButton}>
-        지금 시작하기
+        {t("footer:startNowButton")}
       </button>
     </a>
   </div>
@@ -33,7 +34,7 @@ StartNow.propTypes = {
   message: PropTypes.string.isRequired,
 }
 
-const Platforms = () => (
+const Platforms = ({t}) => (
   <div className={styles.platformContainer}>
     <div className={styles.platformButtons}>
       <a href={urlStart}>
@@ -41,7 +42,7 @@ const Platforms = () => (
           <img
             src={svgPcWeb}
             alt="PC" />
-          PC 웹
+          {t("footer:platformsPC")}
         </button>
       </a>
       <a href="https://itunes.apple.com/app/id1325512157">
@@ -49,7 +50,7 @@ const Platforms = () => (
           <img
             src={svgIOS}
             alt="iOS"/>
-          아이폰
+          {t("footer:platformsIOS")}
         </button>
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
@@ -57,81 +58,104 @@ const Platforms = () => (
           <img
             src={svgAndroid}
             alt="Android"/>
-          안드로이드
+          {t("footer:platformsAndroid")}
         </button>
       </a>
     </div>
-    박스히어로는 모든 디바이스를 지원합니다.
+    {t("footer:platformsLastMessage")}
   </div>
 );
 
-const FooterMenus = () => (
-  <div className={styles.footerMenusContainer}>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>
-        Service
+const FooterMenus = () => {
+  const { languages, changeLanguage, t } = useI18next();
+  return (
+    <div className={styles.footerMenusContainer}>
+      <div className={styles.footerMenusColumn}>
+        <div className={styles.footerMenuLabel}>
+          Service
+        </div>
+        <div>
+          <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
+        </div>
+        <div>
+          <Link to="/features/">{t("footer:footerMenuServiceFeatures")}</Link>
+        </div>
+        <div>
+          <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
+        </div>
+      </div>
+      <div className={styles.footerMenusColumn}>
+        <div className={styles.footerMenuLabel}>
+          Support
+        </div>
+        <div>
+          <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+        </div>
+        <div>
+          <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
+        </div>
+        <div>
+          <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+        </div>
+      </div>
+      <div className={styles.footerMenusColumn}>
+        <div className={styles.footerMenuLabel}>
+          Company
+        </div>
+        <div>
+          <a href="https://www.bgpworks.com">{t("footer:footerMenuCompanyHome")}</a>
+        </div>
+        <div>
+          <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
+        </div>
+      </div>
+      <div className={styles.wideFooterMenusColumn}>
+        <div className={styles.footerMenuLabel}>
+          Contact
+        </div>
+        <div>
+          {t("footer:footerMenuContactTel")}
+        </div>
+        <div>
+          {t("footer:footerMenuContactEmail")}  <a href="mailto:support+boxhero@bgpworks.com">support+boxhero@bgpworks.com</a>
+        </div>
+        <div>
+          {t("footer:footerMenuContactBusiness")} <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
+        </div>
+        <div>
+          {t("footer:footerMenuContactKakao")} <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
+        </div>
       </div>
       <div>
-        <Link to="/about/">박스히어로는?</Link>
-      </div>
-      <div>
-        <Link to="/features/">편의기능</Link>
-      </div>
-      <div>
-        <Link to="/pricing/">요금안내</Link>
+        <div className={styles.footerMenuLabel}>
+          <select
+            className={styles.footerLangSelector}
+            onChange={(e) => {
+              if (e.target.value !== "") {
+                changeLanguage(e.target.value);
+              }
+            }}
+          >
+            <option value="">{t("footer:footerMenuLanguage")}</option>
+            {languages.map((lng) => (
+              <option
+                key={lng}
+                value={lng}>
+                {lng == "en"
+                 ? "English"
+                 : lng == "ko"
+                 ? "한국어"
+                 : lng}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>
-        Support
-      </div>
-      <div>
-        <a href="https://docs-ko.boxhero.io/">고객센터</a>
-      </div>
-      <div>
-        <a href="https://docs-ko.boxhero.io/docs/faq-signup">자주 묻는 질문</a>
-      </div>
-      <div>
-        <a href="https://docs-ko.boxhero.io/docs/manual">매뉴얼</a>
-      </div>
-    </div>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>
-        Company
-      </div>
-      <div>
-        <a href="https://www.bgpworks.com">회사 소개</a>
-      </div>
-      <div>
-        <a href="https://medium.com/boxhero-ko">블로그</a>
-      </div>
-    </div>
-    <div className={styles.wideFooterMenusColumn}>
-      <div className={styles.footerMenuLabel}>
-        Contact
-      </div>
-      <div>
-        전화 : 070-8670-4320
-      </div>
-      <div>
-        이메일 :  <a href="mailto:support+boxhero@bgpworks.com">support+boxhero@bgpworks.com</a>
-      </div>
-      <div>
-        사업문의 : <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
-      </div>
-      <div>
-        카카오톡 : <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
-      </div>
-    </div>
-    <div>
-      <div className={styles.footerMenuLabel}>
-        Language
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
-const CompanyInfo = () => (
+const CompanyInfo = ({ t }) => (
   <div className={styles.companyInfoContainer}>
     <div className={styles.logoContainer}>
       <img
@@ -140,10 +164,16 @@ const CompanyInfo = () => (
         alt="BGPworks"/>
     </div>
     <div>
-      <div>
-        (주)비지피웍스 ㅣ 사업자 등록 번호 : 832-86-00696 ㅣ 대표 : 문희홍
+      <div className={styles.companyInfoDetail}>
+        <Trans i18nKey="footer:companyInfoRegisterNo" />
         <br />
-        04778 서울특별시 성동구 왕십리로 10길 6 216호 ㅣ <a href="https://www.boxhero.io/ko/tos/">이용약관</a> ㅣ <a href="https://www.boxhero.io/ko/privacy/">개인정보처리방침</a>
+        <Trans
+          i18nKey="footer:companyInfoAddress"
+          components={{
+            tosLink: <a href={t("url:tos")} />,
+            privacyLink: <a href={t("url:privacy")} />,
+          }}
+        />
       </div>
       <div className={styles.copyRight}>
         © {new Date().getFullYear()}, BGPworks. All rights reserved.
@@ -152,25 +182,35 @@ const CompanyInfo = () => (
   </div>
 );
 
-const FooterMenusAndInfo = () => (
+const FooterMenusAndInfo = (props) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <Container1024 className={styles.px10}>
-      <FooterMenus />
-      <CompanyInfo />
+      <FooterMenus {...props} />
+      <CompanyInfo {...props} />
     </Container1024>
   </div>
 );
 
-const Footer = ({closingEmoji, closingMsg}) => (
-  <div>
-    <StartNow
-      emoji={closingEmoji}
-      message={closingMsg}
-    />
-    <Platforms />
-    <FooterMenusAndInfo />
-  </div>
-);
+const Footer = ({closingEmoji, closingMsg}) => {
+  const { languages, changeLanguage, t } = useI18next();
+  return (
+    <div>
+      <StartNow
+        emoji={closingEmoji}
+        message={closingMsg}
+        t={t}
+      />
+      <Platforms
+        t={t}
+      />
+      <FooterMenusAndInfo
+        languages={languages}
+        changeLanguage={changeLanguage}
+        t={t}
+      />
+    </div>
+  );
+};
 
 Footer.propTypes = {
   closingEmoji: PropTypes.object.isRequired,

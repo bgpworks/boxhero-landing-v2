@@ -11,7 +11,6 @@
 }
 
 html {
-  font-family: "Noto Sans KR", "Roboto", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -71,9 +70,12 @@ button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 html {
-  font: "Noto Sans KR", "Roboto", serif;
+  font-family: "Noto Sans KR", "Roboto", serif;
   box-sizing: border-box;
   overflow-y: scroll;
+}
+html[lang="en"] {
+  font-family: "Roboto", "Noto Sans KR", serif;
 }
 * {
   box-sizing: inherit;
@@ -95,6 +97,9 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+}
+html[lang="en"] body {
+  font-family: "Roboto", "Noto Sans KR", georgia, serif;
 }
 img {
   max-width: 100%;

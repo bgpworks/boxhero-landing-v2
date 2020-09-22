@@ -1,0 +1,22 @@
+{
+  "startNowButton": "Start Now",
+  "platformsPC": "PC web",
+  "platformsIOS": "iOS download",
+  "platformsAndroid": "Android download",
+  "platformsLastMessage": "BoxHero supports all device types.",
+  "footerMenuServiceAbout": "About BoxHero",
+  "footerMenuServiceFeatures": "Features",
+  "footerMenuServicePricing": "Pricing",
+  "footerMenuSupportDocs": "Customer Service",
+  "footerMenuSupportFaq": "FAQ",
+  "footerMenuSupportManual": "User Guide",
+  "footerMenuCompanyHome": "About Us",
+  "footerMenuCompanyBlog": "Blog",
+  "footerMenuContactTel": "Tel : +82 7086704320",
+  "footerMenuContactEmail": "Email :",
+  "footerMenuContactBusiness": "Business Inquiry :",
+  "footerMenuContactKakao": "KakaoTalk :",
+  "footerMenuLanguage": "Language",
+  "companyInfoRegisterNo": "<strong>BOXHERO, Inc.</strong>",
+  "companyInfoAddress": "216, 6, Wangsimni-ro 10-gil, Seongdong-gu, Seoul, South Korea<br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>"
+}
