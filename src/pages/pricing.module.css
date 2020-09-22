@@ -133,6 +133,11 @@
   text-align: center;
 }
 
+.ribbon span small {
+  font-size: 8px;
+  font-weight: bold;
+}
+
 .ribbonTopLeft {
   top: -1px;
   left: -1px;
