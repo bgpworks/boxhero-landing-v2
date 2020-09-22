@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 // js
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -302,6 +302,7 @@ const FAQ = ({t}) => {
       answer: {
         i18nKey: "pricing:faq10Answer",
         components: {
+          // eslint-disable-next-line
           webappLink: <a href={constants.urlStart} />
         }
       },
@@ -311,6 +312,7 @@ const FAQ = ({t}) => {
       answer: {
         i18nKey: "pricing:faq11Answer",
         components: {
+          // eslint-disable-next-line
           webappLink: <a href={constants.urlStart} />
         }
       },
@@ -320,6 +322,7 @@ const FAQ = ({t}) => {
       answer: {
         i18nKey: "pricing:faq12Answer",
         components: {
+          // eslint-disable-next-line
           otherMethodLink: <a href="https://docs-ko.boxhero.io/docs/pricing#%EA%B5%AD%EB%82%B4-%EC%B9%B4%EB%93%9C-%EB%B0%8F-%EA%B3%84%EC%A2%8C%EC%9D%B4%EC%B2%B4-%EA%B2%B0%EC%A0%9C-%EB%B0%A9%EB%B2%95" />
         }
       },

@@ -67,7 +67,7 @@ const Platforms = ({t}) => (
 );
 
 const FooterMenus = () => {
-  const { languages, changeLanguage, t } = useI18next();
+  const { language, languages, changeLanguage, t } = useI18next();
   return (
     <div className={styles.footerMenusContainer}>
       <div className={styles.footerMenusColumn}>
@@ -130,8 +130,13 @@ const FooterMenus = () => {
         <div className={styles.footerMenuLabel}>
           <select
             className={styles.footerLangSelector}
+            onBlur={(e) => {
+              if (e.target.value !== "" && e.target.value !== language) {
+                changeLanguage(e.target.value);
+              }
+            }}
             onChange={(e) => {
-              if (e.target.value !== "") {
+              if (e.target.value !== "" && e.target.value !== language) {
                 changeLanguage(e.target.value);
               }
             }}
@@ -141,9 +146,9 @@ const FooterMenus = () => {
               <option
                 key={lng}
                 value={lng}>
-                {lng == "en"
+                {lng === "en"
                  ? "English"
-                 : lng == "ko"
+                 : lng === "ko"
                  ? "한국어"
                  : lng}
               </option>
@@ -170,7 +175,9 @@ const CompanyInfo = ({ t }) => (
         <Trans
           i18nKey="footer:companyInfoAddress"
           components={{
+            // eslint-disable-next-line
             tosLink: <a href={t("url:tos")} />,
+            // eslint-disable-next-line
             privacyLink: <a href={t("url:privacy")} />,
           }}
         />
