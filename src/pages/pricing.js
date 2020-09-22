@@ -390,6 +390,7 @@ const DirectContact = ({email}) => (
 export const PricingPage = ({data}) => (
   <Layout
     isFloatMenu={false}
+    curMenu="pricing"
     closingEmoji={data.box}
     closingMsg="비용절감의 시작은 재고관리부터."
   >

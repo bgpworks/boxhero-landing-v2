@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
+import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
 // js
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -32,9 +33,7 @@ const Top = ({data}) => (
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
-        재고관리,<br />
-        왜 박스히어로를<br />
-        사용해야 할까요?<br />
+        <Trans i18nKey="about:topTitle" />
       </div>
       <div className={styles.topRightContainer}>
         <Img fixed={data.topLogo.childImageSharp.fixed}
@@ -60,13 +59,10 @@ const StrongPoints = ({data}) => (
       <div className={styles.half}>
         <Padding y={271} />
         <span className={styles.title}>
-          <strong>박스히어로</strong>는<br/>
-          쉽고 편리합니다
+          <Trans i18nKey="about:strongPoint1Title" />
         </span>
         <div className={styles.desc}>
-          재고관리 프로그램을 사용하기 위해 공부할 필요가 전혀 없습니다.<br/>
-          박스히어로는 재고관리를 처음 접하는 고객도 어려움없이 재고를<br/>
-          관리할 수 있도록 쉽고 편리하게 만들어졌습니다.
+          <Trans i18nKey="about:strongPoint1Desc" />
         </div>
       </div>
     </Container1024>
@@ -75,15 +71,10 @@ const StrongPoints = ({data}) => (
       <div className={styles.half}>
         <Padding y={253} />
         <span className={styles.title}>
-          <strong>박스히어로</strong>는<br/>
-          재고관리에<br/>
-          충실합니다.
+          <Trans i18nKey="about:strongPoint2Title" />
         </span>
         <div className={styles.desc}>
-          평소에 사용하지 않는 복잡한 기능은 덜어내고 재고관리에<br/>
-          필요한 기능만을 담았습니다.<br/>
-          박스히어로가 제공하는 다양한 편의 기능을 활용하면<br/>
-          완벽한 재고관리가 가능합니다.<br/>
+          <Trans i18nKey="about:strongPoint2Desc" />
         </div>
       </div>
       <div className={styles.half}>
@@ -111,14 +102,10 @@ const StrongPoints = ({data}) => (
       <div className={styles.half}>
         <Padding y={271} />
         <span className={styles.title}>
-          <strong>박스히어로</strong>는<br/>
-          강력한 모바일 서비스를<br/>
-          제공합니다.
+          <Trans i18nKey="about:strongPoint3Title" />
         </span>
         <div className={styles.desc}>
-          모바일 서비스를 부가적으로 제공하는 다른 프로그램과는 다릅니다.<br/>
-          PC와 완벽하게 연동되는 최적화된 모바일 서비스를 통해<br/>
-          언제 어디서든 효율적으로 재고를 관리할 수 있습니다.
+          <Trans i18nKey="about:strongPoint3Desc" />
         </div>
       </div>
     </Container1024>
@@ -169,7 +156,7 @@ const FeatureRow = ({id, title, columns}) => (
   </div>
 );
 
-const OtherFeatures = ({data}) => (
+const OtherFeatures = ({data, t}) => (
   <BackgroundImage
     Tag="div"
     fluid={data.featureBg.childImageSharp.fluid}
@@ -177,100 +164,99 @@ const OtherFeatures = ({data}) => (
   >
     <Container1024 className={styles.featureContentContainer}>
       <div className={styles.featureTitle}>
-        박스히어로는 어떤 기능이 있나요?
+        {t("about:otherFeaturesTitle")}
       </div>
       <Padding y={40} />
       <div className={styles.featureDesc}>
-        제품 등록부터 입출고, 재고확인까지 효율적인 재고관리 프로세스를 위한<br/>
-        핵심적인 기능을 제공합니다.
+        <Trans i18nKey="about:otherFeaturesDesc" />
       </div>
       <FeatureRow
         id={constants.idAboutFeatureAddProduct}
-        title="제품 등록"
+        title={t("about:otherFeatureRow1Title")}
         columns={[
           {
             img: iconCategory,
-            title: "속성선택",
-            content: "제품에 필요한 속성을 추천 속성에서 선택하거나 추가해 사용할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EC%86%8D%EC%84%B1-%EC%84%A0%ED%83%9D",
+            title:t("about:otherFeatureRow1Col1Title"),
+            content: t("about:otherFeatureRow1Col1Content"),
+            link: t("about:otherFeatureRow1Col1Link"),
           },
           {
             img: iconAddProduct,
-            title: "바코드 등록",
-            content: "바코드를 스캔해 제품을 등록하거나 새로운 바코드를 생성할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EB%B0%94%EC%BD%94%EB%93%9C-%EB%93%B1%EB%A1%9D",
+            title:t("about:otherFeatureRow1Col2Title"),
+            content: t("about:otherFeatureRow1Col2Content"),
+            link: t("about:otherFeatureRow1Col2Link"),
           },
           {
             img: iconImage,
-            title: "제품 이미지 등록",
-            content: "제품 별로 이미지를 등록해 관리할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EC%A0%9C%ED%92%88-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%93%B1%EB%A1%9D",
+            title:t("about:otherFeatureRow1Col3Title"),
+            content: t("about:otherFeatureRow1Col3Content"),
+            link: t("about:otherFeatureRow1Col3Link"),
           },
           {
             img: iconBulkAdd,
-            title: "엑셀 대량 추가",
-            content: "기존의 엑셀파일에 저장된 제품을 불러올 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EC%97%91%EC%85%80-%EB%8C%80%EB%9F%89%EC%B6%94%EA%B0%80",
+            title:t("about:otherFeatureRow1Col4Title"),
+            content: t("about:otherFeatureRow1Col4Content"),
+            link: t("about:otherFeatureRow1Col4Link"),
           },
         ]}
       />
       <FeatureRow
         id={constants.idAboutFeatureTx}
-        title="입출고"
+        title={t("about:otherFeatureRow2Title")}
         columns={[
           {
             img: iconMobilescan,
-            title: "모바일 스캐너",
-            content: "모바일을 바코드 스캐너로 활용해 스캔 한 번으로 입출고할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%8A%A4%EC%BA%90%EB%84%88",
+            title:t("about:otherFeatureRow2Col1Title"),
+            content: t("about:otherFeatureRow2Col1Content"),
+            link: t("about:otherFeatureRow2Col1Link"),
           },
           {
             img: iconPartner,
-            title: "거래처 관리",
-            content: "거래처 정보를 등록해 편리하게 활용할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EA%B1%B0%EB%9E%98%EC%B2%98-%EA%B4%80%EB%A6%AC",
+            title:t("about:otherFeatureRow2Col2Title"),
+            content: t("about:otherFeatureRow2Col2Content"),
+            link: t("about:otherFeatureRow2Col2Link"),
           },
           {
             img: iconHistory,
-            title: "히스토리",
-            content: "팀원들의 입출고 기록을 다양한 옵션으로 검색할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC",
+            title:t("about:otherFeatureRow2Col3Title"),
+            content: t("about:otherFeatureRow2Col3Content"),
+            link: t("about:otherFeatureRow2Col3Link"),
           },
           {
             img: iconUppdown,
-            title: "엑셀 연동",
-            content: "엑셀 파일을 가져오거나 내보낼 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EC%97%91%EC%85%80-%EC%97%B0%EB%8F%99",
+            title:t("about:otherFeatureRow2Col4Title"),
+            content: t("about:otherFeatureRow2Col4Content"),
+            link: t("about:otherFeatureRow2Col4Link"),
           },
         ]}
       />
       <FeatureRow
         id={constants.idAboutFeatureStatus}
-        title="재고확인"
+        title={t("about:otherFeatureRow3Title")}
         columns={[
           {
             img: iconBasicmode,
-            title: "제품 목록",
-            content: "원하는 속성 별로 제품을 묶어 재고를 확인할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EC%A0%9C%ED%92%88%EB%AA%A9%EB%A1%9D",
+            title:t("about:otherFeatureRow3Col1Title"),
+            content: t("about:otherFeatureRow3Col1Content"),
+            link: t("about:otherFeatureRow3Col1Link"),
           },
           {
             img: iconCounting,
-            title: "바코드 스캔",
-            content: "바코드 스캔 한 번으로 재고를 파악할 수 있습니다. ",
-            link: "https://docs-ko.boxhero.io/docs/features#%EB%B0%94%EC%BD%94%EB%93%9C-%EC%8A%A4%EC%BA%94",
+            title:t("about:otherFeatureRow3Col2Title"),
+            content: t("about:otherFeatureRow3Col2Content"),
+            link: t("about:otherFeatureRow3Col2Link"),
           },
           {
             img: iconGraph,
-            title: "재고 변동",
-            content: "재고 변동 내역을 제품 별로 한 눈에 확인할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EC%9E%AC%EA%B3%A0-%EB%B3%80%EB%8F%99",
+            title:t("about:otherFeatureRow3Col3Title"),
+            content: t("about:otherFeatureRow3Col3Content"),
+            link: t("about:otherFeatureRow3Col3Link"),
           },
           {
             img: iconDashboard,
-            title: "대시 보드",
-            content: "다양하게 제공되는 재고 분석을 활용할 수 있습니다.",
-            link: "https://docs-ko.boxhero.io/docs/features#%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C",
+            title:t("about:otherFeatureRow3Col4Title"),
+            content: t("about:otherFeatureRow3Col4Content"),
+            link: t("about:otherFeatureRow3Col4Link"),
           },
         ]}
       />
@@ -278,24 +264,31 @@ const OtherFeatures = ({data}) => (
   </BackgroundImage>
 );
 
-const AboutPage = ({data}) => (
-  <Layout
-    isFloatMenu={true}
-    closingEmoji={data.light}
-    closingMsg="더 이상의 재고 손실은 없다."
-  >
-    <SEO
-      lang="ko"
-      title="박스히어로는?"
-    />
+const AboutPage = ({data}) => {
+  const { language, t } = useI18next();
+  return (
+    <Layout
+      isFloatMenu={true}
+      curMenu="about"
+      closingEmoji={data.light}
+      closingMsg={t("about:closingMsg")}
+    >
+      <SEO
+        lang={language}
+        title={t("about:pageTitle")}
+      />
 
-    <Top data={data} />
+      <Top data={data} />
 
-    <StrongPoints data={data} />
+      <StrongPoints data={data} />
 
-    <OtherFeatures data={data} />
-  </Layout>
-);
+      <OtherFeatures
+        data={data}
+        t={t}
+      />
+    </Layout>
+  );
+};
 
 export default AboutPage;
 

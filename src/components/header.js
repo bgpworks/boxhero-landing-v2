@@ -10,7 +10,7 @@ import styles from "./header.module.css";
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 
-const Header = ({ isFloatMenu }) => {
+const Header = ({ isFloatMenu, curMenu }) => {
   const { t } = useTranslation();
   return (
     <header className={`${styles.headerContainer} ${isFloatMenu ? styles.floatContainer : ""}`}>
@@ -24,16 +24,22 @@ const Header = ({ isFloatMenu }) => {
 
         <div className={styles.padding}/>
 
-        <Link to="/about/">
+        <Link
+          to="/about/"
+          className={curMenu === "about" ? styles.selected : ""}>
           {t("header:menuAbout")}
         </Link>
 
-        <Link to="/features/">
+        <Link
+          to="/features/"
+          className={curMenu === "features" ? styles.selected : ""}>
           {t("header:menuFeatures")}
 
         </Link>
 
-        <Link to="/pricing/">
+        <Link
+          to="/pricing/"
+          className={curMenu === "pricing" ? styles.selected : ""}>
           {t("header:menuPricing")}
         </Link>
 

@@ -327,6 +327,7 @@ const FeatureLocation = (props) => (
 export const FeaturesPage = ({data}) => (
   <Layout
     isFloatMenu={false}
+    curMenu="features"
     closingEmoji={data.dinosaur}
     closingMsg="박스히어로는 오늘도 진화 중."
   >
