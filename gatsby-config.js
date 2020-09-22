@@ -5,6 +5,7 @@ module.exports = {
     author: `@bgpworks`,
     keywords: `재고관리, 자산관리, 바코드, QR코드, RFID, 재고, 자산, 엑셀, 제품`,
     email: "support+boxhero@bgpworks.com",
+    siteUrl: "https://www.boxhero-app.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -60,5 +61,55 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/**/404', '/**/404.html'],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage(filter: {context: {i18n: {routed: {eq: false}}}}) {
+              edges {
+                node {
+                  context {
+                    i18n {
+                      defaultLanguage
+                      languages
+                      originalPath
+                    }
+                  }
+                  path
+                }
+              }
+            }
+          }
+        `,
+        serialize: ({site, allSitePage}) => {
+          return allSitePage.edges.map((edge) => {
+            const {languages, originalPath, defaultLanguage} = edge.node.context.i18n;
+            const {siteUrl} = site.siteMetadata;
+            const url = siteUrl + originalPath;
+            const links = [
+              {lang: defaultLanguage, url},
+              {lang: 'x-default', url}
+            ];
+            languages.forEach((lang) => {
+              if (lang === defaultLanguage) return;
+              links.push({lang, url: `${siteUrl}/${lang}${originalPath}`});
+            });
+            return {
+              url,
+              changefreq: 'always',
+              priority: originalPath === '/' ? 1.0 : 0.85,
+              links
+            };
+          });
+        }
+      }
+    }
   ],
 }
