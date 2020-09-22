@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
         ogImgKo: file(relativePath: { eq: "og_image_ko.png" }) {
@@ -32,7 +33,8 @@ function SEO({ description, lang, meta, title }) {
   );
   const site = data.site;
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description;
+  const siteUrl = site.siteMetadata.siteUrl;
 
   return (
     <Helmet
@@ -77,8 +79,8 @@ function SEO({ description, lang, meta, title }) {
         {
           name: "og:image",
           content: lang === "ko"
-            ? `https://www.boxhero-app.com${data.ogImgKo.publicURL}`
-            : `https://www.boxhero-app.com${data.ogImgEn.publicURL}`,
+            ? `${siteUrl}${data.ogImgKo.publicURL}`
+            : `${siteUrl}${data.ogImgEn.publicURL}`,
         },
       ].concat(meta)}
     />
