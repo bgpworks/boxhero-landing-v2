@@ -11,6 +11,7 @@ import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 
 const Header = ({ isFloatMenu, curMenu }) => {
+  // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useTranslation();
   return (
     <header className={`${styles.headerContainer} ${isFloatMenu ? styles.floatContainer : ""}`}>
@@ -34,7 +35,6 @@ const Header = ({ isFloatMenu, curMenu }) => {
           to="/features/"
           className={curMenu === "features" ? styles.selected : ""}>
           {t("header:menuFeatures")}
-
         </Link>
 
         <Link
