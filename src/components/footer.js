@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
@@ -66,99 +66,91 @@ const Platforms = ({t}) => (
   </div>
 );
 
-const FooterMenus = () => {
-  const { language, languages, changeLanguage, t } = useI18next();
-  return (
-    <div className={styles.footerMenusContainer}>
-      <div className={styles.footerMenusColumn}>
-        <div className={styles.footerMenuLabel}>
-          Service
-        </div>
-        <div>
-          <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
-        </div>
-        <div>
-          <Link to="/features/">{t("footer:footerMenuServiceFeatures")}</Link>
-        </div>
-        <div>
-          <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
-        </div>
-      </div>
-      <div className={styles.footerMenusColumn}>
-        <div className={styles.footerMenuLabel}>
-          Support
-        </div>
-        <div>
-          <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
-        </div>
-        <div>
-          <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
-        </div>
-        <div>
-          <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
-        </div>
-      </div>
-      <div className={styles.footerMenusColumn}>
-        <div className={styles.footerMenuLabel}>
-          Company
-        </div>
-        <div>
-          <a href="https://www.bgpworks.com">{t("footer:footerMenuCompanyHome")}</a>
-        </div>
-        <div>
-          <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
-        </div>
-      </div>
-      <div className={styles.wideFooterMenusColumn}>
-        <div className={styles.footerMenuLabel}>
-          Contact
-        </div>
-        <div>
-          {t("footer:footerMenuContactTel")}
-        </div>
-        <div>
-          {t("footer:footerMenuContactEmail")}  <a href="mailto:support+boxhero@bgpworks.com">support+boxhero@bgpworks.com</a>
-        </div>
-        <div>
-          {t("footer:footerMenuContactBusiness")} <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
-        </div>
-        <div>
-          {t("footer:footerMenuContactKakao")} <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
-        </div>
+const FooterMenus = ({ language, languages, changeLanguage, t }) => (
+  <div className={styles.footerMenusContainer}>
+    <div className={styles.footerMenusColumn}>
+      <div className={styles.footerMenuLabel}>
+        Service
       </div>
       <div>
-        <div className={styles.footerMenuLabel}>
-          <select
-            className={styles.footerLangSelector}
-            onBlur={(e) => {
-              if (e.target.value !== "" && e.target.value !== language) {
-                changeLanguage(e.target.value);
-              }
-            }}
-            onChange={(e) => {
-              if (e.target.value !== "" && e.target.value !== language) {
-                changeLanguage(e.target.value);
-              }
-            }}
-          >
-            <option value="">{t("footer:footerMenuLanguage")}</option>
-            {languages.map((lng) => (
-              <option
-                key={lng}
-                value={lng}>
-                {lng === "en"
-                 ? "English"
-                 : lng === "ko"
-                 ? "한국어"
-                 : lng}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
+      </div>
+      <div>
+        <Link to="/features/">{t("footer:footerMenuServiceFeatures")}</Link>
+      </div>
+      <div>
+        <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
       </div>
     </div>
-  );
-};
+    <div className={styles.footerMenusColumn}>
+      <div className={styles.footerMenuLabel}>
+        Support
+      </div>
+      <div>
+        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+      </div>
+      <div>
+        <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
+      </div>
+      <div>
+        <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+      </div>
+    </div>
+    <div className={styles.footerMenusColumn}>
+      <div className={styles.footerMenuLabel}>
+        Company
+      </div>
+      <div>
+        <a href="https://www.bgpworks.com">{t("footer:footerMenuCompanyHome")}</a>
+      </div>
+      <div>
+        <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
+      </div>
+    </div>
+    <div className={styles.wideFooterMenusColumn}>
+      <div className={styles.footerMenuLabel}>
+        Contact
+      </div>
+      <div>
+        {t("footer:footerMenuContactTel")}
+      </div>
+      <div>
+        {t("footer:footerMenuContactEmail")}  <a href="mailto:support+boxhero@bgpworks.com">support+boxhero@bgpworks.com</a>
+      </div>
+      <div>
+        {t("footer:footerMenuContactBusiness")} <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
+      </div>
+      <div>
+        {t("footer:footerMenuContactKakao")} <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
+      </div>
+    </div>
+    <div>
+      <div className={styles.footerMenuLabel}>
+        <select
+          className={styles.footerLangSelector}
+          onChange={(e) => {
+            if (e.target.value !== "" && e.target.value !== language) {
+              changeLanguage(e.target.value);
+            }
+          }}
+        >
+          <option value="">{t("footer:footerMenuLanguage")}</option>
+          {languages.map((lng) => (
+            <option
+              key={lng}
+              value={lng}>
+              {lng === "en"
+               ? "English"
+               : lng === "ko"
+               ? "한국어"
+               : lng}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  </div>
+);
 
 const CompanyInfo = ({ t }) => (
   <div className={styles.companyInfoContainer}>
@@ -199,7 +191,7 @@ const FooterMenusAndInfo = (props) => (
 );
 
 const Footer = ({closingEmoji, closingMsg}) => {
-  const { languages, changeLanguage, t } = useI18next();
+  const { language, languages, changeLanguage, t } = useI18next();
   return (
     <div>
       <StartNow
@@ -211,6 +203,7 @@ const Footer = ({closingEmoji, closingMsg}) => {
         t={t}
       />
       <FooterMenusAndInfo
+        language={language}
         languages={languages}
         changeLanguage={changeLanguage}
         t={t}
