@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
@@ -128,6 +128,11 @@ const FooterMenus = ({ language, languages, changeLanguage, t }) => (
       <div className={styles.footerMenuLabel}>
         <select
           className={styles.footerLangSelector}
+          onBlur={(e) => {
+            if (e.target.value !== "" && e.target.value !== language) {
+              changeLanguage(e.target.value);
+            }
+          }}
           onChange={(e) => {
             if (e.target.value !== "" && e.target.value !== language) {
               changeLanguage(e.target.value);

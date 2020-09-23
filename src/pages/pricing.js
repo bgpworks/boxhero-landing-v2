@@ -396,11 +396,15 @@ const DirectContact = ({email, t}) => (
 
     <Padding y={50} />
 
-    <a href={`mailto:${email}`}>
-      <button className={styles.directContactButton}>
-        {t("pricing:directContactInquiryButon")}
-      </button>
-    </a>
+    <button
+      className={styles.directContactButton}
+      onClick={() => {
+        if ("Beacon" in window) {
+          window.Beacon('toggle');
+        }
+      }}>
+      {t("pricing:directContactInquiryButon")}
+    </button>
   </div>
 );
 
