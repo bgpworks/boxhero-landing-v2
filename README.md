@@ -30,7 +30,7 @@ gatsby develop
 
 **`gatsby-ssr.js`**: [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/)
 
-spoqaHanSans 폰트 적용과 [css variable polyfil](https://github.com/nuxodin/ie11CustomProperties) 적용에 쓰고 있음. 이전 버전에서는 layout에서 react-helmet을 써서 적용했는데, page 내용과 관련이 없는 이런 외적인 요소는 이런 부분으로 빼는게 더 적절한 것 같음. google analytics 같은 것도 이쪽에 적용하는게 어울릴 듯.
+폰트 적용과 [css variable polyfil](https://github.com/nuxodin/ie11CustomProperties) 적용에 쓰고 있음. 이전 버전에서는 layout에서 react-helmet을 써서 적용했는데, page 내용과 관련이 없는 이런 외적인 요소는 이런 부분으로 빼는게 더 적절한 것 같음.
 
 [gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/)도 있는 걸로 보면 SSR을 사용했을 때 단점이 있는건지 확인 필요.
 
@@ -60,6 +60,15 @@ styled-component는 취향이 아니어서 css module 사용.
 [gatsby-plugin-scroll-reveal](https://www.gatsbyjs.com/plugins/gatsby-plugin-scroll-reveal/)를 적용해보면 될 듯.
 
 [페이지간 전환 효과](https://www.gatsbyjs.com/docs/adding-page-transitions-with-plugin-transition-link/)도 있는 고려해보기.
+
+### 외부 서비스 연동 (Google Tag Manager, Yadex AppMatrica, Helpscout Beacon)
+
+최대한 gatsby 구조에 맞춰서 `gatsby-ssr.js` 에서 injection하고, `gatsby-browser.js`에서 초기화 했다.
+
+예외로 helpscout은 언어별 분기가 필요하여 `src/components/helpscout.js` 파일에서 `useEffect` 훅을 써서 초기화 했다.
+
+#### Hl
+
 
 ## 🎓 Learning Gatsby
 
