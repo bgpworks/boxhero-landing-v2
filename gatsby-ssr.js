@@ -49,7 +49,7 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
       <div>
         <img
           src="https://mc.yandex.ru/watch/57468217"
-          style="position:absolute; left:-9999px;"
+          style={{position: "absolute", left: -9999}}
           alt=""
         />
       </div>
@@ -75,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         src="https://www.googletagmanager.com/ns.html?id=GTM-MTMLRJM"
         height="0"
         width="0"
-        style="display:none;visibility:hidden">
+        style={{display: "none", visibility: "hidden"}}>
       </iframe>
     </noscript>,
   ])
