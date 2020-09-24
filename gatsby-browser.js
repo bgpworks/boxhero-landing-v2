@@ -5,6 +5,8 @@
  */
 
 import "./src/styles/global.css";
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import { Boot } from "./src/Boot";
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
@@ -13,3 +15,5 @@ export const onClientEntry = () => {
     console.log(`# IntersectionObserver is polyfilled!`);
   }
 }
+
+export const wrapRootElement = Boot;

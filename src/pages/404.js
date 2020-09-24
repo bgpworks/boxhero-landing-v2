@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/layout";
+import DesktopLayout from "../components/desktop-layout";
 import SEO from "../components/seo";
 
 const NotFoundPage = ({data}) => (
-  <Layout
+  <DesktopLayout
     isFloatMenu={false}
     closingEmoji={data.dinosaur}
     closingMsg="박스히어로는 오늘도 진화 중."
@@ -13,7 +13,7 @@ const NotFoundPage = ({data}) => (
     <SEO title="404: Not found" />
     <h1 style={{margin: 50, textAlign: "center"}}>NOT FOUND</h1>
     <p style={{margin: 50, textAlign: "center"}}>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+  </DesktopLayout>
 );
 
 export default NotFoundPage;

@@ -16,7 +16,6 @@ html {
 }
 body {
   margin: 0;
-  min-width: 1024px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

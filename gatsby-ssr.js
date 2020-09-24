@@ -6,6 +6,8 @@
 
 
 import React from "react"
+import { mediaStyles } from "./src/media"
+import { Boot } from "./src/Boot"
 
 // https://isamrish.com/how-to-add-3rd-party-script-in-your-gatsby-website/
 
@@ -66,6 +68,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MTMLRJM');`,
       }}
     />,
+    <style key="artsy/fresnel_style" >
+      {mediaStyles}
+    </style>,
   ])
 
   setPostBodyComponents([
@@ -80,3 +85,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </noscript>,
   ])
 }
+
+export const wrapRootElement = Boot;

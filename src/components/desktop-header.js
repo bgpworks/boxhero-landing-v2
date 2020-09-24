@@ -5,12 +5,12 @@ import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Container1024 } from "./common"
 import { urlStart } from "../components/constants";
 // css
-import styles from "./header.module.css";
+import styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 
-const Header = ({ isFloatMenu, curMenu }) => {
+export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useTranslation();
   return (
@@ -57,12 +57,12 @@ const Header = ({ isFloatMenu, curMenu }) => {
   );
 };
 
-Header.propTypes = {
+DesktopHeader.propTypes = {
   isFloatMenu: PropTypes.bool,
 };
 
-Header.defaultProps = {
+DesktopHeader.defaultProps = {
   isFloatMenu: false,
 };
 
-export default Header;
+export default DesktopHeader;

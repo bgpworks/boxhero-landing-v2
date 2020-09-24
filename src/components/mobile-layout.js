@@ -1,20 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Header from "./header";
-import Footer from "./footer";
-import { useHelpscout } from './helpscout';
+import DesktopHeader from "./desktop-header";
+import DesktopFooter from "./desktop-footer";
+import styles from "./layout.module.css";
 
-const Layout = ({ isFloatMenu, curMenu, closingEmoji, closingMsg, children }) => {
-  useHelpscout();
+const MobileLayout = ({ isFloatMenu, curMenu, closingEmoji, closingMsg, children }) => {
   return (
     <>
-      <Header
+      <DesktopHeader
         isFloatMenu={isFloatMenu}
         curMenu={curMenu}
       />
       <main>{children}</main>
-      <Footer
+      <DesktopFooter
         closingEmoji={closingEmoji}
         closingMsg={closingMsg}
       />
@@ -22,7 +21,7 @@ const Layout = ({ isFloatMenu, curMenu, closingEmoji, closingMsg, children }) =>
   );
 };
 
-Layout.propTypes = {
+MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
   curMenu: PropTypes.string,
   closingEmoji: PropTypes.object.isRequired,
@@ -30,4 +29,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Layout;
+export default MobileLayout;

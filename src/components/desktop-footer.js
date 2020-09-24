@@ -7,7 +7,7 @@ import { Container1024 } from "./common";
 import { urlStart } from "../components/constants";
 import * as constants from "../components/constants";
 // css
-import styles from "./footer.module.css";
+import styles from "./desktop-footer.module.css";
 // images
 import svgPcWeb from "../images/pcweb.svg";
 import svgIOS from "../images/ios.svg";
@@ -66,7 +66,7 @@ const Platforms = ({t}) => (
   </div>
 );
 
-const FooterMenus = ({ language, languages, changeLanguage, t }) => (
+const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>
@@ -107,7 +107,7 @@ const FooterMenus = ({ language, languages, changeLanguage, t }) => (
         <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
       </div>
     </div>
-    <div className={styles.wideFooterMenusColumn}>
+    <div className={styles.wideDesktopFooterMenusColumn}>
       <div className={styles.footerMenuLabel}>
         Contact
       </div>
@@ -186,16 +186,16 @@ const CompanyInfo = ({ t }) => (
   </div>
 );
 
-const FooterMenusAndInfo = (props) => (
+const DesktopFooterMenusAndInfo = (props) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <Container1024 className={styles.px10}>
-      <FooterMenus {...props} />
+      <DesktopFooterMenus {...props} />
       <CompanyInfo {...props} />
     </Container1024>
   </div>
 );
 
-const Footer = ({closingEmoji, closingMsg}) => {
+const DesktopFooter = ({closingEmoji, closingMsg}) => {
   const { language, languages, changeLanguage, t } = useI18next();
   return (
     <div>
@@ -207,7 +207,7 @@ const Footer = ({closingEmoji, closingMsg}) => {
       <Platforms
         t={t}
       />
-      <FooterMenusAndInfo
+      <DesktopFooterMenusAndInfo
         language={language}
         languages={languages}
         changeLanguage={changeLanguage}
@@ -217,9 +217,9 @@ const Footer = ({closingEmoji, closingMsg}) => {
   );
 };
 
-Footer.propTypes = {
+DesktopFooter.propTypes = {
   closingEmoji: PropTypes.object.isRequired,
   closingMsg: PropTypes.string.isRequired,
 };
 
-export default Footer;
+export default DesktopFooter;
