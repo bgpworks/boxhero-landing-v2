@@ -21,6 +21,22 @@ Container1024.defaultProps = {
   className: "",
 };
 
+export const Container320 = ({ className, children }) => (
+  <div
+    className={`${styles.container320} ${className}`}
+  >
+    {children}
+  </div>
+);
+
+Container320.propTypes = {
+  className: PropTypes.string,
+};
+
+Container320.defaultProps = {
+  className: "",
+};
+
 
 export const Padding = ({x, y}) => (
   <div style={{paddingLeft: x, height: y, minHeight: 1}}/>

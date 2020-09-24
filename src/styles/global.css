@@ -8,6 +8,7 @@
   --color-ribbon-green: #3cb9a0;
   --height-top-menu: 79px;
   --color-carousel-dot: #50a4fa;
+  --height-mobile-top-menu: 44px;
 }
 
 html {
@@ -88,7 +89,6 @@ html[lang="en"] {
 body {
   color: var(--color-font-primary);
   font-family: "Noto Sans KR", "Roboto", georgia, serif;
-  font-size: 16px;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -213,12 +213,6 @@ th:last-child,
 td:last-child {
   padding-right: 0;
 }
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
-  }
-}
-
 button {
   display: inline-block;
   border: none;

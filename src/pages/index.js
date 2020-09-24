@@ -5,6 +5,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import SEO from "../components/seo"
 import { Media } from "../media"
 import DesktopIndex from "../components/desktop-index";
+import MobileIndex from "../components/mobile-index";
 import { useHelpscout } from '../components/helpscout';
 
 const IndexPage = ({data}) => {
@@ -18,7 +19,11 @@ const IndexPage = ({data}) => {
       />
 
       <Media at="xs">
-        Hello mobile!
+        <MobileIndex
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
 
       <Media greaterThan="xs">
@@ -57,21 +62,24 @@ export const query = graphql`
         }
       }
     }
-    feature1: file(relativePath: { eq: "img-add.png" }) {
+    feature1: file(relativeDirectory: {eq: $language},
+                   base: { eq: "img-add.png" }) {
       childImageSharp {
         fixed(width: 640, webpQuality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    feature2: file(relativePath: { eq: "img-scan.png" }) {
+    feature2: file(relativeDirectory: {eq: $language},
+                   base: { eq: "img-scan.png" }) {
       childImageSharp {
         fixed(width: 597, webpQuality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    feature3: file(relativePath: { eq: "img-grouping.png" }) {
+    feature3: file(relativeDirectory: {eq: $language},
+                   base: { eq: "img-grouping.png" }) {
       childImageSharp {
         fixed(width: 624, webpQuality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -85,7 +93,8 @@ export const query = graphql`
         }
       }
     }
-    teamPlay: file(relativePath: { eq: "img-team.png" }) {
+    teamPlay: file(relativeDirectory: {eq: $language},
+                   base: { eq: "img-team.png" }) {
       childImageSharp {
         fixed(width: 819, height: 572, cropFocus: NORTH) {
           ...GatsbyImageSharpFixed_withWebp
@@ -99,42 +108,48 @@ export const query = graphql`
         }
       }
     }
-    featureExpiry: file(relativePath: { eq: "index-feature-expiry.png" }) {
+    featureExpiry: file(relativeDirectory: {eq: $language},
+                        base: { eq: "index-feature-expiry.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    featureLowstock: file(relativePath: { eq: "index-feature-lowstock.png" }) {
+    featureLowstock: file(relativeDirectory: {eq: $language},
+                          base: { eq: "index-feature-lowstock.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    featureBarcodelabel: file(relativePath: { eq: "index-feature-barcodelabel.png" }) {
+    featureBarcodelabel: file(relativeDirectory: {eq: $language},
+                              base: { eq: "index-feature-barcodelabel.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    featureSummary: file(relativePath: { eq: "index-feature-summary.png" }) {
+    featureSummary: file(relativeDirectory: {eq: $language},
+                         base: { eq: "index-feature-summary.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    featureStatus: file(relativePath: { eq: "index-feature-status.png" }) {
+    featureStatus: file(relativeDirectory: {eq: $language},
+                        base: { eq: "index-feature-status.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    featureLocation: file(relativePath: { eq: "index-feature-location.png" }) {
+    featureLocation: file(relativeDirectory: {eq: $language},
+                          base: { eq: "index-feature-location.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -194,6 +209,14 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 220, height: 280, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+
+    mobileCoffee: file(relativePath: { eq: "emoji-coffee.png" }) {
+      childImageSharp {
+        fixed(width: 36, height: 36, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }

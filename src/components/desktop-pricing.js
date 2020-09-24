@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Trans } from 'gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout";
-import SEO from "../components/seo";
 import { Container1024, Padding, SimpleTop, DropDownQNA } from "../components/common";
 import * as constants from "../components/constants";
 // css
@@ -415,11 +414,6 @@ export const DesktopPricing = ({data, language, t}) => {
       closingEmoji={data.box}
       closingMsg={t("pricing:closingMsg")}
     >
-      <SEO
-        lang={language}
-        title={t("pricing:pageTitle")}
-      />
-
       <SimpleTop
         title={t("pricing:topTitle")}
         desc={<Trans i18nKey="pricing:topDesc" />}

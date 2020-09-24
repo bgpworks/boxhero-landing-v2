@@ -21,7 +21,7 @@
   "expiryDemo1Title": "Lucky Supermarket",
   "expiryDemo1Desc": "“Being able to manage expiration dates for the same<br/>product is very helpful since we can put discounts for a<br/>near expiration items right away and prevent expired<br/>wastes.”",
   "expiryDemo2Title": "Moby Cafe",
-  "expiryDemo1Desc": "“With expiry date management for coffee beans,<br/>dairies, fruits for making beverages, it's so much<br/>efficient than before.”",
+  "expiryDemo2Desc": "“With expiry date management for coffee beans,<br/>dairies, fruits for making beverages, it's so much<br/>efficient than before.”",
   "lowstockTitle": "Safety Stock",
   "lowstockDesc": "Insert the minimum stock quantity for each product.<br/>Check out the overall quantity and receive push<br/>notifications every 9 AM for low stocks.",
   "lowstockDemo1Title": "Firm Tile",

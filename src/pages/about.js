@@ -5,6 +5,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import SEO from "../components/seo";
 import { Media } from "../media"
 import DesktopAbout from "../components/desktop-about";
+import MobileAbout from "../components/mobile-about";
 import { useHelpscout } from '../components/helpscout';
 
 const AboutPage = ({data}) => {
@@ -17,7 +18,11 @@ const AboutPage = ({data}) => {
         title={t("about:pageTitle")}
       />
       <Media at="xs">
-        Hello mobile!
+        <MobileAbout
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
       <Media greaterThan="xs">
         <DesktopAbout
@@ -33,7 +38,7 @@ const AboutPage = ({data}) => {
 export default AboutPage;
 
 export const query = graphql`
-  query {
+  query($language: String!) {
     topBg: file(relativePath: { eq: "about-top-bg.png" }) {
       childImageSharp {
         fluid(maxWidth: 2560, webpQuality: 100) {
@@ -41,7 +46,8 @@ export const query = graphql`
         }
       }
     }
-    topLogo: file(relativePath: { eq: "about-top.png" }) {
+    topLogo: file(relativeDirectory: {eq: $language},
+                  base: { eq: "about-top.png" }) {
       childImageSharp {
         fixed(width: 697,
           traceSVG: {
@@ -61,21 +67,22 @@ export const query = graphql`
         }
       }
     }
-    easy: file(relativePath: { eq: "img-easy-ko.png" }) {
+    easy: file(relativeDirectory: {eq: $language},
+               base: { eq: "img-easy.png" }) {
       childImageSharp {
         fixed(width: 673) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    great: file(relativePath: { eq: "img-great-ko.png" }) {
+    great: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
         fixed(width: 660) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    mobile: file(relativePath: { eq: "img-mobile-ko.png" }) {
+    mobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
         fixed(width: 463) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -86,6 +93,13 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 2560, webpQuality: 100) {
           ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    mobileLight: file(relativePath: { eq: "emoji-light.png" }) {
+      childImageSharp {
+        fixed(width: 36, height: 36, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }

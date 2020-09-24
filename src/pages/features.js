@@ -5,6 +5,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import SEO from "../components/seo";
 import { Media } from "../media"
 import DesktopFeatures from "../components/desktop-features";
+import MobileFeatures from "../components/mobile-features";
 import { useHelpscout } from '../components/helpscout';
 
 export const FeaturesPage = ({data}) => {
@@ -18,7 +19,11 @@ export const FeaturesPage = ({data}) => {
       />
 
       <Media at="xs">
-        Hello mobile!
+        <MobileFeatures
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
 
       <Media greaterThan="xs">
@@ -35,7 +40,7 @@ export const FeaturesPage = ({data}) => {
 export default FeaturesPage;
 
 export const query = graphql`
-  query {
+  query($language: String!) {
     topBg: file(relativePath: { eq: "about-top-bg.png" }) {
       childImageSharp {
         fluid(maxWidth: 2560, webpQuality: 100) {
@@ -57,7 +62,8 @@ export const query = graphql`
         }
       }
     }
-    expiryFig: file(relativePath: { eq: "feature-expiry-fig.png" }) {
+    expiryFig: file(relativeDirectory: {eq: $language},
+                    base: { eq: "feature-expiry-fig.png" }) {
       childImageSharp {
         fixed(width: 378) {
           ...GatsbyImageSharpFixed_withWebp
@@ -78,7 +84,8 @@ export const query = graphql`
         }
       }
     }
-    lowstockFig: file(relativePath: { eq: "feature-lowstock-fig.png" }) {
+    lowstockFig: file(relativeDirectory: {eq: $language},
+                      base: { eq: "feature-lowstock-fig.png" }) {
       childImageSharp {
         fixed(width: 378) {
           ...GatsbyImageSharpFixed_withWebp
@@ -99,7 +106,8 @@ export const query = graphql`
         }
       }
     }
-    barcodelabelFig: file(relativePath: { eq: "feature-barcodelabel-fig.png" }) {
+    barcodelabelFig: file(relativeDirectory: {eq: $language},
+                          base: { eq: "feature-barcodelabel-fig.png" }) {
       childImageSharp {
         fixed(width: 470) {
           ...GatsbyImageSharpFixed_withWebp
@@ -120,7 +128,8 @@ export const query = graphql`
         }
       }
     }
-    summaryFig: file(relativePath: { eq: "feature-summary-fig.png" }) {
+    summaryFig: file(relativeDirectory: {eq: $language},
+                     base: { eq: "feature-summary-fig.png" }) {
       childImageSharp {
         fixed(width: 575) {
           ...GatsbyImageSharpFixed_withWebp
@@ -141,7 +150,8 @@ export const query = graphql`
         }
       }
     }
-    statusFig: file(relativePath: { eq: "feature-status-fig.png" }) {
+    statusFig: file(relativeDirectory: {eq: $language},
+                    base: { eq: "feature-status-fig.png" }) {
       childImageSharp {
         fixed(width: 500) {
           ...GatsbyImageSharpFixed_withWebp
@@ -162,7 +172,8 @@ export const query = graphql`
         }
       }
     }
-    locationFig: file(relativePath: { eq: "feature-location-fig.png" }) {
+    locationFig: file(relativeDirectory: {eq: $language},
+                      base: { eq: "feature-location-fig.png" }) {
       childImageSharp {
         fixed(width: 518) {
           ...GatsbyImageSharpFixed_withWebp
@@ -179,6 +190,13 @@ export const query = graphql`
     locationDemo2: file(relativePath: { eq: "feature-location-demo2.png" }) {
       childImageSharp {
         fixed(width: 80) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileDinosaur: file(relativePath: { eq: "emoji-dinosaur.png" }) {
+      childImageSharp {
+        fixed(width: 36, height: 36, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }

@@ -3,6 +3,11 @@
   width: 1024px;
 }
 
+.container320 {
+  margin: 0 auto;
+  width: 320px;
+}
+
 .simpleTopTitle {
   height: 70px;
   font-size: 52px;
