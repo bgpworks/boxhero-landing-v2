@@ -453,7 +453,7 @@ const IndexPage = ({data}) => {
 export default IndexPage;
 
 export const query = graphql`
-  query {
+  query($language: String!) {
     homeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
       childImageSharp {
         fluid(maxWidth: 2560, webpQuality: 100) {
@@ -461,7 +461,8 @@ export const query = graphql`
         }
       }
     }
-    homeTopRight: file(relativePath: { eq: "home-top-right.png" }) {
+    homeTopRight: file(relativeDirectory: {eq: $language},
+                       base: {eq: "home-top-right.png"}) {
       childImageSharp {
         fixed(width: 934, webpQuality: 100,
           traceSVG: {
