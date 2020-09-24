@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Trans } from 'gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout";
-import { Container1024, Padding, SimpleTop, DropDownQNA } from "../components/common";
+import { Container1024, Padding, SimpleTop, DropDownQNA, Switch, Ribbon } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-pricing.module.css";
@@ -27,7 +27,7 @@ const PriceTable = ({data, language, t}) => {
             <th>
               <strong>{t("pricing:bizPlanTitle")}</strong>
               <br/>
-              <small>For Business & Team</small>
+              <small>For Teams &amp; Businesses</small>
             </th>
           </tr>
         </thead>
@@ -41,16 +41,14 @@ const PriceTable = ({data, language, t}) => {
               <small>{t("pricing:freePlanPriceUnit")}</small>
             </td>
             <td className={styles.priceWrapper}>
-              <div className={`${styles.ribbon} ${styles.ribbonTopLeft}`}>
-                <span>
-                  <Trans
-                    i18nKey="pricing:recommandRibbon"
-                    components={{
-                      small: <small/>,
-                    }}
-                  />
-                </span>
-              </div>
+              <Ribbon>
+                <Trans
+                  i18nKey="pricing:recommandRibbon"
+                  components={{
+                    small: <small/>,
+                  }}
+                />
+              </Ribbon>
               <div className={styles.price}>{isYearly ? "$16.6" : "$20"}</div>
               <small>{t("pricing:bizPlanPriceUnit")}{isYearly ? t("pricing:paymentCycleYearly") : t("pricing:paymentCycleMonthly")}</small>
             </td>
@@ -77,19 +75,10 @@ const PriceTable = ({data, language, t}) => {
                 >
                   {t("pricing:switchLabelMonthly")}
                 </button>
-                <div className={styles.switch}>
-                  <input
-                    id="switch1"
-                    type="checkbox"
-                    className={styles.switchInput}
-                    checked={isYearly}
-                    onChange={(evt) => setIsYearly(evt.target.checked)}
-                  />
-                  <label
-                    htmlFor="switch1"
-                    className={styles.switchLabel}>
-                  </label>
-                </div>
+                <Switch
+                  isActive={isYearly}
+                  onChange={(active) => setIsYearly(active)}
+                />
                 <button
                   className={`${styles.billingCycleButton} ${isYearly ? styles.active : ""}`}
                   onClick={() => setIsYearly(true)}
@@ -380,7 +369,7 @@ const FAQ = ({t}) => {
   );
 };
 
-const DirectContact = ({email, t}) => (
+const DirectContact = ({t}) => (
   <div className={styles.directContactContainer}>
     <div className={styles.directContactTitle}>
       {t("pricing:directContactTitle")}
@@ -432,7 +421,6 @@ export const DesktopPricing = ({data, language, t}) => {
       <FAQ t={t} />
 
       <DirectContact
-        email={data.site.siteMetadata.email}
         t={t}
       />
 

@@ -26,6 +26,24 @@
   color: var(--color-font-darker);
 }
 
+.mobileSimpleTopTitle {
+  height: 36px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: black;
+}
+
+.mobileSimpleTopDesc {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: -0.14px;
+  text-align: center;
+  color: black;
+}
+
 .dropDownQNA {
   border-bottom: 1px solid #e0e0e3;
 }
@@ -35,13 +53,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 52px;
+  padding: 14px 0px;
   cursor: pointer;
 
   font-size: 16px;
   line-height: 1;
   letter-spacing: -0.16px;
   color: var(--color-font-darker);
+}
+
+.dropDownQNATitle > img {
+  margin-left: 6px;
 }
 
 .dropDownQNATitle .open {
@@ -54,4 +76,117 @@
   line-height: 1.5;
   letter-spacing: -0.16px;
   color: var(--color-font-darker);
+}
+
+.dropDownQNABody p:last-child {
+  margin-bottom: 0px;
+}
+
+
+/* switch */
+@value bg-disabled-color: #e0e0e3;
+@value bg-disabled-border-color: #cbccd3;
+@value bg-enabled-color: rgba(60, 185, 160, 0.2);
+@value bg-enabled-border-color: #3cb9a0;
+@value lever-disabled-color: #fff;
+@value lever-enabled-color: var(--color-ribbon-green);
+
+.switch {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  height: 24px;
+}
+
+.switchInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 24px;
+  opacity: 0;
+  z-index: 0;
+}
+
+/* Unchecked */
+.switchLabel {
+  display: block;
+  padding: 0 0 0 48px;
+  cursor: pointer;
+}
+
+.switchLabel:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 48px;
+  height: 24px;
+  background-color: bg-disabled-color;
+  border-radius: 15.5px;
+  border: solid 1px bg-disabled-border-color;
+  z-index: 1;
+  transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
+}
+
+.switchLabel:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  background-color: lever-disabled-color;
+  border-radius: 14px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 1px 0 rgba(0, 0, 0, 0.05);
+  z-index: 2;
+  transition: all 0.28s cubic-bezier(.4, 0, .2, 1);
+  transition-property: left, background-color;
+}
+
+/* Checked */
+.switchInput:checked + .switchLabel:before {
+  background-color: bg-enabled-color;
+  border-color: bg-enabled-border-color;
+}
+
+.switchInput:checked + .switchLabel:after {
+  left: 25px;
+  background-color: lever-enabled-color;
+}
+
+/* https://codepen.io/nxworld/pen/oLdoWb */
+.ribbon {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 102px;
+  padding: 3px 0;
+  background-color: var(--color-ribbon-green);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ribbon span small {
+  font-size: 8px;
+}
+
+.ribbonTopLeft {
+  top: -1px;
+  left: -1px;
+}
+
+.ribbonTopLeft span {
+  right: -5px;
+  top: 14px;
+  transform: rotate(-45deg);
 }

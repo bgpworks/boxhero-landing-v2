@@ -4,14 +4,9 @@ import Img from "gatsby-image";
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
 // js
 import { Container320, Padding } from "./common";
-import { urlStart } from "../components/constants";
-import * as constants from "../components/constants";
 // css
 import styles from "./mobile-footer.module.css";
 // images
-import svgPcWeb from "../images/pcweb.svg";
-import svgIOS from "../images/ios.svg";
-import svgAndroid from "../images/android.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 
 const StartNow = ({emoji, message, t}) => (

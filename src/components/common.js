@@ -65,14 +65,27 @@ export const SimpleTop = ({title, desc}) => (
   </div>
 );
 
-export const DropDownQNA = ({ isFirst, title, content, children }) => {
+export const MobileSimpleTop = ({title, desc}) => (
+  <div>
+    <Padding y={50}/>
+    <div className={styles.mobileSimpleTopTitle}>
+      {title}
+    </div>
+    <Padding y={20}/>
+    <div className={styles.mobileSimpleTopDesc}>
+      {desc}
+    </div>
+  </div>
+);
+
+export const DropDownQNA = ({ isFirst, title, content, children, titleClassName, bodyClassName }) => {
   const [isShow, setShow] = useState(false);
 
   return (
     <div className={styles.dropDownQNA}>
       <div
         role="presentation"
-        className={styles.dropDownQNATitle}
+        className={`${styles.dropDownQNATitle} ${titleClassName}`}
         onClick={() => setShow(!isShow)}
       >
         <span className={isShow ? styles.open : ""} >
@@ -83,7 +96,7 @@ export const DropDownQNA = ({ isFirst, title, content, children }) => {
           alt="자세히 보기" />
       </div>
       {isShow && (
-        <div className={styles.dropDownQNABody}>
+        <div className={`${styles.dropDownQNABody} ${bodyClassName}`}>
           {children}
         </div>
       )}
@@ -110,3 +123,30 @@ export const SupportEmail = () => {
     </a>
   );
 }
+
+export const Switch = ({ isActive, onChange }) => {
+  const id = Math.random().toString();
+  return (
+    <div className={styles.switch}>
+      <input
+        id={id}
+        type="checkbox"
+        className={styles.switchInput}
+        checked={isActive}
+        onChange={(evt) => onChange(evt.target.checked)}
+      />
+      <label
+        htmlFor={id}
+        className={styles.switchLabel}>
+      </label>
+    </div>
+  );
+};
+
+export const Ribbon = ({className, children}) => (
+  <div className={`${styles.ribbon} ${styles.ribbonTopLeft} ${className || ""}`}>
+    <span>
+      {children}
+    </span>
+  </div>
+);

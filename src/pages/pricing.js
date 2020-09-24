@@ -62,11 +62,6 @@ export const query = graphql`
         }
       }
     }
-    site {
-      siteMetadata {
-        email
-      }
-    }
     mobileBox: file(relativePath: { eq: "emoji-box.png" }) {
       childImageSharp {
         fixed(width: 36, height: 36, fit: FILL) {

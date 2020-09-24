@@ -9,6 +9,8 @@
   --height-top-menu: 79px;
   --color-carousel-dot: #50a4fa;
   --height-mobile-top-menu: 44px;
+  --color-free-plan: rgba(245, 166, 35, 0.2);
+  --color-biz-plan: rgba(80, 164, 250, 0.2);
 }
 
 html {
