@@ -40,14 +40,17 @@
 .featureTemplateDesc {
   font-size: 20px;
   line-height: 1.8;
-  letter-spacing: -0.22px;
   color: black;
+}
+
+html[lang="ko"] .featureTemplateDesc {
+  letter-spacing: -0.22px;
 }
 
 .featureTemplateStartNow {
   min-width: 180px;
   border-radius: 6px;
-  background-color: #4f67ff;
+  background-color: var(--color-font-blue);
   padding: 9px 30px;
   font-size: 16px;
   font-weight: bold;
@@ -58,7 +61,17 @@
 .featureTemplateFigureContainer {
   position: relative;
   overflow: visible;
-  text-align: right;
+}
+
+.featureTemplateDescFigContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.featureTemplateTitleDescContainer {
+  width: 497px;
 }
 
 .halfContainer {
@@ -74,12 +87,16 @@
 
 .demoTemplate {
   border-left: 2px solid #f5a623;
-  padding-left: 28px;
+  padding: 0px 28px;
   min-height: 184px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.demoLogo {
+  vertical-align: bottom;
 }
 
 .demoTitle {

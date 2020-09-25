@@ -15,12 +15,12 @@ import iconMenuSummary from "../images/features-menu-summary.svg";
 import iconMenuStatus from "../images/features-menu-status.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
 
-const bgOrange = "rgba(245, 166, 35, 0.2)";
-const barOrange = "#f5a623";
-const bgGreen = "rgba(74, 208, 81, 0.2)";
-const barGreen = "#3cb9a0";
-const bgBlue= "#f7f9fc";
-const barBlue = "#50a4fa";
+const bgOrange = "var(--color-feature-bg-orange)";
+const barOrange = "var(--color-feature-bar-orange)";
+const bgGreen = "var(--color-feature-bg-green)";
+const barGreen = "var(--color-feature-bar-green)";
+const bgBlue= "var(--color-feature-bg-blue)";
+const barBlue = "var(--color-feature-bar-blue)";
 
 const MenuItem = ({to, icon, label, title}) => (
   <Link
@@ -89,7 +89,10 @@ const DemoTemplate = ({barColor, icon, title, desc}) => (
     }}
   >
     <div>
-      <Img fixed={icon}/>
+      <Img
+        fixed={icon}
+        className={styles.demoLogo}
+      />
       <span className={styles.demoTitle}>
         - {title} -
       </span>
@@ -109,8 +112,8 @@ function FeatureTemplate(props) {
       style={{backgroundColor: props.bgColor}}
     >
       <Container1024>
-        <div className={styles.halfContainer}>
-          <div>
+        <div className={styles.featureTemplateDescFigContainer}>
+          <div className={styles.featureTemplateTitleDescContainer}>
             <div
               className={styles.featureTemplateTitle}
               data-sal="slide-up-10"
@@ -225,7 +228,7 @@ const FeatureBarcodelabel = (props) => (
   <FeatureTemplate
     id={constants.idFeatureBarcodelabel}
     bgColor={bgBlue}
-    title={<Trans i18nKey="features:barcodelabelTitle"/>}
+    title={<Trans i18nKey="features:barcodelabelTitle" />}
     figure={props.data.barcodelabelFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:barcodelabelDesc" />}
     barColor={barBlue}

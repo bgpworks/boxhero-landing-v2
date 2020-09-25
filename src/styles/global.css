@@ -11,6 +11,12 @@
   --height-mobile-top-menu: 44px;
   --color-free-plan: rgba(245, 166, 35, 0.2);
   --color-biz-plan: rgba(80, 164, 250, 0.2);
+  --color-feature-bg-orange: rgba(245, 166, 35, 0.2);
+  --color-feature-bar-orange: #f5a623;
+  --color-feature-bg-green: rgba(74, 208, 81, 0.2);
+  --color-feature-bar-green: #3cb9a0;
+  --color-feature-bg-blue: #f7f9fc;
+  --color-feature-bar-blue: #50a4fa;
 }
 
 html {

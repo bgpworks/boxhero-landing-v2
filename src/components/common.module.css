@@ -39,9 +39,12 @@
 .mobileSimpleTopDesc {
   font-size: 14px;
   line-height: 1.71;
-  letter-spacing: -0.14px;
   text-align: center;
   color: black;
+}
+
+html[lang="ko"] .mobileSimpleTopDesc {
+  letter-spacing: -0.14px;
 }
 
 .dropDownQNA {

@@ -201,5 +201,137 @@ export const query = graphql`
         }
       }
     }
+    mobileExpiryFig: file(relativeDirectory: {eq: $language},
+                    base: { eq: "feature-expiry-fig.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileExpiryDemo1: file(relativePath: { eq: "feature-expiry-demo1.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileExpiryDemo2: file(relativePath: { eq: "feature-expiry-demo2.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileLowstockFig: file(relativeDirectory: {eq: $language},
+                            base: { eq: "feature-lowstock-fig.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileLowstockDemo1: file(relativePath: { eq: "feature-lowstock-demo1.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileLowstockDemo2: file(relativePath: { eq: "feature-lowstock-demo2.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileBarcodelabelFig: file(relativeDirectory: {eq: $language},
+                                base: { eq: "feature-barcodelabel-fig.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileBarcodelabelDemo1: file(relativePath: { eq: "feature-barcodelabel-demo1.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileBarcodelabelDemo2: file(relativePath: { eq: "feature-barcodelabel-demo2.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileSummaryFig: file(relativeDirectory: {eq: $language},
+                           base: { eq: "feature-summary-fig.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileSummaryDemo1: file(relativePath: { eq: "feature-summary-demo1.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileSummaryDemo2: file(relativePath: { eq: "feature-summary-demo2.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileStatusFig: file(relativeDirectory: {eq: $language},
+                          base: { eq: "feature-status-fig.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileStatusDemo1: file(relativePath: { eq: "feature-status-demo1.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileStatusDemo2: file(relativePath: { eq: "feature-status-demo2.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileLocationFig: file(relativeDirectory: {eq: $language},
+                            base: { eq: "feature-location-fig.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileLocationDemo1: file(relativePath: { eq: "feature-location-demo1.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileLocationDemo2: file(relativePath: { eq: "feature-location-demo2.png" }) {
+      childImageSharp {
+        fixed(width: 48) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
   }
 `;

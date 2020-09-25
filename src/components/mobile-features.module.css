@@ -1,0 +1,65 @@
+.px20 {
+  padding: 0px 20px;
+}
+
+.featureTemplate {
+  padding: 50px 0px;
+}
+
+.featureTemplateTitle {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  color: black;
+}
+
+.featureTemplateDesc {
+  font-size: 14px;
+  line-height: 1.71;
+  color: var(--color-font-darker);
+}
+
+html[lang="ko"] .featureTemplateDesc {
+  letter-spacing: -0.14px;
+}
+
+.featureTemplateStartNow {
+  min-width: 180px;
+  border-radius: 6px;
+  background-color: var(--color-font-blue);
+  padding: 9px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.featureTemplateFigureContainer {
+  text-align: center;
+}
+
+.demoTemplate:not(:first-child) {
+  margin-top: 50px;
+}
+
+.demoLogo {
+  vertical-align: bottom;
+}
+
+.demoTitle {
+  margin-left: 14px;
+  font-size: 12px;
+  line-height: 2.33;
+  color: var(--color-font-primary);
+}
+
+.demoDesc {
+  font-size: 12px;
+  line-height: 1.67;
+  color: var(--color-font-darker);
+}
+
+html[lang="ko"] .demoDesc {
+  letter-spacing: -0.13px;
+}
