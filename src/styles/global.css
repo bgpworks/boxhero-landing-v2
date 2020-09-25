@@ -258,7 +258,8 @@ h1 {
   margin: 0;
 }
 
+/* sal animation 일단 끔. */
 /* sal animation */
-[data-sal='slide-up-10'] {
-   transform: translateY(10%);
- }
+/* [data-sal='slide-up-10'] { */
+/*   transform: translateY(10%); */
+/* } */
