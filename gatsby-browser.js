@@ -6,7 +6,7 @@
 
 import "./src/styles/global.css";
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { Boot } from "./src/Boot";
+import { Boot } from "./src/boot";
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)

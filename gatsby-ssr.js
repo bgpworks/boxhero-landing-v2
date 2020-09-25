@@ -7,7 +7,7 @@
 
 import React from "react"
 import { mediaStyles } from "./src/media"
-import { Boot } from "./src/Boot"
+import { Boot } from "./src/boot"
 
 // https://isamrish.com/how-to-add-3rd-party-script-in-your-gatsby-website/
 
