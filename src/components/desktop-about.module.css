@@ -3,7 +3,6 @@
 .topContainer {
   padding-top: var(--height-top-menu);
   height: 800px;
-  z-index: -999;
   color: white;
   overflow: hidden;
 }

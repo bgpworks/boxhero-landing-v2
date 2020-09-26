@@ -1,0 +1,123 @@
+/* top */
+
+.topContainer {
+  height: 533px;
+}
+
+.topTitleContainer {
+  height: 108px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: white;
+}
+
+/* StrongPoints */
+
+.section {
+  padding: 50px 0px;
+}
+
+.px10 {
+  padding: 0px 10px;
+}
+
+.px20 {
+  padding: 0px 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.title strong {
+  color: var(--color-font-blue)
+}
+
+.desc {
+  margin-top: 20px;
+  padding: 0px 20px;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: -0.14px;
+  color: var(--color-font-primary);
+}
+
+.logoContainer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Other features  */
+
+.featureContentContainer {
+  padding: 50px 20px;
+}
+
+.featureTitle {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: white;
+}
+
+.featureDesc {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: -0.14px;
+  text-align: center;
+  color: white;
+}
+
+.featureRow {
+  margin-top: 40px;
+
+}
+
+.featureRowTitle {
+  height: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: -0.16px;
+  color: white;
+}
+
+.featureContainer > *:not(:first-child) {
+  margin-top: 10px;
+  display: block;
+}
+
+.featureCard {
+  padding: 20px 20px 20px;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+
+.featureIcon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.featureCardTitle {
+  height: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  color: black;
+}
+
+.featureCardContent {
+  font-size: 12px;
+  color: black;
+}

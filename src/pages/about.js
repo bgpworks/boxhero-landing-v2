@@ -96,10 +96,60 @@ export const query = graphql`
         }
       }
     }
+    mobileTopBg: file(relativePath: { eq: "about-top-bg.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 768, webpQuality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    mobileTopLogo: file(relativeDirectory: {eq: $language},
+                        base: { eq: "about-top.png" }) {
+      childImageSharp {
+        fixed(width: 320,
+          traceSVG: {
+            color: "#6159F5"
+            optTolerance: 0.2,
+            turdSize: 100,
+            turnPolicy: TURNPOLICY_MINORITY
+          }) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
     mobileLight: file(relativePath: { eq: "emoji-light.png" }) {
       childImageSharp {
         fixed(width: 36, height: 36, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileEasy: file(relativeDirectory: {eq: $language},
+                     base: { eq: "img-easy.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileGreat: file(relativePath: { eq: "img-great.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileMobile: file(relativePath: { eq: "img-mobile.png" }) {
+      childImageSharp {
+        fixed(width: 300) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeatureBg: file(relativePath: { eq: "about-feature-bg.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 768, webpQuality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
