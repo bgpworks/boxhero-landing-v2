@@ -42,9 +42,10 @@ const Top = ({data}) => (
 );
 
 const StrongPoints = ({data}) => (
-  <>
+  <div className={styles.strongPointContainer}>
     <Container1024 className={styles.section}>
-      <div className={styles.half}>
+      <div
+        className={styles.left} >
         <Img
           fixed={data.easy.childImageSharp.fixed}
           style={{
@@ -54,7 +55,8 @@ const StrongPoints = ({data}) => (
           }}
         />
       </div>
-      <div className={styles.half}>
+      <div
+        className={styles.right} >
         <Padding y={271} />
         <span className={styles.title}>
           <Trans i18nKey="about:strongPoint1Title" />
@@ -66,7 +68,7 @@ const StrongPoints = ({data}) => (
     </Container1024>
 
     <Container1024 className={styles.section}>
-      <div className={styles.half}>
+      <div className={styles.left}>
         <Padding y={253} />
         <span className={styles.title}>
           <Trans i18nKey="about:strongPoint2Title" />
@@ -75,7 +77,7 @@ const StrongPoints = ({data}) => (
           <Trans i18nKey="about:strongPoint2Desc" />
         </div>
       </div>
-      <div className={styles.half}>
+      <div className={styles.right}>
         <Img
           fixed={data.great.childImageSharp.fixed}
           style={{
@@ -87,7 +89,7 @@ const StrongPoints = ({data}) => (
     </Container1024>
 
     <Container1024 className={styles.section}>
-      <div className={styles.half}>
+      <div className={styles.left}>
         <Img
           fixed={data.mobile.childImageSharp.fixed}
           style={{
@@ -97,7 +99,7 @@ const StrongPoints = ({data}) => (
           }}
         />
       </div>
-      <div className={styles.half}>
+      <div className={styles.right}>
         <Padding y={271} />
         <span className={styles.title}>
           <Trans i18nKey="about:strongPoint3Title" />
@@ -107,7 +109,7 @@ const StrongPoints = ({data}) => (
         </div>
       </div>
     </Container1024>
-  </>
+  </div>
 );
 
 const FeatureCard = ({img, title, content, link}) => (

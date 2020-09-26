@@ -34,6 +34,10 @@
 
 /* StrongPoints */
 
+.strongPointContainer {
+  overflow: hidden;
+}
+
 .section {
   height: 880px;
   display: flex;
@@ -42,15 +46,18 @@
   align-items: flex-start;
 }
 
-.section .half {
-  width: 50%;
+.section > div {
   overflow: visible;
   white-space: nowrap;
   position: relative;
 }
 
-.half.image {
+.section > .left {
+  width: 47%;
+}
 
+.section > .right {
+  width: 53%;
 }
 
 .title {
