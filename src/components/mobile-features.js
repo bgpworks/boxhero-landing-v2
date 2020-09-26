@@ -87,7 +87,7 @@ const FeatureExpiry = (props) => (
       {
         icon: props.data.mobileExpiryDemo2.childImageSharp.fixed,
         title: (<Trans i18nKey="features:expiryDemo2Title"/>),
-        desc: (<Trans i18nKey="features:expiryDemo2Desc" />),
+        desc: (<Trans i18nKey="features:expiryDemo2DescMobile" />),
       },
     ]}
   />
@@ -109,7 +109,7 @@ const FeatureLowstock = (props) => (
       {
         icon: props.data.mobileLowstockDemo2.childImageSharp.fixed,
         title: (<Trans i18nKey="features:lowstockDemo2Title"/>),
-        desc: (<Trans i18nKey="features:lowstockDemo2Desc" />),
+        desc: (<Trans i18nKey="features:lowstockDemo2DescMobile" />),
       },
     ]}
   />
@@ -131,7 +131,7 @@ const FeatureBarcodelabel = (props) => (
       {
         icon: props.data.mobileBarcodelabelDemo2.childImageSharp.fixed,
         title: (<Trans i18nKey="features:barcodelabelDemo2Title"/>),
-        desc: (<Trans i18nKey="features:barcodelabelDemo2Desc" />),
+        desc: (<Trans i18nKey="features:barcodelabelDemo2DescMobile" />),
       },
     ]}
   />
@@ -153,7 +153,7 @@ const FeatureSummary = (props) => (
       {
         icon: props.data.mobileSummaryDemo2.childImageSharp.fixed,
         title: (<Trans i18nKey="features:summaryDemo2Title"/>),
-        desc: (<Trans i18nKey="features:summaryDemo2Desc" />),
+        desc: (<Trans i18nKey="features:summaryDemo2DescMobile" />),
       },
     ]}
   />
