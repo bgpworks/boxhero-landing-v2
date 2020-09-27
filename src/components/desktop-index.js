@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";

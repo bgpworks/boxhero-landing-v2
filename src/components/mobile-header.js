@@ -44,6 +44,7 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
             <div
               className={`${styles.menuBtn} ${isShow ? styles.isOpen : ""}`}
               onClick={() => onChangeIsShow(!isShow)}
+              role="presentation"
             >
               <div className={styles.menuBtnLine}></div>
               <div className={styles.menuBtnLine}></div>

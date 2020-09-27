@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import ScrollContainer from 'react-indiana-drag-scroll';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
 // js
 import MobileLayout from "../components/mobile-layout"
 import { Container320, Padding, WithCurrentSlide } from "../components/common";
