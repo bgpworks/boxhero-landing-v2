@@ -59,6 +59,10 @@ module.exports = {
           },
         },
         pages: [
+          {
+            matchPath: '/(privacy|tos)',
+            excludeLanguages: ['en', 'ko']
+          }
         ],
       },
     },
