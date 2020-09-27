@@ -52,7 +52,7 @@ module.exports = {
         // you can pass any i18next options
         // pass following options to allow message content as a key
         i18nextOptions: {
-          ns: ['translation', 'index', 'footer', 'header', 'url', 'about', 'features', 'pricing'],
+          ns: ['translation', 'index', 'footer', 'header', 'url', 'about', 'features', 'pricing', 'layout'],
           fallbackLng: false,
           interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
