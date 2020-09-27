@@ -7,6 +7,7 @@
   width: 100%;
   z-index: 100;
   font-size: 13px;
+  transition: all 0.1s ease-out;
 }
 
 .headerPlaceholder {
@@ -16,6 +17,44 @@
 .whiteContainer {
   background-color: white;
 }
+
+/* 메뉴 헴버거 버튼 */
+
+.menuBtn {
+  cursor: pointer;
+}
+
+/* Styling the hamburger lines */
+.menuBtn .menuBtnLine {
+  width: 20px;
+  height: 2px;
+  margin: 0 0 4px 0;
+  background: white;
+}
+
+.menuBtn,
+.menuBtn .menuBtnLine {
+  transition: all 0.3s ease-out;
+}
+
+.whiteContainer .menuBtn .menuBtnLine {
+  background: black;
+}
+
+/* Adding tranform to the X */
+.menuBtn.isOpen {
+  transform: rotate(180deg);
+}
+
+/* Styling the three lines to make it an X */
+.menuBtn.isOpen .menuBtnLine:nth-child(1) {
+  transform: translate(0px, 3px) rotate(45deg);
+}
+
+.menuBtn.isOpen .menuBtnLine:nth-child(2) {
+  transform: translate(0px, -3px) rotate(-45deg);
+}
+
 
 .menuContainer {
   height: 100%;
