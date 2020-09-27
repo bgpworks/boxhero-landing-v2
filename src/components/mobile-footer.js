@@ -20,7 +20,8 @@ const StartNow = ({emoji, message, t}) => (
 
 StartNow.propTypes = {
   emoji: PropTypes.object.isRequired,
-  message: PropTypes.string.isRequired,
+  // string or object
+  message: PropTypes.any.isRequired,
 }
 
 const MobileFooterMenus = ({ language, languages, changeLanguage, t }) => (
@@ -174,7 +175,8 @@ const MobileFooter = ({closingEmoji, closingMsg}) => {
 
 MobileFooter.propTypes = {
   closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.string.isRequired,
+  // string or object
+  closingMsg: PropTypes.any.isRequired,
 };
 
 export default MobileFooter;

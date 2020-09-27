@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useState, useContext, useEffect } from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { CarouselContext } from 'pure-react-carousel';
 import PropTypes from "prop-types";
 import styles from "./common.module.css";
 import svgDown from "../images/down.svg";
@@ -150,3 +151,19 @@ export const Ribbon = ({className, children}) => (
     </span>
   </div>
 );
+
+export const WithCurrentSlide = ({children}) => {
+  const carouselContext = useContext(CarouselContext);
+  const [currentSlide, setCurrentSlide] = useState(carouselContext.state.currentSlide);
+  useEffect(() => {
+    function onChange() {
+      setCurrentSlide(carouselContext.state.currentSlide);
+    }
+    carouselContext.subscribe(onChange);
+    return () => carouselContext.unsubscribe(onChange);
+  }, [carouselContext]);
+  if (children && children instanceof Function) {
+    return children(currentSlide);
+  }
+  return "";
+};

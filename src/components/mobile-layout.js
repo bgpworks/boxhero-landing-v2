@@ -23,7 +23,7 @@ MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
   curMenu: PropTypes.string,
   closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.string.isRequired,
+  closingMsg: PropTypes.any.isRequired,
   children: PropTypes.node.isRequired,
 };
 

@@ -212,11 +212,174 @@ export const query = graphql`
         }
       }
     }
-
+    mobileHomeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 768, webpQuality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    mobileHomeTopRight: file(relativeDirectory: {eq: $language},
+                             base: {eq: "home-top-right.png"}) {
+      childImageSharp {
+        fixed(width: 467, webpQuality: 100,
+          traceSVG: {
+            color: "#6159F5"
+            optTolerance: 0.2,
+            turdSize: 100,
+            turnPolicy: TURNPOLICY_MINORITY
+          }) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeature1: file(relativeDirectory: {eq: $language},
+                         base: { eq: "img-add.png" }) {
+      childImageSharp {
+        fixed(width: 320, webpQuality: 100) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeature2: file(relativeDirectory: {eq: $language},
+                         base: { eq: "img-scan.png" }) {
+      childImageSharp {
+        fixed(width: 320, webpQuality: 100) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeature3: file(relativeDirectory: {eq: $language},
+                         base: { eq: "img-grouping.png" }) {
+      childImageSharp {
+        fixed(width: 320, webpQuality: 100) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileHomeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 768, webpQuality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    mobileTeamPlay: file(relativeDirectory: {eq: $language},
+                         base: { eq: "img-team.png" }) {
+      childImageSharp {
+        fixed(width: 410, height: 286, cropFocus: NORTH) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
     mobileCoffee: file(relativePath: { eq: "emoji-coffee.png" }) {
       childImageSharp {
         fixed(width: 36, height: 36, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileFeatureExpiry: file(relativeDirectory: {eq: $language},
+                              base: { eq: "index-feature-expiry.png" }) {
+      childImageSharp {
+        fixed(width: 280, height: 204, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeatureLowstock: file(relativeDirectory: {eq: $language},
+                                base: { eq: "index-feature-lowstock.png" }) {
+      childImageSharp {
+        fixed(width: 280, height: 204, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeatureBarcodelabel: file(relativeDirectory: {eq: $language},
+                                    base: { eq: "index-feature-barcodelabel.png" }) {
+      childImageSharp {
+        fixed(width: 280, height: 204, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeatureSummary: file(relativeDirectory: {eq: $language},
+                               base: { eq: "index-feature-summary.png" }) {
+      childImageSharp {
+        fixed(width: 280, height: 204, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeatureStatus: file(relativeDirectory: {eq: $language},
+                              base: { eq: "index-feature-status.png" }) {
+      childImageSharp {
+        fixed(width: 280, height: 204, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileFeatureLocation: file(relativeDirectory: {eq: $language},
+                                base: { eq: "index-feature-location.png" }) {
+      childImageSharp {
+        fixed(width: 280, height: 204, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerMart: file(relativePath: { eq: "customer-mart.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerFasion: file(relativePath: { eq: "customer-fasion.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerCosmetics: file(relativePath: { eq: "customer-cosmetics.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerCafe: file(relativePath: { eq: "customer-cafe.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerPharmacy: file(relativePath: { eq: "customer-pharmacy.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerHandmade: file(relativePath: { eq: "customer-handmade.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerLocation: file(relativePath: { eq: "customer-location.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerTextbook: file(relativePath: { eq: "customer-textbook.png" }) {
+      childImageSharp {
+        fixed(width: 110, height: 140, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }

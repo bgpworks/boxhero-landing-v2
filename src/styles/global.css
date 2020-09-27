@@ -251,6 +251,13 @@ button:focus {
 button:active {
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 /* delete me */
 

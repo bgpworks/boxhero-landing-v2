@@ -1,13 +1,13 @@
-import React, {useContext, useState, useEffect} from "react"
-import PropTypes from "prop-types"
+import React, {useContext, useState, useEffect} from "react";
+import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot, CarouselContext } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot } from 'pure-react-carousel';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout"
-import { Container1024, Padding } from "../components/common";
+import { Container1024, Padding, WithCurrentSlide } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-index.module.css";
@@ -130,7 +130,6 @@ const TeamPlay = ({data, t}) => (
   </BackgroundImage>
 );
 
-
 const Customers = ({data, t, language}) => {
   const customerData = [
     {
@@ -230,22 +229,6 @@ const Customers = ({data, t, language}) => {
     </div>
   );
 }
-
-const WithCurrentSlide = ({children}) => {
-  const carouselContext = useContext(CarouselContext);
-  const [currentSlide, setCurrentSlide] = useState(carouselContext.state.currentSlide);
-  useEffect(() => {
-    function onChange() {
-      setCurrentSlide(carouselContext.state.currentSlide);
-    }
-    carouselContext.subscribe(onChange);
-    return () => carouselContext.unsubscribe(onChange);
-  }, [carouselContext]);
-  if (children && children instanceof Function) {
-    return children(currentSlide);
-  }
-  return "";
-};
 
 function genFeatureData(data, t) {
   return [
@@ -362,7 +345,7 @@ const Features = ({data, t}) => {
               >
                 {t("index:featuresDetailLink")}
                 <img
-                  src={svgSmallRight}
+                  src={svgSmallRightBlue}
                   className={styles.rightArrow}
                   alt={t("index:featuresDetailLink")}
                 />
