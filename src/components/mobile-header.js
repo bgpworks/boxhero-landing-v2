@@ -32,6 +32,7 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
   const isWhite = !isFloatMenu || isScrolled || isShow;
   return (
     <>
+      <div className={`${styles.menuOpenBg} ${isShow ? styles.isOpen : ""}`}></div>
       <header className={`${styles.headerContainer} ${isWhite ? styles.whiteContainer : ""}`}>
         <div className={styles.logoAndExpandCotainer}>
           <Link to="/">
@@ -102,8 +103,7 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
       </header>
       {!isFloatMenu &&
        <div className={styles.headerPlaceholder}>
-       </div>
-      }
+       </div>}
     </>
   );
 };
