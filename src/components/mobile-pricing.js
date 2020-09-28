@@ -305,7 +305,7 @@ const FAQ = ({t}) => {
           {t("pricing:faqTitle")}
         </div>
 
-        <Padding y={40} />
+        <Padding y={39} />
 
         {faqData.map((faq, index) => (
           <DropDownQNA
@@ -337,7 +337,7 @@ const DirectContact = ({t}) => (
         {t("pricing:directContactTitle")}
       </div>
 
-      <Padding y={6} />
+      <Padding y={14} />
 
       <div className={styles.directContactDesc}>
         {t("pricing:directContactDesc")}

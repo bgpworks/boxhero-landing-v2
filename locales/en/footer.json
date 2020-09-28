@@ -18,5 +18,7 @@
   "footerMenuContactKakao": "KakaoTalk :",
   "footerMenuLanguage": "Language",
   "companyInfoRegisterNo": "<strong>BOXHERO, Inc.</strong>",
-  "companyInfoAddress": "216, 6, Wangsimni-ro 10-gil, Seongdong-gu, Seoul, South Korea<br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>"
+  "companyInfoRegisterNoMobile": "<strong>BOXHERO, Inc.</strong>",
+  "companyInfoAddress": "216, 6, Wangsimni-ro 10-gil, Seongdong-gu, Seoul, South Korea<br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>",
+  "companyInfoAddressMobile": "216, 6, Wangsimni-ro 10-gil, Seongdong-gu, Seoul, South Korea<br/><br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>"
 }

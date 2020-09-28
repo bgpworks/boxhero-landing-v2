@@ -140,11 +140,10 @@
 }
 
 .customersTitle {
-  height: 48px;
-  font-size: var(--font-size-mobile-big1);
+  height: 58px;
+  font-size: var(--font-size-mobile-big2);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.33px;
+  letter-spacing: -0.42px;
   text-align: center;
 }
 
@@ -226,11 +225,13 @@ html[lang="ko"] .customersDetailButton {
 
 .customButtonContentNumber {
   height: 20px;
+  font-size: var(--font-size-mobile-small);
   font-weight: 300;
 }
 
 .customButtonContentTitle {
   height: 20px;
+  font-size: var(--font-size-mobile-small);
   font-weight: bold;
 }
 
@@ -240,7 +241,7 @@ html[lang="ko"] .customersDetailButton {
 
 .customButtonContentLink {
   height: 18px;
-  font-size: var(--font-size-mobile-small);
+  font-size: 12px;
   font-weight: bold;
   color: white;
   transition: color 0.3s;
@@ -266,10 +267,9 @@ html[lang="ko"] .customersDetailButton {
 
 .featuresTitle {
   width: 280px;
-  font-size: var(--font-size-mobile-big1);
+  font-size: var(--font-size-mobile-big2);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.33px;
+  letter-spacing: -0.42px;
   text-align: center;
 }
 

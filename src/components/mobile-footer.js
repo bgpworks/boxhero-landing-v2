@@ -125,15 +125,19 @@ const CompanyInfo = ({ t }) => (
     </div>
     <Padding y={10} />
     <div className={styles.companyInfoDetail}>
-      <Trans i18nKey="footer:companyInfoRegisterNo" />
+      <Trans i18nKey="footer:companyInfoRegisterNoMobile" />
       <br />
       <Trans
-        i18nKey="footer:companyInfoAddress"
+        i18nKey="footer:companyInfoAddressMobile"
         components={{
           // eslint-disable-next-line
-          tosLink: <a href={t("url:tos")} />,
+          tosLink: <a
+                     className={styles.tosPrivacyLink}
+                     href={t("url:tos")} />,
           // eslint-disable-next-line
-          privacyLink: <a href={t("url:privacy")} />,
+          privacyLink: <a
+                         className={styles.tosPrivacyLink}
+                         href={t("url:privacy")} />,
         }}
       />
     </div>

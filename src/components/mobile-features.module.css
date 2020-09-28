@@ -9,18 +9,18 @@
 .featureTemplateTitle {
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
-  line-height: 1.5;
+  letter-spacing: -0.54px;
   text-align: center;
   color: black;
 }
 
 .featureTemplateDesc {
-  line-height: 1.71;
   color: var(--color-font-darker);
+  letter-spacing: -0.16px;
 }
 
 html[lang="ko"] .featureTemplateDesc {
-  letter-spacing: -0.14px;
+  letter-spacing: -0.16px;
 }
 
 .featureTemplateStartNow {
@@ -47,18 +47,18 @@ html[lang="ko"] .featureTemplateDesc {
 }
 
 .demoTitle {
+  height: 20px;
   margin-left: 14px;
   font-size: var(--font-size-mobile-small);
-  line-height: 2.33;
+  letter-spacing: -0.16px;
   color: var(--color-font-primary);
 }
 
 .demoDesc {
   font-size: var(--font-size-mobile-small);
-  line-height: 1.67;
   color: var(--color-font-darker);
 }
 
 html[lang="ko"] .demoDesc {
-  letter-spacing: -0.13px;
+  letter-spacing: -0.16px;
 }

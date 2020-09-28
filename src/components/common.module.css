@@ -27,23 +27,21 @@
 }
 
 .mobileSimpleTopTitle {
-  height: 36px;
-  font-size: 24px;
+  height: 38px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.54px;
   text-align: center;
   color: black;
 }
 
 .mobileSimpleTopDesc {
-  line-height: 1.71;
   text-align: center;
   color: black;
 }
 
 html[lang="ko"] .mobileSimpleTopDesc {
-  letter-spacing: -0.14px;
+  letter-spacing: -0.16px;
 }
 
 .dropDownQNA {

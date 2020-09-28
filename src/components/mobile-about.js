@@ -87,11 +87,11 @@ const FeatureCard = ({img, title, content, link}) => (
         src={img}
         alt={title}
       />
-      <Padding y={10} />
+      <Padding y={8} />
       <div className={styles.featureCardTitle}>
         {title}
       </div>
-      <Padding y={10} />
+      <Padding y={8} />
       <div className={styles.featureCardContent}>
         {content}
       </div>
@@ -130,7 +130,7 @@ const OtherFeatures = ({data, t}) => (
       <div className={styles.featureTitle}>
         {t("about:otherFeaturesTitle")}
       </div>
-      <Padding y={20} />
+      <Padding y={30} />
       <div className={styles.featureDesc}>
         <Trans i18nKey="about:otherFeaturesDescMobile" />
       </div>
