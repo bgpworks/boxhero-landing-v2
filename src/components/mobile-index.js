@@ -137,11 +137,14 @@ const Customers = ({data, t, language}) => {
       img: data.mobileCustomerMart.childImageSharp.fixed,
       link: t("index:customerData1Link"),
     },
-    {
-      title: t("index:customerData2Title"),
-      img: data.mobileCustomerFasion.childImageSharp.fixed,
-      link: t("index:customerData2Link"),
-    },
+    // 영문 문서가 없어서 한글에서만 추가.
+    (language === "ko"
+     ? {
+       title: t("index:customerData2Title"),
+       img: data.mobileCustomerFasion.childImageSharp.fixed,
+       link: t("index:customerData2Link"),
+     }
+     : null),
     {
       title: t("index:customerData3Title"),
       img: data.mobileCustomerCosmetics.childImageSharp.fixed,
@@ -172,7 +175,7 @@ const Customers = ({data, t, language}) => {
       img: data.mobileCustomerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
     }
-  ];
+  ].filter(item => item);
   return (
     <div className={styles.customersContainer}>
       <Padding y={50} />

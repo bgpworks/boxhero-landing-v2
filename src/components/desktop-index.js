@@ -137,11 +137,14 @@ const Customers = ({data, t, language}) => {
       img: data.customerMart.childImageSharp.fixed,
       link: t("index:customerData1Link"),
     },
-    {
+    // 영문 문서가 없어서 한글에서만 추가.
+    (language === "ko"
+     ? {
       title: t("index:customerData2Title"),
       img: data.customerFasion.childImageSharp.fixed,
       link: t("index:customerData2Link"),
-    },
+     }
+     : null),
     {
       title: t("index:customerData3Title"),
       img: data.customerCosmetics.childImageSharp.fixed,
@@ -172,7 +175,7 @@ const Customers = ({data, t, language}) => {
       img: data.customerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
     }
-  ];
+  ].filter(item => item);
   return (
     <div className={styles.customersContainer}>
       <div className={styles.customersTitle}>
