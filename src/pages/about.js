@@ -16,6 +16,7 @@ const AboutPage = ({data}) => {
       <SEO
         lang={language}
         title={t("about:pageTitle")}
+        description={t("about:pageDescription")}
       />
       <Media at="xs">
         <MobileAbout

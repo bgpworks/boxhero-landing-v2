@@ -16,6 +16,7 @@ const IndexPage = ({data}) => {
       <SEO
         lang={language}
         title={t("index:pageTitle")}
+        description={t("index:pageDescription")}
       />
 
       <Media at="xs">

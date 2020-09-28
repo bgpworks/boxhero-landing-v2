@@ -16,6 +16,7 @@ export const PricingPage = ({data}) => {
       <SEO
         lang={language}
         title={t("pricing:pageTitle")}
+        description={t("pricing:pageDescription")}
       />
 
       <Media at="xs">

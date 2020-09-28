@@ -16,6 +16,7 @@ export const FeaturesPage = ({data}) => {
       <SEO
         lang={language}
         title={t("features:pageTitle")}
+        description={t("features:pageDescription")}
       />
 
       <Media at="xs">

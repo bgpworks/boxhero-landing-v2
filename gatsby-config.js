@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "박스히어로",
-    description: "박스히어로는 PC, 모바일에서 쉽게 사용할 수 있는 재고관리 플랫폼 입니다. 언제 어디서나 간편하게 재고관리를 해보세요.",
-    author: `@bgpworks`,
+    title: "BoxHero - The Simplest Inventory Management Solution",
+    description: "Stay on top of inventory management in real-time on your computer or mobile device.",
+    author: `@BoxHero_support`,
     keywords: `재고관리, 자산관리, 바코드, QR코드, RFID, 재고, 자산, 엑셀, 제품`,
     email: "support+boxhero@bgpworks.com",
     siteUrl: "https://www.boxhero-app.com",
