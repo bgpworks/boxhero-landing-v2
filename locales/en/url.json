@@ -1,9 +1,9 @@
 {
-  "doc": "https://docs-en.boxhero.io",
-  "faq": "https://docs-en.boxhero.io/docs/faq-signup",
-  "manual": "https://docs-en.boxhero.io/docs/manual",
+  "doc": "https://docs-en.boxhero-app.com",
+  "faq": "https://docs-en.boxhero-app.com/docs/faq-signup",
+  "manual": "https://docs-en.boxhero-app.com/docs/manual",
   "blog": "https://medium.com/boxhero",
-  "tos": "https://www.boxhero.io/en/tos/",
-  "privacy": "https://www.boxhero.io/en/privacy/",
-  "pricing": "https://docs-en.boxhero-app.com/docs/en-pricing"
+  "tos": "https://www.boxhero-app.com/en/tos/",
+  "privacy": "https://www.boxhero-app.com/en/privacy/",
+  "pricing": "https://docs-en.boxhero-app.com/docs/pricing"
 }
