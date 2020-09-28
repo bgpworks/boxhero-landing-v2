@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
 // js
 import MobileLayout from "../components/mobile-layout"
-import { Container320, Padding, WithCurrentSlide } from "../components/common";
+import { BG, Container320, Padding, WithCurrentSlide } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-index.module.css";
@@ -20,10 +19,9 @@ import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
 
 const Top = ({data, t}) => (
-  <BackgroundImage
-    Tag="div"
+  <BG
     className={styles.topContainer}
-    fluid={data.mobileHomeTopBg.childImageSharp.fluid}
+    bgName="bg1"
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.topContentContainer}>
@@ -46,7 +44,7 @@ const Top = ({data, t}) => (
         <Img fixed={data.mobileHomeTopRight.childImageSharp.fixed} />
       </div>
     </Container320>
-  </BackgroundImage>
+  </BG>
 );
 
 const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, detailUrl, image, linkDetail}) => (
@@ -111,10 +109,9 @@ KeyFeature.defaultProps = {
 };
 
 const TeamPlay = ({data, t}) => (
-  <BackgroundImage
-    Tag="section"
+  <BG
     className={styles.teamPlayContainer}
-    fluid={data.mobileHomeTeamPlayBg.childImageSharp.fluid}
+    bgName="bg2"
     backgroundColor="#6159F5"
   >
     <Padding y={50} />
@@ -129,7 +126,7 @@ const TeamPlay = ({data, t}) => (
     <Img
       fixed={data.mobileTeamPlay.childImageSharp.fixed}
     />
-  </BackgroundImage>
+  </BG>
 );
 
 const Customers = ({data, t, language}) => {

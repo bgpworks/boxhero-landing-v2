@@ -53,6 +53,19 @@ Padding.defaultProps= {
   y: 0,
 };
 
+
+export const BG = ({ className, children, bgName, backgroundColor }) => (
+  <div
+    className={`${className} ${bgName}`}
+    style={{
+      position: "relative",
+      backgroundColor: backgroundColor}}
+  >
+    {children}
+  </div>
+);
+
+
 export const SimpleTop = ({title, desc}) => (
   <div>
     <Padding y={100}/>

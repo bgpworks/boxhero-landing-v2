@@ -1,10 +1,9 @@
 import React from "react";
 import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
 import { Trans } from 'gatsby-plugin-react-i18next';
 // js
 import MobileLayout from "../components/mobile-layout"
-import { Container320, Padding } from "../components/common";
+import { BG, Container320, Padding } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-about.module.css";
@@ -23,10 +22,9 @@ import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
 
 const Top = ({data}) => (
-  <BackgroundImage
-    Tag="section"
+  <BG
     className={styles.topContainer}
-    fluid={data.topBg.childImageSharp.fluid}
+    bgName="bg2"
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.topContentContainer}>
@@ -37,7 +35,7 @@ const Top = ({data}) => (
       <Padding y={30} />
       <Img fixed={data.mobileTopLogo.childImageSharp.fixed} />
     </Container320>
-  </BackgroundImage>
+  </BG>
 );
 
 const StrongPoints = ({data}) => (
@@ -124,9 +122,8 @@ const FeatureRow = ({id, title, columns}) => (
 );
 
 const OtherFeatures = ({data, t}) => (
-  <BackgroundImage
-    Tag="div"
-    fluid={data.featureBg.childImageSharp.fluid}
+  <BG
+    bgName="bg3"
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.featureContentContainer}>
@@ -228,7 +225,7 @@ const OtherFeatures = ({data, t}) => (
         ]}
       />
     </Container320>
-  </BackgroundImage>
+  </BG>
 );
 
 const MobileAbout = ({ data, language, t }) => {

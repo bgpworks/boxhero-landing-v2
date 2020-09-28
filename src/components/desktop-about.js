@@ -3,8 +3,7 @@ import Img from "gatsby-image";
 import { Trans } from 'gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout";
-import { Container1024, Padding } from "../components/common";
-import BackgroundImage from "gatsby-background-image";
+import { BG, Container1024, Padding } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-about.module.css";
@@ -23,10 +22,10 @@ import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
 
 const Top = ({data}) => (
-  <BackgroundImage
+  <BG
     Tag="section"
     className={styles.topContainer}
-    fluid={data.topBg.childImageSharp.fluid}
+    bgName="bg2"
     backgroundColor="#6159F5"
   >
     <Container1024 className={styles.topContentContainer}>
@@ -38,7 +37,7 @@ const Top = ({data}) => (
         />
       </div>
     </Container1024>
-  </BackgroundImage>
+  </BG>
 );
 
 const StrongPoints = ({data}) => (
@@ -155,9 +154,8 @@ const FeatureRow = ({id, title, columns}) => (
 );
 
 const OtherFeatures = ({data, t}) => (
-  <BackgroundImage
-    Tag="div"
-    fluid={data.featureBg.childImageSharp.fluid}
+  <BG
+    bgName="bg3"
     backgroundColor="#6159F5"
   >
     <Container1024 className={styles.featureContentContainer}>
@@ -259,7 +257,7 @@ const OtherFeatures = ({data, t}) => (
         ]}
       />
     </Container1024>
-  </BackgroundImage>
+  </BG>
 );
 
 const DesktopAbout = ({data, language, t}) => (

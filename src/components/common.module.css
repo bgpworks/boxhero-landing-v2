@@ -192,3 +192,30 @@ html[lang="ko"] .mobileSimpleTopDesc {
   top: 14px;
   transform: rotate(-45deg);
 }
+
+
+
+.bg1 {
+  --color1: #109AFB;
+  --color2: #7F2EFC;
+  --color3: #5A5AF6;
+  --trans: rgba(0, 0,0,0);
+
+
+  background: radial-gradient(
+          var(--color1) 40%,
+          var(--trans) 60%
+        ) -620px -180px no-repeat,
+      radial-gradient(
+          var(--color3) 33%,
+          var(--trans) 67%
+        ) -120px -24px no-repeat,
+      radial-gradient(
+          var(--color2) 40%,
+          var(--trans) 70%
+        ) -470px 150px no-repeat,
+      var(--color1);
+
+  background-size: 800% 800%;    
+  animation: ani1 20s ease infinite;
+}

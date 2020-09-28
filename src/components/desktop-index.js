@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot } from 'pure-react-carousel';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout"
-import { Container1024, Padding, WithCurrentSlide } from "../components/common";
+import { BG, Container1024, Padding, WithCurrentSlide } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-index.module.css";
@@ -22,11 +21,10 @@ import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 
 const Top = ({data, t}) => (
-  <BackgroundImage
-    Tag="div"
+  <BG
     className={styles.topContainer}
-    fluid={data.homeTopBg.childImageSharp.fluid}
-    backgroundColor="#6159F5"
+    bgName="bg1"
+    backgroundColor="#5A5AF6"
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
@@ -51,7 +49,7 @@ const Top = ({data, t}) => (
         <Img fixed={data.homeTopRight.childImageSharp.fixed} />
       </div>
     </Container1024>
-  </BackgroundImage>
+  </BG>
 );
 
 const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, detailUrl, image, linkDetail}) => (
@@ -111,10 +109,9 @@ KeyFeature.defaultProps = {
 };
 
 const TeamPlay = ({data, t}) => (
-  <BackgroundImage
-    Tag="section"
+  <BG
     className={styles.teamPlayContainer}
-    fluid={data.homeTeamPlayBg.childImageSharp.fluid}
+    bgName="bg2"
     backgroundColor="#6159F5"
   >
     <div className={styles.teamPlayTitle}>
@@ -127,7 +124,7 @@ const TeamPlay = ({data, t}) => (
     <Img
       fixed={data.teamPlay.childImageSharp.fixed}
     />
-  </BackgroundImage>
+  </BG>
 );
 
 const Customers = ({data, t, language}) => {
