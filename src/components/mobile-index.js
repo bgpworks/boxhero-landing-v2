@@ -52,36 +52,38 @@ const Top = ({data, t}) => (
 const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, detailUrl, image, linkDetail}) => (
   <div className={isDarkBg ? styles.darkBg : ""}>
     <Container320 className={styles.keyFeatureContentContainer}>
-      <img
-        className={styles.keyFeatureIcon}
-        src={icon}
-        alt={iconAlt}
-      />
-      <Padding y={10} />
-      <div className={styles.keyFeatureTitle}>
-        {title}
-      </div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureDescription}>
-        {desc}
-      </div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureSubTitle}>
-        {subTitle}
-      </div>
-      <div className={styles.keyFeatureSubDesc}>
-        {subDesc}
-      </div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureDetail}>
-        <Link to={detailUrl}>
-          {linkDetail}
-          <img
-            src={svgSmallRightBlue}
-            className={styles.rightArrow}
-            alt={linkDetail}
-          />
-        </Link>
+      <div className={styles.px20}>
+        <img
+          className={styles.keyFeatureIcon}
+          src={icon}
+          alt={iconAlt}
+        />
+        <Padding y={10} />
+        <div className={styles.keyFeatureTitle}>
+          {title}
+        </div>
+        <Padding y={20} />
+        <div className={styles.keyFeatureDescription}>
+          {desc}
+        </div>
+        <Padding y={20} />
+        <div className={styles.keyFeatureSubTitle}>
+          {subTitle}
+        </div>
+        <div className={styles.keyFeatureSubDesc}>
+          {subDesc}
+        </div>
+        <Padding y={20} />
+        <div className={styles.keyFeatureDetail}>
+          <Link to={detailUrl}>
+            {linkDetail}
+            <img
+              src={svgSmallRightBlue}
+              className={styles.rightArrow}
+              alt={linkDetail}
+            />
+          </Link>
+        </div>
       </div>
       <Padding y={30} />
       <div>
