@@ -42,10 +42,10 @@ export default FeaturesPage;
 
 export const query = graphql`
   query($language: String!) {
-    topBg: file(relativePath: { eq: "about-top-bg.png" }) {
+    topBg: file(relativePath: { eq: "about-top-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

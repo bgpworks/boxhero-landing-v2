@@ -40,10 +40,10 @@ export default AboutPage;
 
 export const query = graphql`
   query($language: String!) {
-    topBg: file(relativePath: { eq: "about-top-bg.png" }) {
+    topBg: file(relativePath: { eq: "about-top-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -90,17 +90,17 @@ export const query = graphql`
         }
       }
     }
-    featureBg: file(relativePath: { eq: "about-feature-bg.png" }) {
+    featureBg: file(relativePath: { eq: "about-feature-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
-    mobileTopBg: file(relativePath: { eq: "about-top-bg.png" }) {
+    mobileTopBg: file(relativePath: { eq: "about-top-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 533, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 768, maxHeight: 533) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -147,10 +147,10 @@ export const query = graphql`
         }
       }
     }
-    mobileFeatureBg: file(relativePath: { eq: "about-feature-bg.png" }) {
+    mobileFeatureBg: file(relativePath: { eq: "about-feature-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 2142, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 768, maxHeight: 2142) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

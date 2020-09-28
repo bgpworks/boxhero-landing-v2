@@ -42,10 +42,10 @@ export default IndexPage;
 
 export const query = graphql`
   query($language: String!) {
-    homeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
+    homeTopBg: file(relativePath: { eq: "home-top-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -87,10 +87,10 @@ export const query = graphql`
         }
       }
     }
-    homeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.png" }) {
+    homeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -213,10 +213,10 @@ export const query = graphql`
         }
       }
     }
-    mobileHomeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
+    mobileHomeTopBg: file(relativePath: { eq: "home-top-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 653, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 768) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -258,10 +258,10 @@ export const query = graphql`
         }
       }
     }
-    mobileHomeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.png" }) {
+    mobileHomeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 513, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(maxWidth: 768, maxHeight: 513) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
