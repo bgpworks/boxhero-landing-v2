@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 // js
 import { Container320 } from "./common"
 import { urlStart } from "../components/constants";
@@ -12,7 +12,7 @@ import svgBiBlue from "../images/bi-blue.svg";
 
 export const MobileHeader = ({ isFloatMenu, curMenu }) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
-  const { t } = useTranslation();
+  const { language, changeLanguage, t } = useI18next();
   const [ isShow, onChangeIsShow ] = useState(false);
   const [ isScrolled, onChangeIsScrolled ] = useState(false);
 
@@ -76,10 +76,19 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
                </Link>
              </div>
 
-             <div className={styles.menuItem}>
+             <div className={`${styles.splitLine} ${styles.menuItem}`}>
                <a href={t("url:doc")}>
                  {t("header:menuDoc")}
                </a>
+             </div>
+
+             <div className={styles.langButtonContainer}>
+               <button
+                 className={styles.langButton}
+                 onClick={() => changeLanguage(language === "en" ? "ko" : "en")}
+               >
+                 {language === "en" ? "KOR" : "ENG"}
+               </button>
              </div>
 
              <div className={styles.startNowContainer}>

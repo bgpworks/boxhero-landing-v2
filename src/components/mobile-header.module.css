@@ -84,6 +84,22 @@ a.selected {
   width: 100px;
 }
 
+.langButtonContainer {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.langButton {
+  background-color: var(--color-light-gray);
+  font-size: var(--font-size-mobile-small);
+  color: black;
+  border-radius: 4px;
+  height: 28px;
+  width: 50px;
+}
+
 .startNowContainer {
   padding: 20px 0px 30px;
 }
