@@ -203,31 +203,30 @@ const FeatureLocation = (props) => (
   />
 );
 
-const MobileFeatures = ({ data, language, t }) => {
-  return (
-    <MobileLayout
-      isFloatMenu={false}
-      closingEmoji={data.mobileDinosaur}
-      closingMsg={t("features:closingMsg")}
-    >
-      <Container320 className={styles.px20}>
-        <MobileSimpleTop
-          title={t("features:topTitle")}
-          desc={<Trans i18nKey="features:topDescMobile" />}
-        />
-      </Container320>
+const MobileFeatures = ({ data, language, t }) => (
+  <MobileLayout
+    isFloatMenu={false}
+    curMenu="features"
+    closingEmoji={data.mobileDinosaur}
+    closingMsg={t("features:closingMsg")}
+  >
+    <Container320 className={styles.px20}>
+      <MobileSimpleTop
+        title={t("features:topTitle")}
+        desc={<Trans i18nKey="features:topDescMobile" />}
+      />
+    </Container320>
 
-      <Padding y={50}/>
+    <Padding y={50}/>
 
-      <FeatureExpiry data={data} />
-      <FeatureLowstock data={data} />
-      <FeatureBarcodelabel data={data} />
-      <FeatureSummary data={data} />
-      <FeatureStatus data={data} />
-      <FeatureLocation data={data} />
+    <FeatureExpiry data={data} />
+    <FeatureLowstock data={data} />
+    <FeatureBarcodelabel data={data} />
+    <FeatureSummary data={data} />
+    <FeatureStatus data={data} />
+    <FeatureLocation data={data} />
 
-    </MobileLayout>
-  );
-};
+  </MobileLayout>
+);
 
 export default MobileFeatures;

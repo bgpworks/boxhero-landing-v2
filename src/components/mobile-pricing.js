@@ -362,6 +362,7 @@ const MobilePricing = ({ data, language, t }) => {
   return (
     <MobileLayout
       isFloatMenu={false}
+      curMenu="pricing"
       closingEmoji={data.mobileBox}
       closingMsg={t("pricing:closingMsg")}
     >

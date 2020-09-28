@@ -235,6 +235,7 @@ const MobileAbout = ({ data, language, t }) => {
   return (
     <MobileLayout
       isFloatMenu={true}
+      curMenu="about"
       closingEmoji={data.mobileLight}
       closingMsg={t("about:closingMsg")}
     >

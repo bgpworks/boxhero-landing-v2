@@ -72,8 +72,8 @@
   color: inherit;
 }
 
-.selected {
-  font-weight: bold;
+a.selected {
+  color: var(--color-font-blue);
 }
 
 .biLogo {
