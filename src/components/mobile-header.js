@@ -33,23 +33,23 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
   return (
     <>
       <header className={`${styles.headerContainer} ${isWhite ? styles.whiteContainer : ""}`}>
-        <Container320 className={styles.menuContainer}>
-          <div className={styles.logoAndExpandCotainer}>
-            <Link to="/">
-              <img
-                src={isWhite ? svgBiBlue : svgBiWhite}
-                className={styles.biLogo}
-                alt="Home" />
-            </Link>
-            <div
-              className={`${styles.menuBtn} ${isShow ? styles.isOpen : ""}`}
-              onClick={() => onChangeIsShow(!isShow)}
-              role="presentation"
-            >
-              <div className={styles.menuBtnLine}></div>
-              <div className={styles.menuBtnLine}></div>
-            </div>
+        <div className={styles.logoAndExpandCotainer}>
+          <Link to="/">
+            <img
+              src={isWhite ? svgBiBlue : svgBiWhite}
+              className={styles.biLogo}
+              alt="Home" />
+          </Link>
+          <div
+            className={`${styles.menuBtn} ${isShow ? styles.isOpen : ""}`}
+            onClick={() => onChangeIsShow(!isShow)}
+            role="presentation"
+          >
+            <div className={styles.menuBtnLine}></div>
+            <div className={styles.menuBtnLine}></div>
           </div>
+        </div>
+        <Container320 className={styles.menuContainer}>
           {isShow &&
            <>
              <div className={`${styles.splitLine} ${styles.menuItem}`}>
