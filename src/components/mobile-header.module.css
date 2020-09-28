@@ -22,14 +22,19 @@
 
 .menuBtn {
   cursor: pointer;
+  padding: 10px 0px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 /* Styling the hamburger lines */
 .menuBtn .menuBtnLine {
   width: 20px;
   height: 2px;
-  margin: 0 0 4px 0;
   background: white;
+}
+
+.menuBtn .menuBtnLine:first-child {
+  margin-bottom: 4px;
 }
 
 .menuBtn,
