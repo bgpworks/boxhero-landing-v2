@@ -82,6 +82,7 @@ a.selected {
 
 .biLogo {
   width: 100px;
+  display: block;
 }
 
 .langButtonContainer {

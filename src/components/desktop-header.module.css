@@ -36,6 +36,7 @@
 
 .biLogo {
   width: 113px;
+  display: block;
 }
 
 .loginButton {
