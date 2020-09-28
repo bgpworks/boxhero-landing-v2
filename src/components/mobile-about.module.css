@@ -6,7 +6,7 @@
 
 .topTitleContainer {
   height: 108px;
-  font-size: 24px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.5px;
@@ -29,7 +29,7 @@
 }
 
 .title {
-  font-size: 24px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.5px;
@@ -43,7 +43,6 @@
 .desc {
   margin-top: 20px;
   padding: 0px 20px;
-  font-size: 14px;
   line-height: 1.71;
   letter-spacing: -0.14px;
   color: var(--color-font-primary);
@@ -61,7 +60,7 @@
 }
 
 .featureTitle {
-  font-size: 24px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.5px;
@@ -70,7 +69,6 @@
 }
 
 .featureDesc {
-  font-size: 14px;
   line-height: 1.71;
   letter-spacing: -0.14px;
   text-align: center;
@@ -83,8 +81,8 @@
 }
 
 .featureRowTitle {
-  height: 24px;
-  font-size: 16px;
+  height: var(--font-size-mobile-big3);
+  font-size: var(--font-size-mobile-big1);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.16px;
@@ -110,14 +108,14 @@
 }
 
 .featureCardTitle {
-  height: 16px;
-  font-size: 16px;
+  height: var(--font-size-mobile-big1);
+  font-size: var(--font-size-mobile-big1);
   font-weight: bold;
   line-height: 1;
   color: black;
 }
 
 .featureCardContent {
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   color: black;
 }

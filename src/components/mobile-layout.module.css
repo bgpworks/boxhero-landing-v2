@@ -1,5 +1,5 @@
 .mobileLayout {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .installButton {
@@ -11,7 +11,7 @@
   height: 54px;
   border-radius: 6px;
   background-color: black;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: white;
 

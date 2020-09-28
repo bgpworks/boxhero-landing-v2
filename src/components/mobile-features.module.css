@@ -7,7 +7,7 @@
 }
 
 .featureTemplateTitle {
-  font-size: 24px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
   text-align: center;
@@ -15,7 +15,6 @@
 }
 
 .featureTemplateDesc {
-  font-size: 14px;
   line-height: 1.71;
   color: var(--color-font-darker);
 }
@@ -29,7 +28,7 @@ html[lang="ko"] .featureTemplateDesc {
   border-radius: 6px;
   background-color: var(--color-font-blue);
   padding: 9px 30px;
-  font-size: 16px;
+  font-size: var(--font-size-mobile-big1);
   font-weight: bold;
   text-align: center;
   color: white;
@@ -49,13 +48,13 @@ html[lang="ko"] .featureTemplateDesc {
 
 .demoTitle {
   margin-left: 14px;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   line-height: 2.33;
   color: var(--color-font-primary);
 }
 
 .demoDesc {
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   line-height: 1.67;
   color: var(--color-font-darker);
 }

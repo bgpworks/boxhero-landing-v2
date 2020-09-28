@@ -19,15 +19,14 @@
 
 .topLeftTitle {
   height: 72px;
-  font-size: 24px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
   text-align: center;
 }
 
 .topLeftDescription {
-  padding: 0px 20px;
-  font-size: 14px;
+  padding: 0px;
   line-height: 1.71;
   text-align: center;
 }
@@ -58,7 +57,7 @@
 
 .keyFeatureTitle {
   height: 36px;
-  font-size: 24px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.5px;
@@ -69,26 +68,22 @@
 }
 
 .keyFeatureDescription {
-  font-size: 14px;
   line-height: 1.71;
   letter-spacing: -0.14px;
 }
 
 .keyFeatureSubTitle {
-  font-size: 14px;
   line-height: 1.71;
   letter-spacing: -0.14px;
   font-weight: bold;
 }
 
 .keyFeatureSubDesc {
-  font-size: 14px;
   line-height: 1.71;
   letter-spacing: -0.14px;
 }
 
 .keyFeatureDetail {
-  font-size: 14px;
   font-weight: bold;
   line-height: 1.71;
   letter-spacing: -0.14px;
@@ -121,14 +116,13 @@
 
 .teamPlayTitle {
   height: 36px;
-  font-size: 24px;
+  font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.5px;
 }
 
 .teamPlayDesc {
-  font-size: 14px;
   line-height: 1.71;
   letter-spacing: -0.14px;
   text-align: center;
@@ -147,7 +141,7 @@
 
 .customersTitle {
   height: 48px;
-  font-size: 16px;
+  font-size: var(--font-size-mobile-big1);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.33px;
@@ -176,7 +170,7 @@
   background-color: #50a4fa;
 
   color: white;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   font-weight: bold;
 
   display: flex;
@@ -232,13 +226,11 @@ html[lang="ko"] .customersDetailButton {
 
 .customButtonContentNumber {
   height: 20px;
-  font-size: 14px;
   font-weight: 300;
 }
 
 .customButtonContentTitle {
   height: 20px;
-  font-size: 14px;
   font-weight: bold;
 }
 
@@ -248,7 +240,7 @@ html[lang="ko"] .customersDetailButton {
 
 .customButtonContentLink {
   height: 18px;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: white;
   transition: color 0.3s;
@@ -274,7 +266,7 @@ html[lang="ko"] .customersDetailButton {
 
 .featuresTitle {
   width: 280px;
-  font-size: 16px;
+  font-size: var(--font-size-mobile-big1);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.33px;
@@ -296,7 +288,6 @@ html[lang="ko"] .customersDetailButton {
 .slideDetailLink {
   width: 92px;
   height: 24px;
-  font-size: 14px;
   font-weight: bold;
   line-height: 1.71;
   letter-spacing: -0.14px;
@@ -333,7 +324,7 @@ html[lang="ko"] .customersDetailButton {
 .slideDetailDot {
   padding: 9px 20px;
   border-radius: 22px;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   font-weight: bold;
   background-color: transparent;
   color: var(--color-font-darker);

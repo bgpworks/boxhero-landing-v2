@@ -13,7 +13,7 @@
 }
 
 .startNowDescription {
-  font-size: 16px;
+  font-size: var(--font-size-mobile-big1);
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.33px;
@@ -27,7 +27,7 @@
   composes: verticalCenter;
 
   background-color: #f7f9fc;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
 }
 
 .footerMenusAndInfoContentContainer {

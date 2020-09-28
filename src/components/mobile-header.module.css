@@ -6,7 +6,6 @@
   margin: 0;
   width: 100%;
   z-index: 100;
-  font-size: 13px;
   transition: all 0.1s ease-out;
 }
 
@@ -22,7 +21,7 @@
 
 .menuBtn {
   cursor: pointer;
-  padding: 10px 0px;
+  padding: 8px 2px;
   background-color: rgba(255, 255, 255, 0);
 }
 
@@ -82,7 +81,7 @@ a.selected {
 }
 
 .biLogo {
-  width: 75px;
+  width: 100px;
 }
 
 .startNowContainer {
@@ -94,14 +93,13 @@ a.selected {
   padding: 13px 0px;
   border-radius: 6px;
   background-color: var(--color-font-blue);
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: white;
 }
 
 .menuItem {
-  padding: 20px 0px;
-  font-size: 14px;
+  padding: 18px 0px;
   font-weight: bold;
   text-align: center;
   color: black;

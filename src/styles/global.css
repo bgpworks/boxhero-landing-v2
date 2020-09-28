@@ -8,7 +8,7 @@
   --color-ribbon-green: #3cb9a0;
   --height-top-menu: 79px;
   --color-carousel-dot: #50a4fa;
-  --height-mobile-top-menu: 44px;
+  --height-mobile-top-menu: 56px;
   --color-free-plan: rgba(245, 166, 35, 0.2);
   --color-biz-plan: rgba(80, 164, 250, 0.2);
   --color-feature-bg-orange: rgba(245, 166, 35, 0.2);
@@ -17,6 +17,12 @@
   --color-feature-bar-green: #3cb9a0;
   --color-feature-bg-blue: #f7f9fc;
   --color-feature-bar-blue: #50a4fa;
+  --font-size-mobile-small: 14px;
+  --font-size-mobile-big1: 18px;
+  --font-size-mobile-big2: 22px;
+  --font-size-mobile-big3: 26px;
+  --font-size-mobile-big4: 46px;
+
 }
 
 html {
