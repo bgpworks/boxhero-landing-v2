@@ -360,7 +360,7 @@ const MobileIndex = ({ data, language, t }) => {
     <MobileLayout
       isFloatMenu={true}
       closingEmoji={data.mobileCoffee}
-      closingMsg={<Trans i18nKey="index:closingMsg" />}
+      closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
     >
       <Top
         data={data}
@@ -372,7 +372,7 @@ const MobileIndex = ({ data, language, t }) => {
         iconAlt={t("index:keyFeature1IconAlt")}
         title={<Trans i18nKey="index:keyFeature1Title" />}
         desc={<Trans i18nKey="index:keyFeature1DescMobile" />}
-        subTitle={<Trans i18nKey="index:keyFeature1SubTitle"/>}
+        subTitle={<Trans i18nKey="index:keyFeature1SubTitleMobile"/>}
         subDesc={<Trans i18nKey="index:keyFeature1SubDescMobile" />}
         detailUrl={`/about/#${constants.idAboutFeatureAddProduct}`}
         image={data.mobileFeature1}

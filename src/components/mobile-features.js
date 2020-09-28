@@ -175,7 +175,7 @@ const FeatureStatus = (props) => (
       {
         icon: props.data.mobileStatusDemo2.childImageSharp.fixed,
         title: (<Trans i18nKey="features:statusDemo2Title"/>),
-        desc: (<Trans i18nKey="features:statusDemo2Desc" />),
+        desc: (<Trans i18nKey="features:statusDemo2DescMobile" />),
       },
     ]}
   />
