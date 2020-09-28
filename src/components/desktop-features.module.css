@@ -26,7 +26,8 @@
 }
 
 .featureTemplate {
-  padding: 120px 0px;
+  padding: 120px 0px 120px 20px;
+  overflow: hidden;
 }
 
 .featureTemplateTitle {
@@ -72,6 +73,7 @@ html[lang="ko"] .featureTemplateDesc {
 
 .featureTemplateTitleDescContainer {
   width: 497px;
+  flex-shrink: 0;
 }
 
 .halfContainer {

@@ -44,8 +44,7 @@ const Top = ({data}) => (
 const StrongPoints = ({data}) => (
   <div className={styles.strongPointContainer}>
     <Container1024 className={styles.section}>
-      <div
-        className={styles.left} >
+      <div className={`${styles.left47} ${styles.figContainer}`}>
         <Img
           fixed={data.easy.childImageSharp.fixed}
           style={{
@@ -55,8 +54,7 @@ const StrongPoints = ({data}) => (
           }}
         />
       </div>
-      <div
-        className={styles.right} >
+      <div>
         <Padding y={271} />
         <span className={styles.title}>
           <Trans i18nKey="about:strongPoint1Title" />
@@ -68,7 +66,7 @@ const StrongPoints = ({data}) => (
     </Container1024>
 
     <Container1024 className={styles.section}>
-      <div className={styles.left}>
+      <div className={`${styles.left48} ${styles.pl10}`}>
         <Padding y={253} />
         <span className={styles.title}>
           <Trans i18nKey="about:strongPoint2Title" />
@@ -77,7 +75,7 @@ const StrongPoints = ({data}) => (
           <Trans i18nKey="about:strongPoint2Desc" />
         </div>
       </div>
-      <div className={styles.right}>
+      <div className={`${styles.figContainer}`}>
         <Img
           fixed={data.great.childImageSharp.fixed}
           style={{
@@ -89,7 +87,7 @@ const StrongPoints = ({data}) => (
     </Container1024>
 
     <Container1024 className={styles.section}>
-      <div className={styles.left}>
+      <div className={`${styles.left46} ${styles.figContainer}`}>
         <Img
           fixed={data.mobile.childImageSharp.fixed}
           style={{
@@ -99,7 +97,7 @@ const StrongPoints = ({data}) => (
           }}
         />
       </div>
-      <div className={styles.right}>
+      <div>
         <Padding y={271} />
         <span className={styles.title}>
           <Trans i18nKey="about:strongPoint3Title" />

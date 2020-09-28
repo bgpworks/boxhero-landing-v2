@@ -16,6 +16,10 @@
   align-items: flex-end;
 }
 
+.topLeftContainer {
+  padding-left: 20px;
+}
+
 .topRightContainer {
   width: 100px;
   overflow: visible;
@@ -62,6 +66,7 @@
 }
 
 .keyFeatureLeftContainer {
+  padding-left: 20px;
   width: 526px;
   overflow: visible;
   white-space: nowrap;
@@ -346,6 +351,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0px 20px;
 }
 
 .slideDetailDot {

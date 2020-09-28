@@ -29,7 +29,7 @@ const Top = ({data, t}) => (
     backgroundColor="#6159F5"
   >
     <Container1024 className={styles.topContentContainer}>
-      <div>
+      <div className={styles.topLeftContainer}>
         <img src={svgVolt} alt={t("index:topIconAlt")} />
         <Padding y={10} />
         <div className={styles.topLeftTitle}>
