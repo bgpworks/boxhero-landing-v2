@@ -43,7 +43,7 @@ export const query = graphql`
   query($language: String!) {
     topBg: file(relativePath: { eq: "about-top-bg.png" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100) {
+        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

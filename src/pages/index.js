@@ -43,7 +43,7 @@ export const query = graphql`
   query($language: String!) {
     homeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100) {
+        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
@@ -51,7 +51,7 @@ export const query = graphql`
     homeTopRight: file(relativeDirectory: {eq: $language},
                        base: {eq: "home-top-right.png"}) {
       childImageSharp {
-        fixed(width: 934, webpQuality: 100,
+        fixed(width: 934, webpQuality: 100, quality: 100,
           traceSVG: {
             color: "#6159F5"
             optTolerance: 0.2,
@@ -65,7 +65,7 @@ export const query = graphql`
     feature1: file(relativeDirectory: {eq: $language},
                    base: { eq: "img-add.png" }) {
       childImageSharp {
-        fixed(width: 640, webpQuality: 100) {
+        fixed(width: 640, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -73,7 +73,7 @@ export const query = graphql`
     feature2: file(relativeDirectory: {eq: $language},
                    base: { eq: "img-scan.png" }) {
       childImageSharp {
-        fixed(width: 597, webpQuality: 100) {
+        fixed(width: 597, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -81,14 +81,14 @@ export const query = graphql`
     feature3: file(relativeDirectory: {eq: $language},
                    base: { eq: "img-grouping.png" }) {
       childImageSharp {
-        fixed(width: 624, webpQuality: 100) {
+        fixed(width: 624, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     homeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.png" }) {
       childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100) {
+        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
@@ -214,7 +214,7 @@ export const query = graphql`
     }
     mobileHomeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768, webpQuality: 100) {
+        fluid(maxWidth: 768, maxHeight: 653, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
@@ -222,7 +222,7 @@ export const query = graphql`
     mobileHomeTopRight: file(relativeDirectory: {eq: $language},
                              base: {eq: "home-top-right.png"}) {
       childImageSharp {
-        fixed(width: 467, webpQuality: 100,
+        fixed(width: 467, webpQuality: 100, quality: 100,
           traceSVG: {
             color: "#6159F5"
             optTolerance: 0.2,
@@ -236,7 +236,7 @@ export const query = graphql`
     mobileFeature1: file(relativeDirectory: {eq: $language},
                          base: { eq: "img-add.png" }) {
       childImageSharp {
-        fixed(width: 320, webpQuality: 100) {
+        fixed(width: 320, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -244,7 +244,7 @@ export const query = graphql`
     mobileFeature2: file(relativeDirectory: {eq: $language},
                          base: { eq: "img-scan.png" }) {
       childImageSharp {
-        fixed(width: 320, webpQuality: 100) {
+        fixed(width: 320, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -252,14 +252,14 @@ export const query = graphql`
     mobileFeature3: file(relativeDirectory: {eq: $language},
                          base: { eq: "img-grouping.png" }) {
       childImageSharp {
-        fixed(width: 320, webpQuality: 100) {
+        fixed(width: 320, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileHomeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768, webpQuality: 100) {
+        fluid(maxWidth: 768, maxHeight: 513, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

@@ -41,20 +41,6 @@ export default PricingPage;
 
 export const query = graphql`
   query {
-    topBg: file(relativePath: { eq: "about-top-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-    topLogo: file(relativePath: { eq: "about-top.png" }) {
-      childImageSharp {
-        fixed(width: 697) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
     box: file(relativePath: { eq: "emoji-box.png" }) {
       childImageSharp {
         fixed(width: 72, height: 72, fit: FILL) {
