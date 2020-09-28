@@ -5,11 +5,10 @@
 }
 
 .topTitleContainer {
-  height: 108px;
+  height: 114px;
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.54px;
   text-align: center;
   color: white;
 }
@@ -31,8 +30,7 @@
 .title {
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.54px;
   text-align: center;
 }
 
@@ -43,8 +41,7 @@
 .desc {
   margin-top: 20px;
   padding: 0px 20px;
-  line-height: 1.71;
-  letter-spacing: -0.14px;
+  letter-spacing: -0.16px;
   color: var(--color-font-primary);
 }
 
@@ -62,15 +59,13 @@
 .featureTitle {
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.54px;
   text-align: center;
   color: white;
 }
 
 .featureDesc {
-  line-height: 1.71;
-  letter-spacing: -0.14px;
+  letter-spacing: -0.16px;
   text-align: center;
   color: white;
 }
@@ -81,11 +76,10 @@
 }
 
 .featureRowTitle {
-  height: var(--font-size-mobile-big3);
+  height: 27px;
   font-size: var(--font-size-mobile-big1);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.16px;
+  letter-spacing: -0.18px;
   color: white;
 }
 
@@ -108,10 +102,9 @@
 }
 
 .featureCardTitle {
-  height: var(--font-size-mobile-big1);
+  height: 27px;
   font-size: var(--font-size-mobile-big1);
   font-weight: bold;
-  line-height: 1;
   color: black;
 }
 

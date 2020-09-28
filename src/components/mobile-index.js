@@ -303,7 +303,7 @@ const Features = ({data, t}) => {
       <div className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitleMobile" />
       </div>
-      <Padding y={30} />
+      <Padding y={32} />
 
       <ScrollContainer
         className={styles.slideDetailDotGroupContainer}
@@ -316,7 +316,7 @@ const Features = ({data, t}) => {
       />
       </ScrollContainer>
 
-      <Padding y={50} />
+      <Padding y={40} />
 
       <Slider className={styles.sliderWrapper}>
         {featureData.map((data, index) => (
