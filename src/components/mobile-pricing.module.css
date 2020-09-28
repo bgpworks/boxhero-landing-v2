@@ -73,7 +73,6 @@
 
 .planDesc {
   margin-top: 15px;
-  height: 58px;
   font-size: var(--font-size-mobile-big2);
   font-weight: bold;
   text-align: center;
@@ -187,7 +186,6 @@
 }
 
 .directContactDesc {
-  height: 48px;
   text-align: center;
   letter-spacing: -0.16px;
   color: var(--color-font-darker);
