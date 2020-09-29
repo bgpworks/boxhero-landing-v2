@@ -48,6 +48,7 @@ module.exports = {
         path: `${__dirname}/locales`,
         languages: [`en`, `ko`],
         defaultLanguage: `en`,
+        siteUrl: "https://www.boxhero-app.com",
 
         // you can pass any i18next options
         // pass following options to allow message content as a key
