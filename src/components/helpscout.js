@@ -21,6 +21,8 @@ export const useHelpscout = () => {
     // destroy / init이 semaphore처럼 동작해서, 무조건 destroy를 미리 불러도 안되고, 짝을 맞춰서 불러야 한다.
     return () => {
       if ("Beacon" in window) {
+        // 모바일에서 연 상태에서 뒤로가기 누르면, 문의하기 창의 잔재가 남아서 망가짐. 화면 이동시 무조건 닫아줌.
+        window.Beacon('close');
         window.Beacon('destroy');
       }
     };
