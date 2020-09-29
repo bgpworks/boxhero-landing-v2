@@ -8,9 +8,7 @@ import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";
 
-const bgOrange = styles.bgOrange;
-const bgGreen = styles.bgGreen;
-const bgBlue= styles.bgBlue;
+const { bgOrange, bgGreen, bgBlue } = styles;
 
 const DemoTemplate = ({icon, title, desc}) => (
   <div className={styles.demoTemplate}>
