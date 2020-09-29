@@ -34,7 +34,7 @@ const InstallButton = () => {
 };
 
 const MobileLayout = ({ isFloatMenu, curMenu, closingEmoji, closingMsg, children }) => (
-  <div className={styles.desktopLayout}>
+  <div className={styles.mobileLayout}>
     <MobileHeader
       isFloatMenu={isFloatMenu}
       curMenu={curMenu}
