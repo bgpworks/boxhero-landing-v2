@@ -22,14 +22,15 @@ const InstallButton = () => {
   );
 };
 
-const MobileLayout = ({ isFloatMenu, curMenu, closingEmoji, closingMsg, children }) => (
+const MobileLayout = ({ isFloatMenu, hideFloatAppInstallButton, curMenu, closingEmoji, closingMsg, children }) => (
   <div className={styles.mobileLayout}>
     <MobileHeader
       isFloatMenu={isFloatMenu}
       curMenu={curMenu}
     />
     <main>{children}</main>
-    <InstallButton />
+    {!hideFloatAppInstallButton &&
+     <InstallButton />}
     <MobileFooter
       closingEmoji={closingEmoji}
       closingMsg={closingMsg}
@@ -39,6 +40,7 @@ const MobileLayout = ({ isFloatMenu, curMenu, closingEmoji, closingMsg, children
 
 MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
+  hideFloatAppInstallButton: PropTypes.bool,
   curMenu: PropTypes.string,
   closingEmoji: PropTypes.object.isRequired,
   closingMsg: PropTypes.any.isRequired,

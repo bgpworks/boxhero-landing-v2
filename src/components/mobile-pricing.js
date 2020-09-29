@@ -366,6 +366,7 @@ const MobilePricing = ({ data, language, t }) => {
   return (
     <MobileLayout
       isFloatMenu={false}
+      hideFloatAppInstallButton={true}
       curMenu="pricing"
       closingEmoji={data.mobileBox}
       closingMsg={t("pricing:closingMsg")}
