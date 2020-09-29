@@ -69,11 +69,7 @@ const MobileFooterMenus = ({ language, languages, changeLanguage, t }) => (
       <div className={styles.footerMenuLabel}>
         <select
           className={styles.footerLangSelector}
-          onBlur={(e) => {
-            if (e.target.value !== "" && e.target.value !== language) {
-              changeLanguage(e.target.value);
-            }
-          }}
+          onBlur={(e) => {}}
           onChange={(e) => {
             if (e.target.value !== "" && e.target.value !== language) {
               changeLanguage(e.target.value);
