@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react"
-import PropTypes from "prop-types"
-import { Link, useI18next } from "gatsby-plugin-react-i18next"
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { Container320 } from "./common"
-import { urlStart } from "../components/constants"
+import { Container320 } from "./common";
+import { urlStart } from "../components/constants";
 // css
-import styles from "./mobile-header.module.css"
+import styles from "./mobile-header.module.css";
 // images
-import svgBiWhite from "../images/bi-white.svg"
-import svgBiBlue from "../images/bi-blue.svg"
-import { useCheckScrolled } from "../hooks/useCheckScrolled"
+import svgBiWhite from "../images/bi-white.svg";
+import svgBiBlue from "../images/bi-blue.svg";
+import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
 export const MobileHeader = ({ isFloatMenu, curMenu }) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
-  const { language, changeLanguage, t } = useI18next()
-  const [isShow, onChangeIsShow] = useState(false)
-  const { isScrolled } = useCheckScrolled()
+  const { language, changeLanguage, t } = useI18next();
+  const [isShow, onChangeIsShow] = useState(false);
+  const { isScrolled } = useCheckScrolled();
 
-  const isWhite = !isFloatMenu || isScrolled || isShow
+  const isWhite = !isFloatMenu || isScrolled || isShow;
   return (
     <>
       <div
@@ -102,15 +102,15 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
       </header>
       {!isFloatMenu && <div className={styles.headerPlaceholder}></div>}
     </>
-  )
-}
+  );
+};
 
 MobileHeader.propTypes = {
   isFloatMenu: PropTypes.bool,
-}
+};
 
 MobileHeader.defaultProps = {
   isFloatMenu: false,
-}
+};
 
-export default MobileHeader
+export default MobileHeader;
