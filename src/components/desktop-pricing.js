@@ -88,16 +88,20 @@ const PriceTable = ({data, language, t}) => {
               </div>
             </td>
             <td>
-              <button
-                className={styles.startButton}>
-                {t("pricing:startNowButton")}
-              </button>
+              <a href={constants.urlStart}>
+                <button
+                  className={styles.startButton}>
+                  {t("pricing:startNowButton")}
+                </button>
+              </a>
             </td>
             <td>
-              <button
-                className={styles.startButton}>
-                {t("pricing:startTrialButton")}
-              </button>
+              <a href={constants.urlStart}>
+                <button
+                  className={styles.startButton}>
+                  {t("pricing:startTrialButton")}
+                </button>
+              </a>
             </td>
           </tr>
 

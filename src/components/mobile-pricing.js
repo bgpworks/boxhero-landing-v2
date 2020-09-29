@@ -52,10 +52,12 @@ const PriceTable = ({data, language, t}) => {
           <Trans i18nKey="pricing:freePlanDesc"/>
         </div>
         <div>
-          <button
-            className={styles.startButton}>
-            {t("pricing:startNowButton")}
-          </button>
+          <a href={constants.urlDownloadApp}>
+            <button
+              className={styles.startButton}>
+              {t("pricing:startNowButton")}
+            </button>
+          </a>
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>
@@ -108,10 +110,12 @@ const PriceTable = ({data, language, t}) => {
           <Trans i18nKey="pricing:bizPlanDesc"/>
         </div>
         <div>
-          <button
-            className={styles.startButton}>
-            {t("pricing:startTrialButton")}
-          </button>
+          <a href={constants.urlDownloadApp}>
+            <button
+              className={styles.startButton}>
+              {t("pricing:startTrialButton")}
+            </button>
+          </a>
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>
