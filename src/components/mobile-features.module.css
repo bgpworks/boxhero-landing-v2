@@ -62,3 +62,15 @@ html[lang="ko"] .featureTemplateDesc {
 html[lang="ko"] .demoDesc {
   letter-spacing: -0.16px;
 }
+
+.bgOrange {
+  background-color: var(--color-feature-bg-orange);
+}
+
+.bgGreen {
+  background-color: var(--color-feature-bg-green);
+}
+
+.bgBlue {
+  background-color: var(--color-feature-bg-blue);
+}
