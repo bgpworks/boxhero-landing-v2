@@ -8,9 +8,7 @@ import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";
 
-const bgOrange = "var(--color-feature-bg-orange)";
-const bgGreen = "var(--color-feature-bg-green)";
-const bgBlue= "var(--color-feature-bg-blue)";
+const { bgOrange, bgGreen, bgBlue } = styles;
 
 const DemoTemplate = ({icon, title, desc}) => (
   <div className={styles.demoTemplate}>
@@ -34,8 +32,7 @@ function FeatureTemplate(props) {
   return (
     <div
       id={props.id}
-      className={styles.featureTemplate}
-      style={{backgroundColor: props.bgColor}}
+      className={[styles.featureTemplate, props.bgColor].join(" ")}
     >
       <Container320>
         <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>

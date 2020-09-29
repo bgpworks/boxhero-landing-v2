@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js

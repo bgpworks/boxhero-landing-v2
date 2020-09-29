@@ -15,12 +15,7 @@ import iconMenuSummary from "../images/features-menu-summary.svg";
 import iconMenuStatus from "../images/features-menu-status.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
 
-const bgOrange = "var(--color-feature-bg-orange)";
-const barOrange = "var(--color-feature-bar-orange)";
-const bgGreen = "var(--color-feature-bg-green)";
-const barGreen = "var(--color-feature-bar-green)";
-const bgBlue= "var(--color-feature-bg-blue)";
-const barBlue = "var(--color-feature-bar-blue)";
+const { bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue } = styles;
 
 const MenuItem = ({to, icon, label, title}) => (
   <Link
@@ -83,10 +78,7 @@ const Menu = ({t}) => (
 
 const DemoTemplate = ({barColor, icon, title, desc}) => (
   <div
-    className={styles.demoTemplate}
-    style={{
-      borderLeftColor: barColor,
-    }}
+    className={[styles.demoTemplate, barColor].join(" ")}
   >
     <div>
       <Img
@@ -108,8 +100,7 @@ function FeatureTemplate(props) {
   return (
     <div
       id={props.id}
-      className={styles.featureTemplate}
-      style={{backgroundColor: props.bgColor}}
+      className={[styles.featureTemplate, props.bgColor].join(" ")}
     >
       <Container1024>
         <div className={styles.featureTemplateDescFigContainer}>
