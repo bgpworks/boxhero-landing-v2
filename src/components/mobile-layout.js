@@ -7,22 +7,11 @@ import MobileFooter from "./mobile-footer";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-layout.module.css";
+import { useCheckScrolled } from '../hooks/useCheckScrolled'
 
 const InstallButton = () => {
-  const [ isScrolled, onChangeIsScrolled ] = useState(false);
+  const { isScrolled } = useCheckScrolled();
 
-  useEffect(() => {
-    const onScroll = () => {
-      const scrolled = (window.scrollY || window.pageYOffset);
-      if (isScrolled !== scrolled) {
-        onChangeIsScrolled(scrolled);
-      }
-    }
-    window.addEventListener("scroll", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  });
   return (
     <a
       href={constants.urlDownloadApp}>
