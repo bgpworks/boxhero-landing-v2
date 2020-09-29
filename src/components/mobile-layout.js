@@ -13,7 +13,7 @@ const InstallButton = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      const scrolled = window.scrollY > 80;
+      const scrolled = (window.scrollY || window.pageYOffset);
       if (isScrolled !== scrolled) {
         onChangeIsScrolled(scrolled);
       }
