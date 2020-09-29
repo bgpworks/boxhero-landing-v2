@@ -18,7 +18,7 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
 
   useEffect(() => {
     const onScroll = () => {
-      const scrolled = window.scrollY > 80;
+      const scrolled = (window.scrollY || window.pageYOffset) > 80;
       if (isScrolled !== scrolled) {
         onChangeIsScrolled(scrolled);
       }
