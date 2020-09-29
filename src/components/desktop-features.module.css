@@ -115,3 +115,27 @@ html[lang="ko"] .featureTemplateDesc {
   letter-spacing: -0.18px;
   color: var(--color-font-darker);
 }
+
+.bgOrange {
+  background-color: var(--color-feature-bg-orange);
+}
+
+.bgGreen {
+  background-color: var(--color-feature-bg-green);
+}
+
+.bgBlue {
+  background-color: var(--color-feature-bg-blue);
+}
+
+.barGreen {
+  border-left-color: var(--color-feature-bar-green);
+}
+
+.barOrange {
+  border-left-color: var(--color-feature-bar-orange);
+}
+
+.barBlue {
+  border-left-color: var(--color-feature-bar-blue);
+}
