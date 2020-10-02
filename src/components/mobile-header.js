@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import { Link, useI18next } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import { Container320 } from "./common";
 import { urlStart } from "../components/constants";

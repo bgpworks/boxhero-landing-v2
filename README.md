@@ -52,12 +52,18 @@ styled-component는 취향이 아니어서 css module 사용.
 
 변수 공유는 css custom variable 기능을 활용해서 `src/styles/global.css` 에 정의하고, 각종 모듈에서 참조해서 씀.
 
+> ATTENTION! IE는 polyfill로 동작하기 때문에, inline-style에서 css 변수 참조를 하면 안된다.
+
 코드에서 참조해야할 일이 있으면 css module의 변수 기능을 쓸 수는 있는데, 기능이 약해서 쓰고 싶진 않음. (잘못된 참조를 해도 아무런 에러가 발생하지 않고, 참조할 때 뒤에 px 같은 단위를 붙일 수 없으며, 변수라는 걸 인식하기가 어려움.)
 
 ### TODO: Fade-in effect
 
 [Triple](https://triple.guide/intro/) 처럼 화면에 진입했을 떄 `fade-in`으로 나타나는 효과를 주고 싶다.
 [gatsby-plugin-scroll-reveal](https://www.gatsbyjs.com/plugins/gatsby-plugin-scroll-reveal/)를 적용해보면 될 듯.
+
+> ATTENTION! gatsby-plugin-scroll-reveal 모듈은 responsive 모듈과 호환이 안된다.
+  화면을 키웠다 줄이면 DOM이 새로 그려지는데,
+  interaction-observer에 등록이 안되는 듯 하다.
 
 [페이지간 전환 효과](https://www.gatsbyjs.com/docs/adding-page-transitions-with-plugin-transition-link/)도 있는 고려해보기.
 
@@ -66,6 +72,20 @@ styled-component는 취향이 아니어서 css module 사용.
 최대한 gatsby 구조에 맞춰서 `gatsby-ssr.js` 에서 injection하고, `gatsby-browser.js`에서 초기화 했다.
 
 예외로 helpscout은 언어별 분기가 필요하여 `src/components/helpscout.js` 파일에서 `useEffect` 훅을 써서 초기화 했다.
+
+### 언어 분기
+
+작업 속도를 부스트 하기 위해 gatsby-plugin-react-i18next 를 썼는데, 바꾸고 싶다.
+
+1. default language (/en) 페이지 생성이 안됨.
+2. incremental build에서 언어 json 파일 업데이트가 반영이 안될 때가 많다.
+3. 언어 파일 변경시 hot-reload가 안된다.
+
+일단 급한대로 1번만 수정해서 포크해서 사용하고 있다.
+
+[blog](https://itnext.io/techniques-approaches-for-multi-language-gatsby-apps-8ba13ff433c5)글과
+해당 [repo](https://github.com/3nvi/gatsby-intl/) 참조해서 갈아타면 좋겠다.
+
 
 #### Hl
 
@@ -80,13 +100,15 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-**[Vercel](https://vercel.com/)**:
-
-한국에서 가끔 접속이 안되는 문제가 발생해서 버림.
-
 ** [AWS Amplify](https://aws.amazon.com/amplify) **
 
-테스트로 여기 써보고 있음. 실수로 한국 리젼에 만듬. 관리 편의를 위해 N.virginia로 옮겨야함. global edge network 쓰는건지 확인 필요.
+여기 써보고 있음. redirect에 lambda function을 넣기가 쉽진 않다.
+
+(Aceept-language 헤더 기반으로 언어 분기를 위해서는 이게 필요하다.)
+
+기본 기능으로는 없고, S3 / cloudflare를 커스텀으로 쓰도록 전환한 후에
+
+cloudflare에 lambda@edge를 설정해야 하는데, 너무 복잡해짐.
 
 [가격](https://aws.amazon.com/amplify/pricing/?nc=sn&loc=3)
 
@@ -95,11 +117,16 @@ Bandwidth: $15 / 100GB served
 Build: $0.01 / minutes
 Hosting: $0.023 / GB / month
 
-** [Netlify](https://www.netlify.com)** 
+**[Vercel](https://vercel.com/)**:
 
-많이 쓰던데. [가격](https://www.netlify.com/pricing/)
+속도, 편의성, 가격 모든 면에서 좋음.
+다만 한국(?)에서 가끔 접속이 안되는 문제가 발생해서 버림.
+
+**[Netlify](https://www.netlify.com)**
+
+많이들 씀. 플러그인도 많고, 리다이렉션도 어느정도 자유롭다.  [가격](https://www.netlify.com/pricing/)
 
 Bandwith: 100GB/month 무료. 이후 $20/100GB
 Build: 300 minutes/month 무료. 이후 $7 / 500 minutes
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bgpworks/boxhero-landing-v2)
+속도가 느려서 아웃. (index page 200~800ms 나옴.)

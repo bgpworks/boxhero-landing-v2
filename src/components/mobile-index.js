@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { Link, Trans } from 'gatsby-plugin-react-i18next';
+import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
 // js

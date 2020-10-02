@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Link, useTranslation } from '@jbseo/gatsby-plugin-react-i18next';
 // js
 import { Container1024 } from "./common"
 import { urlStart } from "../components/constants";

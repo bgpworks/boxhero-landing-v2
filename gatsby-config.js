@@ -43,11 +43,12 @@ module.exports = {
     //   },
     // },
     {
-      resolve: `gatsby-plugin-react-i18next`,
+      resolve: `@jbseo/gatsby-plugin-react-i18next`,
       options: {
         path: `${__dirname}/locales`,
         languages: [`en`, `ko`],
         defaultLanguage: `en`,
+        generateDefaultLanguagePage: true,
         siteUrl: "https://www.boxhero-app.com",
 
         // you can pass any i18next options

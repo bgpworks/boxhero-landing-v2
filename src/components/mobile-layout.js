@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
 // js
 import MobileHeader from "./mobile-header";
 import MobileFooter from "./mobile-footer";

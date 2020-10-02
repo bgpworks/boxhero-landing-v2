@@ -1,6 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout";
 import { Container1024, Padding } from "../components/common";
