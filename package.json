@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "boxhero-landing-v2",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "BoxHero landing page. https://www.boxhero-app.com",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "jbseo <jbseo@bgpworks.com>",
   "dependencies": {
     "@artsy/fresnel": "1.2.2",
     "@jbseo/gatsby-plugin-react-i18next": "0.0.29",
@@ -41,15 +41,15 @@
     "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/bgpworks/boxhero-landing-v2"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/bgpworks/boxhero-landing-v2/issues"
   }
 }
