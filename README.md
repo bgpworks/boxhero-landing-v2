@@ -67,6 +67,14 @@ styled-component는 취향이 아니어서 css module 사용.
 
 [페이지간 전환 효과](https://www.gatsbyjs.com/docs/adding-page-transitions-with-plugin-transition-link/)도 있는 고려해보기.
 
+### smoothscroll
+
+[smoothscroll polyfill](https://github.com/freddydumont/gatsby-plugin-smoothscroll) 적용 후 features 페이지에서만 씀. 아래 css로 전역으로 적용할 수도 있는데, cross page anchor 링크일 경우에는 사용자 경험이 더 안좋아서 삭제. (목표 페이지로 이동 후 해당 페이지의 처음부터 쭉 스크롤이 되면서 모든 이미지 로딩이 발생하면서 버벅임.)
+
+```css
+html { scroll-behavior: smooth; }
+```
+
 ### 외부 서비스 연동 (Google Tag Manager, Yadex AppMatrica, Helpscout Beacon)
 
 최대한 gatsby 구조에 맞춰서 `gatsby-ssr.js` 에서 injection하고, `gatsby-browser.js`에서 초기화 했다.

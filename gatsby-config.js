@@ -117,6 +117,7 @@ module.exports = {
           });
         }
       }
-    }
+    },
+    `gatsby-plugin-smoothscroll`,
   ],
 }

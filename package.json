@@ -17,6 +17,7 @@
     "gatsby-plugin-scroll-reveal": "0.0.7",
     "gatsby-plugin-sharp": "^2.6.28",
     "gatsby-plugin-sitemap": "2.4.13",
+    "gatsby-plugin-smoothscroll": "1.2.0",
     "gatsby-source-filesystem": "^2.3.25",
     "gatsby-transformer-sharp": "^2.5.13",
     "i18next": "19.7.0",
