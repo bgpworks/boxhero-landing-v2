@@ -136,10 +136,32 @@
 .featureCard {
   width: 220px;
   height: 220px;
-  padding: 40px 20px 0px;
+  position: relative;
+}
+
+.featureCardBackground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   border-radius: 8px;
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
   background-color: white;
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
+  transition: 250ms cubic-bezier(0.4,0,0.2,1);
+  transition-property: transform;
+  overflow: hidden;
+}
+
+.featureCard:hover .featureCardBackground {
+  transform: scale(1.08197);
+}
+
+.featureCardContentContainer {
+  position: relative;
+  padding: 40px 20px 0px;
+  width: 100%;
+  height: 100%;
 }
 
 .featureIcon {
