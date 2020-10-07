@@ -52,10 +52,11 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 697,
           traceSVG: {
-            color: "#6159F5"
-            optTolerance: 0.2,
-            turdSize: 100,
-            turnPolicy: TURNPOLICY_MINORITY
+            turdSize: 1,
+            color: "#f0f0f31f",
+            threshold: 160,
+            alphaMax: 1,
+            turnPolicy: TURNPOLICY_MAJORITY
           }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
@@ -71,21 +72,42 @@ export const query = graphql`
     easy: file(relativeDirectory: {eq: $language},
                base: { eq: "img-easy.png" }) {
       childImageSharp {
-        fixed(width: 673) {
+        fixed(width: 673,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     great: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
-        fixed(width: 660) {
+        fixed(width: 660,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
-        fixed(width: 463) {
+        fixed(width: 463,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -109,10 +131,11 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 320,
           traceSVG: {
-            color: "#6159F5"
-            optTolerance: 0.2,
-            turdSize: 100,
-            turnPolicy: TURNPOLICY_MINORITY
+            turdSize: 1,
+            color: "#f0f0f31f",
+            threshold: 160,
+            alphaMax: 1,
+            turnPolicy: TURNPOLICY_MAJORITY
           }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
@@ -128,21 +151,42 @@ export const query = graphql`
     mobileEasy: file(relativeDirectory: {eq: $language},
                      base: { eq: "img-easy.png" }) {
       childImageSharp {
-        fixed(width: 300) {
+        fixed(width: 300,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileGreat: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
-        fixed(width: 300) {
+        fixed(width: 300,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileMobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
-        fixed(width: 300) {
+        fixed(width: 300,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }

@@ -50,23 +50,31 @@ export const query = graphql`
       }
     }
     homeTopRight: file(relativeDirectory: {eq: $language},
-                       base: {eq: "home-top-right.png"}) {
+      base: {eq: "home-top-right.png"}) {
       childImageSharp {
         fixed(width: 934, webpQuality: 100, quality: 100,
           traceSVG: {
-            color: "#6159F5"
-            optTolerance: 0.2,
-            turdSize: 100,
-            turnPolicy: TURNPOLICY_MINORITY
+            turdSize: 1,
+            color: "#f0f0f31f",
+            threshold: 160,
+            alphaMax: 1,
+            turnPolicy: TURNPOLICY_MAJORITY
           }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     feature1: file(relativeDirectory: {eq: $language},
-                   base: { eq: "img-add.png" }) {
+      base: { eq: "img-add.png" }) {
       childImageSharp {
-        fixed(width: 640, webpQuality: 100, quality: 100) {
+        fixed(width: 640, webpQuality: 100, quality: 100,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -74,7 +82,14 @@ export const query = graphql`
     feature2: file(relativeDirectory: {eq: $language},
                    base: { eq: "img-scan.png" }) {
       childImageSharp {
-        fixed(width: 597, webpQuality: 100, quality: 100) {
+        fixed(width: 597, webpQuality: 100, quality: 100,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160,
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -82,7 +97,14 @@ export const query = graphql`
     feature3: file(relativeDirectory: {eq: $language},
                    base: { eq: "img-grouping.png" }) {
       childImageSharp {
-        fixed(width: 624, webpQuality: 100, quality: 100) {
+        fixed(width: 624, webpQuality: 100, quality: 100,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -97,14 +119,22 @@ export const query = graphql`
     teamPlay: file(relativeDirectory: {eq: $language},
                    base: { eq: "img-team.png" }) {
       childImageSharp {
-        fixed(width: 819, height: 572, cropFocus: NORTH) {
-          ...GatsbyImageSharpFixed_withWebp
+        fixed(width: 819, height: 572, cropFocus: NORTH,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            color: "#f0f0f31f",
+            threshold: 160,
+            alphaMax: 1,
+          }) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     coffee: file(relativePath: { eq: "emoji-coffee.png" }) {
       childImageSharp {
-        fixed(width: 72, height: 72, fit: FILL) {
+        fixed(width: 72, height: 72, fit: FILL,
+          ) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
@@ -112,13 +142,20 @@ export const query = graphql`
     featureExpiry: file(relativeDirectory: {eq: $language},
                         base: { eq: "index-feature-expiry.png" }) {
       childImageSharp {
-        fixed(width: 495, height: 360, fit: FILL) {
+        fixed(width: 495, height: 360, fit: FILL,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            color: "#f0f0f3",
+            threshold: 160,
+            alphaMax: 1
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     featureLowstock: file(relativeDirectory: {eq: $language},
-                          base: { eq: "index-feature-lowstock.png" }) {
+      base: { eq: "index-feature-lowstock.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -126,7 +163,7 @@ export const query = graphql`
       }
     }
     featureBarcodelabel: file(relativeDirectory: {eq: $language},
-                              base: { eq: "index-feature-barcodelabel.png" }) {
+    base: { eq: "index-feature-barcodelabel.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -134,7 +171,7 @@ export const query = graphql`
       }
     }
     featureSummary: file(relativeDirectory: {eq: $language},
-                         base: { eq: "index-feature-summary.png" }) {
+    base: { eq: "index-feature-summary.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -142,7 +179,7 @@ export const query = graphql`
       }
     }
     featureStatus: file(relativeDirectory: {eq: $language},
-                        base: { eq: "index-feature-status.png" }) {
+    base: { eq: "index-feature-status.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -150,7 +187,7 @@ export const query = graphql`
       }
     }
     featureLocation: file(relativeDirectory: {eq: $language},
-                          base: { eq: "index-feature-location.png" }) {
+    base: { eq: "index-feature-location.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -159,56 +196,64 @@ export const query = graphql`
     }
     customerMart: file(relativePath: { eq: "customer-mart.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL,
+          traceSVG: { background: "#DCE1FF", color: "#c7c8d2" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     customerFasion: file(relativePath: { eq: "customer-fasion.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#DCEDFE" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     customerCosmetics: file(relativePath: { eq: "customer-cosmetics.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL
+          , traceSVG: { color: "#c7c8d2", background: "#E9E1FA" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     customerCafe: file(relativePath: { eq: "customer-cafe.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#D8F1EC" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     customerPharmacy: file(relativePath: { eq: "customer-pharmacy.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#DEDEE2" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     customerHandmade: file(relativePath: { eq: "customer-handmade.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL,
+          traceSVG: { background: "#DCE1FF", color: "#c7c8d2" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     customerLocation: file(relativePath: { eq: "customer-location.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#E9E1FA" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     customerTextbook: file(relativePath: { eq: "customer-textbook.png" }) {
       childImageSharp {
-        fixed(width: 220, height: 280, fit: FILL) {
+        fixed(width: 220, height: 280, fit: FILL,
+          traceSVG: { background: "#DCE1FF", color: "#DCEDFE" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -225,35 +270,57 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 467, webpQuality: 100, quality: 100,
           traceSVG: {
-            color: "#6159F5"
-            optTolerance: 0.2,
-            turdSize: 100,
-            turnPolicy: TURNPOLICY_MINORITY
+            turdSize: 1,
+            color: "#f0f0f31f",
+            threshold: 160,
+            alphaMax: 1,
+            turnPolicy: TURNPOLICY_MAJORITY
           }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileFeature1: file(relativeDirectory: {eq: $language},
-                         base: { eq: "img-add.png" }) {
+    base: { eq: "img-add.png" }) {
       childImageSharp {
-        fixed(width: 320, webpQuality: 100, quality: 100) {
+        fixed(width: 320, webpQuality: 100, quality: 100,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileFeature2: file(relativeDirectory: {eq: $language},
-                         base: { eq: "img-scan.png" }) {
+    base: { eq: "img-scan.png" }) {
       childImageSharp {
-        fixed(width: 320, webpQuality: 100, quality: 100) {
+        fixed(width: 320, webpQuality: 100, quality: 100,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileFeature3: file(relativeDirectory: {eq: $language},
-                         base: { eq: "img-grouping.png" }) {
+    base: { eq: "img-grouping.png" }) {
       childImageSharp {
-        fixed(width: 320, webpQuality: 100, quality: 100) {
+        fixed(width: 320, webpQuality: 100, quality: 100,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            alphaMax: 1,
+            color: "#f0f0f3",
+            threshold: 160
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
@@ -266,10 +333,17 @@ export const query = graphql`
       }
     }
     mobileTeamPlay: file(relativeDirectory: {eq: $language},
-                         base: { eq: "img-team.png" }) {
+    base: { eq: "img-team.png" }) {
       childImageSharp {
-        fixed(width: 410, height: 286, cropFocus: NORTH) {
-          ...GatsbyImageSharpFixed_withWebp
+        fixed(width: 410, height: 286, cropFocus: NORTH,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            color: "#f0f0f31f",
+            threshold: 160,
+            alphaMax: 1,
+          }) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
@@ -281,15 +355,22 @@ export const query = graphql`
       }
     }
     mobileFeatureExpiry: file(relativeDirectory: {eq: $language},
-                              base: { eq: "index-feature-expiry.png" }) {
+    base: { eq: "index-feature-expiry.png" }) {
       childImageSharp {
-        fixed(width: 280, height: 204, fit: FILL) {
+        fixed(width: 280, height: 204, fit: FILL,
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY,
+            turdSize: 1,
+            color: "#f0f0f3",
+            threshold: 160,
+            alphaMax: 1
+          }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileFeatureLowstock: file(relativeDirectory: {eq: $language},
-                                base: { eq: "index-feature-lowstock.png" }) {
+    base: { eq: "index-feature-lowstock.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -297,7 +378,7 @@ export const query = graphql`
       }
     }
     mobileFeatureBarcodelabel: file(relativeDirectory: {eq: $language},
-                                    base: { eq: "index-feature-barcodelabel.png" }) {
+    base: { eq: "index-feature-barcodelabel.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -305,7 +386,7 @@ export const query = graphql`
       }
     }
     mobileFeatureSummary: file(relativeDirectory: {eq: $language},
-                               base: { eq: "index-feature-summary.png" }) {
+    base: { eq: "index-feature-summary.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -313,7 +394,7 @@ export const query = graphql`
       }
     }
     mobileFeatureStatus: file(relativeDirectory: {eq: $language},
-                              base: { eq: "index-feature-status.png" }) {
+    base: { eq: "index-feature-status.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -321,7 +402,7 @@ export const query = graphql`
       }
     }
     mobileFeatureLocation: file(relativeDirectory: {eq: $language},
-                                base: { eq: "index-feature-location.png" }) {
+    base: { eq: "index-feature-location.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -330,56 +411,64 @@ export const query = graphql`
     }
     mobileCustomerMart: file(relativePath: { eq: "customer-mart.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { background: "#DCE1FF", color: "#c7c8d2" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileCustomerFasion: file(relativePath: { eq: "customer-fasion.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#DCEDFE" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileCustomerCosmetics: file(relativePath: { eq: "customer-cosmetics.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#E9E1FA" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileCustomerCafe: file(relativePath: { eq: "customer-cafe.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#D8F1EC" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileCustomerPharmacy: file(relativePath: { eq: "customer-pharmacy.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#DEDEE2" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileCustomerHandmade: file(relativePath: { eq: "customer-handmade.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { background: "#DCE1FF", color: "#c7c8d2" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileCustomerLocation: file(relativePath: { eq: "customer-location.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { color: "#c7c8d2", background: "#E9E1FA" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     mobileCustomerTextbook: file(relativePath: { eq: "customer-textbook.png" }) {
       childImageSharp {
-        fixed(width: 110, height: 140, fit: FILL) {
+        fixed(width: 110, height: 140, fit: FILL,
+          traceSVG: { background: "#DCE1FF", color: "#DCEDFE" }) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
