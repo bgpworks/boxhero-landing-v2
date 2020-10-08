@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout";
-import { Container1024, Padding, SimpleTop, DropDownQNA, Switch, Ribbon } from "../components/common";
+import { Container1024, Padding, SimpleTop, DropDownQNA, Switch, Ribbon, ExternalLinkWithQuery } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-pricing.module.css";
@@ -88,20 +88,20 @@ const PriceTable = ({data, language, t}) => {
               </div>
             </td>
             <td>
-              <a href={constants.urlStart}>
+              <ExternalLinkWithQuery href={constants.urlStart}>
                 <button
                   className={styles.startButton}>
                   {t("pricing:startNowButton")}
                 </button>
-              </a>
+              </ExternalLinkWithQuery>
             </td>
             <td>
-              <a href={constants.urlStart}>
+              <ExternalLinkWithQuery href={constants.urlStart}>
                 <button
                   className={styles.startButton}>
                   {t("pricing:startTrialButton")}
                 </button>
-              </a>
+              </ExternalLinkWithQuery>
             </td>
           </tr>
 
