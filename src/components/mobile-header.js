@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useI18next } from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import { Container320 } from "./common";
-import { urlStart, ExternalLinkWithQuery } from "../components/constants";
+import { Container320, ExternalLinkWithQuery } from "./common";
+import { urlStart } from "../components/constants";
 // css
 import styles from "./mobile-header.module.css";
 // images
