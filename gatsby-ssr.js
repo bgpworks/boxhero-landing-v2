@@ -81,7 +81,7 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
     dangerouslySetInnerHTML={{
       __html: `
         if (!wcs_add) var wcs_add={};
-        wcs_add["wa"] = "s_36b6f87205b3";
+        wcs_add["wa"] = "s_3c89ef22cf6";
         if (!_nasa) var _nasa={};
         wcs.inflow("boxhero-app.com");
         wcs_do(_nasa);
