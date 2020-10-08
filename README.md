@@ -67,6 +67,14 @@ styled-component는 취향이 아니어서 css module 사용.
 
 [페이지간 전환 효과](https://www.gatsbyjs.com/docs/adding-page-transitions-with-plugin-transition-link/)도 있는 고려해보기.
 
+### smoothscroll
+
+[smoothscroll polyfill](https://github.com/freddydumont/gatsby-plugin-smoothscroll) 적용 후 features 페이지에서만 씀. 아래 css로 전역으로 적용할 수도 있는데, cross page anchor 링크일 경우에는 사용자 경험이 더 안좋아서 삭제. (목표 페이지로 이동 후 해당 페이지의 처음부터 쭉 스크롤이 되면서 모든 이미지 로딩이 발생하면서 버벅임.)
+
+```css
+html { scroll-behavior: smooth; }
+```
+
 ### 외부 서비스 연동 (Google Tag Manager, Yadex AppMatrica, Helpscout Beacon)
 
 최대한 gatsby 구조에 맞춰서 `gatsby-ssr.js` 에서 injection하고, `gatsby-browser.js`에서 초기화 했다.
@@ -86,9 +94,36 @@ styled-component는 취향이 아니어서 css module 사용.
 [blog](https://itnext.io/techniques-approaches-for-multi-language-gatsby-apps-8ba13ff433c5)글과
 해당 [repo](https://github.com/3nvi/gatsby-intl/) 참조해서 갈아타면 좋겠다.
 
+#### IE 테스트
 
-#### Hl
+IE에서는 polyfill 문제로 dev build가 안보인다. 아래 처럼 prod빌드로 확인해야 함.
 
+**prod build:**
+```
+yarn build && yarn serve
+```
+
+IE에서 dev build를 동작하게 하려면 아래 코드를 생성해서 쓰면 된다. [issue](https://github.com/gatsbyjs/gatsby/issues/14502#issuecomment-498377468)
+
+**gatsby-node.js**
+```js
+exports.onCreateWebpackConfig = function onCreateWebpackConfig({ actions, stage, loaders }) {
+  if (stage === 'develop') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-hot-loader/,
+            use: [
+              loaders.js()
+            ]
+          }
+        ]
+      }
+    })
+  }
+}
+```
 
 ## 🎓 Learning Gatsby
 

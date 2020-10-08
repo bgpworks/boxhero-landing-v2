@@ -115,18 +115,21 @@ const FeatureCard = ({img, title, content, link}) => (
     href={link}
     title={title}>
     <div className={styles.featureCard}>
-      <img
-        className={styles.featureIcon}
-        src={img}
-        alt={title}
-      />
-      <Padding y={10} />
-      <div className={styles.featureCardTitle}>
-        {title}
-      </div>
-      <Padding y={15} />
-      <div className={styles.featureCardContent}>
-        {content}
+      <div className={styles.featureCardBackground}></div>
+      <div className={styles.featureCardContentContainer}>
+        <img
+          className={styles.featureIcon}
+          src={img}
+          alt={title}
+        />
+        <Padding y={10} />
+        <div className={styles.featureCardTitle}>
+          {title}
+        </div>
+        <Padding y={15} />
+        <div className={styles.featureCardContent}>
+          {content}
+        </div>
       </div>
     </div>
   </a>

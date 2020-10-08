@@ -101,11 +101,9 @@ module.exports = {
             const {siteUrl} = site.siteMetadata;
             const url = siteUrl + originalPath;
             const links = [
-              {lang: defaultLanguage, url},
               {lang: 'x-default', url}
             ];
             languages.forEach((lang) => {
-              if (lang === defaultLanguage) return;
               links.push({lang, url: `${siteUrl}/${lang}${originalPath}`});
             });
             return {
@@ -117,6 +115,7 @@ module.exports = {
           });
         }
       }
-    }
+    },
+    `gatsby-plugin-smoothscroll`,
   ],
 }

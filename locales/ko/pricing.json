@@ -39,7 +39,7 @@
   "extensionMember": "팀 멤버",
   "extensionMemberBiz": "최대 100명<br/><small>(추가 멤버 1인당 월 $5)</small>",
   "extensionProduct": "제품 등록",
-  "extensionProductBiz": "최대 50,000명<br/><small>(추가 제품 1,000개당 월 $10)</small>",
+  "extensionProductBiz": "최대 50,000개<br/><small>(추가 제품 1,000개당 월 $10)</small>",
   "extensionLocation": "위치 등록<br/><small>(위치모드 사용시)</small>",
   "extensionLocationBiz": "최대 100개<br/><small>(추가 위치 10개당 월 $10)</small>",
   "postscriptFree": "*팀원 초대와 제품을 100개 이상 등록하기 위해서는 비즈니스 플랜을 사용해야합니다.",

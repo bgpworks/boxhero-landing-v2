@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 // js
 import DesktopLayout from "../components/desktop-layout";
 import { Container1024, Padding, SimpleTop } from "../components/common";
@@ -21,7 +22,12 @@ const MenuItem = ({to, icon, label, title}) => (
   <Link
     to={`/features/${to}`}
     title={title}
-    className={styles.menuItem}>
+    className={styles.menuItem}
+    onClick={(evt) => {
+      evt.preventDefault();
+      scrollTo(to);
+    }}
+  >
     <div>
     <img
       src={icon}
