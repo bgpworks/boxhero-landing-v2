@@ -167,3 +167,32 @@ export const WithCurrentSlide = ({children}) => {
   }
   return "";
 };
+
+
+// query param을 유지하면서 a href를 사용한다.
+// 광고 트래킹을 위해 사용되며, 첫 진입시 query param을 붙여서 나간다.
+export class ExternalLinkWithQuery extends React.Component {
+  state = {
+    search: null
+  };
+
+  componentDidMount() {
+    this.setState({ search: localStorage.getItem('search_param') });
+  }
+
+  render() {
+    const href =
+      this.state.search == null
+        ? this.props.href
+        : this.props.href + this.state.search;
+
+    return (
+      <a
+        {...this.props}
+        href={href}
+      >
+        {this.props.children}
+      </a>
+    );
+  }
+}

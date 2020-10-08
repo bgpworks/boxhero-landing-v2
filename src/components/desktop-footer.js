@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { Link, Trans, useI18next } from '@jbseo/gatsby-plugin-react-i18next';
 // js
-import { Container1024 } from "./common";
+import { Container1024, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "../components/constants";
 import * as constants from "../components/constants";
 // css
@@ -20,12 +20,12 @@ const StartNow = ({emoji, message, t}) => (
     <div className={styles.startNowDescription}>
       {message}
     </div>
-    <a href={constants.urlStart}>
+    <ExternalLinkWithQuery href={constants.urlStart}>
       <button
         className={styles.startNowButton}>
         {t("footer:startNowButton")}
       </button>
-    </a>
+    </ExternalLinkWithQuery>
   </div>
 );
 

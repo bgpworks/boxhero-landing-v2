@@ -14,6 +14,15 @@ export const onClientEntry = () => {
     require("intersection-observer");
     console.log(`# IntersectionObserver is polyfilled!`);
   }
+
+  // query param을 local storage에 쓴다.
+  // 광고 트래킹을 위해 query param을 보관하고 외부로 나갈때 붙여서 나간다.
+  const search = window.location.search;
+  if(search) {
+    console.log("Search param", window.location.search)
+    localStorage.setItem('search_param', window.location.search);
+  }
+  
 }
 
 export const wrapRootElement = Boot;

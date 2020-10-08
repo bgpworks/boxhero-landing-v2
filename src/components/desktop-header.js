@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation } from '@jbseo/gatsby-plugin-react-i18next';
 // js
-import { Container1024 } from "./common"
+import { Container1024, ExternalLinkWithQuery } from "./common"
 import { urlStart } from "../components/constants";
 // css
 import styles from "./desktop-header.module.css";
@@ -47,11 +47,11 @@ export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
           {t("header:menuDoc")}
         </a>
 
-        <a href={urlStart}>
+        <ExternalLinkWithQuery href={urlStart}>
           <button className={styles.loginButton}>
             {t("header:menuLoginButton")}
           </button>
-        </a>
+        </ExternalLinkWithQuery>
       </Container1024>
     </header>
   );

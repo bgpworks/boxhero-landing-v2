@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useI18next } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import { Container320 } from "./common";
-import { urlStart } from "../components/constants";
+import { urlStart, ExternalLinkWithQuery } from "../components/constants";
 // css
 import styles from "./mobile-header.module.css";
 // images
@@ -90,11 +90,11 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
               </div>
 
               <div className={styles.startNowContainer}>
-                <a href={urlStart}>
+                <ExternalLinkWithQuery href={urlStart}>
                   <button className={styles.startNowButton}>
                     {t("header:menuLoginButton")}
                   </button>
-                </a>
+                </ExternalLinkWithQuery>
               </div>
             </>
           )}

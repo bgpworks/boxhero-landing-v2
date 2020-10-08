@@ -4,7 +4,7 @@ import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 // js
 import DesktopLayout from "../components/desktop-layout";
-import { Container1024, Padding, SimpleTop } from "../components/common";
+import { Container1024, Padding, SimpleTop, ExternalLinkWithQuery } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-features.module.css";
@@ -130,7 +130,7 @@ function FeatureTemplate(props) {
               {props.desc}
             </div>
             <Padding y={30}/>
-            <a
+            <ExternalLinkWithQuery
               href={constants.urlStart}
               data-sal="slide-up-10"
               data-sal-duration="500"
@@ -139,7 +139,7 @@ function FeatureTemplate(props) {
               <button className={styles.featureTemplateStartNow}>
                 <Trans i18nKey="features:startNowButton" />
               </button>
-            </a>
+            </ExternalLinkWithQuery>
           </div>
           <div
             className={styles.featureTemplateFigureContainer}

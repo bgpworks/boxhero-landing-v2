@@ -7,7 +7,7 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
 // js
 import DesktopLayout from "../components/desktop-layout"
-import { Container1024, Padding, WithCurrentSlide } from "../components/common";
+import { Container1024, Padding, WithCurrentSlide, ExternalLinkWithQuery } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-index.module.css";
@@ -40,11 +40,11 @@ const Top = ({data, t}) => (
           <Trans i18nKey="index:topDesc" />
         </div>
         <Padding y={30} />
-        <a href={constants.urlStart}>
+        <ExternalLinkWithQuery href={constants.urlStart}>
           <button className={styles.startNowButton}>
             {t("index:topStartNowButton")}
           </button>
-        </a>
+        </ExternalLinkWithQuery>
         <Padding y={161} />
       </div>
       <div className={styles.topRightContainer}>
