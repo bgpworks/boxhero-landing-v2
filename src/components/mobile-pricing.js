@@ -4,6 +4,7 @@ import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
 import MobileLayout from "../components/mobile-layout"
 import { Container320, Padding, MobileSimpleTop, DropDownQNA, Switch, Ribbon } from "../components/common";
 import * as constants from "../components/constants";
+import {AppDownloadLink} from "../components/common";
 // css
 import styles from "./mobile-pricing.module.css";
 // img
@@ -52,12 +53,12 @@ const PriceTable = ({data, language, t}) => {
           <Trans i18nKey="pricing:freePlanDesc"/>
         </div>
         <div>
-          <a href={constants.urlDownloadApp}>
+          <AppDownloadLink>
             <button
               className={styles.startButton}>
               {t("pricing:startNowButton")}
             </button>
-          </a>
+          </AppDownloadLink>
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>
@@ -110,12 +111,12 @@ const PriceTable = ({data, language, t}) => {
           <Trans i18nKey="pricing:bizPlanDesc"/>
         </div>
         <div>
-          <a href={constants.urlDownloadApp}>
+          <AppDownloadLink>
             <button
               className={styles.startButton}>
               {t("pricing:startTrialButton")}
             </button>
-          </a>
+          </AppDownloadLink>
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>

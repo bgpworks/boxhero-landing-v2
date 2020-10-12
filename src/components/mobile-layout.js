@@ -4,7 +4,7 @@ import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
 // js
 import MobileHeader from "./mobile-header";
 import MobileFooter from "./mobile-footer";
-import * as constants from "../components/constants";
+import {AppDownloadLink} from "../components/common";
 // css
 import styles from "./mobile-layout.module.css";
 import { useCheckScrolled } from '../hooks/useCheckScrolled'
@@ -13,12 +13,11 @@ const InstallButton = () => {
   const { isScrolled } = useCheckScrolled();
 
   return (
-    <a
-      href={constants.urlDownloadApp}>
+    <AppDownloadLink>
       <div className={`${styles.installButton} ${isScrolled ? styles.fixed : ""}`} >
         <Trans i18nKey="layout:appInstall" />
       </div>
-    </a>
+    </AppDownloadLink>
   );
 };
 
