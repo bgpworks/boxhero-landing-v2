@@ -30,7 +30,7 @@ function CommonTransition({
       data-sal-duration={duration}
       data-sal={direction}
       data-sal-delay={delay}
-      data-sal-easing={direction}
+      data-sal-easing="ease"
     >
       {item}
     </div>
