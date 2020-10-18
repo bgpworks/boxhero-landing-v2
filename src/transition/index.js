@@ -10,7 +10,7 @@ function CommonTransition({
   // 최상단으로 이동하므로 한번만 전달해도 된다.
   is_mobile = null,
   force_load = false,
-  options = { once: true, rootMargin: "0% 50%" },
+  options = { once: true },
 }) {
   const [state, setState] = React.useState({ mobile: true, forceLoad: "" })
   // 이미 활성화 된 sal의 options를 초기화 하기 위해 reset method를 사용하여 viewport 사이즈에 따라 옵션을 제공한다.
