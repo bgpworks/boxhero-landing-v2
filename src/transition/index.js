@@ -12,7 +12,7 @@ function CommonTransition({
   options = { once: true },
 }) {
   const [, setState] = React.useState(true)
-  console.log(1)
+
   // 이미 활성화 된 sal의 options를 초기화 하기 위해 reset method를 사용하여 viewport 사이즈에 따라 옵션을 제공한다.
   // sal의 options 인터페이스에 따라 options를 한번 더 호출하여 reset method 처럼 사용하기도 하고, 새로운 옵션을 추가하기도 한다.
   sal({
@@ -67,7 +67,30 @@ function TransitionImage({
   item, // 필수
   ...arg
 }) {
-  return CommonTransition({ direction: "slide-up-image", item: item, ...arg })
+  return CommonTransition({
+    direction: "slide-up-image",
+    duration: 1300,
+    item: item,
+    ...arg,
+  })
 }
 
-export { TransitionUp, TransitionLeft, TransitionRight, TransitionImage }
+// slide image transition
+function TransitionPiano({
+  item, // 필수
+  ...arg
+}) {
+  return CommonTransition({
+    direction: "slide-up-image-piano",
+    item: item,
+    ...arg,
+  })
+}
+
+export {
+  TransitionUp,
+  TransitionLeft,
+  TransitionRight,
+  TransitionImage,
+  TransitionPiano,
+}
