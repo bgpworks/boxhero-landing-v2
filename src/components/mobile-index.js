@@ -1,25 +1,33 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
-import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
-import ScrollContainer from 'react-indiana-drag-scroll';
-import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
+import React from "react"
+import PropTypes from "prop-types"
+import Img from "gatsby-image"
+import BackgroundImage from "gatsby-background-image"
+import { Link, Trans } from "@jbseo/gatsby-plugin-react-i18next"
+import ScrollContainer from "react-indiana-drag-scroll"
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  DotGroup,
+  Dot,
+} from "pure-react-carousel"
 // js
 import MobileLayout from "../components/mobile-layout"
-import { Container320, Padding, WithCurrentSlide } from "../components/common";
-import * as constants from "../components/constants";
+import { Container320, Padding, WithCurrentSlide } from "../components/common"
+import * as constants from "../components/constants"
 // css
-import styles from "./mobile-index.module.css";
+import styles from "./mobile-index.module.css"
 // img
-import svgVolt from "../images/volt.svg";
-import svgAddProduct from "../images/addproduct.svg";
-import svgCounting from "../images/counting.svg";
-import svgDashboard from "../images/dashboard.svg";
-import svgSmallRightBlue from "../images/smallright-blue.svg";
-import svgSmallRight from "../images/smallright.svg";
+import svgVolt from "../images/volt.svg"
+import svgAddProduct from "../images/addproduct.svg"
+import svgCounting from "../images/counting.svg"
+import svgDashboard from "../images/dashboard.svg"
+import svgSmallRightBlue from "../images/smallright-blue.svg"
+import svgSmallRight from "../images/smallright.svg"
+// page transition
+import { TransitionUp, TransitionImage, TransitionPiano } from "../transition"
 
-const Top = ({data, t}) => (
+const Top = ({ data, t }) => (
   <BackgroundImage
     Tag="div"
     className={styles.topContainer}
@@ -28,71 +36,91 @@ const Top = ({data, t}) => (
   >
     <Container320 className={styles.topContentContainer}>
       <Padding y={74} />
-      <img
-        className={styles.topIcon}
-        src={svgVolt}
-        alt={t("index:topIconAlt")}
+      <TransitionUp
+        item={
+          <img
+            className={styles.topIcon}
+            src={svgVolt}
+            alt={t("index:topIconAlt")}
+          />
+        }
       />
       <Padding y={10} />
       <div className={styles.topLeftTitle}>
-        <Trans i18nKey="index:topTitle" />
+        <TransitionUp item={<Trans i18nKey="index:topTitle" />} />
       </div>
       <Padding y={20} />
       <div className={styles.topLeftDescription}>
-        <Trans i18nKey="index:topDesc" />
+        <TransitionUp item={<Trans i18nKey="index:topDesc" />} />
       </div>
       <Padding y={30} />
       <div className={styles.topImageContainer}>
-        <Img fixed={data.mobileHomeTopRight.childImageSharp.fixed} />
+        <TransitionImage
+          item={<Img fixed={data.mobileHomeTopRight.childImageSharp.fixed} />}
+        />
       </div>
     </Container320>
   </BackgroundImage>
-);
+)
 
-const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, detailUrl, image, linkDetail}) => (
+const KeyFeature = ({
+  isDarkBg,
+  icon,
+  iconAlt,
+  title,
+  desc,
+  subTitle,
+  subDesc,
+  detailUrl,
+  image,
+  linkDetail,
+}) => (
   <div className={isDarkBg ? styles.darkBg : ""}>
     <Container320 className={styles.keyFeatureContentContainer}>
       <div className={styles.px20}>
-        <img
-          className={styles.keyFeatureIcon}
-          src={icon}
-          alt={iconAlt}
+        <TransitionUp
+          item={
+            <img className={styles.keyFeatureIcon} src={icon} alt={iconAlt} />
+          }
         />
         <Padding y={10} />
-        <div className={styles.keyFeatureTitle}>
-          {title}
-        </div>
+        <TransitionUp
+          item={<div className={styles.keyFeatureTitle}>{title}</div>}
+        />
         <Padding y={20} />
-        <div className={styles.keyFeatureDescription}>
-          {desc}
-        </div>
+        <TransitionUp
+          item={<div className={styles.keyFeatureDescription}>{desc}</div>}
+        />
         <Padding y={20} />
-        <div className={styles.keyFeatureSubTitle}>
-          {subTitle}
-        </div>
-        <div className={styles.keyFeatureSubDesc}>
-          {subDesc}
-        </div>
+        <TransitionUp
+          item={<div className={styles.keyFeatureSubTitle}>{subTitle}</div>}
+        />
+        <TransitionUp
+          item={<div className={styles.keyFeatureSubDesc}>{subDesc}</div>}
+        />
         <Padding y={20} />
         <div className={styles.keyFeatureDetail}>
-          <Link to={detailUrl}>
-            {linkDetail}
-            <img
-              src={svgSmallRightBlue}
-              className={styles.rightArrow}
-              alt={linkDetail}
-            />
-          </Link>
+          <TransitionUp
+            item={
+              <Link to={detailUrl}>
+                {linkDetail}
+                <img
+                  src={svgSmallRightBlue}
+                  className={styles.rightArrow}
+                  alt={linkDetail}
+                />
+              </Link>
+            }
+          />
         </div>
       </div>
       <Padding y={30} />
       <div>
-        <Img fixed={image.childImageSharp.fixed}
-        />
+        <TransitionImage item={<Img fixed={image.childImageSharp.fixed} />} />
       </div>
     </Container320>
   </div>
-);
+)
 
 KeyFeature.propTypes = {
   isDarkBg: PropTypes.bool,
@@ -104,13 +132,13 @@ KeyFeature.propTypes = {
   subDesc: PropTypes.node.isRequired,
   detailUrl: PropTypes.string.isRequired,
   image: PropTypes.object.isRequired,
-};
+}
 
 KeyFeature.defaultProps = {
   isDarkBg: false,
-};
+}
 
-const TeamPlay = ({data, t}) => (
+const TeamPlay = ({ data, t }) => (
   <BackgroundImage
     Tag="section"
     className={styles.teamPlayContainer}
@@ -118,21 +146,23 @@ const TeamPlay = ({data, t}) => (
     backgroundColor="#6159F5"
   >
     <Padding y={50} />
-    <div className={styles.teamPlayTitle}>
-      {t("index:teamPlayTitle")}
-    </div>
+    <TransitionUp
+      item={
+        <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
+      }
+    />
     <Padding y={20} />
     <Container320 className={styles.teamPlayDesc}>
-      <Trans i18nKey="index:teamPlayDescMobile" />
+      <TransitionUp item={<Trans i18nKey="index:teamPlayDescMobile" />} />
     </Container320>
     <Padding y={29} />
-    <Img
-      fixed={data.mobileTeamPlay.childImageSharp.fixed}
+    <TransitionImage
+      item={<Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />}
     />
   </BackgroundImage>
-);
+)
 
-const Customers = ({data, t, language}) => {
+const Customers = ({ data, t, language }) => {
   const customerData = [
     {
       title: t("index:customerData1Title"),
@@ -140,13 +170,13 @@ const Customers = ({data, t, language}) => {
       link: t("index:customerData1Link"),
     },
     // 영문 문서가 없어서 한글에서만 추가.
-    (language === "ko"
-     ? {
-       title: t("index:customerData2Title"),
-       img: data.mobileCustomerFasion.childImageSharp.fixed,
-       link: t("index:customerData2Link"),
-     }
-     : null),
+    language === "ko"
+      ? {
+          title: t("index:customerData2Title"),
+          img: data.mobileCustomerFasion.childImageSharp.fixed,
+          link: t("index:customerData2Link"),
+        }
+      : null,
     {
       title: t("index:customerData3Title"),
       img: data.mobileCustomerCosmetics.childImageSharp.fixed,
@@ -176,29 +206,30 @@ const Customers = ({data, t, language}) => {
       title: t("index:customerData8Title"),
       img: data.mobileCustomerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
-    }
-  ].filter(item => item);
+    },
+  ].filter(item => item)
   return (
     <div className={styles.customersContainer}>
       <Padding y={50} />
       <div className={styles.customersTitle}>
-        <Trans i18nKey="index:customerTitle" />
+        <TransitionUp item={<Trans i18nKey="index:customerTitle" />} />
       </div>
       <Padding y={30} />
-      <Link
-        to="/features/"
-        title={t("index:customerDetailLink")}
-      >
-        <button className={styles.customersDetailButton}>
-          {t("index:customerDetailLink")}
-          <Padding x={5} />
-          <img
-            src={svgSmallRight}
-            className={styles.rightArrow}
-            alt={t("index:customerDataDetailLink")}
-          />
-        </button>
-      </Link>
+      <TransitionUp
+        item={
+          <Link to="/features/" title={t("index:customerDetailLink")}>
+            <button className={styles.customersDetailButton}>
+              {t("index:customerDetailLink")}
+              <Padding x={5} />
+              <img
+                src={svgSmallRight}
+                className={styles.rightArrow}
+                alt={t("index:customerDataDetailLink")}
+              />
+            </button>
+          </Link>
+        }
+      />
       <ScrollContainer
         className={styles.customersWrapper}
         vertical={false}
@@ -206,35 +237,38 @@ const Customers = ({data, t, language}) => {
         hideScrollbars={true}
       >
         {customerData.map((customer, index) => (
-          <div
-            key={index}
-            className={styles.customerButton}>
-            <div className={styles.customerButtonBackground}>
-              <Img
-                fixed={customer.img}
-              />
-            </div>
-            <div className={styles.customerButtonContent}>
-              <span className={styles.customButtonContentNumber}>
-                {("0" + (index + 1)).slice(-2)}
-              </span>
-              <span className={styles.customButtonContentTitle}>
-                {customer.title}
-              </span>
-              <span className={styles.customButtonContentPadding}></span>
-              <a
-                href={customer.link}
-                className={styles.customButtonContentLink}>
-                {t("index:customerDataDetailLink")}
-              </a>
-            </div>
-          </div>
+          <TransitionPiano
+            key={customer.title + index}
+            delay={100 * index}
+            item={
+              <div key={index} className={styles.customerButton}>
+                <div className={styles.customerButtonBackground}>
+                  <Img fixed={customer.img} />
+                </div>
+                <div className={styles.customerButtonContent}>
+                  <span className={styles.customButtonContentNumber}>
+                    {("0" + (index + 1)).slice(-2)}
+                  </span>
+                  <span className={styles.customButtonContentTitle}>
+                    {customer.title}
+                  </span>
+                  <span className={styles.customButtonContentPadding}></span>
+                  <a
+                    href={customer.link}
+                    className={styles.customButtonContentLink}
+                  >
+                    {t("index:customerDataDetailLink")}
+                  </a>
+                </div>
+              </div>
+            }
+          />
         ))}
         <Padding x={300} />
       </ScrollContainer>
     </div>
-  );
-};
+  )
+}
 
 function genFeatureData(data, t) {
   return [
@@ -268,31 +302,36 @@ function genFeatureData(data, t) {
       link: `/features/#${constants.idFeatureLocation}`,
       img: data.mobileFeatureLocation.childImageSharp.fixed,
     },
-  ];
+  ]
 }
 
-function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
-  const dots = [];
+function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
+  const dots = []
   for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < (currentSlide + visibleSlides);
-    const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
+    const multipleSelected =
+      i >= currentSlide && i < currentSlide + visibleSlides
+    const selected = multipleSelected
+    const slide =
+      i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i
     dots.push(
       <Dot
         key={i}
         slide={slide}
         selected={selected}
-        className={`${styles.slideDetailDot} ${selected ? styles.slideDetailDotSelected : ""}`}
+        style={{ left: `${-150 * currentSlide}px` }}
+        className={`${styles.slideDetailDot} ${
+          selected ? `${styles.slideDetailDotSelected}` : ""
+        }`}
       >
         {allData[slide].title}
-      </Dot>,
-    );
+      </Dot>
+    )
   }
-  return dots;
+  return dots
 }
 
-const Features = ({data, t}) => {
-  const featureData = genFeatureData(data, t);
+const Features = ({ data, t }) => {
+  const featureData = genFeatureData(data, t)
   return (
     <CarouselProvider
       className={styles.featuresContainer}
@@ -301,41 +340,30 @@ const Features = ({data, t}) => {
       totalSlides={featureData.length}
     >
       <div className={styles.featuresTitle}>
-        <Trans i18nKey="index:featuresTitleMobile" />
+        <TransitionUp item={<Trans i18nKey="index:featuresTitleMobile" />} />
       </div>
       <Padding y={32} />
 
-      <ScrollContainer
-        className={styles.slideDetailDotGroupContainer}
-        vertical={false}
-        horizontal={true}
-        hideScrollbars={true}>
-      <DotGroup
-        className={styles.slideDetailDotGroup}
-        renderDots={(props) => renderDots(featureData, props)}
-      />
-      </ScrollContainer>
+      <div className={styles.selectedItemWrap}>
+        <DotGroup
+          className={styles.slideDetailDotGroup}
+          renderDots={props => renderDots(featureData, props)}
+        />
+      </div>
 
       <Padding y={40} />
-
       <Slider className={styles.sliderWrapper}>
         {featureData.map((data, index) => (
-          <Slide
-            key={index}
-            index={index}>
-            <Img
-              fixed={data.img}
-              alt={data.title}
-            />
+          <Slide key={index} index={index}>
+            <Img fixed={data.img} alt={data.title} />
           </Slide>
         ))}
       </Slider>
 
       <Padding y={30} />
-
       <div className={styles.slideDetailLinkContainer}>
         <WithCurrentSlide>
-          { currentSlide => (
+          {currentSlide => (
             <Link
               to={featureData[currentSlide].link}
               title={featureData[currentSlide].title}
@@ -352,8 +380,8 @@ const Features = ({data, t}) => {
         </WithCurrentSlide>
       </div>
     </CarouselProvider>
-  );
-};
+  )
+}
 
 const MobileIndex = ({ data, language, t }) => {
   return (
@@ -362,17 +390,14 @@ const MobileIndex = ({ data, language, t }) => {
       closingEmoji={data.mobileCoffee}
       closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
     >
-      <Top
-        data={data}
-        t={t}
-      />
+      <Top data={data} t={t} />
 
       <KeyFeature
         icon={svgAddProduct}
         iconAlt={t("index:keyFeature1IconAlt")}
         title={<Trans i18nKey="index:keyFeature1Title" />}
         desc={<Trans i18nKey="index:keyFeature1DescMobile" />}
-        subTitle={<Trans i18nKey="index:keyFeature1SubTitleMobile"/>}
+        subTitle={<Trans i18nKey="index:keyFeature1SubTitleMobile" />}
         subDesc={<Trans i18nKey="index:keyFeature1SubDescMobile" />}
         detailUrl={`/about/#${constants.idAboutFeatureAddProduct}`}
         image={data.mobileFeature1}
@@ -395,7 +420,7 @@ const MobileIndex = ({ data, language, t }) => {
       <KeyFeature
         icon={svgDashboard}
         iconAlt={t("index:keyFeature3IconAlt")}
-        title={<Trans i18nKey="index:keyFeature3Title"/>}
+        title={<Trans i18nKey="index:keyFeature3Title" />}
         desc={<Trans i18nKey="index:keyFeature3Desc" />}
         subTitle={t("index:keyFeature3SubTitle")}
         subDesc={<Trans i18nKey="index:keyFeature3SubDescMobile" />}
@@ -404,21 +429,13 @@ const MobileIndex = ({ data, language, t }) => {
         linkDetail={t("index:keyFeatureLinkDetail")}
       />
 
-      <TeamPlay
-        data={data}
-        t={t} />
+      <TeamPlay data={data} t={t} />
 
-      <Customers
-        data={data}
-        t={t}
-        language={language}
-      />
+      <Customers data={data} t={t} language={language} />
 
-      <Features
-        data={data}
-        t={t} />
+      <TransitionImage item={<Features data={data} t={t} />} />
     </MobileLayout>
-  );
-};
+  )
+}
 
-export default MobileIndex;
+export default MobileIndex
