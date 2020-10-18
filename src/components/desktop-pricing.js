@@ -426,11 +426,6 @@ const DirectContact = ({ t }) => (
 )
 
 export const DesktopPricing = ({ data, language, t }) => {
-  // const [stateClass, setState] = React.useState("")
-  // let x = setTimeout(() => {
-  //   setState("sal-animate")
-  // }, 800)
-  // console.log(stateClass)
   return (
     <DesktopLayout
       isFloatMenu={false}
