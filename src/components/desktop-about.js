@@ -148,7 +148,9 @@ const FeatureCard = ({ img, title, content, link }) => (
 
 const FeatureRow = ({ id, title, columns }) => (
   <div id={id} className={styles.featureRow}>
-    <div className={styles.featureRowTitle}>{title}</div>
+    <TransitionUp
+      item={<div className={styles.featureRowTitle}>{title}</div>}
+    />
     <Padding y={32} />
     <div className={styles.featureContainer}>
       {columns.map((column, index) => (
