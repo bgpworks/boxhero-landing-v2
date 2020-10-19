@@ -157,7 +157,11 @@ const TeamPlay = ({ data, t }) => (
     </Container320>
     <Padding y={29} />
     <TransitionImage
-      item={<Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />}
+      item={
+        <div className={styles.teamImageFlex}>
+          <Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />
+        </div>
+      }
     />
   </BackgroundImage>
 )

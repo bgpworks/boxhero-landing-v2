@@ -166,7 +166,11 @@ const TeamPlay = ({ data, t }) => (
       <TransitionUp item={<Trans i18nKey="index:teamPlayDesc" />} />
     </div>
     <TransitionImage
-      item={<Img fixed={data.teamPlay.childImageSharp.fixed} />}
+      item={
+        <div className={styles.teamImageFlex}>
+          <Img fixed={data.teamPlay.childImageSharp.fixed} />
+        </div>
+      }
     />
   </BackgroundImage>
 )

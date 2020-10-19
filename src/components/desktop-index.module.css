@@ -156,6 +156,9 @@
     text-align: center;
 }
 
+.teamImageFlex {
+  display: flex;
+}
 
 /* Customers  */
 
