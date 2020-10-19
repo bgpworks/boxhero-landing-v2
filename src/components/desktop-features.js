@@ -305,7 +305,7 @@ export const DesktopFeatures = ({ data, language, t }) => (
     closingMsg={t("features:closingMsg")}
   >
     <TransitionUp
-    is_desktop = {true}
+      is_desktop={true}
       item={
         <SimpleTop
           title={t("features:topTitle")}

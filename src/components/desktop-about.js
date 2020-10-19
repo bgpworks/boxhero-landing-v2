@@ -37,7 +37,9 @@ const Top = ({ data }) => (
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
-        <TransitionUp item={<Trans i18nKey="about:topTitle" />} />
+        <TransitionUp
+        is_desktop= {true}
+        item={<Trans i18nKey="about:topTitle" />} />
       </div>
       <div className={styles.topRightContainer}>
         <TransitionImage
