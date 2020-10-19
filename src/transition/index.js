@@ -6,8 +6,6 @@ function CommonTransition({
   item,
   duration = "800",
   delay = "200",
-  // 스크린 사이즈가 767px이하로 줄어들거나 그 이상으로 커지면,
-  // 최상단으로 이동하므로 한번만 전달해도 된다.
   is_desktop = null,
   is_mobile = null,
   force_load = false,
