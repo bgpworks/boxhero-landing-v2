@@ -26,8 +26,6 @@ import {
   TransitionUp,
   TransitionImage,
   TransitionPiano,
-  TransitionRight,
-  TransitionLeft,
 } from "../transition"
 
 const Top = ({ data }) => (
@@ -54,14 +52,14 @@ const StrongPoints = ({ data }) => (
   <div className={styles.strongPointContainer}>
     <Container1024 className={styles.section}>
       <div className={`${styles.left47} ${styles.figContainer}`}>
-        <TransitionRight
+        <TransitionImage
           item={
             <Img
               fixed={data.easy.childImageSharp.fixed}
               style={{
-                position: "absolute",
+                position: "relative",
                 top: 152,
-                right: 67,
+                right: 219,
               }}
             />
           }
@@ -89,12 +87,12 @@ const StrongPoints = ({ data }) => (
         </div>
       </div>
       <div className={`${styles.left46} ${styles.figContainer}`}>
-        <TransitionLeft
+        <TransitionImage
           item={
             <Img
               fixed={data.great.childImageSharp.fixed}
               style={{
-                position: "absolute",
+                position: "relative",
                 top: 137,
               }}
             />
@@ -105,12 +103,12 @@ const StrongPoints = ({ data }) => (
 
     <Container1024 className={styles.section}>
       <div className={`${styles.left46} ${styles.figContainer}`}>
-        <TransitionRight
+        <TransitionImage
           item={
             <Img
               fixed={data.mobile.childImageSharp.fixed}
               style={{
-                position: "absolute",
+                position: "relative",
                 top: 190,
                 right: 109,
               }}
