@@ -34,7 +34,7 @@ const Top = ({ data }) => (
     <Container320 className={styles.topContentContainer}>
       <Padding y={94} />
       <div className={styles.topTitleContainer}>
-        <TransitionUp item={<Trans i18nKey="about:topTitleMobile" />} />
+        <TransitionUp is_mobile= {true} item={<Trans i18nKey="about:topTitleMobile" />} />
       </div>
       <Padding y={30} />
       <TransitionImage
