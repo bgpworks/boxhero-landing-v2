@@ -272,7 +272,10 @@ const FAQ = ({ t }) => {
         components: {
           // eslint-disable-next-line
           otherMethodLink: (
-            <a href="https://docs-ko.boxhero-app.com/docs/pricing#%EA%B5%AD%EB%82%B4-%EC%B9%B4%EB%93%9C-%EB%B0%8F-%EA%B3%84%EC%A2%8C%EC%9D%B4%EC%B2%B4-%EA%B2%B0%EC%A0%9C-%EB%B0%A9%EB%B2%95" > ""</a>
+            <a href="https://docs-ko.boxhero-app.com/docs/pricing#%EA%B5%AD%EB%82%B4-%EC%B9%B4%EB%93%9C-%EB%B0%8F-%EA%B3%84%EC%A2%8C%EC%9D%B4%EC%B2%B4-%EA%B2%B0%EC%A0%9C-%EB%B0%A9%EB%B2%95">
+              {" "}
+              ""
+            </a>
           ),
         },
       },
@@ -384,6 +387,7 @@ const MobilePricing = ({ data, language, t }) => {
       <Padding y={50} />
 
       <TransitionImage
+        is_mobile={true}
         force_load={true}
         item={<PriceTable data={data} language={language} t={t} />}
       />

@@ -221,6 +221,7 @@ const MobileFeatures = ({ data, language, t }) => (
   >
     <Container320 className={styles.px20}>
       <TransitionUp
+      is_mobile= {true}
         item={
           <MobileSimpleTop
             title={t("features:topTitle")}
