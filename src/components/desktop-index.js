@@ -46,6 +46,7 @@ const Top = ({ data, t }) => (
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
         <TransitionUp
+          is_desktop= {true}
           item={<img src={svgVolt} alt={t("index:topIconAlt")} />}
         />
         <Padding y={10} />
