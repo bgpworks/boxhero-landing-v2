@@ -63,13 +63,6 @@ function TransitionLeft({
   return CommonTransition({ direction: "slide-left", item: item, ...arg })
 }
 
-//slide right transition
-function TransitionRight({
-  item, // 필수
-  ...arg
-}) {
-  return CommonTransition({ direction: "slide-right", item: item, ...arg })
-}
 
 // slide image transition
 function TransitionImage({
@@ -99,7 +92,6 @@ function TransitionPiano({
 export {
   TransitionUp,
   TransitionLeft,
-  TransitionRight,
   TransitionImage,
   TransitionPiano,
 }
