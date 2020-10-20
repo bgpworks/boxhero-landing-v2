@@ -38,7 +38,6 @@ const Top = ({ data, t }) => (
       <Padding y={74} />
       <TransitionUp
       is_mobile = {true}
-      duration= {"1"}
         item={
           <img
             className={styles.topIcon}
