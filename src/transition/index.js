@@ -11,15 +11,21 @@ function CommonTransition({
   force_load = false,
 }) {
   const [state, setState] = React.useState({ forceLoad: "" })
-  const isIE = false || !!document.documentMode;
+
   React.useEffect(() => {
     let timer
-    // 이미 활성화 된 sal의 options를 초기화 하기 위해 reset method를 사용하여 viewport 사이즈에 따라 옵션을 제공한다.
-    // sal의 options 인터페이스에 따라 options를 한번 더 호출하여 reset method 처럼 사용하기도 하고, 새로운 옵션을 추가하기도 한다.
-    const salOptions = () =>
-      sal({
-        options: { once: true },
-      })
+
+    const salOptions = () => {
+      const isIE = false || !!document.documentMode
+      isIE
+        ? // 브라우저 체크하여 IE인 경우 플러그인을 disable시킨다.
+          sal().disable()
+        : // 이미 활성화 된 sal의 options를 초기화 하기 위해 reset method를 사용하여 viewport 사이즈에 따라 옵션을 제공한다.
+          // sal의 options 인터페이스에 따라 options를 한번 더 호출하여 reset method 처럼 사용하기도 하고, 새로운 옵션을 추가하기도 한다.
+          sal({
+            options: { once: true },
+          })
+    }
 
     // is_desktop && is_mobile의 인자가 바뀌면 옵션을 재 할당한다.,
     // sal의 옵션을 할당하면 다시 sal이 관찰을 시작한다.
@@ -41,9 +47,8 @@ function CommonTransition({
       clearTimeout(timer)
     }
   }, [force_load, is_desktop, is_mobile, state])
-  return isIE
-  ? <>{item}</>
-  : (
+
+  return (
     <div
       className={state.forceLoad}
       data-sal-duration={duration}
