@@ -9,16 +9,20 @@ import styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
+import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
 export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
+  const [isShow, ] = React.useState(false);
+  const { isScrolled } = useCheckScrolled();
+  const isWhite = !isFloatMenu || isScrolled || isShow;
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useTranslation();
   return (
-    <header className={`${styles.headerContainer} ${isFloatMenu ? styles.floatContainer : ""}`}>
+    <header className={`${styles.headerContainer} ${isWhite ? styles.floatContainer : ""}`}>
       <Container1024 className={styles.menuContainer}>
         <Link to="/">
           <img
-            src={isFloatMenu ? svgBiWhite : svgBiBlue}
+           src={isWhite ? svgBiBlue : svgBiWhite}
             className={styles.biLogo}
             alt="Home" />
         </Link>
