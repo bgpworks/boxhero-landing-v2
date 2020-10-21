@@ -10,9 +10,10 @@ function CommonTransition({
   is_mobile = null,
   force_load = false,
 }) {
-  const [state, setState] = React.useState({ forceLoad: "" })
+  const [state, setState] = React.useState({ forceLoad: "" , disabled: "sal-disabled"})
   // 브라우저 체크
-  const isIE = false || !!document.documentMode
+  const notIe =
+    !(typeof document !== 'undefined' && !!document.documentMode);
   React.useEffect(() => {
     let timer
     const salOptions = () => {
@@ -36,7 +37,9 @@ function CommonTransition({
     }
     if (is_desktop || is_mobile) {
       salOptions()
+      setState({...state, disabled : notIe? "" : "sal-disabled"})
     }
+
 
     return () => {
       // setTimeout으로 발생하는 메모리 누수를 component가 unmounted될때 cleartimeout을 써서 해결
@@ -44,11 +47,9 @@ function CommonTransition({
     }
   }, [force_load, is_desktop, is_mobile, state])
   // 브라우저를 체크하여 IE일때는 plugin을 disabled시킨다.
-  return isIE ? (
-    <>{item}</>
-  ) : (
+  return (
     <div
-      className={state.forceLoad}
+      className={`${state.forceLoad} ${state.disabled}`}
       data-sal-duration={duration}
       data-sal={direction}
       data-sal-delay={delay}
