@@ -332,3 +332,7 @@ h1 {
 [data-sal=slide-up-image-piano] {
     transform: translateY(20%)
 }
+.sal-disabled {
+  transform: none;
+  opacity: 1;
+}
