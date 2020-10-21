@@ -12,8 +12,8 @@ function CommonTransition({
 }) {
   const [state, setState] = React.useState({ forceLoad: "" , disabled: "sal-disabled"})
   // 브라우저 체크
-  const notIe =
-    !(typeof document !== 'undefined' && !!document.documentMode);
+  // const notIe =
+  //   !(typeof document !== 'undefined' && !!document.documentMode);
   React.useEffect(() => {
     let timer
     const salOptions = () => {
@@ -37,7 +37,7 @@ function CommonTransition({
     }
     if (is_desktop || is_mobile) {
       salOptions()
-      setState({...state, disabled : notIe? "" : "sal-disabled"})
+      // setState({...state, disabled : (notIe? "" : "sal-disabled")})
     }
 
 
@@ -49,7 +49,7 @@ function CommonTransition({
   // 브라우저를 체크하여 IE일때는 plugin을 disabled시킨다.
   return (
     <div
-      className={`${state.forceLoad} ${state.disabled}`}
+      className={`${state.forceLoad}`}
       data-sal-duration={duration}
       data-sal={direction}
       data-sal-delay={delay}
