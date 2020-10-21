@@ -268,6 +268,7 @@ const Customers = ({ data, t, language }) => {
                   <span className={styles.customButtonContentPadding}></span>
                   <a
                     href={customer.link}
+                    target="_blank"
                     className={styles.customButtonContentLink}
                   >
                     {t("index:customerDataDetailLink")}
