@@ -269,6 +269,7 @@ const Customers = ({ data, t, language }) => {
                   <a
                     href={customer.link}
                     target="_blank"
+                    rel="noreferrer"
                     className={styles.customButtonContentLink}
                   >
                     {t("index:customerDataDetailLink")}
