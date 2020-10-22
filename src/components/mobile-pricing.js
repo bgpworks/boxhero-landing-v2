@@ -63,7 +63,6 @@ const PriceTable = ({ data, language, t }) => {
             </button>
           </AppDownloadLink>
         </div>
-        {/* */}
         <div className={styles.planDetailHeader}>
           {t("pricing:headerLimit")}
         </div>
@@ -116,7 +115,6 @@ const PriceTable = ({ data, language, t }) => {
             </button>
           </AppDownloadLink>
         </div>
-        {/* */}
         <div className={styles.planDetailHeader}>
           {t("pricing:headerLimit")}
         </div>
@@ -134,7 +132,6 @@ const PriceTable = ({ data, language, t }) => {
             }}
           />
         </div>
-        {/* */}
         <div className={styles.planDetailHeader}>{t("pricing:headerTeam")}</div>
         <div className={styles.planDetailItemBold}>
           <img src={svgCheck} alt="OK" />
@@ -152,7 +149,6 @@ const PriceTable = ({ data, language, t }) => {
           <img src={svgCheck} alt="OK" />
           {t("pricing:teamHistory")}
         </div>
-        {/* */}
         <div className={styles.planDetailHeader}>
           {t("pricing:headerExtension")}
         </div>
