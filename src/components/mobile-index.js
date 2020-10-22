@@ -37,7 +37,7 @@ const Top = ({ data, t }) => (
     <Container320 className={styles.topContentContainer}>
       <Padding y={74} />
       <TransitionUp
-      is_mobile = {true}
+        is_mobile={true}
         item={
           <img
             className={styles.topIcon}
@@ -259,6 +259,8 @@ const Customers = ({ data, t, language }) => {
                   </span>
                   <span className={styles.customButtonContentPadding}></span>
                   <a
+                    target="_blank"
+                    rel="noreferrer"
                     href={customer.link}
                     className={styles.customButtonContentLink}
                   >
@@ -342,7 +344,7 @@ const Features = ({ data, t }) => {
       className={styles.featuresContainer}
       naturalSlideWidth={280}
       naturalSlideHeight={204}
-      touchEnabled = {false}
+      touchEnabled={false}
       totalSlides={featureData.length}
     >
       <div className={styles.featuresTitle}>
