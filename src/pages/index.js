@@ -142,15 +142,8 @@ export const query = graphql`
     featureExpiry: file(relativeDirectory: {eq: $language},
                         base: { eq: "index-feature-expiry.png" }) {
       childImageSharp {
-        fixed(width: 495, height: 360, fit: FILL,
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY,
-            turdSize: 1,
-            color: "#f0f0f3",
-            threshold: 160,
-            alphaMax: 1
-          }) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -158,7 +151,7 @@ export const query = graphql`
       base: { eq: "index-feature-lowstock.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -166,7 +159,7 @@ export const query = graphql`
     base: { eq: "index-feature-barcodelabel.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -174,7 +167,7 @@ export const query = graphql`
     base: { eq: "index-feature-summary.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -182,7 +175,7 @@ export const query = graphql`
     base: { eq: "index-feature-status.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -190,7 +183,7 @@ export const query = graphql`
     base: { eq: "index-feature-location.png" }) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -357,15 +350,8 @@ export const query = graphql`
     mobileFeatureExpiry: file(relativeDirectory: {eq: $language},
     base: { eq: "index-feature-expiry.png" }) {
       childImageSharp {
-        fixed(width: 280, height: 204, fit: FILL,
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY,
-            turdSize: 1,
-            color: "#f0f0f3",
-            threshold: 160,
-            alphaMax: 1
-          }) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fixed(width: 280, height: 204, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -373,7 +359,7 @@ export const query = graphql`
     base: { eq: "index-feature-lowstock.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -381,7 +367,7 @@ export const query = graphql`
     base: { eq: "index-feature-barcodelabel.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -389,7 +375,7 @@ export const query = graphql`
     base: { eq: "index-feature-summary.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -397,7 +383,7 @@ export const query = graphql`
     base: { eq: "index-feature-status.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
@@ -405,7 +391,7 @@ export const query = graphql`
     base: { eq: "index-feature-location.png" }) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
