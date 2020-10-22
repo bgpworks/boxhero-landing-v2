@@ -52,7 +52,7 @@
 
 .floatContainer {
   position: fixed;
-  background-color: var(--color-bg-light);
+  background-color: #fff;
 }
 
 .floatContainer .menuContainer {
