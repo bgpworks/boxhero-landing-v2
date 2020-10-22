@@ -83,7 +83,10 @@
   outline: none;
   border: none;
   box-shadow: none;
+  padding: 0;
+  margin : 0;
   font-weight: bold;
+  text-align: left;
   font-size: var(--font-size-mobile-small);
   display: inline-block;
   padding-right: 30px;
