@@ -52,13 +52,13 @@
 
 .floatContainer {
   position: fixed;
-  background-color: #fff;
+  background-color: var(--color-bg-light);
 }
 
 .floatContainer .menuContainer {
-  color: #000;
+  color: var(--color-font-darker);
 }
 
 .floatContainer .loginButton {
-  border-color: #000;
+  border-color: var(--color-font-darker);
 }
