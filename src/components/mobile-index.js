@@ -342,6 +342,7 @@ const Features = ({ data, t }) => {
       className={styles.featuresContainer}
       naturalSlideWidth={280}
       naturalSlideHeight={204}
+      touchEnabled = {false}
       totalSlides={featureData.length}
     >
       <div className={styles.featuresTitle}>
