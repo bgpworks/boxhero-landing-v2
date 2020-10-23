@@ -4,7 +4,7 @@ import sal from "sal.js"
 function CommonTransition({
   direction,
   item,
-  duration = "1300",
+  duration = "800",
   delay = "0",
   is_desktop = null,
   is_mobile = null,
