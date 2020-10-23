@@ -21,6 +21,8 @@ import iconDashboard from "../images/feature-dashboard.svg";
 import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
+// page transition
+import { TransitionUp, TransitionImage } from "../transition"
 
 const Top = ({data}) => (
   <BackgroundImage
@@ -32,10 +34,18 @@ const Top = ({data}) => (
     <Container320 className={styles.topContentContainer}>
       <Padding y={94} />
       <div className={styles.topTitleContainer}>
-        <Trans i18nKey="about:topTitleMobile" />
+        <TransitionUp
+          is_mobile= {true}
+          item={
+          <Trans i18nKey="about:topTitleMobile" />
+        } />
       </div>
       <Padding y={30} />
-      <Img fixed={data.mobileTopLogo.childImageSharp.fixed} />
+      <TransitionImage
+        item={
+          <Img fixed={data.mobileTopLogo.childImageSharp.fixed} />
+        }
+      />
     </Container320>
   </BackgroundImage>
 );
@@ -44,36 +54,67 @@ const StrongPoints = ({data}) => (
   <Container320>
     <div className={styles.section}>
       <div className={styles.title}>
-        <Trans i18nKey="about:strongPoint1Title" />
+        <TransitionUp
+          item={
+            <Trans i18nKey="about:strongPoint1Title" />
+          } />
       </div>
       <div className={styles.desc}>
-        <Trans i18nKey="about:strongPoint1DescMobile" />
+        <TransitionUp
+          item={
+            <Trans i18nKey="about:strongPoint1DescMobile" />
+          } />
       </div>
       <div className={styles.logoContainer} >
-        <Img fixed={data.mobileEasy.childImageSharp.fixed} />
+        <TransitionImage
+          item={
+            <Img fixed={data.mobileEasy.childImageSharp.fixed} />
+          }
+        />
       </div>
     </div>
 
     <div className={styles.section}>
       <div className={styles.title}>
-          <Trans i18nKey="about:strongPoint2TitleMobile" />
+        <TransitionUp
+          item={
+            <Trans i18nKey="about:strongPoint2TitleMobile" />
+          }
+        />
       </div>
       <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint2DescMobile" />
+        <TransitionUp
+          item={
+            <Trans i18nKey="about:strongPoint2DescMobile" />
+          } />
       </div>
       <div className={styles.logoContainer}>
-        <Img fixed={data.mobileGreat.childImageSharp.fixed} />
+        <TransitionImage
+          item={
+            <Img fixed={data.mobileGreat.childImageSharp.fixed} />
+          }
+        />
       </div>
     </div>
     <div className={styles.section}>
       <div className={styles.title}>
-        <Trans i18nKey="about:strongPoint3Title" />
+        <TransitionUp
+          item={
+            <Trans i18nKey="about:strongPoint3Title" />
+            } />
       </div>
       <div className={styles.desc}>
-        <Trans i18nKey="about:strongPoint3DescMobile" />
+        <TransitionUp
+          item={
+            <Trans i18nKey="about:strongPoint3DescMobile" />
+            } />
       </div>
       <div className={styles.logoContainer}>
-        <Img fixed={data.mobileMobile.childImageSharp.fixed} />
+        <TransitionImage
+          item={
+            <Img fixed={data.mobileMobile.childImageSharp.fixed} />
+          }
+        />
       </div>
     </div>
   </Container320>
@@ -105,18 +146,27 @@ const FeatureRow = ({id, title, columns}) => (
   <div
     id={id}
     className={styles.featureRow}>
-    <div className={styles.featureRowTitle}>
-      {title}
-    </div>
+    <TransitionUp
+      item={
+        <div className={styles.featureRowTitle}>
+          {title}
+        </div>
+      }
+    />
     <Padding y={21} />
     <div className={styles.featureContainer}>
       {columns.map((column, index) => (
-        <FeatureCard
+        <TransitionUp
           key={index}
-          img={column.img}
-          title={column.title}
-          content={column.content}
-          link={column.link}
+          item={
+            <FeatureCard
+              key={index}
+              img={column.img}
+              title={column.title}
+              content={column.content}
+              link={column.link}
+            />
+          }
         />
       ))}
     </div>
@@ -130,12 +180,20 @@ const OtherFeatures = ({data, t}) => (
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.featureContentContainer}>
-      <div className={styles.featureTitle}>
-        {t("about:otherFeaturesTitle")}
-      </div>
+      <TransitionUp
+        item={
+          <div className={styles.featureTitle}>
+            {t("about:otherFeaturesTitle")}
+          </div>
+        }
+      />
       <Padding y={30} />
       <div className={styles.featureDesc}>
-        <Trans i18nKey="about:otherFeaturesDescMobile" />
+        <TransitionUp
+          item={
+            <Trans i18nKey="about:otherFeaturesDescMobile" />
+          }
+        />
       </div>
       <FeatureRow
         id={constants.idAboutFeatureAddProduct}

@@ -111,13 +111,13 @@ const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
       <div className={styles.footerMenuLabel}>
         Contact
       </div>
-      <div>
+      <div className={styles.footerContactSpacing}>
         {t("footer:footerMenuContactTel")}
       </div>
       <div>
         {t("footer:footerMenuContactEmail")}  <a href="mailto:support+boxhero@bgpworks.com">support+boxhero@bgpworks.com</a>
       </div>
-      <div>
+      <div className={styles.footerContactSpacing}>
         {t("footer:footerMenuContactBusiness")} <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </div>
       <div>

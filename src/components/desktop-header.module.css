@@ -3,17 +3,17 @@
   width: 100%;
   height: var(--height-top-menu);
   z-index: 100;
+  position: absolute;
 }
 
 .menuContainer {
   height: 100%;
   padding: 0px 20px;
-
+  color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: black;
   font-size: 14px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .loginButton {
-  border: solid 1px black;
+  border: solid 1px #fff;
   background: transparent;
   color: inherit;
 
@@ -49,14 +49,16 @@
 
 /* float container */
 
+
 .floatContainer {
-  position: absolute;
+  position: fixed;
+  background-color: #fff;
 }
 
 .floatContainer .menuContainer {
-  color: white;
+  color: var(--color-font-darker);
 }
 
 .floatContainer .loginButton {
-  border-color: white;
+  border-color: var(--color-font-darker);
 }
