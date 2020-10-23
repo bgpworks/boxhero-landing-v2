@@ -5,7 +5,7 @@ function CommonTransition({
   direction,
   item,
   duration = "1300",
-  delay = "200",
+  delay = "0",
   is_desktop = null,
   is_mobile = null,
   force_load = false,
