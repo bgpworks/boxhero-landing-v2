@@ -9,6 +9,7 @@ import styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
+import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
 export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
   const [isShow, ] = React.useState(false);

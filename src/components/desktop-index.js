@@ -20,6 +20,8 @@ import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
+// page transition
+import { TransitionUp, TransitionImage, TransitionPiano } from "../transition"
 
 const Top = ({data, t}) => (
   <BackgroundImage
