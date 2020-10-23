@@ -1,5 +1,7 @@
 .mobileLayout {
   font-size: 16px;
+  min-width: 320px;
+  overflow-x: hidden;
 }
 
 html[lang="en"] .mobileLayout {

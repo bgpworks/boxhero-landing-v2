@@ -7,11 +7,16 @@ import { Container320, Padding, MobileSimpleTop } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";
+// page transition
+import { TransitionUp, TransitionImage } from "../transition"
 
 const { bgOrange, bgGreen, bgBlue } = styles;
 
-const DemoTemplate = ({icon, title, desc}) => (
-  <div className={styles.demoTemplate}>
+const DemoTemplate = ({icon, title, desc, index}) => (
+  <div
+    className={`${styles.demoTemplate}`}
+    style={{ marginTop: `${index * 50}px` }}
+  >
     <div>
       <Img
         fixed={icon}
@@ -35,31 +40,49 @@ function FeatureTemplate(props) {
       className={[styles.featureTemplate, props.bgColor].join(" ")}
     >
       <Container320>
-        <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
-          {props.title}
-        </div>
+        <TransitionUp
+          item={
+            <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
+              {props.title}
+            </div>
+          }
+        />
 
         <Padding y={20}/>
 
-        <div className={`${styles.px20} ${styles.featureTemplateDesc}`}>
-          {props.desc}
-        </div>
+        <TransitionUp
+          item={
+            <div className={`${styles.px20} ${styles.featureTemplateDesc}`}>
+              {props.desc}
+            </div>
+          }
+        />
 
         <Padding y={30}/>
 
         <div className={styles.featureTemplateFigureContainer}>
-          <Img fixed={props.figure} />
+          <TransitionImage
+            item={
+              <Img fixed={props.figure} />
+            } />
         </div>
 
         <Padding y={31}/>
 
         <div className={styles.px20}>
           {props.demoData.slice(0, 2).map((data, index) => (
-            <DemoTemplate
+            <TransitionUp
+              delay={150 * index}
               key={index}
-              icon={data.icon}
-              title={data.title}
-              desc={data.desc}
+              item={
+                <DemoTemplate
+                  index={index}
+                  key={index}
+                  icon={data.icon}
+                  title={data.title}
+                  desc={data.desc}
+                />
+              }
             />
           ))}
         </div>
@@ -208,9 +231,14 @@ const MobileFeatures = ({ data, language, t }) => (
     closingMsg={t("features:closingMsg")}
   >
     <Container320 className={styles.px20}>
-      <MobileSimpleTop
-        title={t("features:topTitle")}
-        desc={<Trans i18nKey="features:topDescMobile" />}
+      <TransitionUp
+      is_mobile= {true}
+        item={
+          <MobileSimpleTop
+            title={t("features:topTitle")}
+            desc={<Trans i18nKey="features:topDescMobile" />}
+          />
+        }
       />
     </Container320>
 

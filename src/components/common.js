@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { CarouselContext } from 'pure-react-carousel';
 import PropTypes from "prop-types";
+import {urlDownloadApp, urlDownloadAppSearchAd} from "../components/constants";
 import styles from "./common.module.css";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
@@ -190,6 +191,53 @@ export class ExternalLinkWithQuery extends React.Component {
       <a
         {...this.props}
         href={href}
+      >
+        {this.props.children}
+      </a>
+    );
+  }
+}
+
+// query param에 키워드 광고 파라메터가 있으면 다른 앱다운로드 링크를 건다.
+export class AppDownloadLink extends React.Component {
+  state = {
+    searchAD: false
+  };
+
+  parseQuery(search) {
+    var ret = {};
+    if(!search) {
+      return ret;
+    }
+
+    var query = search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        ret[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+    }
+    return ret;
+  }
+
+  componentDidMount() {
+    const param = this.parseQuery(localStorage.getItem('search_param'));
+
+    // google : gclid
+    // naver : n_media
+    this.setState({ searchAD : param["gclid"] || param["n_media"] });
+  }
+
+  render() {
+    const href =
+      this.state.searchAD
+        ? urlDownloadAppSearchAd
+        : urlDownloadApp;
+
+    return (
+      <a
+        {...this.props}
+        href={href}
+        data-link-type={this.state.searchAD ? "searchAd" : "organic"}
       >
         {this.props.children}
       </a>

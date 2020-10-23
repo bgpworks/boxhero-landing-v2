@@ -21,6 +21,12 @@ import iconDashboard from "../images/feature-dashboard.svg";
 import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
+// page transition
+import {
+  TransitionUp,
+  TransitionImage,
+  TransitionPiano,
+} from "../transition"
 
 const Top = ({data}) => (
   <BackgroundImage
@@ -31,10 +37,18 @@ const Top = ({data}) => (
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
-        <Trans i18nKey="about:topTitle" />
+        <TransitionUp
+        is_desktop= {true}
+        item={
+          <Trans i18nKey="about:topTitle" />
+        } />
       </div>
       <div className={styles.topRightContainer}>
-        <Img fixed={data.topLogo.childImageSharp.fixed}
+        <TransitionImage
+          item={
+            <Img fixed={data.topLogo.childImageSharp.fixed}
+            />
+          }
         />
       </div>
     </Container1024>
@@ -45,22 +59,30 @@ const StrongPoints = ({data}) => (
   <div className={styles.strongPointContainer}>
     <Container1024 className={styles.section}>
       <div className={`${styles.left47} ${styles.figContainer}`}>
-        <Img
-          fixed={data.easy.childImageSharp.fixed}
-          style={{
-            position: "absolute",
-            top: 152,
-            right: 67,
-          }}
+        <TransitionImage
+          item={
+            <Img
+              fixed={data.easy.childImageSharp.fixed}
+              style={{
+                position: "relative",
+                top: 152,
+                right: 219,
+              }}
+            />
+          }
         />
       </div>
       <div>
         <Padding y={271} />
         <span className={styles.title}>
-          <Trans i18nKey="about:strongPoint1Title" />
+          <TransitionUp item={
+            <Trans i18nKey="about:strongPoint1Title" />
+          } />
         </span>
         <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint1Desc" />
+          <TransitionUp item={
+            <Trans i18nKey="about:strongPoint1Desc" />
+          } />
         </div>
       </div>
     </Container1024>
@@ -69,41 +91,57 @@ const StrongPoints = ({data}) => (
       <div className={`${styles.left48} ${styles.pl10}`}>
         <Padding y={253} />
         <span className={styles.title}>
-          <Trans i18nKey="about:strongPoint2Title" />
+          <TransitionUp item={
+            <Trans i18nKey="about:strongPoint2Title" />
+          } />
         </span>
         <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint2Desc" />
+          <TransitionUp item={
+            <Trans i18nKey="about:strongPoint2Desc" />
+          } />
         </div>
       </div>
-      <div className={`${styles.figContainer}`}>
-        <Img
-          fixed={data.great.childImageSharp.fixed}
-          style={{
-            position: "absolute",
-            top: 137,
-          }}
+      <div className={`${styles.left46} ${styles.figContainer}`}>
+        <TransitionImage
+          item={
+            <Img
+              fixed={data.great.childImageSharp.fixed}
+              style={{
+                position: "relative",
+                top: 137,
+              }}
+            />
+          }
         />
       </div>
     </Container1024>
 
     <Container1024 className={styles.section}>
       <div className={`${styles.left46} ${styles.figContainer}`}>
-        <Img
-          fixed={data.mobile.childImageSharp.fixed}
-          style={{
-            position: "absolute",
-            top: 190,
-            right: 109,
-          }}
+        <TransitionImage
+          item={
+            <Img
+              fixed={data.mobile.childImageSharp.fixed}
+              style={{
+                position: "relative",
+                top: 190,
+                right: 109,
+              }}
+            />
+          }
         />
       </div>
       <div>
         <Padding y={271} />
         <span className={styles.title}>
-          <Trans i18nKey="about:strongPoint3Title" />
+          <TransitionUp item={
+            <Trans i18nKey="about:strongPoint3Title" />
+          } />
         </span>
         <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint3Desc" />
+          <TransitionUp item={
+            <Trans i18nKey="about:strongPoint3Desc" />
+          } />
         </div>
       </div>
     </Container1024>
@@ -139,18 +177,28 @@ const FeatureRow = ({id, title, columns}) => (
   <div
     id={id}
     className={styles.featureRow}>
-    <div className={styles.featureRowTitle}>
-      {title}
-    </div>
+    <TransitionUp
+      item={
+        <div className={styles.featureRowTitle}>
+          {title}
+        </div>
+        }
+    />
     <Padding y={32} />
     <div className={styles.featureContainer}>
       {columns.map((column, index) => (
-        <FeatureCard
+        <TransitionPiano
           key={index}
-          img={column.img}
-          title={column.title}
-          content={column.content}
-          link={column.link}
+          delay={100 * index}
+          item={
+            <FeatureCard
+              key={index}
+              img={column.img}
+              title={column.title}
+              content={column.content}
+              link={column.link}
+            />
+          }
         />
       ))}
     </div>
@@ -164,12 +212,18 @@ const OtherFeatures = ({data, t}) => (
     backgroundColor="#6159F5"
   >
     <Container1024 className={styles.featureContentContainer}>
-      <div className={styles.featureTitle}>
-        {t("about:otherFeaturesTitle")}
-      </div>
+      <TransitionUp
+        item={
+          <div className={styles.featureTitle}>
+            {t("about:otherFeaturesTitle")}
+          </div>
+        }
+      />
       <Padding y={40} />
       <div className={styles.featureDesc}>
-        <Trans i18nKey="about:otherFeaturesDesc" />
+        <TransitionUp item={
+          <Trans i18nKey="about:otherFeaturesDesc" />
+          } />
       </div>
       <FeatureRow
         id={constants.idAboutFeatureAddProduct}

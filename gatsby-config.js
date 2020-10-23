@@ -35,13 +35,13 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     // responsive랑 역이면 망가짐. 일단 끔.
-    // {
-    //   resolve: `gatsby-plugin-scroll-reveal`,
-    //   options: {
-    //     threshold: 0.5, // Percentage of an element's area that needs to be visible to launch animation
-    //     once: true, // Defines if animation needs to be launched once
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 0.5, // Percentage of an element's area that needs to be visible to launch animation
+        once: true, // Defines if animation needs to be launched once
+      },
+    },
     {
       resolve: `@jbseo/gatsby-plugin-react-i18next`,
       options: {
