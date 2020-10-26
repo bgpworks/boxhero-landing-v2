@@ -2,12 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
-import ScrollContainer from 'react-indiana-drag-scroll';
-import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
+import {Link, Trans} from "@jbseo/gatsby-plugin-react-i18next";
+import ScrollContainer from "react-indiana-drag-scroll";
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  DotGroup,
+  Dot,
+} from "pure-react-carousel";
 // js
-import MobileLayout from "../components/mobile-layout"
-import { Container320, Padding, WithCurrentSlide } from "../components/common";
+import MobileLayout from "../components/mobile-layout";
+import {Container320, Padding, WithCurrentSlide} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-index.module.css";
@@ -18,8 +24,6 @@ import svgCounting from "../images/counting.svg";
 import svgDashboard from "../images/dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
-// page transition
-import { TransitionUp, TransitionImage, TransitionPiano } from "../transition"
 
 const Top = ({data, t}) => (
   <BackgroundImage
@@ -30,109 +34,65 @@ const Top = ({data, t}) => (
   >
     <Container320 className={styles.topContentContainer}>
       <Padding y={74} />
-      <TransitionUp
-        is_mobile={true}
-        item={
-          <img
-            className={styles.topIcon}
-            src={svgVolt}
-            alt={t("index:topIconAlt")}
-          />
-        }
+      <img
+        className={styles.topIcon}
+        src={svgVolt}
+        alt={t("index:topIconAlt")}
       />
       <Padding y={10} />
       <div className={styles.topLeftTitle}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="index:topTitle" />
-          } />
+        <Trans i18nKey="index:topTitle" />
       </div>
       <Padding y={20} />
       <div className={styles.topLeftDescription}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="index:topDesc" />
-          } />
+        <Trans i18nKey="index:topDesc" />
       </div>
       <Padding y={30} />
       <div className={styles.topImageContainer}>
-        <TransitionImage
-          item={
-            <Img fixed={data.mobileHomeTopRight.childImageSharp.fixed} />
-          }
-        />
+        <Img fixed={data.mobileHomeTopRight.childImageSharp.fixed} />
       </div>
     </Container320>
   </BackgroundImage>
 );
 
-const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, detailUrl, image, linkDetail}) => (
+const KeyFeature = ({
+  isDarkBg,
+  icon,
+  iconAlt,
+  title,
+  desc,
+  subTitle,
+  subDesc,
+  detailUrl,
+  image,
+  linkDetail,
+}) => (
   <div className={isDarkBg ? styles.darkBg : ""}>
     <Container320 className={styles.keyFeatureContentContainer}>
       <div className={styles.px20}>
-        <TransitionUp
-          item={
-            <img
-              className={styles.keyFeatureIcon}
-              src={icon}
-              alt={iconAlt}
-            />
-          }
-        />
+        <img className={styles.keyFeatureIcon} src={icon} alt={iconAlt} />
         <Padding y={10} />
-        <TransitionUp
-          item={
-            <div className={styles.keyFeatureTitle}>
-              {title}
-            </div>
-          }
-        />
+        <div className={styles.keyFeatureTitle}>{title}</div>
         <Padding y={20} />
-        <TransitionUp
-          item={
-            <div className={styles.keyFeatureDescription}>
-              {desc}
-            </div>
-          }
-        />
+        <div className={styles.keyFeatureDescription}>{desc}</div>
         <Padding y={20} />
-        <TransitionUp
-          item={
-            <div className={styles.keyFeatureSubTitle}>
-              {subTitle}
-            </div>
-          }
-        />
-        <TransitionUp
-          item={
-            <div className={styles.keyFeatureSubDesc}>
-              {subDesc}
-            </div>
-          }
-        />
+        <div className={styles.keyFeatureSubTitle}>{subTitle}</div>
+        <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
         <Padding y={20} />
         <div className={styles.keyFeatureDetail}>
-          <TransitionUp
-            item={
-              <Link to={detailUrl}>
-                {linkDetail}
-                <img
-                  src={svgSmallRightBlue}
-                  className={styles.rightArrow}
-                  alt={linkDetail}
-                />
-              </Link>
-            }
-          />
+          <Link to={detailUrl}>
+            {linkDetail}
+            <img
+              src={svgSmallRightBlue}
+              className={styles.rightArrow}
+              alt={linkDetail}
+            />
+          </Link>
         </div>
       </div>
       <Padding y={30} />
       <div>
-        <TransitionImage
-          item={
-            <Img fixed={image.childImageSharp.fixed}
-            />
-          } />
+        <Img fixed={image.childImageSharp.fixed} />
       </div>
     </Container320>
   </div>
@@ -162,30 +122,15 @@ const TeamPlay = ({data, t}) => (
     backgroundColor="#6159F5"
   >
     <Padding y={50} />
-    <TransitionUp
-      item={
-        <div className={styles.teamPlayTitle}>
-          {t("index:teamPlayTitle")}
-        </div>
-      }
-    />
+    <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
     <Padding y={20} />
     <Container320 className={styles.teamPlayDesc}>
-      <TransitionUp
-        item={
-        <Trans i18nKey="index:teamPlayDescMobile" />
-        } />
+      <Trans i18nKey="index:teamPlayDescMobile" />
     </Container320>
     <Padding y={29} />
-    <TransitionImage
-      item={
-        <div className={styles.teamImageFlex}>
-          <Img
-            fixed={data.mobileTeamPlay.childImageSharp.fixed}
-          />
-        </div>
-      }
-    />
+    <div className={styles.teamImageFlex}>
+      <Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />
+    </div>
   </BackgroundImage>
 );
 
@@ -197,13 +142,13 @@ const Customers = ({data, t, language}) => {
       link: t("index:customerData1Link"),
     },
     // 영문 문서가 없어서 한글에서만 추가.
-    (language === "ko"
+    language === "ko"
       ? {
           title: t("index:customerData2Title"),
           img: data.mobileCustomerFasion.childImageSharp.fixed,
           link: t("index:customerData2Link"),
         }
-      : null),
+      : null,
     {
       title: t("index:customerData3Title"),
       img: data.mobileCustomerCosmetics.childImageSharp.fixed,
@@ -233,36 +178,28 @@ const Customers = ({data, t, language}) => {
       title: t("index:customerData8Title"),
       img: data.mobileCustomerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
-    }
+    },
   ].filter(item => item);
   return (
     <div className={styles.customersContainer}>
       <Padding y={50} />
       <div className={styles.customersTitle}>
-        <TransitionUp
-          item={
-          <Trans i18nKey="index:customerTitle" />
-          } />
+        <Trans i18nKey="index:customerTitle" />
       </div>
       <Padding y={30} />
-      <TransitionUp
-        item={
-          <Link
-            to="/features/"
-            title={t("index:customerDetailLink")}
-          >
-            <button className={styles.customersDetailButton}>
-              {t("index:customerDetailLink")}
-              <Padding x={5} />
-              <img
-                src={svgSmallRight}
-                className={styles.rightArrow}
-                alt={t("index:customerDataDetailLink")}
-              />
-            </button>
-          </Link>
-        }
-      />
+
+      <Link to="/features/" title={t("index:customerDetailLink")}>
+        <button className={styles.customersDetailButton}>
+          {t("index:customerDetailLink")}
+          <Padding x={5} />
+          <img
+            src={svgSmallRight}
+            className={styles.rightArrow}
+            alt={t("index:customerDataDetailLink")}
+          />
+        </button>
+      </Link>
+
       <ScrollContainer
         className={styles.customersWrapper}
         vertical={false}
@@ -270,37 +207,28 @@ const Customers = ({data, t, language}) => {
         hideScrollbars={true}
       >
         {customerData.map((customer, index) => (
-          <TransitionPiano
-            key={customer.title + index}
-            delay={100 * index}
-            item={
-              <div
-                key={index}
-                className={styles.customerButton}>
-                <div className={styles.customerButtonBackground}>
-                  <Img
-                  fixed={customer.img}
-                  />
-                </div>
-                <div className={styles.customerButtonContent}>
-                  <span className={styles.customButtonContentNumber}>
-                    {("0" + (index + 1)).slice(-2)}
-                  </span>
-                  <span className={styles.customButtonContentTitle}>
-                    {customer.title}
-                  </span>
-                  <span className={styles.customButtonContentPadding}></span>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={customer.link}
-                    className={styles.customButtonContentLink}>
-                    {t("index:customerDataDetailLink")}
-                  </a>
-                </div>
-              </div>
-            }
-          />
+          <div key={index} className={styles.customerButton}>
+            <div className={styles.customerButtonBackground}>
+              <Img fixed={customer.img} />
+            </div>
+            <div className={styles.customerButtonContent}>
+              <span className={styles.customButtonContentNumber}>
+                {("0" + (index + 1)).slice(-2)}
+              </span>
+              <span className={styles.customButtonContentTitle}>
+                {customer.title}
+              </span>
+              <span className={styles.customButtonContentPadding}></span>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={customer.link}
+                className={styles.customButtonContentLink}
+              >
+                {t("index:customerDataDetailLink")}
+              </a>
+            </div>
+          </div>
         ))}
         <Padding x={300} />
       </ScrollContainer>
@@ -346,19 +274,23 @@ function genFeatureData(data, t) {
 function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < (currentSlide + visibleSlides);
+    const multipleSelected =
+      i >= currentSlide && i < currentSlide + visibleSlides;
     const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
+    const slide =
+      i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
     dots.push(
       <Dot
         key={i}
         slide={slide}
         selected={selected}
-        style={{ left: `${-150 * currentSlide}px` }}
-        className={`${styles.slideDetailDot} ${selected ? styles.slideDetailDotSelected : ""}`}
+        style={{left: `${-150 * currentSlide}px`}}
+        className={`${styles.slideDetailDot} ${
+          selected ? styles.slideDetailDotSelected : ""
+        }`}
       >
         {allData[slide].title}
-      </Dot>,
+      </Dot>
     );
   }
   return dots;
@@ -375,16 +307,14 @@ const Features = ({data, t}) => {
       totalSlides={featureData.length}
     >
       <div className={styles.featuresTitle}>
-        <TransitionUp item={
         <Trans i18nKey="index:featuresTitleMobile" />
-        } />
       </div>
       <Padding y={32} />
 
       <div className={styles.selectedItemWrap}>
         <DotGroup
           className={styles.slideDetailDotGroup}
-          renderDots={(props) => renderDots(featureData, props)}
+          renderDots={props => renderDots(featureData, props)}
         />
       </div>
 
@@ -392,13 +322,8 @@ const Features = ({data, t}) => {
 
       <Slider className={styles.sliderWrapper}>
         {featureData.map((data, index) => (
-          <Slide
-            key={index}
-            index={index}>
-            <Img
-              fixed={data.img}
-              alt={data.title}
-            />
+          <Slide key={index} index={index}>
+            <Img fixed={data.img} alt={data.title} />
           </Slide>
         ))}
       </Slider>
@@ -407,7 +332,7 @@ const Features = ({data, t}) => {
 
       <div className={styles.slideDetailLinkContainer}>
         <WithCurrentSlide>
-          { currentSlide => (
+          {currentSlide => (
             <Link
               to={featureData[currentSlide].link}
               title={featureData[currentSlide].title}
@@ -427,24 +352,21 @@ const Features = ({data, t}) => {
   );
 };
 
-const MobileIndex = ({ data, language, t }) => {
+const MobileIndex = ({data, language, t}) => {
   return (
     <MobileLayout
       isFloatMenu={true}
       closingEmoji={data.mobileCoffee}
       closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
     >
-      <Top
-        data={data}
-        t={t}
-      />
+      <Top data={data} t={t} />
 
       <KeyFeature
         icon={svgAddProduct}
         iconAlt={t("index:keyFeature1IconAlt")}
         title={<Trans i18nKey="index:keyFeature1Title" />}
         desc={<Trans i18nKey="index:keyFeature1DescMobile" />}
-        subTitle={<Trans i18nKey="index:keyFeature1SubTitleMobile"/>}
+        subTitle={<Trans i18nKey="index:keyFeature1SubTitleMobile" />}
         subDesc={<Trans i18nKey="index:keyFeature1SubDescMobile" />}
         detailUrl={`/about/#${constants.idAboutFeatureAddProduct}`}
         image={data.mobileFeature1}
@@ -467,7 +389,7 @@ const MobileIndex = ({ data, language, t }) => {
       <KeyFeature
         icon={svgDashboard}
         iconAlt={t("index:keyFeature3IconAlt")}
-        title={<Trans i18nKey="index:keyFeature3Title"/>}
+        title={<Trans i18nKey="index:keyFeature3Title" />}
         desc={<Trans i18nKey="index:keyFeature3Desc" />}
         subTitle={t("index:keyFeature3SubTitle")}
         subDesc={<Trans i18nKey="index:keyFeature3SubDescMobile" />}
@@ -476,21 +398,11 @@ const MobileIndex = ({ data, language, t }) => {
         linkDetail={t("index:keyFeatureLinkDetail")}
       />
 
-      <TeamPlay
-        data={data}
-        t={t} />
+      <TeamPlay data={data} t={t} />
 
-      <Customers
-        data={data}
-        t={t}
-        language={language}
-      />
+      <Customers data={data} t={t} language={language} />
 
-      <TransitionImage item={
-        <Features
-          data={data}
-          t={t} />
-        } />
+      <Features data={data} t={t} />
     </MobileLayout>
   );
 };
