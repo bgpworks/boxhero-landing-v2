@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
+import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import MobileLayout from "../components/mobile-layout"
+import MobileLayout from "../components/mobile-layout";
 import { Container320, Padding, MobileSimpleTop, DropDownQNA, Switch, Ribbon } from "../components/common";
 import * as constants from "../components/constants";
 import {AppDownloadLink} from "../components/common";
@@ -9,8 +9,6 @@ import {AppDownloadLink} from "../components/common";
 import styles from "./mobile-pricing.module.css";
 // img
 import svgCheck from "../images/check.svg";
-// page transition
-import { TransitionUp, TransitionImage } from "../transition"
 
 const PriceTable = ({data, language, t}) => {
   const [isYearly, setIsYearly] = useState(true);
@@ -57,7 +55,7 @@ const PriceTable = ({data, language, t}) => {
         <div>
           <AppDownloadLink>
             <button
-            className={styles.startButton}>
+              className={styles.startButton}>
               {t("pricing:startNowButton")}
             </button>
           </AppDownloadLink>
@@ -91,7 +89,7 @@ const PriceTable = ({data, language, t}) => {
           <Trans
             i18nKey="pricing:recommandRibbon"
             components={{
-              small: <small/>,
+              small: <small/>
             }}
           />
         </Ribbon>
@@ -115,8 +113,8 @@ const PriceTable = ({data, language, t}) => {
         <div>
           <AppDownloadLink>
             <button
-              className={styles.startButton}>
-                {t("pricing:startTrialButton")}
+            className={styles.startButton}>
+              {t("pricing:startTrialButton")}
             </button>
           </AppDownloadLink>
         </div>
@@ -256,8 +254,8 @@ const FAQ = ({t}) => {
         i18nKey: "pricing:faq10Answer",
         components: {
           // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />
-        }
+          webappLink: <a href={constants.urlStart} />,
+        },
       },
     },
     {
@@ -266,8 +264,8 @@ const FAQ = ({t}) => {
         i18nKey: "pricing:faq11Answer",
         components: {
           // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />
-        }
+          webappLink: <a href={constants.urlStart} />,
+        },
       },
     },
     {
@@ -312,9 +310,7 @@ const FAQ = ({t}) => {
   return (
     <div className={styles.faqContainer}>
       <Container320 className={styles.px20}>
-        <div className={styles.faqTitle}>
-          {t("pricing:faqTitle")}
-        </div>
+        <div className={styles.faqTitle}>{t("pricing:faqTitle")}</div>
 
         <Padding y={39} />
 
@@ -360,9 +356,10 @@ const DirectContact = ({t}) => (
         className={styles.directContactButton}
         onClick={() => {
           if ("Beacon" in window) {
-            window.Beacon('toggle');
+            window.Beacon("toggle");
           }
-        }}>
+        }}
+      >
         {t("pricing:directContactInquiryButon")}
       </button>
     </Container320>
@@ -379,29 +376,15 @@ const MobilePricing = ({ data, language, t }) => {
       closingMsg={t("pricing:closingMsg")}
     >
       <Container320 className={styles.px20}>
-        <TransitionUp
-          item={
-            <MobileSimpleTop
-              title={t("pricing:topTitle")}
-              desc={<Trans i18nKey="pricing:topDescMobile" />}
-            />
-          }
+        <MobileSimpleTop
+          title={t("pricing:topTitle")}
+          desc={<Trans i18nKey="pricing:topDescMobile" />}
         />
       </Container320>
 
       <Padding y={50}/>
 
-      <TransitionImage
-        is_mobile={true}
-        force_load={true}
-        item={
-          <PriceTable
-            data={data}
-            language={language}
-            t={t}
-            />
-        }
-      />
+      <PriceTable data={data} language={language} t={t} />
 
       <FAQ t={t} />
 

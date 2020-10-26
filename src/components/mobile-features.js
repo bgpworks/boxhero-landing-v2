@@ -1,14 +1,12 @@
 import React from "react";
 import Img from "gatsby-image";
-import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
+import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import MobileLayout from "../components/mobile-layout"
+import MobileLayout from "../components/mobile-layout";
 import { Container320, Padding, MobileSimpleTop } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";
-// page transition
-import { TransitionUp, TransitionImage } from "../transition"
 
 const { bgOrange, bgGreen, bgBlue } = styles;
 
@@ -40,49 +38,32 @@ function FeatureTemplate(props) {
       className={[styles.featureTemplate, props.bgColor].join(" ")}
     >
       <Container320>
-        <TransitionUp
-          item={
-            <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
-              {props.title}
-            </div>
-          }
-        />
-
-        <Padding y={20}/>
-
-        <TransitionUp
-          item={
-            <div className={`${styles.px20} ${styles.featureTemplateDesc}`}>
-              {props.desc}
-            </div>
-          }
-        />
-
-        <Padding y={30}/>
-
-        <div className={styles.featureTemplateFigureContainer}>
-          <TransitionImage
-            item={
-              <Img fixed={props.figure} />
-            } />
+        <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
+          {props.title}
         </div>
 
-        <Padding y={31}/>
+        <Padding y={20} />
+
+        <div className={`${styles.px20} ${styles.featureTemplateDesc}`}>
+          {props.desc}
+        </div>
+
+        <Padding y={30} />
+
+        <div className={styles.featureTemplateFigureContainer}>
+          <Img fixed={props.figure} />
+        </div>
+
+        <Padding y={31} />
 
         <div className={styles.px20}>
           {props.demoData.slice(0, 2).map((data, index) => (
-            <TransitionUp
-              delay={150 * index}
+            <DemoTemplate
+              index={index}
               key={index}
-              item={
-                <DemoTemplate
-                  index={index}
-                  key={index}
-                  icon={data.icon}
-                  title={data.title}
-                  desc={data.desc}
-                />
-              }
+              icon={data.icon}
+              title={data.title}
+              desc={data.desc}
             />
           ))}
         </div>
@@ -95,18 +76,18 @@ const FeatureExpiry = (props) => (
   <FeatureTemplate
     id={constants.idFeatureExpiry}
     bgColor={bgOrange}
-    title={<Trans i18nKey="features:expiryTitle"/>}
+    title={<Trans i18nKey="features:expiryTitle" />}
     figure={props.data.mobileExpiryFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:expiryDescMobile" />}
     demoData={[
       {
         icon: props.data.mobileExpiryDemo1.childImageSharp.fixed,
-        title: (<Trans i18nKey="features:expiryDemo1Title"/>),
+        title: (<Trans i18nKey="features:expiryDemo1Title" />),
         desc: (<Trans i18nKey="features:expiryDemo1DescMobile" />),
       },
       {
         icon: props.data.mobileExpiryDemo2.childImageSharp.fixed,
-        title: (<Trans i18nKey="features:expiryDemo2Title"/>),
+        title: (<Trans i18nKey="features:expiryDemo2Title" />),
         desc: (<Trans i18nKey="features:expiryDemo2DescMobile" />),
       },
     ]}
@@ -223,7 +204,7 @@ const FeatureLocation = (props) => (
   />
 );
 
-const MobileFeatures = ({ data, language, t }) => (
+const MobileFeatures = ({data, language, t}) => (
   <MobileLayout
     isFloatMenu={false}
     curMenu="features"
@@ -231,14 +212,9 @@ const MobileFeatures = ({ data, language, t }) => (
     closingMsg={t("features:closingMsg")}
   >
     <Container320 className={styles.px20}>
-      <TransitionUp
-      is_mobile= {true}
-        item={
-          <MobileSimpleTop
-            title={t("features:topTitle")}
-            desc={<Trans i18nKey="features:topDescMobile" />}
-          />
-        }
+      <MobileSimpleTop
+        title={t("features:topTitle")}
+        desc={<Trans i18nKey="features:topDescMobile" />}
       />
     </Container320>
 

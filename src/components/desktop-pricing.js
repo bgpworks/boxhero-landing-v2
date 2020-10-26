@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
+import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
 import { Container1024, Padding, SimpleTop, DropDownQNA, Switch, Ribbon, ExternalLinkWithQuery } from "../components/common";
@@ -9,8 +9,6 @@ import styles from "./desktop-pricing.module.css";
 // img
 import svgCard from "../images/card.svg";
 import svgCheck from "../images/check.svg";
-// page transition
-import { TransitionUp, TransitionImage } from "../transition"
 
 const PriceTable = ({data, language, t}) => {
   const [isYearly, setIsYearly] = useState(true);
@@ -306,8 +304,8 @@ const FAQ = ({t}) => {
         i18nKey: "pricing:faq11Answer",
         components: {
           // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />
-        }
+          webappLink: <a href={constants.urlStart} />,
+        },
       },
     },
     {
@@ -397,7 +395,7 @@ const DirectContact = ({t}) => (
       className={styles.directContactButton}
       onClick={() => {
         if ("Beacon" in window) {
-          window.Beacon('toggle');
+          window.Beacon("toggle");
         }
       }}>
       {t("pricing:directContactInquiryButon")}
@@ -413,27 +411,14 @@ export const DesktopPricing = ({data, language, t}) => {
       closingEmoji={data.box}
       closingMsg={t("pricing:closingMsg")}
     >
-      <TransitionUp
-        item={
-          <SimpleTop
-            title={t("pricing:topTitle")}
-            desc={<Trans i18nKey="pricing:topDesc" />}
-          />
-        }
+      <SimpleTop
+        title={t("pricing:topTitle")}
+        desc={<Trans i18nKey="pricing:topDesc" />}
       />
 
       <Padding y={80}/>
 
-      <TransitionImage
-        force_load={true}
-        is_desktop={true}
-        item={
-        <PriceTable
-          data={data}
-          language={language}
-          t={t}
-        />}
-      />
+      <PriceTable data={data} language={language} t={t} />
 
       <Padding y={100}/>
 

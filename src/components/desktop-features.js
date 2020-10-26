@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
-import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
-import scrollTo from 'gatsby-plugin-smoothscroll';
+import { Link, Trans } from "@jbseo/gatsby-plugin-react-i18next";
+import scrollTo from "gatsby-plugin-smoothscroll";
 // js
 import DesktopLayout from "../components/desktop-layout";
 import { Container1024, Padding, SimpleTop, ExternalLinkWithQuery } from "../components/common";
@@ -15,36 +15,30 @@ import iconMenuCustomization from "../images/features-menu-customization.svg";
 import iconMenuSummary from "../images/features-menu-summary.svg";
 import iconMenuStatus from "../images/features-menu-status.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
-// page transition
-import { TransitionUp, TransitionImage, TransitionLeft } from "../transition"
 
-const { bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue } = styles;
+const {bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue} = styles;
 
 const MenuItem = ({to, icon, label, title}) => (
-  <TransitionUp
-    item={
-      <Link
-        to={`/features/${to}`}
-        title={title}
-        className={styles.menuItem}
-        onClick={(evt) => {
-          evt.preventDefault();
-          scrollTo(to);
-        }}
-      >
-        <div>
-          <img
-            src={icon}
-            alt={label}
-          />
-        </div>
-        <Padding y={13} />
-        <div className={styles.menuItemLabel}>
-          {label}
-        </div>
-      </Link>
-    }
-  />
+  <Link
+    to={`/features/${to}`}
+    title={title}
+    className={styles.menuItem}
+    onClick={(evt) => {
+      evt.preventDefault();
+      scrollTo(to);
+    }}
+  >
+    <div>
+      <img
+        src={icon}
+        alt={label}
+      />
+    </div>
+    <Padding y={13} />
+    <div className={styles.menuItemLabel}>
+      {label}
+    </div>
+  </Link>
 );
 
 const Menu = ({t}) => (
@@ -82,7 +76,7 @@ const Menu = ({t}) => (
     <MenuItem
       to={`#${constants.idFeatureLocation}`}
       icon={iconMenuLocationmode}
-      label={<Trans i18nKey="features:menuLocation"/>}
+      label={<Trans i18nKey="features:menuLocation" />}
       title={t("features:menuLocationLinkTitle")}
     />
   </Container1024>
@@ -117,49 +111,18 @@ function FeatureTemplate(props) {
       <Container1024>
         <div className={styles.featureTemplateDescFigContainer}>
           <div className={styles.featureTemplateTitleDescContainer}>
-            <TransitionUp
-              item={
-                <div
-                  className={styles.featureTemplateTitle}
-                >
-                    {props.title}
-                  </div>
-              }
-            />
+            <div className={styles.featureTemplateTitle}>{props.title}</div>
             <Padding y={35} />
-            <TransitionUp
-              item={
-                <div
-                  className={styles.featureTemplateDesc}
-                >
-                    {props.desc}
-                  </div>
-              }
-            />
+            <div className={styles.featureTemplateDesc}>{props.desc}</div>
             <Padding y={30} />
-            <ExternalLinkWithQuery
-              href={constants.urlStart}
-            >
-              <TransitionUp
-                item={
-                  <button className={styles.featureTemplateStartNow}>
-                    <Trans i18nKey="features:startNowButton" />
-                  </button>
-                }
-              />
+            <ExternalLinkWithQuery href={constants.urlStart}>
+              <button className={styles.featureTemplateStartNow}>
+                <Trans i18nKey="features:startNowButton" />
+              </button>
             </ExternalLinkWithQuery>
           </div>
-          <div
-            className={styles.featureTemplateFigureContainer}
-          >
-            <TransitionImage
-              item={
-                <Img
-                  fixed={props.figure}
-                  style={props.figureStyle}
-                />
-              }
-            />
+          <div className={styles.featureTemplateFigureContainer}>
+            <Img fixed={props.figure} style={props.figureStyle} />
           </div>
         </div>
         <Padding y={150} />
@@ -167,18 +130,12 @@ function FeatureTemplate(props) {
           className={styles.halfContainer}
         >
           {props.demoData.slice(0, 2).map((data, index) => (
-            <TransitionLeft
+            <DemoTemplate
               key={index}
-              delay={150 * index}
-              item={
-                <DemoTemplate
-                  key={index}
-                  barColor={props.barColor}
-                  icon={data.icon}
-                  title={data.title}
-                  desc={data.desc}
-                />
-              }
+              barColor={props.barColor}
+              icon={data.icon}
+              title={data.title}
+              desc={data.desc}
             />
           ))}
         </div>
@@ -332,14 +289,9 @@ export const DesktopFeatures = ({data, language, t}) => (
     closingEmoji={data.dinosaur}
     closingMsg={t("features:closingMsg")}
   >
-    <TransitionUp
-      is_desktop={true}
-      item={
-        <SimpleTop
-          title={t("features:topTitle")}
-          desc={<Trans i18nKey="features:topDesc" />}
-        />
-      }
+    <SimpleTop
+      title={t("features:topTitle")}
+      desc={<Trans i18nKey="features:topDesc" />}
     />
 
     <Padding y={62}/>

@@ -1,10 +1,10 @@
 import React from "react";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
+import {Trans} from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import MobileLayout from "../components/mobile-layout"
-import { Container320, Padding } from "../components/common";
+import MobileLayout from "../components/mobile-layout";
+import {Container320, Padding} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-about.module.css";
@@ -21,8 +21,6 @@ import iconDashboard from "../images/feature-dashboard.svg";
 import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
-// page transition
-import { TransitionUp, TransitionImage } from "../transition"
 
 const Top = ({data}) => (
   <BackgroundImage
@@ -34,18 +32,10 @@ const Top = ({data}) => (
     <Container320 className={styles.topContentContainer}>
       <Padding y={94} />
       <div className={styles.topTitleContainer}>
-        <TransitionUp
-          is_mobile= {true}
-          item={
-          <Trans i18nKey="about:topTitleMobile" />
-        } />
+        <Trans i18nKey="about:topTitleMobile" />
       </div>
       <Padding y={30} />
-      <TransitionImage
-        item={
-          <Img fixed={data.mobileTopLogo.childImageSharp.fixed} />
-        }
-      />
+      <Img fixed={data.mobileTopLogo.childImageSharp.fixed} />
     </Container320>
   </BackgroundImage>
 );
@@ -54,67 +44,36 @@ const StrongPoints = ({data}) => (
   <Container320>
     <div className={styles.section}>
       <div className={styles.title}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="about:strongPoint1Title" />
-          } />
+        <Trans i18nKey="about:strongPoint1Title" />
       </div>
       <div className={styles.desc}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="about:strongPoint1DescMobile" />
-          } />
+        <Trans i18nKey="about:strongPoint1DescMobile" />
       </div>
-      <div className={styles.logoContainer} >
-        <TransitionImage
-          item={
-            <Img fixed={data.mobileEasy.childImageSharp.fixed} />
-          }
-        />
+      <div className={styles.logoContainer}>
+        <Img fixed={data.mobileEasy.childImageSharp.fixed} />
       </div>
     </div>
 
     <div className={styles.section}>
       <div className={styles.title}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="about:strongPoint2TitleMobile" />
-          }
-        />
+        <Trans i18nKey="about:strongPoint2TitleMobile" />
       </div>
       <div className={styles.desc}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="about:strongPoint2DescMobile" />
-          } />
+        <Trans i18nKey="about:strongPoint2DescMobile" />
       </div>
       <div className={styles.logoContainer}>
-        <TransitionImage
-          item={
-            <Img fixed={data.mobileGreat.childImageSharp.fixed} />
-          }
-        />
+        <Img fixed={data.mobileGreat.childImageSharp.fixed} />
       </div>
     </div>
     <div className={styles.section}>
       <div className={styles.title}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="about:strongPoint3Title" />
-            } />
+        <Trans i18nKey="about:strongPoint3Title" />
       </div>
       <div className={styles.desc}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="about:strongPoint3DescMobile" />
-            } />
+        <Trans i18nKey="about:strongPoint3DescMobile" />
       </div>
       <div className={styles.logoContainer}>
-        <TransitionImage
-          item={
-            <Img fixed={data.mobileMobile.childImageSharp.fixed} />
-          }
-        />
+        <Img fixed={data.mobileMobile.childImageSharp.fixed} />
       </div>
     </div>
   </Container320>
@@ -146,27 +105,16 @@ const FeatureRow = ({id, title, columns}) => (
   <div
     id={id}
     className={styles.featureRow}>
-    <TransitionUp
-      item={
-        <div className={styles.featureRowTitle}>
-          {title}
-        </div>
-      }
-    />
+    <div className={styles.featureRowTitle}>{title}</div>
     <Padding y={21} />
     <div className={styles.featureContainer}>
       {columns.map((column, index) => (
-        <TransitionUp
+        <FeatureCard
           key={index}
-          item={
-            <FeatureCard
-              key={index}
-              img={column.img}
-              title={column.title}
-              content={column.content}
-              link={column.link}
-            />
-          }
+          img={column.img}
+          title={column.title}
+          content={column.content}
+          link={column.link}
         />
       ))}
     </div>
@@ -180,20 +128,10 @@ const OtherFeatures = ({data, t}) => (
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.featureContentContainer}>
-      <TransitionUp
-        item={
-          <div className={styles.featureTitle}>
-            {t("about:otherFeaturesTitle")}
-          </div>
-        }
-      />
+      <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
       <Padding y={30} />
       <div className={styles.featureDesc}>
-        <TransitionUp
-          item={
-            <Trans i18nKey="about:otherFeaturesDescMobile" />
-          }
-        />
+        <Trans i18nKey="about:otherFeaturesDescMobile" />
       </div>
       <FeatureRow
         id={constants.idAboutFeatureAddProduct}
@@ -201,25 +139,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconCategory,
-            title:t("about:otherFeatureRow1Col1Title"),
+            title: t("about:otherFeatureRow1Col1Title"),
             content: t("about:otherFeatureRow1Col1Content"),
             link: t("about:otherFeatureRow1Col1Link"),
           },
           {
             img: iconAddProduct,
-            title:t("about:otherFeatureRow1Col2Title"),
+            title: t("about:otherFeatureRow1Col2Title"),
             content: t("about:otherFeatureRow1Col2Content"),
             link: t("about:otherFeatureRow1Col2Link"),
           },
           {
             img: iconImage,
-            title:t("about:otherFeatureRow1Col3Title"),
+            title: t("about:otherFeatureRow1Col3Title"),
             content: t("about:otherFeatureRow1Col3Content"),
             link: t("about:otherFeatureRow1Col3Link"),
           },
           {
             img: iconBulkAdd,
-            title:t("about:otherFeatureRow1Col4Title"),
+            title: t("about:otherFeatureRow1Col4Title"),
             content: t("about:otherFeatureRow1Col4Content"),
             link: t("about:otherFeatureRow1Col4Link"),
           },
@@ -231,25 +169,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconMobilescan,
-            title:t("about:otherFeatureRow2Col1Title"),
+            title: t("about:otherFeatureRow2Col1Title"),
             content: t("about:otherFeatureRow2Col1Content"),
             link: t("about:otherFeatureRow2Col1Link"),
           },
           {
             img: iconPartner,
-            title:t("about:otherFeatureRow2Col2Title"),
+            title: t("about:otherFeatureRow2Col2Title"),
             content: t("about:otherFeatureRow2Col2Content"),
             link: t("about:otherFeatureRow2Col2Link"),
           },
           {
             img: iconHistory,
-            title:t("about:otherFeatureRow2Col3Title"),
+            title: t("about:otherFeatureRow2Col3Title"),
             content: t("about:otherFeatureRow2Col3Content"),
             link: t("about:otherFeatureRow2Col3Link"),
           },
           {
             img: iconUppdown,
-            title:t("about:otherFeatureRow2Col4Title"),
+            title: t("about:otherFeatureRow2Col4Title"),
             content: t("about:otherFeatureRow2Col4Content"),
             link: t("about:otherFeatureRow2Col4Link"),
           },
@@ -261,25 +199,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconBasicmode,
-            title:t("about:otherFeatureRow3Col1Title"),
+            title: t("about:otherFeatureRow3Col1Title"),
             content: t("about:otherFeatureRow3Col1Content"),
             link: t("about:otherFeatureRow3Col1Link"),
           },
           {
             img: iconCounting,
-            title:t("about:otherFeatureRow3Col2Title"),
+            title: t("about:otherFeatureRow3Col2Title"),
             content: t("about:otherFeatureRow3Col2Content"),
             link: t("about:otherFeatureRow3Col2Link"),
           },
           {
             img: iconGraph,
-            title:t("about:otherFeatureRow3Col3Title"),
+            title: t("about:otherFeatureRow3Col3Title"),
             content: t("about:otherFeatureRow3Col3Content"),
             link: t("about:otherFeatureRow3Col3Link"),
           },
           {
             img: iconDashboard,
-            title:t("about:otherFeatureRow3Col4Title"),
+            title: t("about:otherFeatureRow3Col4Title"),
             content: t("about:otherFeatureRow3Col4Content"),
             link: t("about:otherFeatureRow3Col4Link"),
           },
