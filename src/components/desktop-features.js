@@ -15,30 +15,36 @@ import iconMenuCustomization from "../images/features-menu-customization.svg";
 import iconMenuSummary from "../images/features-menu-summary.svg";
 import iconMenuStatus from "../images/features-menu-status.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
+// page transition
+import { TransitionUp, TransitionImage, TransitionLeft } from "../transition"
 
 const { bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue } = styles;
 
 const MenuItem = ({to, icon, label, title}) => (
-  <Link
-    to={`/features/${to}`}
-    title={title}
-    className={styles.menuItem}
-    onClick={(evt) => {
-      evt.preventDefault();
-      scrollTo(to);
-    }}
-  >
-    <div>
-    <img
-      src={icon}
-      alt={label}
-    />
-  </div>
-    <Padding y={13} />
-    <div className={styles.menuItemLabel}>
-      {label}
-    </div>
-  </Link>
+  <TransitionUp
+    item={
+      <Link
+        to={`/features/${to}`}
+        title={title}
+        className={styles.menuItem}
+        onClick={(evt) => {
+          evt.preventDefault();
+          scrollTo(to);
+        }}
+      >
+        <div>
+          <img
+            src={icon}
+            alt={label}
+          />
+        </div>
+        <Padding y={13} />
+        <div className={styles.menuItemLabel}>
+          {label}
+        </div>
+      </Link>
+    }
+  />
 );
 
 const Menu = ({t}) => (
@@ -111,62 +117,68 @@ function FeatureTemplate(props) {
       <Container1024>
         <div className={styles.featureTemplateDescFigContainer}>
           <div className={styles.featureTemplateTitleDescContainer}>
-            <div
-              className={styles.featureTemplateTitle}
-              data-sal="slide-up-10"
-              data-sal-duration="500"
-              data-sal-easing="easeOutQuint"
-            >
-              {props.title}
-            </div>
-            <Padding y={35}/>
-            <div
-              className={styles.featureTemplateDesc}
-              data-sal="slide-up-10"
-              data-sal-duration="500"
-              data-sal-delay="300"
-              data-sal-easing="easeOutQuint"
-            >
-              {props.desc}
-            </div>
-            <Padding y={30}/>
+            <TransitionUp
+              item={
+                <div
+                  className={styles.featureTemplateTitle}
+                >
+                    {props.title}
+                  </div>
+              }
+            />
+            <Padding y={35} />
+            <TransitionUp
+              item={
+                <div
+                  className={styles.featureTemplateDesc}
+                >
+                    {props.desc}
+                  </div>
+              }
+            />
+            <Padding y={30} />
             <ExternalLinkWithQuery
               href={constants.urlStart}
-              data-sal="slide-up-10"
-              data-sal-duration="500"
-              data-sal-delay="300"
-              data-sal-easing="easeOutQuint">
-              <button className={styles.featureTemplateStartNow}>
-                <Trans i18nKey="features:startNowButton" />
-              </button>
+            >
+              <TransitionUp
+                item={
+                  <button className={styles.featureTemplateStartNow}>
+                    <Trans i18nKey="features:startNowButton" />
+                  </button>
+                }
+              />
             </ExternalLinkWithQuery>
           </div>
           <div
             className={styles.featureTemplateFigureContainer}
-            data-sal="slide-up-10"
-            data-sal-duration="500"
-            data-sal-easing="easeOutQuint"
           >
-            <Img
-              fixed={props.figure}
-              style={props.figureStyle}
+            <TransitionImage
+              item={
+                <Img
+                  fixed={props.figure}
+                  style={props.figureStyle}
+                />
+              }
             />
           </div>
         </div>
-        <Padding y={150}/>
+        <Padding y={150} />
         <div
           className={styles.halfContainer}
-          data-sal="slide-up-10"
-          data-sal-duration="500"
-          data-sal-delay="300"
-          data-sal-easing="easeOutQuint">
+        >
           {props.demoData.slice(0, 2).map((data, index) => (
-            <DemoTemplate
+            <TransitionLeft
               key={index}
-              barColor={props.barColor}
-              icon={data.icon}
-              title={data.title}
-              desc={data.desc}
+              delay={150 * index}
+              item={
+                <DemoTemplate
+                  key={index}
+                  barColor={props.barColor}
+                  icon={data.icon}
+                  title={data.title}
+                  desc={data.desc}
+                />
+              }
             />
           ))}
         </div>
@@ -320,9 +332,14 @@ export const DesktopFeatures = ({data, language, t}) => (
     closingEmoji={data.dinosaur}
     closingMsg={t("features:closingMsg")}
   >
-    <SimpleTop
-      title={t("features:topTitle")}
-      desc={<Trans i18nKey="features:topDesc" />}
+    <TransitionUp
+      is_desktop={true}
+      item={
+        <SimpleTop
+          title={t("features:topTitle")}
+          desc={<Trans i18nKey="features:topDesc" />}
+        />
+      }
     />
 
     <Padding y={62}/>

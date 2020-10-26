@@ -53,6 +53,7 @@
   display: block;
   width: 24px;
   height: 24px;
+  margin: 0px auto;
 }
 
 .keyFeatureTitle {
@@ -87,6 +88,8 @@
   font-weight: bold;
   line-height: 1.71;
   letter-spacing: -0.14px;
+  display: flex;
+  justify-content: center;
 }
 
 .keyFeatureDetail a {
@@ -128,6 +131,9 @@
   text-align: center;
 }
 
+.teamImageFlex {
+display: flex;
+}
 /* Customers  */
 
 .customersContainer {
@@ -158,6 +164,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  height: 300px;
 }
 
 .customerScrollInnerWrapper {
@@ -207,6 +214,9 @@ html[lang="ko"] .customersDetailButton {
 .customerButton:hover .customerButtonBackground {
   filter: grayscale(1) brightness(0.2);
   transform: scale(1.08197);
+  border-radius: 8px;
+  will-change: transform;
+  overflow: hidden;
 }
 
 .customerButtonContent {
@@ -263,6 +273,7 @@ html[lang="ko"] .customersDetailButton {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .featuresTitle {
@@ -302,10 +313,11 @@ html[lang="ko"] .customersDetailButton {
   vertical-align: bottom;
   filter: color(--color-font-blue);
 }
+/* 모바일 사이즈 편의 기능 제공 슬라이더 스타일 추가 및 변경 */
 
 .slideDetailDotGroupContainer {
-  width: 100%;
-  padding-left: 20px;
+  width: 320px;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -319,6 +331,7 @@ html[lang="ko"] .customersDetailButton {
   justify-content: space-between;
   flex: 0 0 auto;
   position: relative;
+  left: 375px;
 }
 
 .slideDetailDot {
@@ -326,16 +339,33 @@ html[lang="ko"] .customersDetailButton {
   border-radius: 22px;
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
+  width: 150px;
+  position: relative;
   background-color: transparent;
   color: var(--color-font-darker);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.slideDetailDot:not(:first-child) {
-  margin-left: 10px;
+  transition: left 0.5s;
 }
 
 .slideDetailDotSelected {
+  color: #fff;
+  z-index: 9;
+}
+
+.selectedItemWrap {
+  position: relative;
+}
+
+.selectedItemWrap::after {
+  content: "";
+  display: block;
+  top: 0;
+  width: 150px;
+  position: absolute;
   background-color: var(--color-carousel-dot);
-  color: white;
+  height: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 35px;
+  height: 100%;
 }

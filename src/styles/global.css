@@ -31,6 +31,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
+  min-width: 320px;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -272,8 +273,10 @@ h1 {
   margin: 0;
 }
 
-/* sal animation 일단 끔. */
-/* sal animation */
-/* [data-sal='slide-up-10'] { */
-/*   transform: translateY(10%); */
-/* } */
+[data-sal="slide-up-image"] {
+  transform: translateY(5%);
+}
+
+[data-sal="slide-up-image-piano"] {
+  transform: translateY(10%);
+}
