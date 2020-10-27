@@ -394,11 +394,9 @@ const MobileIndex = ({data, language, t}) => {
 
       <Customers data={data} t={t} language={language} />
 
-      <TransitionImage item={
         <Features
           data={data}
           t={t} />
-        } />
     </MobileLayout>
   );
 };

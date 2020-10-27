@@ -42,9 +42,7 @@ const Top = ({data, t}) => (
           <img src={svgVolt} alt={t("index:topIconAlt")} />
         <Padding y={10} />
         <div className={styles.topLeftTitle}>
-          <TransitionUp item={
           <Trans i18nKey="index:topTitle" />
-          } />
         </div>
         <Padding y={30} />
         <div className={styles.topLeftDescription}>
