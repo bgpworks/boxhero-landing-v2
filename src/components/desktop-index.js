@@ -196,6 +196,7 @@ const Customers = ({ data, t, language }) => {
   ].filter((item) => item);
   return (
     <div className={styles.customersContainer}>
+      <Padding y={130} />
       <div className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
       </div>
