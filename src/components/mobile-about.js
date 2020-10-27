@@ -1,9 +1,9 @@
 import React from "react";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { Trans } from '@jbseo/gatsby-plugin-react-i18next';
+import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import MobileLayout from "../components/mobile-layout"
+import MobileLayout from "../components/mobile-layout";
 import { Container320, Padding } from "../components/common";
 import * as constants from "../components/constants";
 // css
@@ -22,7 +22,7 @@ import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
 
-const Top = ({data}) => (
+const Top = ({ data }) => (
   <BackgroundImage
     Tag="section"
     className={styles.topContainer}
@@ -40,7 +40,7 @@ const Top = ({data}) => (
   </BackgroundImage>
 );
 
-const StrongPoints = ({data}) => (
+const StrongPoints = ({ data }) => (
   <Container320>
     <div className={styles.section}>
       <div className={styles.title}>
@@ -49,17 +49,17 @@ const StrongPoints = ({data}) => (
       <div className={styles.desc}>
         <Trans i18nKey="about:strongPoint1DescMobile" />
       </div>
-      <div className={styles.logoContainer} >
+      <div className={styles.logoContainer}>
         <Img fixed={data.mobileEasy.childImageSharp.fixed} />
       </div>
     </div>
 
     <div className={styles.section}>
       <div className={styles.title}>
-          <Trans i18nKey="about:strongPoint2TitleMobile" />
+        <Trans i18nKey="about:strongPoint2TitleMobile" />
       </div>
       <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint2DescMobile" />
+        <Trans i18nKey="about:strongPoint2DescMobile" />
       </div>
       <div className={styles.logoContainer}>
         <Img fixed={data.mobileGreat.childImageSharp.fixed} />
@@ -79,35 +79,21 @@ const StrongPoints = ({data}) => (
   </Container320>
 );
 
-const FeatureCard = ({img, title, content, link}) => (
-  <a
-    href={link}
-    title={title}>
+const FeatureCard = ({ img, title, content, link }) => (
+  <a href={link} title={title}>
     <div className={styles.featureCard}>
-      <img
-        className={styles.featureIcon}
-        src={img}
-        alt={title}
-      />
+      <img className={styles.featureIcon} src={img} alt={title} />
       <Padding y={8} />
-      <div className={styles.featureCardTitle}>
-        {title}
-      </div>
+      <div className={styles.featureCardTitle}>{title}</div>
       <Padding y={8} />
-      <div className={styles.featureCardContent}>
-        {content}
-      </div>
+      <div className={styles.featureCardContent}>{content}</div>
     </div>
   </a>
 );
 
-const FeatureRow = ({id, title, columns}) => (
-  <div
-    id={id}
-    className={styles.featureRow}>
-    <div className={styles.featureRowTitle}>
-      {title}
-    </div>
+const FeatureRow = ({ id, title, columns }) => (
+  <div id={id} className={styles.featureRow}>
+    <div className={styles.featureRowTitle}>{title}</div>
     <Padding y={21} />
     <div className={styles.featureContainer}>
       {columns.map((column, index) => (
@@ -123,16 +109,14 @@ const FeatureRow = ({id, title, columns}) => (
   </div>
 );
 
-const OtherFeatures = ({data, t}) => (
+const OtherFeatures = ({ data, t }) => (
   <BackgroundImage
     Tag="div"
     fluid={data.featureBg.childImageSharp.fluid}
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.featureContentContainer}>
-      <div className={styles.featureTitle}>
-        {t("about:otherFeaturesTitle")}
-      </div>
+      <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
       <Padding y={30} />
       <div className={styles.featureDesc}>
         <Trans i18nKey="about:otherFeaturesDescMobile" />
@@ -143,25 +127,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconCategory,
-            title:t("about:otherFeatureRow1Col1Title"),
+            title: t("about:otherFeatureRow1Col1Title"),
             content: t("about:otherFeatureRow1Col1Content"),
             link: t("about:otherFeatureRow1Col1Link"),
           },
           {
             img: iconAddProduct,
-            title:t("about:otherFeatureRow1Col2Title"),
+            title: t("about:otherFeatureRow1Col2Title"),
             content: t("about:otherFeatureRow1Col2Content"),
             link: t("about:otherFeatureRow1Col2Link"),
           },
           {
             img: iconImage,
-            title:t("about:otherFeatureRow1Col3Title"),
+            title: t("about:otherFeatureRow1Col3Title"),
             content: t("about:otherFeatureRow1Col3Content"),
             link: t("about:otherFeatureRow1Col3Link"),
           },
           {
             img: iconBulkAdd,
-            title:t("about:otherFeatureRow1Col4Title"),
+            title: t("about:otherFeatureRow1Col4Title"),
             content: t("about:otherFeatureRow1Col4Content"),
             link: t("about:otherFeatureRow1Col4Link"),
           },
@@ -173,25 +157,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconMobilescan,
-            title:t("about:otherFeatureRow2Col1Title"),
+            title: t("about:otherFeatureRow2Col1Title"),
             content: t("about:otherFeatureRow2Col1Content"),
             link: t("about:otherFeatureRow2Col1Link"),
           },
           {
             img: iconPartner,
-            title:t("about:otherFeatureRow2Col2Title"),
+            title: t("about:otherFeatureRow2Col2Title"),
             content: t("about:otherFeatureRow2Col2Content"),
             link: t("about:otherFeatureRow2Col2Link"),
           },
           {
             img: iconHistory,
-            title:t("about:otherFeatureRow2Col3Title"),
+            title: t("about:otherFeatureRow2Col3Title"),
             content: t("about:otherFeatureRow2Col3Content"),
             link: t("about:otherFeatureRow2Col3Link"),
           },
           {
             img: iconUppdown,
-            title:t("about:otherFeatureRow2Col4Title"),
+            title: t("about:otherFeatureRow2Col4Title"),
             content: t("about:otherFeatureRow2Col4Content"),
             link: t("about:otherFeatureRow2Col4Link"),
           },
@@ -203,25 +187,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconBasicmode,
-            title:t("about:otherFeatureRow3Col1Title"),
+            title: t("about:otherFeatureRow3Col1Title"),
             content: t("about:otherFeatureRow3Col1Content"),
             link: t("about:otherFeatureRow3Col1Link"),
           },
           {
             img: iconCounting,
-            title:t("about:otherFeatureRow3Col2Title"),
+            title: t("about:otherFeatureRow3Col2Title"),
             content: t("about:otherFeatureRow3Col2Content"),
             link: t("about:otherFeatureRow3Col2Link"),
           },
           {
             img: iconGraph,
-            title:t("about:otherFeatureRow3Col3Title"),
+            title: t("about:otherFeatureRow3Col3Title"),
             content: t("about:otherFeatureRow3Col3Content"),
             link: t("about:otherFeatureRow3Col3Link"),
           },
           {
             img: iconDashboard,
-            title:t("about:otherFeatureRow3Col4Title"),
+            title: t("about:otherFeatureRow3Col4Title"),
             content: t("about:otherFeatureRow3Col4Content"),
             link: t("about:otherFeatureRow3Col4Link"),
           },
@@ -243,10 +227,7 @@ const MobileAbout = ({ data, language, t }) => {
 
       <StrongPoints data={data} />
 
-      <OtherFeatures
-        data={data}
-        t={t}
-      />
+      <OtherFeatures data={data} t={t} />
     </MobileLayout>
   );
 };

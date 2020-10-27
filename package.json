@@ -46,6 +46,9 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
+  "prettier": {
+    "semi": true
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bgpworks/boxhero-landing-v2"

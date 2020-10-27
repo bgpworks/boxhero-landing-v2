@@ -1,14 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useI18next } from '@jbseo/gatsby-plugin-react-i18next';
+import { useI18next } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import SEO from "../components/seo";
-import { Media } from "../media"
+import { Media } from "../media";
 import DesktopPricing from "../components/desktop-pricing";
 import MobilePricing from "../components/mobile-pricing";
-import { useHelpscout } from '../components/helpscout';
+import { useHelpscout } from "../components/helpscout";
 
-export const PricingPage = ({data}) => {
+export const PricingPage = ({ data }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -20,19 +20,11 @@ export const PricingPage = ({data}) => {
       />
 
       <Media at="xs">
-        <MobilePricing
-          data={data}
-          language={language}
-          t={t}
-        />
+        <MobilePricing data={data} language={language} t={t} />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopPricing
-          data={data}
-          language={language}
-          t={t}
-        />
+        <DesktopPricing data={data} language={language} t={t} />
       </Media>
     </>
   );
