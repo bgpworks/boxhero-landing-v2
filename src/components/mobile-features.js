@@ -11,7 +11,7 @@ import styles from "./mobile-features.module.css";
 const { bgOrange, bgGreen, bgBlue } = styles;
 
 const DemoTemplate = ({ icon, title, desc }) => (
-  <div className={`${styles.demoTemplate}`}>
+  <div className={styles.demoTemplate}>
     <div>
       <Img fixed={icon} className={styles.demoLogo} />
       <span className={styles.demoTitle}>- {title} -</span>
