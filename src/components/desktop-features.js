@@ -38,8 +38,6 @@ const MenuItem = ({ to, icon, label, title }) => (
     </div>
     <Padding y={13} />
     <div className={styles.menuItemLabel}>{label}</div>
-    <Padding y={13} />
-    <div className={styles.menuItemLabel}>{label}</div>
   </Link>
 );
 
