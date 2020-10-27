@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
-import { Container1024, Padding } from "../components/common";
+import {Container1024, Padding} from "../components/common";
 import BackgroundImage from "gatsby-background-image";
 import * as constants from "../components/constants";
 // css
@@ -34,8 +34,7 @@ const Top = ({data}) => (
         <Trans i18nKey="about:topTitle" />
       </div>
       <div className={styles.topRightContainer}>
-        <Img fixed={data.topLogo.childImageSharp.fixed}
-        />
+        <Img fixed={data.topLogo.childImageSharp.fixed} />
       </div>
     </Container1024>
   </BackgroundImage>
@@ -111,37 +110,23 @@ const StrongPoints = ({data}) => (
 );
 
 const FeatureCard = ({img, title, content, link}) => (
-  <a
-    href={link}
-    title={title}>
+  <a href={link} title={title}>
     <div className={styles.featureCard}>
       <div className={styles.featureCardBackground}></div>
       <div className={styles.featureCardContentContainer}>
-        <img
-          className={styles.featureIcon}
-          src={img}
-          alt={title}
-        />
+        <img className={styles.featureIcon} src={img} alt={title} />
         <Padding y={10} />
-        <div className={styles.featureCardTitle}>
-          {title}
-        </div>
+        <div className={styles.featureCardTitle}>{title}</div>
         <Padding y={15} />
-        <div className={styles.featureCardContent}>
-          {content}
-        </div>
+        <div className={styles.featureCardContent}>{content}</div>
       </div>
     </div>
   </a>
 );
 
 const FeatureRow = ({id, title, columns}) => (
-  <div
-    id={id}
-    className={styles.featureRow}>
-    <div className={styles.featureRowTitle}>
-      {title}
-    </div>
+  <div id={id} className={styles.featureRow}>
+    <div className={styles.featureRowTitle}>{title}</div>
     <Padding y={32} />
     <div className={styles.featureContainer}>
       {columns.map((column, index) => (
@@ -164,9 +149,7 @@ const OtherFeatures = ({data, t}) => (
     backgroundColor="#6159F5"
   >
     <Container1024 className={styles.featureContentContainer}>
-      <div className={styles.featureTitle}>
-        {t("about:otherFeaturesTitle")}
-      </div>
+      <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
 
       <Padding y={40} />
       <div className={styles.featureDesc}>
@@ -178,25 +161,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconCategory,
-            title:t("about:otherFeatureRow1Col1Title"),
+            title: t("about:otherFeatureRow1Col1Title"),
             content: t("about:otherFeatureRow1Col1Content"),
             link: t("about:otherFeatureRow1Col1Link"),
           },
           {
             img: iconAddProduct,
-            title:t("about:otherFeatureRow1Col2Title"),
+            title: t("about:otherFeatureRow1Col2Title"),
             content: t("about:otherFeatureRow1Col2Content"),
             link: t("about:otherFeatureRow1Col2Link"),
           },
           {
             img: iconImage,
-            title:t("about:otherFeatureRow1Col3Title"),
+            title: t("about:otherFeatureRow1Col3Title"),
             content: t("about:otherFeatureRow1Col3Content"),
             link: t("about:otherFeatureRow1Col3Link"),
           },
           {
             img: iconBulkAdd,
-            title:t("about:otherFeatureRow1Col4Title"),
+            title: t("about:otherFeatureRow1Col4Title"),
             content: t("about:otherFeatureRow1Col4Content"),
             link: t("about:otherFeatureRow1Col4Link"),
           },
@@ -208,25 +191,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconMobilescan,
-            title:t("about:otherFeatureRow2Col1Title"),
+            title: t("about:otherFeatureRow2Col1Title"),
             content: t("about:otherFeatureRow2Col1Content"),
             link: t("about:otherFeatureRow2Col1Link"),
           },
           {
             img: iconPartner,
-            title:t("about:otherFeatureRow2Col2Title"),
+            title: t("about:otherFeatureRow2Col2Title"),
             content: t("about:otherFeatureRow2Col2Content"),
             link: t("about:otherFeatureRow2Col2Link"),
           },
           {
             img: iconHistory,
-            title:t("about:otherFeatureRow2Col3Title"),
+            title: t("about:otherFeatureRow2Col3Title"),
             content: t("about:otherFeatureRow2Col3Content"),
             link: t("about:otherFeatureRow2Col3Link"),
           },
           {
             img: iconUppdown,
-            title:t("about:otherFeatureRow2Col4Title"),
+            title: t("about:otherFeatureRow2Col4Title"),
             content: t("about:otherFeatureRow2Col4Content"),
             link: t("about:otherFeatureRow2Col4Link"),
           },
@@ -238,25 +221,25 @@ const OtherFeatures = ({data, t}) => (
         columns={[
           {
             img: iconBasicmode,
-            title:t("about:otherFeatureRow3Col1Title"),
+            title: t("about:otherFeatureRow3Col1Title"),
             content: t("about:otherFeatureRow3Col1Content"),
             link: t("about:otherFeatureRow3Col1Link"),
           },
           {
             img: iconCounting,
-            title:t("about:otherFeatureRow3Col2Title"),
+            title: t("about:otherFeatureRow3Col2Title"),
             content: t("about:otherFeatureRow3Col2Content"),
             link: t("about:otherFeatureRow3Col2Link"),
           },
           {
             img: iconGraph,
-            title:t("about:otherFeatureRow3Col3Title"),
+            title: t("about:otherFeatureRow3Col3Title"),
             content: t("about:otherFeatureRow3Col3Content"),
             link: t("about:otherFeatureRow3Col3Link"),
           },
           {
             img: iconDashboard,
-            title:t("about:otherFeatureRow3Col4Title"),
+            title: t("about:otherFeatureRow3Col4Title"),
             content: t("about:otherFeatureRow3Col4Content"),
             link: t("about:otherFeatureRow3Col4Link"),
           },
@@ -277,10 +260,7 @@ const DesktopAbout = ({data, language, t}) => (
 
     <StrongPoints data={data} />
 
-    <OtherFeatures
-      data={data}
-      t={t}
-    />
+    <OtherFeatures data={data} t={t} />
   </DesktopLayout>
 );
 

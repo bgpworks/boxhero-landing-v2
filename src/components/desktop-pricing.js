@@ -21,21 +21,19 @@ const PriceTable = ({data, language, t}) => {
             <th> </th>
             <th>
               <strong>{t("pricing:freePlanTitle")}</strong>
-              <br/>
+              <br />
               <small>For Personal</small>
             </th>
             <th>
               <strong>{t("pricing:bizPlanTitle")}</strong>
-              <br/>
+              <br />
               <small>For Teams &amp; Businesses</small>
             </th>
           </tr>
         </thead>
         <tbody>
-
           <tr>
-            <td>
-            </td>
+            <td></td>
             <td>
               <div className={styles.price}>{t("pricing:freePlanPrice")}</div>
               <small>{t("pricing:freePlanPriceUnit")}</small>
@@ -45,12 +43,17 @@ const PriceTable = ({data, language, t}) => {
                 <Trans
                   i18nKey="pricing:recommandRibbon"
                   components={{
-                    small: <small/>,
+                    small: <small />,
                   }}
                 />
               </Ribbon>
               <div className={styles.price}>{isYearly ? "$16.6" : "$20"}</div>
-              <small>{t("pricing:bizPlanPriceUnit")}{isYearly ? t("pricing:paymentCycleYearly") : t("pricing:paymentCycleMonthly")}</small>
+              <small>
+                {t("pricing:bizPlanPriceUnit")}
+                {isYearly
+                  ? t("pricing:paymentCycleYearly")
+                  : t("pricing:paymentCycleMonthly")}
+              </small>
             </td>
           </tr>
 
@@ -59,10 +62,14 @@ const PriceTable = ({data, language, t}) => {
               <img src={svgCard} alt={t("pricing:creditCard")} />
             </td>
             <td>
-              <strong><Trans i18nKey="pricing:freePlanDesc"/></strong>
+              <strong>
+                <Trans i18nKey="pricing:freePlanDesc" />
+              </strong>
             </td>
             <td>
-              <strong><Trans i18nKey="pricing:bizPlanDesc"/></strong>
+              <strong>
+                <Trans i18nKey="pricing:bizPlanDesc" />
+              </strong>
             </td>
           </tr>
 
@@ -70,7 +77,9 @@ const PriceTable = ({data, language, t}) => {
             <td>
               <div className={styles.switchContainer}>
                 <button
-                  className={`${styles.billingCycleButton} ${isYearly ? "" : styles.active}`}
+                  className={`${styles.billingCycleButton} ${
+                    isYearly ? "" : styles.active
+                  }`}
                   onClick={() => setIsYearly(false)}
                 >
                   {t("pricing:switchLabelMonthly")}
@@ -80,7 +89,9 @@ const PriceTable = ({data, language, t}) => {
                   onChange={(active) => setIsYearly(active)}
                 />
                 <button
-                  className={`${styles.billingCycleButton} ${isYearly ? styles.active : ""}`}
+                  className={`${styles.billingCycleButton} ${
+                    isYearly ? styles.active : ""
+                  }`}
                   onClick={() => setIsYearly(true)}
                 >
                   {t("pricing:switchLabelYearly")}
@@ -107,7 +118,7 @@ const PriceTable = ({data, language, t}) => {
 
           <tr className={styles.sectionTr}>
             <td>
-              <Padding y={53}/>
+              <Padding y={53} />
               {t("pricing:headerLimit")}
             </td>
             <td></td>
@@ -128,7 +139,7 @@ const PriceTable = ({data, language, t}) => {
               <Trans
                 i18nKey="pricing:limitLocation"
                 components={{
-                  small: <small/>
+                  small: <small />,
                 }}
               />
             </td>
@@ -138,7 +149,7 @@ const PriceTable = ({data, language, t}) => {
 
           <tr className={styles.sectionTr}>
             <td>
-              <Padding y={43}/>
+              <Padding y={43} />
               {t("pricing:headerTeam")}
             </td>
             <td></td>
@@ -147,27 +158,35 @@ const PriceTable = ({data, language, t}) => {
           <tr>
             <td>{t("pricing:teamInvite")}</td>
             <td>-</td>
-            <td><img src={svgCheck} alt="OK" /></td>
+            <td>
+              <img src={svgCheck} alt="OK" />
+            </td>
           </tr>
           <tr>
             <td>{t("pricing:teamMultiUser")}</td>
             <td>-</td>
-            <td><img src={svgCheck} alt="OK" /></td>
+            <td>
+              <img src={svgCheck} alt="OK" />
+            </td>
           </tr>
           <tr>
             <td>{t("pricing:teamACL")}</td>
             <td>-</td>
-            <td><img src={svgCheck} alt="OK" /></td>
+            <td>
+              <img src={svgCheck} alt="OK" />
+            </td>
           </tr>
           <tr>
             <td>{t("pricing:teamHistory")}</td>
             <td>-</td>
-            <td><img src={svgCheck} alt="OK" /></td>
+            <td>
+              <img src={svgCheck} alt="OK" />
+            </td>
           </tr>
 
           <tr className={styles.sectionTr}>
             <td>
-              <Padding y={63}/>
+              <Padding y={63} />
               {t("pricing:headerExtension")}
             </td>
             <td></td>
@@ -180,8 +199,9 @@ const PriceTable = ({data, language, t}) => {
               <Trans
                 i18nKey="pricing:extensionMemberBiz"
                 components={{
-                  small: <small/>
-                }}/>
+                  small: <small />,
+                }}
+              />
             </td>
           </tr>
           <tr>
@@ -191,7 +211,7 @@ const PriceTable = ({data, language, t}) => {
               <Trans
                 i18nKey="pricing:extensionProductBiz"
                 components={{
-                  small: <small/>
+                  small: <small />,
                 }}
               />
             </td>
@@ -201,7 +221,7 @@ const PriceTable = ({data, language, t}) => {
               <Trans
                 i18nKey="pricing:extensionLocation"
                 components={{
-                  small: <small/>
+                  small: <small />,
                 }}
               />
             </td>
@@ -210,7 +230,7 @@ const PriceTable = ({data, language, t}) => {
               <Trans
                 i18nKey="pricing:extensionLocationBiz"
                 components={{
-                  small: <small/>
+                  small: <small />,
                 }}
               />
             </td>
@@ -220,17 +240,17 @@ const PriceTable = ({data, language, t}) => {
           <tr>
             <td></td>
             <td>
-              <Trans i18nKey="pricing:postscriptFree"/>
+              <Trans i18nKey="pricing:postscriptFree" />
             </td>
             <td>
-              <Trans i18nKey="pricing:postscriptBiz"/>
+              <Trans i18nKey="pricing:postscriptBiz" />
             </td>
           </tr>
         </tfoot>
       </table>
     </Container1024>
   );
-}
+};
 
 const FAQ = ({t}) => {
   const faqData = [
@@ -349,18 +369,13 @@ const FAQ = ({t}) => {
   ];
   return (
     <div className={styles.faqContainer}>
-      <div className={styles.faqTitle}>
-        {t("pricing:faqTitle")}
-      </div>
+      <div className={styles.faqTitle}>{t("pricing:faqTitle")}</div>
 
       <Padding y={50} />
 
       <div className={styles.faqContentContainer}>
         {faqData.map((faq, index) => (
-          <DropDownQNA
-            key={index}
-            title={faq.question}
-          >
+          <DropDownQNA key={index} title={faq.question}>
             <Trans {...faq.answer} />
           </DropDownQNA>
         ))}
@@ -397,7 +412,8 @@ const DirectContact = ({t}) => (
         if ("Beacon" in window) {
           window.Beacon("toggle");
         }
-      }}>
+      }}
+    >
       {t("pricing:directContactInquiryButon")}
     </button>
   </div>
@@ -416,18 +432,15 @@ export const DesktopPricing = ({data, language, t}) => {
         desc={<Trans i18nKey="pricing:topDesc" />}
       />
 
-      <Padding y={80}/>
+      <Padding y={80} />
 
       <PriceTable data={data} language={language} t={t} />
 
-      <Padding y={100}/>
+      <Padding y={100} />
 
       <FAQ t={t} />
 
-      <DirectContact
-        t={t}
-      />
-
+      <DirectContact t={t} />
     </DesktopLayout>
   );
 };

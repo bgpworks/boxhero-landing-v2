@@ -172,7 +172,7 @@ const Customers = ({data, t, language}) => {
       title: t("index:customerData8Title"),
       img: data.mobileCustomerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
-    }
+    },
   ].filter(item => item);
   return (
     <div className={styles.customersContainer}>
@@ -203,9 +203,7 @@ const Customers = ({data, t, language}) => {
         {customerData.map((customer, index) => (
           <div key={index} className={styles.customerButton}>
             <div className={styles.customerButtonBackground}>
-              <Img
-                fixed={customer.img}
-              />
+              <Img fixed={customer.img} />
             </div>
             <div className={styles.customerButtonContent}>
               <span className={styles.customButtonContentNumber}>
@@ -219,7 +217,8 @@ const Customers = ({data, t, language}) => {
                 target="_blank"
                 rel="noreferrer"
                 href={customer.link}
-                className={styles.customButtonContentLink}>
+                className={styles.customButtonContentLink}
+              >
                 {t("index:customerDataDetailLink")}
               </a>
             </div>
@@ -269,9 +268,11 @@ function genFeatureData(data, t) {
 function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < (currentSlide + visibleSlides);
+    const multipleSelected =
+      i >= currentSlide && i < currentSlide + visibleSlides;
     const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
+    const slide =
+      i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
     dots.push(
       <Dot
         key={i}
@@ -313,13 +314,8 @@ const Features = ({data, t}) => {
 
       <Slider className={styles.sliderWrapper}>
         {featureData.map((data, index) => (
-          <Slide
-            key={index}
-            index={index}>
-            <Img
-              fixed={data.img}
-              alt={data.title}
-            />
+          <Slide key={index} index={index}>
+            <Img fixed={data.img} alt={data.title} />
           </Slide>
         ))}
       </Slider>
@@ -328,7 +324,7 @@ const Features = ({data, t}) => {
 
       <div className={styles.slideDetailLinkContainer}>
         <WithCurrentSlide>
-          { currentSlide => (
+          {currentSlide => (
             <Link
               to={featureData[currentSlide].link}
               title={featureData[currentSlide].title}
@@ -348,17 +344,14 @@ const Features = ({data, t}) => {
   );
 };
 
-const MobileIndex = ({ data, language, t }) => {
+const MobileIndex = ({data, language, t}) => {
   return (
     <MobileLayout
       isFloatMenu={true}
       closingEmoji={data.mobileCoffee}
       closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
     >
-      <Top
-        data={data}
-        t={t}
-      />
+      <Top data={data} t={t} />
 
       <KeyFeature
         icon={svgAddProduct}
@@ -397,15 +390,9 @@ const MobileIndex = ({ data, language, t }) => {
         linkDetail={t("index:keyFeatureLinkDetail")}
       />
 
-      <TeamPlay
-        data={data}
-        t={t} />
+      <TeamPlay data={data} t={t} />
 
-      <Customers
-        data={data}
-        t={t}
-        language={language}
-      />
+      <Customers data={data} t={t} language={language} />
 
       <TransitionImage item={
         <Features

@@ -2,9 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot } from 'pure-react-carousel';
-import ScrollContainer from 'react-indiana-drag-scroll';
-import { Link, Trans } from '@jbseo/gatsby-plugin-react-i18next';
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+  DotGroup,
+  Dot,
+} from "pure-react-carousel";
+import ScrollContainer from "react-indiana-drag-scroll";
+import {Link, Trans} from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout"
 import { Container1024, Padding, WithCurrentSlide, ExternalLinkWithQuery } from "../components/common";
@@ -57,8 +65,21 @@ const Top = ({data, t}) => (
   </BackgroundImage>
 );
 
-const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, detailUrl, image, linkDetail}) => (
-  <div className={`${styles.keyFeatureContainer} ${isDarkBg ? styles.darkBg : ""}`}>
+const KeyFeature = ({
+  isDarkBg,
+  icon,
+  iconAlt,
+  title,
+  desc,
+  subTitle,
+  subDesc,
+  detailUrl,
+  image,
+  linkDetail,
+}) => (
+  <div
+    className={`${styles.keyFeatureContainer} ${isDarkBg ? styles.darkBg : ""}`}
+  >
     <Container1024 className={styles.keyFeatureContentContainer}>
       <div className={styles.keyFeatureLeftContainer}>
         <img src={icon} alt={iconAlt} />
@@ -90,8 +111,7 @@ const KeyFeature = ({isDarkBg, icon, iconAlt, title, desc, subTitle, subDesc, de
         </div>
       </div>
       <div className={styles.keyFeatureRightContainer}>
-        <Img fixed={image.childImageSharp.fixed}
-        />
+        <Img fixed={image.childImageSharp.fixed} />
       </div>
     </Container1024>
   </div>
@@ -120,9 +140,7 @@ const TeamPlay = ({data, t}) => (
     fluid={data.homeTeamPlayBg.childImageSharp.fluid}
     backgroundColor="#6159F5"
   >
-    <div className={styles.teamPlayTitle}>
-      {t("index:teamPlayTitle")}
-    </div>
+    <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
     <Padding y={40} />
     <div className={styles.teamPlayDesc}>
         <Trans i18nKey="index:teamPlayDesc" />
@@ -179,7 +197,7 @@ const Customers = ({data, t, language}) => {
       title: t("index:customerData8Title"),
       img: data.customerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
-    }
+    },
   ].filter(item => item);
   return (
     <div className={styles.customersContainer}>
@@ -187,10 +205,7 @@ const Customers = ({data, t, language}) => {
         <Trans i18nKey="index:customerTitle" />
       </div>
       <Padding y={40} />
-      <Link
-        to="/features/"
-        title={t("index:customerDetailLink")}
-      >
+      <Link to="/features/" title={t("index:customerDetailLink")}>
         <button className={styles.customersDetailButton}>
           {t("index:customerDetailLink")}
           <Padding x={10} />
@@ -208,9 +223,7 @@ const Customers = ({data, t, language}) => {
         hideScrollbars={true}
       >
         {customerData.map((customer, index) => (
-          <div
-            key={index}
-            className={styles.customerButton}>
+          <div key={index} className={styles.customerButton}>
             <div className={styles.customerButtonBackground}>
               <Img
               fixed={customer.img}
@@ -238,7 +251,7 @@ const Customers = ({data, t, language}) => {
       </ScrollContainer>
     </div>
   );
-}
+};
 
 function genFeatureData(data, t) {
   return [
@@ -278,18 +291,22 @@ function genFeatureData(data, t) {
 function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < (currentSlide + visibleSlides);
+    const multipleSelected =
+      i >= currentSlide && i < currentSlide + visibleSlides;
     const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
+    const slide =
+      i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
     dots.push(
       <Dot
         key={i}
         slide={slide}
         selected={selected}
-        className={`${styles.slideDetailDot} ${selected ? styles.slideDetailDotSelected : ""}`}
+        className={`${styles.slideDetailDot} ${
+          selected ? styles.slideDetailDotSelected : ""
+        }`}
       >
         {allData[slide].title}
-      </Dot>,
+      </Dot>
     );
   }
   return dots;
@@ -317,10 +334,7 @@ const Features = ({data, t}) => {
 
         <div className={styles.slideAndNavButtons}>
           <ButtonBack className={styles.slideNavButton}>
-            <img
-              src={svgSwipeLeft}
-              alt={t("index:featuresNavBack")}
-            />
+            <img src={svgSwipeLeft} alt={t("index:featuresNavBack")} />
           </ButtonBack>
               <Slider className={styles.sliderWrapper}>
                 {featureData.map((data, index) => (
@@ -335,10 +349,7 @@ const Features = ({data, t}) => {
                 ))}
               </Slider>
           <ButtonNext className={styles.slideNavButton}>
-            <img
-              src={svgSwipeRight}
-              alt={t("index:featuresNavNext")}
-            />
+            <img src={svgSwipeRight} alt={t("index:featuresNavNext")} />
           </ButtonNext>
         </div>
 
@@ -367,24 +378,21 @@ const Features = ({data, t}) => {
   );
 };
 
-const DesktopIndex = ({ data, language, t }) => {
+const DesktopIndex = ({data, language, t}) => {
   return (
     <DesktopLayout
       isFloatMenu={true}
       closingEmoji={data.coffee}
       closingMsg={t("index:closingMsg")}
     >
-      <Top
-        data={data}
-        t={t}
-      />
+      <Top data={data} t={t} />
 
       <KeyFeature
         icon={svgAddProduct}
         iconAlt={t("index:keyFeature1IconAlt")}
         title={<Trans i18nKey="index:keyFeature1Title" />}
         desc={<Trans i18nKey="index:keyFeature1Desc" />}
-        subTitle={<Trans i18nKey="index:keyFeature1SubTitle"/>}
+        subTitle={<Trans i18nKey="index:keyFeature1SubTitle" />}
         subDesc={<Trans i18nKey="index:keyFeature1SubDesc" />}
         detailUrl={`/about/#${constants.idAboutFeatureAddProduct}`}
         image={data.feature1}
@@ -407,7 +415,7 @@ const DesktopIndex = ({ data, language, t }) => {
       <KeyFeature
         icon={svgDashboard}
         iconAlt={t("index:keyFeature3IconAlt")}
-        title={<Trans i18nKey="index:keyFeature3Title"/>}
+        title={<Trans i18nKey="index:keyFeature3Title" />}
         desc={<Trans i18nKey="index:keyFeature3Desc" />}
         subTitle={t("index:keyFeature3SubTitle")}
         subDesc={<Trans i18nKey="index:keyFeature3SubDesc" />}
@@ -416,19 +424,11 @@ const DesktopIndex = ({ data, language, t }) => {
         linkDetail={t("index:keyFeatureLinkDetail")}
       />
 
-      <TeamPlay
-        data={data}
-        t={t} />
+      <TeamPlay data={data} t={t} />
 
-      <Customers
-        data={data}
-        t={t}
-        language={language}
-      />
+      <Customers data={data} t={t} language={language} />
 
-      <Features
-        data={data}
-        t={t} />
+      <Features data={data} t={t} />
     </DesktopLayout>
   );
 };

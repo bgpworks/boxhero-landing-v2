@@ -80,23 +80,13 @@ const StrongPoints = ({data}) => (
 );
 
 const FeatureCard = ({img, title, content, link}) => (
-  <a
-    href={link}
-    title={title}>
+  <a href={link} title={title}>
     <div className={styles.featureCard}>
-      <img
-        className={styles.featureIcon}
-        src={img}
-        alt={title}
-      />
+      <img className={styles.featureIcon} src={img} alt={title} />
       <Padding y={8} />
-      <div className={styles.featureCardTitle}>
-        {title}
-      </div>
+      <div className={styles.featureCardTitle}>{title}</div>
       <Padding y={8} />
-      <div className={styles.featureCardContent}>
-        {content}
-      </div>
+      <div className={styles.featureCardContent}>{content}</div>
     </div>
   </a>
 );
@@ -227,7 +217,7 @@ const OtherFeatures = ({data, t}) => (
   </BackgroundImage>
 );
 
-const MobileAbout = ({ data, language, t }) => {
+const MobileAbout = ({data, language, t}) => {
   return (
     <MobileLayout
       isFloatMenu={true}
@@ -239,10 +229,7 @@ const MobileAbout = ({ data, language, t }) => {
 
       <StrongPoints data={data} />
 
-      <OtherFeatures
-        data={data}
-        t={t}
-      />
+      <OtherFeatures data={data} t={t} />
     </MobileLayout>
   );
 };
