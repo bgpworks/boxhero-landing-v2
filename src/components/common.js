@@ -122,7 +122,9 @@ export const Switch = ({ isActive, onChange }) => {
         checked={isActive}
         onChange={(evt) => onChange(evt.target.checked)}
       />
-      <label htmlFor={id} className={styles.switchLabel}> </label>
+      <label htmlFor={id} className={styles.switchLabel}>
+        {" "}
+      </label>
     </div>
   );
 };
@@ -155,23 +157,20 @@ export const WithCurrentSlide = ({ children }) => {
 
 // query param을 유지하면서 a href를 사용한다.
 // 광고 트래킹을 위해 사용되며, 첫 진입시 query param을 붙여서 나간다.
-export const ExternalLinkWithQuery = ({ href, children, ...props }) =>  {
+export const ExternalLinkWithQuery = ({ href, children, ...props }) => {
   const [search, setSearch] = useState(null);
   useEffect(() => {
     setSearch(localStorage.getItem("search_param"));
   }, []);
 
-  const hrefWithSearch =
-        search == null
-        ? href
-        : href + search;
+  const hrefWithSearch = search == null ? href : href + search;
 
   return (
     <a {...props} href={hrefWithSearch}>
       {children}
     </a>
   );
-}
+};
 
 function parseQuery(search) {
   var ret = {};
@@ -211,4 +210,4 @@ export const AppDownloadLink = ({ children, ...props }) => {
       {children}
     </a>
   );
-}
+};
