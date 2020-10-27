@@ -96,9 +96,7 @@ const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
     </div>
     <div className={styles.wideFooterMenusColumn}>
       <div className={styles.footerMenuLabel}>Contact</div>
-      <div>
-        {t("footer:footerMenuContactTel")}
-      </div>
+      <div>{t("footer:footerMenuContactTel")}</div>
       <div>
         {t("footer:footerMenuContactEmail")}{" "}
         <a href="mailto:support+boxhero@bgpworks.com">
