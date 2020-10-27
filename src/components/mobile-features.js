@@ -10,11 +10,8 @@ import styles from "./mobile-features.module.css";
 
 const { bgOrange, bgGreen, bgBlue } = styles;
 
-const DemoTemplate = ({ icon, title, desc, index }) => (
-  <div
-    className={`${styles.demoTemplate}`}
-    style={{ marginTop: `${index * 50}px` }}
-  >
+const DemoTemplate = ({ icon, title, desc }) => (
+  <div className={`${styles.demoTemplate}`}>
     <div>
       <Img fixed={icon} className={styles.demoLogo} />
       <span className={styles.demoTitle}>- {title} -</span>
@@ -52,7 +49,6 @@ function FeatureTemplate(props) {
         <div className={styles.px20}>
           {props.demoData.slice(0, 2).map((data, index) => (
             <DemoTemplate
-              index={index}
               key={index}
               icon={data.icon}
               title={data.title}
