@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
-import { Container320, Padding, MobileSimpleTop, DropDownQNA, Switch, Ribbon } from "../components/common";
+import {
+  Container320,
+  Padding,
+  MobileSimpleTop,
+  DropDownQNA,
+  Switch,
+  Ribbon,
+} from "../components/common";
 import * as constants from "../components/constants";
-import {AppDownloadLink} from "../components/common";
+import { AppDownloadLink } from "../components/common";
 // css
 import styles from "./mobile-pricing.module.css";
 // img
 import svgCheck from "../images/check.svg";
 
-const PriceTable = ({data, language, t}) => {
+const PriceTable = ({ data, language, t }) => {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
@@ -24,7 +31,10 @@ const PriceTable = ({data, language, t}) => {
         >
           {t("pricing:switchLabelMonthly")}
         </button>
-        <Switch isActive={isYearly} onChange={active => setIsYearly(active)} />
+        <Switch
+          isActive={isYearly}
+          onChange={(active) => setIsYearly(active)}
+        />
         <button
           className={`${styles.billingCycleButton} ${
             isYearly ? styles.active : ""
@@ -49,8 +59,7 @@ const PriceTable = ({data, language, t}) => {
         </div>
         <div>
           <AppDownloadLink>
-            <button
-              className={styles.startButton}>
+            <button className={styles.startButton}>
               {t("pricing:startNowButton")}
             </button>
           </AppDownloadLink>
@@ -84,7 +93,7 @@ const PriceTable = ({data, language, t}) => {
           <Trans
             i18nKey="pricing:recommandRibbon"
             components={{
-              small: <small/>
+              small: <small />,
             }}
           />
         </Ribbon>
@@ -103,8 +112,7 @@ const PriceTable = ({data, language, t}) => {
         </div>
         <div>
           <AppDownloadLink>
-            <button
-            className={styles.startButton}>
+            <button className={styles.startButton}>
               {t("pricing:startTrialButton")}
             </button>
           </AppDownloadLink>
@@ -182,7 +190,7 @@ const PriceTable = ({data, language, t}) => {
   );
 };
 
-const FAQ = ({t}) => {
+const FAQ = ({ t }) => {
   const faqData = [
     {
       question: t("pricing:faq1Question"),
@@ -327,7 +335,7 @@ const FAQ = ({t}) => {
   );
 };
 
-const DirectContact = ({t}) => (
+const DirectContact = ({ t }) => (
   <div className={styles.directContactContainer}>
     <Container320 className={styles.px20}>
       <div className={styles.directContactTitle}>
@@ -356,7 +364,7 @@ const DirectContact = ({t}) => (
   </div>
 );
 
-const MobilePricing = ({data, language, t}) => {
+const MobilePricing = ({ data, language, t }) => {
   return (
     <MobileLayout
       isFloatMenu={false}

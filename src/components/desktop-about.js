@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
-import {Container1024, Padding} from "../components/common";
+import { Container1024, Padding } from "../components/common";
 import BackgroundImage from "gatsby-background-image";
 import * as constants from "../components/constants";
 // css
@@ -22,7 +22,7 @@ import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
 
-const Top = ({data}) => (
+const Top = ({ data }) => (
   <BackgroundImage
     Tag="section"
     className={styles.topContainer}
@@ -40,7 +40,7 @@ const Top = ({data}) => (
   </BackgroundImage>
 );
 
-const StrongPoints = ({data}) => (
+const StrongPoints = ({ data }) => (
   <div className={styles.strongPointContainer}>
     <Container1024 className={styles.section}>
       <div className={`${styles.left47} ${styles.figContainer}`}>
@@ -109,7 +109,7 @@ const StrongPoints = ({data}) => (
   </div>
 );
 
-const FeatureCard = ({img, title, content, link}) => (
+const FeatureCard = ({ img, title, content, link }) => (
   <a href={link} title={title}>
     <div className={styles.featureCard}>
       <div className={styles.featureCardBackground}></div>
@@ -124,7 +124,7 @@ const FeatureCard = ({img, title, content, link}) => (
   </a>
 );
 
-const FeatureRow = ({id, title, columns}) => (
+const FeatureRow = ({ id, title, columns }) => (
   <div id={id} className={styles.featureRow}>
     <div className={styles.featureRowTitle}>{title}</div>
     <Padding y={32} />
@@ -142,7 +142,7 @@ const FeatureRow = ({id, title, columns}) => (
   </div>
 );
 
-const OtherFeatures = ({data, t}) => (
+const OtherFeatures = ({ data, t }) => (
   <BackgroundImage
     Tag="div"
     fluid={data.featureBg.childImageSharp.fluid}
@@ -249,7 +249,7 @@ const OtherFeatures = ({data, t}) => (
   </BackgroundImage>
 );
 
-const DesktopAbout = ({data, language, t}) => (
+const DesktopAbout = ({ data, language, t }) => (
   <DesktopLayout
     isFloatMenu={true}
     curMenu="about"

@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
-import { Container1024, Padding, SimpleTop, DropDownQNA, Switch, Ribbon, ExternalLinkWithQuery } from "../components/common";
+import {
+  Container1024,
+  Padding,
+  SimpleTop,
+  DropDownQNA,
+  Switch,
+  Ribbon,
+  ExternalLinkWithQuery,
+} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-pricing.module.css";
@@ -10,7 +18,7 @@ import styles from "./desktop-pricing.module.css";
 import svgCard from "../images/card.svg";
 import svgCheck from "../images/check.svg";
 
-const PriceTable = ({data, language, t}) => {
+const PriceTable = ({ data, language, t }) => {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
@@ -100,16 +108,14 @@ const PriceTable = ({data, language, t}) => {
             </td>
             <td>
               <ExternalLinkWithQuery href={constants.urlStart}>
-                <button
-                  className={styles.startButton}>
+                <button className={styles.startButton}>
                   {t("pricing:startNowButton")}
                 </button>
               </ExternalLinkWithQuery>
             </td>
             <td>
               <ExternalLinkWithQuery href={constants.urlStart}>
-                <button
-                  className={styles.startButton}>
+                <button className={styles.startButton}>
                   {t("pricing:startTrialButton")}
                 </button>
               </ExternalLinkWithQuery>
@@ -252,7 +258,7 @@ const PriceTable = ({data, language, t}) => {
   );
 };
 
-const FAQ = ({t}) => {
+const FAQ = ({ t }) => {
   const faqData = [
     {
       question: t("pricing:faq1Question"),
@@ -392,7 +398,7 @@ const FAQ = ({t}) => {
   );
 };
 
-const DirectContact = ({t}) => (
+const DirectContact = ({ t }) => (
   <div className={styles.directContactContainer}>
     <div className={styles.directContactTitle}>
       {t("pricing:directContactTitle")}
@@ -419,7 +425,7 @@ const DirectContact = ({t}) => (
   </div>
 );
 
-export const DesktopPricing = ({data, language, t}) => {
+export const DesktopPricing = ({ data, language, t }) => {
   return (
     <DesktopLayout
       isFloatMenu={false}

@@ -1,10 +1,10 @@
 import React from "react";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import {Trans} from "@jbseo/gatsby-plugin-react-i18next";
+import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
-import {Container320, Padding} from "../components/common";
+import { Container320, Padding } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-about.module.css";
@@ -22,7 +22,7 @@ import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
 
-const Top = ({data}) => (
+const Top = ({ data }) => (
   <BackgroundImage
     Tag="section"
     className={styles.topContainer}
@@ -40,7 +40,7 @@ const Top = ({data}) => (
   </BackgroundImage>
 );
 
-const StrongPoints = ({data}) => (
+const StrongPoints = ({ data }) => (
   <Container320>
     <div className={styles.section}>
       <div className={styles.title}>
@@ -79,7 +79,7 @@ const StrongPoints = ({data}) => (
   </Container320>
 );
 
-const FeatureCard = ({img, title, content, link}) => (
+const FeatureCard = ({ img, title, content, link }) => (
   <a href={link} title={title}>
     <div className={styles.featureCard}>
       <img className={styles.featureIcon} src={img} alt={title} />
@@ -91,10 +91,8 @@ const FeatureCard = ({img, title, content, link}) => (
   </a>
 );
 
-const FeatureRow = ({id, title, columns}) => (
-  <div
-    id={id}
-    className={styles.featureRow}>
+const FeatureRow = ({ id, title, columns }) => (
+  <div id={id} className={styles.featureRow}>
     <div className={styles.featureRowTitle}>{title}</div>
     <Padding y={21} />
     <div className={styles.featureContainer}>
@@ -111,7 +109,7 @@ const FeatureRow = ({id, title, columns}) => (
   </div>
 );
 
-const OtherFeatures = ({data, t}) => (
+const OtherFeatures = ({ data, t }) => (
   <BackgroundImage
     Tag="div"
     fluid={data.featureBg.childImageSharp.fluid}
@@ -217,7 +215,7 @@ const OtherFeatures = ({data, t}) => (
   </BackgroundImage>
 );
 
-const MobileAbout = ({data, language, t}) => {
+const MobileAbout = ({ data, language, t }) => {
   return (
     <MobileLayout
       isFloatMenu={true}

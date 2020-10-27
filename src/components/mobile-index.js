@@ -4,7 +4,13 @@ import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Link, Trans } from "@jbseo/gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  DotGroup,
+  Dot,
+} from "pure-react-carousel";
 // js
 import MobileLayout from "../components/mobile-layout";
 import { Container320, Padding, WithCurrentSlide } from "../components/common";
@@ -19,7 +25,7 @@ import svgDashboard from "../images/dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
 
-const Top = ({data, t}) => (
+const Top = ({ data, t }) => (
   <BackgroundImage
     Tag="div"
     className={styles.topContainer}
@@ -108,7 +114,7 @@ KeyFeature.defaultProps = {
   isDarkBg: false,
 };
 
-const TeamPlay = ({data, t}) => (
+const TeamPlay = ({ data, t }) => (
   <BackgroundImage
     Tag="section"
     className={styles.teamPlayContainer}
@@ -128,7 +134,7 @@ const TeamPlay = ({data, t}) => (
   </BackgroundImage>
 );
 
-const Customers = ({data, t, language}) => {
+const Customers = ({ data, t, language }) => {
   const customerData = [
     {
       title: t("index:customerData1Title"),
@@ -136,13 +142,13 @@ const Customers = ({data, t, language}) => {
       link: t("index:customerData1Link"),
     },
     // 영문 문서가 없어서 한글에서만 추가.
-    (language === "ko"
+    language === "ko"
       ? {
           title: t("index:customerData2Title"),
           img: data.mobileCustomerFasion.childImageSharp.fixed,
           link: t("index:customerData2Link"),
         }
-      : null),
+      : null,
     {
       title: t("index:customerData3Title"),
       img: data.mobileCustomerCosmetics.childImageSharp.fixed,
@@ -173,7 +179,7 @@ const Customers = ({data, t, language}) => {
       img: data.mobileCustomerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
     },
-  ].filter(item => item);
+  ].filter((item) => item);
   return (
     <div className={styles.customersContainer}>
       <Padding y={50} />
@@ -265,7 +271,7 @@ function genFeatureData(data, t) {
   ];
 }
 
-function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
+function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
     const multipleSelected =
@@ -279,7 +285,9 @@ function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
         slide={slide}
         selected={selected}
         style={{ left: `${-150 * currentSlide}px` }}
-        className={`${styles.slideDetailDot} ${selected ? styles.slideDetailDotSelected : ""}`}
+        className={`${styles.slideDetailDot} ${
+          selected ? styles.slideDetailDotSelected : ""
+        }`}
       >
         {allData[slide].title}
       </Dot>
@@ -288,7 +296,7 @@ function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
   return dots;
 }
 
-const Features = ({data, t}) => {
+const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);
   return (
     <CarouselProvider
@@ -324,7 +332,7 @@ const Features = ({data, t}) => {
 
       <div className={styles.slideDetailLinkContainer}>
         <WithCurrentSlide>
-          {currentSlide => (
+          {(currentSlide) => (
             <Link
               to={featureData[currentSlide].link}
               title={featureData[currentSlide].title}
@@ -344,7 +352,7 @@ const Features = ({data, t}) => {
   );
 };
 
-const MobileIndex = ({data, language, t}) => {
+const MobileIndex = ({ data, language, t }) => {
   return (
     <MobileLayout
       isFloatMenu={true}
@@ -394,11 +402,7 @@ const MobileIndex = ({data, language, t}) => {
 
       <Customers data={data} t={t} language={language} />
 
-      <TransitionImage item={
-        <Features
-          data={data}
-          t={t} />
-        } />
+      <TransitionImage item={<Features data={data} t={t} />} />
     </MobileLayout>
   );
 };

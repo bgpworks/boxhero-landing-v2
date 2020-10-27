@@ -8,9 +8,9 @@ import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";
 
-const {bgOrange, bgGreen, bgBlue} = styles;
+const { bgOrange, bgGreen, bgBlue } = styles;
 
-const DemoTemplate = ({icon, title, desc, index}) => (
+const DemoTemplate = ({ icon, title, desc, index }) => (
   <div
     className={`${styles.demoTemplate}`}
     style={{ marginTop: `${index * 50}px` }}
@@ -65,7 +65,7 @@ function FeatureTemplate(props) {
   );
 }
 
-const FeatureExpiry = props => (
+const FeatureExpiry = (props) => (
   <FeatureTemplate
     id={constants.idFeatureExpiry}
     bgColor={bgOrange}
@@ -75,19 +75,19 @@ const FeatureExpiry = props => (
     demoData={[
       {
         icon: props.data.mobileExpiryDemo1.childImageSharp.fixed,
-        title: (<Trans i18nKey="features:expiryDemo1Title" />),
-        desc: (<Trans i18nKey="features:expiryDemo1DescMobile" />),
+        title: <Trans i18nKey="features:expiryDemo1Title" />,
+        desc: <Trans i18nKey="features:expiryDemo1DescMobile" />,
       },
       {
         icon: props.data.mobileExpiryDemo2.childImageSharp.fixed,
-        title: (<Trans i18nKey="features:expiryDemo2Title" />),
-        desc: (<Trans i18nKey="features:expiryDemo2DescMobile" />),
+        title: <Trans i18nKey="features:expiryDemo2Title" />,
+        desc: <Trans i18nKey="features:expiryDemo2DescMobile" />,
       },
     ]}
   />
 );
 
-const FeatureLowstock = props => (
+const FeatureLowstock = (props) => (
   <FeatureTemplate
     id={constants.idFeatureLowstock}
     bgColor={bgGreen}
@@ -109,7 +109,7 @@ const FeatureLowstock = props => (
   />
 );
 
-const FeatureBarcodelabel = props => (
+const FeatureBarcodelabel = (props) => (
   <FeatureTemplate
     id={constants.idFeatureBarcodelabel}
     bgColor={bgBlue}
@@ -131,7 +131,7 @@ const FeatureBarcodelabel = props => (
   />
 );
 
-const FeatureSummary = props => (
+const FeatureSummary = (props) => (
   <FeatureTemplate
     id={constants.idFeatureSummary}
     bgColor={bgOrange}
@@ -153,7 +153,7 @@ const FeatureSummary = props => (
   />
 );
 
-const FeatureStatus = props => (
+const FeatureStatus = (props) => (
   <FeatureTemplate
     id={constants.idFeatureStatus}
     bgColor={bgGreen}
@@ -175,7 +175,7 @@ const FeatureStatus = props => (
   />
 );
 
-const FeatureLocation = props => (
+const FeatureLocation = (props) => (
   <FeatureTemplate
     id={constants.idFeatureLocation}
     bgColor={bgBlue}
@@ -197,7 +197,7 @@ const FeatureLocation = props => (
   />
 );
 
-const MobileFeatures = ({data, language, t}) => (
+const MobileFeatures = ({ data, language, t }) => (
   <MobileLayout
     isFloatMenu={false}
     curMenu="features"

@@ -9,6 +9,8 @@ module.exports = {
   idAboutFeatureTx: "feature-tx",
   idAboutFeatureStatus: "feature-status",
   urlStart: "https://web.boxhero-app.com/team",
-  urlDownloadApp: "https://redirect.appmetrica.yandex.com/serve/530934382265923250",
-  urlDownloadAppSearchAd: "https://redirect.appmetrica.yandex.com/serve/531288493830224501",
+  urlDownloadApp:
+    "https://redirect.appmetrica.yandex.com/serve/530934382265923250",
+  urlDownloadAppSearchAd:
+    "https://redirect.appmetrica.yandex.com/serve/531288493830224501",
 };

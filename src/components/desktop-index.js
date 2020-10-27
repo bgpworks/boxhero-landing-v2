@@ -12,10 +12,15 @@ import {
   Dot,
 } from "pure-react-carousel";
 import ScrollContainer from "react-indiana-drag-scroll";
-import {Link, Trans} from "@jbseo/gatsby-plugin-react-i18next";
+import { Link, Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import DesktopLayout from "../components/desktop-layout"
-import { Container1024, Padding, WithCurrentSlide, ExternalLinkWithQuery } from "../components/common";
+import DesktopLayout from "../components/desktop-layout";
+import {
+  Container1024,
+  Padding,
+  WithCurrentSlide,
+  ExternalLinkWithQuery,
+} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-index.module.css";
@@ -29,8 +34,7 @@ import svgSmallRight from "../images/smallright.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 
-
-const Top = ({data, t}) => (
+const Top = ({ data, t }) => (
   <BackgroundImage
     Tag="div"
     className={styles.topContainer}
@@ -39,12 +43,10 @@ const Top = ({data, t}) => (
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
-          <img src={svgVolt} alt={t("index:topIconAlt")} />
+        <img src={svgVolt} alt={t("index:topIconAlt")} />
         <Padding y={10} />
         <div className={styles.topLeftTitle}>
-          <TransitionUp item={
-          <Trans i18nKey="index:topTitle" />
-          } />
+          <TransitionUp item={<Trans i18nKey="index:topTitle" />} />
         </div>
         <Padding y={30} />
         <div className={styles.topLeftDescription}>
@@ -59,7 +61,7 @@ const Top = ({data, t}) => (
         <Padding y={161} />
       </div>
       <div className={styles.topRightContainer}>
-          <Img fixed={data.homeTopRight.childImageSharp.fixed} />
+        <Img fixed={data.homeTopRight.childImageSharp.fixed} />
       </div>
     </Container1024>
   </BackgroundImage>
@@ -84,30 +86,22 @@ const KeyFeature = ({
       <div className={styles.keyFeatureLeftContainer}>
         <img src={icon} alt={iconAlt} />
         <Padding y={20} />
-          <div className={styles.keyFeatureLeftTitle}>
-            {title}
-          </div>
+        <div className={styles.keyFeatureLeftTitle}>{title}</div>
         <Padding y={35} />
-          <div className={styles.keyFeatureLeftDescription}>
-            {desc}
-          </div>
+        <div className={styles.keyFeatureLeftDescription}>{desc}</div>
         <Padding y={40} />
-          <div className={styles.keyFeatureLeftSubTitle}>
-            {subTitle}
-          </div>
-          <div className={styles.keyFeatureLeftSubDesc}>
-            {subDesc}
-          </div>
+        <div className={styles.keyFeatureLeftSubTitle}>{subTitle}</div>
+        <div className={styles.keyFeatureLeftSubDesc}>{subDesc}</div>
         <Padding y={20} />
         <div className={styles.keyFeatureDetail}>
-              <Link to={detailUrl}>
-                {linkDetail}
-                <img
-                  src={svgSmallRightBlue}
-                  className={styles.rightArrow}
-                  alt={linkDetail}
-                />
-              </Link>
+          <Link to={detailUrl}>
+            {linkDetail}
+            <img
+              src={svgSmallRightBlue}
+              className={styles.rightArrow}
+              alt={linkDetail}
+            />
+          </Link>
         </div>
       </div>
       <div className={styles.keyFeatureRightContainer}>
@@ -133,7 +127,7 @@ KeyFeature.defaultProps = {
   isDarkBg: false,
 };
 
-const TeamPlay = ({data, t}) => (
+const TeamPlay = ({ data, t }) => (
   <BackgroundImage
     Tag="section"
     className={styles.teamPlayContainer}
@@ -143,17 +137,15 @@ const TeamPlay = ({data, t}) => (
     <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
     <Padding y={40} />
     <div className={styles.teamPlayDesc}>
-        <Trans i18nKey="index:teamPlayDesc" />
+      <Trans i18nKey="index:teamPlayDesc" />
     </div>
-        <div className={styles.teamImageFlex}>
-          <Img
-          fixed={data.teamPlay.childImageSharp.fixed}
-          />
-        </div>
+    <div className={styles.teamImageFlex}>
+      <Img fixed={data.teamPlay.childImageSharp.fixed} />
+    </div>
   </BackgroundImage>
 );
 
-const Customers = ({data, t, language}) => {
+const Customers = ({ data, t, language }) => {
   const customerData = [
     {
       title: t("index:customerData1Title"),
@@ -161,13 +153,13 @@ const Customers = ({data, t, language}) => {
       link: t("index:customerData1Link"),
     },
     // 영문 문서가 없어서 한글에서만 추가.
-    (language === "ko"
+    language === "ko"
       ? {
           title: t("index:customerData2Title"),
           img: data.customerFasion.childImageSharp.fixed,
           link: t("index:customerData2Link"),
         }
-      : null),
+      : null,
     {
       title: t("index:customerData3Title"),
       img: data.customerCosmetics.childImageSharp.fixed,
@@ -198,7 +190,7 @@ const Customers = ({data, t, language}) => {
       img: data.customerLocation.childImageSharp.fixed,
       link: t("index:customerData8Link"),
     },
-  ].filter(item => item);
+  ].filter((item) => item);
   return (
     <div className={styles.customersContainer}>
       <div className={styles.customersTitle}>
@@ -225,9 +217,7 @@ const Customers = ({data, t, language}) => {
         {customerData.map((customer, index) => (
           <div key={index} className={styles.customerButton}>
             <div className={styles.customerButtonBackground}>
-              <Img
-              fixed={customer.img}
-              />
+              <Img fixed={customer.img} />
             </div>
             <div className={styles.customerButtonContent}>
               <span className={styles.customButtonContentNumber}>
@@ -241,7 +231,8 @@ const Customers = ({data, t, language}) => {
                 href={customer.link}
                 target="_blank"
                 rel="noreferrer"
-                className={styles.customButtonContentLink}>
+                className={styles.customButtonContentLink}
+              >
                 {t("index:customerDataDetailLink")}
               </a>
             </div>
@@ -288,7 +279,7 @@ function genFeatureData(data, t) {
   ];
 }
 
-function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
+function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
     const multipleSelected =
@@ -312,12 +303,12 @@ function renderDots(allData, {currentSlide, totalSlides, visibleSlides}) {
   return dots;
 }
 
-const Features = ({data, t}) => {
+const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);
   return (
     <div className={styles.featuresContainer}>
       <div className={styles.featuresTitle}>
-          <Trans i18nKey="index:featuresTitle" />
+        <Trans i18nKey="index:featuresTitle" />
       </div>
       <Padding y={80} />
 
@@ -326,28 +317,23 @@ const Features = ({data, t}) => {
         naturalSlideHeight={360}
         totalSlides={featureData.length}
       >
-            <DotGroup
-              className={styles.slideDetailDotGroup}
-              renderDots={(props) => renderDots(featureData, props)}
-            />
+        <DotGroup
+          className={styles.slideDetailDotGroup}
+          renderDots={(props) => renderDots(featureData, props)}
+        />
         <Padding y={80} />
 
         <div className={styles.slideAndNavButtons}>
           <ButtonBack className={styles.slideNavButton}>
             <img src={svgSwipeLeft} alt={t("index:featuresNavBack")} />
           </ButtonBack>
-              <Slider className={styles.sliderWrapper}>
-                {featureData.map((data, index) => (
-                  <Slide
-                    key={index}
-                    index={index}>
-                    <Img
-                      fixed={data.img}
-                      alt={data.title}
-                    />
-                  </Slide>
-                ))}
-              </Slider>
+          <Slider className={styles.sliderWrapper}>
+            {featureData.map((data, index) => (
+              <Slide key={index} index={index}>
+                <Img fixed={data.img} alt={data.title} />
+              </Slide>
+            ))}
+          </Slider>
           <ButtonNext className={styles.slideNavButton}>
             <img src={svgSwipeRight} alt={t("index:featuresNavNext")} />
           </ButtonNext>
@@ -357,19 +343,19 @@ const Features = ({data, t}) => {
 
         <div className={styles.slideDetailLinkContainer}>
           <WithCurrentSlide>
-            { currentSlide => (
-                <Link
-                  to={featureData[currentSlide].link}
-                  title={featureData[currentSlide].title}
-                  className={styles.slideDetailLink}
-                >
-                  {t("index:featuresDetailLink")}
-                  <img
-                    src={svgSmallRightBlue}
-                    className={styles.rightArrow}
-                    alt={t("index:featuresDetailLink")}
-                  />
-                </Link>
+            {(currentSlide) => (
+              <Link
+                to={featureData[currentSlide].link}
+                title={featureData[currentSlide].title}
+                className={styles.slideDetailLink}
+              >
+                {t("index:featuresDetailLink")}
+                <img
+                  src={svgSmallRightBlue}
+                  className={styles.rightArrow}
+                  alt={t("index:featuresDetailLink")}
+                />
+              </Link>
             )}
           </WithCurrentSlide>
         </div>
@@ -378,7 +364,7 @@ const Features = ({data, t}) => {
   );
 };
 
-const DesktopIndex = ({data, language, t}) => {
+const DesktopIndex = ({ data, language, t }) => {
   return (
     <DesktopLayout
       isFloatMenu={true}

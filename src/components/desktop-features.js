@@ -4,7 +4,12 @@ import { Link, Trans } from "@jbseo/gatsby-plugin-react-i18next";
 import scrollTo from "gatsby-plugin-smoothscroll";
 // js
 import DesktopLayout from "../components/desktop-layout";
-import { Container1024, Padding, SimpleTop, ExternalLinkWithQuery } from "../components/common";
+import {
+  Container1024,
+  Padding,
+  SimpleTop,
+  ExternalLinkWithQuery,
+} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-features.module.css";
@@ -16,9 +21,9 @@ import iconMenuSummary from "../images/features-menu-summary.svg";
 import iconMenuStatus from "../images/features-menu-status.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
 
-const {bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue} = styles;
+const { bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue } = styles;
 
-const MenuItem = ({to, icon, label, title}) => (
+const MenuItem = ({ to, icon, label, title }) => (
   <Link
     to={`/features/${to}`}
     title={title}
@@ -29,21 +34,16 @@ const MenuItem = ({to, icon, label, title}) => (
     }}
   >
     <div>
-      <img
-        src={icon}
-        alt={label}
-      />
+      <img src={icon} alt={label} />
     </div>
     <Padding y={13} />
-    <div className={styles.menuItemLabel}>
-      {label}
-    </div>
+    <div className={styles.menuItemLabel}>{label}</div>
     <Padding y={13} />
     <div className={styles.menuItemLabel}>{label}</div>
   </Link>
 );
 
-const Menu = ({t}) => (
+const Menu = ({ t }) => (
   <Container1024 className={styles.menuContainer}>
     <MenuItem
       to={`#${constants.idFeatureExpiry}`}
@@ -84,10 +84,8 @@ const Menu = ({t}) => (
   </Container1024>
 );
 
-const DemoTemplate = ({barColor, icon, title, desc}) => (
-  <div
-    className={[styles.demoTemplate, barColor].join(" ")}
-    >
+const DemoTemplate = ({ barColor, icon, title, desc }) => (
+  <div className={[styles.demoTemplate, barColor].join(" ")}>
     <div>
       <Img fixed={icon} className={styles.demoLogo} />
       <span className={styles.demoTitle}>- {title} -</span>
@@ -121,9 +119,7 @@ function FeatureTemplate(props) {
           </div>
         </div>
         <Padding y={150} />
-        <div
-          className={styles.halfContainer}
-        >
+        <div className={styles.halfContainer}>
           {props.demoData.slice(0, 2).map((data, index) => (
             <DemoTemplate
               key={index}
@@ -277,7 +273,7 @@ const FeatureLocation = (props) => (
   />
 );
 
-export const DesktopFeatures = ({data, language, t}) => (
+export const DesktopFeatures = ({ data, language, t }) => (
   <DesktopLayout
     isFloatMenu={false}
     curMenu="features"

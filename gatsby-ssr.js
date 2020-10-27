@@ -4,33 +4,37 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-
-import React from "react"
-import { mediaStyles } from "./src/media"
-import { Boot } from "./src/boot"
+import React from "react";
+import { mediaStyles } from "./src/media";
+import { Boot } from "./src/boot";
 
 // https://isamrish.com/how-to-add-3rd-party-script-in-your-gatsby-website/
 
-export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, pluginOptions) => {
+export const onRenderBody = (
+  { setHeadComponents, setPostBodyComponents },
+  pluginOptions
+) => {
   setHeadComponents([
     <link
       key="font"
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=fallback"
-      rel='stylesheet'
-      type='text/css'
+      rel="stylesheet"
+      type="text/css"
     />,
     // https://github.com/nuxodin/ie11CustomProperties
     <script
       key="cssVariableIEPolyfill"
       dangerouslySetInnerHTML={{
         __html: `window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\\x2fscript>');`,
-      }}/>,
+      }}
+    />,
     // helpscout beacon script. init은 gatsby-browser.js에서 한다.
     <script
       key="helpscoutScriptLoad"
       dangerouslySetInnerHTML={{
         __html: `!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`,
-      }}/>,
+      }}
+    />,
     // Yandex.Metrika counter
     <script
       key="yandexScriptLoad"
@@ -44,50 +48,56 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
         trackLinks:true,
         accurateTrackBounce:true,
         webvisor:true
-   });`
+   });`,
       }}
     />,
     <noscript key="yandexScriptLoad2">
       <div>
         <img
           src="https://mc.yandex.ru/watch/57468217"
-          style={{position: "absolute", left: -9999}}
+          style={{ position: "absolute", left: -9999 }}
           alt=""
         />
       </div>
     </noscript>,
     // Google
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-841378918"></script>,
     <script
-    dangerouslySetInnerHTML={{
-      __html: `
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-841378918"
+    ></script>,
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
       
         gtag('config', 'AW-841378918');
-      `
-    }}></script>,
-    <style key="artsy/fresnel_style" >
-      {mediaStyles}
-    </style>,
-  ])
+      `,
+      }}
+    ></script>,
+    <style key="artsy/fresnel_style">{mediaStyles}</style>,
+  ]);
 
   setPostBodyComponents([
     // naver
     // https://saedu.naver.com/help/faq/ncc/view.nhn?faqSeq=128
-    <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>,
     <script
-    dangerouslySetInnerHTML={{
-      __html: `
+      type="text/javascript"
+      src="https://wcs.naver.net/wcslog.js"
+    ></script>,
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
         if (!wcs_add) var wcs_add={};
         wcs_add["wa"] = "s_3c89ef22cf6";
         if (!_nasa) var _nasa={};
         wcs.inflow("boxhero-app.com");
         wcs_do(_nasa);
-      `
-    }}></script>,
-  ])
-}
+      `,
+      }}
+    ></script>,
+  ]);
+};
 
 export const wrapRootElement = Boot;
