@@ -104,22 +104,54 @@ function FeatureTemplate(props) {
       <Container1024>
         <div className={styles.featureTemplateDescFigContainer}>
           <div className={styles.featureTemplateTitleDescContainer}>
-            <div className={styles.featureTemplateTitle}>{props.title}</div>
+            <div
+              className={styles.featureTemplateTitle}
+              data-sal="slide-up-10"
+              data-sal-duration="500"
+              data-sal-easing="easeOutQuint"
+            >
+              {props.title}
+            </div>
             <Padding y={35} />
-            <div className={styles.featureTemplateDesc}>{props.desc}</div>
+            <div
+              className={styles.featureTemplateDesc}
+              data-sal="slide-up-10"
+              data-sal-duration="500"
+              data-sal-delay="300"
+              data-sal-easing="easeOutQuint"
+            >
+              {props.desc}
+            </div>
             <Padding y={30} />
-            <ExternalLinkWithQuery href={constants.urlStart}>
+            <ExternalLinkWithQuery
+              href={constants.urlStart}
+              data-sal="slide-up-10"
+              data-sal-duration="500"
+              data-sal-delay="300"
+              data-sal-easing="easeOutQuint"
+            >
               <button className={styles.featureTemplateStartNow}>
                 <Trans i18nKey="features:startNowButton" />
               </button>
             </ExternalLinkWithQuery>
           </div>
-          <div className={styles.featureTemplateFigureContainer}>
+          <div
+            className={styles.featureTemplateFigureContainer}
+            data-sal="slide-up-10"
+            data-sal-duration="500"
+            data-sal-easing="easeOutQuint"
+          >
             <Img fixed={props.figure} style={props.figureStyle} />
           </div>
         </div>
         <Padding y={150} />
-        <div className={styles.halfContainer}>
+        <div
+          className={styles.halfContainer}
+          data-sal="slide-up-10"
+          data-sal-duration="500"
+          data-sal-delay="300"
+          data-sal-easing="easeOutQuint"
+        >
           {props.demoData.slice(0, 2).map((data, index) => (
             <DemoTemplate
               key={index}

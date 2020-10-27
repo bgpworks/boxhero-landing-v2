@@ -122,7 +122,9 @@ export const Switch = ({ isActive, onChange }) => {
         checked={isActive}
         onChange={(evt) => onChange(evt.target.checked)}
       />
-      <label htmlFor={id} className={styles.switchLabel}></label>
+      <label htmlFor={id} className={styles.switchLabel}>
+        {" "}
+      </label>
     </div>
   );
 };
@@ -155,69 +157,57 @@ export const WithCurrentSlide = ({ children }) => {
 
 // query param을 유지하면서 a href를 사용한다.
 // 광고 트래킹을 위해 사용되며, 첫 진입시 query param을 붙여서 나간다.
-export class ExternalLinkWithQuery extends React.Component {
-  state = {
-    search: null,
-  };
+export const ExternalLinkWithQuery = ({ href, children, ...props }) => {
+  const [search, setSearch] = useState(null);
+  useEffect(() => {
+    setSearch(localStorage.getItem("search_param"));
+  }, []);
 
-  componentDidMount() {
-    this.setState({ search: localStorage.getItem("search_param") });
-  }
+  const hrefWithSearch = search == null ? href : href + search;
 
-  render() {
-    const href =
-      this.state.search == null
-        ? this.props.href
-        : this.props.href + this.state.search;
+  return (
+    <a {...props} href={hrefWithSearch}>
+      {children}
+    </a>
+  );
+};
 
-    return (
-      <a {...this.props} href={href}>
-        {this.props.children}
-      </a>
-    );
-  }
-}
-
-// query param에 키워드 광고 파라메터가 있으면 다른 앱다운로드 링크를 건다.
-export class AppDownloadLink extends React.Component {
-  state = {
-    searchAD: false,
-  };
-
-  parseQuery(search) {
-    var ret = {};
-    if (!search) {
-      return ret;
-    }
-
-    var query = search.substring(1);
-    var vars = query.split("&");
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split("=");
-      ret[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-    }
+function parseQuery(search) {
+  var ret = {};
+  if (!search) {
     return ret;
   }
 
-  componentDidMount() {
-    const param = this.parseQuery(localStorage.getItem("search_param"));
+  var query = search.substring(1);
+  var vars = query.split("&");
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    ret[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+  }
+  return ret;
+}
+
+// query param에 키워드 광고 파라메터가 있으면 다른 앱다운로드 링크를 건다.
+export const AppDownloadLink = ({ children, ...props }) => {
+  const [searchAD, setSearchAD] = useState(false);
+
+  useEffect(() => {
+    const param = parseQuery(localStorage.getItem("search_param"));
 
     // google : gclid
     // naver : n_media
-    this.setState({ searchAD: param["gclid"] || param["n_media"] });
-  }
+    setSearchAD(param["gclid"] || param["n_media"]);
+  }, []);
 
-  render() {
-    const href = this.state.searchAD ? urlDownloadAppSearchAd : urlDownloadApp;
+  const href = searchAD ? urlDownloadAppSearchAd : urlDownloadApp;
 
-    return (
-      <a
-        {...this.props}
-        href={href}
-        data-link-type={this.state.searchAD ? "searchAd" : "organic"}
-      >
-        {this.props.children}
-      </a>
-    );
-  }
-}
+  return (
+    <a
+      {...props}
+      href={href}
+      data-link-type={searchAD ? "searchAd" : "organic"}
+    >
+      {children}
+    </a>
+  );
+};

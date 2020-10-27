@@ -114,8 +114,8 @@ const CompanyInfo = ({ t }) => (
         components={{
           // eslint-disable-next-line
           tosLink: <a className={styles.tosPrivacyLink} href={t("url:tos")} />,
-          // eslint-disable-next-line
           privacyLink: (
+            // eslint-disable-next-line
             <a className={styles.tosPrivacyLink} href={t("url:privacy")} />
           ),
         }}

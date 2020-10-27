@@ -3,7 +3,7 @@
   width: 100%;
   height: var(--height-top-menu);
   z-index: 100;
-  position: absolute;
+  position: fixed;
 }
 
 .menuContainer {
@@ -50,15 +50,14 @@
 /* float container */
 
 
-.floatContainer {
-  position: fixed;
+.whiteContainer {
   background-color: #fff;
 }
 
-.floatContainer .menuContainer {
+.whiteContainer .menuContainer {
   color: var(--color-font-darker);
 }
 
-.floatContainer .loginButton {
+.whiteContainer .loginButton {
   border-color: var(--color-font-darker);
 }

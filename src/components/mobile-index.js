@@ -187,7 +187,6 @@ const Customers = ({ data, t, language }) => {
         <Trans i18nKey="index:customerTitle" />
       </div>
       <Padding y={30} />
-
       <Link to="/features/" title={t("index:customerDetailLink")}>
         <button className={styles.customersDetailButton}>
           {t("index:customerDetailLink")}
@@ -402,7 +401,7 @@ const MobileIndex = ({ data, language, t }) => {
 
       <Customers data={data} t={t} language={language} />
 
-      <TransitionImage item={<Features data={data} t={t} />} />
+      <Features data={data} t={t} />
     </MobileLayout>
   );
 };

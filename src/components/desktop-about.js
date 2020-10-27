@@ -150,7 +150,6 @@ const OtherFeatures = ({ data, t }) => (
   >
     <Container1024 className={styles.featureContentContainer}>
       <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
-
       <Padding y={40} />
       <div className={styles.featureDesc}>
         <Trans i18nKey="about:otherFeaturesDesc" />

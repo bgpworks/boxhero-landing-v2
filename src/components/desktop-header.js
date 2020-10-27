@@ -20,7 +20,7 @@ export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
   return (
     <header
       className={`${styles.headerContainer} ${
-        isWhite ? styles.floatContainer : ""
+        isWhite ? styles.whiteContainer : ""
       }`}
     >
       <Container1024 className={styles.menuContainer}>

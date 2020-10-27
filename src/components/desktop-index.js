@@ -1,3 +1,6 @@
+/* eslint react/jsx-no-target-blank: 0 */
+// 분석을 위해 referrer 정보는 남겨두고 싶음.
+
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
@@ -46,7 +49,7 @@ const Top = ({ data, t }) => (
         <img src={svgVolt} alt={t("index:topIconAlt")} />
         <Padding y={10} />
         <div className={styles.topLeftTitle}>
-          <TransitionUp item={<Trans i18nKey="index:topTitle" />} />
+          <Trans i18nKey="index:topTitle" />
         </div>
         <Padding y={30} />
         <div className={styles.topLeftDescription}>
@@ -230,7 +233,7 @@ const Customers = ({ data, t, language }) => {
               <a
                 href={customer.link}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener"
                 className={styles.customButtonContentLink}
               >
                 {t("index:customerDataDetailLink")}

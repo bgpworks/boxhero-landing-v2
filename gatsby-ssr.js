@@ -62,20 +62,22 @@ export const onRenderBody = (
     </noscript>,
     // Google
     <script
+      key="googleTagManagerScriptLoad"
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-841378918"
-    ></script>,
+    />,
     <script
+      key="googleTagManagerScriptInit"
       dangerouslySetInnerHTML={{
         __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-      
+
         gtag('config', 'AW-841378918');
       `,
       }}
-    ></script>,
+    />,
     <style key="artsy/fresnel_style">{mediaStyles}</style>,
   ]);
 
@@ -83,10 +85,12 @@ export const onRenderBody = (
     // naver
     // https://saedu.naver.com/help/faq/ncc/view.nhn?faqSeq=128
     <script
+      key="naverScriptLoad"
       type="text/javascript"
       src="https://wcs.naver.net/wcslog.js"
-    ></script>,
+    />,
     <script
+      key="naverScriptInitCode"
       dangerouslySetInnerHTML={{
         __html: `
         if (!wcs_add) var wcs_add={};
@@ -96,7 +100,7 @@ export const onRenderBody = (
         wcs_do(_nasa);
       `,
       }}
-    ></script>,
+    />,
   ]);
 };
 
