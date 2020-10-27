@@ -5,17 +5,17 @@ import DesktopHeader from "./desktop-header";
 import DesktopFooter from "./desktop-footer";
 import styles from "./desktop-layout.module.css";
 
-export const DesktopLayout = ({ isFloatMenu, curMenu, closingEmoji, closingMsg, children }) => (
+export const DesktopLayout = ({
+  isFloatMenu,
+  curMenu,
+  closingEmoji,
+  closingMsg,
+  children,
+}) => (
   <div className={styles.desktopLayout}>
-    <DesktopHeader
-      isFloatMenu={isFloatMenu}
-      curMenu={curMenu}
-    />
+    <DesktopHeader isFloatMenu={isFloatMenu} curMenu={curMenu} />
     <main>{children}</main>
-    <DesktopFooter
-      closingEmoji={closingEmoji}
-      closingMsg={closingMsg}
-    />
+    <DesktopFooter closingEmoji={closingEmoji} closingMsg={closingMsg} />
   </div>
 );
 

@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: "BoxHero - The Simplest Inventory Management Solution",
-    description: "Stay on top of inventory management in real-time on your computer or mobile device.",
+    description:
+      "Stay on top of inventory management in real-time on your computer or mobile device.",
     author: `@BoxHero_support`,
     keywords: `재고관리, 자산관리, 바코드, QR코드, RFID, 재고, 자산, 엑셀, 제품`,
     email: "support+boxhero@bgpworks.com",
@@ -54,7 +55,17 @@ module.exports = {
         // you can pass any i18next options
         // pass following options to allow message content as a key
         i18nextOptions: {
-          ns: ['translation', 'index', 'footer', 'header', 'url', 'about', 'features', 'pricing', 'layout'],
+          ns: [
+            "translation",
+            "index",
+            "footer",
+            "header",
+            "url",
+            "about",
+            "features",
+            "pricing",
+            "layout",
+          ],
           fallbackLng: false,
           interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
@@ -62,16 +73,16 @@ module.exports = {
         },
         pages: [
           {
-            matchPath: '/(privacy|tos)',
-            excludeLanguages: ['en', 'ko']
-          }
+            matchPath: "/(privacy|tos)",
+            excludeLanguages: ["en", "ko"],
+          },
         ],
       },
     },
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: "gatsby-plugin-sitemap",
       options: {
-        exclude: ['/**/404', '/**/404.html'],
+        exclude: ["/**/404", "/**/404.html"],
         query: `
           {
             site {
@@ -95,27 +106,29 @@ module.exports = {
             }
           }
         `,
-        serialize: ({site, allSitePage}) => {
+        serialize: ({ site, allSitePage }) => {
           return allSitePage.edges.map((edge) => {
-            const {languages, originalPath, defaultLanguage} = edge.node.context.i18n;
-            const {siteUrl} = site.siteMetadata;
+            const {
+              languages,
+              originalPath,
+              defaultLanguage,
+            } = edge.node.context.i18n;
+            const { siteUrl } = site.siteMetadata;
             const url = siteUrl + originalPath;
-            const links = [
-              {lang: 'x-default', url}
-            ];
+            const links = [{ lang: "x-default", url }];
             languages.forEach((lang) => {
-              links.push({lang, url: `${siteUrl}/${lang}${originalPath}`});
+              links.push({ lang, url: `${siteUrl}/${lang}${originalPath}` });
             });
             return {
               url,
-              changefreq: 'always',
-              priority: originalPath === '/' ? 1.0 : 0.85,
-              links
+              changefreq: "always",
+              priority: originalPath === "/" ? 1.0 : 0.85,
+              links,
             };
           });
-        }
-      }
+        },
+      },
     },
     `gatsby-plugin-smoothscroll`,
   ],
-}
+};

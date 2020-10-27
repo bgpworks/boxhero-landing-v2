@@ -10,7 +10,6 @@ gatsby develop
 
 `http://localhost:8000` 접속.
 
-
 ### Tools
 
 - [EditorConfig](https://editorconfig.org/)
@@ -62,8 +61,8 @@ styled-component는 취향이 아니어서 css module 사용.
 [gatsby-plugin-scroll-reveal](https://www.gatsbyjs.com/plugins/gatsby-plugin-scroll-reveal/)를 적용해보면 될 듯.
 
 > ATTENTION! gatsby-plugin-scroll-reveal 모듈은 responsive 모듈과 호환이 안된다.
-  화면을 키웠다 줄이면 DOM이 새로 그려지는데,
-  interaction-observer에 등록이 안되는 듯 하다.
+> 화면을 키웠다 줄이면 DOM이 새로 그려지는데,
+> interaction-observer에 등록이 안되는 듯 하다.
 
 [페이지간 전환 효과](https://www.gatsbyjs.com/docs/adding-page-transitions-with-plugin-transition-link/)도 있는 고려해보기.
 
@@ -72,7 +71,9 @@ styled-component는 취향이 아니어서 css module 사용.
 [smoothscroll polyfill](https://github.com/freddydumont/gatsby-plugin-smoothscroll) 적용 후 features 페이지에서만 씀. 아래 css로 전역으로 적용할 수도 있는데, cross page anchor 링크일 경우에는 사용자 경험이 더 안좋아서 삭제. (목표 페이지로 이동 후 해당 페이지의 처음부터 쭉 스크롤이 되면서 모든 이미지 로딩이 발생하면서 버벅임.)
 
 ```css
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 ```
 
 ### 외부 서비스 연동 (Google Tag Manager, Yadex AppMatrica, Helpscout Beacon)
@@ -99,6 +100,7 @@ html { scroll-behavior: smooth; }
 IE에서는 polyfill 문제로 dev build가 안보인다. 아래 처럼 prod빌드로 확인해야 함.
 
 **prod build:**
+
 ```
 yarn build && yarn serve
 ```
@@ -106,23 +108,26 @@ yarn build && yarn serve
 IE에서 dev build를 동작하게 하려면 아래 코드를 생성해서 쓰면 된다. [issue](https://github.com/gatsbyjs/gatsby/issues/14502#issuecomment-498377468)
 
 **gatsby-node.js**
+
 ```js
-exports.onCreateWebpackConfig = function onCreateWebpackConfig({ actions, stage, loaders }) {
-  if (stage === 'develop') {
+exports.onCreateWebpackConfig = function onCreateWebpackConfig({
+  actions,
+  stage,
+  loaders,
+}) {
+  if (stage === "develop") {
     actions.setWebpackConfig({
       module: {
         rules: [
           {
             test: /react-hot-loader/,
-            use: [
-              loaders.js()
-            ]
-          }
-        ]
-      }
-    })
+            use: [loaders.js()],
+          },
+        ],
+      },
+    });
   }
-}
+};
 ```
 
 ## 🎓 Learning Gatsby
@@ -147,7 +152,7 @@ cloudflare에 lambda@edge를 설정해야 하는데, 너무 복잡해짐.
 
 [가격](https://aws.amazon.com/amplify/pricing/?nc=sn&loc=3)
 
-Bandwidth: $15 / 100GB served
+Bandwidth: \$15 / 100GB served
 
 Build: $0.01 / minutes
 Hosting: $0.023 / GB / month
@@ -159,7 +164,7 @@ Hosting: $0.023 / GB / month
 
 **[Netlify](https://www.netlify.com)**
 
-많이들 씀. 플러그인도 많고, 리다이렉션도 어느정도 자유롭다.  [가격](https://www.netlify.com/pricing/)
+많이들 씀. 플러그인도 많고, 리다이렉션도 어느정도 자유롭다. [가격](https://www.netlify.com/pricing/)
 
 Bandwith: 100GB/month 무료. 이후 $20/100GB
 Build: 300 minutes/month 무료. 이후 $7 / 500 minutes
