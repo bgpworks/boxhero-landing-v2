@@ -38,6 +38,8 @@ const MenuItem = ({to, icon, label, title}) => (
     <div className={styles.menuItemLabel}>
       {label}
     </div>
+    <Padding y={13} />
+    <div className={styles.menuItemLabel}>{label}</div>
   </Link>
 );
 
@@ -85,7 +87,7 @@ const Menu = ({t}) => (
 const DemoTemplate = ({barColor, icon, title, desc}) => (
   <div
     className={[styles.demoTemplate, barColor].join(" ")}
-  >
+    >
     <div>
       <Img
         fixed={icon}

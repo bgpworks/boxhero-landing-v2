@@ -120,7 +120,7 @@ const FeatureCard = ({img, title, content, link}) => (
           className={styles.featureIcon}
           src={img}
           alt={title}
-        />
+          />
         <Padding y={10} />
         <div className={styles.featureCardTitle}>
           {title}
