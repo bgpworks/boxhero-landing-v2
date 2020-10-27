@@ -122,7 +122,7 @@ export const Switch = ({ isActive, onChange }) => {
         checked={isActive}
         onChange={(evt) => onChange(evt.target.checked)}
       />
-      <label htmlFor={id} className={styles.switchLabel}></label>
+      <label htmlFor={id} className={styles.switchLabel}> </label>
     </div>
   );
 };
