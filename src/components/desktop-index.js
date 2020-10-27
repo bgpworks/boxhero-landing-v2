@@ -324,6 +324,7 @@ const Features = ({ data, t }) => {
           className={styles.slideDetailDotGroup}
           renderDots={(props) => renderDots(featureData, props)}
         />
+
         <Padding y={80} />
 
         <div className={styles.slideAndNavButtons}>
