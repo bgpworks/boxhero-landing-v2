@@ -1,3 +1,6 @@
+/* eslint react/jsx-no-target-blank: 0 */
+// 분석을 위해 referrer 정보는 남겨두고 싶음.
+
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
@@ -220,7 +223,7 @@ const Customers = ({ data, t, language }) => {
               <span className={styles.customButtonContentPadding}></span>
               <a
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener"
                 href={customer.link}
                 className={styles.customButtonContentLink}
               >
