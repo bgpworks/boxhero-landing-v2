@@ -288,7 +288,6 @@ function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
         key={i}
         slide={slide}
         selected={selected}
-        style={{ left: `${-150 * currentSlide}px` }}
         className={`${styles.slideDetailDot} ${
           selected ? styles.slideDetailDotSelected : ""
         }`}
@@ -315,12 +314,17 @@ const Features = ({ data, t }) => {
       </div>
       <Padding y={32} />
 
-      <div className={styles.selectedItemWrap}>
+      <ScrollContainer
+        className={styles.slideDetailDotGroupContainer}
+        vertical={false}
+        horizontal={true}
+        hideScrollbars={true}
+      >
         <DotGroup
           className={styles.slideDetailDotGroup}
           renderDots={(props) => renderDots(featureData, props)}
         />
-      </div>
+      </ScrollContainer>
 
       <Padding y={40} />
 

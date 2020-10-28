@@ -304,6 +304,15 @@ html[lang="ko"] .customersDetailButton {
   filter: color(--color-font-blue);
 }
 
+.slideDetailDotGroupContainer {
+  width: 100%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .slideDetailDotGroup {
   display: flex;
   flex-direction: row;
@@ -311,41 +320,23 @@ html[lang="ko"] .customersDetailButton {
   justify-content: space-between;
   flex: 0 0 auto;
   position: relative;
-  left: 375px;
 }
 
 .slideDetailDot {
-  padding: 9px 0;
+  padding: 9px 20px;
   border-radius: 22px;
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
-  width: 150px;
-  position: relative;
   background-color: transparent;
   color: var(--color-font-darker);
-  transition: left 0.5s;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.slideDetailDot:not(:first-child) {
+  margin-left: 10px;
 }
 
 .slideDetailDotSelected {
-  color: #fff;
-  z-index: 9;
-}
-
-.selectedItemWrap {
-  position: relative;
-}
-
-.selectedItemWrap::after {
-  content: "";
-  display: block;
-  top: 0;
-  width: 150px;
-  position: absolute;
   background-color: var(--color-carousel-dot);
-  height: 100px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  border-radius: 35px;
-  height: 100%;
+  color: white;
 }
