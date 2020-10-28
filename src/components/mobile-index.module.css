@@ -167,9 +167,6 @@ display: flex;
   height: 300px;
 }
 
-.customerScrollInnerWrapper {
-}
-
 .customersDetailButton {
   padding: 6px 15px;
   border-radius: 22px;
@@ -314,15 +311,6 @@ html[lang="ko"] .customersDetailButton {
   filter: color(--color-font-blue);
 }
 /* 모바일 사이즈 편의 기능 제공 슬라이더 스타일 추가 및 변경 */
-
-.slideDetailDotGroupContainer {
-  width: 320px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
 
 .slideDetailDotGroup {
   display: flex;
