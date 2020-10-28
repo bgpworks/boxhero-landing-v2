@@ -132,8 +132,9 @@
 }
 
 .teamImageFlex {
-display: flex;
+  display: flex;
 }
+
 /* Customers  */
 
 .customersContainer {
