@@ -208,9 +208,6 @@ html[lang="ko"] .customersDetailButton {
 .customerButton:hover .customerButtonBackground {
   filter: grayscale(1) brightness(0.2);
   transform: scale(1.08197);
-  border-radius: 8px;
-  will-change: transform;
-  overflow: hidden;
 }
 
 .customerButtonContent {
@@ -267,7 +264,6 @@ html[lang="ko"] .customersDetailButton {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .featuresTitle {
@@ -307,7 +303,6 @@ html[lang="ko"] .customersDetailButton {
   vertical-align: bottom;
   filter: color(--color-font-blue);
 }
-/* 모바일 사이즈 편의 기능 제공 슬라이더 스타일 추가 및 변경 */
 
 .slideDetailDotGroup {
   display: flex;
