@@ -83,7 +83,9 @@ const KeyFeature = ({
         <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
         <Padding y={20} />
         <div className={styles.keyFeatureDetail}>
-          <Link to={detailUrl}>
+          <Link
+            className={styles.keyFeatureDetailLinkContainer}
+            to={detailUrl}>
             {linkDetail}
             <img
               src={svgSmallRightBlue}

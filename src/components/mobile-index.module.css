@@ -92,7 +92,7 @@
   justify-content: center;
 }
 
-.keyFeatureDetail a {
+.keyFeatureDetailLinkContainer {
   color: var(--color-font-blue);
   display: flex;
   flex-direction: row;
