@@ -1,5 +1,6 @@
 .mobileLayout {
   font-size: 16px;
+  min-width: 320px;
 }
 
 html[lang="en"] .mobileLayout {

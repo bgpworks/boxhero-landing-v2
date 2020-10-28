@@ -1,3 +1,6 @@
+/* eslint react/jsx-no-target-blank: 0 */
+// 분석을 위해 referrer 정보는 남겨두고 싶음.
+
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
@@ -80,7 +83,9 @@ const KeyFeature = ({
         <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
         <Padding y={20} />
         <div className={styles.keyFeatureDetail}>
-          <Link to={detailUrl}>
+          <Link
+            className={styles.keyFeatureDetailLinkContainer}
+            to={detailUrl}>
             {linkDetail}
             <img
               src={svgSmallRightBlue}
@@ -128,7 +133,9 @@ const TeamPlay = ({ data, t }) => (
       <Trans i18nKey="index:teamPlayDescMobile" />
     </Container320>
     <Padding y={29} />
-    <Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />
+    <div className={styles.teamImageFlex}>
+      <Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />
+    </div>
   </BackgroundImage>
 );
 
@@ -196,6 +203,7 @@ const Customers = ({ data, t, language }) => {
           />
         </button>
       </Link>
+
       <ScrollContainer
         className={styles.customersWrapper}
         vertical={false}
@@ -216,6 +224,8 @@ const Customers = ({ data, t, language }) => {
               </span>
               <span className={styles.customButtonContentPadding}></span>
               <a
+                target="_blank"
+                rel="noopener"
                 href={customer.link}
                 className={styles.customButtonContentLink}
               >
@@ -296,6 +306,7 @@ const Features = ({ data, t }) => {
       className={styles.featuresContainer}
       naturalSlideWidth={280}
       naturalSlideHeight={204}
+      touchEnabled={false}
       totalSlides={featureData.length}
     >
       <div className={styles.featuresTitle}>

@@ -1,3 +1,6 @@
+/* eslint react/jsx-no-target-blank: 0 */
+// 분석을 위해 referrer 정보는 남겨두고 싶음.
+
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
@@ -139,7 +142,9 @@ const TeamPlay = ({ data, t }) => (
     <div className={styles.teamPlayDesc}>
       <Trans i18nKey="index:teamPlayDesc" />
     </div>
-    <Img fixed={data.teamPlay.childImageSharp.fixed} />
+    <div className={styles.teamImageFlex}>
+      <Img fixed={data.teamPlay.childImageSharp.fixed} />
+    </div>
   </BackgroundImage>
 );
 
@@ -191,6 +196,7 @@ const Customers = ({ data, t, language }) => {
   ].filter((item) => item);
   return (
     <div className={styles.customersContainer}>
+      <Padding y={130} />
       <div className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
       </div>
@@ -227,6 +233,8 @@ const Customers = ({ data, t, language }) => {
               <span className={styles.customButtonContentPadding}></span>
               <a
                 href={customer.link}
+                target="_blank"
+                rel="noopener"
                 className={styles.customButtonContentLink}
               >
                 {t("index:customerDataDetailLink")}

@@ -47,9 +47,9 @@ const StrongPoints = ({ data }) => (
         <Img
           fixed={data.easy.childImageSharp.fixed}
           style={{
-            position: "absolute",
+            position: "relative",
             top: 152,
-            right: 67,
+            right: 219,
           }}
         />
       </div>
@@ -74,11 +74,11 @@ const StrongPoints = ({ data }) => (
           <Trans i18nKey="about:strongPoint2Desc" />
         </div>
       </div>
-      <div className={`${styles.figContainer}`}>
+      <div className={`${styles.left46} ${styles.figContainer}`}>
         <Img
           fixed={data.great.childImageSharp.fixed}
           style={{
-            position: "absolute",
+            position: "relative",
             top: 137,
           }}
         />
@@ -90,7 +90,7 @@ const StrongPoints = ({ data }) => (
         <Img
           fixed={data.mobile.childImageSharp.fixed}
           style={{
-            position: "absolute",
+            position: "relative",
             top: 190,
             right: 109,
           }}

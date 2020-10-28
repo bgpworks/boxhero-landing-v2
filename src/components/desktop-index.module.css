@@ -45,6 +45,7 @@
   font-weight: bold;
 }
 
+
 /* keyFeature */
 
 .keyFeatureContainer {
@@ -155,6 +156,10 @@
   text-align: center;
 }
 
+.teamImageFlex {
+  display: flex;
+}
+
 /* Customers  */
 
 .customersContainer {
@@ -188,9 +193,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-}
-
-.customerScrollInnerWrapper {
 }
 
 .customersDetailButton {
@@ -276,6 +278,7 @@
 .customButtonContentLink:hover {
   color: var(--color-carousel-dot);
 }
+
 
 /* Features */
 

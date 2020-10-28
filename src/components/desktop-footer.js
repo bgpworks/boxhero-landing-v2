@@ -94,7 +94,7 @@ const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
         <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
       </div>
     </div>
-    <div className={styles.wideDesktopFooterMenusColumn}>
+    <div className={styles.wideFooterMenusColumn}>
       <div className={styles.footerMenuLabel}>Contact</div>
       <div>{t("footer:footerMenuContactTel")}</div>
       <div>
