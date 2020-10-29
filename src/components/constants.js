@@ -12,5 +12,5 @@ module.exports = {
   urlDownloadApp:
     "https://redirect.appmetrica.yandex.com/serve/530934382265923250",
   urlDownloadAppSearchAd:
-    "https://redirect.appmetrica.yandex.com/serve/531288493830224501",
+    "https://redirect.appmetrica.yandex.com/serve/243082618806020699",
 };
