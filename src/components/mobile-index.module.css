@@ -306,20 +306,19 @@ html[lang="ko"] .customersDetailButton {
 
 .slideDetailDotGroupContainer {
   width: 100%;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  position: relative;
+  padding-left: 50%;
+  overflow-x: hidden;
+
 }
 
 .slideDetailDotGroup {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  flex: 0 0 auto;
+  justify-content: flex-start;
   position: relative;
+  transition: margin-left 0.3s;
 }
 
 .slideDetailDot {
@@ -327,16 +326,24 @@ html[lang="ko"] .customersDetailButton {
   border-radius: 22px;
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   color: var(--color-font-darker);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.slideDetailDot:not(:first-child) {
-  margin-left: 10px;
+  transition: color 0.3s;
+  flex: 0 0 auto;
 }
 
 .slideDetailDotSelected {
-  background-color: var(--color-carousel-dot);
   color: white;
+}
+
+.slideDetailDotBackground {
+  padding: 9px 20px;
+  border-radius: 22px;
+  font-size: var(--font-size-mobile-small);
+  font-weight: bold;
+  background-color: var(--color-carousel-dot);
+  color: var(--color-carousel-dot);
+  position: absolute;
+  transform: translateX(-50%);
+  transition: min-width 0.3s;
 }

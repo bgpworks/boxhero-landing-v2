@@ -83,9 +83,7 @@ const KeyFeature = ({
         <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
         <Padding y={20} />
         <div className={styles.keyFeatureDetail}>
-          <Link
-            className={styles.keyFeatureDetailLinkContainer}
-            to={detailUrl}>
+          <Link className={styles.keyFeatureDetailLinkContainer} to={detailUrl}>
             {linkDetail}
             <img
               src={svgSmallRightBlue}
@@ -275,7 +273,12 @@ function genFeatureData(data, t) {
   ];
 }
 
-function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
+function renderDots(
+  allData,
+  setOffsetToSelected,
+  setSelectedWidth,
+  { currentSlide, totalSlides, visibleSlides }
+) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
     const multipleSelected =
@@ -291,6 +294,12 @@ function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
         className={`${styles.slideDetailDot} ${
           selected ? styles.slideDetailDotSelected : ""
         }`}
+        onClick={(evt) => {
+          const dom = evt.target;
+          const left = dom.offsetLeft + dom.clientWidth / 2;
+          setOffsetToSelected(-left);
+          setSelectedWidth(dom.clientWidth + 1);
+        }}
       >
         {allData[slide].title}
       </Dot>
@@ -299,7 +308,45 @@ function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
   return dots;
 }
 
-const Features = ({ data, t }) => {
+const FeatureSelector = ({ data, t, language, featureData }) => {
+  // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
+  const [offsetToSelected, setOffsetToSelected] = React.useState(
+    language === "ko" ? -60 : -82.5
+  );
+  const [selectedWidth, setSelectedWidth] = React.useState(
+    language === "ko" ? 121 : 166
+  );
+
+  return (
+    <WithCurrentSlide>
+      {(currentSlide) => (
+        <div className={styles.slideDetailDotGroupContainer}>
+          <div
+            key="background"
+            className={styles.slideDetailDotBackground}
+            style={{ minWidth: selectedWidth }}
+          >
+            {"0"}
+          </div>
+          <DotGroup
+            className={styles.slideDetailDotGroup}
+            style={{ marginLeft: offsetToSelected }}
+            renderDots={(props) =>
+              renderDots(
+                featureData,
+                setOffsetToSelected,
+                setSelectedWidth,
+                props
+              )
+            }
+          />
+        </div>
+      )}
+    </WithCurrentSlide>
+  );
+};
+
+const Features = ({ data, t, language }) => {
   const featureData = genFeatureData(data, t);
   return (
     <CarouselProvider
@@ -307,6 +354,7 @@ const Features = ({ data, t }) => {
       naturalSlideWidth={280}
       naturalSlideHeight={204}
       touchEnabled={false}
+      dragEnabled={false}
       totalSlides={featureData.length}
     >
       <div className={styles.featuresTitle}>
@@ -314,17 +362,12 @@ const Features = ({ data, t }) => {
       </div>
       <Padding y={32} />
 
-      <ScrollContainer
-        className={styles.slideDetailDotGroupContainer}
-        vertical={false}
-        horizontal={true}
-        hideScrollbars={true}
-      >
-        <DotGroup
-          className={styles.slideDetailDotGroup}
-          renderDots={(props) => renderDots(featureData, props)}
-        />
-      </ScrollContainer>
+      <FeatureSelector
+        data={data}
+        t={t}
+        language={language}
+        featureData={featureData}
+      />
 
       <Padding y={40} />
 
@@ -410,7 +453,7 @@ const MobileIndex = ({ data, language, t }) => {
 
       <Customers data={data} t={t} language={language} />
 
-      <Features data={data} t={t} />
+      <Features data={data} t={t} language={language} />
     </MobileLayout>
   );
 };
