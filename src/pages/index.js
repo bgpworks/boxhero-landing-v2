@@ -630,5 +630,41 @@ export const query = graphql`
         }
       }
     }
+    homeStartNow: file(relativePath: { eq: "home-start-now.png" }) {
+      childImageSharp {
+        fixed(
+          width: 307
+          height: 200
+          fit: FILL
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            color: "#f0f0f31f"
+            threshold: 160
+            alphaMax: 1
+          }
+        ) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileHomeStartNow: file(relativePath: { eq: "home-start-now.png" }) {
+      childImageSharp {
+        fixed(
+          width: 240
+          height: 157
+          fit: FILL
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            color: "#f0f0f31f"
+            threshold: 160
+            alphaMax: 1
+          }
+        ) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
   }
 `;

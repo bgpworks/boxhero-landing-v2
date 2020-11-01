@@ -403,6 +403,31 @@ const Features = ({ data, t, language }) => {
   );
 };
 
+const StartNow = ({ data, t }) => (
+  <Container320 className={styles.startNowContainer}>
+    <div className={styles.px20}>
+      <div className={styles.startNowTitle}>
+        <Trans i18nKey="index:startNowTitle" />
+      </div>
+      <Padding y={30} />
+      <Img fixed={data.mobileHomeStartNow.childImageSharp.fixed} />
+      <Padding y={30} />
+      <div className={styles.startNowDescription}>
+        <Trans i18nKey="index:startNowDescription" />
+      </div>
+      <Padding y={30} />
+      <Link to="/pricing/" className={styles.startNowDetailLink}>
+        {t("index:startNowDetailLink")}
+        <img
+          src={svgSmallRightBlue}
+          className={styles.rightArrow}
+          alt={t("index:startNowDetailLink")}
+        />
+      </Link>
+    </div>
+  </Container320>
+);
+
 const MobileIndex = ({ data, language, t }) => {
   return (
     <MobileLayout
@@ -454,6 +479,8 @@ const MobileIndex = ({ data, language, t }) => {
       <Customers data={data} t={t} language={language} />
 
       <Features data={data} t={t} language={language} />
+
+      <StartNow data={data} t={t} />
     </MobileLayout>
   );
 };
