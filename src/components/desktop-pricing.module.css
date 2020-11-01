@@ -135,6 +135,15 @@
   color: var(--color-font-primary);
 }
 
+.yearlyPlanSaveLabel {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--color-font-header);
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+
 /* faq */
 
 .faqContainer {

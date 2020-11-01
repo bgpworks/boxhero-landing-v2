@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .billingCycleButton {
@@ -15,10 +15,18 @@
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: var(--color-font-header);
+  line-height: 24px;
 }
 
 .billingCycleButton.active {
   color: var(--color-font-primary);
+}
+
+.yearlyPlanSaveLabel {
+  font-size: var(--font-size-mobile-small);
+  color: var(--color-font-header);
+  white-space: nowrap;
+  font-weight: normal;
 }
 
 .planContainer {

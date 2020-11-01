@@ -86,5 +86,6 @@
   "limitProductFreeMobile": "제품 등록 <strong>100개</strong>",
   "limitProductBizMobile": "제품 등록 <strong>2,000개</strong>",
   "limitLocationFreeMobile": "위치 등록 <strong>3개</strong><br/><small>(위치 모드 사용시)</small>",
-  "limitLocationBizMobile": "위치 등록 <strong>10개</strong><br/><small>(위치 모드 사용시)</small>"
+  "limitLocationBizMobile": "위치 등록 <strong>10개</strong><br/><small>(위치 모드 사용시)</small>",
+  "yearlyPlanSaveLabel": "17% 절약"
 }

@@ -86,5 +86,6 @@
   "limitProductFreeMobile": "<strong>100 Products</strong>",
   "limitProductBizMobile": "<strong>2,000 Products</strong>",
   "limitLocationFreeMobile": "<strong>3 Locations</strong><br/><small>(When using location mode)</small>",
-  "limitLocationBizMobile": "<strong>10 Locations</strong><br/><small>(When using location mode)</small>"
+  "limitLocationBizMobile": "<strong>10 Locations</strong><br/><small>(When using location mode)</small>",
+  "yearlyPlanSaveLabel": "SAVE 17%"
 }
