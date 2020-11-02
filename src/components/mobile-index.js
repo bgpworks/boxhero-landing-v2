@@ -16,7 +16,12 @@ import {
 } from "pure-react-carousel";
 // js
 import MobileLayout from "../components/mobile-layout";
-import { Container320, Padding, WithCurrentSlide } from "../components/common";
+import {
+  Container320,
+  ContainerCenter,
+  Padding,
+  WithCurrentSlide,
+} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-index.module.css";
@@ -71,35 +76,31 @@ const KeyFeature = ({
   linkDetail,
 }) => (
   <div className={isDarkBg ? styles.darkBg : ""}>
-    <Container320 className={styles.keyFeatureContentContainer}>
-      <div className={styles.px20}>
-        <img className={styles.keyFeatureIcon} src={icon} alt={iconAlt} />
-        <Padding y={10} />
-        <div className={styles.keyFeatureTitle}>{title}</div>
-        <Padding y={20} />
-        <div className={styles.keyFeatureDescription}>{desc}</div>
-        <Padding y={20} />
-        <div className={styles.keyFeatureSubTitle}>{subTitle}</div>
-        <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
-        <Padding y={20} />
-        <div className={styles.keyFeatureDetail}>
-          <Link
-            className={styles.keyFeatureDetailLinkContainer}
-            to={detailUrl}>
-            {linkDetail}
-            <img
-              src={svgSmallRightBlue}
-              className={styles.rightArrow}
-              alt={linkDetail}
-            />
-          </Link>
-        </div>
+    <ContainerCenter className={styles.keyFeatureContentContainer}>
+      <img className={styles.keyFeatureIcon} src={icon} alt={iconAlt} />
+      <Padding y={10} />
+      <div className={styles.keyFeatureTitle}>{title}</div>
+      <Padding y={20} />
+      <div className={styles.keyFeatureDescription}>{desc}</div>
+      <Padding y={20} />
+      <div className={styles.keyFeatureSubTitle}>{subTitle}</div>
+      <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
+      <Padding y={20} />
+      <div className={styles.keyFeatureDetail}>
+        <Link className={styles.keyFeatureDetailLinkContainer} to={detailUrl}>
+          {linkDetail}
+          <img
+            src={svgSmallRightBlue}
+            className={styles.rightArrow}
+            alt={linkDetail}
+          />
+        </Link>
       </div>
       <Padding y={30} />
       <div>
         <Img fixed={image.childImageSharp.fixed} />
       </div>
-    </Container320>
+    </ContainerCenter>
   </div>
 );
 
@@ -275,7 +276,12 @@ function genFeatureData(data, t) {
   ];
 }
 
-function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
+function renderDots(
+  allData,
+  setOffsetToSelected,
+  setSelectedWidth,
+  { currentSlide, totalSlides, visibleSlides }
+) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
     const multipleSelected =
@@ -291,6 +297,12 @@ function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
         className={`${styles.slideDetailDot} ${
           selected ? styles.slideDetailDotSelected : ""
         }`}
+        onClick={(evt) => {
+          const dom = evt.target;
+          const left = dom.offsetLeft + dom.clientWidth / 2;
+          setOffsetToSelected(-left);
+          setSelectedWidth(dom.clientWidth + 1);
+        }}
       >
         {allData[slide].title}
       </Dot>
@@ -299,7 +311,45 @@ function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
   return dots;
 }
 
-const Features = ({ data, t }) => {
+const FeatureSelector = ({ data, t, language, featureData }) => {
+  // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
+  const [offsetToSelected, setOffsetToSelected] = React.useState(
+    language === "ko" ? -60 : -82.5
+  );
+  const [selectedWidth, setSelectedWidth] = React.useState(
+    language === "ko" ? 121 : 166
+  );
+
+  return (
+    <WithCurrentSlide>
+      {(currentSlide) => (
+        <div className={styles.slideDetailDotGroupContainer}>
+          <div
+            key="background"
+            className={styles.slideDetailDotBackground}
+            style={{ minWidth: selectedWidth }}
+          >
+            {"0"}
+          </div>
+          <DotGroup
+            className={styles.slideDetailDotGroup}
+            style={{ marginLeft: offsetToSelected }}
+            renderDots={(props) =>
+              renderDots(
+                featureData,
+                setOffsetToSelected,
+                setSelectedWidth,
+                props
+              )
+            }
+          />
+        </div>
+      )}
+    </WithCurrentSlide>
+  );
+};
+
+const Features = ({ data, t, language }) => {
   const featureData = genFeatureData(data, t);
   return (
     <CarouselProvider
@@ -307,6 +357,7 @@ const Features = ({ data, t }) => {
       naturalSlideWidth={280}
       naturalSlideHeight={204}
       touchEnabled={false}
+      dragEnabled={false}
       totalSlides={featureData.length}
     >
       <div className={styles.featuresTitle}>
@@ -314,17 +365,12 @@ const Features = ({ data, t }) => {
       </div>
       <Padding y={32} />
 
-      <ScrollContainer
-        className={styles.slideDetailDotGroupContainer}
-        vertical={false}
-        horizontal={true}
-        hideScrollbars={true}
-      >
-        <DotGroup
-          className={styles.slideDetailDotGroup}
-          renderDots={(props) => renderDots(featureData, props)}
-        />
-      </ScrollContainer>
+      <FeatureSelector
+        data={data}
+        t={t}
+        language={language}
+        featureData={featureData}
+      />
 
       <Padding y={40} />
 
@@ -359,6 +405,31 @@ const Features = ({ data, t }) => {
     </CarouselProvider>
   );
 };
+
+const StartNow = ({ data, t }) => (
+  <ContainerCenter className={styles.startNowContainer}>
+    <div className={styles.px20}>
+      <div className={styles.startNowTitle}>
+        <Trans i18nKey="index:startNowTitle" />
+      </div>
+      <Padding y={30} />
+      <Img fixed={data.mobileHomeStartNow.childImageSharp.fixed} />
+      <Padding y={30} />
+      <div className={styles.startNowDescription}>
+        <Trans i18nKey="index:startNowDescription" />
+      </div>
+      <Padding y={30} />
+      <Link to="/pricing/" className={styles.startNowDetailLink}>
+        {t("index:startNowDetailLink")}
+        <img
+          src={svgSmallRightBlue}
+          className={styles.rightArrow}
+          alt={t("index:startNowDetailLink")}
+        />
+      </Link>
+    </div>
+  </ContainerCenter>
+);
 
 const MobileIndex = ({ data, language, t }) => {
   return (
@@ -410,7 +481,9 @@ const MobileIndex = ({ data, language, t }) => {
 
       <Customers data={data} t={t} language={language} />
 
-      <Features data={data} t={t} />
+      <Features data={data} t={t} language={language} />
+
+      <StartNow data={data} t={t} />
     </MobileLayout>
   );
 };

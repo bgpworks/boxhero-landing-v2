@@ -103,6 +103,9 @@ const PriceTable = ({ data, language, t }) => {
                   onClick={() => setIsYearly(true)}
                 >
                   {t("pricing:switchLabelYearly")}
+                  <div className={styles.yearlyPlanSaveLabel}>
+                    {t("pricing:yearlyPlanSaveLabel")}
+                  </div>
                 </button>
               </div>
             </td>

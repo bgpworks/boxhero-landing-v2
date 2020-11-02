@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { Link, Trans, useI18next } from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import { Container320, Padding } from "./common";
+import { Padding } from "./common";
 // css
 import styles from "./mobile-footer.module.css";
 // images
@@ -61,22 +61,12 @@ const MobileFooterMenus = ({ language, languages, changeLanguage, t }) => (
     </div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>
-        <select
-          className={styles.footerLangSelector}
-          onBlur={(e) => {}}
-          onChange={(e) => {
-            if (e.target.value !== "" && e.target.value !== language) {
-              changeLanguage(e.target.value);
-            }
-          }}
+        <button
+          className={styles.langButton}
+          onClick={() => changeLanguage(language === "en" ? "ko" : "en")}
         >
-          <option value="">{t("footer:footerMenuLanguage")}</option>
-          {languages.map((lng) => (
-            <option key={lng} value={lng}>
-              {lng === "en" ? "English" : lng === "ko" ? "한국어" : lng}
-            </option>
-          ))}
-        </select>
+          {language === "en" ? "KOR" : "ENG"}
+        </button>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
@@ -128,11 +118,11 @@ const CompanyInfo = ({ t }) => (
 
 const MobileFooterMenusAndInfo = (props) => (
   <div className={styles.footerMenusAndInfoContainer}>
-    <Container320 className={styles.footerMenusAndInfoContentContainer}>
+    <div className={styles.footerMenusAndInfoContentContainer}>
       <MobileFooterMenus {...props} />
       <Padding y={50} />
       <CompanyInfo {...props} />
-    </Container320>
+    </div>
   </div>
 );
 

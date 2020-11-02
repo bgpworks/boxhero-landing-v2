@@ -369,6 +369,29 @@ const Features = ({ data, t }) => {
   );
 };
 
+const StartNow = ({ data, t }) => (
+  <div className={styles.startNowContainer}>
+    <div className={styles.startNowTitle}>
+      <Trans i18nKey="index:startNowTitle" />
+    </div>
+    <Padding y={60} />
+    <Img fixed={data.homeStartNow.childImageSharp.fixed} />
+    <Padding y={40} />
+    <div className={styles.startNowDescription}>
+      <Trans i18nKey="index:startNowDescription" />
+    </div>
+    <Padding y={20} />
+    <Link to="/pricing/" className={styles.startNowDetailLink}>
+      {t("index:startNowDetailLink")}
+      <img
+        src={svgSmallRightBlue}
+        className={styles.rightArrow}
+        alt={t("index:startNowDetailLink")}
+      />
+    </Link>
+  </div>
+);
+
 const DesktopIndex = ({ data, language, t }) => {
   return (
     <DesktopLayout
@@ -420,6 +443,8 @@ const DesktopIndex = ({ data, language, t }) => {
       <Customers data={data} t={t} language={language} />
 
       <Features data={data} t={t} />
+
+      <StartNow data={data} t={t} />
     </DesktopLayout>
   );
 };

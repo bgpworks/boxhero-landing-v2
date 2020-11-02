@@ -8,6 +8,13 @@
   width: 320px;
 }
 
+.containerCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .simpleTopTitle {
   height: 70px;
   font-size: 52px;
@@ -86,7 +93,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
 /* switch */
 @value bg-disabled-color: #e0e0e3;
 @value bg-disabled-border-color: #cbccd3;
-@value bg-enabled-color: rgba(60, 185, 160, 0.2);
+@value bg-enabled-color: white;
 @value bg-enabled-border-color: #3cb9a0;
 @value lever-disabled-color: #fff;
 @value lever-enabled-color: var(--color-ribbon-green);

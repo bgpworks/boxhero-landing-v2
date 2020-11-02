@@ -43,6 +43,7 @@
 
 .keyFeatureContentContainer {
   padding: 50px 0px 0px;
+  text-align: center;
 }
 
 .px20 {
@@ -56,6 +57,7 @@
 }
 
 .keyFeatureTitle {
+  composes: px20;
   height: 36px;
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
@@ -68,17 +70,20 @@
 }
 
 .keyFeatureDescription {
+  composes: px20;
   line-height: 1.71;
   letter-spacing: -0.14px;
 }
 
 .keyFeatureSubTitle {
+  composes: px20;
   line-height: 1.71;
   letter-spacing: -0.14px;
   font-weight: bold;
 }
 
 .keyFeatureSubDesc {
+  composes: px20;
   line-height: 1.71;
   letter-spacing: -0.14px;
 }
@@ -267,7 +272,7 @@ html[lang="ko"] .customersDetailButton {
 }
 
 .featuresTitle {
-  width: 280px;
+  padding: 0px 20px;
   font-size: var(--font-size-mobile-big2);
   font-weight: bold;
   letter-spacing: -0.42px;
@@ -306,20 +311,19 @@ html[lang="ko"] .customersDetailButton {
 
 .slideDetailDotGroupContainer {
   width: 100%;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  position: relative;
+  padding-left: 50%;
+  overflow-x: hidden;
+
 }
 
 .slideDetailDotGroup {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  flex: 0 0 auto;
+  justify-content: flex-start;
   position: relative;
+  transition: margin-left 0.3s;
 }
 
 .slideDetailDot {
@@ -327,16 +331,58 @@ html[lang="ko"] .customersDetailButton {
   border-radius: 22px;
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   color: var(--color-font-darker);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.slideDetailDot:not(:first-child) {
-  margin-left: 10px;
+  transition: color 0.3s;
+  flex: 0 0 auto;
 }
 
 .slideDetailDotSelected {
-  background-color: var(--color-carousel-dot);
   color: white;
+}
+
+.slideDetailDotBackground {
+  padding: 9px 20px;
+  border-radius: 22px;
+  font-size: var(--font-size-mobile-small);
+  font-weight: bold;
+  background-color: var(--color-carousel-dot);
+  color: var(--color-carousel-dot);
+  position: absolute;
+  transform: translateX(-50%);
+  transition: min-width 0.3s;
+}
+
+.startNowContainer {
+  padding: 50px 0px;
+  text-align: center;
+}
+
+.startNowTitle {
+  font-size: var(--font-size-mobile-big2);
+  font-weight: bold;
+  letter-spacing: -0.42px;
+  text-align: center;
+  color: black;
+}
+
+.startNowDescription {
+  letter-spacing: -0.16px;
+  text-align: center;
+}
+
+.startNowDescription strong {
+  font-weight: bold;
+  color: var(--color-font-blue);
+}
+
+.startNowDetailLink {
+  font-weight: bold;
+  letter-spacing: -0.16px;
+  color: var(--color-font-blue);
+}
+
+.startNowDetailLink img {
+  vertical-align: bottom;
+  filter: color(--color-font-blue);
 }

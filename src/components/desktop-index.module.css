@@ -375,3 +375,44 @@
   background-color: var(--color-carousel-dot);
   color: white;
 }
+
+/* 지금 바로 박스히어로를 시작하세요 */
+
+.startNowContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 140px 0px;
+}
+
+.startNowTitle {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-align: center;
+  color: black;
+}
+
+.startNowDescription {
+  font-size: 18px;
+  line-height: 1.67;
+  letter-spacing: -0.2px;
+  text-align: center;
+}
+
+.startNowDescription strong {
+  font-weight: bold;
+  color: var(--color-font-blue);
+}
+
+.startNowDetailLink {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  color: var(--color-font-blue);
+}
+
+.startNowDetailLink img {
+  vertical-align: middle;
+}
