@@ -74,3 +74,5 @@ yarn-error.log
 .*.swp
 *.bak
 .vscode/settings.json
+
+.vercel
