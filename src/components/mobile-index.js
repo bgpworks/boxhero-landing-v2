@@ -16,7 +16,12 @@ import {
 } from "pure-react-carousel";
 // js
 import MobileLayout from "../components/mobile-layout";
-import { Container320, Padding, WithCurrentSlide } from "../components/common";
+import {
+  Container320,
+  ContainerCenter,
+  Padding,
+  WithCurrentSlide,
+} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-index.module.css";
@@ -71,33 +76,31 @@ const KeyFeature = ({
   linkDetail,
 }) => (
   <div className={isDarkBg ? styles.darkBg : ""}>
-    <Container320 className={styles.keyFeatureContentContainer}>
-      <div className={styles.px20}>
-        <img className={styles.keyFeatureIcon} src={icon} alt={iconAlt} />
-        <Padding y={10} />
-        <div className={styles.keyFeatureTitle}>{title}</div>
-        <Padding y={20} />
-        <div className={styles.keyFeatureDescription}>{desc}</div>
-        <Padding y={20} />
-        <div className={styles.keyFeatureSubTitle}>{subTitle}</div>
-        <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
-        <Padding y={20} />
-        <div className={styles.keyFeatureDetail}>
-          <Link className={styles.keyFeatureDetailLinkContainer} to={detailUrl}>
-            {linkDetail}
-            <img
-              src={svgSmallRightBlue}
-              className={styles.rightArrow}
-              alt={linkDetail}
-            />
-          </Link>
-        </div>
+    <ContainerCenter className={styles.keyFeatureContentContainer}>
+      <img className={styles.keyFeatureIcon} src={icon} alt={iconAlt} />
+      <Padding y={10} />
+      <div className={styles.keyFeatureTitle}>{title}</div>
+      <Padding y={20} />
+      <div className={styles.keyFeatureDescription}>{desc}</div>
+      <Padding y={20} />
+      <div className={styles.keyFeatureSubTitle}>{subTitle}</div>
+      <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
+      <Padding y={20} />
+      <div className={styles.keyFeatureDetail}>
+        <Link className={styles.keyFeatureDetailLinkContainer} to={detailUrl}>
+          {linkDetail}
+          <img
+            src={svgSmallRightBlue}
+            className={styles.rightArrow}
+            alt={linkDetail}
+          />
+        </Link>
       </div>
       <Padding y={30} />
       <div>
         <Img fixed={image.childImageSharp.fixed} />
       </div>
-    </Container320>
+    </ContainerCenter>
   </div>
 );
 
@@ -404,7 +407,7 @@ const Features = ({ data, t, language }) => {
 };
 
 const StartNow = ({ data, t }) => (
-  <Container320 className={styles.startNowContainer}>
+  <ContainerCenter className={styles.startNowContainer}>
     <div className={styles.px20}>
       <div className={styles.startNowTitle}>
         <Trans i18nKey="index:startNowTitle" />
@@ -425,7 +428,7 @@ const StartNow = ({ data, t }) => (
         />
       </Link>
     </div>
-  </Container320>
+  </ContainerCenter>
 );
 
 const MobileIndex = ({ data, language, t }) => {

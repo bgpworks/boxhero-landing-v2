@@ -43,6 +43,7 @@
 
 .keyFeatureContentContainer {
   padding: 50px 0px 0px;
+  text-align: center;
 }
 
 .px20 {
@@ -56,6 +57,7 @@
 }
 
 .keyFeatureTitle {
+  composes: px20;
   height: 36px;
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
@@ -68,17 +70,20 @@
 }
 
 .keyFeatureDescription {
+  composes: px20;
   line-height: 1.71;
   letter-spacing: -0.14px;
 }
 
 .keyFeatureSubTitle {
+  composes: px20;
   line-height: 1.71;
   letter-spacing: -0.14px;
   font-weight: bold;
 }
 
 .keyFeatureSubDesc {
+  composes: px20;
   line-height: 1.71;
   letter-spacing: -0.14px;
 }
@@ -267,7 +272,7 @@ html[lang="ko"] .customersDetailButton {
 }
 
 .featuresTitle {
-  width: 280px;
+  padding: 0px 20px;
   font-size: var(--font-size-mobile-big2);
   font-weight: bold;
   letter-spacing: -0.42px;

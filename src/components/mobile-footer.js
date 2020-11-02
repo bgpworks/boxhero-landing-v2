@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { Link, Trans, useI18next } from "@jbseo/gatsby-plugin-react-i18next";
 // js
-import { Container320, Padding } from "./common";
+import { Padding } from "./common";
 // css
 import styles from "./mobile-footer.module.css";
 // images
@@ -128,11 +128,11 @@ const CompanyInfo = ({ t }) => (
 
 const MobileFooterMenusAndInfo = (props) => (
   <div className={styles.footerMenusAndInfoContainer}>
-    <Container320 className={styles.footerMenusAndInfoContentContainer}>
+    <div className={styles.footerMenusAndInfoContentContainer}>
       <MobileFooterMenus {...props} />
       <Padding y={50} />
       <CompanyInfo {...props} />
-    </Container320>
+    </div>
   </div>
 );
 

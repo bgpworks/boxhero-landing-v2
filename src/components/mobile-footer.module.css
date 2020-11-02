@@ -24,7 +24,6 @@
 /* Footer Menus + Company info */
 
 .footerMenusAndInfoContainer {
-  composes: verticalCenter;
 
   background-color: #f7f9fc;
   font-size: var(--font-size-mobile-small);

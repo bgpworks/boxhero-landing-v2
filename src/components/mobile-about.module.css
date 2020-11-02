@@ -17,6 +17,7 @@
 
 .section {
   padding: 50px 0px;
+  text-align: center;
 }
 
 .px10 {
@@ -53,6 +54,10 @@
 /* Other features  */
 
 .featureContentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   padding: 50px 20px;
 }
 

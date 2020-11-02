@@ -4,6 +4,7 @@ import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 import MobileLayout from "../components/mobile-layout";
 import {
   Container320,
+  ContainerCenter,
   Padding,
   MobileSimpleTop,
   DropDownQNA,
@@ -22,34 +23,6 @@ const PriceTable = ({ data, language, t }) => {
 
   return (
     <Container320 className={styles.px20}>
-      <div className={styles.switchContainer}>
-        <button
-          className={`${styles.billingCycleButton} ${
-            isYearly ? "" : styles.active
-          }`}
-          onClick={() => setIsYearly(false)}
-        >
-          {t("pricing:switchLabelMonthly")}
-        </button>
-        <Switch
-          isActive={isYearly}
-          onChange={(active) => setIsYearly(active)}
-        />
-        <button
-          className={`${styles.billingCycleButton} ${
-            isYearly ? styles.active : ""
-          }`}
-          onClick={() => setIsYearly(true)}
-        >
-          {t("pricing:switchLabelYearly")}
-          <div className={styles.yearlyPlanSaveLabel}>
-            {t("pricing:yearlyPlanSaveLabel")}
-          </div>
-        </button>
-      </div>
-
-      <Padding y={50} />
-
       <div className={styles.freePlanContainer}>
         <div className={styles.planTitle}>{t("pricing:freePlanTitle")}</div>
         <div className={styles.planSubtitle}>For Personal</div>
@@ -102,13 +75,38 @@ const PriceTable = ({ data, language, t }) => {
         </Ribbon>
         <div className={styles.planTitle}>{t("pricing:bizPlanTitle")}</div>
         <div className={styles.planSubtitle}>For Teams &amp; Businesses</div>
+
+        <Padding y={30} />
+        <div className={styles.switchContainer}>
+          <button
+            className={`${styles.billingCycleButton} ${
+              isYearly ? "" : styles.active
+            }`}
+            onClick={() => setIsYearly(false)}
+          >
+            {t("pricing:switchLabelMonthly")}
+          </button>
+          <Switch
+            isActive={isYearly}
+            onChange={(active) => setIsYearly(active)}
+          />
+          <button
+            className={`${styles.billingCycleButton} ${
+              isYearly ? styles.active : ""
+            }`}
+            onClick={() => setIsYearly(true)}
+          >
+            {t("pricing:switchLabelYearly")}
+          </button>
+        </div>
+
         <div className={styles.planPrice}>{isYearly ? "$16.6" : "$20"}</div>
         <div className={styles.planPriceUnit}>
           {t("pricing:bizPlanPriceUnit")}
           <br />
-          {isYearly
-            ? t("pricing:paymentCycleYearly")
-            : t("pricing:paymentCycleMonthly")}
+          <span className={styles.saveLabel}>
+            {isYearly ? t("pricing:yearlyPlanSaveLabel") : " "}
+          </span>
         </div>
         <div className={styles.planDesc}>
           <Trans i18nKey="pricing:bizPlanDesc" />
@@ -308,30 +306,28 @@ const FAQ = ({ t }) => {
   ];
   return (
     <div className={styles.faqContainer}>
-      <Container320 className={styles.px20}>
-        <div className={styles.faqTitle}>{t("pricing:faqTitle")}</div>
+      <div className={styles.faqTitle}>{t("pricing:faqTitle")}</div>
 
-        <Padding y={39} />
+      <Padding y={39} />
 
-        {faqData.map((faq, index) => (
-          <DropDownQNA
-            key={index}
-            title={faq.question}
-            titleClassName={styles.faqItemTitle}
-            bodyClassName={styles.faqItemBody}
-          >
-            <Trans {...faq.answer} />
-          </DropDownQNA>
-        ))}
+      {faqData.map((faq, index) => (
+        <DropDownQNA
+          key={index}
+          title={faq.question}
+          titleClassName={styles.faqItemTitle}
+          bodyClassName={styles.faqItemBody}
+        >
+          <Trans {...faq.answer} />
+        </DropDownQNA>
+      ))}
 
-        <Padding y={30} />
+      <Padding y={30} />
 
-        <a href={t("url:pricing")}>
-          <button className={styles.buttonShowMore}>
-            {t("pricing:faqMoreButton")}
-          </button>
-        </a>
-      </Container320>
+      <a href={t("url:pricing")}>
+        <button className={styles.buttonShowMore}>
+          {t("pricing:faqMoreButton")}
+        </button>
+      </a>
     </div>
   );
 };
@@ -374,12 +370,12 @@ const MobilePricing = ({ data, language, t }) => {
       closingEmoji={data.mobileBox}
       closingMsg={t("pricing:closingMsg")}
     >
-      <Container320 className={styles.px20}>
+      <ContainerCenter className={styles.px20}>
         <MobileSimpleTop
           title={t("pricing:topTitle")}
           desc={<Trans i18nKey="pricing:topDescMobile" />}
         />
-      </Container320>
+      </ContainerCenter>
 
       <Padding y={50} />
 

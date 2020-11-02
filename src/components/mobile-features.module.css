@@ -17,6 +17,7 @@
 .featureTemplateDesc {
   color: var(--color-font-darker);
   letter-spacing: -0.16px;
+  text-align: center;
 }
 
 html[lang="ko"] .featureTemplateDesc {

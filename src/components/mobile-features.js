@@ -3,7 +3,11 @@ import Img from "gatsby-image";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
-import { Container320, Padding, MobileSimpleTop } from "../components/common";
+import {
+  Container320,
+  Padding,
+  MobileSimpleTop,
+} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";
@@ -27,25 +31,25 @@ function FeatureTemplate(props) {
       id={props.id}
       className={[styles.featureTemplate, props.bgColor].join(" ")}
     >
+      <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
+        {props.title}
+      </div>
+
+      <Padding y={20} />
+
+      <div className={`${styles.px20} ${styles.featureTemplateDesc}`}>
+        {props.desc}
+      </div>
+
+      <Padding y={30} />
+
+      <div className={styles.featureTemplateFigureContainer}>
+        <Img fixed={props.figure} />
+      </div>
+
+      <Padding y={31} />
+
       <Container320>
-        <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
-          {props.title}
-        </div>
-
-        <Padding y={20} />
-
-        <div className={`${styles.px20} ${styles.featureTemplateDesc}`}>
-          {props.desc}
-        </div>
-
-        <Padding y={30} />
-
-        <div className={styles.featureTemplateFigureContainer}>
-          <Img fixed={props.figure} />
-        </div>
-
-        <Padding y={31} />
-
         <div className={styles.px20}>
           {props.demoData.slice(0, 2).map((data, index) => (
             <DemoTemplate

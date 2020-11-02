@@ -3,10 +3,9 @@
 }
 
 .switchContainer {
-  padding: 0px 21px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -20,13 +19,6 @@
 
 .billingCycleButton.active {
   color: var(--color-font-primary);
-}
-
-.yearlyPlanSaveLabel {
-  font-size: var(--font-size-mobile-small);
-  color: var(--color-font-header);
-  white-space: nowrap;
-  font-weight: normal;
 }
 
 .planContainer {
@@ -77,6 +69,10 @@
   font-size: var(--font-size-mobile-small);
   text-align: center;
   color: black;
+}
+
+.saveLabel {
+  color: var(--color-font-blue);
 }
 
 .planDesc {
@@ -137,12 +133,7 @@
 
 .faqContainer {
   background-color: var(--color-bg-light);
-  padding: 45px 0px 50px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  padding: 45px 20px 50px;
 }
 
 .faqTitle {

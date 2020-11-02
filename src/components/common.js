@@ -34,6 +34,10 @@ Container320.defaultProps = {
   className: "",
 };
 
+export const ContainerCenter = ({ className, children }) => (
+  <div className={`${styles.containerCenter} ${className}`}>{children}</div>
+);
+
 export const Padding = ({ x, y }) => (
   <div style={{ paddingLeft: x, height: y, minHeight: 1 }} />
 );

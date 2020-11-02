@@ -4,7 +4,7 @@ import BackgroundImage from "gatsby-background-image";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
-import { Container320, Padding } from "../components/common";
+import { Container320, ContainerCenter, Padding } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-about.module.css";
@@ -41,7 +41,7 @@ const Top = ({ data }) => (
 );
 
 const StrongPoints = ({ data }) => (
-  <Container320>
+  <ContainerCenter>
     <div className={styles.section}>
       <div className={styles.title}>
         <Trans i18nKey="about:strongPoint1Title" />
@@ -76,7 +76,7 @@ const StrongPoints = ({ data }) => (
         <Img fixed={data.mobileMobile.childImageSharp.fixed} />
       </div>
     </div>
-  </Container320>
+  </ContainerCenter>
 );
 
 const FeatureCard = ({ img, title, content, link }) => (
@@ -115,7 +115,7 @@ const OtherFeatures = ({ data, t }) => (
     fluid={data.featureBg.childImageSharp.fluid}
     backgroundColor="#6159F5"
   >
-    <Container320 className={styles.featureContentContainer}>
+    <div className={styles.featureContentContainer}>
       <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
       <Padding y={30} />
       <div className={styles.featureDesc}>
@@ -211,7 +211,7 @@ const OtherFeatures = ({ data, t }) => (
           },
         ]}
       />
-    </Container320>
+    </div>
   </BackgroundImage>
 );
 
