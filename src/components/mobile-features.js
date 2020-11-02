@@ -3,11 +3,7 @@ import Img from "gatsby-image";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
-import {
-  Container320,
-  Padding,
-  MobileSimpleTop,
-} from "../components/common";
+import { Container320, Padding, MobileSimpleTop } from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";

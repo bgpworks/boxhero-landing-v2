@@ -61,22 +61,12 @@ const MobileFooterMenus = ({ language, languages, changeLanguage, t }) => (
     </div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>
-        <select
-          className={styles.footerLangSelector}
-          onBlur={(e) => {}}
-          onChange={(e) => {
-            if (e.target.value !== "" && e.target.value !== language) {
-              changeLanguage(e.target.value);
-            }
-          }}
+        <button
+          className={styles.langButton}
+          onClick={() => changeLanguage(language === "en" ? "ko" : "en")}
         >
-          <option value="">{t("footer:footerMenuLanguage")}</option>
-          {languages.map((lng) => (
-            <option key={lng} value={lng}>
-              {lng === "en" ? "English" : lng === "ko" ? "한국어" : lng}
-            </option>
-          ))}
-        </select>
+          {language === "en" ? "KOR" : "ENG"}
+        </button>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
