@@ -2,7 +2,7 @@ var parser = require("accept-language-parser");
 
 const urls = {
   ko: "/ko",
-  en: "/en"
+  en: "/en",
 };
 
 module.exports = (req, res) => {
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
   console.log(langs, lang, url);
 
   res.writeHead(302, {
-    Location: url + "/" + path
+    Location: url + "/" + path,
   });
   res.end();
 };
