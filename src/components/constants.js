@@ -13,4 +13,8 @@ module.exports = {
     "https://redirect.appmetrica.yandex.com/serve/530934382265923250",
   urlDownloadAppSearchAd:
     "https://redirect.appmetrica.yandex.com/serve/243082618806020699",
+  urlDownloadWindows:
+    "https://boxhero-autoupdate.s3.ap-northeast-2.amazonaws.com/BoxHero-1.0.0.exe",
+  urlDownloadOsx:
+    "https://boxhero-autoupdate.s3.ap-northeast-2.amazonaws.com/BoxHero-1.0.0.dmg",
 };

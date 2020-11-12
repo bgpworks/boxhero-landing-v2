@@ -10,8 +10,10 @@ import * as constants from "../components/constants";
 import styles from "./desktop-footer.module.css";
 // images
 import svgPcWeb from "../images/pcweb.svg";
-import svgIOS from "../images/ios.svg";
-import svgAndroid from "../images/android.svg";
+import svgWindows from "../images/windows.svg";
+import svgOsx from "../images/osx.svg";
+import svgAppstore from "../images/appstore.svg";
+import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 
 const StartNow = ({ emoji, message, t }) => (
@@ -33,27 +35,67 @@ StartNow.propTypes = {
 
 const Platforms = ({ t }) => (
   <div className={styles.platformContainer}>
-    <div className={styles.platformButtons}>
-      <a href={urlStart}>
-        <button className={styles.platformButton}>
-          <img src={svgPcWeb} alt="PC" />
-          {t("footer:platformsPC")}
-        </button>
-      </a>
-      <a href="https://itunes.apple.com/app/id1325512157">
-        <button className={styles.platformButton}>
-          <img src={svgIOS} alt="iOS" />
-          {t("footer:platformsIOS")}
-        </button>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
-        <button className={styles.platformButton}>
-          <img src={svgAndroid} alt="Android" />
-          {t("footer:platformsAndroid")}
-        </button>
-      </a>
+    <div className={styles.platformGroups}>
+      <div className={styles.platformGroup}>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupWeb")}
+        </div>
+        <div className={styles.platformGroupButtons}>
+          <a href={urlStart}>
+            <button className={styles.platformButton}>
+              <img src={svgPcWeb} alt="PC" />
+              {t("footer:platformsPC")}
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div className={styles.platformGroup}>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupDesktop")}
+        </div>
+        <div className={styles.platformGroupButtons}>
+          <a href={constants.urlDownloadWindows}>
+            <button className={styles.platformButton}>
+              <img src={svgWindows} alt="Windows" />
+              {t("footer:platformsWindows")}
+            </button>
+          </a>
+          <a href={constants.urlDownloadOsx}>
+            <button className={styles.platformButton}>
+              <img src={svgOsx} alt="macOS" />
+              {t("footer:platformsOsx")}
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div className={styles.platformGroup}>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupMobile")}
+        </div>
+        <div className={styles.platformGroupButtons}>
+          <a href="https://itunes.apple.com/app/id1325512157">
+            <img
+              src={svgAppstore}
+              className={styles.platformImgButton}
+              alt="iOS"
+            />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
+            <img
+              src={svgPlaystore}
+              className={styles.platformImgButton}
+              alt="Android"
+            />
+          </a>
+        </div>
+      </div>
     </div>
-    {t("footer:platformsLastMessage")}
+
+    <div className={styles.platformFooterMsg}>
+      {t("footer:platformsLastMessage")}
+    </div>
   </div>
 );
 

@@ -1,70 +1,69 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/",
-        "dest": "/api/redirect.js"
-      },
-      {
-        "src": "/(about|features|pricing)\\/?",
-        "dest": "/api/redirect.js?path=$1/"
-      },
-      { "handle": "filesystem" },
-      {
-        "src": "/app",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/app" }
-      },
-      {
-        "src": "/login",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/login" }
-      },
-      {
-        "src": "/demo",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/demo" }
-      },
-      {
-        "src": "/page",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/team" }
-      },
-      {
-        "src": "/invite/(.*)",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/invite/$1" }
-      },
-      {
-        "src": "/team",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/team" }
-      },
-      {
-        "src": "/help",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/help" }
-      },
-      {
-        "src": "/help/(.*)",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/help/$1" }
-      },
-      {
-        "src": "/team/(.*)",
-        "status": 301,
-        "headers": { "Location": "https://web.boxhero-app.com/team/$1" }
-      },
-      { "src": "/api/(.*)", "dest": "https://api.boxhero-app.com/api/$1" },
-      {
-        "src": "/(privacy|tos)\\/?",
-        "dest": "/api/redirect.js?path=$1/"
-      },
-      { "src": "/en/privacy\\/?", "dest": "privacy_en.html" },
-      { "src": "/en/tos\\/?", "dest": "tos_en.html" },
-      { "src": "/ko/privacy\\/?", "dest": "privacy_ko.pdf" },
-      { "src": "/ko/tos\\/?", "dest": "tos_ko.pdf" },
-      { "src": "/(.*)", "dest": "404.html", "status": 404 }
-    ]
-  }
-  
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/api/redirect.js"
+    },
+    {
+      "src": "/(about|features|pricing)\\/?",
+      "dest": "/api/redirect.js?path=$1/"
+    },
+    { "handle": "filesystem" },
+    {
+      "src": "/app",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/app" }
+    },
+    {
+      "src": "/login",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/login" }
+    },
+    {
+      "src": "/demo",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/demo" }
+    },
+    {
+      "src": "/page",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/team" }
+    },
+    {
+      "src": "/invite/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/invite/$1" }
+    },
+    {
+      "src": "/team",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/team" }
+    },
+    {
+      "src": "/help",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/help" }
+    },
+    {
+      "src": "/help/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/help/$1" }
+    },
+    {
+      "src": "/team/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://web.boxhero-app.com/team/$1" }
+    },
+    { "src": "/api/(.*)", "dest": "https://api.boxhero-app.com/api/$1" },
+    {
+      "src": "/(privacy|tos)\\/?",
+      "dest": "/api/redirect.js?path=$1/"
+    },
+    { "src": "/en/privacy\\/?", "dest": "privacy_en.html" },
+    { "src": "/en/tos\\/?", "dest": "tos_en.html" },
+    { "src": "/ko/privacy\\/?", "dest": "privacy_ko.pdf" },
+    { "src": "/ko/tos\\/?", "dest": "tos_ko.pdf" },
+    { "src": "/(.*)", "dest": "404.html", "status": 404 }
+  ]
+}
