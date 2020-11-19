@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Img from "gatsby-image";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
@@ -17,6 +18,34 @@ import { AppDownloadLink } from "../components/common";
 import styles from "./mobile-pricing.module.css";
 // img
 import svgCheck from "../images/check.svg";
+
+const TopDescColumn = ({ emoji, title, desc }) => (
+  <div>
+    <div>
+      <Img fixed={emoji} alt={title} />
+    </div>
+    <Padding y={10} />
+    <div className={styles.topDescTitle}>{title}</div>
+    <Padding y={5} />
+    <div className={styles.topDescDesc}>{desc}</div>
+  </div>
+);
+
+const TopDesc = ({ data, t }) => (
+  <div>
+    <TopDescColumn
+      emoji={data.emojiOne.childImageSharp.fixed}
+      title={t("pricing:topDesc1Title")}
+      desc={<Trans i18nKey="pricing:topDesc1Desc" />}
+    />
+    <Padding y={30} />
+    <TopDescColumn
+      emoji={data.emojiTwo.childImageSharp.fixed}
+      title={t("pricing:topDesc2Title")}
+      desc={<Trans i18nKey="pricing:topDesc2Desc" />}
+    />
+  </div>
+);
 
 const PriceTable = ({ data, language, t }) => {
   const [isYearly, setIsYearly] = useState(true);
@@ -373,7 +402,10 @@ const MobilePricing = ({ data, language, t }) => {
       <ContainerCenter className={styles.px20}>
         <MobileSimpleTop
           title={t("pricing:topTitle")}>
-          <Trans i18nKey="pricing:topDescMobile" />
+          <Padding y={10} />
+          <TopDesc
+            data={data}
+            t={t} />
         </MobileSimpleTop>
       </ContainerCenter>
 

@@ -1,3 +1,38 @@
+/* top */
+
+.topDescTable {
+  margin: 0px;
+  border-spacing: 20px 0px;
+  border-collapse: separate;
+}
+
+.vl {
+  border-left: 1px solid var(--color-light-gray);
+  margin: 46px 120px 0px;
+}
+
+.topDescContainer {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.topDescColumn {
+  width: 300px;
+}
+
+.topDescTitle {
+  font-size: 20px;
+  color: var(--color-font-darker);
+}
+
+.topDescDesc {
+  font-size: 16px;
+  color: var(--color-font-primary);
+}
+
+/* pricing table */
+
 .pricingTable {
   margin: 0px;
   border-spacing: 20px 0px;

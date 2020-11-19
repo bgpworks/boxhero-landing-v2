@@ -41,9 +41,37 @@ export const query = graphql`
         }
       }
     }
+    emojiOne: file(relativePath: { eq: "emoji-one.png" }) {
+      childImageSharp {
+        fixed(width: 36, height: 36, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    emojiTwo: file(relativePath: { eq: "emoji-two.png" }) {
+      childImageSharp {
+        fixed(width: 36, height: 36, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
     mobileBox: file(relativePath: { eq: "emoji-box.png" }) {
       childImageSharp {
         fixed(width: 36, height: 36, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileEmojiOne: file(relativePath: { eq: "emoji-one.png" }) {
+      childImageSharp {
+        fixed(width: 24, height: 24, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    mobileEmojiTwo: file(relativePath: { eq: "emoji-two.png" }) {
+      childImageSharp {
+        fixed(width: 24, height: 24, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
