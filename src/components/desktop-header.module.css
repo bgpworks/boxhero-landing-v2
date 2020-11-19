@@ -6,6 +6,10 @@
   position: fixed;
 }
 
+.headerPlaceholder {
+  height: var(--height-top-menu);
+}
+
 .menuContainer {
   height: 100%;
   padding: 0px 20px;
