@@ -202,9 +202,9 @@ const MobileFeatures = ({ data, language, t }) => (
   >
     <Container320 className={styles.px20}>
       <MobileSimpleTop
-        title={t("features:topTitle")}
-        desc={<Trans i18nKey="features:topDescMobile" />}
-      />
+        title={t("features:topTitle")}>
+        <Trans i18nKey="features:topDescMobile" />
+      </MobileSimpleTop>
     </Container320>
 
     <Padding y={50} />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Img from "gatsby-image";
 import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
@@ -17,6 +18,38 @@ import styles from "./desktop-pricing.module.css";
 // img
 import svgCard from "../images/card.svg";
 import svgCheck from "../images/check.svg";
+
+const TopDescColumn = ({ emoji, title, desc }) => (
+  <div className={styles.topDescColumn}>
+    <div>
+      <Img fixed={emoji} alt={title} />
+    </div>
+    <Padding y={10} />
+    <div className={styles.topDescTitle}>{title}</div>
+    <Padding y={10} />
+    <div className={styles.topDescDesc}>{desc}</div>
+  </div>
+);
+
+const TopDescSpliter = () => <div className={styles.vl}></div>;
+
+const TopDesc = ({ data, t }) => (
+  <Container1024>
+    <div className={styles.topDescContainer}>
+      <TopDescColumn
+        emoji={data.emojiOne.childImageSharp.fixed}
+        title={t("pricing:topDesc1Title")}
+        desc={<Trans i18nKey="pricing:topDesc1Desc" />}
+      />
+      <TopDescSpliter />
+      <TopDescColumn
+        emoji={data.emojiTwo.childImageSharp.fixed}
+        title={t("pricing:topDesc2Title")}
+        desc={<Trans i18nKey="pricing:topDesc2Desc" />}
+      />
+    </div>
+  </Container1024>
+);
 
 const PriceTable = ({ data, language, t }) => {
   const [isYearly, setIsYearly] = useState(true);
@@ -434,10 +467,9 @@ export const DesktopPricing = ({ data, language, t }) => {
       closingEmoji={data.box}
       closingMsg={t("pricing:closingMsg")}
     >
-      <SimpleTop
-        title={t("pricing:topTitle")}
-        desc={<Trans i18nKey="pricing:topDesc" />}
-      />
+      <SimpleTop title={t("pricing:topTitle")}>
+        <TopDesc data={data} t={t} />
+      </SimpleTop>
 
       <Padding y={80} />
 

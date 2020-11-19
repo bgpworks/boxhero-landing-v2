@@ -1,3 +1,13 @@
+.topDescTitle {
+  font-size: 20px;
+  color: var(--color-font-darker);
+}
+
+.topDescDesc {
+  font-size: var(--font-size-mobile-small);
+  color: var(--color-font-primary);
+}
+
 .px20 {
   padding: 0px 20px;
 }
