@@ -12,9 +12,8 @@ import svgBiBlue from "../images/bi-blue.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
 export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
-  const [isShow] = React.useState(false);
   const { isScrolled } = useCheckScrolled();
-  const isWhite = !isFloatMenu || isScrolled || isShow;
+  const isWhite = !isFloatMenu || isScrolled;
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useTranslation();
   return (
