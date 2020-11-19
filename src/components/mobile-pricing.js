@@ -372,9 +372,9 @@ const MobilePricing = ({ data, language, t }) => {
     >
       <ContainerCenter className={styles.px20}>
         <MobileSimpleTop
-          title={t("pricing:topTitle")}
-          desc={<Trans i18nKey="pricing:topDescMobile" />}
-        />
+          title={t("pricing:topTitle")}>
+          <Trans i18nKey="pricing:topDescMobile" />
+        </MobileSimpleTop>
       </ContainerCenter>
 
       <Padding y={50} />

@@ -310,10 +310,9 @@ export const DesktopFeatures = ({ data, language, t }) => (
     closingEmoji={data.dinosaur}
     closingMsg={t("features:closingMsg")}
   >
-    <SimpleTop
-      title={t("features:topTitle")}
-      desc={<Trans i18nKey="features:topDesc" />}
-    />
+    <SimpleTop title={t("features:topTitle")}>
+      <Trans i18nKey="features:topDesc" />
+    </SimpleTop>
 
     <Padding y={62} />
 

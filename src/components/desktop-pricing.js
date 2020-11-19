@@ -434,10 +434,9 @@ export const DesktopPricing = ({ data, language, t }) => {
       closingEmoji={data.box}
       closingMsg={t("pricing:closingMsg")}
     >
-      <SimpleTop
-        title={t("pricing:topTitle")}
-        desc={<Trans i18nKey="pricing:topDesc" />}
-      />
+      <SimpleTop title={t("pricing:topTitle")}>
+        <Trans i18nKey="pricing:topDesc" />
+      </SimpleTop>
 
       <Padding y={80} />
 
