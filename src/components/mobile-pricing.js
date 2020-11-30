@@ -400,12 +400,9 @@ const MobilePricing = ({ data, language, t }) => {
       closingMsg={t("pricing:closingMsg")}
     >
       <ContainerCenter className={styles.px20}>
-        <MobileSimpleTop
-          title={t("pricing:topTitle")}>
+        <MobileSimpleTop title={t("pricing:topTitle")}>
           <Padding y={10} />
-          <TopDesc
-            data={data}
-            t={t} />
+          <TopDesc data={data} t={t} />
         </MobileSimpleTop>
       </ContainerCenter>
 

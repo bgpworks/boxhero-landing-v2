@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import {
   urlDownloadApp,
   urlDownloadAppSearchAd,
+  urlDownloadAppDable,
+  urlDownloadAppKakao,
 } from "../components/constants";
 import styles from "./common.module.css";
 import svgDown from "../images/down.svg";
@@ -193,23 +195,33 @@ function parseQuery(search) {
 
 // query param에 키워드 광고 파라메터가 있으면 다른 앱다운로드 링크를 건다.
 export const AppDownloadLink = ({ children, ...props }) => {
-  const [searchAD, setSearchAD] = useState(false);
+  const [trackingUrl, setTrackingUrl] = useState(null);
 
   useEffect(() => {
     const param = parseQuery(localStorage.getItem("search_param"));
 
-    // google : gclid
-    // naver : n_media
-    setSearchAD(param["gclid"] || param["n_media"]);
+    if (param["n_media"]) {
+      // 네이버
+      setTrackingUrl(urlDownloadAppSearchAd);
+    } else if (param["gclid"] || param["utm_source"] === "google") {
+      // 구글
+      setTrackingUrl(urlDownloadAppSearchAd);
+    } else if (param["utm_source"] === "dable") {
+      // 데이블
+      setTrackingUrl(urlDownloadAppDable);
+    } else if (param["utm_source"] === "kakao") {
+      // 카카오 비즈보드
+      setTrackingUrl(urlDownloadAppKakao);
+    }
   }, []);
 
-  const href = searchAD ? urlDownloadAppSearchAd : urlDownloadApp;
+  const href = trackingUrl != null ? trackingUrl : urlDownloadApp;
 
   return (
     <a
       {...props}
       href={href}
-      data-link-type={searchAD ? "searchAd" : "organic"}
+      data-link-type={trackingUrl != null ? "searchAd" : "organic"}
     >
       {children}
     </a>

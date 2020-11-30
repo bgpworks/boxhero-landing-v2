@@ -201,8 +201,7 @@ const MobileFeatures = ({ data, language, t }) => (
     closingMsg={t("features:closingMsg")}
   >
     <Container320 className={styles.px20}>
-      <MobileSimpleTop
-        title={t("features:topTitle")}>
+      <MobileSimpleTop title={t("features:topTitle")}>
         <Trans i18nKey="features:topDescMobile" />
       </MobileSimpleTop>
     </Container320>
