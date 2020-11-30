@@ -6,7 +6,7 @@ import {
   urlDownloadApp,
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
-  urlDownloadAppKakao
+  urlDownloadAppKakao,
 } from "../components/constants";
 import styles from "./common.module.css";
 import svgDown from "../images/down.svg";
@@ -203,20 +203,16 @@ export const AppDownloadLink = ({ children, ...props }) => {
     if (param["n_media"]) {
       // 네이버
       setTrackingUrl(urlDownloadAppSearchAd);
-    }
-    else if (param["gclid"] || param["utm_source"] === "google") {
+    } else if (param["gclid"] || param["utm_source"] === "google") {
       // 구글
       setTrackingUrl(urlDownloadAppSearchAd);
-    }
-    else if (param["utm_source"] === "dable") {
+    } else if (param["utm_source"] === "dable") {
       // 데이블
-      setTrackingUrl(urlDownloadAppDable)
-    }
-    else if (param["utm_source"] === "kakao") {
+      setTrackingUrl(urlDownloadAppDable);
+    } else if (param["utm_source"] === "kakao") {
       // 카카오 비즈보드
-      setTrackingUrl(urlDownloadAppKakao)
+      setTrackingUrl(urlDownloadAppKakao);
     }
-
   }, []);
 
   const href = trackingUrl != null ? trackingUrl : urlDownloadApp;
