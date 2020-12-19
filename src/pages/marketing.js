@@ -20,11 +20,11 @@ const IndexPage = ({ data }) => {
       />
 
       <Media at="xs">
-        <MobileMarketing />
+        <MobileMarketing data={data} language={language} t={t} />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopMarketing />
+        <DesktopMarketing data={data} language={language} t={t} />
       </Media>
 
     </>

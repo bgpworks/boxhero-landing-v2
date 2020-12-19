@@ -6,20 +6,11 @@
 }
 
 .imgContainer {
-  display: relative;
-  width: 600px;
+  position: relative;
 }
 
-.img {
-  max-width: 100%;
-}
-
-.link1 {
-  top: 3673px;
-  left: 185px;
-  right: 671px;
-  bottom: 3755px;
-
+.link {
   border: 1px solid red;
   position: absolute;
+  cursor: pointer;
 }
