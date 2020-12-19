@@ -36,7 +36,6 @@ const DesktopMarketing = ({ data, language, t }) => {
 
         <Link href="mailto:support+boxhero@bgpworks.com" x="261px" y="3628px" width="354px" height="43px" />
         <Link href="https://pf.kakao.com/_rHxgpxl" x="512px" y="3673px" width="119px" height="30px" />
-        //512,3673,631,3703
       </div>
     </div>
   );
