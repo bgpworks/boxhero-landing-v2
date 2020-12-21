@@ -10,7 +10,7 @@ import Image6 from "../images/ko/marketing/mobile-6.png"
 
 import { AppDownloadLink } from "../components/common";
 
-const MobileMarketing = ({ t }) => {
+const MobileMarketing = () => {
   return (
     <div className={styles.container}>
       <img src={Image1} className={styles.img} alt="재고관리는 박스히어로 하나면 충분합니다." />
@@ -19,7 +19,7 @@ const MobileMarketing = ({ t }) => {
       </AppDownloadLink>
       <img src={Image3} className={styles.img} alt="가입 후 한달 무료이며, 1인 제품 100개까지 평생 무료로 사용가능합니다." />
 
-      <a href={t("url:doc")}>
+      <a href="https://www.boxhero-app.com/ko/">
         <img src={Image4} className={styles.img} alt="고객센터" />
       </a>
 

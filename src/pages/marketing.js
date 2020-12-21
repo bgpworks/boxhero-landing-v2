@@ -7,7 +7,7 @@ import DesktopMarketing from "../components/desktop-marketing";
 import MobileMarketing from "../components/mobile-marketing";
 import { useHelpscout } from "../components/helpscout";
 
-const IndexPage = ({ data }) => {
+const MarketingPage = () => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -19,15 +19,15 @@ const IndexPage = ({ data }) => {
       />
 
       <Media at="xs">
-        <MobileMarketing data={data} language={language} t={t} />
+        <MobileMarketing />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopMarketing data={data} language={language} t={t} />
+        <DesktopMarketing />
       </Media>
 
     </>
   );
 };
 
-export default IndexPage;
+export default MarketingPage;

@@ -21,14 +21,14 @@ const Link = ({ href, x, y, width, height }) => {
   );
 };
 
-const DesktopMarketing = ({ t }) => {
+const DesktopMarketing = () => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
         <img src={Image} className={styles.img} alt="재고관리는 박스히어로 하나면 충분합니다." />
 
         <Link href={constants.urlStart} x="240px" y="2610px" width="400px" height="100px" />
-        <Link href={t("url:doc")} x="240px" y="3770px" width="400px" height="100px" />
+        <Link href="https://www.boxhero-app.com/ko/" x="240px" y="3770px" width="400px" height="100px" />
         <Link href={constants.urlStart} x="240px" y="4170px" width="400px" height="100px" />
 
         <Link href="mailto:support+boxhero@bgpworks.com" x="261px" y="3628px" width="354px" height="43px" />
