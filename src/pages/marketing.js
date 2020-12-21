@@ -1,5 +1,4 @@
 import React from "react";
-import { graphql } from "gatsby";
 import { useI18next } from "@jbseo/gatsby-plugin-react-i18next";
 // js
 import SEO from "../components/seo";
