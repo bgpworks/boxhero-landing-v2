@@ -4,7 +4,7 @@ import { ExternalLinkWithQuery } from "../components/common";
 import * as constants from "../components/constants";
 
 import styles from "./desktop-marketing.module.css";
-import Image from "../images/ko/marketing/web.png";
+import Img from "gatsby-image";
 
 const Link = ({ href, x, y, width, height }) => {
   return (
@@ -21,11 +21,11 @@ const Link = ({ href, x, y, width, height }) => {
   );
 };
 
-const DesktopMarketing = () => {
+const DesktopMarketing = ({ data }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <img src={Image} className={styles.img} alt="재고관리는 박스히어로 하나면 충분합니다." />
+        <Img fixed={data.web.childImageSharp.fixed} />
 
         <Link href={constants.urlStart} x="240px" y="2610px" width="400px" height="100px" />
         <Link href="https://www.boxhero-app.com/ko/" x="240px" y="3770px" width="400px" height="100px" />
