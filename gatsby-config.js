@@ -76,6 +76,10 @@ module.exports = {
             matchPath: "/(privacy|tos)",
             excludeLanguages: ["en", "ko"],
           },
+          {
+            matchPath: "/(marketing)",
+            excludeLanguages: ["en"],
+          },
         ],
       },
     },
