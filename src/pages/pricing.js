@@ -33,7 +33,10 @@ export const PricingPage = ({ data }) => {
 export default PricingPage;
 
 export const query = graphql`
-  query {
+  query($language: String!) {
+    locales: allLocale(filter: {lng: {eq: $language}}) {
+      ...LocaleFragment
+    }
     box: file(relativePath: { eq: "emoji-box.png" }) {
       childImageSharp {
         fixed(width: 72, height: 72, fit: FILL) {

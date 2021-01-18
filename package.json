@@ -6,7 +6,7 @@
   "author": "jbseo <jbseo@bgpworks.com>",
   "dependencies": {
     "@artsy/fresnel": "1.2.2",
-    "@jbseo/gatsby-plugin-react-i18next": "0.0.29",
+    "@jbseo/gatsby-plugin-react-i18next": "^0.0.30",
     "accept-language-parser": "^1.5.0",
     "gatsby": "^2.24.50",
     "gatsby-background-image": "1.1.2",

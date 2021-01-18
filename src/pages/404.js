@@ -47,7 +47,10 @@ const NotFoundPage = ({ data }) => {
 export default NotFoundPage;
 
 export const query = graphql`
-  query {
+  query($language: String!) {
+    locales: allLocale(filter: {lng: {eq: $language}}) {
+      ...LocaleFragment
+    }
     dinosaur: file(relativePath: { eq: "emoji-dinosaur.png" }) {
       childImageSharp {
         fixed(width: 72, height: 72, fit: FILL) {
