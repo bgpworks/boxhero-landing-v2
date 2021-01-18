@@ -34,7 +34,10 @@ const MarketingPage = ({ data }) => {
 export default MarketingPage;
 
 export const query = graphql`
-  query {
+  query($language: String!) {
+    locales: allLocale(filter: {lng: {eq: $language}}) {
+      ...LocaleFragment
+    }
     web: file(relativePath: { eq: "marketing/web.png" }) {
       childImageSharp {
         fixed(width: 860, webpQuality: 100, quality: 100) {

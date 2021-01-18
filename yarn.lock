@@ -1160,14 +1160,13 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@jbseo/gatsby-plugin-react-i18next@0.0.29":
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/@jbseo/gatsby-plugin-react-i18next/-/gatsby-plugin-react-i18next-0.0.29.tgz#fcd5b4bcd8245ecd720fa40dff03239e65e6f445"
-  integrity sha512-5DCEmo30qPsLNFoMkpPAbHxwEJQJr4HctCp903ooMqrf3YnQ2Zi0UInFYRkF+hSxs4bKLHpcMxtyCmBJUlgrgw==
+"@jbseo/gatsby-plugin-react-i18next@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@jbseo/gatsby-plugin-react-i18next/-/gatsby-plugin-react-i18next-0.0.30.tgz#d49cc7fd1ea98b0116c1d2fa299a0d248c4c2b9a"
+  integrity sha512-f7bHOQQNz7KiKWDd9dsLM+aBd7CGrsJ1yoCMKBsbph4Sct+xPEBih1qirdkxAwsGQnqmCVvt5nv7Bn9LErmfEQ==
   dependencies:
     bluebird "^3.7.2"
     browser-lang "^0.1.0"
-    glob "^7.1.6"
     path-to-regexp "^6.1.0"
   optionalDependencies:
     react-helmet "^6.1.0"

@@ -32,6 +32,9 @@ export default AboutPage;
 
 export const query = graphql`
   query($language: String!) {
+    locales: allLocale(filter: {lng: {eq: $language}}) {
+      ...LocaleFragment
+    }
     topBg: file(relativePath: { eq: "about-top-bg.png" }) {
       childImageSharp {
         fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
