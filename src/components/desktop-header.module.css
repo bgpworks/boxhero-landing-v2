@@ -3,7 +3,9 @@
   width: 100%;
   height: var(--height-top-menu);
   z-index: 100;
-  position: fixed;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 .headerPlaceholder {

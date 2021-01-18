@@ -64,7 +64,6 @@ export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
           </ExternalLinkWithQuery>
         </Container1024>
       </header>
-      {!isFloatMenu && <div className={styles.headerPlaceholder}></div>}
     </>
   );
 };

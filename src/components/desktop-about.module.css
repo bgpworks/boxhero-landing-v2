@@ -5,6 +5,8 @@
   height: 800px;
   color: white;
   overflow: hidden;
+
+  margin-top: calc(-1 * var(--height-top-menu));
 }
 
 .topContentContainer {
