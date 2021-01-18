@@ -19,11 +19,11 @@ const IndexPage = ({ data }) => {
         description={t("index:pageDescription")}
       />
 
-      <Media at="xs">
+      <Media lessThan="md">
         <MobileIndex data={data} language={language} t={t} />
       </Media>
 
-      <Media greaterThan="xs">
+      <Media greaterThan="sm">
         <DesktopIndex data={data} language={language} t={t} />
       </Media>
     </>
