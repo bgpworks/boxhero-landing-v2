@@ -18,10 +18,10 @@ const AboutPage = ({ data }) => {
         title={t("about:pageTitle")}
         description={t("about:pageDescription")}
       />
-      <Media at="xs">
+      <Media lessThan="md">
         <MobileAbout data={data} language={language} t={t} />
       </Media>
-      <Media greaterThan="xs">
+      <Media greaterThan="sm">
         <DesktopAbout data={data} language={language} t={t} />
       </Media>
     </>

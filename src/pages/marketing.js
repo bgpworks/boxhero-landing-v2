@@ -19,14 +19,13 @@ const MarketingPage = ({ data }) => {
         description={t("index:pageDescription")}
       />
 
-      <Media at="xs">
+      <Media lessThan="md">
         <MobileMarketing data={data} />
       </Media>
 
-      <Media greaterThan="xs">
+      <Media greaterThan="sm">
         <DesktopMarketing data={data} />
       </Media>
-
     </>
   );
 };

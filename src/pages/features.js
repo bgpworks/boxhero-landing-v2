@@ -19,11 +19,11 @@ export const FeaturesPage = ({ data }) => {
         description={t("features:pageDescription")}
       />
 
-      <Media at="xs">
+      <Media lessThan="md">
         <MobileFeatures data={data} language={language} t={t} />
       </Media>
 
-      <Media greaterThan="xs">
+      <Media greaterThan="sm">
         <DesktopFeatures data={data} language={language} t={t} />
       </Media>
     </>

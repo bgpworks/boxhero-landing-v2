@@ -15,7 +15,7 @@ const NotFoundPage = ({ data }) => {
     <>
       <SEO lang={language} title="NOT FOUND" description="NOT FOUND" />
 
-      <Media at="xs">
+      <Media lessThan="md">
         <MobileLayout
           isFloatMenu={false}
           closingEmoji={data.mobileDinosaur}
@@ -28,7 +28,7 @@ const NotFoundPage = ({ data }) => {
         </MobileLayout>
       </Media>
 
-      <Media greaterThan="xs">
+      <Media greaterThan="sm">
         <DesktopLayout
           isFloatMenu={false}
           closingEmoji={data.dinosaur}

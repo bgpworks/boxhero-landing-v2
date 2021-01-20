@@ -19,11 +19,11 @@ export const PricingPage = ({ data }) => {
         description={t("pricing:pageDescription")}
       />
 
-      <Media at="xs">
+      <Media lessThan="md">
         <MobilePricing data={data} language={language} t={t} />
       </Media>
 
-      <Media greaterThan="xs">
+      <Media greaterThan="sm">
         <DesktopPricing data={data} language={language} t={t} />
       </Media>
     </>
