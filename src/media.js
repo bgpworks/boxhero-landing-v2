@@ -3,9 +3,7 @@ import { createMedia } from "@artsy/fresnel";
 const BoxHeroMedia = createMedia({
   breakpoints: {
     xs: 0,
-    sm: 768,
-    md: 1000,
-    lg: 1200,
+    md: 1024,
   },
 });
 
