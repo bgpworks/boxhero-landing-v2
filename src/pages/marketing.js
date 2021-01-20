@@ -26,6 +26,7 @@ const MarketingPage = ({ data }) => {
       <Media greaterThan="xs">
         <DesktopMarketing data={data} />
       </Media>
+
     </>
   );
 };
