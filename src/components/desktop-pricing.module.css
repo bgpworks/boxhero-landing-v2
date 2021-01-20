@@ -186,6 +186,8 @@ td.withSubDescription::first-line {
   font-weight: bold;
   line-height: 1;
   color: var(--color-font-header);
+
+  position: relative;
 }
 
 .billingCycleButton.active {
@@ -198,7 +200,10 @@ td.withSubDescription::first-line {
   white-space: nowrap;
   font-weight: normal;
 
-  margin-left: 12px;
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 12px);
+  transform: translate(0, -50%);
 }
 
 /* faq */

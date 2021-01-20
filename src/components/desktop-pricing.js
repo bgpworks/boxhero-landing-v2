@@ -15,9 +15,6 @@ import {
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-pricing.module.css";
-// img
-import svgCard from "../images/card.svg";
-import svgCheck from "../images/check.svg";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <div className={styles.topDescColumn}>
@@ -76,10 +73,10 @@ const PriceTable = ({ data, language, t }) => {
           onClick={() => setIsYearly(true)}
         >
           {t("pricing:switchLabelYearly")}
+          <div className={styles.yearlyPlanSaveLabel}>
+            {t("pricing:yearlyPlanSaveLabel")}
+          </div>
         </button>
-        <div className={styles.yearlyPlanSaveLabel}>
-          {t("pricing:yearlyPlanSaveLabel")}
-        </div>
       </div>
       <table className={styles.pricingTable}>
         <thead>
