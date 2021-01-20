@@ -16,31 +16,26 @@ import * as constants from "../components/constants";
 import { AppDownloadLink } from "../components/common";
 // css
 import styles from "./mobile-pricing.module.css";
-// img
-import svgCheck from "../images/check.svg";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
-  <div>
-    <div>
-      <Img fixed={emoji} alt={title} />
-    </div>
-    <Padding y={10} />
+  <>
+    <Img fixed={emoji} alt={title} />
     <div className={styles.topDescTitle}>{title}</div>
     <Padding y={5} />
     <div className={styles.topDescDesc}>{desc}</div>
-  </div>
+  </>
 );
 
 const TopDesc = ({ data, t }) => (
   <div>
     <TopDescColumn
-      emoji={data.emojiOne.childImageSharp.fixed}
+      emoji={data.emojiOneSmall.childImageSharp.fixed}
       title={t("pricing:topDesc1Title")}
       desc={<Trans i18nKey="pricing:topDesc1Desc" />}
     />
     <Padding y={30} />
     <TopDescColumn
-      emoji={data.emojiTwo.childImageSharp.fixed}
+      emoji={data.emojiTwoSmall.childImageSharp.fixed}
       title={t("pricing:topDesc2Title")}
       desc={<Trans i18nKey="pricing:topDesc2Desc" />}
     />
@@ -56,9 +51,7 @@ const PriceTable = ({ data, language, t }) => {
         <div className={styles.planTitle}>{t("pricing:freePlanTitle")}</div>
         <div className={styles.planSubtitle}>For Personal</div>
         <div className={styles.planPrice}>{t("pricing:freePlanPrice")}</div>
-        <div className={styles.planPriceUnit}>
-          {t("pricing:freePlanPriceUnit")}
-        </div>
+
         <div className={styles.planDesc}>
           <Trans i18nKey="pricing:freePlanDesc" />
         </div>
@@ -79,18 +72,11 @@ const PriceTable = ({ data, language, t }) => {
         <div className={styles.planDetailItem}>
           <Trans i18nKey="pricing:limitProductFreeMobile" />
         </div>
-        <div className={styles.planDetailItem}>
-          <Trans
-            i18nKey="pricing:limitLocationFreeMobile"
-            components={{
-              small: <small />,
-            }}
-          />
+        <div className={styles.planLimitExtensionDesc}>
+          *한도 확장을 위해서는
+          <br />
+          비즈니스 플랜 이용이 필요합니다.
         </div>
-      </div>
-
-      <div className={styles.planPostscript}>
-        <Trans i18nKey="pricing:postscriptFree" />
       </div>
 
       <div className={styles.bizPlanContainer}>
@@ -126,16 +112,15 @@ const PriceTable = ({ data, language, t }) => {
             onClick={() => setIsYearly(true)}
           >
             {t("pricing:switchLabelYearly")}
+            <div className={styles.yearlyPlanSaveLabel}>
+              {t("pricing:yearlyPlanSaveLabel")}
+            </div>
           </button>
         </div>
 
         <div className={styles.planPrice}>{isYearly ? "$16.6" : "$20"}</div>
         <div className={styles.planPriceUnit}>
           {t("pricing:bizPlanPriceUnit")}
-          <br />
-          <span className={styles.saveLabel}>
-            {isYearly ? t("pricing:yearlyPlanSaveLabel") : " "}
-          </span>
         </div>
         <div className={styles.planDesc}>
           <Trans i18nKey="pricing:bizPlanDesc" />
@@ -157,32 +142,6 @@ const PriceTable = ({ data, language, t }) => {
         <div className={styles.planDetailItem}>
           <Trans i18nKey="pricing:limitProductBizMobile" />
         </div>
-        <div className={styles.planDetailItem}>
-          <Trans
-            i18nKey="pricing:limitLocationBizMobile"
-            components={{
-              small: <small />,
-            }}
-          />
-        </div>
-        {/* */}
-        <div className={styles.planDetailHeader}>{t("pricing:headerTeam")}</div>
-        <div className={styles.planDetailItemBold}>
-          <img src={svgCheck} alt="OK" />
-          {t("pricing:teamInvite")}
-        </div>
-        <div className={styles.planDetailItemBold}>
-          <img src={svgCheck} alt="OK" />
-          {t("pricing:teamMultiUser")}
-        </div>
-        <div className={styles.planDetailItemBold}>
-          <img src={svgCheck} alt="OK" />
-          {t("pricing:teamACL")}
-        </div>
-        <div className={styles.planDetailItemBold}>
-          <img src={svgCheck} alt="OK" />
-          {t("pricing:teamHistory")}
-        </div>
         {/* */}
         <div className={styles.planDetailHeader}>
           {t("pricing:headerExtension")}
@@ -203,18 +162,21 @@ const PriceTable = ({ data, language, t }) => {
             }}
           />
         </div>
-        <div className={styles.planDetailItemBold}>
-          <Trans
-            i18nKey="pricing:extensionLocationBiz"
-            components={{
-              small: <small />,
-            }}
-          />
-        </div>
       </div>
 
       <div className={styles.planPostscript}>
-        <Trans i18nKey="pricing:postscriptBiz" />
+        <Trans
+          i18nKey="pricing:postscriptBiz"
+          components={{
+            faqModeLink: (
+              <a
+                href={constants.urlFaqMode}
+                target="_blank"
+                className={styles.plainLink}
+              />
+            ),
+          }}
+        />
       </div>
     </Container320>
   );
@@ -232,6 +194,12 @@ const FAQ = ({ t }) => {
       question: t("pricing:faq2Question"),
       answer: {
         i18nKey: "pricing:faq2Answer",
+        components: {
+          ul: <ul></ul>,
+          li: <li></li>,
+          // eslint-disable-next-line
+          faqModeLink: <a href={constants.urlFaqMode} target="_blank" />,
+        },
       },
     },
     {
@@ -262,74 +230,18 @@ const FAQ = ({ t }) => {
       question: t("pricing:faq7Question"),
       answer: {
         i18nKey: "pricing:faq7Answer",
+        components: {
+          // eslint-disable-next-line
+          faqPaymentLink: (
+            <a href={constants.urlFaqPaymentDomestic} target="_blank" />
+          ),
+        },
       },
     },
     {
       question: t("pricing:faq8Question"),
       answer: {
         i18nKey: "pricing:faq8Answer",
-      },
-    },
-    {
-      question: t("pricing:faq9Question"),
-      answer: {
-        i18nKey: "pricing:faq9Answer",
-      },
-    },
-    {
-      question: t("pricing:faq10Question"),
-      answer: {
-        i18nKey: "pricing:faq10Answer",
-        components: {
-          // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />,
-        },
-      },
-    },
-    {
-      question: t("pricing:faq11Question"),
-      answer: {
-        i18nKey: "pricing:faq11Answer",
-        components: {
-          // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />,
-        },
-      },
-    },
-    {
-      question: t("pricing:faq12Question"),
-      answer: {
-        i18nKey: "pricing:faq12Answer",
-        components: {
-          otherMethodLink: (
-            // eslint-disable-next-line
-            <a href="https://docs-ko.boxhero-app.com/docs/pricing#%EA%B5%AD%EB%82%B4-%EC%B9%B4%EB%93%9C-%EB%B0%8F-%EA%B3%84%EC%A2%8C%EC%9D%B4%EC%B2%B4-%EA%B2%B0%EC%A0%9C-%EB%B0%A9%EB%B2%95" />
-          ),
-        },
-      },
-    },
-    {
-      question: t("pricing:faq13Question"),
-      answer: {
-        i18nKey: "pricing:faq13Answer",
-      },
-    },
-    {
-      question: t("pricing:faq14Question"),
-      answer: {
-        i18nKey: "pricing:faq14Answer",
-      },
-    },
-    {
-      question: t("pricing:faq15Question"),
-      answer: {
-        i18nKey: "pricing:faq15Answer",
-      },
-    },
-    {
-      question: t("pricing:faq16Question"),
-      answer: {
-        i18nKey: "pricing:faq16Answer",
       },
     },
   ];

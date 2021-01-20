@@ -100,7 +100,7 @@ const PriceTable = ({ data, language, t }) => {
               <small>{t("pricing:freePlanPriceUnit")}</small>
             </td>
             <td className={styles.priceWrapper}>
-              <Ribbon>
+              <Ribbon className={styles.bigRibbon}>
                 <Trans
                   i18nKey="pricing:recommandRibbon"
                   components={{
@@ -113,11 +113,9 @@ const PriceTable = ({ data, language, t }) => {
             </td>
           </tr>
 
-          <tr>
+          <tr className={styles.planDescription}>
             <td>
-              <strong>
-                <Trans i18nKey="pricing:freePlanDesc" />
-              </strong>
+              <Trans i18nKey="pricing:freePlanDesc" />
             </td>
             <td>
               <strong>
@@ -144,50 +142,72 @@ const PriceTable = ({ data, language, t }) => {
           </tr>
 
           <tr className={styles.sectionTitleRow}>
-            <td>기본 제공 한도</td>
-            <td>기본 제공 한도</td>
+            <td>{t("pricing:headerLimit")}</td>
+            <td>{t("pricing:headerLimit")}</td>
           </tr>
 
           <tr>
-            <td>{t("pricing:limitMemberFree")}</td>
-            <td>{t("pricing:limitMemberBiz")}</td>
+            <td>
+              <Trans i18nKey="pricing:limitMemberFree" />
+            </td>
+            <td>
+              <Trans i18nKey="pricing:limitMemberBiz" />
+            </td>
           </tr>
           <tr>
-            <td>{t("pricing:limitProductFree")}</td>
-            <td>{t("pricing:limitProductBiz")}</td>
+            <td>
+              <Trans i18nKey="pricing:limitProductFree" />
+            </td>
+            <td>
+              <Trans i18nKey="pricing:limitProductBiz" />
+            </td>
           </tr>
 
           <tr className={styles.sectionTitleRow}>
             <td></td>
-            <td>한도 확장</td>
+            <td>{t("pricing:headerExtension")}</td>
           </tr>
           <tr>
             <td></td>
-            <td className={styles.withSubDescription}>
-              팀 멤버 최대 100명
-              <br />
-              (추가 멤버 1인당 월 $5)
+            <td>
+              <Trans
+                i18nKey="pricing:limitMemberBizExtensible"
+                components={{ small: <small /> }}
+              />
             </td>
           </tr>
           <tr>
-            <td className={styles.smallText}>
-              *한도 확장을 위해서는 <br />
-              비즈니스 플랜 이용이 필요합니다.
+            <td>
+              <Trans
+                i18nKey="pricing:extensionDescription"
+                components={{
+                  extraSmall: <span className={styles.extraSmall} />,
+                }}
+              />
             </td>
-            <td className={styles.withSubDescription}>
-              관리 제품 5,000개
-              <br />
-              (추가 제품 1,000개당 월 $10)
+            <td>
+              <Trans
+                i18nKey="pricing:limitProductBizExtensible"
+                components={{ small: <small /> }}
+              />
             </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td colSpan={2}>
-              *가장 보편적인 기본모드 기준이며 다른 모드로 팀 생성 시 한도 측정
-              기준이 일부분 달라집니다.
-              <br />
-              자세한 내용은 여기를 눌러주세요.
+              <Trans
+                i18nKey="pricing:footerDescription"
+                components={{
+                  linkToHelpPricing: (
+                    <a
+                      href={constants.urlHelpPricing}
+                      target="_blank"
+                      className={styles.plainLink}
+                    />
+                  ),
+                }}
+              />
             </td>
           </tr>
         </tfoot>
@@ -208,6 +228,12 @@ const FAQ = ({ t }) => {
       question: t("pricing:faq2Question"),
       answer: {
         i18nKey: "pricing:faq2Answer",
+        components: {
+          ul: <ul></ul>,
+          li: <li></li>,
+          // eslint-disable-next-line
+          faqModeLink: <a href={constants.urlFaqMode} target="_blank" />,
+        },
       },
     },
     {
@@ -238,74 +264,18 @@ const FAQ = ({ t }) => {
       question: t("pricing:faq7Question"),
       answer: {
         i18nKey: "pricing:faq7Answer",
+        components: {
+          // eslint-disable-next-line
+          faqPaymentLink: (
+            <a href={constants.urlFaqPaymentDomestic} target="_blank" />
+          ),
+        },
       },
     },
     {
       question: t("pricing:faq8Question"),
       answer: {
         i18nKey: "pricing:faq8Answer",
-      },
-    },
-    {
-      question: t("pricing:faq9Question"),
-      answer: {
-        i18nKey: "pricing:faq9Answer",
-      },
-    },
-    {
-      question: t("pricing:faq10Question"),
-      answer: {
-        i18nKey: "pricing:faq10Answer",
-        components: {
-          // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />,
-        },
-      },
-    },
-    {
-      question: t("pricing:faq11Question"),
-      answer: {
-        i18nKey: "pricing:faq11Answer",
-        components: {
-          // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />,
-        },
-      },
-    },
-    {
-      question: t("pricing:faq12Question"),
-      answer: {
-        i18nKey: "pricing:faq12Answer",
-        components: {
-          otherMethodLink: (
-            // eslint-disable-next-line
-            <a href="https://docs-ko.boxhero-app.com/docs/pricing#%EA%B5%AD%EB%82%B4-%EC%B9%B4%EB%93%9C-%EB%B0%8F-%EA%B3%84%EC%A2%8C%EC%9D%B4%EC%B2%B4-%EA%B2%B0%EC%A0%9C-%EB%B0%A9%EB%B2%95" />
-          ),
-        },
-      },
-    },
-    {
-      question: t("pricing:faq13Question"),
-      answer: {
-        i18nKey: "pricing:faq13Answer",
-      },
-    },
-    {
-      question: t("pricing:faq14Question"),
-      answer: {
-        i18nKey: "pricing:faq14Answer",
-      },
-    },
-    {
-      question: t("pricing:faq15Question"),
-      answer: {
-        i18nKey: "pricing:faq15Answer",
-      },
-    },
-    {
-      question: t("pricing:faq16Question"),
-      answer: {
-        i18nKey: "pricing:faq16Answer",
       },
     },
   ];

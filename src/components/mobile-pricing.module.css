@@ -1,11 +1,17 @@
 .topDescTitle {
-  font-size: 20px;
-  color: var(--color-font-darker);
+  margin-top: 8px;
+  font-size: 16px;
+  color: black;
 }
 
 .topDescDesc {
   font-size: var(--font-size-mobile-small);
   color: var(--color-font-primary);
+}
+
+.plainLink {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .px20 {
@@ -25,10 +31,27 @@
   font-weight: bold;
   color: var(--color-font-header);
   line-height: 24px;
+
+  position: relative;
 }
 
 .billingCycleButton.active {
   color: var(--color-font-primary);
+}
+
+.yearlyPlanSaveLabel {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+
+  font-size: 12px;
+  color: var(--color-font-blue);
+  font-weight: normal;
+
+  width: 100%;
+  text-align: center;
+  line-height: 18px;
 }
 
 .planContainer {
@@ -46,10 +69,17 @@
   background-color: var(--color-biz-plan);
   position: relative;
 
+  margin-top: 40px;
 }
 
 .ribbon span {
   font-size: 12px;
+  padding: 5px 0;
+  width: 106px;
+
+  right: -8px;
+  top: 11px;
+  transform: rotate(-45deg);
 }
 
 .planTitle {
@@ -67,7 +97,7 @@
 }
 
 .planPrice {
-  margin-top: 20px;
+  margin-top: 30px;
   height: 68px;
   font-size: var(--font-size-mobile-big4);
   font-weight: bold;
@@ -81,12 +111,8 @@
   color: black;
 }
 
-.saveLabel {
-  color: var(--color-font-blue);
-}
-
 .planDesc {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: var(--font-size-mobile-big2);
   font-weight: bold;
   text-align: center;
@@ -166,6 +192,7 @@
 }
 
 .faqItemTitle {
+  padding: 19px 0;
   line-height: normal;
   color: black;
 }
@@ -210,4 +237,21 @@
   font-weight: bold;
   text-align: center;
   color: var(--color-font-blue);
+}
+
+.planLimitExtensionDesc {
+  margin-top: 20px;
+  color: var(--color-font-primary);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.faqContainer li {
+  margin: 0;
+}
+
+.faqContainer a {
+  color: var(--color-font-blue);
+  text-decoration: underline;
 }
