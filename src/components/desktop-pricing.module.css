@@ -1,11 +1,5 @@
 /* top */
 
-.topDescTable {
-  margin: 0px;
-  border-spacing: 20px 0px;
-  border-collapse: separate;
-}
-
 .vl {
   border-left: 1px solid var(--color-light-gray);
   margin: 46px 120px 0px;
@@ -34,16 +28,21 @@
 /* pricing table */
 
 .pricingTable {
-  margin: 0px;
-  border-spacing: 20px 0px;
+  --horizontal-border-spacing: 20px;
+  --col-width: 321px;
+
+  margin: 0px auto;
+  border-spacing: var(--horizontal-border-spacing) 0px;
   border-collapse: separate;
   font-size: 20px;
   color: black;
   line-height: normal;
+
+  width: calc((var(--col-width) * 2) + (var(--horizontal-border-spacing) * 3));
 }
 
 .pricingTable tr td {
-  width: calc(100% / 3);
+  width: calc(100% / 2);
 }
 
 .pricingTable small {
@@ -59,6 +58,7 @@
 .pricingTable th {
   border: none;
   padding: 10px 0px;
+  text-align: center;
 }
 
 .pricingTable tbody tr:first-child td {
@@ -66,32 +66,19 @@
 }
 
 .pricingTable tbody tr:last-child td {
-  padding-bottom: 30px;
+  padding-bottom: 48px;
 }
 
 .pricingTable thead th {
-  text-align: center;
   padding-bottom: 30px;
 }
 
 .pricingTable tbody td:nth-child(1) {
-  font-weight: bold;
-  text-align: left;
-}
-
-.pricingTable tbody td:nth-child(1) small {
-  color: var(--color-font-header);
+  background-color: var(--color-free-plan);
 }
 
 .pricingTable tbody td:nth-child(2) {
-  background-color: var(--color-free-plan);
-  text-align: center;
-}
-
-.pricingTable tbody td:nth-child(3) {
   background-color: var(--color-biz-plan);
-  text-align: center;
-  font-weight: bold;
 }
 
 .pricingTable tbody tr:first-child td {
@@ -115,15 +102,13 @@
   text-align: center;
 }
 
-.pricingTable .sectionTr td:first-child {
-  font-size: 16px;
-  color: var(--color-font-header);
-}
-
 .pricingTable td.thinHeight {
   line-height: 1;
 }
 
+.startButtonRow > td {
+  padding: 20px 0 8px;
+}
 
 .startButton {
   width: calc(100% - 80px);
@@ -133,6 +118,33 @@
   font-size: 16px;
   font-weight: bold;
   color: white;
+}
+
+.sectionTitleRow ~ tr:not(.sectionTitleRow) td {
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+.sectionTitleRow > td {
+  color: var(--color-font-header);
+  font-size: 16px;
+  padding: 32px 0 8px;
+  font-weight: bold;
+}
+
+.sectionTitleRow ~ tr:not(.sectionTitleRow) td.withSubDescription {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+td.withSubDescription::first-line {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sectionTitleRow ~ tr:not(.sectionTitleRow) td.smallText {
+  font-weight: normal;
+  font-size: 12px;
 }
 
 .price {
@@ -150,11 +162,21 @@
 }
 
 .switchContainer {
-  width: 238px;
+  width: 500px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  margin: 0 auto 40px;
+}
+
+.switchContainer > button:nth-child(1) {
+  margin-right: 35px;
+}
+
+.switchContainer > button:nth-child(3) {
+  margin-left: 35px;
 }
 
 .billingCycleButton {
@@ -171,13 +193,13 @@
 }
 
 .yearlyPlanSaveLabel {
-  margin-top: 10px;
   font-size: 14px;
-  color: var(--color-font-header);
+  color: var(--color-font-blue);
   white-space: nowrap;
   font-weight: normal;
-}
 
+  margin-left: 12px;
+}
 
 /* faq */
 

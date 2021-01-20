@@ -55,11 +55,35 @@ const PriceTable = ({ data, language, t }) => {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
-    <Container1024>
+    <>
+      <div className={styles.switchContainer}>
+        <button
+          className={`${styles.billingCycleButton} ${
+            isYearly ? "" : styles.active
+          }`}
+          onClick={() => setIsYearly(false)}
+        >
+          {t("pricing:switchLabelMonthly")}
+        </button>
+        <Switch
+          isActive={isYearly}
+          onChange={(active) => setIsYearly(active)}
+        />
+        <button
+          className={`${styles.billingCycleButton} ${
+            isYearly ? styles.active : ""
+          }`}
+          onClick={() => setIsYearly(true)}
+        >
+          {t("pricing:switchLabelYearly")}
+        </button>
+        <div className={styles.yearlyPlanSaveLabel}>
+          {t("pricing:yearlyPlanSaveLabel")}
+        </div>
+      </div>
       <table className={styles.pricingTable}>
         <thead>
           <tr>
-            <th> </th>
             <th>
               <strong>{t("pricing:freePlanTitle")}</strong>
               <br />
@@ -74,7 +98,6 @@ const PriceTable = ({ data, language, t }) => {
         </thead>
         <tbody>
           <tr>
-            <td></td>
             <td>
               <div className={styles.price}>{t("pricing:freePlanPrice")}</div>
               <small>{t("pricing:freePlanPriceUnit")}</small>
@@ -89,19 +112,11 @@ const PriceTable = ({ data, language, t }) => {
                 />
               </Ribbon>
               <div className={styles.price}>{isYearly ? "$16.6" : "$20"}</div>
-              <small>
-                {t("pricing:bizPlanPriceUnit")}
-                {isYearly
-                  ? t("pricing:paymentCycleYearly")
-                  : t("pricing:paymentCycleMonthly")}
-              </small>
+              <small>{t("pricing:bizPlanPriceUnit")}</small>
             </td>
           </tr>
 
           <tr>
-            <td>
-              <img src={svgCard} alt={t("pricing:creditCard")} />
-            </td>
             <td>
               <strong>
                 <Trans i18nKey="pricing:freePlanDesc" />
@@ -114,34 +129,7 @@ const PriceTable = ({ data, language, t }) => {
             </td>
           </tr>
 
-          <tr>
-            <td>
-              <div className={styles.switchContainer}>
-                <button
-                  className={`${styles.billingCycleButton} ${
-                    isYearly ? "" : styles.active
-                  }`}
-                  onClick={() => setIsYearly(false)}
-                >
-                  {t("pricing:switchLabelMonthly")}
-                </button>
-                <Switch
-                  isActive={isYearly}
-                  onChange={(active) => setIsYearly(active)}
-                />
-                <button
-                  className={`${styles.billingCycleButton} ${
-                    isYearly ? styles.active : ""
-                  }`}
-                  onClick={() => setIsYearly(true)}
-                >
-                  {t("pricing:switchLabelYearly")}
-                  <div className={styles.yearlyPlanSaveLabel}>
-                    {t("pricing:yearlyPlanSaveLabel")}
-                  </div>
-                </button>
-              </div>
-            </td>
+          <tr className={styles.startButtonRow}>
             <td>
               <ExternalLinkWithQuery href={constants.urlStart}>
                 <button className={styles.startButton}>
@@ -158,139 +146,56 @@ const PriceTable = ({ data, language, t }) => {
             </td>
           </tr>
 
-          <tr className={styles.sectionTr}>
-            <td>
-              <Padding y={53} />
-              {t("pricing:headerLimit")}
-            </td>
-            <td></td>
-            <td></td>
+          <tr className={styles.sectionTitleRow}>
+            <td>기본 제공 한도</td>
+            <td>기본 제공 한도</td>
           </tr>
+
           <tr>
-            <td>{t("pricing:limitMember")}</td>
             <td>{t("pricing:limitMemberFree")}</td>
             <td>{t("pricing:limitMemberBiz")}</td>
           </tr>
           <tr>
-            <td>{t("pricing:limitProduct")}</td>
             <td>{t("pricing:limitProductFree")}</td>
             <td>{t("pricing:limitProductBiz")}</td>
           </tr>
-          <tr>
-            <td className={styles.thinHeight}>
-              <Trans
-                i18nKey="pricing:limitLocation"
-                components={{
-                  small: <small />,
-                }}
-              />
-            </td>
-            <td>{t("pricing:limitLocationFree")}</td>
-            <td>{t("pricing:limitLocationBiz")}</td>
-          </tr>
 
-          <tr className={styles.sectionTr}>
-            <td>
-              <Padding y={43} />
-              {t("pricing:headerTeam")}
-            </td>
+          <tr className={styles.sectionTitleRow}>
             <td></td>
+            <td>한도 확장</td>
+          </tr>
+          <tr>
             <td></td>
-          </tr>
-          <tr>
-            <td>{t("pricing:teamInvite")}</td>
-            <td>-</td>
-            <td>
-              <img src={svgCheck} alt="OK" />
+            <td className={styles.withSubDescription}>
+              팀 멤버 최대 100명
+              <br />
+              (추가 멤버 1인당 월 $5)
             </td>
           </tr>
           <tr>
-            <td>{t("pricing:teamMultiUser")}</td>
-            <td>-</td>
-            <td>
-              <img src={svgCheck} alt="OK" />
+            <td className={styles.smallText}>
+              *한도 확장을 위해서는 <br />
+              비즈니스 플랜 이용이 필요합니다.
             </td>
-          </tr>
-          <tr>
-            <td>{t("pricing:teamACL")}</td>
-            <td>-</td>
-            <td>
-              <img src={svgCheck} alt="OK" />
-            </td>
-          </tr>
-          <tr>
-            <td>{t("pricing:teamHistory")}</td>
-            <td>-</td>
-            <td>
-              <img src={svgCheck} alt="OK" />
-            </td>
-          </tr>
-
-          <tr className={styles.sectionTr}>
-            <td>
-              <Padding y={63} />
-              {t("pricing:headerExtension")}
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>{t("pricing:extensionMember")}</td>
-            <td>-</td>
-            <td className={styles.thinHeight}>
-              <Trans
-                i18nKey="pricing:extensionMemberBiz"
-                components={{
-                  small: <small />,
-                }}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>{t("pricing:extensionProduct")}</td>
-            <td>-</td>
-            <td className={styles.thinHeight}>
-              <Trans
-                i18nKey="pricing:extensionProductBiz"
-                components={{
-                  small: <small />,
-                }}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className={styles.thinHeight}>
-              <Trans
-                i18nKey="pricing:extensionLocation"
-                components={{
-                  small: <small />,
-                }}
-              />
-            </td>
-            <td>-</td>
-            <td className={styles.thinHeight}>
-              <Trans
-                i18nKey="pricing:extensionLocationBiz"
-                components={{
-                  small: <small />,
-                }}
-              />
+            <td className={styles.withSubDescription}>
+              관리 제품 5,000개
+              <br />
+              (추가 제품 1,000개당 월 $10)
             </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <td></td>
-            <td>
-              <Trans i18nKey="pricing:postscriptFree" />
-            </td>
-            <td>
-              <Trans i18nKey="pricing:postscriptBiz" />
+            <td colSpan={2}>
+              *가장 보편적인 기본모드 기준이며 다른 모드로 팀 생성 시 한도 측정
+              기준이 일부분 달라집니다.
+              <br />
+              자세한 내용은 여기를 눌러주세요.
             </td>
           </tr>
         </tfoot>
       </table>
-    </Container1024>
+    </>
   );
 };
 
