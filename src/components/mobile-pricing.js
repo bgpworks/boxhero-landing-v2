@@ -169,9 +169,11 @@ const PriceTable = ({ data, language, t }) => {
           i18nKey="pricing:postscriptBiz"
           components={{
             faqModeLink: (
+              // eslint-disable-next-line
               <a
                 href={constants.urlFaqMode}
                 target="_blank"
+                rel="noreferrer"
                 className={styles.plainLink}
               />
             ),
@@ -231,8 +233,8 @@ const FAQ = ({ t }) => {
       answer: {
         i18nKey: "pricing:faq7Answer",
         components: {
-          // eslint-disable-next-line
           faqPaymentLink: (
+            // eslint-disable-next-line
             <a href={constants.urlFaqPaymentDomestic} target="_blank" />
           ),
         },

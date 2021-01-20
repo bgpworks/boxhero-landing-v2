@@ -200,9 +200,11 @@ const PriceTable = ({ data, language, t }) => {
                 i18nKey="pricing:footerDescription"
                 components={{
                   linkToHelpPricing: (
+                    // eslint-disable-next-line
                     <a
                       href={constants.urlHelpPricing}
                       target="_blank"
+                      rel="noreferrer"
                       className={styles.plainLink}
                     />
                   ),
@@ -265,8 +267,8 @@ const FAQ = ({ t }) => {
       answer: {
         i18nKey: "pricing:faq7Answer",
         components: {
-          // eslint-disable-next-line
           faqPaymentLink: (
+            // eslint-disable-next-line
             <a href={constants.urlFaqPaymentDomestic} target="_blank" />
           ),
         },
