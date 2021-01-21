@@ -73,9 +73,10 @@ const PriceTable = ({ data, language, t }) => {
           <Trans i18nKey="pricing:limitProductFreeMobile" />
         </div>
         <div className={styles.planLimitExtensionDesc}>
-          *한도 확장을 위해서는
-          <br />
-          비즈니스 플랜 이용이 필요합니다.
+          <Trans
+            i18nKey="pricing:extensionDescription"
+            components={{ extraSmall: <span /> }}
+          />
         </div>
       </div>
 
@@ -165,20 +166,7 @@ const PriceTable = ({ data, language, t }) => {
       </div>
 
       <div className={styles.planPostscript}>
-        <Trans
-          i18nKey="pricing:postscriptBiz"
-          components={{
-            faqModeLink: (
-              // eslint-disable-next-line
-              <a
-                href={constants.urlFaqMode}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.plainLink}
-              />
-            ),
-          }}
-        />
+        <Trans i18nKey="pricing:footerDescription" />
       </div>
     </Container320>
   );
@@ -200,7 +188,7 @@ const FAQ = ({ t }) => {
           ul: <ul></ul>,
           li: <li></li>,
           // eslint-disable-next-line
-          faqModeLink: <a href={constants.urlFaqMode} target="_blank" />,
+          faqModeLink: <a href={t("pricing:modeFaqUrl")} target="_blank" />,
         },
       },
     },

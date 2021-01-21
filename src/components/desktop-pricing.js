@@ -196,20 +196,7 @@ const PriceTable = ({ data, language, t }) => {
         <tfoot>
           <tr>
             <td colSpan={2}>
-              <Trans
-                i18nKey="pricing:footerDescription"
-                components={{
-                  linkToHelpPricing: (
-                    // eslint-disable-next-line
-                    <a
-                      href={constants.urlHelpPricing}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.plainLink}
-                    />
-                  ),
-                }}
-              />
+              <Trans i18nKey="pricing:footerDescription" />
             </td>
           </tr>
         </tfoot>
@@ -234,7 +221,7 @@ const FAQ = ({ t }) => {
           ul: <ul></ul>,
           li: <li></li>,
           // eslint-disable-next-line
-          faqModeLink: <a href={constants.urlFaqMode} target="_blank" />,
+          faqModeLink: <a href={t("pricing:modeFaqUrl")} target="_blank" />,
         },
       },
     },
