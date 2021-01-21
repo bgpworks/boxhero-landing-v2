@@ -48,22 +48,20 @@
 /* pricing table */
 
 .pricingTable {
-  --horizontal-border-spacing: 20px;
-  --col-width: 321px;
+  --each-h-border-spacing: 20px;
+  --inner-content-width: 321px;
 
   margin: 0px auto;
-  border-spacing: var(--horizontal-border-spacing) 0px;
+  border-spacing: var(--each-h-border-spacing) 0px;
   border-collapse: separate;
   color: black;
   line-height: normal;
 
   font-size: 18px;
 
-  width: calc((var(--col-width) * 2) + (var(--horizontal-border-spacing) * 3));
-}
-
-.pricingTable tr td {
-  width: calc(100% / 2);
+  width: calc(
+    (var(--inner-content-width) * 2) + (var(--each-h-border-spacing) * 3)
+  );
 }
 
 .pricingTable small {
@@ -93,6 +91,7 @@
 
 .pricingTable thead th {
   padding-bottom: 30px;
+  width: 50%;
 }
 
 .pricingTable tbody td:nth-child(1) {
