@@ -67,10 +67,10 @@ const PriceTable = ({ data, language, t }) => {
           {t("pricing:headerLimit")}
         </div>
         <div className={styles.planDetailItem}>
-          <Trans i18nKey="pricing:limitMemberFreeMobile" />
+          <Trans i18nKey="pricing:limitMemberFree" />
         </div>
         <div className={styles.planDetailItem}>
-          <Trans i18nKey="pricing:limitProductFreeMobile" />
+          <Trans i18nKey="pricing:limitProductFree" />
         </div>
         <div className={styles.planLimitExtensionDesc}>
           <Trans
