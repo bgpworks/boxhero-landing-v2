@@ -144,11 +144,6 @@
   color: black;
 }
 
-.planDetailItemBold {
-  composes: planDetailItem;
-  font-weight: bold;
-}
-
 .planDetailItem small {
   font-size: var(--font-size-mobile-small);
   font-weight: normal;
