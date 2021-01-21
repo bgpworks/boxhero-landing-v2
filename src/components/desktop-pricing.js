@@ -169,7 +169,7 @@ const PriceTable = ({ data, language, t }) => {
           </tr>
           <tr>
             <td></td>
-            <td>
+            <td className={styles.multiLine}>
               <Trans
                 i18nKey="pricing:limitMemberBizExtensible"
                 components={{ small: <small /> }}
@@ -177,7 +177,7 @@ const PriceTable = ({ data, language, t }) => {
             </td>
           </tr>
           <tr>
-            <td>
+            <td className={styles.verticalAlignBottom}>
               <Trans
                 i18nKey="pricing:extensionDescription"
                 components={{
@@ -185,7 +185,7 @@ const PriceTable = ({ data, language, t }) => {
                 }}
               />
             </td>
-            <td>
+            <td className={styles.multiLine}>
               <Trans
                 i18nKey="pricing:limitProductBizExtensible"
                 components={{ small: <small /> }}
