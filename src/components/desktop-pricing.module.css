@@ -297,6 +297,10 @@
   color: var(--color-font-blue);
 }
 
+.faqContentContainer ul {
+  margin-bottom: 10px;
+}
+
 .faqContentContainer li {
   margin: 0;
 }
@@ -304,4 +308,12 @@
 .faqContentContainer a {
   color: var(--color-font-blue);
   text-decoration: underline;
+}
+
+.faqContentContainer p:first-child {
+  margin: 0 0 10px;
+}
+
+.faqContentContainer p {
+  margin: 10px 0;
 }
