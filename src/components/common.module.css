@@ -165,8 +165,8 @@ html[lang="ko"] .mobileSimpleTopDesc {
 
 /* https://codepen.io/nxworld/pen/oLdoWb */
 .ribbon {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   overflow: hidden;
   position: absolute;
 }
@@ -174,11 +174,11 @@ html[lang="ko"] .mobileSimpleTopDesc {
 .ribbon span {
   position: absolute;
   display: block;
-  width: 102px;
-  padding: 3px 0;
+  width: 120px;
+  padding: 6px 0;
   background-color: var(--color-ribbon-green);
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
 }
@@ -193,7 +193,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
 }
 
 .ribbonTopLeft span {
-  right: -5px;
-  top: 14px;
+  right: -8px;
+  top: 13px;
   transform: rotate(-45deg);
 }

@@ -100,12 +100,10 @@ const PriceTable = ({ data, language, t }) => {
               <small>{t("pricing:freePlanPriceUnit")}</small>
             </td>
             <td className={styles.priceWrapper}>
-              <Ribbon className={styles.bigRibbon}>
+              <Ribbon>
                 <Trans
                   i18nKey="pricing:recommandRibbon"
-                  components={{
-                    small: <small />,
-                  }}
+                  components={{ small: <small /> }}
                 />
               </Ribbon>
               <div className={styles.price}>{isYearly ? "$16.6" : "$20"}</div>
@@ -218,8 +216,8 @@ const FAQ = ({ t }) => {
       answer: {
         i18nKey: "pricing:faq2Answer",
         components: {
-          ul: <ul></ul>,
-          li: <li></li>,
+          ul: <ul />,
+          li: <li />,
           // eslint-disable-next-line
           faqModeLink: <a href={t("pricing:modeFaqUrl")} target="_blank" />,
         },

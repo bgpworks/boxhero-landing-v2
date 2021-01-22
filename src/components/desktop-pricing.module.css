@@ -5,15 +5,6 @@
   margin: 46px 120px 0px;
 }
 
-.bigRibbon span {
-  padding: 5px 0;
-  width: 106px;
-
-  right: -8px;
-  top: 11px;
-  transform: rotate(-45deg);
-}
-
 .topDescContainer {
   display: flex;
   justify-content: center;

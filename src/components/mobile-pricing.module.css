@@ -72,16 +72,6 @@
   margin-top: 40px;
 }
 
-.ribbon span {
-  font-size: 12px;
-  padding: 5px 0;
-  width: 106px;
-
-  right: -8px;
-  top: 11px;
-  transform: rotate(-45deg);
-}
-
 .planTitle {
   height: 29px;
   font-size: var(--font-size-mobile-big2);
