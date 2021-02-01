@@ -59,6 +59,20 @@ export const query = graphql`
         }
       }
     }
+    emojiOneSmall: file(relativePath: { eq: "emoji-one.png" }) {
+      childImageSharp {
+        fixed(width: 24, height: 24, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    emojiTwoSmall: file(relativePath: { eq: "emoji-two.png" }) {
+      childImageSharp {
+        fixed(width: 24, height: 24, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
     mobileBox: file(relativePath: { eq: "emoji-box.png" }) {
       childImageSharp {
         fixed(width: 36, height: 36, fit: FILL) {

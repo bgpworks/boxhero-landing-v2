@@ -86,7 +86,7 @@ export const DropDownQNA = ({
     <div className={styles.dropDownQNA}>
       <div
         role="presentation"
-        className={`${styles.dropDownQNATitle} ${titleClassName}`}
+        className={[styles.dropDownQNATitle, titleClassName].join(" ")}
         onClick={() => setShow(!isShow)}
       >
         <span className={isShow ? styles.open : ""}>{title}</span>

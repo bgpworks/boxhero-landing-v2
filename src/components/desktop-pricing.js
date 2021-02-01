@@ -15,9 +15,6 @@ import {
 import * as constants from "../components/constants";
 // css
 import styles from "./desktop-pricing.module.css";
-// img
-import svgCard from "../images/card.svg";
-import svgCheck from "../images/check.svg";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <div className={styles.topDescColumn}>
@@ -55,11 +52,35 @@ const PriceTable = ({ data, language, t }) => {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
-    <Container1024>
+    <>
+      <div className={styles.switchContainer}>
+        <button
+          className={`${styles.billingCycleButton} ${
+            isYearly ? "" : styles.active
+          }`}
+          onClick={() => setIsYearly(false)}
+        >
+          {t("pricing:switchLabelMonthly")}
+        </button>
+        <Switch
+          isActive={isYearly}
+          onChange={(active) => setIsYearly(active)}
+        />
+        <button
+          className={`${styles.billingCycleButton} ${
+            isYearly ? styles.active : ""
+          }`}
+          onClick={() => setIsYearly(true)}
+        >
+          {t("pricing:switchLabelYearly")}
+          <div className={styles.yearlyPlanSaveLabel}>
+            {t("pricing:yearlyPlanSaveLabel")}
+          </div>
+        </button>
+      </div>
       <table className={styles.pricingTable}>
         <thead>
           <tr>
-            <th> </th>
             <th>
               <strong>{t("pricing:freePlanTitle")}</strong>
               <br />
@@ -74,7 +95,6 @@ const PriceTable = ({ data, language, t }) => {
         </thead>
         <tbody>
           <tr>
-            <td></td>
             <td>
               <div className={styles.price}>{t("pricing:freePlanPrice")}</div>
               <small>{t("pricing:freePlanPriceUnit")}</small>
@@ -83,29 +103,17 @@ const PriceTable = ({ data, language, t }) => {
               <Ribbon>
                 <Trans
                   i18nKey="pricing:recommandRibbon"
-                  components={{
-                    small: <small />,
-                  }}
+                  components={{ small: <small /> }}
                 />
               </Ribbon>
               <div className={styles.price}>{isYearly ? "$16.6" : "$20"}</div>
-              <small>
-                {t("pricing:bizPlanPriceUnit")}
-                {isYearly
-                  ? t("pricing:paymentCycleYearly")
-                  : t("pricing:paymentCycleMonthly")}
-              </small>
+              <small>{t("pricing:bizPlanPriceUnit")}</small>
             </td>
           </tr>
 
-          <tr>
+          <tr className={styles.planDescription}>
             <td>
-              <img src={svgCard} alt={t("pricing:creditCard")} />
-            </td>
-            <td>
-              <strong>
-                <Trans i18nKey="pricing:freePlanDesc" />
-              </strong>
+              <Trans i18nKey="pricing:freePlanDesc" />
             </td>
             <td>
               <strong>
@@ -114,34 +122,7 @@ const PriceTable = ({ data, language, t }) => {
             </td>
           </tr>
 
-          <tr>
-            <td>
-              <div className={styles.switchContainer}>
-                <button
-                  className={`${styles.billingCycleButton} ${
-                    isYearly ? "" : styles.active
-                  }`}
-                  onClick={() => setIsYearly(false)}
-                >
-                  {t("pricing:switchLabelMonthly")}
-                </button>
-                <Switch
-                  isActive={isYearly}
-                  onChange={(active) => setIsYearly(active)}
-                />
-                <button
-                  className={`${styles.billingCycleButton} ${
-                    isYearly ? styles.active : ""
-                  }`}
-                  onClick={() => setIsYearly(true)}
-                >
-                  {t("pricing:switchLabelYearly")}
-                  <div className={styles.yearlyPlanSaveLabel}>
-                    {t("pricing:yearlyPlanSaveLabel")}
-                  </div>
-                </button>
-              </div>
-            </td>
+          <tr className={styles.startButtonRow}>
             <td>
               <ExternalLinkWithQuery href={constants.urlStart}>
                 <button className={styles.startButton}>
@@ -158,139 +139,67 @@ const PriceTable = ({ data, language, t }) => {
             </td>
           </tr>
 
-          <tr className={styles.sectionTr}>
-            <td>
-              <Padding y={53} />
-              {t("pricing:headerLimit")}
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>{t("pricing:limitMember")}</td>
-            <td>{t("pricing:limitMemberFree")}</td>
-            <td>{t("pricing:limitMemberBiz")}</td>
-          </tr>
-          <tr>
-            <td>{t("pricing:limitProduct")}</td>
-            <td>{t("pricing:limitProductFree")}</td>
-            <td>{t("pricing:limitProductBiz")}</td>
-          </tr>
-          <tr>
-            <td className={styles.thinHeight}>
-              <Trans
-                i18nKey="pricing:limitLocation"
-                components={{
-                  small: <small />,
-                }}
-              />
-            </td>
-            <td>{t("pricing:limitLocationFree")}</td>
-            <td>{t("pricing:limitLocationBiz")}</td>
+          <tr className={styles.sectionTitleRow}>
+            <td>{t("pricing:headerLimit")}</td>
+            <td>{t("pricing:headerLimit")}</td>
           </tr>
 
-          <tr className={styles.sectionTr}>
-            <td>
-              <Padding y={43} />
-              {t("pricing:headerTeam")}
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
           <tr>
-            <td>{t("pricing:teamInvite")}</td>
-            <td>-</td>
             <td>
-              <img src={svgCheck} alt="OK" />
+              <Trans i18nKey="pricing:limitMemberFree" />
+            </td>
+            <td>
+              <Trans i18nKey="pricing:limitMemberBiz" />
             </td>
           </tr>
           <tr>
-            <td>{t("pricing:teamMultiUser")}</td>
-            <td>-</td>
             <td>
-              <img src={svgCheck} alt="OK" />
+              <Trans i18nKey="pricing:limitProductFree" />
             </td>
-          </tr>
-          <tr>
-            <td>{t("pricing:teamACL")}</td>
-            <td>-</td>
             <td>
-              <img src={svgCheck} alt="OK" />
-            </td>
-          </tr>
-          <tr>
-            <td>{t("pricing:teamHistory")}</td>
-            <td>-</td>
-            <td>
-              <img src={svgCheck} alt="OK" />
+              <Trans i18nKey="pricing:limitProductBiz" />
             </td>
           </tr>
 
-          <tr className={styles.sectionTr}>
-            <td>
-              <Padding y={63} />
-              {t("pricing:headerExtension")}
-            </td>
+          <tr className={styles.sectionTitleRow}>
             <td></td>
+            <td>{t("pricing:headerExtension")}</td>
+          </tr>
+          <tr>
             <td></td>
-          </tr>
-          <tr>
-            <td>{t("pricing:extensionMember")}</td>
-            <td>-</td>
-            <td className={styles.thinHeight}>
+            <td className={styles.multiLine}>
               <Trans
-                i18nKey="pricing:extensionMemberBiz"
-                components={{
-                  small: <small />,
-                }}
+                i18nKey="pricing:limitMemberBizExtensible"
+                components={{ small: <small /> }}
               />
             </td>
           </tr>
           <tr>
-            <td>{t("pricing:extensionProduct")}</td>
-            <td>-</td>
-            <td className={styles.thinHeight}>
+            <td className={styles.verticalAlignBottom}>
               <Trans
-                i18nKey="pricing:extensionProductBiz"
+                i18nKey="pricing:extensionDescription"
                 components={{
-                  small: <small />,
+                  extraSmall: <span className={styles.extraSmall} />,
                 }}
               />
             </td>
-          </tr>
-          <tr>
-            <td className={styles.thinHeight}>
+            <td className={styles.multiLine}>
               <Trans
-                i18nKey="pricing:extensionLocation"
-                components={{
-                  small: <small />,
-                }}
-              />
-            </td>
-            <td>-</td>
-            <td className={styles.thinHeight}>
-              <Trans
-                i18nKey="pricing:extensionLocationBiz"
-                components={{
-                  small: <small />,
-                }}
+                i18nKey="pricing:limitProductBizExtensible"
+                components={{ small: <small /> }}
               />
             </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <td></td>
-            <td>
-              <Trans i18nKey="pricing:postscriptFree" />
-            </td>
-            <td>
-              <Trans i18nKey="pricing:postscriptBiz" />
+            <td colSpan={2}>
+              <Trans i18nKey="pricing:footerDescription" />
             </td>
           </tr>
         </tfoot>
       </table>
-    </Container1024>
+    </>
   );
 };
 
@@ -306,6 +215,12 @@ const FAQ = ({ t }) => {
       question: t("pricing:faq2Question"),
       answer: {
         i18nKey: "pricing:faq2Answer",
+        components: {
+          ul: <ul />,
+          li: <li />,
+          // eslint-disable-next-line
+          faqModeLink: <a href={t("pricing:modeFaqUrl")} target="_blank" />,
+        },
       },
     },
     {
@@ -336,74 +251,18 @@ const FAQ = ({ t }) => {
       question: t("pricing:faq7Question"),
       answer: {
         i18nKey: "pricing:faq7Answer",
+        components: {
+          faqPaymentLink: (
+            // eslint-disable-next-line
+            <a href={constants.urlFaqPaymentDomestic} target="_blank" />
+          ),
+        },
       },
     },
     {
       question: t("pricing:faq8Question"),
       answer: {
         i18nKey: "pricing:faq8Answer",
-      },
-    },
-    {
-      question: t("pricing:faq9Question"),
-      answer: {
-        i18nKey: "pricing:faq9Answer",
-      },
-    },
-    {
-      question: t("pricing:faq10Question"),
-      answer: {
-        i18nKey: "pricing:faq10Answer",
-        components: {
-          // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />,
-        },
-      },
-    },
-    {
-      question: t("pricing:faq11Question"),
-      answer: {
-        i18nKey: "pricing:faq11Answer",
-        components: {
-          // eslint-disable-next-line
-          webappLink: <a href={constants.urlStart} />,
-        },
-      },
-    },
-    {
-      question: t("pricing:faq12Question"),
-      answer: {
-        i18nKey: "pricing:faq12Answer",
-        components: {
-          otherMethodLink: (
-            // eslint-disable-next-line
-            <a href="https://docs-ko.boxhero-app.com/docs/pricing#%EA%B5%AD%EB%82%B4-%EC%B9%B4%EB%93%9C-%EB%B0%8F-%EA%B3%84%EC%A2%8C%EC%9D%B4%EC%B2%B4-%EA%B2%B0%EC%A0%9C-%EB%B0%A9%EB%B2%95" />
-          ),
-        },
-      },
-    },
-    {
-      question: t("pricing:faq13Question"),
-      answer: {
-        i18nKey: "pricing:faq13Answer",
-      },
-    },
-    {
-      question: t("pricing:faq14Question"),
-      answer: {
-        i18nKey: "pricing:faq14Answer",
-      },
-    },
-    {
-      question: t("pricing:faq15Question"),
-      answer: {
-        i18nKey: "pricing:faq15Answer",
-      },
-    },
-    {
-      question: t("pricing:faq16Question"),
-      answer: {
-        i18nKey: "pricing:faq16Answer",
       },
     },
   ];
