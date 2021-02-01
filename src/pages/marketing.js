@@ -27,7 +27,6 @@ const MarketingPage = ({ data, path }) => {
       <Media greaterThan="xs">
         <DesktopMarketing data={data} />
       </Media>
-
     </>
   );
 };
@@ -36,7 +35,7 @@ export default MarketingPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     web: file(relativePath: { eq: "marketing/web.png" }) {

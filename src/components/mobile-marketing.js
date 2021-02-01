@@ -6,13 +6,11 @@ import Img from "gatsby-image";
 import { AppDownloadLink } from "../components/common";
 
 const MobileMarketing = ({ data }) => {
-
   return (
     <div className={styles.container}>
       <Img fluid={data.mobile1.childImageSharp.fluid} />
       <AppDownloadLink>
         <Img fluid={data.mobile2.childImageSharp.fluid} />
-
       </AppDownloadLink>
       <Img fluid={data.mobile3.childImageSharp.fluid} />
 
@@ -24,8 +22,6 @@ const MobileMarketing = ({ data }) => {
       <AppDownloadLink>
         <Img fluid={data.mobile6.childImageSharp.fluid} />
       </AppDownloadLink>
-
-
     </div>
   );
 };

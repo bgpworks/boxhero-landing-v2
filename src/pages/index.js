@@ -35,7 +35,7 @@ export default IndexPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     homeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {

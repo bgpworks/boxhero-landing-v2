@@ -53,7 +53,7 @@ export default NotFoundPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     dinosaur: file(relativePath: { eq: "emoji-dinosaur.png" }) {
