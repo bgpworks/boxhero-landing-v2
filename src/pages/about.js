@@ -8,7 +8,7 @@ import DesktopAbout from "../components/desktop-about";
 import MobileAbout from "../components/mobile-about";
 import { useHelpscout } from "../components/helpscout";
 
-const AboutPage = ({ data, path }) => {
+const AboutPage = ({ data, location }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,7 +17,7 @@ const AboutPage = ({ data, path }) => {
         lang={language}
         title={t("about:pageTitle")}
         description={t("about:pageDescription")}
-        path={path}
+        path={location.pathname}
       />
       <Media at="xs">
         <MobileAbout data={data} language={language} t={t} />

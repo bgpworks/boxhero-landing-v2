@@ -8,7 +8,7 @@ import MobileLayout from "../components/mobile-layout";
 import { Media } from "../media";
 import SEO from "../components/seo";
 
-const NotFoundPage = ({ data, path }) => {
+const NotFoundPage = ({ data, location }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,7 +17,7 @@ const NotFoundPage = ({ data, path }) => {
         lang={language}
         title="NOT FOUND"
         description="NOT FOUND"
-        path={path}
+        path={location.pathname}
       />
 
       <Media at="xs">
