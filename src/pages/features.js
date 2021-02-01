@@ -8,7 +8,7 @@ import DesktopFeatures from "../components/desktop-features";
 import MobileFeatures from "../components/mobile-features";
 import { useHelpscout } from "../components/helpscout";
 
-export const FeaturesPage = ({ data }) => {
+export const FeaturesPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,6 +17,7 @@ export const FeaturesPage = ({ data }) => {
         lang={language}
         title={t("features:pageTitle")}
         description={t("features:pageDescription")}
+        path={path}
       />
 
       <Media at="xs">

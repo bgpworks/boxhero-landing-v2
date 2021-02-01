@@ -7,6 +7,7 @@ module.exports = {
     keywords: `재고관리, 자산관리, 바코드, QR코드, RFID, 재고, 자산, 엑셀, 제품`,
     email: "support+boxhero@bgpworks.com",
     siteUrl: "https://www.boxhero-app.com",
+    fbAppId: "1194988153968114",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -8,7 +8,7 @@ import DesktopIndex from "../components/desktop-index";
 import MobileIndex from "../components/mobile-index";
 import { useHelpscout } from "../components/helpscout";
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,6 +17,7 @@ const IndexPage = ({ data }) => {
         lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
+        path={path}
       />
 
       <Media at="xs">

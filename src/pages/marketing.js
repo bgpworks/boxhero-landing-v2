@@ -8,7 +8,7 @@ import DesktopMarketing from "../components/desktop-marketing";
 import MobileMarketing from "../components/mobile-marketing";
 import { useHelpscout } from "../components/helpscout";
 
-const MarketingPage = ({ data }) => {
+const MarketingPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,6 +17,7 @@ const MarketingPage = ({ data }) => {
         lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
+        path={path}
       />
 
       <Media at="xs">
