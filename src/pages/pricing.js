@@ -8,7 +8,7 @@ import DesktopPricing from "../components/desktop-pricing";
 import MobilePricing from "../components/mobile-pricing";
 import { useHelpscout } from "../components/helpscout";
 
-export const PricingPage = ({ data, path }) => {
+export const PricingPage = ({ data, location }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,7 +17,7 @@ export const PricingPage = ({ data, path }) => {
         lang={language}
         title={t("pricing:pageTitle")}
         description={t("pricing:pageDescription")}
-        path={path}
+        path={location.pathname}
       />
 
       <Media at="xs">
