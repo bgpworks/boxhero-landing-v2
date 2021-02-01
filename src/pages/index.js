@@ -8,7 +8,7 @@ import DesktopIndex from "../components/desktop-index";
 import MobileIndex from "../components/mobile-index";
 import { useHelpscout } from "../components/helpscout";
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,6 +17,7 @@ const IndexPage = ({ data }) => {
         lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
+        path={path}
       />
 
       <Media at="xs">
@@ -34,7 +35,7 @@ export default IndexPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     homeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {

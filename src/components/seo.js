@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, path }) {
   const data = useStaticQuery(
     graphql`
       query {
@@ -20,6 +20,7 @@ function SEO({ description, lang, meta, title }) {
             description
             author
             siteUrl
+            fbAppId
           }
         }
         ogImgKo: file(relativePath: { eq: "og_image_ko.png" }) {
@@ -77,11 +78,23 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
-          name: "og:image",
+          property: "og:image",
           content:
             lang === "ko"
               ? `${siteUrl}${data.ogImgKo.publicURL}`
               : `${siteUrl}${data.ogImgEn.publicURL}`,
+        },
+        {
+          property: "og:url",
+          content: `${siteUrl}${path}`,
+        },
+        {
+          property: "og:name",
+          content: title,
+        },
+        {
+          property: "fb:app_id",
+          content: site.siteMetadata.fbAppId,
         },
       ].concat(meta)}
     />
@@ -92,6 +105,7 @@ SEO.defaultProps = {
   lang: `ko`,
   meta: [],
   description: ``,
+  path: "/",
 };
 
 SEO.propTypes = {
@@ -99,6 +113,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default SEO;

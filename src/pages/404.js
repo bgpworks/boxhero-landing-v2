@@ -8,12 +8,17 @@ import MobileLayout from "../components/mobile-layout";
 import { Media } from "../media";
 import SEO from "../components/seo";
 
-const NotFoundPage = ({ data }) => {
+const NotFoundPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
-      <SEO lang={language} title="NOT FOUND" description="NOT FOUND" />
+      <SEO
+        lang={language}
+        title="NOT FOUND"
+        description="NOT FOUND"
+        path={path}
+      />
 
       <Media at="xs">
         <MobileLayout
@@ -48,7 +53,7 @@ export default NotFoundPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     dinosaur: file(relativePath: { eq: "emoji-dinosaur.png" }) {

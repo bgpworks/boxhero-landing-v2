@@ -8,7 +8,7 @@ import DesktopFeatures from "../components/desktop-features";
 import MobileFeatures from "../components/mobile-features";
 import { useHelpscout } from "../components/helpscout";
 
-export const FeaturesPage = ({ data }) => {
+export const FeaturesPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,6 +17,7 @@ export const FeaturesPage = ({ data }) => {
         lang={language}
         title={t("features:pageTitle")}
         description={t("features:pageDescription")}
+        path={path}
       />
 
       <Media at="xs">
@@ -34,7 +35,7 @@ export default FeaturesPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     topBg: file(relativePath: { eq: "about-top-bg.png" }) {

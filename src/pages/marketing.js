@@ -8,7 +8,7 @@ import DesktopMarketing from "../components/desktop-marketing";
 import MobileMarketing from "../components/mobile-marketing";
 import { useHelpscout } from "../components/helpscout";
 
-const MarketingPage = ({ data }) => {
+const MarketingPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,6 +17,7 @@ const MarketingPage = ({ data }) => {
         lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
+        path={path}
       />
 
       <Media at="xs">
@@ -26,7 +27,6 @@ const MarketingPage = ({ data }) => {
       <Media greaterThan="xs">
         <DesktopMarketing data={data} />
       </Media>
-
     </>
   );
 };
@@ -35,7 +35,7 @@ export default MarketingPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     web: file(relativePath: { eq: "marketing/web.png" }) {

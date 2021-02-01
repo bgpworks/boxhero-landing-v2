@@ -8,7 +8,7 @@ import DesktopPricing from "../components/desktop-pricing";
 import MobilePricing from "../components/mobile-pricing";
 import { useHelpscout } from "../components/helpscout";
 
-export const PricingPage = ({ data }) => {
+export const PricingPage = ({ data, path }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
@@ -17,6 +17,7 @@ export const PricingPage = ({ data }) => {
         lang={language}
         title={t("pricing:pageTitle")}
         description={t("pricing:pageDescription")}
+        path={path}
       />
 
       <Media at="xs">
@@ -34,7 +35,7 @@ export default PricingPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {lng: {eq: $language}}) {
+    locales: allLocale(filter: { lng: { eq: $language } }) {
       ...LocaleFragment
     }
     box: file(relativePath: { eq: "emoji-box.png" }) {

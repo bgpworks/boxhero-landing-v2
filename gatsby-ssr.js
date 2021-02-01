@@ -80,7 +80,7 @@ export const onRenderBody = (
     />,
     <style key="artsy/fresnel_style">{mediaStyles}</style>,
     // mywot.com
-    <meta key="wot" name="wot-verification" content="22ffe25fcba7e2dface7"/>
+    <meta key="wot" name="wot-verification" content="22ffe25fcba7e2dface7" />,
   ]);
 
   setPostBodyComponents([
