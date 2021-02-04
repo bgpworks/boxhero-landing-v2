@@ -11,13 +11,14 @@ import { useCheckScrolled } from "../hooks/useCheckScrolled";
 // images
 import svgDownload from "../images/download.svg";
 
-const InstallButton = () => {
+const InstallButton = ({ installButtonColor }) => {
   const { isScrolled } = useCheckScrolled();
 
   return (
     <AppDownloadLink>
       <div
         className={`${styles.installButton} ${isScrolled ? styles.fixed : ""}`}
+        style={installButtonColor && { backgroundColor: installButtonColor }}
       >
         <img
           className={styles.downloadImage}
@@ -30,9 +31,14 @@ const InstallButton = () => {
   );
 };
 
+InstallButton.propTypes = {
+  installButtonColor: PropTypes.string,
+};
+
 const MobileLayout = ({
   isFloatMenu,
   hideFloatAppInstallButton,
+  installButtonColor,
   curMenu,
   closingEmoji,
   closingMsg,
@@ -41,7 +47,9 @@ const MobileLayout = ({
   <div className={styles.mobileLayout}>
     <MobileHeader isFloatMenu={isFloatMenu} curMenu={curMenu} />
     <main>{children}</main>
-    {!hideFloatAppInstallButton && <InstallButton />}
+    {!hideFloatAppInstallButton && (
+      <InstallButton installButtonColor={installButtonColor} />
+    )}
     <MobileFooter closingEmoji={closingEmoji} closingMsg={closingMsg} />
   </div>
 );
@@ -49,6 +57,7 @@ const MobileLayout = ({
 MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
   hideFloatAppInstallButton: PropTypes.bool,
+  installButtonColor: PropTypes.string,
   curMenu: PropTypes.string,
   closingEmoji: PropTypes.object.isRequired,
   closingMsg: PropTypes.any.isRequired,

@@ -435,6 +435,7 @@ const MobileIndex = ({ data, language, t }) => {
   return (
     <MobileLayout
       isFloatMenu={true}
+      installButtonColor="black"
       closingEmoji={data.mobileCoffee}
       closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
     >
