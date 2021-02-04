@@ -10,7 +10,7 @@
         </mask>
         <use fill="#000" xlink:href="#prefix__a" />
         <g mask="url(#prefix__b)">
-            <use fill="#000" filter="url(#prefix__c)" xlink:href="#prefix__d" />
+            <use fill="#000" xlink:href="#prefix__d" />
             <use fill="#FFF" xlink:href="#prefix__d" />
         </g>
     </g>
