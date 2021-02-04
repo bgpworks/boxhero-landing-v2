@@ -16,7 +16,6 @@ html[lang="en"] .mobileLayout {
   height: 54px;
   border-radius: 6px;
   background-color: #2178f6;
-  font-size: var(--font-size-mobile-normal);
   font-weight: bold;
   color: white;
 
