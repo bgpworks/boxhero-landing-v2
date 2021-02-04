@@ -8,6 +8,8 @@ import { AppDownloadLink } from "../components/common";
 // css
 import styles from "./mobile-layout.module.css";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
+// images
+import svgDownload from "../images/download.svg";
 
 const InstallButton = () => {
   const { isScrolled } = useCheckScrolled();
@@ -17,6 +19,11 @@ const InstallButton = () => {
       <div
         className={`${styles.installButton} ${isScrolled ? styles.fixed : ""}`}
       >
+        <img
+          className={styles.downloadImage}
+          src={svgDownload}
+          alt="Download symbol"
+        />
         <Trans i18nKey="layout:appInstall" />
       </div>
     </AppDownloadLink>
