@@ -15,8 +15,8 @@ html[lang="en"] .mobileLayout {
   right: 20px;
   height: 54px;
   border-radius: 6px;
-  background-color: black;
-  font-size: var(--font-size-mobile-small);
+  background-color: #2178f6;
+  font-size: var(--font-size-mobile-normal);
   font-weight: bold;
   color: white;
 
@@ -24,6 +24,13 @@ html[lang="en"] .mobileLayout {
   justify-content: center;
   align-items: center;
   z-index: 100;
+}
+
+.downloadImage {
+  width: 24px;
+  height: 24px;
+
+  margin-right: 10px;
 }
 
 .installButton.fixed {
