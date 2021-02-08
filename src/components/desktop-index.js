@@ -15,7 +15,7 @@ import {
   Dot,
 } from "pure-react-carousel";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { Link, Trans } from "@jbseo/gatsby-plugin-react-i18next";
+import { Link, Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
 import {

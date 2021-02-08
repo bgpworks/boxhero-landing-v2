@@ -53,10 +53,9 @@ module.exports = {
       },
     },
     {
-      resolve: `@jbseo/gatsby-plugin-react-i18next`,
+      resolve: `gatsby-plugin-react-i18next`,
       options: {
-        path: `${__dirname}/locales`,
-        sourceInstanceName: "locale",
+        localeJsonSourceName: "locale",
         languages: [`en`, `ko`],
         defaultLanguage: `en`,
         generateDefaultLanguagePage: true,

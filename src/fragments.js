@@ -6,7 +6,7 @@ export const localeFragment = graphql`
       node {
         ns
         data
-        lng
+        language
       }
     }
   }

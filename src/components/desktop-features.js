@@ -1,6 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
-import { Link, Trans } from "@jbseo/gatsby-plugin-react-i18next";
+import { Link, Trans } from "gatsby-plugin-react-i18next";
 import scrollTo from "gatsby-plugin-smoothscroll";
 // js
 import DesktopLayout from "../components/desktop-layout";

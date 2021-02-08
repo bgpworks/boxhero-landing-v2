@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useI18next } from "@jbseo/gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
 // js
 import SEO from "../components/seo";
 import { Media } from "../media";
@@ -33,7 +33,7 @@ export default AboutPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: { lng: { eq: $language } }) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
     topBg: file(relativePath: { eq: "about-top-bg.png" }) {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Img from "gatsby-image";
-import { Trans } from "@jbseo/gatsby-plugin-react-i18next";
+import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
 import {
