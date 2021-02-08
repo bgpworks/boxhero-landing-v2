@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useI18next } from "@jbseo/gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import { useHelpscout } from "../components/helpscout";
 
 import DesktopLayout from "../components/desktop-layout";
@@ -53,7 +53,7 @@ export default NotFoundPage;
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: { lng: { eq: $language } }) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
     dinosaur: file(relativePath: { eq: "emoji-dinosaur.png" }) {

@@ -84,16 +84,15 @@ html {
 
 ### 언어 분기
 
-작업 속도를 부스트 하기 위해 gatsby-plugin-react-i18next 를 썼는데, 바꾸고 싶다.
+작업 속도를 부스트 하기 위해 gatsby-plugin-react-i18next 를 썼다.
 
-1. default language (/en) 페이지 생성이 안됨.
-2. incremental build에서 언어 json 파일 업데이트가 반영이 안될 때가 많다.
-3. 언어 파일 변경시 hot-reload가 안된다.
+1. 언어팩 변경 시 hot-reload. (page refresh는 수동)
+2. 언어별 page 및 sitemap.xml 자동 생성.
 
-일단 급한대로 1번만 수정해서 포크해서 사용하고 있다.
+server-side redirection 자동 생성 기능은 아직 지원 안하나, vercel의 routing 수동으로 설정해서 쓰고 있어서 문제 없음.
 
-[blog](https://itnext.io/techniques-approaches-for-multi-language-gatsby-apps-8ba13ff433c5)글과
-해당 [repo](https://github.com/3nvi/gatsby-intl/) 참조해서 갈아타면 좋겠다.
+다국어 처리와 관려된 이슈들은 [이 블로그 글](https://itnext.io/techniques-approaches-for-multi-language-gatsby-apps-8ba13ff433c5)에 잘 정리되어 있으니 참조.
+
 
 #### IE 테스트
 

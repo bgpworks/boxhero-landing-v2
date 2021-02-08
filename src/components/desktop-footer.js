@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import { Link, Trans, useI18next } from "@jbseo/gatsby-plugin-react-i18next";
+import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import { Container1024, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "../components/constants";
