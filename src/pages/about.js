@@ -36,13 +36,6 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    topBg: file(relativePath: { eq: "about-top-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     topLogo: file(
       relativeDirectory: { eq: $language }
       base: { eq: "about-top.png" }
@@ -120,20 +113,6 @@ export const query = graphql`
         }
       }
     }
-    featureBg: file(relativePath: { eq: "about-feature-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-    mobileTopBg: file(relativePath: { eq: "about-top-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 533, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     mobileTopLogo: file(
       relativeDirectory: { eq: $language }
       base: { eq: "about-top.png" }
@@ -208,13 +187,6 @@ export const query = graphql`
           }
         ) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    mobileFeatureBg: file(relativePath: { eq: "about-feature-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 2142, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

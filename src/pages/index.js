@@ -38,13 +38,6 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    homeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     homeTopRight: file(
       relativeDirectory: { eq: $language }
       base: { eq: "home-top-right.png" }
@@ -126,13 +119,6 @@ export const query = graphql`
           }
         ) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    homeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 2560, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
@@ -331,13 +317,6 @@ export const query = graphql`
         }
       }
     }
-    mobileHomeTopBg: file(relativePath: { eq: "home-top-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 653, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     mobileHomeTopRight: file(
       relativeDirectory: { eq: $language }
       base: { eq: "home-top-right.png" }
@@ -419,13 +398,6 @@ export const query = graphql`
           }
         ) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    mobileHomeTeamPlayBg: file(relativePath: { eq: "home-team-play-bg.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 768, maxHeight: 513, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

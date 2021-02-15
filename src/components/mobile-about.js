@@ -1,10 +1,14 @@
 import React from "react";
 import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
-import { Container320, ContainerCenter, Padding } from "../components/common";
+import {
+  Container320,
+  ContainerCenter,
+  GradientBG,
+  Padding,
+} from "../components/common";
 import * as constants from "../components/constants";
 // css
 import styles from "./mobile-about.module.css";
@@ -23,10 +27,9 @@ import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
 
 const Top = ({ data }) => (
-  <BackgroundImage
-    Tag="section"
+  <GradientBG
     className={styles.topContainer}
-    fluid={data.topBg.childImageSharp.fluid}
+    colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.topContentContainer}>
@@ -37,7 +40,7 @@ const Top = ({ data }) => (
       <Padding y={30} />
       <Img fixed={data.mobileTopLogo.childImageSharp.fixed} />
     </Container320>
-  </BackgroundImage>
+  </GradientBG>
 );
 
 const StrongPoints = ({ data }) => (
@@ -109,10 +112,9 @@ const FeatureRow = ({ id, title, columns }) => (
   </div>
 );
 
-const OtherFeatures = ({ data, t }) => (
-  <BackgroundImage
-    Tag="div"
-    fluid={data.featureBg.childImageSharp.fluid}
+const OtherFeatures = ({ t }) => (
+  <GradientBG
+    colorSet={["#0291FD", "#0385AA", "#2A59DD", "#8228FD"]}
     backgroundColor="#6159F5"
   >
     <div className={styles.featureContentContainer}>
@@ -212,7 +214,7 @@ const OtherFeatures = ({ data, t }) => (
         ]}
       />
     </div>
-  </BackgroundImage>
+  </GradientBG>
 );
 
 const MobileAbout = ({ data, language, t }) => {

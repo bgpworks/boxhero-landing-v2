@@ -4,7 +4,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
 import { Link, Trans } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import {
@@ -21,6 +20,7 @@ import {
   ContainerCenter,
   Padding,
   WithCurrentSlide,
+  GradientBG,
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
@@ -34,10 +34,9 @@ import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
 
 const Top = ({ data, t }) => (
-  <BackgroundImage
-    Tag="div"
+  <GradientBG
     className={styles.topContainer}
-    fluid={data.mobileHomeTopBg.childImageSharp.fluid}
+    colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
     backgroundColor="#6159F5"
   >
     <Container320 className={styles.topContentContainer}>
@@ -60,7 +59,7 @@ const Top = ({ data, t }) => (
         <Img fixed={data.mobileHomeTopRight.childImageSharp.fixed} />
       </div>
     </Container320>
-  </BackgroundImage>
+  </GradientBG>
 );
 
 const KeyFeature = ({
@@ -121,10 +120,9 @@ KeyFeature.defaultProps = {
 };
 
 const TeamPlay = ({ data, t }) => (
-  <BackgroundImage
-    Tag="section"
+  <GradientBG
     className={styles.teamPlayContainer}
-    fluid={data.mobileHomeTeamPlayBg.childImageSharp.fluid}
+    colorSet={["#7D24FF", "#276EFE", "#7F50FE", "#0C92FE"]}
     backgroundColor="#6159F5"
   >
     <Padding y={50} />
@@ -137,7 +135,7 @@ const TeamPlay = ({ data, t }) => (
     <div className={styles.teamImageFlex}>
       <Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />
     </div>
-  </BackgroundImage>
+  </GradientBG>
 );
 
 const Customers = ({ data, t, language }) => {
