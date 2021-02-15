@@ -4,7 +4,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
 import {
   CarouselProvider,
   Slider,
@@ -23,6 +22,7 @@ import {
   Padding,
   WithCurrentSlide,
   ExternalLinkWithQuery,
+  GradientBG,
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
@@ -38,11 +38,10 @@ import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 
 const Top = ({ data, t }) => (
-  <BackgroundImage
-    Tag="div"
+  <GradientBG
     className={styles.topContainer}
-    fluid={data.homeTopBg.childImageSharp.fluid}
-    backgroundColor="#6159F5"
+    colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
+    bgColor="#4260ef"
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
@@ -67,7 +66,7 @@ const Top = ({ data, t }) => (
         <Img fixed={data.homeTopRight.childImageSharp.fixed} />
       </div>
     </Container1024>
-  </BackgroundImage>
+  </GradientBG>
 );
 
 const KeyFeature = ({
@@ -131,10 +130,9 @@ KeyFeature.defaultProps = {
 };
 
 const TeamPlay = ({ data, t }) => (
-  <BackgroundImage
-    Tag="section"
+  <GradientBG
     className={styles.teamPlayContainer}
-    fluid={data.homeTeamPlayBg.childImageSharp.fluid}
+    colorSet={["#7D24FF", "#276EFE", "#7F50FE", "#0C92FE"]}
     backgroundColor="#6159F5"
   >
     <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
@@ -145,7 +143,7 @@ const TeamPlay = ({ data, t }) => (
     <div className={styles.teamImageFlex}>
       <Img fixed={data.teamPlay.childImageSharp.fixed} />
     </div>
-  </BackgroundImage>
+  </GradientBG>
 );
 
 const Customers = ({ data, t, language }) => {

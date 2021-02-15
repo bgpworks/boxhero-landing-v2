@@ -227,3 +227,17 @@ export const AppDownloadLink = ({ children, ...props }) => {
     </a>
   );
 };
+
+export const GradientBG = ({ children, colorSet, bgColor, className }) => {
+  return (
+    <div
+      className={[className, styles.gradientBG].join(" ")}
+      style={{
+        backgroundColor: bgColor,
+        backgroundImage: `linear-gradient(240deg, ${colorSet.join(",")})`,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
