@@ -25,7 +25,7 @@ const Top = ({ data }) => (
   <GradientBG
     className={styles.topContainer}
     colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
-    bgColor="#4260ef"
+    backgroundColor="#4260ef"
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
