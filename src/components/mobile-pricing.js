@@ -218,6 +218,12 @@ const FAQ = ({ t }) => {
       question: t("pricing:faq7Question"),
       answer: {
         i18nKey: "pricing:faq7Answer",
+      },
+    },
+    {
+      question: t("pricing:faq8Question"),
+      answer: {
+        i18nKey: "pricing:faq8Answer",
         components: {
           faqPaymentLink: (
             // eslint-disable-next-line
@@ -227,9 +233,9 @@ const FAQ = ({ t }) => {
       },
     },
     {
-      question: t("pricing:faq8Question"),
+      question: t("pricing:faq9Question"),
       answer: {
-        i18nKey: "pricing:faq8Answer",
+        i18nKey: "pricing:faq9Answer",
       },
     },
   ];
