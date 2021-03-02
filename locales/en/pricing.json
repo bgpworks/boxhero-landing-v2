@@ -21,7 +21,7 @@
   "faq5Question": "What happens when the 1-month free trial is over?",
   "faq6Answer": "<p>As long as one person from the team makes a payment, it is regarded as a paid team. Therefore, other teammates are not required to make a payment.</p>",
   "faq6Question": "Does my teammate also have to pay?",
-  "faq7Answer": "<p>Because payment is required for each team on BoxHero,<br/>please make a subscription payment from each team settings for the Business Plan.</p>",
+  "faq7Answer": "<p>Because payment is required for each team on BoxHero,<p/><p>please make a subscription payment from each team settings for the Business Plan.</p>",
   "faq7Question": "How do I pay if I want to use several teams?",
   "faq8Answer": "<p>To provide a seamless service, BoxHero’s payment system is Stripe, a globally verified payment system for its security.</p><p>Users can process the payment with cards (Visa, Mastercard, etc.) authorized for the international payment.</p>",
   "faq8Question": "What's the payment method on BoxHero?",
