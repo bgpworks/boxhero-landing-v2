@@ -22,7 +22,7 @@ const MarketingPage = ({ data, location }) => {
       />
 
       <Media at="xs">
-        <MobileMarketing data={data} language={language} />
+        <MobileMarketing data={data} />
       </Media>
 
       <Media greaterThan="xs">

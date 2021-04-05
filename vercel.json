@@ -10,6 +10,9 @@
       "dest": "/api/redirect.js?path=$1/"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/app",
       "status": 301,
       "headers": { "Location": "https://web.boxhero-app.com/app" }
