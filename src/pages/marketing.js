@@ -4,7 +4,8 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 // js
 import SEO from "../components/seo";
 import { Media } from "../media";
-import DesktopMarketing from "../components/desktop-marketing";
+import DesktopMarketingKo from "../components/desktop-marketing-ko";
+import DesktopMarketingEn from "../components/desktop-marketing-en";
 import MobileMarketing from "../components/mobile-marketing";
 import { useHelpscout } from "../components/helpscout";
 
@@ -25,7 +26,11 @@ const MarketingPage = ({ data, location }) => {
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopMarketing data={data} />
+        {language === "ko" ? (
+          <DesktopMarketingKo data={data} />
+        ) : (
+          <DesktopMarketingEn data={data} />
+        )}
       </Media>
     </>
   );
@@ -38,49 +43,70 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    web: file(relativePath: { eq: "marketing/web.png" }) {
+    web: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "marketing-all.png" }
+    ) {
       childImageSharp {
         fixed(width: 860, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
-    mobile1: file(relativePath: { eq: "marketing/mobile-1.png" }) {
+    mobile1: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "marketing-mobile-1.png" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
-    mobile2: file(relativePath: { eq: "marketing/mobile-2.png" }) {
+    mobile2: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "marketing-mobile-2.png" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
-    mobile3: file(relativePath: { eq: "marketing/mobile-3.png" }) {
+    mobile3: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "marketing-mobile-3.png" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
-    mobile4: file(relativePath: { eq: "marketing/mobile-4.png" }) {
+    mobile4: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "marketing-mobile-4.png" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
-    mobile5: file(relativePath: { eq: "marketing/mobile-5.png" }) {
+    mobile5: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "marketing-mobile-5.png" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
-    mobile6: file(relativePath: { eq: "marketing/mobile-6.png" }) {
+    mobile6: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "marketing-mobile-6.png" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64

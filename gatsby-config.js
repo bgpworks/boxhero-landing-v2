@@ -74,6 +74,7 @@ module.exports = {
             "features",
             "pricing",
             "layout",
+            "marketing",
           ],
           fallbackLng: false,
           interpolation: {
@@ -84,10 +85,6 @@ module.exports = {
           {
             matchPath: "/(privacy|tos)",
             excludeLanguages: ["en", "ko"],
-          },
-          {
-            matchPath: "/(marketing)",
-            excludeLanguages: ["en"],
           },
         ],
       },

@@ -6,10 +6,12 @@
       "dest": "/api/redirect.js"
     },
     {
-      "src": "/(about|features|pricing)\\/?",
+      "src": "/(about|features|pricing|marketing)\\/?",
       "dest": "/api/redirect.js?path=$1/"
     },
-    { "handle": "filesystem" },
+    {
+      "handle": "filesystem"
+    },
     {
       "src": "/app",
       "status": 301,

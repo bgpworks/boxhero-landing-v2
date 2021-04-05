@@ -14,7 +14,7 @@ const MobileMarketing = ({ data }) => {
       </AppDownloadLink>
       <Img fluid={data.mobile3.childImageSharp.fluid} />
 
-      <a href="https://www.boxhero-app.com/ko/">
+      <a href="/">
         <Img fluid={data.mobile4.childImageSharp.fluid} />
       </a>
 
