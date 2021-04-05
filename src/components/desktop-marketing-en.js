@@ -35,7 +35,7 @@ const DesktopMarketing = ({ data }) => {
           height="100px"
         />
         <Link
-          href="https://www.boxhero-app.com/en/"
+          href="/"
           x="240px"
           y="3673px"
           width="382px"
