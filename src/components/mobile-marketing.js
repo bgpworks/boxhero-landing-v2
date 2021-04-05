@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 
 import { AppDownloadLink } from "../components/common";
 
-const MobileMarketing = ({ data }) => {
+const MobileMarketing = ({ data, language }) => {
   return (
     <div className={styles.container}>
       <Img fluid={data.mobile1.childImageSharp.fluid} />
@@ -14,7 +14,11 @@ const MobileMarketing = ({ data }) => {
       </AppDownloadLink>
       <Img fluid={data.mobile3.childImageSharp.fluid} />
 
-      <a href="https://www.boxhero-app.com/ko/">
+      <a
+        href={`https://www.boxhero-app.com/${
+          language === "ko" ? "ko/" : "en/"
+        }`}
+      >
         <Img fluid={data.mobile4.childImageSharp.fluid} />
       </a>
 
