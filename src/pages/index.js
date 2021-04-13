@@ -352,7 +352,7 @@ export const query = graphql`
     }
     mobileFeature1: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "img-add-mo.png" }
+      base: { eq: "img-add.png" }
     ) {
       childImageSharp {
         fixed(
@@ -394,7 +394,7 @@ export const query = graphql`
     }
     mobileFeature3: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "img-grouping-mo.png" }
+      base: { eq: "img-analysis.png" }
     ) {
       childImageSharp {
         fixed(

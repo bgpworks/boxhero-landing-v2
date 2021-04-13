@@ -32,6 +32,7 @@ import svgCounting from "../images/counting.svg";
 import svgDashboard from "../images/dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
+import { useAppDownloadLink } from "../hooks/useAppDownloadLink";
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -138,7 +139,14 @@ const TeamPlay = ({ data, t }) => (
   </GradientBG>
 );
 
-const CustomerCard = ({ img, indexLabel, title, linkLabel, link }) => {
+const CustomerCard = ({
+  img,
+  indexLabel,
+  title,
+  linkLabel,
+  link,
+  linkType,
+}) => {
   return (
     <div className={styles.customerButton}>
       <div className={styles.customerButtonBackground}>
@@ -153,6 +161,7 @@ const CustomerCard = ({ img, indexLabel, title, linkLabel, link }) => {
           rel="noopener"
           href={link}
           className={styles.customButtonContentLink}
+          data-link-type={linkType}
         >
           {linkLabel}
         </a>
@@ -162,6 +171,8 @@ const CustomerCard = ({ img, indexLabel, title, linkLabel, link }) => {
 };
 
 const Customers = ({ data, t, language }) => {
+  const { appDownloadLink, linkType } = useAppDownloadLink();
+
   const customerData = [
     {
       title: t("index:customerData1Title"),
@@ -250,7 +261,8 @@ const Customers = ({ data, t, language }) => {
           img={data.mobileCustomerETC.childImageSharp.fixed}
           indexLabel={t("index:customerOtherIndexLabel")}
           title={t("index:customerOtherTitle")}
-          link="https://web.boxhero-app.com/login"
+          link={appDownloadLink}
+          linkType={linkType}
           linkLabel="GO! >"
         />
         <Padding x={300} />

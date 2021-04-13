@@ -2,15 +2,10 @@ import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
-import {
-  urlDownloadApp,
-  urlDownloadAppSearchAd,
-  urlDownloadAppDable,
-  urlDownloadAppKakao,
-} from "../components/constants";
 import styles from "./common.module.css";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
+import { useAppDownloadLink } from "../hooks/useAppDownloadLink";
 
 export const Container1024 = ({ className, children }) => (
   <div className={`${styles.container1024} ${className}`}>{children}</div>
@@ -178,51 +173,12 @@ export const ExternalLinkWithQuery = ({ href, children, ...props }) => {
   );
 };
 
-function parseQuery(search) {
-  var ret = {};
-  if (!search) {
-    return ret;
-  }
-
-  var query = search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
-    ret[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-  }
-  return ret;
-}
-
 // query param에 키워드 광고 파라메터가 있으면 다른 앱다운로드 링크를 건다.
 export const AppDownloadLink = ({ children, ...props }) => {
-  const [trackingUrl, setTrackingUrl] = useState(null);
-
-  useEffect(() => {
-    const param = parseQuery(localStorage.getItem("search_param"));
-
-    if (param["n_media"]) {
-      // 네이버
-      setTrackingUrl(urlDownloadAppSearchAd);
-    } else if (param["gclid"] || param["utm_source"] === "google") {
-      // 구글
-      setTrackingUrl(urlDownloadAppSearchAd);
-    } else if (param["utm_source"] === "dable") {
-      // 데이블
-      setTrackingUrl(urlDownloadAppDable);
-    } else if (param["utm_source"] === "kakao") {
-      // 카카오 비즈보드
-      setTrackingUrl(urlDownloadAppKakao);
-    }
-  }, []);
-
-  const href = trackingUrl != null ? trackingUrl : urlDownloadApp;
+  const { appDownloadLink, linkType } = useAppDownloadLink();
 
   return (
-    <a
-      {...props}
-      href={href}
-      data-link-type={trackingUrl != null ? "searchAd" : "organic"}
-    >
+    <a {...props} href={appDownloadLink} data-link-type={linkType}>
       {children}
     </a>
   );

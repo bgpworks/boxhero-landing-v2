@@ -181,6 +181,7 @@
 }
 
 .featureCardContent {
+  word-break: keep-all;
   font-size: 14px;
   color: black;
 }
