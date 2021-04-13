@@ -57,5 +57,8 @@
   "otherFeatureRow3Col3Link": "https://docs-en.boxhero-app.com/docs/features#quantity-check",
   "otherFeatureRow3Col4Title": "Dashboard",
   "otherFeatureRow3Col4Content": "Various useful analysis to never miss out on your inventory status.",
-  "otherFeatureRow3Col4Link": "https://docs-en.boxhero-app.com/docs/features#dashboard"
+  "otherFeatureRow3Col4Link": "https://docs-en.boxhero-app.com/docs/features#dashboard",
+  "otherFeatureRow3Col5Title": "Analysis",
+  "otherFeatureRow3Col5Content": "Analyze your inventory with various inventory data.",
+  "otherFeatureRow3Col5Link": "https://docs-en.boxhero-app.com/docs/manual-unit-more#analysis"
 }

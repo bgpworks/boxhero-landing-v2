@@ -65,7 +65,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         fixed(
-          width: 640
+          width: 544
           webpQuality: 100
           quality: 100
           traceSVG: {
@@ -103,11 +103,11 @@ export const query = graphql`
     }
     feature3: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "img-grouping.png" }
+      base: { eq: "img-analysis.png" }
     ) {
       childImageSharp {
         fixed(
-          width: 624
+          width: 544
           webpQuality: 100
           quality: 100
           traceSVG: {
@@ -317,6 +317,18 @@ export const query = graphql`
         }
       }
     }
+    customerETC: file(relativePath: { eq: "customer-etc.png" }) {
+      childImageSharp {
+        fixed(
+          width: 220
+          height: 280
+          fit: FILL
+          traceSVG: { background: "#DCE1FF", color: "#DCEDFE" }
+        ) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
     mobileHomeTopRight: file(
       relativeDirectory: { eq: $language }
       base: { eq: "home-top-right.png" }
@@ -340,7 +352,7 @@ export const query = graphql`
     }
     mobileFeature1: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "img-add.png" }
+      base: { eq: "img-add-mo.png" }
     ) {
       childImageSharp {
         fixed(
@@ -382,7 +394,7 @@ export const query = graphql`
     }
     mobileFeature3: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "img-grouping.png" }
+      base: { eq: "img-grouping-mo.png" }
     ) {
       childImageSharp {
         fixed(
@@ -581,6 +593,18 @@ export const query = graphql`
     mobileCustomerLocation: file(
       relativePath: { eq: "customer-location.png" }
     ) {
+      childImageSharp {
+        fixed(
+          width: 110
+          height: 140
+          fit: FILL
+          traceSVG: { color: "#c7c8d2", background: "#E9E1FA" }
+        ) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    mobileCustomerETC: file(relativePath: { eq: "customer-etc.png" }) {
       childImageSharp {
         fixed(
           width: 110

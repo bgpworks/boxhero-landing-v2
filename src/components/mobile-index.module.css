@@ -205,7 +205,7 @@ html[lang="ko"] .customersDetailButton {
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  transition: 250ms cubic-bezier(0.4,0,0.2,1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: transform, filter;
   overflow: hidden;
 }
@@ -236,8 +236,9 @@ html[lang="ko"] .customersDetailButton {
 }
 
 .customButtonContentTitle {
-  height: 20px;
   font-size: var(--font-size-mobile-small);
+  white-space: pre-line;
+  line-height: 1.2em;
   font-weight: bold;
 }
 
@@ -314,7 +315,6 @@ html[lang="ko"] .customersDetailButton {
   position: relative;
   padding-left: 50%;
   overflow-x: hidden;
-
 }
 
 .slideDetailDotGroup {

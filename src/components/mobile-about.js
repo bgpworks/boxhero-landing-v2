@@ -25,6 +25,7 @@ import iconDashboard from "../images/feature-dashboard.svg";
 import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
+import iconAnalysis from "../images/feature-analysis.svg";
 
 const Top = ({ data }) => (
   <GradientBG
@@ -83,7 +84,7 @@ const StrongPoints = ({ data }) => (
 );
 
 const FeatureCard = ({ img, title, content, link }) => (
-  <a href={link} title={title}>
+  <a href={link} title={title} target="_blank" rel="noreferrer">
     <div className={styles.featureCard}>
       <img className={styles.featureIcon} src={img} alt={title} />
       <Padding y={8} />
@@ -210,6 +211,12 @@ const OtherFeatures = ({ t }) => (
             title: t("about:otherFeatureRow3Col4Title"),
             content: t("about:otherFeatureRow3Col4Content"),
             link: t("about:otherFeatureRow3Col4Link"),
+          },
+          {
+            img: iconAnalysis,
+            title: t("about:otherFeatureRow3Col5Title"),
+            content: t("about:otherFeatureRow3Col5Content"),
+            link: t("about:otherFeatureRow3Col5Link"),
           },
         ]}
       />

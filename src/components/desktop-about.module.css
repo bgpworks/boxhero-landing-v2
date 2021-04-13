@@ -76,7 +76,7 @@
 }
 
 .title strong {
-  color: var(--color-font-blue)
+  color: var(--color-font-blue);
 }
 
 .desc {
@@ -114,7 +114,6 @@
 
 .featureRow {
   margin-top: 80px;
-
 }
 
 .featureRowTitle {
@@ -131,12 +130,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+
+  flex-wrap: wrap;
+  margin-bottom: -34px;
 }
 
 .featureCard {
   width: 220px;
   height: 220px;
   position: relative;
+
+  margin-bottom: 34px;
 }
 
 .featureCardBackground {
@@ -148,7 +152,7 @@
   border-radius: 8px;
   background-color: white;
   box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
-  transition: 250ms cubic-bezier(0.4,0,0.2,1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: transform;
   overflow: hidden;
 }
