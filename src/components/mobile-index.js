@@ -155,6 +155,7 @@ const CustomerCard = ({
       <a
         className={styles.customerButtonContent}
         rel="noopener"
+        target="_blank"
         href={link}
         data-link-type={linkType}
       >
