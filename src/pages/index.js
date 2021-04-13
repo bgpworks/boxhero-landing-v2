@@ -635,6 +635,8 @@ export const query = graphql`
         fixed(
           width: 307
           height: 200
+          webpQuality: 100
+          quality: 100
           fit: FILL
           traceSVG: {
             turnPolicy: TURNPOLICY_MAJORITY
