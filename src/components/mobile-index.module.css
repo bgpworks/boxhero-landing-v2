@@ -213,11 +213,6 @@ html[lang="ko"] .customersDetailButton {
   overflow: hidden;
 }
 
-.customerButton:hover .customerButtonBackground {
-  filter: grayscale(1) brightness(0.2);
-  transform: scale(1.08197);
-}
-
 .customerButtonContent {
   position: relative;
   padding: 14px 12px;

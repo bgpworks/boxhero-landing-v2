@@ -152,20 +152,17 @@ const CustomerCard = ({
       <div className={styles.customerButtonBackground}>
         <Img fixed={img} />
       </div>
-      <div className={styles.customerButtonContent}>
+      <a
+        className={styles.customerButtonContent}
+        rel="noopener"
+        href={link}
+        data-link-type={linkType}
+      >
         <span className={styles.customButtonContentNumber}>{indexLabel}</span>
         <span className={styles.customButtonContentTitle}>{title}</span>
         <span className={styles.customButtonContentPadding}></span>
-        <a
-          target="_blank"
-          rel="noopener"
-          href={link}
-          className={styles.customButtonContentLink}
-          data-link-type={linkType}
-        >
-          {linkLabel}
-        </a>
-      </div>
+        <span className={styles.customButtonContentLink}>{linkLabel}</span>
+      </a>
     </div>
   );
 };
