@@ -21,6 +21,7 @@ import {
   Padding,
   WithCurrentSlide,
   GradientBG,
+  AppDownloadLink,
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
@@ -138,6 +139,17 @@ const TeamPlay = ({ data, t }) => (
   </GradientBG>
 );
 
+const CustomerCardWrapper = ({ img, children }) => {
+  return (
+    <div className={styles.customerButton}>
+      <div className={styles.customerButtonBackground}>
+        <Img fixed={img} />
+      </div>
+      {children}
+    </div>
+  );
+};
+
 const Customers = ({ data, t, language }) => {
   const customerData = [
     {
@@ -184,6 +196,7 @@ const Customers = ({ data, t, language }) => {
       link: t("index:customerData8Link"),
     },
   ].filter((item) => item);
+
   return (
     <div className={styles.customersContainer}>
       <Padding y={50} />
@@ -210,11 +223,13 @@ const Customers = ({ data, t, language }) => {
         hideScrollbars={true}
       >
         {customerData.map((customer, index) => (
-          <div key={index} className={styles.customerButton}>
-            <div className={styles.customerButtonBackground}>
-              <Img fixed={customer.img} />
-            </div>
-            <div className={styles.customerButtonContent}>
+          <CustomerCardWrapper key={index} img={customer.img}>
+            <a
+              className={styles.customerButtonContent}
+              rel="noopener"
+              target="_blank"
+              href={customer.link}
+            >
               <span className={styles.customButtonContentNumber}>
                 {("0" + (index + 1)).slice(-2)}
               </span>
@@ -222,17 +237,28 @@ const Customers = ({ data, t, language }) => {
                 {customer.title}
               </span>
               <span className={styles.customButtonContentPadding}></span>
-              <a
-                target="_blank"
-                rel="noopener"
-                href={customer.link}
-                className={styles.customButtonContentLink}
-              >
+              <span className={styles.customButtonContentLink}>
                 {t("index:customerDataDetailLink")}
-              </a>
-            </div>
-          </div>
+              </span>
+            </a>
+          </CustomerCardWrapper>
         ))}
+        <CustomerCardWrapper img={data.mobileCustomerETC.childImageSharp.fixed}>
+          <AppDownloadLink
+            className={styles.customerButtonContent}
+            rel="noopener"
+            target="_blank"
+          >
+            <span className={styles.customButtonContentNumber}>
+              {t("index:customerOtherIndexLabel")}
+            </span>
+            <span className={styles.customButtonContentTitle}>
+              {t("index:customerOtherTitle")}
+            </span>
+            <span className={styles.customButtonContentPadding}></span>
+            <span className={styles.customButtonContentLink}>{"GO! >"}</span>
+          </AppDownloadLink>
+        </CustomerCardWrapper>
         <Padding x={300} />
       </ScrollContainer>
     </div>

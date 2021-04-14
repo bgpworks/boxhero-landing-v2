@@ -2,15 +2,15 @@ import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
+import styles from "./common.module.css";
+import svgDown from "../images/down.svg";
+import svgUp from "../images/up.svg";
 import {
   urlDownloadApp,
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
 } from "../components/constants";
-import styles from "./common.module.css";
-import svgDown from "../images/down.svg";
-import svgUp from "../images/up.svg";
 
 export const Container1024 = ({ className, children }) => (
   <div className={`${styles.container1024} ${className}`}>{children}</div>
@@ -215,14 +215,11 @@ export const AppDownloadLink = ({ children, ...props }) => {
     }
   }, []);
 
-  const href = trackingUrl != null ? trackingUrl : urlDownloadApp;
+  const appDownloadLink = trackingUrl != null ? trackingUrl : urlDownloadApp;
+  const linkType = trackingUrl != null ? "searchAd" : "organic";
 
   return (
-    <a
-      {...props}
-      href={href}
-      data-link-type={trackingUrl != null ? "searchAd" : "organic"}
-    >
+    <a {...props} href={appDownloadLink} data-link-type={linkType}>
       {children}
     </a>
   );

@@ -17,6 +17,7 @@ import iconPartner from "../images/feature-partner.svg";
 import iconBasicmode from "../images/feature-basicmode.svg";
 import iconCategory from "../images/feature-category.svg";
 import iconDashboard from "../images/feature-dashboard.svg";
+import iconAnalysis from "../images/feature-analysis.svg";
 import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
@@ -108,7 +109,7 @@ const StrongPoints = ({ data }) => (
 );
 
 const FeatureCard = ({ img, title, content, link }) => (
-  <a href={link} title={title}>
+  <a href={link} title={title} target="_blank" rel="noreferrer">
     <div className={styles.featureCard}>
       <div className={styles.featureCardBackground}></div>
       <div className={styles.featureCardContentContainer}>
@@ -238,6 +239,12 @@ const OtherFeatures = ({ t }) => (
             title: t("about:otherFeatureRow3Col4Title"),
             content: t("about:otherFeatureRow3Col4Content"),
             link: t("about:otherFeatureRow3Col4Link"),
+          },
+          {
+            img: iconAnalysis,
+            title: t("about:otherFeatureRow3Col5Title"),
+            content: t("about:otherFeatureRow3Col5Content"),
+            link: t("about:otherFeatureRow3Col5Link"),
           },
         ]}
       />

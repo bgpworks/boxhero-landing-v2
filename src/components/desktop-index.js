@@ -146,6 +146,29 @@ const TeamPlay = ({ data, t }) => (
   </GradientBG>
 );
 
+const CustomerCard = ({ img, indexLabel, title, linkLabel, link }) => {
+  return (
+    <div className={styles.customerButton}>
+      <div className={styles.customerButtonBackground}>
+        <Img fixed={img} />
+      </div>
+      <div className={styles.customerButtonContent}>
+        <span className={styles.customButtonContentNumber}>{indexLabel}</span>
+        <span className={styles.customButtonContentTitle}>{title}</span>
+        <span className={styles.customButtonContentPadding}></span>
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener"
+          className={styles.customButtonContentLink}
+        >
+          {linkLabel}
+        </a>
+      </div>
+    </div>
+  );
+};
+
 const Customers = ({ data, t, language }) => {
   const customerData = [
     {
@@ -192,6 +215,7 @@ const Customers = ({ data, t, language }) => {
       link: t("index:customerData8Link"),
     },
   ].filter((item) => item);
+
   return (
     <div className={styles.customersContainer}>
       <Padding y={130} />
@@ -217,29 +241,22 @@ const Customers = ({ data, t, language }) => {
         hideScrollbars={true}
       >
         {customerData.map((customer, index) => (
-          <div key={index} className={styles.customerButton}>
-            <div className={styles.customerButtonBackground}>
-              <Img fixed={customer.img} />
-            </div>
-            <div className={styles.customerButtonContent}>
-              <span className={styles.customButtonContentNumber}>
-                {("0" + (index + 1)).slice(-2)}
-              </span>
-              <span className={styles.customButtonContentTitle}>
-                {customer.title}
-              </span>
-              <span className={styles.customButtonContentPadding}></span>
-              <a
-                href={customer.link}
-                target="_blank"
-                rel="noopener"
-                className={styles.customButtonContentLink}
-              >
-                {t("index:customerDataDetailLink")}
-              </a>
-            </div>
-          </div>
+          <CustomerCard
+            key={index}
+            img={customer.img}
+            indexLabel={("0" + (index + 1)).slice(-2)}
+            title={customer.title}
+            link={customer.link}
+            linkLabel={t("index:customerDataDetailLink")}
+          />
         ))}
+        <CustomerCard
+          img={data.customerETC.childImageSharp.fixed}
+          indexLabel={t("index:customerOtherIndexLabel")}
+          title={t("index:customerOtherTitle")}
+          link="https://web.boxhero-app.com/login"
+          linkLabel="GO! >"
+        />
         <Padding x={500} />
       </ScrollContainer>
     </div>
