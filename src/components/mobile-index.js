@@ -146,18 +146,6 @@ const CustomerCardWrapper = ({ img, children }) => {
         <Img fixed={img} />
       </div>
       {children}
-      {/* <a
-        className={styles.customerButtonContent}
-        rel="noopener"
-        target="_blank"
-        href={link}
-        data-link-type={linkType}
-      >
-        <span className={styles.customButtonContentNumber}>{indexLabel}</span>
-        <span className={styles.customButtonContentTitle}>{title}</span>
-        <span className={styles.customButtonContentPadding}></span>
-        <span className={styles.customButtonContentLink}>{linkLabel}</span>
-      </a> */}
     </div>
   );
 };
