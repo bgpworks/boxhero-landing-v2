@@ -21,6 +21,7 @@ import {
   Padding,
   WithCurrentSlide,
   GradientBG,
+  AppDownloadLink,
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
@@ -32,7 +33,6 @@ import svgCounting from "../images/counting.svg";
 import svgDashboard from "../images/dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
-import { useAppDownloadLink } from "../hooks/useAppDownloadLink";
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -139,20 +139,14 @@ const TeamPlay = ({ data, t }) => (
   </GradientBG>
 );
 
-const CustomerCard = ({
-  img,
-  indexLabel,
-  title,
-  linkLabel,
-  link,
-  linkType,
-}) => {
+const CustomerCardWrapper = ({ img, children }) => {
   return (
     <div className={styles.customerButton}>
       <div className={styles.customerButtonBackground}>
         <Img fixed={img} />
       </div>
-      <a
+      {children}
+      {/* <a
         className={styles.customerButtonContent}
         rel="noopener"
         target="_blank"
@@ -163,14 +157,12 @@ const CustomerCard = ({
         <span className={styles.customButtonContentTitle}>{title}</span>
         <span className={styles.customButtonContentPadding}></span>
         <span className={styles.customButtonContentLink}>{linkLabel}</span>
-      </a>
+      </a> */}
     </div>
   );
 };
 
 const Customers = ({ data, t, language }) => {
-  const { appDownloadLink, linkType } = useAppDownloadLink();
-
   const customerData = [
     {
       title: t("index:customerData1Title"),
@@ -245,24 +237,45 @@ const Customers = ({ data, t, language }) => {
         hideScrollbars={true}
       >
         {customerData.map((customer, index) => (
-          <CustomerCard
-            key={index}
-            img={customer.img}
-            indexLabel={("0" + (index + 1)).slice(-2)}
-            title={customer.title}
-            linkLabel={t("index:customerDataDetailLink")}
-            link={customer.link}
-          />
+          <CustomerCardWrapper key={index} img={customer.img}>
+            <a
+              className={styles.customerButtonContent}
+              rel="noopener"
+              target="_blank"
+              href={customer.link}
+            >
+              <span className={styles.customButtonContentNumber}>
+                {("0" + (index + 1)).slice(-2)}
+              </span>
+              <span className={styles.customButtonContentTitle}>
+                {customer.title}
+              </span>
+              <span className={styles.customButtonContentPadding}></span>
+              <span className={styles.customButtonContentLink}>
+                {t("index:customerDataDetailLink")}
+              </span>
+            </a>
+          </CustomerCardWrapper>
         ))}
-        <CustomerCard
+        <CustomerCardWrapper
           key={lastIndex + 1}
           img={data.mobileCustomerETC.childImageSharp.fixed}
-          indexLabel={t("index:customerOtherIndexLabel")}
-          title={t("index:customerOtherTitle")}
-          link={appDownloadLink}
-          linkType={linkType}
-          linkLabel="GO! >"
-        />
+        >
+          <AppDownloadLink
+            className={styles.customerButtonContent}
+            rel="noopener"
+            target="_blank"
+          >
+            <span className={styles.customButtonContentNumber}>
+              {t("index:customerOtherIndexLabel")}
+            </span>
+            <span className={styles.customButtonContentTitle}>
+              {t("index:customerOtherTitle")}
+            </span>
+            <span className={styles.customButtonContentPadding}></span>
+            <span className={styles.customButtonContentLink}>{"GO! >"}</span>
+          </AppDownloadLink>
+        </CustomerCardWrapper>
         <Padding x={300} />
       </ScrollContainer>
     </div>
