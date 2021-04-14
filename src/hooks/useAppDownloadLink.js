@@ -45,5 +45,5 @@ export const useAppDownloadLink = () => {
   const appDownloadLink = trackingUrl != null ? trackingUrl : urlDownloadApp;
   const linkType = trackingUrl != null ? "searchAd" : "organic";
 
-  return { appDownloadLink, trackingUrl, linkType };
+  return { appDownloadLink, linkType };
 };
