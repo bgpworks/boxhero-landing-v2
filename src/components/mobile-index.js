@@ -197,8 +197,6 @@ const Customers = ({ data, t, language }) => {
     },
   ].filter((item) => item);
 
-  const lastIndex = customerData.length - 1;
-
   return (
     <div className={styles.customersContainer}>
       <Padding y={50} />
@@ -245,10 +243,7 @@ const Customers = ({ data, t, language }) => {
             </a>
           </CustomerCardWrapper>
         ))}
-        <CustomerCardWrapper
-          key={lastIndex + 1}
-          img={data.mobileCustomerETC.childImageSharp.fixed}
-        >
+        <CustomerCardWrapper img={data.mobileCustomerETC.childImageSharp.fixed}>
           <AppDownloadLink
             className={styles.customerButtonContent}
             rel="noopener"

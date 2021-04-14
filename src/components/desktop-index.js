@@ -216,8 +216,6 @@ const Customers = ({ data, t, language }) => {
     },
   ].filter((item) => item);
 
-  const lastIndex = customerData.length - 1;
-
   return (
     <div className={styles.customersContainer}>
       <Padding y={130} />
@@ -253,7 +251,6 @@ const Customers = ({ data, t, language }) => {
           />
         ))}
         <CustomerCard
-          key={lastIndex + 1}
           img={data.customerETC.childImageSharp.fixed}
           indexLabel={t("index:customerOtherIndexLabel")}
           title={t("index:customerOtherTitle")}
