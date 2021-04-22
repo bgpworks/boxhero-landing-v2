@@ -135,6 +135,9 @@ const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
       <div>
         <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
       </div>
+      <div>
+        <a href={t("url:hire")} target="_blank">{t("footer:footerMenuCompanyHire")}</a>
+      </div>
     </div>
     <div className={styles.wideFooterMenusColumn}>
       <div className={styles.footerMenuLabel}>Contact</div>
@@ -158,7 +161,7 @@ const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
       <div className={styles.footerMenuLabel}>
         <select
           className={styles.footerLangSelector}
-          onBlur={(e) => {}}
+          onBlur={(e) => { }}
           onChange={(e) => {
             if (e.target.value !== "" && e.target.value !== language) {
               changeLanguage(e.target.value);
