@@ -26,6 +26,7 @@ import iconHistory from "../images/feature-history.svg";
 import iconMobilescan from "../images/feature-mobilescan.svg";
 import iconUppdown from "../images/feature-uppdown.svg";
 import iconAnalysis from "../images/feature-analysis.svg";
+import iconInvoice from "../images/feature-invoice.svg";
 
 const Top = ({ data }) => (
   <GradientBG
@@ -181,6 +182,12 @@ const OtherFeatures = ({ t }) => (
             title: t("about:otherFeatureRow2Col4Title"),
             content: t("about:otherFeatureRow2Col4Content"),
             link: t("about:otherFeatureRow2Col4Link"),
+          },
+          {
+            img: iconInvoice,
+            title: t("about:otherFeatureRow2Col5Title"),
+            content: t("about:otherFeatureRow2Col5Content"),
+            link: t("about:otherFeatureRow2Col5Link"),
           },
         ]}
       />

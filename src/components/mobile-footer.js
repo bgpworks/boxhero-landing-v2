@@ -59,7 +59,9 @@ const MobileFooterMenus = ({ language, languages, changeLanguage, t }) => (
         <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
       </div>
       <div>
-        <a href={t("url:hire")} target="_blank">{t("footer:footerMenuCompanyHire")}</a>
+        <a href={t("url:hire")} target="_blank" rel="noreferrer">
+          {t("footer:footerMenuCompanyHire")}
+        </a>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
