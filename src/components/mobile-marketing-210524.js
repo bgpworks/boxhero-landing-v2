@@ -15,8 +15,6 @@ const MobileMarketing = ({ data }) => {
       <a href="/">
         <Img fluid={data.mobile4.childImageSharp.fluid} />
       </a>
-
-      <Img fluid={data.mobile5.childImageSharp.fluid} />
     </div>
   );
 };

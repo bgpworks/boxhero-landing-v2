@@ -69,15 +69,5 @@ export const query = graphql`
         }
       }
     }
-    mobile5: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "marketing-210524-5.png" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
   }
 `;
