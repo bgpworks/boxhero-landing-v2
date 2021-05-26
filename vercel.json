@@ -6,7 +6,7 @@
       "dest": "/api/redirect.js"
     },
     {
-      "src": "/(about|features|pricing|marketing)\\/?",
+      "src": "/(about|features|pricing|marketing|marketing-210524)\\/?",
       "dest": "/api/redirect.js?path=$1/"
     },
     {
