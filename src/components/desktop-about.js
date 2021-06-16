@@ -8,7 +8,7 @@ import * as constants from "../components/constants";
 // css
 import styles from "./desktop-about.module.css";
 // img
-import iconAddProduct from "../images/feature-addproduct.svg";
+import iconAddItem from "../images/feature-additem.svg";
 import iconBulkAdd from "../images/feature-bulkadd.svg";
 import iconCounting from "../images/feature-counting.svg";
 import iconGraph from "../images/feature-graph.svg";
@@ -154,7 +154,7 @@ const OtherFeatures = ({ t }) => (
         <Trans i18nKey="about:otherFeaturesDesc" />
       </div>
       <FeatureRow
-        id={constants.idAboutFeatureAddProduct}
+        id={constants.idAboutFeatureAddItem}
         title={t("about:otherFeatureRow1Title")}
         columns={[
           {
@@ -164,7 +164,7 @@ const OtherFeatures = ({ t }) => (
             link: t("about:otherFeatureRow1Col1Link"),
           },
           {
-            img: iconAddProduct,
+            img: iconAddItem,
             title: t("about:otherFeatureRow1Col2Title"),
             content: t("about:otherFeatureRow1Col2Content"),
             link: t("about:otherFeatureRow1Col2Link"),

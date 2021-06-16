@@ -5,7 +5,7 @@ module.exports = {
   idFeatureSummary: "feature-summary",
   idFeatureStatus: "feature-status",
   idFeatureLocation: "feature-location",
-  idAboutFeatureAddProduct: "feature-addproduct",
+  idAboutFeatureAddItem: "feature-additem",
   idAboutFeatureTx: "feature-tx",
   idAboutFeatureStatus: "feature-status",
   urlStart: "https://web.boxhero-app.com/team",

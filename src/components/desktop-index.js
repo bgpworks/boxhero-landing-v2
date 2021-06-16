@@ -29,7 +29,7 @@ import * as constants from "../components/constants";
 import styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
-import svgAddProduct from "../images/addproduct.svg";
+import svgAddItem from "../images/additem.svg";
 import svgCounting from "../images/counting.svg";
 import svgDashboard from "../images/dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
@@ -417,13 +417,13 @@ const DesktopIndex = ({ data, language, t }) => {
       <Top data={data} t={t} />
 
       <KeyFeature
-        icon={svgAddProduct}
+        icon={svgAddItem}
         iconAlt={t("index:keyFeature1IconAlt")}
         title={<Trans i18nKey="index:keyFeature1Title" />}
         desc={<Trans i18nKey="index:keyFeature1Desc" />}
         subTitle={<Trans i18nKey="index:keyFeature1SubTitle" />}
         subDesc={<Trans i18nKey="index:keyFeature1SubDesc" />}
-        detailUrl={`/about/#${constants.idAboutFeatureAddProduct}`}
+        detailUrl={`/about/#${constants.idAboutFeatureAddItem}`}
         image={data.feature1}
         linkDetail={t("index:keyFeatureLinkDetail")}
       />
