@@ -70,7 +70,7 @@ const PriceTable = ({ data, language, t }) => {
           <Trans i18nKey="pricing:limitMemberFree" />
         </div>
         <div className={styles.planDetailItem}>
-          <Trans i18nKey="pricing:limitProductFree" />
+          <Trans i18nKey="pricing:limitItemFree" />
         </div>
         <div className={styles.planLimitExtensionDesc}>
           <Trans
@@ -139,7 +139,7 @@ const PriceTable = ({ data, language, t }) => {
           <Trans i18nKey="pricing:limitMemberBiz" />
         </div>
         <div className={styles.planDetailItem}>
-          <Trans i18nKey="pricing:limitProductBizMobile" />
+          <Trans i18nKey="pricing:limitItemBizMobile" />
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>
@@ -155,7 +155,7 @@ const PriceTable = ({ data, language, t }) => {
         </div>
         <div className={styles.planDetailItem}>
           <Trans
-            i18nKey="pricing:limitProductBizExtensibleMobile"
+            i18nKey="pricing:limitItemBizExtensibleMobile"
             components={{
               small: <small />,
             }}

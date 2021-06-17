@@ -154,10 +154,10 @@ const PriceTable = ({ data, language, t }) => {
           </tr>
           <tr>
             <td>
-              <Trans i18nKey="pricing:limitProductFree" />
+              <Trans i18nKey="pricing:limitItemFree" />
             </td>
             <td>
-              <Trans i18nKey="pricing:limitProductBiz" />
+              <Trans i18nKey="pricing:limitItemBiz" />
             </td>
           </tr>
 
@@ -185,7 +185,7 @@ const PriceTable = ({ data, language, t }) => {
             </td>
             <td className={styles.multiLine}>
               <Trans
-                i18nKey="pricing:limitProductBizExtensible"
+                i18nKey="pricing:limitItemBizExtensible"
                 components={{ small: <small /> }}
               />
             </td>
