@@ -181,6 +181,16 @@ export const query = graphql`
         }
       }
     }
+    featureViewPastQuantity: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "index-feature-view-past-quantity.png" }
+    ) {
+      childImageSharp {
+        fixed(width: 495, height: 360, fit: FILL) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
     featureBarcodelabel: file(
       relativeDirectory: { eq: $language }
       base: { eq: "index-feature-barcodelabel.png" }
