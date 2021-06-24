@@ -502,9 +502,9 @@ export const query = graphql`
         }
       }
     }
-    mobileFeatureStatus: file(
+    mobileFeatureViewPastQuantity: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-status.png" }
+      base: { eq: "index-feature-view-past-quantity.png" }
     ) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {

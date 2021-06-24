@@ -283,6 +283,11 @@ function genFeatureData(data, t) {
       img: data.mobileFeatureSummary.childImageSharp.fixed,
     },
     {
+      title: t("index:featureViewPastQuantity"),
+      link: `/features/#${constants.idFeatureViewPastQuantity}`,
+      img: data.mobileFeatureViewPastQuantity.childImageSharp.fixed,
+    },
+    {
       title: t("index:featureLocationManagement"),
       link: `/features/#${constants.idFeatureLocation}`,
       img: data.mobileFeatureLocation.childImageSharp.fixed,

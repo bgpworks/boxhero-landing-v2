@@ -281,7 +281,7 @@ function genFeatureData(data, t) {
       img: data.featureSummary.childImageSharp.fixed,
     },
     {
-      title: t("index:featureViewPastQuantityTitle"),
+      title: t("index:featureViewPastQuantity"),
       link: `/features/#${constants.idFeatureViewPastQuantity}`,
       img: data.featureViewPastQuantity.childImageSharp.fixed,
     },

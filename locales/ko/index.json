@@ -26,7 +26,7 @@
   "featurePrintLabel": "바코드 인쇄",
   "featureSafetyStock": "안전재고",
   "featureTransactionStats": "입출고 요약",
-  "featureViewPastQuantityTitle": "과거 수량 조회",
+  "featureViewPastQuantity": "과거 수량 조회",
   "featuresDetailLink": "자세히 알아보기",
   "featuresNavBack": "이전",
   "featuresNavNext": "다음",
