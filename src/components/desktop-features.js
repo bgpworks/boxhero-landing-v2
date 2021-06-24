@@ -14,11 +14,10 @@ import * as constants from "../components/constants";
 // css
 import styles from "./desktop-features.module.css";
 // img
-import iconMenuExpiry from "../images/features-menu-expiry.svg";
 import iconMenuEmpty from "../images/features-menu-empty.svg";
 import iconMenuCustomization from "../images/features-menu-customization.svg";
 import iconMenuSummary from "../images/features-menu-summary.svg";
-import iconMenuStatus from "../images/features-menu-status.svg";
+import iconViewPastQuantity from "../images/features-menu-view-past-quantity.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
 
 const { bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue } = styles;
@@ -44,12 +43,6 @@ const MenuItem = ({ to, icon, label, title }) => (
 const Menu = ({ t }) => (
   <Container1024 className={styles.menuContainer}>
     <MenuItem
-      to={`#${constants.idFeatureExpiry}`}
-      icon={iconMenuExpiry}
-      label={<Trans i18nKey="features:menuExpiry" />}
-      title={t("features:menuExpiryLinkTitle")}
-    />
-    <MenuItem
       to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
       label={<Trans i18nKey="features:menuLowstock" />}
@@ -68,10 +61,10 @@ const Menu = ({ t }) => (
       title={t("features:menuSummaryLinkTitle")}
     />
     <MenuItem
-      to={`#${constants.idFeatureStatus}`}
-      icon={iconMenuStatus}
-      label={<Trans i18nKey="features:menuStatus" />}
-      title={t("features:menuStatusLinkTitle")}
+      to={`#${constants.idFeatureViewPastQuantity}`}
+      icon={iconViewPastQuantity}
+      label={<Trans i18nKey="features:menuViewPastQuantity" />}
+      title={t("features:menuViewPastQuantityLinkTitle")}
     />
     <MenuItem
       to={`#${constants.idFeatureLocation}`}
