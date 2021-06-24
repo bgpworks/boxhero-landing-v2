@@ -328,10 +328,10 @@ function renderDots(
 const FeatureSelector = ({ data, t, language, featureData }) => {
   // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
   const [offsetToSelected, setOffsetToSelected] = React.useState(
-    language === "ko" ? -60 : -82.5
+    language === "ko" ? -46 : -60
   );
   const [selectedWidth, setSelectedWidth] = React.useState(
-    language === "ko" ? 121 : 166
+    language === "ko" ? 93 : 121
   );
 
   return (
