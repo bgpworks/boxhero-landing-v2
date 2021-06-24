@@ -64,6 +64,10 @@ html[lang="ko"] .demoDesc {
   letter-spacing: -0.16px;
 }
 
+.bgWhite {
+  background-color: white;
+}
+
 .bgOrange {
   background-color: var(--color-feature-bg-orange);
 }
