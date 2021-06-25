@@ -150,40 +150,9 @@ export const query = graphql`
         }
       }
     }
-    featureExpiry: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-expiry.png" }
-    ) {
-      childImageSharp {
-        fixed(
-          width: 495
-          height: 360
-          fit: FILL
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f3"
-            threshold: 160
-            alphaMax: 1
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
     featureLowstock: file(
       relativeDirectory: { eq: $language }
       base: { eq: "index-feature-lowstock.png" }
-    ) {
-      childImageSharp {
-        fixed(width: 495, height: 360, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    featureViewPastQuantity: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-view-past-quantity.png" }
     ) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
@@ -211,9 +180,9 @@ export const query = graphql`
         }
       }
     }
-    featureStatus: file(
+    featureViewPastQuantity: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-status.png" }
+      base: { eq: "index-feature-view-past-quantity.png" }
     ) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
@@ -448,27 +417,6 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 36, height: 36, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    mobileFeatureExpiry: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-expiry.png" }
-    ) {
-      childImageSharp {
-        fixed(
-          width: 280
-          height: 204
-          fit: FILL
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f3"
-            threshold: 160
-            alphaMax: 1
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
