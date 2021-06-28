@@ -83,7 +83,7 @@
   "viewPastQuantityDemo2Desc": "“Being able to check the supplies and the number we held last year is a life-saver for the closing entry.”",
   "viewPastQuantityDemo2DescMobile": "“Being able to check the supplies and the number we held last year is a life-saver for the closing entry.”",
   "viewPastQuantityDemo2Title": "BGPworks",
-  "viewPastQuantityDesc": "Easily make a barcode that fits your business perfectly.<br/>Even if you can't find what you need from the numerous templates, you can customize from the settings and print from wherever you are right away.",
-  "viewPastQuantityDescMobile": "Easily make a barcode that fits your business perfectly. Even if you can't find what you need from the numerous templates, you can customize from the settings and print from wherever you are right away.",
+  "viewPastQuantityDesc": "Check the past inventory quantity.<br/>Not only the total inventory asset, but also each item's quantity and the full spreadsheet export is available.",
+  "viewPastQuantityDescMobile": "Check the past inventory quantity.<br/>Not only the total inventory asset, but also each item's quantity and the full spreadsheet export is available.",
   "viewPastQuantityTitle": "Past Quantity<br/>Check"
 }
