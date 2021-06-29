@@ -8,7 +8,7 @@ import * as constants from "../components/constants";
 // css
 import styles from "./mobile-features.module.css";
 
-const { bgOrange, bgGreen, bgBlue } = styles;
+const { bgOrange, bgGreen, bgBlue, bgWhite } = styles;
 
 const DemoTemplate = ({ icon, title, desc }) => (
   <div className={styles.demoTemplate}>
@@ -61,28 +61,6 @@ function FeatureTemplate(props) {
   );
 }
 
-const FeatureExpiry = (props) => (
-  <FeatureTemplate
-    id={constants.idFeatureExpiry}
-    bgColor={bgOrange}
-    title={<Trans i18nKey="features:expiryTitle" />}
-    figure={props.data.mobileExpiryFig.childImageSharp.fixed}
-    desc={<Trans i18nKey="features:expiryDescMobile" />}
-    demoData={[
-      {
-        icon: props.data.mobileExpiryDemo1.childImageSharp.fixed,
-        title: <Trans i18nKey="features:expiryDemo1Title" />,
-        desc: <Trans i18nKey="features:expiryDemo1DescMobile" />,
-      },
-      {
-        icon: props.data.mobileExpiryDemo2.childImageSharp.fixed,
-        title: <Trans i18nKey="features:expiryDemo2Title" />,
-        desc: <Trans i18nKey="features:expiryDemo2DescMobile" />,
-      },
-    ]}
-  />
-);
-
 const FeatureLowstock = (props) => (
   <FeatureTemplate
     id={constants.idFeatureLowstock}
@@ -108,7 +86,7 @@ const FeatureLowstock = (props) => (
 const FeatureBarcodelabel = (props) => (
   <FeatureTemplate
     id={constants.idFeatureBarcodelabel}
-    bgColor={bgBlue}
+    bgColor={bgWhite}
     title={<Trans i18nKey="features:barcodelabelTitleMobile" />}
     figure={props.data.mobileBarcodelabelFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:barcodelabelDescMobile" />}
@@ -130,7 +108,7 @@ const FeatureBarcodelabel = (props) => (
 const FeatureSummary = (props) => (
   <FeatureTemplate
     id={constants.idFeatureSummary}
-    bgColor={bgOrange}
+    bgColor={bgBlue}
     title={<Trans i18nKey="features:summaryTitleMobile" />}
     figure={props.data.mobileSummaryFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:summaryDescMobile" />}
@@ -149,23 +127,23 @@ const FeatureSummary = (props) => (
   />
 );
 
-const FeatureStatus = (props) => (
+const FeatureViewPastQuantity = (props) => (
   <FeatureTemplate
-    id={constants.idFeatureStatus}
-    bgColor={bgGreen}
-    title={<Trans i18nKey="features:statusTitle" />}
-    figure={props.data.mobileStatusFig.childImageSharp.fixed}
-    desc={<Trans i18nKey="features:statusDescMobile" />}
+    id={constants.idFeatureViewPastQuantity}
+    bgColor={bgWhite}
+    title={<Trans i18nKey="features:viewPastQuantityTitleMobile" />}
+    figure={props.data.mobileViewPastQuantityFig.childImageSharp.fixed}
+    desc={<Trans i18nKey="features:viewPastQuantityDescMobile" />}
     demoData={[
       {
-        icon: props.data.mobileStatusDemo1.childImageSharp.fixed,
-        title: <Trans i18nKey="features:statusDemo1Title" />,
-        desc: <Trans i18nKey="features:statusDemo1DescMobile" />,
+        icon: props.data.mobileViewPastQuantityDemo1.childImageSharp.fixed,
+        title: <Trans i18nKey="features:viewPastQuantityDemo1Title" />,
+        desc: <Trans i18nKey="features:viewPastQuantityDemo1DescMobile" />,
       },
       {
-        icon: props.data.mobileStatusDemo2.childImageSharp.fixed,
-        title: <Trans i18nKey="features:statusDemo2Title" />,
-        desc: <Trans i18nKey="features:statusDemo2DescMobile" />,
+        icon: props.data.mobileViewPastQuantityDemo2.childImageSharp.fixed,
+        title: <Trans i18nKey="features:viewPastQuantityDemo2Title" />,
+        desc: <Trans i18nKey="features:viewPastQuantityDemo2DescMobile" />,
       },
     ]}
   />
@@ -174,7 +152,7 @@ const FeatureStatus = (props) => (
 const FeatureLocation = (props) => (
   <FeatureTemplate
     id={constants.idFeatureLocation}
-    bgColor={bgBlue}
+    bgColor={bgOrange}
     title={<Trans i18nKey="features:locationTitleMobile" />}
     figure={props.data.mobileLocationFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:locationDescMobile" />}
@@ -208,11 +186,10 @@ const MobileFeatures = ({ data, language, t }) => (
 
     <Padding y={50} />
 
-    <FeatureExpiry data={data} />
     <FeatureLowstock data={data} />
     <FeatureBarcodelabel data={data} />
     <FeatureSummary data={data} />
-    <FeatureStatus data={data} />
+    <FeatureViewPastQuantity data={data} />
     <FeatureLocation data={data} />
   </MobileLayout>
 );

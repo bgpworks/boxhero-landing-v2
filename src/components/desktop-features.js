@@ -14,14 +14,22 @@ import * as constants from "../components/constants";
 // css
 import styles from "./desktop-features.module.css";
 // img
-import iconMenuExpiry from "../images/features-menu-expiry.svg";
 import iconMenuEmpty from "../images/features-menu-empty.svg";
 import iconMenuCustomization from "../images/features-menu-customization.svg";
 import iconMenuSummary from "../images/features-menu-summary.svg";
-import iconMenuStatus from "../images/features-menu-status.svg";
+import iconViewPastQuantity from "../images/features-menu-view-past-quantity.svg";
 import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
 
-const { bgOrange, bgGreen, bgBlue, barOrange, barGreen, barBlue } = styles;
+const {
+  bgWhite,
+  bgOrange,
+  bgGreen,
+  bgBlue,
+  barGray,
+  barOrange,
+  barGreen,
+  barBlue,
+} = styles;
 
 const MenuItem = ({ to, icon, label, title }) => (
   <Link
@@ -44,12 +52,6 @@ const MenuItem = ({ to, icon, label, title }) => (
 const Menu = ({ t }) => (
   <Container1024 className={styles.menuContainer}>
     <MenuItem
-      to={`#${constants.idFeatureExpiry}`}
-      icon={iconMenuExpiry}
-      label={<Trans i18nKey="features:menuExpiry" />}
-      title={t("features:menuExpiryLinkTitle")}
-    />
-    <MenuItem
       to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
       label={<Trans i18nKey="features:menuLowstock" />}
@@ -68,10 +70,10 @@ const Menu = ({ t }) => (
       title={t("features:menuSummaryLinkTitle")}
     />
     <MenuItem
-      to={`#${constants.idFeatureStatus}`}
-      icon={iconMenuStatus}
-      label={<Trans i18nKey="features:menuStatus" />}
-      title={t("features:menuStatusLinkTitle")}
+      to={`#${constants.idFeatureViewPastQuantity}`}
+      icon={iconViewPastQuantity}
+      label={<Trans i18nKey="features:menuViewPastQuantity" />}
+      title={t("features:menuViewPastQuantityLinkTitle")}
     />
     <MenuItem
       to={`#${constants.idFeatureLocation}`}
@@ -165,29 +167,6 @@ function FeatureTemplate(props) {
   );
 }
 
-const FeatureExpiry = (props) => (
-  <FeatureTemplate
-    id={constants.idFeatureExpiry}
-    bgColor={bgOrange}
-    title={<Trans i18nKey="features:expiryTitle" />}
-    figure={props.data.expiryFig.childImageSharp.fixed}
-    desc={<Trans i18nKey="features:expiryDesc" />}
-    barColor={barOrange}
-    demoData={[
-      {
-        icon: props.data.expiryDemo1.childImageSharp.fixed,
-        title: <Trans i18nKey="features:expiryDemo1Title" />,
-        desc: <Trans i18nKey="features:expiryDemo1Desc" />,
-      },
-      {
-        icon: props.data.expiryDemo2.childImageSharp.fixed,
-        title: <Trans i18nKey="features:expiryDemo2Title" />,
-        desc: <Trans i18nKey="features:expiryDemo2Desc" />,
-      },
-    ]}
-  />
-);
-
 const FeatureLowstock = (props) => (
   <FeatureTemplate
     id={constants.idFeatureLowstock}
@@ -214,11 +193,11 @@ const FeatureLowstock = (props) => (
 const FeatureBarcodelabel = (props) => (
   <FeatureTemplate
     id={constants.idFeatureBarcodelabel}
-    bgColor={bgBlue}
+    bgColor={bgWhite}
     title={<Trans i18nKey="features:barcodelabelTitle" />}
     figure={props.data.barcodelabelFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:barcodelabelDesc" />}
-    barColor={barBlue}
+    barColor={barGray}
     demoData={[
       {
         icon: props.data.barcodelabelDemo1.childImageSharp.fixed,
@@ -237,11 +216,11 @@ const FeatureBarcodelabel = (props) => (
 const FeatureSummary = (props) => (
   <FeatureTemplate
     id={constants.idFeatureSummary}
-    bgColor={bgOrange}
+    bgColor={bgBlue}
     title={<Trans i18nKey="features:summaryTitle" />}
     figure={props.data.summaryFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:summaryDesc" />}
-    barColor={barOrange}
+    barColor={barBlue}
     demoData={[
       {
         icon: props.data.summaryDemo1.childImageSharp.fixed,
@@ -257,24 +236,24 @@ const FeatureSummary = (props) => (
   />
 );
 
-const FeatureStatus = (props) => (
+const FeatureViewPastQuantity = (props) => (
   <FeatureTemplate
-    id={constants.idFeatureStatus}
-    bgColor={bgGreen}
-    title={<Trans i18nKey="features:statusTitle" />}
-    figure={props.data.statusFig.childImageSharp.fixed}
-    desc={<Trans i18nKey="features:statusDesc" />}
-    barColor={barGreen}
+    id={constants.idFeatureViewPastQuantity}
+    bgColor={bgWhite}
+    title={<Trans i18nKey="features:viewPastQuantityTitle" />}
+    figure={props.data.viewPastQuantityFig.childImageSharp.fixed}
+    desc={<Trans i18nKey="features:viewPastQuantityDesc" />}
+    barColor={barGray}
     demoData={[
       {
-        icon: props.data.statusDemo1.childImageSharp.fixed,
-        title: <Trans i18nKey="features:statusDemo1Title" />,
-        desc: <Trans i18nKey="features:statusDemo1Desc" />,
+        icon: props.data.viewPastQuantityDemo1.childImageSharp.fixed,
+        title: <Trans i18nKey="features:viewPastQuantityDemo1Title" />,
+        desc: <Trans i18nKey="features:viewPastQuantityDemo1Desc" />,
       },
       {
-        icon: props.data.statusDemo2.childImageSharp.fixed,
-        title: <Trans i18nKey="features:statusDemo2Title" />,
-        desc: <Trans i18nKey="features:statusDemo2Desc" />,
+        icon: props.data.viewPastQuantityDemo2.childImageSharp.fixed,
+        title: <Trans i18nKey="features:viewPastQuantityDemo2Title" />,
+        desc: <Trans i18nKey="features:viewPastQuantityDemo2Desc" />,
       },
     ]}
   />
@@ -283,11 +262,11 @@ const FeatureStatus = (props) => (
 const FeatureLocation = (props) => (
   <FeatureTemplate
     id={constants.idFeatureLocation}
-    bgColor={bgBlue}
+    bgColor={bgOrange}
     title={<Trans i18nKey="features:locationTitle" />}
     figure={props.data.locationFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:locationDesc" />}
-    barColor={barBlue}
+    barColor={barOrange}
     demoData={[
       {
         icon: props.data.locationDemo1.childImageSharp.fixed,
@@ -320,11 +299,10 @@ export const DesktopFeatures = ({ data, language, t }) => (
 
     <Padding y={100} />
 
-    <FeatureExpiry data={data} />
     <FeatureLowstock data={data} />
     <FeatureBarcodelabel data={data} />
     <FeatureSummary data={data} />
-    <FeatureStatus data={data} />
+    <FeatureViewPastQuantity data={data} />
     <FeatureLocation data={data} />
   </DesktopLayout>
 );

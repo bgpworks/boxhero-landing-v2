@@ -268,32 +268,27 @@ const Customers = ({ data, t, language }) => {
 function genFeatureData(data, t) {
   return [
     {
-      title: t("index:featureData1Title"),
-      link: `/features/#${constants.idFeatureExpiry}`,
-      img: data.mobileFeatureExpiry.childImageSharp.fixed,
-    },
-    {
-      title: t("index:featureData2Title"),
+      title: t("index:featureSafetyStock"),
       link: `/features/#${constants.idFeatureLowstock}`,
       img: data.mobileFeatureLowstock.childImageSharp.fixed,
     },
     {
-      title: t("index:featureData3Title"),
+      title: t("index:featurePrintLabel"),
       link: `/features/#${constants.idFeatureBarcodelabel}`,
       img: data.mobileFeatureBarcodelabel.childImageSharp.fixed,
     },
     {
-      title: t("index:featureData4Title"),
+      title: t("index:featureTransactionStats"),
       link: `/features/#${constants.idFeatureSummary}`,
       img: data.mobileFeatureSummary.childImageSharp.fixed,
     },
     {
-      title: t("index:featureData5Title"),
-      link: `/features/#${constants.idFeatureStatus}`,
-      img: data.mobileFeatureStatus.childImageSharp.fixed,
+      title: t("index:featureViewPastQuantity"),
+      link: `/features/#${constants.idFeatureViewPastQuantity}`,
+      img: data.mobileFeatureViewPastQuantity.childImageSharp.fixed,
     },
     {
-      title: t("index:featureData6Title"),
+      title: t("index:featureLocationManagement"),
       link: `/features/#${constants.idFeatureLocation}`,
       img: data.mobileFeatureLocation.childImageSharp.fixed,
     },
@@ -338,10 +333,10 @@ function renderDots(
 const FeatureSelector = ({ data, t, language, featureData }) => {
   // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
   const [offsetToSelected, setOffsetToSelected] = React.useState(
-    language === "ko" ? -60 : -82.5
+    language === "ko" ? -46 : -60
   );
   const [selectedWidth, setSelectedWidth] = React.useState(
-    language === "ko" ? 121 : 166
+    language === "ko" ? 93 : 121
   );
 
   return (

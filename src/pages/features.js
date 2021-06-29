@@ -59,57 +59,6 @@ export const query = graphql`
         }
       }
     }
-    expiryFig: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-expiry-fig.png" }
-    ) {
-      childImageSharp {
-        fixed(
-          width: 378
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    expiryDemo1: file(relativePath: { eq: "feature-expiry-demo1.png" }) {
-      childImageSharp {
-        fixed(
-          width: 80
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    expiryDemo2: file(relativePath: { eq: "feature-expiry-demo2.png" }) {
-      childImageSharp {
-        fixed(
-          width: 80
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
     lowstockFig: file(
       relativeDirectory: { eq: $language }
       base: { eq: "feature-lowstock-fig.png" }
@@ -267,16 +216,16 @@ export const query = graphql`
         }
       }
     }
-    statusFig: file(
+    viewPastQuantityFig: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-status-fig.png" }
+      base: { eq: "feature-view-past-quantity-fig.png" }
     ) {
       childImageSharp {
         fixed(
-          width: 500
+          width: 575
           traceSVG: {
             turdSize: 1
-            color: "#f0f0f31f"
+            color: "#f0f0f3"
             threshold: 160
             alphaMax: 1
             turnPolicy: TURNPOLICY_MAJORITY
@@ -286,32 +235,36 @@ export const query = graphql`
         }
       }
     }
-    statusDemo1: file(relativePath: { eq: "feature-status-demo1.png" }) {
+    viewPastQuantityDemo1: file(
+      relativePath: { eq: "feature-view-past-quantity-demo1.png" }
+    ) {
       childImageSharp {
         fixed(
           width: 80
           traceSVG: {
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
             turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
           }
         ) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
-    statusDemo2: file(relativePath: { eq: "feature-status-demo2.png" }) {
+    viewPastQuantityDemo2: file(
+      relativePath: { eq: "feature-view-past-quantity-demo2.png" }
+    ) {
       childImageSharp {
         fixed(
           width: 80
           traceSVG: {
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
             turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
           }
         ) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -373,57 +326,6 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 36, height: 36, fit: FILL) {
           ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    mobileExpiryFig: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-expiry-fig.png" }
-    ) {
-      childImageSharp {
-        fixed(
-          width: 300
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    mobileExpiryDemo1: file(relativePath: { eq: "feature-expiry-demo1.png" }) {
-      childImageSharp {
-        fixed(
-          width: 48
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
-      }
-    }
-    mobileExpiryDemo2: file(relativePath: { eq: "feature-expiry-demo2.png" }) {
-      childImageSharp {
-        fixed(
-          width: 48
-          traceSVG: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
@@ -592,9 +494,9 @@ export const query = graphql`
         }
       }
     }
-    mobileStatusFig: file(
+    mobileViewPastQuantityFig: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-status-fig.png" }
+      base: { eq: "feature-view-past-quantity-fig.png" }
     ) {
       childImageSharp {
         fixed(
@@ -611,7 +513,9 @@ export const query = graphql`
         }
       }
     }
-    mobileStatusDemo1: file(relativePath: { eq: "feature-status-demo1.png" }) {
+    mobileViewPastQuantityDemo1: file(
+      relativePath: { eq: "feature-view-past-quantity-demo1.png" }
+    ) {
       childImageSharp {
         fixed(
           width: 48
@@ -627,7 +531,9 @@ export const query = graphql`
         }
       }
     }
-    mobileStatusDemo2: file(relativePath: { eq: "feature-status-demo2.png" }) {
+    mobileViewPastQuantityDemo2: file(
+      relativePath: { eq: "feature-view-past-quantity-demo2.png" }
+    ) {
       childImageSharp {
         fixed(
           width: 48
