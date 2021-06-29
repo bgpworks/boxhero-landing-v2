@@ -275,7 +275,7 @@ function genFeatureData(data, t) {
     {
       title: t("index:featurePrintLabel"),
       link: `/features/#${constants.idFeatureBarcodelabel}`,
-      img: data.mobileFeatureBarcodelabel.childImageSharp.fixed,
+      img: data.mobileFeatureBarcodeLabel.childImageSharp.fixed,
     },
     {
       title: t("index:featureTransactionStats"),
