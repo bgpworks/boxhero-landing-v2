@@ -131,7 +131,7 @@ const FeatureViewPastQuantity = (props) => (
   <FeatureTemplate
     id={constants.idFeatureViewPastQuantity}
     bgColor={bgWhite}
-    title={<Trans i18nKey="features:viewPastQuantityTitle" />}
+    title={<Trans i18nKey="features:viewPastQuantityTitleMobile" />}
     figure={props.data.mobileViewPastQuantityFig.childImageSharp.fixed}
     desc={<Trans i18nKey="features:viewPastQuantityDescMobile" />}
     demoData={[
