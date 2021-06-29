@@ -116,6 +116,10 @@ html[lang="ko"] .featureTemplateDesc {
   color: var(--color-font-darker);
 }
 
+.bgWhite {
+  background-color: white;
+}
+
 .bgOrange {
   background-color: var(--color-feature-bg-orange);
 }
@@ -134,6 +138,10 @@ html[lang="ko"] .featureTemplateDesc {
 
 .barOrange {
   border-left-color: var(--color-feature-bar-orange);
+}
+
+.barGray {
+  border-left-color: var(--color-feature-bar-gray);
 }
 
 .barBlue {

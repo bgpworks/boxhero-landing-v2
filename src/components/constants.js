@@ -1,9 +1,8 @@
 module.exports = {
-  idFeatureExpiry: "feature-expiry",
   idFeatureLowstock: "feature-lowstock",
   idFeatureBarcodelabel: "feature-barcodelabel",
   idFeatureSummary: "feature-summary",
-  idFeatureStatus: "feature-status",
+  idFeatureViewPastQuantity: "feature-view-past-quantity",
   idFeatureLocation: "feature-location",
   idAboutFeatureAddItem: "feature-additem",
   idAboutFeatureTx: "feature-tx",
