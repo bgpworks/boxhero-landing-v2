@@ -56,7 +56,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: "locale",
-        languages: [`en`, `ko`],
+        languages: [`en`, `ko`, `es`, `id`],
         defaultLanguage: `en`,
         generateDefaultLanguagePage: true,
         siteUrl: "https://www.boxhero-app.com",
@@ -84,7 +84,7 @@ module.exports = {
         pages: [
           {
             matchPath: "/(privacy|tos)",
-            excludeLanguages: ["en", "ko"],
+            excludeLanguages: ["en", "ko", "es", "id"],
           },
         ],
       },

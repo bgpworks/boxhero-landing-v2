@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import { Container320, ExternalLinkWithQuery } from "./common";
-import { urlStart } from "../components/constants";
+import { urlStart } from "./constants";
 // css
 import styles from "./mobile-header.module.css";
 // images
@@ -11,9 +11,9 @@ import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
-export const MobileHeader = ({ isFloatMenu, curMenu }) => {
+export const MobileHeader = ({ isFloatMenu, curMenu, onChangeIsShowLangPopup }) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
-  const { language, changeLanguage, t } = useI18next();
+  const { t } = useI18next();
   const [isShow, onChangeIsShow] = useState(false);
   const { isScrolled } = useCheckScrolled();
 
@@ -81,11 +81,12 @@ export const MobileHeader = ({ isFloatMenu, curMenu }) => {
               <div className={styles.langButtonContainer}>
                 <button
                   className={styles.langButton}
-                  onClick={() =>
-                    changeLanguage(language === "en" ? "ko" : "en")
-                  }
+                  onClick={() => {
+                    onChangeIsShowLangPopup(true);
+                    onChangeIsShow(false);
+                  }}
                 >
-                  {language === "en" ? "KOR" : "ENG"}
+                  {t("header:menuLanguage")}
                 </button>
               </div>
 

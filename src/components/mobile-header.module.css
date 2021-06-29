@@ -115,7 +115,7 @@ a.selected {
   color: black;
   border-radius: 4px;
   height: 28px;
-  width: 50px;
+  padding: 0px 10px;
 }
 
 .startNowContainer {

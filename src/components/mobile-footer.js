@@ -22,7 +22,7 @@ StartNow.propTypes = {
   message: PropTypes.any.isRequired,
 };
 
-const MobileFooterMenus = ({ language, languages, changeLanguage, t }) => (
+const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Service</div>
@@ -68,9 +68,9 @@ const MobileFooterMenus = ({ language, languages, changeLanguage, t }) => (
       <div className={styles.footerMenuLabel}>
         <button
           className={styles.langButton}
-          onClick={() => changeLanguage(language === "en" ? "ko" : "en")}
+          onClick={() => onChangeIsShowLangPopup(true)}
         >
-          {language === "en" ? "KOR" : "ENG"}
+          {t("footer:footerMenuLanguage")}
         </button>
       </div>
     </div>
@@ -131,16 +131,14 @@ const MobileFooterMenusAndInfo = (props) => (
   </div>
 );
 
-const MobileFooter = ({ closingEmoji, closingMsg }) => {
-  const { language, languages, changeLanguage, t } = useI18next();
+const MobileFooter = ({ closingEmoji, closingMsg, onChangeIsShowLangPopup }) => {
+  const { t } = useI18next();
   return (
     <div>
       <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
       <MobileFooterMenusAndInfo
-        language={language}
-        languages={languages}
-        changeLanguage={changeLanguage}
         t={t}
+        onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
     </div>
   );
