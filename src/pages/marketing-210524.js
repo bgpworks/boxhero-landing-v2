@@ -30,7 +30,7 @@ export const query = graphql`
       ...LocaleFragment
     }
     mobile1: file(
-      relativeDirectory: { eq: $language }
+      relativeDirectory: { eq: "ko" }
       base: { eq: "marketing-210524-1.png" }
     ) {
       childImageSharp {
@@ -40,7 +40,7 @@ export const query = graphql`
       }
     }
     mobile2: file(
-      relativeDirectory: { eq: $language }
+      relativeDirectory: { eq: "ko" }
       base: { eq: "marketing-210524-2.png" }
     ) {
       childImageSharp {
@@ -50,7 +50,7 @@ export const query = graphql`
       }
     }
     mobile3: file(
-      relativeDirectory: { eq: $language }
+      relativeDirectory: { eq: "ko" }
       base: { eq: "marketing-210524-3.png" }
     ) {
       childImageSharp {
@@ -60,7 +60,7 @@ export const query = graphql`
       }
     }
     mobile4: file(
-      relativeDirectory: { eq: $language }
+      relativeDirectory: { eq: "ko" }
       base: { eq: "marketing-210524-4.png" }
     ) {
       childImageSharp {
