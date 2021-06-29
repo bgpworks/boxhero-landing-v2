@@ -23,7 +23,7 @@ export const LangSelect = ({className}) => {
         }
       }}
     >
-      <option value="">{t("footer:footerMenuLanguage")}</option>
+      <option value="">{t("language-selector:selectPlaceholder")}</option>
       {languages.map((lng) => (
         <option key={lng} value={lng}>
           {LANG_NAME[lng] || lng}
@@ -45,6 +45,7 @@ const LangOption = ({lang}) => {
 
 
 export const LangPopup = ({isShow, onClickClose}) => {
+  const { t } = useI18next();
   if (!isShow) {
     return null;
   }
@@ -63,7 +64,7 @@ export const LangPopup = ({isShow, onClickClose}) => {
         </div>
 
         <div className={`${styles.titleContainer}`}>
-          Select Language
+          {t("language-selector:popupTitle")}
         </div>
 
         <Padding y={20} />
