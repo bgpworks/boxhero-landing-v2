@@ -63,7 +63,9 @@
   "teamPlayDescMobile": "Easy invite, controlled team role,<br/>transparent history!<br/>With BoxHero, teamwork is productive<br/>than ever.",
   "teamPlayTitle": "+ Effective Teamwork",
   "topDesc": "<strong>Easy, fast, convenient</strong> on mobile and PC<br/>BoxHero is all you need for inventory<br/>management.",
+  "topDescMobile": "<strong>Easy, fast, convenient</strong> on mobile and PC<br/>BoxHero is all you need for inventory<br/>management.",
   "topIconAlt": "Easy Inventory Management",
   "topStartNowButton": "Start Now",
-  "topTitle": "Inventory Management<br/>Wherever You Are"
+  "topTitle": "Inventory Management<br/>Wherever You Are",
+  "topTitleMobile": "Inventory Management<br/>Wherever You Are"
 }

@@ -49,11 +49,11 @@ const Top = ({ data, t }) => (
       />
       <Padding y={10} />
       <div className={styles.topLeftTitle}>
-        <Trans i18nKey="index:topTitle" />
+        <Trans i18nKey="index:topTitleMobile" />
       </div>
       <Padding y={20} />
       <div className={styles.topLeftDescription}>
-        <Trans i18nKey="index:topDesc" />
+        <Trans i18nKey="index:topDescMobile" />
       </div>
       <Padding y={30} />
       <div className={styles.topImageContainer}>
