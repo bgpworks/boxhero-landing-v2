@@ -76,7 +76,7 @@ function SEO({ description, lang, meta, title, path }) {
         },
         {
           property: "og:image",
-          content: `${siteUrl}${data.ogImg.publicURL}`
+          content: `${siteUrl}${data.ogImg.publicURL}`,
         },
         {
           property: "og:url",

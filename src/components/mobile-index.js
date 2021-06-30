@@ -336,7 +336,7 @@ const DEFAULT_OFFSET_TO_SELECTED = {
   en: -60,
   es: -71.5,
   id: -69.5,
-}
+};
 
 // div.mobile-index-module--slideDetailDotBackground--13c-D
 const DEFAULT_SELECT_WIDTH = {
@@ -344,7 +344,7 @@ const DEFAULT_SELECT_WIDTH = {
   en: 121,
   es: 144,
   id: 140,
-}
+};
 
 const FeatureSelector = ({ data, t, language, featureData }) => {
   // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
@@ -352,7 +352,7 @@ const FeatureSelector = ({ data, t, language, featureData }) => {
     DEFAULT_OFFSET_TO_SELECTED[language] || -71.5
   );
   const [selectedWidth, setSelectedWidth] = React.useState(
-    DEFAULT_SELECT_WIDTH[language] || 144,
+    DEFAULT_SELECT_WIDTH[language] || 144
   );
 
   return (

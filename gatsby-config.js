@@ -93,7 +93,7 @@ module.exports = {
           {
             matchPath: "/marketing",
             languages: ["en", "ko"],
-          }
+          },
         ],
       },
     },

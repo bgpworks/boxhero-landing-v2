@@ -131,7 +131,11 @@ const MobileFooterMenusAndInfo = (props) => (
   </div>
 );
 
-const MobileFooter = ({ closingEmoji, closingMsg, onChangeIsShowLangPopup }) => {
+const MobileFooter = ({
+  closingEmoji,
+  closingMsg,
+  onChangeIsShowLangPopup,
+}) => {
   const { t } = useI18next();
   return (
     <div>

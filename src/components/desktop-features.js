@@ -287,7 +287,7 @@ export const DesktopFeatures = ({ data, language, t }) => (
     isFloatMenu={false}
     curMenu="features"
     closingEmoji={data.dinosaur}
-    closingMsg={<Trans i18nKey="features:closingMsg"/>}
+    closingMsg={<Trans i18nKey="features:closingMsg" />}
   >
     <SimpleTop title={t("features:topTitle")}>
       <Trans i18nKey="features:topDesc" />

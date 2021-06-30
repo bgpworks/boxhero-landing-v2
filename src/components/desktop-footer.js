@@ -30,10 +30,8 @@ const StartNow = ({ emoji, message, t }) => (
 
 StartNow.propTypes = {
   emoji: PropTypes.object.isRequired,
-  message: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]).isRequired,
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
 };
 
 const Platforms = ({ t }) => (
@@ -211,19 +209,15 @@ const DesktopFooter = ({ closingEmoji, closingMsg }) => {
     <div>
       <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
       <Platforms t={t} />
-      <DesktopFooterMenusAndInfo
-        t={t}
-      />
+      <DesktopFooterMenusAndInfo t={t} />
     </div>
   );
 };
 
 DesktopFooter.propTypes = {
   closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]).isRequired,
+  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
 };
 
 export default DesktopFooter;

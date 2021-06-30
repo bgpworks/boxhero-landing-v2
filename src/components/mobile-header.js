@@ -11,13 +11,15 @@ import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
-const MenuItem = ({children}) => (
-  <div className={`${styles.splitLine} ${styles.menuItem}`}>
-    {children}
-  </div>
+const MenuItem = ({ children }) => (
+  <div className={`${styles.splitLine} ${styles.menuItem}`}>{children}</div>
 );
 
-export const MobileHeader = ({ isFloatMenu, curMenu, onChangeIsShowLangPopup }) => {
+export const MobileHeader = ({
+  isFloatMenu,
+  curMenu,
+  onChangeIsShowLangPopup,
+}) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useI18next();
   const [isShow, onChangeIsShow] = useState(false);
