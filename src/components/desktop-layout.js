@@ -23,7 +23,10 @@ DesktopLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
   curMenu: PropTypes.string,
   closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.string.isRequired,
+  closingMsg: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]).isRequired,
   children: PropTypes.node.isRequired,
 };
 

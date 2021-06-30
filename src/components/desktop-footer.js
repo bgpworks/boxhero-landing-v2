@@ -220,7 +220,10 @@ const DesktopFooter = ({ closingEmoji, closingMsg }) => {
 
 DesktopFooter.propTypes = {
   closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.string.isRequired,
+  closingMsg: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]).isRequired,
 };
 
 export default DesktopFooter;
