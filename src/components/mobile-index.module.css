@@ -18,7 +18,6 @@
 }
 
 .topLeftTitle {
-  height: 72px;
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
