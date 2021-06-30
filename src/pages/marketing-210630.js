@@ -19,7 +19,7 @@ const MarketingPage = ({ data, location }) => {
         description={t("index:pageDescription")}
         path={location.pathname}
       />
-      <div style={{ width: 960, margin: "0 auto" }}>
+      <div style={{ maxWidth: 960, margin: "0 auto" }}>
         <Img fluid={data.mobile1.childImageSharp.fluid} />
         <a href={WEB_APP_LINK}>
           <Img fluid={data.mobile2.childImageSharp.fluid} />
