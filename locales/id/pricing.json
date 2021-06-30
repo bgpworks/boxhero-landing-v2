@@ -33,7 +33,7 @@
   "freePlanPriceUnit": "Single user",
   "freePlanTitle": "Single Plan",
   "headerExtension": "Opsi Tambahan",
-  "headerLimit": "Batas Bawaan",
+  "headerLimit": "Batas Akses",
   "limitMemberBiz": "<strong>10 anggota</strong>",
   "limitMemberBizExtensible": "Hingga <strong>100 anggota</strong><br/><small>($5/bulan untuk setiap pengguna tambahan)</small>",
   "limitMemberFree": "<strong>1 orang</strong>",
