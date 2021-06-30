@@ -330,13 +330,29 @@ function renderDots(
   return dots;
 }
 
+// div.carousel__dot-group mobile-index-module--slideDetailDotGroup--15TiY 의 margin-left
+const DEFAULT_OFFSET_TO_SELECTED = {
+  ko: -46,
+  en: -60,
+  es: -71.5,
+  id: -69.5,
+}
+
+// div.mobile-index-module--slideDetailDotBackground--13c-D
+const DEFAULT_SELECT_WIDTH = {
+  ko: 93,
+  en: 121,
+  es: 144,
+  id: 140,
+}
+
 const FeatureSelector = ({ data, t, language, featureData }) => {
   // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
   const [offsetToSelected, setOffsetToSelected] = React.useState(
-    language === "ko" ? -46 : -60
+    DEFAULT_OFFSET_TO_SELECTED[language] || -71.5
   );
   const [selectedWidth, setSelectedWidth] = React.useState(
-    language === "ko" ? 93 : 121
+    DEFAULT_SELECT_WIDTH[language] || 144,
   );
 
   return (
