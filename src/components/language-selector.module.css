@@ -1,0 +1,41 @@
+.popupBackground {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding: 10px;
+  z-index: 200;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.closeButton {
+  padding: 10px;
+  background: transparent;
+}
+
+.closeWrapper {
+  text-align: right;
+  align-self: stretch;
+}
+
+.titleContainer {
+  font-size: var(--font-size-mobile-big2);
+}
+
+.languageOption {
+  align-self: stretch;
+  padding: 20px;
+  background: transparent;
+}
+
+.selected {
+  font-weight: bold;
+}

@@ -49,11 +49,11 @@ const Top = ({ data, t }) => (
       />
       <Padding y={10} />
       <div className={styles.topLeftTitle}>
-        <Trans i18nKey="index:topTitle" />
+        <Trans i18nKey="index:topTitleMobile" />
       </div>
       <Padding y={20} />
       <div className={styles.topLeftDescription}>
-        <Trans i18nKey="index:topDesc" />
+        <Trans i18nKey="index:topDescMobile" />
       </div>
       <Padding y={30} />
       <div className={styles.topImageContainer}>
@@ -275,7 +275,7 @@ function genFeatureData(data, t) {
     {
       title: t("index:featurePrintLabel"),
       link: `/features/#${constants.idFeatureBarcodelabel}`,
-      img: data.mobileFeatureBarcodelabel.childImageSharp.fixed,
+      img: data.mobileFeatureBarcodeLabel.childImageSharp.fixed,
     },
     {
       title: t("index:featureTransactionStats"),
@@ -330,13 +330,29 @@ function renderDots(
   return dots;
 }
 
+// div.carousel__dot-group mobile-index-module--slideDetailDotGroup--15TiY 의 margin-left
+const DEFAULT_OFFSET_TO_SELECTED = {
+  ko: -46,
+  en: -60,
+  es: -71.5,
+  id: -69.5,
+};
+
+// div.mobile-index-module--slideDetailDotBackground--13c-D
+const DEFAULT_SELECT_WIDTH = {
+  ko: 93,
+  en: 121,
+  es: 144,
+  id: 140,
+};
+
 const FeatureSelector = ({ data, t, language, featureData }) => {
   // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
   const [offsetToSelected, setOffsetToSelected] = React.useState(
-    language === "ko" ? -46 : -60
+    DEFAULT_OFFSET_TO_SELECTED[language] || -71.5
   );
   const [selectedWidth, setSelectedWidth] = React.useState(
-    language === "ko" ? 93 : 121
+    DEFAULT_SELECT_WIDTH[language] || 144
   );
 
   return (
@@ -475,7 +491,7 @@ const MobileIndex = ({ data, language, t }) => {
         isDarkBg={true}
         icon={svgCounting}
         iconAlt={t("index:keyFeature2IconAlt")}
-        title={<Trans i18nKey="index:keyFeature2Title" />}
+        title={<Trans i18nKey="index:keyFeature2TitleMobile" />}
         desc={<Trans i18nKey="index:keyFeature2DescMobile" />}
         subTitle={t("index:keyFeature2SubTitle")}
         subDesc={<Trans i18nKey="index:keyFeature2SubDescMobile" />}

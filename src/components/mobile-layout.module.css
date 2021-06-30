@@ -3,7 +3,7 @@
   min-width: 320px;
 }
 
-html[lang="en"] .mobileLayout {
+html:not([lang="ko"]) .mobileLayout {
   line-height: 1.6;
 }
 

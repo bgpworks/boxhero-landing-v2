@@ -3,6 +3,8 @@ var parser = require("accept-language-parser");
 const urls = {
   ko: "/ko",
   en: "/en",
+  es: "/es",
+  id: "/id",
 };
 
 module.exports = (req, res) => {

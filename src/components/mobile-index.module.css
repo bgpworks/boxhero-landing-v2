@@ -18,7 +18,6 @@
 }
 
 .topLeftTitle {
-  height: 72px;
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
@@ -58,7 +57,6 @@
 
 .keyFeatureTitle {
   composes: px20;
-  height: 36px;
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
@@ -149,7 +147,6 @@
 }
 
 .customersTitle {
-  height: 58px;
   font-size: var(--font-size-mobile-big2);
   font-weight: bold;
   letter-spacing: -0.42px;

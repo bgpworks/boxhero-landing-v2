@@ -93,7 +93,6 @@ server-side redirection 자동 생성 기능은 아직 지원 안하나, vercel�
 
 다국어 처리와 관려된 이슈들은 [이 블로그 글](https://itnext.io/techniques-approaches-for-multi-language-gatsby-apps-8ba13ff433c5)에 잘 정리되어 있으니 참조.
 
-
 #### IE 테스트
 
 IE에서는 polyfill 문제로 dev build가 안보인다. 아래 처럼 prod빌드로 확인해야 함.

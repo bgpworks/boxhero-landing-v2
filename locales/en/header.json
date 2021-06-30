@@ -3,5 +3,6 @@
   "menuFeatures": "Features",
   "menuPricing": "Pricing",
   "menuDoc": "Customer Service",
-  "menuLoginButton": "LOG IN"
+  "menuLoginButton": "LOG IN",
+  "menuLanguage": "Language"
 }

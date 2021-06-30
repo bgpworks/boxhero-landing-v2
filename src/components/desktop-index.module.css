@@ -75,7 +75,7 @@
 .keyFeatureLeftTitle {
   font-size: 52px;
   font-weight: bold;
-  line-height: 0.85;
+
   letter-spacing: -1px;
   color: black;
 }
@@ -293,7 +293,6 @@
 }
 
 .featuresTitle {
-  width: 648px;
   height: 100px;
   font-size: 36px;
   font-weight: bold;

@@ -34,13 +34,7 @@ const DesktopMarketing = ({ data }) => {
           width="391px"
           height="100px"
         />
-        <Link
-          href="/"
-          x="240px"
-          y="3673px"
-          width="382px"
-          height="100px"
-        />
+        <Link href="/" x="240px" y="3673px" width="382px" height="100px" />
         <Link
           href={constants.urlStart}
           x="231px"

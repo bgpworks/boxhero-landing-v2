@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileHeader from "./mobile-header";
 import MobileFooter from "./mobile-footer";
 import { AppDownloadLink } from "../components/common";
+import { LangPopup } from "./language-selector";
 // css
 import styles from "./mobile-layout.module.css";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
@@ -37,14 +38,29 @@ const MobileLayout = ({
   closingEmoji,
   closingMsg,
   children,
-}) => (
-  <div className={styles.mobileLayout}>
-    <MobileHeader isFloatMenu={isFloatMenu} curMenu={curMenu} />
-    <main>{children}</main>
-    {!hideFloatAppInstallButton && <InstallButton />}
-    <MobileFooter closingEmoji={closingEmoji} closingMsg={closingMsg} />
-  </div>
-);
+}) => {
+  const [isShowLangPopup, onChangeIsShowLangPopup] = useState(false);
+  return (
+    <div className={styles.mobileLayout}>
+      <MobileHeader
+        isFloatMenu={isFloatMenu}
+        curMenu={curMenu}
+        onChangeIsShowLangPopup={onChangeIsShowLangPopup}
+      />
+      <main>{children}</main>
+      {!hideFloatAppInstallButton && <InstallButton />}
+      <MobileFooter
+        closingEmoji={closingEmoji}
+        closingMsg={closingMsg}
+        onChangeIsShowLangPopup={onChangeIsShowLangPopup}
+      />
+      <LangPopup
+        isShow={isShowLangPopup}
+        onClickClose={() => onChangeIsShowLangPopup(false)}
+      />
+    </div>
+  );
+};
 
 MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,

@@ -47,6 +47,7 @@
   "keyFeature2SubDescMobile": "박스히어로에서 당신에게 맞는 바코드를<br/>만들어 인쇄할 수 있습니다.",
   "keyFeature2SubTitle": "바코드가 없어도 걱정하지 마세요!",
   "keyFeature2Title": "<strong>입출고</strong>는 빠르게-",
+  "keyFeature2TitleMobile": "<strong>입출고</strong>는 빠르게-",
   "keyFeature3Desc": "보기 쉬운 제품목록으로 재고관리가 편해집니다.<br/>수많은 데이터 중 원하는 재고정보를 한 눈에 확인하세요.",
   "keyFeature3IconAlt": "편리한 재고확인",
   "keyFeature3SubDesc": "박스히어로에서 재고회전율, 매출액 등 다양한 분석 정보를 제공합니다.",
@@ -63,7 +64,9 @@
   "teamPlayDescMobile": "초대는 쉽게, 권한은 필요한 만큼만,<br/>기록은 투명하게!<br/>박스히어로와 함께라면 효율적인 실시간<br/>팀플레이가 가능합니다.",
   "teamPlayTitle": "+ 효율적인 팀플레이",
   "topDesc": "PC와 모바일 어떤 환경에서도<br/><strong>쉽고</strong>/<strong>빠르고</strong>/<strong>편리하게</strong><br/>재고관리는 박스히어로 하나면 충분합니다.",
+  "topDescMobile": "PC와 모바일 어떤 환경에서도<br/><strong>쉽고</strong>/<strong>빠르고</strong>/<strong>편리하게</strong><br/>재고관리는 박스히어로 하나면 충분합니다.",
   "topIconAlt": "편리한 재고관리",
   "topStartNowButton": "지금 시작하기",
-  "topTitle": "언제 어디서나,<br/>쉽고 편한 재고관리"
+  "topTitle": "언제 어디서나,<br/>쉽고 편한 재고관리",
+  "topTitleMobile": "언제 어디서나,<br/>쉽고 편한 재고관리"
 }

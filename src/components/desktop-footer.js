@@ -4,8 +4,8 @@ import Img from "gatsby-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import { Container1024, ExternalLinkWithQuery } from "./common";
-import { urlStart } from "../components/constants";
-import * as constants from "../components/constants";
+import * as constants from "./constants";
+import { LangSelect } from "./language-selector";
 // css
 import styles from "./desktop-footer.module.css";
 // images
@@ -30,7 +30,8 @@ const StartNow = ({ emoji, message, t }) => (
 
 StartNow.propTypes = {
   emoji: PropTypes.object.isRequired,
-  message: PropTypes.string.isRequired,
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
 };
 
 const Platforms = ({ t }) => (
@@ -41,7 +42,7 @@ const Platforms = ({ t }) => (
           {t("footer:platformGroupWeb")}
         </div>
         <div className={styles.platformGroupButtons}>
-          <a href={urlStart}>
+          <a href={constants.urlStart}>
             <button className={styles.platformButton}>
               <img src={svgPcWeb} alt="PC" />
               {t("footer:platformsPC")}
@@ -99,7 +100,7 @@ const Platforms = ({ t }) => (
   </div>
 );
 
-const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
+const DesktopFooterMenus = ({ t }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Service</div>
@@ -161,22 +162,7 @@ const DesktopFooterMenus = ({ language, languages, changeLanguage, t }) => (
     </div>
     <div>
       <div className={styles.footerMenuLabel}>
-        <select
-          className={styles.footerLangSelector}
-          onBlur={(e) => {}}
-          onChange={(e) => {
-            if (e.target.value !== "" && e.target.value !== language) {
-              changeLanguage(e.target.value);
-            }
-          }}
-        >
-          <option value="">{t("footer:footerMenuLanguage")}</option>
-          {languages.map((lng) => (
-            <option key={lng} value={lng}>
-              {lng === "en" ? "English" : lng === "ko" ? "한국어" : lng}
-            </option>
-          ))}
-        </select>
+        <LangSelect className={styles.footerLangSelector} />
       </div>
     </div>
   </div>
@@ -218,24 +204,20 @@ const DesktopFooterMenusAndInfo = (props) => (
 );
 
 const DesktopFooter = ({ closingEmoji, closingMsg }) => {
-  const { language, languages, changeLanguage, t } = useI18next();
+  const { t } = useI18next();
   return (
     <div>
       <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
       <Platforms t={t} />
-      <DesktopFooterMenusAndInfo
-        language={language}
-        languages={languages}
-        changeLanguage={changeLanguage}
-        t={t}
-      />
+      <DesktopFooterMenusAndInfo t={t} />
     </div>
   );
 };
 
 DesktopFooter.propTypes = {
   closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.string.isRequired,
+  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
 };
 
 export default DesktopFooter;

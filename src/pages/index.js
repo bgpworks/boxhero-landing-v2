@@ -160,9 +160,9 @@ export const query = graphql`
         }
       }
     }
-    featureBarcodelabel: file(
+    featureBarcodeLabel: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-barcodelabel.png" }
+      base: { eq: "index-feature-barcode-label.png" }
     ) {
       childImageSharp {
         fixed(width: 495, height: 360, fit: FILL) {
@@ -430,9 +430,9 @@ export const query = graphql`
         }
       }
     }
-    mobileFeatureBarcodelabel: file(
+    mobileFeatureBarcodeLabel: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-barcodelabel.png" }
+      base: { eq: "index-feature-barcode-label.png" }
     ) {
       childImageSharp {
         fixed(width: 280, height: 204, fit: FILL) {
