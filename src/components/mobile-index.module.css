@@ -57,7 +57,6 @@
 
 .keyFeatureTitle {
   composes: px20;
-  height: 36px;
   font-size: var(--font-size-mobile-big3);
   font-weight: bold;
   line-height: 1.5;
