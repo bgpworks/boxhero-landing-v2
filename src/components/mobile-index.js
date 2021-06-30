@@ -475,7 +475,7 @@ const MobileIndex = ({ data, language, t }) => {
         isDarkBg={true}
         icon={svgCounting}
         iconAlt={t("index:keyFeature2IconAlt")}
-        title={<Trans i18nKey="index:keyFeature2Title" />}
+        title={<Trans i18nKey="index:keyFeature2TitleMobile" />}
         desc={<Trans i18nKey="index:keyFeature2DescMobile" />}
         subTitle={t("index:keyFeature2SubTitle")}
         subDesc={<Trans i18nKey="index:keyFeature2SubDescMobile" />}
