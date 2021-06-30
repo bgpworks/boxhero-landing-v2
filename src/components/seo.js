@@ -23,10 +23,7 @@ function SEO({ description, lang, meta, title, path }) {
             fbAppId
           }
         }
-        ogImgKo: file(relativePath: { eq: "og_image_ko.png" }) {
-          publicURL
-        }
-        ogImgEn: file(relativePath: { eq: "og_image_en.png" }) {
+        ogImg: file(relativePath: { eq: "og_image.png" }) {
           publicURL
         }
       }
@@ -79,10 +76,7 @@ function SEO({ description, lang, meta, title, path }) {
         },
         {
           property: "og:image",
-          content:
-            lang === "ko"
-              ? `${siteUrl}${data.ogImgKo.publicURL}`
-              : `${siteUrl}${data.ogImgEn.publicURL}`,
+          content: `${siteUrl}${data.ogImg.publicURL}`
         },
         {
           property: "og:url",
