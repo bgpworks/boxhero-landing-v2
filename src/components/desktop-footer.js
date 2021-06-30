@@ -30,7 +30,10 @@ const StartNow = ({ emoji, message, t }) => (
 
 StartNow.propTypes = {
   emoji: PropTypes.object.isRequired,
-  message: PropTypes.string.isRequired,
+  message: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]).isRequired,
 };
 
 const Platforms = ({ t }) => (
