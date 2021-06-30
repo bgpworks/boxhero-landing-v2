@@ -11,6 +11,12 @@ import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
+const MenuItem = ({children}) => (
+  <div className={`${styles.splitLine} ${styles.menuItem}`}>
+    {children}
+  </div>
+);
+
 export const MobileHeader = ({ isFloatMenu, curMenu, onChangeIsShowLangPopup }) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useI18next();
@@ -47,36 +53,36 @@ export const MobileHeader = ({ isFloatMenu, curMenu, onChangeIsShowLangPopup }) 
         <Container320 className={styles.menuContainer}>
           {isShow && (
             <>
-              <div className={`${styles.splitLine} ${styles.menuItem}`}>
+              <MenuItem>
                 <Link
                   to="/about/"
                   className={curMenu === "about" ? styles.selected : ""}
                 >
                   {t("header:menuAbout")}
                 </Link>
-              </div>
+              </MenuItem>
 
-              <div className={`${styles.splitLine} ${styles.menuItem}`}>
+              <MenuItem>
                 <Link
                   to="/features/"
                   className={curMenu === "features" ? styles.selected : ""}
                 >
                   {t("header:menuFeatures")}
                 </Link>
-              </div>
+              </MenuItem>
 
-              <div className={`${styles.splitLine} ${styles.menuItem}`}>
+              <MenuItem>
                 <Link
                   to="/pricing/"
                   className={curMenu === "pricing" ? styles.selected : ""}
                 >
                   {t("header:menuPricing")}
                 </Link>
-              </div>
+              </MenuItem>
 
-              <div className={`${styles.splitLine} ${styles.menuItem}`}>
+              <MenuItem>
                 <a href={t("url:doc")}>{t("header:menuDoc")}</a>
-              </div>
+              </MenuItem>
 
               <div className={styles.langButtonContainer}>
                 <button
