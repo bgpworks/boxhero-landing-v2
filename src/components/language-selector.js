@@ -34,9 +34,9 @@ export const LangSelect = ({className}) => {
 };
 
 const LangOption = ({lang}) => {
-  const { changeLanguage } = useI18next();
+  const { language, changeLanguage } = useI18next();
   return (
-    <button className={`${styles.languageOption}`}
+    <button className={`${styles.languageOption} ${(language === lang) ? styles.selected : ""}`}
             onClick={() => changeLanguage(lang)}>
       {LANG_NAME[lang] || lang}
     </button>

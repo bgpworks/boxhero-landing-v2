@@ -35,3 +35,7 @@
   padding: 20px;
   background: transparent;
 }
+
+.selected {
+  font-weight: bold;
+}
