@@ -95,7 +95,7 @@ server-side redirection 자동 생성 기능은 아직 지원 안하나, vercel�
 
 ### 광고 트레킹
 
-광고로 들어온 유저를 트래킹하기 위해 `gatsby-brower.js` 에서 query-param을 localstorage에 저장해 둔 후, 외부로 나가는 링크를 생성할 때는 `common/ExternalLinkWithQuery` 을 써서 끝에 query-param을 붙여준다.
+광고로 들어온 유저를 트래킹하기 위해 `gatsby-browser.js` 에서 query-param을 localstorage에 저장해 둔 후, 외부로 나가는 링크를 생성할 때는 `common/ExternalLinkWithQuery` 을 써서 끝에 query-param을 붙여준다.
 
 ### 특정 국가용 마케팅 페이지 생성
 
