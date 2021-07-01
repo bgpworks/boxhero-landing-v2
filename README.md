@@ -86,14 +86,24 @@ html {
 
 작업 속도를 부스트 하기 위해 gatsby-plugin-react-i18next 를 썼다.
 
-1. 언어팩 변경 시 hot-reload. (page refresh는 수동)
+1. 언어팩 변경 시 hot-reload.
 2. 언어별 page 및 sitemap.xml 자동 생성.
 
 server-side redirection 자동 생성 기능은 아직 지원 안하나, vercel의 routing 수동으로 설정해서 쓰고 있어서 문제 없음.
 
 다국어 처리와 관려된 이슈들은 [이 블로그 글](https://itnext.io/techniques-approaches-for-multi-language-gatsby-apps-8ba13ff433c5)에 잘 정리되어 있으니 참조.
 
-#### IE 테스트
+### 광고 트레킹
+
+광고로 들어온 유저를 트래킹하기 위해 `gatsby-brower.js` 에서 query-param을 localstorage에 저장해 둔 후, 외부로 나가는 링크를 생성할 때는 `common/ExternalLinkWithQuery` 을 써서 끝에 query-param을 붙여준다.
+
+### 특정 국가용 마케팅 페이지 생성
+
+1. `gatsby-config.js`에서 `gatsby-plugin-react-i18next` 플러그인 옵션을 줘서, 특정 언어만 생성하도록 한다. (플러그인의 특성 때문에 defaultLanguage인 영어는 무조건 생성되고 있다. (PR 만들어야함.)
+2. 박스히어로 웹앱으로 보낼 때는 `common/ExternalLinkWithQuery`를 써서 링크를 생성한다.
+3. AppDownload link를 만들 때는 `common/AppDownloadLink`를 참고하고, 해당 마케팅용 전용 링크가 있을 경우 그냥 `a` 태그를 쓴다.
+
+### IE 테스트
 
 IE에서는 polyfill 문제로 dev build가 안보인다. 아래 처럼 prod빌드로 확인해야 함.
 
@@ -158,7 +168,7 @@ Hosting: $0.023 / GB / month
 **[Vercel](https://vercel.com/)**:
 
 속도, 편의성, 가격 모든 면에서 좋음.
-다만 한국(?)에서 가끔 접속이 안되는 문제가 발생해서 버림.
+다만 한국(?)에서 가끔 접속이 안되는 문제가 발생.
 
 **[Netlify](https://www.netlify.com)**
 
