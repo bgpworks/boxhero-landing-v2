@@ -28,6 +28,7 @@ const MarketingPage = ({ data, location }) => {
         <Link to="/">
           <Img fluid={data.mobile4.childImageSharp.fluid} />
         </Link>
+        <Img fluid={data.mobile5.childImageSharp.fluid} />
       </div>
     </>
   );
@@ -62,6 +63,13 @@ export const query = graphql`
       }
     }
     mobile4: file(base: { eq: "marketing-210630-4.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    mobile5: file(base: { eq: "marketing-210630-5.png" }) {
       childImageSharp {
         fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
