@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import SEO from "../components/seo";
+import { ExternalLinkWithQuery } from "../components/common";
 import { useHelpscout } from "../components/helpscout";
 import Img from "gatsby-image";
-
-const WEB_APP_LINK = "https://web.boxhero-app.com/login";
+import { urlStart } from "../components/constants";
 
 const MarketingPage = ({ data, location }) => {
   const { language, t } = useI18next();
@@ -21,14 +21,14 @@ const MarketingPage = ({ data, location }) => {
       />
       <div style={{ maxWidth: 960, margin: "0 auto" }}>
         <Img fluid={data.mobile1.childImageSharp.fluid} />
-        <a href={WEB_APP_LINK}>
+        <ExternalLinkWithQuery href={urlStart}>
           <Img fluid={data.mobile2.childImageSharp.fluid} />
-        </a>
+        </ExternalLinkWithQuery>
         <Img fluid={data.mobile3.childImageSharp.fluid} />
-
-        <a href="/">
+        <Link to="/">
           <Img fluid={data.mobile4.childImageSharp.fluid} />
-        </a>
+        </Link>
+        <Img fluid={data.mobile5.childImageSharp.fluid} />
       </div>
     </>
   );
@@ -63,6 +63,13 @@ export const query = graphql`
       }
     }
     mobile4: file(base: { eq: "marketing-210630-4.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    mobile5: file(base: { eq: "marketing-210630-5.png" }) {
       childImageSharp {
         fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64

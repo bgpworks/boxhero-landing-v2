@@ -91,6 +91,10 @@ module.exports = {
             languages: ["ko"],
           },
           {
+            matchPath: "/marketing-210630",
+            languages: ["ko"],
+          },
+          {
             matchPath: "/marketing",
             languages: ["en", "ko"],
           },
