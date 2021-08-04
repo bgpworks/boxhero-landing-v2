@@ -57,7 +57,9 @@ const Top = ({ data, t }) => (
       </div>
       <Padding y={30} />
       <div className={styles.topImageContainer}>
-        <GatsbyImage image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData} />
+        <GatsbyImage
+          image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
+        />
       </div>
     </Container320>
   </GradientBG>
@@ -134,7 +136,9 @@ const TeamPlay = ({ data, t }) => (
     </Container320>
     <Padding y={29} />
     <div className={styles.teamImageFlex}>
-      <GatsbyImage image={data.mobileTeamPlay.childImageSharp.gatsbyImageData} />
+      <GatsbyImage
+        image={data.mobileTeamPlay.childImageSharp.gatsbyImageData}
+      />
     </div>
   </GradientBG>
 );
@@ -243,7 +247,9 @@ const Customers = ({ data, t, language }) => {
             </a>
           </CustomerCardWrapper>
         ))}
-        <CustomerCardWrapper img={data.mobileCustomerETC.childImageSharp.gatsbyImageData}>
+        <CustomerCardWrapper
+          img={data.mobileCustomerETC.childImageSharp.gatsbyImageData}
+        >
           <AppDownloadLink
             className={styles.customerButtonContent}
             rel="noopener"
@@ -448,7 +454,10 @@ const StartNow = ({ data, t }) => (
         <Trans i18nKey="index:startNowTitle" />
       </div>
       <Padding y={30} />
-      <GatsbyImage image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData} />
+      <GatsbyImage
+        image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData}
+        style={{ margin: "0 auto" }}
+      />
       <Padding y={30} />
       <div className={styles.startNowDescription}>
         <Trans i18nKey="index:startNowDescription" />
