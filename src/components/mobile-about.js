@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
@@ -11,7 +11,7 @@ import {
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./mobile-about.module.css";
+import * as styles from "./mobile-about.module.css";
 // img
 import iconAddItem from "../images/feature-additem.svg";
 import iconBulkAdd from "../images/feature-bulkadd.svg";
@@ -34,13 +34,13 @@ const Top = ({ data }) => (
     colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
     backgroundColor="#6159F5"
   >
-    <Container320 className={styles.topContentContainer}>
+    <Container320>
       <Padding y={94} />
       <div className={styles.topTitleContainer}>
         <Trans i18nKey="about:topTitleMobile" />
       </div>
       <Padding y={30} />
-      <Img fixed={data.mobileTopLogo.childImageSharp.fixed} />
+      <GatsbyImage image={data.mobileTopLogo.childImageSharp.gatsbyImageData} />
     </Container320>
   </GradientBG>
 );
@@ -55,7 +55,7 @@ const StrongPoints = ({ data }) => (
         <Trans i18nKey="about:strongPoint1DescMobile" />
       </div>
       <div className={styles.logoContainer}>
-        <Img fixed={data.mobileEasy.childImageSharp.fixed} />
+        <GatsbyImage image={data.mobileEasy.childImageSharp.gatsbyImageData} />
       </div>
     </div>
 
@@ -67,7 +67,7 @@ const StrongPoints = ({ data }) => (
         <Trans i18nKey="about:strongPoint2DescMobile" />
       </div>
       <div className={styles.logoContainer}>
-        <Img fixed={data.mobileGreat.childImageSharp.fixed} />
+        <GatsbyImage image={data.mobileGreat.childImageSharp.gatsbyImageData} />
       </div>
     </div>
     <div className={styles.section}>
@@ -78,7 +78,7 @@ const StrongPoints = ({ data }) => (
         <Trans i18nKey="about:strongPoint3DescMobile" />
       </div>
       <div className={styles.logoContainer}>
-        <Img fixed={data.mobileMobile.childImageSharp.fixed} />
+        <GatsbyImage image={data.mobileMobile.childImageSharp.gatsbyImageData} />
       </div>
     </div>
   </ContainerCenter>

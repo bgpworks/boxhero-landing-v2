@@ -3,7 +3,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import {
@@ -25,7 +25,7 @@ import {
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./mobile-index.module.css";
+import * as styles from "./mobile-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
 import svgAddItem from "../images/additem.svg";
@@ -57,7 +57,9 @@ const Top = ({ data, t }) => (
       </div>
       <Padding y={30} />
       <div className={styles.topImageContainer}>
-        <Img fixed={data.mobileHomeTopRight.childImageSharp.fixed} />
+        <GatsbyImage
+          image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
+        />
       </div>
     </Container320>
   </GradientBG>
@@ -98,7 +100,7 @@ const KeyFeature = ({
       </div>
       <Padding y={30} />
       <div>
-        <Img fixed={image.childImageSharp.fixed} />
+        <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
       </div>
     </ContainerCenter>
   </div>
@@ -134,7 +136,9 @@ const TeamPlay = ({ data, t }) => (
     </Container320>
     <Padding y={29} />
     <div className={styles.teamImageFlex}>
-      <Img fixed={data.mobileTeamPlay.childImageSharp.fixed} />
+      <GatsbyImage
+        image={data.mobileTeamPlay.childImageSharp.gatsbyImageData}
+      />
     </div>
   </GradientBG>
 );
@@ -143,7 +147,7 @@ const CustomerCardWrapper = ({ img, children }) => {
   return (
     <div className={styles.customerButton}>
       <div className={styles.customerButtonBackground}>
-        <Img fixed={img} />
+        <GatsbyImage image={img} />
       </div>
       {children}
     </div>
@@ -154,45 +158,45 @@ const Customers = ({ data, t, language }) => {
   const customerData = [
     {
       title: t("index:customerData1Title"),
-      img: data.mobileCustomerMart.childImageSharp.fixed,
+      img: data.mobileCustomerMart.childImageSharp.gatsbyImageData,
       link: t("index:customerData1Link"),
     },
     // 영문 문서가 없어서 한글에서만 추가.
     language === "ko"
       ? {
           title: t("index:customerData2Title"),
-          img: data.mobileCustomerFasion.childImageSharp.fixed,
+          img: data.mobileCustomerFasion.childImageSharp.gatsbyImageData,
           link: t("index:customerData2Link"),
         }
       : null,
     {
       title: t("index:customerData3Title"),
-      img: data.mobileCustomerCosmetics.childImageSharp.fixed,
+      img: data.mobileCustomerCosmetics.childImageSharp.gatsbyImageData,
       link: t("index:customerData3Link"),
     },
     {
       title: t("index:customerData4Title"),
-      img: data.mobileCustomerCafe.childImageSharp.fixed,
+      img: data.mobileCustomerCafe.childImageSharp.gatsbyImageData,
       link: t("index:customerData4Link"),
     },
     {
       title: t("index:customerData5Title"),
-      img: data.mobileCustomerPharmacy.childImageSharp.fixed,
+      img: data.mobileCustomerPharmacy.childImageSharp.gatsbyImageData,
       link: t("index:customerData5Link"),
     },
     {
       title: t("index:customerData6Title"),
-      img: data.mobileCustomerHandmade.childImageSharp.fixed,
+      img: data.mobileCustomerHandmade.childImageSharp.gatsbyImageData,
       link: t("index:customerData6Link"),
     },
     {
       title: t("index:customerData7Title"),
-      img: data.mobileCustomerTextbook.childImageSharp.fixed,
+      img: data.mobileCustomerTextbook.childImageSharp.gatsbyImageData,
       link: t("index:customerData7Link"),
     },
     {
       title: t("index:customerData8Title"),
-      img: data.mobileCustomerLocation.childImageSharp.fixed,
+      img: data.mobileCustomerLocation.childImageSharp.gatsbyImageData,
       link: t("index:customerData8Link"),
     },
   ].filter((item) => item);
@@ -243,7 +247,9 @@ const Customers = ({ data, t, language }) => {
             </a>
           </CustomerCardWrapper>
         ))}
-        <CustomerCardWrapper img={data.mobileCustomerETC.childImageSharp.fixed}>
+        <CustomerCardWrapper
+          img={data.mobileCustomerETC.childImageSharp.gatsbyImageData}
+        >
           <AppDownloadLink
             className={styles.customerButtonContent}
             rel="noopener"
@@ -270,27 +276,27 @@ function genFeatureData(data, t) {
     {
       title: t("index:featureSafetyStock"),
       link: `/features/#${constants.idFeatureLowstock}`,
-      img: data.mobileFeatureLowstock.childImageSharp.fixed,
+      img: data.mobileFeatureLowstock.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featurePrintLabel"),
       link: `/features/#${constants.idFeatureBarcodelabel}`,
-      img: data.mobileFeatureBarcodeLabel.childImageSharp.fixed,
+      img: data.mobileFeatureBarcodeLabel.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featureTransactionStats"),
       link: `/features/#${constants.idFeatureSummary}`,
-      img: data.mobileFeatureSummary.childImageSharp.fixed,
+      img: data.mobileFeatureSummary.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featureViewPastQuantity"),
       link: `/features/#${constants.idFeatureViewPastQuantity}`,
-      img: data.mobileFeatureViewPastQuantity.childImageSharp.fixed,
+      img: data.mobileFeatureViewPastQuantity.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featureLocationManagement"),
       link: `/features/#${constants.idFeatureLocation}`,
-      img: data.mobileFeatureLocation.childImageSharp.fixed,
+      img: data.mobileFeatureLocation.childImageSharp.gatsbyImageData,
     },
   ];
 }
@@ -412,7 +418,7 @@ const Features = ({ data, t, language }) => {
       <Slider className={styles.sliderWrapper}>
         {featureData.map((data, index) => (
           <Slide key={index} index={index}>
-            <Img fixed={data.img} alt={data.title} />
+            <GatsbyImage image={data.img} alt={data.title} />
           </Slide>
         ))}
       </Slider>
@@ -448,7 +454,10 @@ const StartNow = ({ data, t }) => (
         <Trans i18nKey="index:startNowTitle" />
       </div>
       <Padding y={30} />
-      <Img fixed={data.mobileHomeStartNow.childImageSharp.fixed} />
+      <GatsbyImage
+        image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData}
+        style={{ margin: "0 auto" }}
+      />
       <Padding y={30} />
       <div className={styles.startNowDescription}>
         <Trans i18nKey="index:startNowDescription" />

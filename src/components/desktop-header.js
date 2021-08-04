@@ -5,7 +5,7 @@ import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 import { Container1024, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "../components/constants";
 // css
-import styles from "./desktop-header.module.css";
+import * as styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";

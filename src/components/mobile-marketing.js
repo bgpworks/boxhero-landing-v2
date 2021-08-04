@@ -1,26 +1,26 @@
 import React from "react";
 
-import styles from "./mobile-marketing.module.css";
-import Img from "gatsby-image";
+import * as styles from "./mobile-marketing.module.css";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { AppDownloadLink } from "../components/common";
 
 const MobileMarketing = ({ data }) => {
   return (
     <div className={styles.container}>
-      <Img fluid={data.mobile1.childImageSharp.fluid} />
+      <GatsbyImage image={data.mobile1.childImageSharp.gatsbyImageData} />
       <AppDownloadLink>
-        <Img fluid={data.mobile2.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile2.childImageSharp.gatsbyImageData} />
       </AppDownloadLink>
-      <Img fluid={data.mobile3.childImageSharp.fluid} />
+      <GatsbyImage image={data.mobile3.childImageSharp.gatsbyImageData} />
 
       <a href="/">
-        <Img fluid={data.mobile4.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile4.childImageSharp.gatsbyImageData} />
       </a>
 
-      <Img fluid={data.mobile5.childImageSharp.fluid} />
+      <GatsbyImage image={data.mobile5.childImageSharp.gatsbyImageData} />
       <AppDownloadLink>
-        <Img fluid={data.mobile6.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile6.childImageSharp.gatsbyImageData} />
       </AppDownloadLink>
     </div>
   );

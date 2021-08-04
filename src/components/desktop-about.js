@@ -1,12 +1,12 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
 import { Container1024, GradientBG, Padding } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./desktop-about.module.css";
+import * as styles from "./desktop-about.module.css";
 // img
 import iconAddItem from "../images/feature-additem.svg";
 import iconBulkAdd from "../images/feature-bulkadd.svg";
@@ -34,7 +34,7 @@ const Top = ({ data }) => (
         <Trans i18nKey="about:topTitle" />
       </div>
       <div className={styles.topRightContainer}>
-        <Img fixed={data.topLogo.childImageSharp.fixed} />
+        <GatsbyImage image={data.topLogo.childImageSharp.gatsbyImageData} />
       </div>
     </Container1024>
   </GradientBG>
@@ -44,14 +44,13 @@ const StrongPoints = ({ data }) => (
   <div className={styles.strongPointContainer}>
     <Container1024 className={styles.section}>
       <div className={`${styles.left47} ${styles.figContainer}`}>
-        <Img
-          fixed={data.easy.childImageSharp.fixed}
+        <GatsbyImage
+          image={data.easy.childImageSharp.gatsbyImageData}
           style={{
             position: "relative",
             top: 152,
             right: 219,
-          }}
-        />
+          }} />
       </div>
       <div>
         <Padding y={271} />
@@ -75,26 +74,24 @@ const StrongPoints = ({ data }) => (
         </div>
       </div>
       <div className={`${styles.left46} ${styles.figContainer}`}>
-        <Img
-          fixed={data.great.childImageSharp.fixed}
+        <GatsbyImage
+          image={data.great.childImageSharp.gatsbyImageData}
           style={{
             position: "relative",
             top: 137,
-          }}
-        />
+          }} />
       </div>
     </Container1024>
 
     <Container1024 className={styles.section}>
       <div className={`${styles.left46} ${styles.figContainer}`}>
-        <Img
-          fixed={data.mobile.childImageSharp.fixed}
+        <GatsbyImage
+          image={data.mobile.childImageSharp.gatsbyImageData}
           style={{
             position: "relative",
             top: 190,
             right: 109,
-          }}
-        />
+          }} />
       </div>
       <div>
         <Padding y={271} />

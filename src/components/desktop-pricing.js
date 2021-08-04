@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "../components/desktop-layout";
@@ -14,13 +14,12 @@ import {
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./desktop-pricing.module.css";
+import * as styles from "./desktop-pricing.module.css";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <div className={styles.topDescColumn}>
-    <div>
-      <Img fixed={emoji} alt={title} />
-    </div>
+    <GatsbyImage image={emoji} alt={title} style={{ margin: "0 auto" }} />
+
     <Padding y={10} />
     <div className={styles.topDescTitle}>{title}</div>
     <Padding y={10} />
@@ -34,13 +33,13 @@ const TopDesc = ({ data, t }) => (
   <Container1024>
     <div className={styles.topDescContainer}>
       <TopDescColumn
-        emoji={data.emojiOne.childImageSharp.fixed}
+        emoji={data.emojiOne.childImageSharp.gatsbyImageData}
         title={t("pricing:topDesc1Title")}
         desc={<Trans i18nKey="pricing:topDesc1Desc" />}
       />
       <TopDescSpliter />
       <TopDescColumn
-        emoji={data.emojiTwo.childImageSharp.fixed}
+        emoji={data.emojiTwo.childImageSharp.gatsbyImageData}
         title={t("pricing:topDesc2Title")}
         desc={<Trans i18nKey="pricing:topDesc2Desc" />}
       />
@@ -203,7 +202,7 @@ const PriceTable = ({ data, language, t }) => {
   );
 };
 
-const FAQ = ({ t }) => {
+const Faq = ({ t }) => {
   const faqData = [
     {
       question: t("pricing:faq1Question"),
@@ -342,7 +341,7 @@ export const DesktopPricing = ({ data, language, t }) => {
 
       <Padding y={100} />
 
-      <FAQ t={t} />
+      <Faq t={t} />
 
       <DirectContact t={t} />
     </DesktopLayout>

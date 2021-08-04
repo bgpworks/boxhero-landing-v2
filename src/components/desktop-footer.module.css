@@ -70,7 +70,6 @@
   margin-left: 10px;
 }
 
-
 .platformImgButton {
   display: block;
 }
@@ -187,14 +186,16 @@
   vertical-align: middle;
   background-repeat: no-repeat;
   background-position: right 8px center;
-  background: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjYiIHdpZHRoPSIxMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNSA2LjI1IDUtNi4yNWgtMTB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=") no-repeat right 8px center;
+  background: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjYiIHdpZHRoPSIxMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNSA2LjI1IDUtNi4yNWgtMTB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=")
+    no-repeat right 8px center;
+  background-size: 10px 6px;
   outline: none;
   border: none;
   box-shadow: none;
   font-weight: bold;
   display: inline-block;
   padding-right: 30px;
-  padding-right: 8px \9;
+  padding-right: 8px;
   appearance: none;
 }
 

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import DesktopHeader from "./desktop-header";
 import DesktopFooter from "./desktop-footer";
-import styles from "./desktop-layout.module.css";
+import * as styles from "./desktop-layout.module.css";
 
 export const DesktopLayout = ({
   isFloatMenu,

@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby-plugin-react-i18next";
 
 const APP_DOWNLOAD_LINK =
@@ -8,14 +8,14 @@ const APP_DOWNLOAD_LINK =
 const MobileMarketing = ({ data }) => {
   return (
     <div>
-      <Img fluid={data.mobile1.childImageSharp.fluid} />
+      <GatsbyImage image={data.mobile1.childImageSharp.gatsbyImageData} />
       <a href={APP_DOWNLOAD_LINK}>
-        <Img fluid={data.mobile2.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile2.childImageSharp.gatsbyImageData} />
       </a>
-      <Img fluid={data.mobile3.childImageSharp.fluid} />
+      <GatsbyImage image={data.mobile3.childImageSharp.gatsbyImageData} />
 
       <Link to="/">
-        <Img fluid={data.mobile4.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile4.childImageSharp.gatsbyImageData} />
       </Link>
     </div>
   );

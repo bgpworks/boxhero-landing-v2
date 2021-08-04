@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
-import styles from "./common.module.css";
+import * as styles from "./common.module.css";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import {
@@ -120,7 +120,7 @@ export const SupportEmail = () => {
 export const Switch = ({ isActive, onChange }) => {
   const id = Math.random().toString();
   return (
-    <div className={styles.switch}>
+    <div className={styles.switchComp}>
       <input
         id={id}
         type="checkbox"

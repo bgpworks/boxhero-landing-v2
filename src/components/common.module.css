@@ -89,7 +89,6 @@ html[lang="ko"] .mobileSimpleTopDesc {
   margin-bottom: 0px;
 }
 
-/* switch */
 @value bg-disabled-color: #e0e0e3;
 @value bg-disabled-border-color: #cbccd3;
 @value bg-enabled-color: rgba(60, 185, 160, 0.2);
@@ -97,7 +96,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
 @value lever-disabled-color: #fff;
 @value lever-enabled-color: var(--color-ribbon-green);
 
-.switch {
+.switchComp {
   display: inline-block;
   position: relative;
   font-size: 16px;

@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import { Padding } from "./common";
 // css
-import styles from "./mobile-footer.module.css";
+import * as styles from "./mobile-footer.module.css";
 // images
 import svgCompanyLogo from "../images/company-logo.svg";
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
-    <Img fixed={emoji.childImageSharp.fixed} />
+    <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
     <div className={styles.startNowDescription}>{message}</div>
   </div>
 );
@@ -23,7 +23,7 @@ StartNow.propTypes = {
 };
 
 const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
-  <div className={styles.footerMenusContainer}>
+  <div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Service</div>
       <div>

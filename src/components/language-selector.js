@@ -2,7 +2,7 @@ import React from "react";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { Padding } from "./common";
 // css
-import styles from "./language-selector.module.css";
+import * as styles from "./language-selector.module.css";
 
 const LANG_NAME = {
   ko: "한국어",

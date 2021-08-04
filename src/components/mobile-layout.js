@@ -7,7 +7,7 @@ import MobileFooter from "./mobile-footer";
 import { AppDownloadLink } from "../components/common";
 import { LangPopup } from "./language-selector";
 // css
-import styles from "./mobile-layout.module.css";
+import * as styles from "./mobile-layout.module.css";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 // images
 import svgDownload from "../images/download.svg";
