@@ -104,7 +104,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        excludes: ["/**/404", "/**/404.html"],
+        exclude: ["/**/404", "/**/404.html"],
         query: `
           {
             site {

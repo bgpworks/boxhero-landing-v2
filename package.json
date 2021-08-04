@@ -17,7 +17,7 @@
     "gatsby-plugin-react-i18next": "^1.1.1",
     "gatsby-plugin-scroll-reveal": "0.0.7",
     "gatsby-plugin-sharp": "^3.10.2",
-    "gatsby-plugin-sitemap": "4.6.0",
+    "gatsby-plugin-sitemap": "2.4.13",
     "gatsby-plugin-smoothscroll": "1.2.0",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-transformer-sharp": "^3.10.0",
