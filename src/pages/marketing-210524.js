@@ -34,9 +34,12 @@ export const query = graphql`
       base: { eq: "marketing-210524-1.png" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 863
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
     mobile2: file(
@@ -44,9 +47,12 @@ export const query = graphql`
       base: { eq: "marketing-210524-2.png" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 863
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
     mobile3: file(
@@ -54,9 +60,12 @@ export const query = graphql`
       base: { eq: "marketing-210524-3.png" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 863
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
     mobile4: file(
@@ -64,9 +73,12 @@ export const query = graphql`
       base: { eq: "marketing-210524-4.png" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 863, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 863
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
   }

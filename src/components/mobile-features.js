@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "../components/mobile-layout";
@@ -12,8 +12,8 @@ const { bgOrange, bgGreen, bgBlue, bgWhite } = styles;
 
 const DemoTemplate = ({ icon, title, desc }) => (
   <div className={styles.demoTemplate}>
-    <div>
-      <Img fixed={icon} className={styles.demoLogo} />
+    <div className={styles.demoUserProfile}>
+      <GatsbyImage image={icon} className={styles.demoLogo} />
       <span className={styles.demoTitle}>- {title} -</span>
     </div>
     <Padding y={20} />
@@ -40,7 +40,7 @@ function FeatureTemplate(props) {
       <Padding y={30} />
 
       <div className={styles.featureTemplateFigureContainer}>
-        <Img fixed={props.figure} />
+        <GatsbyImage image={props.figure} />
       </div>
 
       <Padding y={31} />
@@ -66,16 +66,16 @@ const FeatureLowstock = (props) => (
     id={constants.idFeatureLowstock}
     bgColor={bgGreen}
     title={<Trans i18nKey="features:lowstockTitle" />}
-    figure={props.data.mobileLowstockFig.childImageSharp.fixed}
+    figure={props.data.mobileLowstockFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:lowstockDescMobile" />}
     demoData={[
       {
-        icon: props.data.mobileLowstockDemo1.childImageSharp.fixed,
+        icon: props.data.mobileLowstockDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:lowstockDemo1Title" />,
         desc: <Trans i18nKey="features:lowstockDemo1DescMobile" />,
       },
       {
-        icon: props.data.mobileLowstockDemo2.childImageSharp.fixed,
+        icon: props.data.mobileLowstockDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:lowstockDemo2Title" />,
         desc: <Trans i18nKey="features:lowstockDemo2DescMobile" />,
       },
@@ -88,16 +88,18 @@ const FeatureBarcodelabel = (props) => (
     id={constants.idFeatureBarcodelabel}
     bgColor={bgWhite}
     title={<Trans i18nKey="features:barcodelabelTitleMobile" />}
-    figure={props.data.mobileBarcodelabelFig.childImageSharp.fixed}
+    figure={props.data.mobileBarcodelabelFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:barcodelabelDescMobile" />}
     demoData={[
       {
-        icon: props.data.mobileBarcodelabelDemo1.childImageSharp.fixed,
+        icon:
+          props.data.mobileBarcodelabelDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:barcodelabelDemo1Title" />,
         desc: <Trans i18nKey="features:barcodelabelDemo1DescMobile" />,
       },
       {
-        icon: props.data.mobileBarcodelabelDemo2.childImageSharp.fixed,
+        icon:
+          props.data.mobileBarcodelabelDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:barcodelabelDemo2Title" />,
         desc: <Trans i18nKey="features:barcodelabelDemo2DescMobile" />,
       },
@@ -110,16 +112,16 @@ const FeatureSummary = (props) => (
     id={constants.idFeatureSummary}
     bgColor={bgBlue}
     title={<Trans i18nKey="features:summaryTitleMobile" />}
-    figure={props.data.mobileSummaryFig.childImageSharp.fixed}
+    figure={props.data.mobileSummaryFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:summaryDescMobile" />}
     demoData={[
       {
-        icon: props.data.mobileSummaryDemo1.childImageSharp.fixed,
+        icon: props.data.mobileSummaryDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:summaryDemo1Title" />,
         desc: <Trans i18nKey="features:summaryDemo1DescMobile" />,
       },
       {
-        icon: props.data.mobileSummaryDemo2.childImageSharp.fixed,
+        icon: props.data.mobileSummaryDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:summaryDemo2Title" />,
         desc: <Trans i18nKey="features:summaryDemo2DescMobile" />,
       },
@@ -132,16 +134,22 @@ const FeatureViewPastQuantity = (props) => (
     id={constants.idFeatureViewPastQuantity}
     bgColor={bgWhite}
     title={<Trans i18nKey="features:viewPastQuantityTitleMobile" />}
-    figure={props.data.mobileViewPastQuantityFig.childImageSharp.fixed}
+    figure={
+      props.data.mobileViewPastQuantityFig.childImageSharp.gatsbyImageData
+    }
     desc={<Trans i18nKey="features:viewPastQuantityDescMobile" />}
     demoData={[
       {
-        icon: props.data.mobileViewPastQuantityDemo1.childImageSharp.fixed,
+        icon:
+          props.data.mobileViewPastQuantityDemo1.childImageSharp
+            .gatsbyImageData,
         title: <Trans i18nKey="features:viewPastQuantityDemo1Title" />,
         desc: <Trans i18nKey="features:viewPastQuantityDemo1DescMobile" />,
       },
       {
-        icon: props.data.mobileViewPastQuantityDemo2.childImageSharp.fixed,
+        icon:
+          props.data.mobileViewPastQuantityDemo2.childImageSharp
+            .gatsbyImageData,
         title: <Trans i18nKey="features:viewPastQuantityDemo2Title" />,
         desc: <Trans i18nKey="features:viewPastQuantityDemo2DescMobile" />,
       },
@@ -154,16 +162,16 @@ const FeatureLocation = (props) => (
     id={constants.idFeatureLocation}
     bgColor={bgOrange}
     title={<Trans i18nKey="features:locationTitleMobile" />}
-    figure={props.data.mobileLocationFig.childImageSharp.fixed}
+    figure={props.data.mobileLocationFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:locationDescMobile" />}
     demoData={[
       {
-        icon: props.data.mobileLocationDemo1.childImageSharp.fixed,
+        icon: props.data.mobileLocationDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:locationDemo1Title" />,
         desc: <Trans i18nKey="features:locationDemo1DescMobile" />,
       },
       {
-        icon: props.data.mobileLocationDemo2.childImageSharp.fixed,
+        icon: props.data.mobileLocationDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:locationDemo2Title" />,
         desc: <Trans i18nKey="features:locationDemo2DescMobile" />,
       },

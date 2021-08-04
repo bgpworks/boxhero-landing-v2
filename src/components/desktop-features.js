@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans } from "gatsby-plugin-react-i18next";
 import scrollTo from "gatsby-plugin-smoothscroll";
 // js
@@ -86,8 +86,8 @@ const Menu = ({ t }) => (
 
 const DemoTemplate = ({ barColor, icon, title, desc }) => (
   <div className={[styles.demoTemplate, barColor].join(" ")}>
-    <div>
-      <Img fixed={icon} className={styles.demoLogo} />
+    <div className={styles.demoUserProfile}>
+      <GatsbyImage image={icon} className={styles.demoLogo} />
       <span className={styles.demoTitle}>- {title} -</span>
     </div>
     <Padding y={20} />
@@ -141,7 +141,7 @@ function FeatureTemplate(props) {
             data-sal-duration="500"
             data-sal-easing="easeOutQuint"
           >
-            <Img fixed={props.figure} style={props.figureStyle} />
+            <GatsbyImage image={props.figure} style={props.figureStyle} />
           </div>
         </div>
         <Padding y={150} />
@@ -172,17 +172,17 @@ const FeatureLowstock = (props) => (
     id={constants.idFeatureLowstock}
     bgColor={bgGreen}
     title={<Trans i18nKey="features:lowstockTitle" />}
-    figure={props.data.lowstockFig.childImageSharp.fixed}
+    figure={props.data.lowstockFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:lowstockDesc" />}
     barColor={barGreen}
     demoData={[
       {
-        icon: props.data.lowstockDemo1.childImageSharp.fixed,
+        icon: props.data.lowstockDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:lowstockDemo1Title" />,
         desc: <Trans i18nKey="features:lowstockDemo1Desc" />,
       },
       {
-        icon: props.data.lowstockDemo2.childImageSharp.fixed,
+        icon: props.data.lowstockDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:lowstockDemo2Title" />,
         desc: <Trans i18nKey="features:lowstockDemo2Desc" />,
       },
@@ -195,17 +195,17 @@ const FeatureBarcodelabel = (props) => (
     id={constants.idFeatureBarcodelabel}
     bgColor={bgWhite}
     title={<Trans i18nKey="features:barcodelabelTitle" />}
-    figure={props.data.barcodelabelFig.childImageSharp.fixed}
+    figure={props.data.barcodelabelFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:barcodelabelDesc" />}
     barColor={barGray}
     demoData={[
       {
-        icon: props.data.barcodelabelDemo1.childImageSharp.fixed,
+        icon: props.data.barcodelabelDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:barcodelabelDemo1Title" />,
         desc: <Trans i18nKey="features:barcodelabelDemo1Desc" />,
       },
       {
-        icon: props.data.barcodelabelDemo2.childImageSharp.fixed,
+        icon: props.data.barcodelabelDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:barcodelabelDemo2Title" />,
         desc: <Trans i18nKey="features:barcodelabelDemo2Desc" />,
       },
@@ -218,17 +218,17 @@ const FeatureSummary = (props) => (
     id={constants.idFeatureSummary}
     bgColor={bgBlue}
     title={<Trans i18nKey="features:summaryTitle" />}
-    figure={props.data.summaryFig.childImageSharp.fixed}
+    figure={props.data.summaryFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:summaryDesc" />}
     barColor={barBlue}
     demoData={[
       {
-        icon: props.data.summaryDemo1.childImageSharp.fixed,
+        icon: props.data.summaryDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:summaryDemo1Title" />,
         desc: <Trans i18nKey="features:summaryDemo1Desc" />,
       },
       {
-        icon: props.data.summaryDemo2.childImageSharp.fixed,
+        icon: props.data.summaryDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:summaryDemo2Title" />,
         desc: <Trans i18nKey="features:summaryDemo2Desc" />,
       },
@@ -241,17 +241,17 @@ const FeatureViewPastQuantity = (props) => (
     id={constants.idFeatureViewPastQuantity}
     bgColor={bgWhite}
     title={<Trans i18nKey="features:viewPastQuantityTitle" />}
-    figure={props.data.viewPastQuantityFig.childImageSharp.fixed}
+    figure={props.data.viewPastQuantityFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:viewPastQuantityDesc" />}
     barColor={barGray}
     demoData={[
       {
-        icon: props.data.viewPastQuantityDemo1.childImageSharp.fixed,
+        icon: props.data.viewPastQuantityDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:viewPastQuantityDemo1Title" />,
         desc: <Trans i18nKey="features:viewPastQuantityDemo1Desc" />,
       },
       {
-        icon: props.data.viewPastQuantityDemo2.childImageSharp.fixed,
+        icon: props.data.viewPastQuantityDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:viewPastQuantityDemo2Title" />,
         desc: <Trans i18nKey="features:viewPastQuantityDemo2Desc" />,
       },
@@ -264,17 +264,17 @@ const FeatureLocation = (props) => (
     id={constants.idFeatureLocation}
     bgColor={bgOrange}
     title={<Trans i18nKey="features:locationTitle" />}
-    figure={props.data.locationFig.childImageSharp.fixed}
+    figure={props.data.locationFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:locationDesc" />}
     barColor={barOrange}
     demoData={[
       {
-        icon: props.data.locationDemo1.childImageSharp.fixed,
+        icon: props.data.locationDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:locationDemo1Title" />,
         desc: <Trans i18nKey="features:locationDemo1Desc" />,
       },
       {
-        icon: props.data.locationDemo2.childImageSharp.fixed,
+        icon: props.data.locationDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:locationDemo2Title" />,
         desc: <Trans i18nKey="features:locationDemo2Desc" />,
       },

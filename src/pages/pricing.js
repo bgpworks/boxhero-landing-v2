@@ -38,58 +38,82 @@ export const query = graphql`
     }
     box: file(relativePath: { eq: "emoji-box.png" }) {
       childImageSharp {
-        fixed(width: 72, height: 72, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 72
+          height: 72
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
       }
     }
     emojiOne: file(relativePath: { eq: "emoji-one.png" }) {
       childImageSharp {
-        fixed(width: 36, height: 36, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 36
+          height: 36
+          layout: FIXED
+          placeholder: BLURRED
+        )
       }
     }
     emojiTwo: file(relativePath: { eq: "emoji-two.png" }) {
       childImageSharp {
-        fixed(width: 36, height: 36, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 36
+          height: 36
+          layout: FIXED
+          placeholder: BLURRED
+        )
       }
     }
     emojiOneSmall: file(relativePath: { eq: "emoji-one.png" }) {
       childImageSharp {
-        fixed(width: 24, height: 24, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 24
+          height: 24
+          layout: FIXED
+          placeholder: BLURRED
+        )
       }
     }
     emojiTwoSmall: file(relativePath: { eq: "emoji-two.png" }) {
       childImageSharp {
-        fixed(width: 24, height: 24, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 24
+          height: 24
+          layout: FIXED
+          placeholder: BLURRED
+        )
       }
     }
     mobileBox: file(relativePath: { eq: "emoji-box.png" }) {
       childImageSharp {
-        fixed(width: 36, height: 36, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 36
+          height: 36
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
       }
     }
     mobileEmojiOne: file(relativePath: { eq: "emoji-one.png" }) {
       childImageSharp {
-        fixed(width: 24, height: 24, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
       }
     }
     mobileEmojiTwo: file(relativePath: { eq: "emoji-two.png" }) {
       childImageSharp {
-        fixed(width: 24, height: 24, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
       }
     }
   }

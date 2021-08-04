@@ -36,11 +36,17 @@ html[lang="ko"] .featureTemplateDesc {
 }
 
 .featureTemplateFigureContainer {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .demoTemplate:not(:first-child) {
   margin-top: 50px;
+}
+
+.demoUserProfile {
+  display: flex;
+  align-items: flex-end;
 }
 
 .demoLogo {

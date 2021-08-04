@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import { Container1024, ExternalLinkWithQuery } from "./common";
@@ -18,7 +18,7 @@ import svgCompanyLogo from "../images/company-logo.svg";
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
-    <Img fixed={emoji.childImageSharp.fixed} />
+    <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
     <div className={styles.startNowDescription}>{message}</div>
     <ExternalLinkWithQuery href={constants.urlStart}>
       <button className={styles.startNowButton}>

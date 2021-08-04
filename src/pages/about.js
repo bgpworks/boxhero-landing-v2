@@ -41,25 +41,28 @@ export const query = graphql`
       base: { eq: "about-top.png" }
     ) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 697
-          traceSVG: {
+          tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
             threshold: 160
             alphaMax: 1
             turnPolicy: TURNPOLICY_MAJORITY
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
     light: file(relativePath: { eq: "emoji-light.png" }) {
       childImageSharp {
-        fixed(width: 72, height: 72, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 72
+          height: 72
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
       }
     }
     easy: file(
@@ -67,50 +70,50 @@ export const query = graphql`
       base: { eq: "img-easy.png" }
     ) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 673
-          traceSVG: {
+          tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
             alphaMax: 1
             color: "#f0f0f3"
             threshold: 160
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
     great: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 660
-          traceSVG: {
+          tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
             alphaMax: 1
             color: "#f0f0f3"
             threshold: 160
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
     mobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 463
-          traceSVG: {
+          tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
             alphaMax: 1
             color: "#f0f0f3"
             threshold: 160
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
     mobileTopLogo: file(
@@ -118,25 +121,28 @@ export const query = graphql`
       base: { eq: "about-top.png" }
     ) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 320
-          traceSVG: {
+          tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
             threshold: 160
             alphaMax: 1
             turnPolicy: TURNPOLICY_MAJORITY
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
     mobileLight: file(relativePath: { eq: "emoji-light.png" }) {
       childImageSharp {
-        fixed(width: 36, height: 36, fit: FILL) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(
+          width: 36
+          height: 36
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
       }
     }
     mobileEasy: file(
@@ -144,50 +150,50 @@ export const query = graphql`
       base: { eq: "img-easy.png" }
     ) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 300
-          traceSVG: {
+          tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
             alphaMax: 1
             color: "#f0f0f3"
             threshold: 160
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
     mobileGreat: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 300
-          traceSVG: {
+          tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
             alphaMax: 1
             color: "#f0f0f3"
             threshold: 160
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
     mobileMobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
-        fixed(
+        gatsbyImageData(
           width: 300
-          traceSVG: {
+          tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
             alphaMax: 1
             color: "#f0f0f3"
             threshold: 160
           }
-        ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
       }
     }
   }

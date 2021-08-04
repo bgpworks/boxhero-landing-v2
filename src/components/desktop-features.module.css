@@ -97,6 +97,11 @@ html[lang="ko"] .featureTemplateDesc {
   align-items: flex-start;
 }
 
+.demoUserProfile {
+  display: flex;
+  align-items: flex-end;
+}
+
 .demoLogo {
   vertical-align: bottom;
 }

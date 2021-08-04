@@ -5,7 +5,7 @@ import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import SEOHelmet from "../components/SEOHelmet";
 import { ExternalLinkWithQuery } from "../components/common";
 import { useHelpscout } from "../components/helpscout";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { urlStart } from "../components/constants";
 
 const MarketingPage = ({ data, location }) => {
@@ -20,15 +20,15 @@ const MarketingPage = ({ data, location }) => {
         path={location.pathname}
       />
       <div style={{ maxWidth: 960, margin: "0 auto" }}>
-        <Img fluid={data.mobile1.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile1.childImageSharp.gatsbyImageData} />
         <ExternalLinkWithQuery href={urlStart}>
-          <Img fluid={data.mobile2.childImageSharp.fluid} />
+          <GatsbyImage image={data.mobile2.childImageSharp.gatsbyImageData} />
         </ExternalLinkWithQuery>
-        <Img fluid={data.mobile3.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile3.childImageSharp.gatsbyImageData} />
         <Link to="/">
-          <Img fluid={data.mobile4.childImageSharp.fluid} />
+          <GatsbyImage image={data.mobile4.childImageSharp.gatsbyImageData} />
         </Link>
-        <Img fluid={data.mobile5.childImageSharp.fluid} />
+        <GatsbyImage image={data.mobile5.childImageSharp.gatsbyImageData} />
       </div>
     </>
   );
@@ -43,37 +43,52 @@ export const query = graphql`
     }
     mobile1: file(base: { eq: "marketing-210630-1.png" }) {
       childImageSharp {
-        fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 960
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
     mobile2: file(base: { eq: "marketing-210630-2.png" }) {
       childImageSharp {
-        fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 960
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
     mobile3: file(base: { eq: "marketing-210630-3.png" }) {
       childImageSharp {
-        fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 960
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
     mobile4: file(base: { eq: "marketing-210630-4.png" }) {
       childImageSharp {
-        fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 960
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
     mobile5: file(base: { eq: "marketing-210630-5.png" }) {
       childImageSharp {
-        fluid(maxWidth: 960, webpQuality: 100, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 960
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
       }
     }
   }

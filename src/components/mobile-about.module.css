@@ -36,7 +36,7 @@
 }
 
 .title strong {
-  color: var(--color-font-blue)
+  color: var(--color-font-blue);
 }
 
 .desc {
@@ -48,7 +48,8 @@
 
 .logoContainer {
   margin-top: 30px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* Other features  */
@@ -77,7 +78,6 @@
 
 .featureRow {
   margin-top: 40px;
-
 }
 
 .featureRowTitle {

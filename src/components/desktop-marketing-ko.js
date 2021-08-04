@@ -4,7 +4,7 @@ import { ExternalLinkWithQuery } from "./common";
 import * as constants from "./constants";
 
 import * as styles from "./desktop-marketing.module.css";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Link = ({ href, x, y, width, height }) => {
   return (
@@ -25,7 +25,7 @@ const DesktopMarketing = ({ data }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <Img fixed={data.web.childImageSharp.fixed} />
+        <GatsbyImage image={data.web.childImageSharp.gatsbyImageData} />
 
         <Link
           href={constants.urlStart}
