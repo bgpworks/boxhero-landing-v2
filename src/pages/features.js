@@ -53,6 +53,7 @@ export const query = graphql`
           height: 72
           transformOptions: { fit: FILL }
           layout: FIXED
+          placeholder: BLURRED
         )
       }
     }
