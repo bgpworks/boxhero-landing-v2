@@ -11,7 +11,7 @@ import {
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./mobile-about.module.css";
+import * as styles from "./mobile-about.module.css";
 // img
 import iconAddItem from "../images/feature-additem.svg";
 import iconBulkAdd from "../images/feature-bulkadd.svg";
@@ -34,7 +34,7 @@ const Top = ({ data }) => (
     colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
     backgroundColor="#6159F5"
   >
-    <Container320 className={styles.topContentContainer}>
+    <Container320>
       <Padding y={94} />
       <div className={styles.topTitleContainer}>
         <Trans i18nKey="about:topTitleMobile" />

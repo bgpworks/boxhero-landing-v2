@@ -14,7 +14,7 @@ import {
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./desktop-pricing.module.css";
+import * as styles from "./desktop-pricing.module.css";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <div className={styles.topDescColumn}>
@@ -203,7 +203,7 @@ const PriceTable = ({ data, language, t }) => {
   );
 };
 
-const FAQ = ({ t }) => {
+const Faq = ({ t }) => {
   const faqData = [
     {
       question: t("pricing:faq1Question"),
@@ -342,7 +342,7 @@ export const DesktopPricing = ({ data, language, t }) => {
 
       <Padding y={100} />
 
-      <FAQ t={t} />
+      <Faq t={t} />
 
       <DirectContact t={t} />
     </DesktopLayout>

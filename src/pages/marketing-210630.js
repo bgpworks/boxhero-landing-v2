@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import SEO from "../components/seo";
+import SEOHelmet from "../components/SEOHelmet";
 import { ExternalLinkWithQuery } from "../components/common";
 import { useHelpscout } from "../components/helpscout";
 import Img from "gatsby-image";
@@ -13,7 +13,7 @@ const MarketingPage = ({ data, location }) => {
   useHelpscout();
   return (
     <>
-      <SEO
+      <SEOHelmet
         lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}

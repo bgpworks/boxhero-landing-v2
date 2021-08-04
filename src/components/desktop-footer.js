@@ -7,7 +7,7 @@ import { Container1024, ExternalLinkWithQuery } from "./common";
 import * as constants from "./constants";
 import { LangSelect } from "./language-selector";
 // css
-import styles from "./desktop-footer.module.css";
+import * as styles from "./desktop-footer.module.css";
 // images
 import svgPcWeb from "../images/pcweb.svg";
 import svgWindows from "../images/windows.svg";

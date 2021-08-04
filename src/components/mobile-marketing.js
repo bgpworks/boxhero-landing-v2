@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./mobile-marketing.module.css";
+import * as styles from "./mobile-marketing.module.css";
 import Img from "gatsby-image";
 
 import { AppDownloadLink } from "../components/common";

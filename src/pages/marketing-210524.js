@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 // js
-import SEO from "../components/seo";
+import SEOHelmet from "../components/SEOHelmet";
 import MobileMarketing from "../components/mobile-marketing-210524";
 import { useHelpscout } from "../components/helpscout";
 
@@ -11,7 +11,7 @@ const MarketingPage = ({ data, location }) => {
   useHelpscout();
   return (
     <>
-      <SEO
+      <SEOHelmet
         lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}

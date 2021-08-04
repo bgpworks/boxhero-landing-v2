@@ -12,7 +12,7 @@ import {
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./desktop-features.module.css";
+import * as styles from "./desktop-features.module.css";
 // img
 import iconMenuEmpty from "../images/features-menu-empty.svg";
 import iconMenuCustomization from "../images/features-menu-customization.svg";

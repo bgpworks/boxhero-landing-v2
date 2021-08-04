@@ -15,7 +15,7 @@ import {
 import * as constants from "../components/constants";
 import { AppDownloadLink } from "../components/common";
 // css
-import styles from "./mobile-pricing.module.css";
+import * as styles from "./mobile-pricing.module.css";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <>
@@ -170,7 +170,7 @@ const PriceTable = ({ data, language, t }) => {
   );
 };
 
-const FAQ = ({ t }) => {
+const Faq = ({ t }) => {
   const faqData = [
     {
       question: t("pricing:faq1Question"),
@@ -316,7 +316,7 @@ const MobilePricing = ({ data, language, t }) => {
 
       <PriceTable data={data} language={language} t={t} />
 
-      <FAQ t={t} />
+      <Faq t={t} />
 
       <DirectContact t={t} />
     </MobileLayout>

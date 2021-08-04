@@ -6,7 +6,7 @@ import DesktopLayout from "../components/desktop-layout";
 import { Container1024, GradientBG, Padding } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./desktop-about.module.css";
+import * as styles from "./desktop-about.module.css";
 // img
 import iconAddItem from "../images/feature-additem.svg";
 import iconBulkAdd from "../images/feature-bulkadd.svg";

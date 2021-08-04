@@ -26,7 +26,7 @@ import {
 } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./desktop-index.module.css";
+import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
 import svgAddItem from "../images/additem.svg";

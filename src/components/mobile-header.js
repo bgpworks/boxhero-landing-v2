@@ -5,7 +5,7 @@ import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import { Container320, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
 // css
-import styles from "./mobile-header.module.css";
+import * as styles from "./mobile-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";

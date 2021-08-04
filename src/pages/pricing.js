@@ -2,18 +2,18 @@ import React from "react";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 // js
-import SEO from "../components/seo";
+import SEOHelmet from "../components/SEOHelmet";
 import { Media } from "../media";
 import DesktopPricing from "../components/desktop-pricing";
 import MobilePricing from "../components/mobile-pricing";
 import { useHelpscout } from "../components/helpscout";
 
-export const PricingPage = ({ data, location }) => {
+export default function PricingPage({ data, location }) {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
-      <SEO
+      <SEOHelmet
         lang={language}
         title={t("pricing:pageTitle")}
         description={t("pricing:pageDescription")}
@@ -29,9 +29,7 @@ export const PricingPage = ({ data, location }) => {
       </Media>
     </>
   );
-};
-
-export default PricingPage;
+}
 
 export const query = graphql`
   query($language: String!) {

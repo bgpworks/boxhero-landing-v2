@@ -5,7 +5,7 @@ import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import { Padding } from "./common";
 // css
-import styles from "./mobile-footer.module.css";
+import * as styles from "./mobile-footer.module.css";
 // images
 import svgCompanyLogo from "../images/company-logo.svg";
 
@@ -23,7 +23,7 @@ StartNow.propTypes = {
 };
 
 const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
-  <div className={styles.footerMenusContainer}>
+  <div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Service</div>
       <div>

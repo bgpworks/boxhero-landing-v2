@@ -6,7 +6,7 @@ import MobileLayout from "../components/mobile-layout";
 import { Container320, Padding, MobileSimpleTop } from "../components/common";
 import * as constants from "../components/constants";
 // css
-import styles from "./mobile-features.module.css";
+import * as styles from "./mobile-features.module.css";
 
 const { bgOrange, bgGreen, bgBlue, bgWhite } = styles;
 

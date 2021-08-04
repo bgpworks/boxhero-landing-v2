@@ -3,7 +3,7 @@ import React from "react";
 import { ExternalLinkWithQuery } from "./common";
 import * as constants from "./constants";
 
-import styles from "./desktop-marketing.module.css";
+import * as styles from "./desktop-marketing.module.css";
 import Img from "gatsby-image";
 
 const Link = ({ href, x, y, width, height }) => {

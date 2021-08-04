@@ -2,18 +2,18 @@ import React from "react";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 // js
-import SEO from "../components/seo";
+import SEOHelmet from "../components/SEOHelmet";
 import { Media } from "../media";
 import DesktopFeatures from "../components/desktop-features";
 import MobileFeatures from "../components/mobile-features";
 import { useHelpscout } from "../components/helpscout";
 
-export const FeaturesPage = ({ data, location }) => {
+export default function FeaturesPage({ data, location }) {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
-      <SEO
+      <SEOHelmet
         lang={language}
         title={t("features:pageTitle")}
         description={t("features:pageDescription")}
@@ -29,9 +29,7 @@ export const FeaturesPage = ({ data, location }) => {
       </Media>
     </>
   );
-};
-
-export default FeaturesPage;
+}
 
 export const query = graphql`
   query($language: String!) {
