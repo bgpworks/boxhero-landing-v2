@@ -131,11 +131,8 @@ module.exports = {
         `,
         serialize: ({ site, allSitePage }) => {
           return allSitePage.edges.map((edge) => {
-            const {
-              languages,
-              originalPath,
-              defaultLanguage,
-            } = edge.node.context.i18n;
+            const { languages, originalPath, defaultLanguage } =
+              edge.node.context.i18n;
             const { siteUrl } = site.siteMetadata;
             const url = siteUrl + originalPath;
             const links = [{ lang: "x-default", url }];
@@ -153,5 +150,27 @@ module.exports = {
       },
     },
     `gatsby-plugin-smoothscroll`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/posts/`,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        excerpt_seperator: `<!-- endexcerpt -->`,
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 800,
+              tracedSVG: true,
+            },
+          },
+        ],
+      },
+    },
   ],
 };
