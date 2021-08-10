@@ -82,13 +82,13 @@
 }
 
 .pagination-bar {
-  width: 600px;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   padding: 0 100px;
   margin-top: 80px;
+
+  position: relative;
 }
 
 .pagination-bar span {
@@ -97,8 +97,18 @@
 }
 
 .navButton {
+  position: absolute;
+
   display: flex;
   align-items: center;
+}
+
+.navButton:first-child {
+  left: -110px;
+}
+
+.navButton:last-child {
+  right: -110px;
 }
 
 .prevButtonLabel {

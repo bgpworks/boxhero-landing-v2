@@ -31,27 +31,19 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
 
   return (
     <div className={paginationBar}>
-      {!canGoPrev ? (
-        <div></div>
-      ) : (
-        <Link to={`${pathPrefix}/${pageIndex - 1}`}>
-          <div className={navButton}>
-            <img src={svgArrowPrev} />
-            <span className={prevButtonLabel}>이전</span>
-          </div>
+      {canGoPrev && (
+        <Link to={`${pathPrefix}/${pageIndex - 1}`} className={navButton}>
+          <img src={svgArrowPrev} />
+          <span className={prevButtonLabel}>이전</span>
         </Link>
       )}
 
       <span>{`page ${pageIndexReadable} of ${lastPageIndexReadable}`}</span>
 
-      {!canGoNext ? (
-        <div></div>
-      ) : (
-        <Link to={`${pathPrefix}/${pageIndex + 1}`}>
-          <div className={navButton}>
-            <span className={nextButtonLabel}>다음</span>
-            <img src={svgArrowNext} />
-          </div>
+      {canGoNext && (
+        <Link to={`${pathPrefix}/${pageIndex + 1}`} className={navButton}>
+          <span className={nextButtonLabel}>다음</span>
+          <img src={svgArrowNext} />
         </Link>
       )}
     </div>
