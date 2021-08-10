@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 // js
+
 import { Media } from "../media";
 import SEOHelmet from "../components/SEOHelmet";
 import PostListDesktop from "../components/desktop-postlist";
@@ -53,7 +54,6 @@ export const query = graphql`
           }
           frontmatter {
             title
-            email
             category
             description
             thumbnail {

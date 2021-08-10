@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { genRandomColorStyleMap } from "../util";
 import DesktopLayout from "../components/desktop-layout";
 import svgArrowPrev from "../images/arrow-prev.svg";
 import svgArrowNext from "../images/arrow-next.svg";
@@ -58,6 +59,8 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
 };
 
 const PostCard = ({ title, category, description, path, thumbnail }) => {
+  const categoryColorMap = genRandomColorStyleMap(category);
+
   return (
     <div className={postCardWrapper}>
       <Link to={path}>
@@ -68,7 +71,9 @@ const PostCard = ({ title, category, description, path, thumbnail }) => {
             alt={description}
           />
           <div className={postCardDetail}>
-            <span className={postCategory}>{category}</span>
+            <span className={postCategory} style={categoryColorMap}>
+              {category}
+            </span>
             <h3 className={postTitle}>{title}</h3>
             <span className={postDescription}>{description}</span>
           </div>

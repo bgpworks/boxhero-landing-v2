@@ -92,3 +92,30 @@
   color: var(--color-font-header);
   font-size: 14px;
 }
+
+.authorSection {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.authorPhotoWrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.nameAndDate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-left: 18px;
+  font-size: 14px;
+  color: var(--color-font-darker);
+}
+
+.createdTime {
+  margin-top: 2px;
+  color: var(--color-font-primary);
+}

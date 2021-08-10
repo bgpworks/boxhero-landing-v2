@@ -52,7 +52,12 @@ export const query = graphql`
       frontmatter {
         category
         title
-        email
+        author
+        authorPhoto {
+          childImageSharp {
+            gatsbyImageData(quality: 100)
+          }
+        }
         thumbnail {
           childImageSharp {
             gatsbyImageData(quality: 100)

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import DesktopLayout from "../components/desktop-layout";
+import { format } from "date-fns";
+import { genRandomColorStyleMap } from "../util";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
 import {
   pageContainer,
@@ -18,6 +20,10 @@ import {
   categoryInRelatedPost,
   titleInRelatedPost,
   labelInRelatedPost,
+  authorSection,
+  authorPhotoWrapper,
+  nameAndDate,
+  createdTime,
 } from "./desktop-postview.module.css";
 
 const LinkToListSection = () => {
@@ -31,11 +37,32 @@ const LinkToListSection = () => {
   );
 };
 
-const PostHeader = ({ category, title }) => {
+const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
+  return (
+    <div className={authorSection}>
+      <GatsbyImage image={authorPhoto} className={authorPhotoWrapper} />
+      <div className={nameAndDate}>
+        <span>{author}</span>
+        <span className={createdTime}>{format(new Date(date), "PPP")}</span>
+      </div>
+    </div>
+  );
+};
+
+const PostHeader = ({ category, title, author, authorPhoto, date }) => {
+  const categoryStyle = genRandomColorStyleMap(category);
+
   return (
     <section className={postHeaderSection}>
-      <span className={postCategory}>{category}</span>
+      <span className={postCategory} style={categoryStyle}>
+        {category}
+      </span>
       <h1 className={postTitle}>{title}</h1>
+      <AuthorAndDateSection
+        author={author}
+        authorPhoto={authorPhoto}
+        date={date}
+      />
     </section>
   );
 };
@@ -54,9 +81,13 @@ const PostView = ({ postContentInHTML }) => {
 };
 
 const RelatedPostCard = ({ slug, category, title, label }) => {
+  const categoryStyle = genRandomColorStyleMap(category);
+
   return (
     <Link to={`/blog/posts/${slug}`} className={relatedPostCard}>
-      <span className={categoryInRelatedPost}>{category}</span>
+      <span className={categoryInRelatedPost} style={categoryStyle}>
+        {category}
+      </span>
       <div className={titleInRelatedPost}>{title}</div>
       <div className={labelInRelatedPost}>{label}</div>
     </Link>
@@ -102,6 +133,12 @@ export default function DesktopPostView({
         <PostHeader
           title={currentPostData.frontmatter.title}
           category={currentPostData.frontmatter.category}
+          author={currentPostData.frontmatter.author}
+          authorPhoto={
+            currentPostData.frontmatter.authorPhoto.childImageSharp
+              .gatsbyImageData
+          }
+          date={currentPostData.fields.date}
         />
         {postThumbnail && (
           <PostThumbnail
@@ -112,7 +149,9 @@ export default function DesktopPostView({
           />
         )}
         <PostView postContentInHTML={currentPostData.html} />
-        <PostFooter prevPostData={prevPostData} nextPostData={nextPostData} />
+        {(prevPostData || nextPostData) && (
+          <PostFooter prevPostData={prevPostData} nextPostData={nextPostData} />
+        )}
       </div>
     </DesktopLayout>
   );

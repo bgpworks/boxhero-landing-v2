@@ -13,7 +13,7 @@ const REQUIRED_FRONTMATTER_FIELD_NAMES = [
   "title",
   "date",
   "category",
-  "email",
+  "author",
   "description",
 ];
 
@@ -138,8 +138,6 @@ const createDateField = (node, actions) => {
 };
 
 const refineMarkdownNode = (node, actions, getNode) => {
-  const { createNodeField } = actions;
-
   if (
     checkHasFiled(node, "frontmatter") &&
     validateFrontMatter(node.frontmatter)
@@ -185,8 +183,8 @@ const createPostPages = (actions, locale, postsEdges) => {
   const { createPage } = actions;
 
   postsEdges.forEach((edge, index) => {
-    const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
-    const prevID = index - 1 >= 0 ? index - 1 : postsEdges.length - 1;
+    const nextID = index + 1 < postsEdges.length && index + 1;
+    const prevID = index - 1 >= 0 && index - 1;
     const nextEdge = postsEdges[nextID];
     const prevEdge = postsEdges[prevID];
 
@@ -198,8 +196,8 @@ const createPostPages = (actions, locale, postsEdges) => {
       context: {
         locale,
         currentPostId: edge.node.id,
-        nextPostId: nextEdge.node.id,
-        prevPostId: prevEdge.node.id,
+        nextPostId: nextEdge && nextEdge.node.id,
+        prevPostId: prevEdge && prevEdge.node.id,
       },
     });
   });
