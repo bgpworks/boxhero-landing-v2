@@ -29,7 +29,7 @@ import {
 const LinkToListSection = () => {
   return (
     <section className={linkToListSection}>
-      <Link to={`/blog/pages/0`}>
+      <Link to={`/blog`}>
         <img src={svgCompleteArrowPrev} />
         <span className={linkToListLabel}>블로그 리스트</span>
       </Link>
