@@ -89,7 +89,7 @@ module.exports = {
             languages: [],
           },
           {
-            matchPath: "/:lang?/blog/(.*)",
+            matchPath: "/:lang?/blog(.*)",
             getLanguageFromPath: true,
             languages: [`en`, `ko`, `es`, `id`],
           },

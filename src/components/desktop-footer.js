@@ -134,7 +134,7 @@ const DesktopFooterMenus = ({ t }) => (
         </a>
       </div>
       <div>
-        <Link to={"/blog/pages/0"}>{t("footer:footerMenuCompanyBlog")}</Link>
+        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
       <div>
         <a href={t("url:hire")} target="_blank" rel="noreferrer">

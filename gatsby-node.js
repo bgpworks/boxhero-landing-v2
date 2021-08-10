@@ -34,6 +34,7 @@ const checkIsMarkdownNode = (node) => node.internal.type === "MarkdownRemark";
 
 // Path generators
 
+const genBlogHomePath = (localeCode) => `/${localeCode}/blog`;
 const genPostListPath = (localeCode, pageIndex) =>
   `/${localeCode}/blog/pages/${pageIndex}`;
 const genCategoryListPath = (localeCode, category, pageIndex) =>
@@ -213,16 +214,25 @@ const createPostListPage = (actions, locale, postsEdges) => {
     const startIndex = page * PER_PAGE;
     const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
     const postIdsInPage = postIds.slice(startIndex, endIndex);
+    const pageContext = {
+      locale,
+      ids: postIdsInPage,
+      pageIndex: page,
+      lastPageIndex: pageCount - 1,
+    };
+
+    if (page === 0) {
+      createPage({
+        path: genBlogHomePath(locale),
+        component: PostListPage,
+        context: pageContext,
+      });
+    }
 
     createPage({
       path: listPath,
       component: PostListPage,
-      context: {
-        locale,
-        ids: postIdsInPage,
-        pageIndex: page,
-        lastPageIndex: pageCount - 1,
-      },
+      context: pageContext,
     });
   }
 };
