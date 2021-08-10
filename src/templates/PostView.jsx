@@ -4,15 +4,32 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 // js
 import { Media } from "../media";
 import SEOHelmet from "../components/SEOHelmet";
-import PostListDesktop from "../components/desktop-postlist";
+import PostViewDesktop from "../components/desktop-postview";
 
-export default function PostView({ data }) {
+export default function PostView({ data, location }) {
+  const { language, t } = useI18next();
+  const { currentPostData, prevPostData, nextPostData } = data;
   return (
-    <div>
-      <div
-        dangerouslySetInnerHTML={{ __html: data.currentPostData.html }}
-      ></div>
-    </div>
+    <>
+      <SEOHelmet
+        lang={language}
+        title={t("blog:pageTitle")}
+        description={t("blog:pageDescription")}
+        path={location.pathname}
+      />
+
+      <Media at="xs">
+        <div>fsadfasd</div>
+      </Media>
+
+      <Media greaterThan="xs">
+        <PostViewDesktop
+          currentPostData={currentPostData}
+          prevPostData={prevPostData}
+          nextPostData={nextPostData}
+        />
+      </Media>
+    </>
   );
 }
 
@@ -36,6 +53,11 @@ export const query = graphql`
         category
         title
         email
+        thumbnail {
+          childImageSharp {
+            gatsbyImageData(quality: 100)
+          }
+        }
       }
       html
     }
@@ -46,6 +68,7 @@ export const query = graphql`
       }
       frontmatter {
         title
+        category
       }
     }
     nextPostData: markdownRemark(id: { eq: $nextPostId }) {
@@ -55,6 +78,7 @@ export const query = graphql`
       }
       frontmatter {
         title
+        category
       }
     }
   }

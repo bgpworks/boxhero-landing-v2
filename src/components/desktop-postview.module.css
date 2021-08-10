@@ -1,0 +1,94 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postView,
+.postHeaderSection,
+.postFooterSection,
+.postThumbnail {
+  width: 800px;
+}
+
+.linkToListSection {
+  padding: 0 20px;
+  margin: 20px 0 25px;
+
+  display: flex;
+  align-items: center;
+  width: 1024px;
+}
+
+.linkToListLabel {
+  margin-left: 10px;
+  color: var(--color-font-darker);
+}
+
+.postCategory {
+  padding: 1.5px 8px;
+  color: white;
+  background-color: var(--color-font-darker);
+  border-radius: 4px;
+}
+
+.postTitle {
+  margin: 4px 0 0;
+  font-size: 40px;
+  font-weight: bold;
+
+  color: var(--color-font-darker);
+}
+
+.postThumbnail {
+  height: 360px;
+  margin: 50px 0;
+}
+
+.postFooterSection {
+  margin-top: 80px;
+  padding-top: 50px;
+  border-top: 1px solid var(--color-feature-bar-gray);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.relatedPostCardWrapper {
+  width: calc(50% - 15px);
+}
+
+.relatedPostCard {
+  display: block;
+  width: 100%;
+  min-height: 165px;
+
+  padding: 20px;
+
+  border: solid 1px var(--color-light-gray);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.categoryInRelatedPost {
+  padding: 1px 6px;
+  color: white;
+  font-size: 10px;
+  border-radius: 4px;
+  background-color: var(--color-font-darker);
+}
+
+.titleInRelatedPost {
+  margin-top: 8px;
+
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
+}
+
+.labelInRelatedPost {
+  margin-top: 12px;
+  color: var(--color-font-header);
+  font-size: 14px;
+}
