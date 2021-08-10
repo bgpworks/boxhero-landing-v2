@@ -39,13 +39,11 @@ export default function PostList({ pageContext, location, data }) {
 }
 
 export const query = graphql`
-  query ($language: String!, $slugs: [String], $locale: String) {
+  query ($language: String!, $ids: [String]) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    allMarkdownRemark(
-      filter: { fields: { locale: { eq: $locale }, slug: { in: $slugs } } }
-    ) {
+    allMarkdownRemark(filter: { id: { in: $ids } }) {
       edges {
         node {
           fields {
@@ -53,7 +51,6 @@ export const query = graphql`
             categorySlug
             date
           }
-          excerpt(pruneLength: 50)
           frontmatter {
             title
             email

@@ -4,7 +4,7 @@ const slugify = require("slugify");
 
 // Constants
 
-const PER_PAGE = 5;
+const PER_PAGE = 9;
 const DATE_FORMAT = "yyyy-MM-dd HH:mm";
 const SLUGIFY_COMMON_OPTION = { lower: true, trim: true };
 const REGEX_SPACES = /\s+/g;
@@ -197,11 +197,9 @@ const createPostPages = (actions, locale, postsEdges) => {
       component: PostPage,
       context: {
         locale,
-        slug: edge.node.fields.slug,
-        nextTitle: nextEdge.node.fields.title,
-        nextSlug: nextEdge.node.fields.slug,
-        prevTitle: prevEdge.node.fields.title,
-        prevSlug: prevEdge.node.fields.slug,
+        currentPostId: edge.node.id,
+        nextPostId: nextEdge.node.id,
+        prevPostId: prevEdge.node.id,
       },
     });
   });
@@ -210,20 +208,20 @@ const createPostPages = (actions, locale, postsEdges) => {
 const createPostListPage = (actions, locale, postsEdges) => {
   const { createPage } = actions;
   const pageCount = Math.ceil(postsEdges.length / PER_PAGE);
-  const postSlugs = postsEdges.map(({ node }) => node.fields.slug);
+  const postIds = postsEdges.map(({ node }) => node.id);
 
   for (let page = 0; page < pageCount; page++) {
     const listPath = genPostListPath(locale, page);
     const startIndex = page * PER_PAGE;
     const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
-    const slugsInPage = postSlugs.slice(startIndex, endIndex);
+    const postIdsInPage = postIds.slice(startIndex, endIndex);
 
     createPage({
       path: listPath,
       component: PostListPage,
       context: {
         locale,
-        slugs: slugsInPage,
+        ids: postIdsInPage,
         pageIndex: page,
         lastPageIndex: pageCount - 1,
       },
@@ -239,20 +237,20 @@ const createPostListByCategoryPage = (
 ) => {
   const { createPage } = actions;
   const pageCount = Math.ceil(postsEdges.length / PER_PAGE);
-  const postSlugs = postsEdges.map(({ node }) => node.fields.slug);
+  const postIds = postsEdges.map(({ node }) => node.id);
 
   for (let page = 0; page < pageCount; page++) {
     const listPath = genCategoryListPath(locale, categorySlug, page);
     const startIndex = page * PER_PAGE;
     const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
-    const slugsInPage = postSlugs.slice(startIndex, endIndex);
+    const postIdsInPage = postIds.slice(startIndex, endIndex);
 
     createPage({
       path: listPath,
       component: PostListByCategoryPage,
       context: {
         locale,
-        slugs: slugsInPage,
+        ids: postIdsInPage,
         categorySlug: categorySlug,
         pageIndex: page,
         lastPageIndex: pageCount - 1,
@@ -303,6 +301,7 @@ exports.createPages = async ({ graphql, actions }) => {
         allMarkdownRemark {
           edges {
             node {
+              id
               fields {
                 slug
                 categorySlug

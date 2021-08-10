@@ -166,13 +166,11 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        excerpt_seperator: `<!-- endexcerpt -->`,
         plugins: [
           {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 800,
-              tracedSVG: true,
             },
           },
         ],
