@@ -7,6 +7,7 @@
   "dependencies": {
     "@artsy/fresnel": "1.9.0",
     "accept-language-parser": "^1.5.0",
+    "date-fns": "^2.23.0",
     "eslint-config-react-app": "^6.0.0",
     "gatsby": "^3.10.2",
     "gatsby-plugin-anchor-links": "1.2.1",
@@ -31,7 +32,8 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-i18next": "11.11.4",
-    "react-indiana-drag-scroll": "2.0.1"
+    "react-indiana-drag-scroll": "2.0.1",
+    "slugify": "^1.6.0"
   },
   "devDependencies": {
     "prettier": "2.3.2"

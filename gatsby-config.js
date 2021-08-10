@@ -76,6 +76,7 @@ module.exports = {
             "pricing",
             "layout",
             "language-selector",
+            "blog",
           ],
           fallbackLng: false,
           interpolation: {
@@ -86,6 +87,11 @@ module.exports = {
           {
             matchPath: "/(privacy|tos)",
             languages: [],
+          },
+          {
+            matchPath: "/:lang?/blog/(.*)",
+            getLanguageFromPath: true,
+            languages: [`en`, `ko`, `es`, `id`],
           },
           {
             matchPath: "/marketing-210524",

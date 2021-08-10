@@ -17,7 +17,7 @@ export const onRenderBody = (
   setHeadComponents([
     <link
       key="font"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=fallback"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto:wght@400;500;700&display=fallback"
       rel="stylesheet"
       type="text/css"
     />,

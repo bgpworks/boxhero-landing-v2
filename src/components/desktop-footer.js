@@ -134,7 +134,7 @@ const DesktopFooterMenus = ({ t }) => (
         </a>
       </div>
       <div>
-        <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
+        <Link to={"/blog/pages/0"}>{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
       <div>
         <a href={t("url:hire")} target="_blank" rel="noreferrer">
@@ -203,11 +203,13 @@ const DesktopFooterMenusAndInfo = (props) => (
   </div>
 );
 
-const DesktopFooter = ({ closingEmoji, closingMsg }) => {
+const DesktopFooter = ({ hideStartNow, closingEmoji, closingMsg }) => {
   const { t } = useI18next();
   return (
     <div>
-      <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+      {!hideStartNow && (
+        <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+      )}
       <Platforms t={t} />
       <DesktopFooterMenusAndInfo t={t} />
     </div>
@@ -215,9 +217,9 @@ const DesktopFooter = ({ closingEmoji, closingMsg }) => {
 };
 
 DesktopFooter.propTypes = {
-  closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
+  hideStartNow: PropTypes.bool,
+  closingEmoji: PropTypes.object,
+  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 export default DesktopFooter;
