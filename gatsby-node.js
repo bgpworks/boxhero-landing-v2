@@ -35,6 +35,8 @@ const checkIsMarkdownNode = (node) => node.internal.type === "MarkdownRemark";
 // Path generators
 
 const genBlogHomePath = (localeCode) => `/${localeCode}/blog`;
+const genCategoryHomePath = (localeCode, categorySlug) =>
+  `/${localeCode}/blog/categories/${categorySlug}`;
 const genPostListPath = (localeCode, pageIndex) =>
   `/${localeCode}/blog/pages/${pageIndex}`;
 const genCategoryListPath = (localeCode, category, pageIndex) =>
@@ -138,7 +140,9 @@ const createDateField = (node, actions) => {
   }
 };
 
-const refineMarkdownNode = (node, actions, getNode) => {
+const addFieldsToMarkdownNode = (node, actions, getNode) => {
+  const { createNodeField } = actions;
+
   if (
     checkHasFiled(node, "frontmatter") &&
     validateFrontMatter(node.frontmatter)
@@ -147,6 +151,13 @@ const refineMarkdownNode = (node, actions, getNode) => {
     createSlugField(node, actions, getNode);
     createDateField(node, actions);
     createCategorySlugField(node, actions, getNode);
+
+    createNodeField({ node, name: "title", value: node.frontmatter.title });
+    createNodeField({
+      node,
+      name: "category",
+      value: node.frontmatter.category,
+    });
   }
 };
 
@@ -154,7 +165,7 @@ const refineMarkdownNode = (node, actions, getNode) => {
 
 module.exports.onCreateNode = ({ node, actions, getNode }) => {
   if (checkIsMarkdownNode(node)) {
-    refineMarkdownNode(node, actions, getNode);
+    addFieldsToMarkdownNode(node, actions, getNode);
   }
 };
 
@@ -170,8 +181,8 @@ const sortPostsEdges = (postsEdges) => {
     if (isBefore(dateB, dateA)) return 1;
     if (isBefore(dateA, dateB)) return -1;
 
-    const titleA = new Date(postA.node.frontmatter.title);
-    const titleB = new Date(postB.node.frontmatter.title);
+    const titleA = new Date(postA.node.fields.title);
+    const titleB = new Date(postB.node.fields.title);
 
     if (titleA > titleB) return 1;
     if (titleB > titleA) return -1;
@@ -246,23 +257,34 @@ const createPostListByCategoryPage = (
   const { createPage } = actions;
   const pageCount = Math.ceil(postsEdges.length / PER_PAGE);
   const postIds = postsEdges.map(({ node }) => node.id);
+  const category = postsEdges.length >= 1 && postsEdges[0].node.fields.category;
 
   for (let page = 0; page < pageCount; page++) {
     const listPath = genCategoryListPath(locale, categorySlug, page);
     const startIndex = page * PER_PAGE;
     const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
     const postIdsInPage = postIds.slice(startIndex, endIndex);
+    const pageContext = {
+      locale,
+      category,
+      ids: postIdsInPage,
+      categorySlug: categorySlug,
+      pageIndex: page,
+      lastPageIndex: pageCount - 1,
+    };
+
+    if (page === 0) {
+      createPage({
+        path: genCategoryHomePath(locale, categorySlug),
+        component: PostListByCategoryPage,
+        context: pageContext,
+      });
+    }
 
     createPage({
       path: listPath,
       component: PostListByCategoryPage,
-      context: {
-        locale,
-        ids: postIdsInPage,
-        categorySlug: categorySlug,
-        pageIndex: page,
-        lastPageIndex: pageCount - 1,
-      },
+      context: pageContext,
     });
   }
 };
@@ -311,13 +333,12 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               id
               fields {
+                title
+                category
                 slug
                 categorySlug
                 locale
                 date
-              }
-              frontmatter {
-                title
               }
             }
           }

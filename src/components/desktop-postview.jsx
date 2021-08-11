@@ -49,14 +49,25 @@ const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
   );
 };
 
-const PostHeader = ({ category, title, author, authorPhoto, date }) => {
+const PostHeader = ({
+  category,
+  categorySlug,
+  title,
+  author,
+  authorPhoto,
+  date,
+}) => {
   const categoryStyle = genRandomColorStyleMap(category);
 
   return (
     <section className={postHeaderSection}>
-      <span className={postCategory} style={categoryStyle}>
+      <Link
+        to={`/blog/categories/${categorySlug}`}
+        className={postCategory}
+        style={categoryStyle}
+      >
         {category}
-      </span>
+      </Link>
       <h1 className={postTitle}>{title}</h1>
       <AuthorAndDateSection
         author={author}
@@ -133,6 +144,7 @@ export default function DesktopPostView({
         <PostHeader
           title={currentPostData.frontmatter.title}
           category={currentPostData.frontmatter.category}
+          categorySlug={currentPostData.fields.categorySlug}
           author={currentPostData.frontmatter.author}
           authorPhoto={
             currentPostData.frontmatter.authorPhoto.childImageSharp

@@ -50,7 +50,14 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
   );
 };
 
-const PostCard = ({ title, category, description, path, thumbnail }) => {
+const PostCard = ({
+  title,
+  category,
+  categorySlug,
+  description,
+  path,
+  thumbnail,
+}) => {
   const categoryColorMap = genRandomColorStyleMap(category);
 
   return (
@@ -63,9 +70,13 @@ const PostCard = ({ title, category, description, path, thumbnail }) => {
             alt={description}
           />
           <div className={postCardDetail}>
-            <span className={postCategory} style={categoryColorMap}>
+            <Link
+              to={`/blog/categories/${categorySlug}`}
+              className={postCategory}
+              style={categoryColorMap}
+            >
               {category}
-            </span>
+            </Link>
             <h3 className={postTitle}>{title}</h3>
             <span className={postDescription}>{description}</span>
           </div>
@@ -76,16 +87,18 @@ const PostCard = ({ title, category, description, path, thumbnail }) => {
 };
 
 export default function PostListDesktop({
+  title,
+  description,
+  pagePathPrefix,
   edges,
-  t,
   pageIndex,
   lastPageIndex,
 }) {
   return (
     <DesktopLayout isFloatMenu={false} hideStartNow={true}>
       <section className={pageContainer}>
-        <h2 className={pageTitle}>블로그</h2>
-        <p className={pageDescription}>이 세상 모든 재고관리 팀과 아이디어들</p>
+        <h2 className={pageTitle}>{title}</h2>
+        <p className={pageDescription}>{description}</p>
         <section className={postList}>
           {edges.map(({ node }) => (
             <PostCard
@@ -96,13 +109,14 @@ export default function PostListDesktop({
               }
               title={node.frontmatter.title}
               category={node.frontmatter.category}
+              categorySlug={node.fields.categorySlug}
               description={node.frontmatter.description}
               path={`/blog/posts/${node.fields.slug}`}
             />
           ))}
         </section>
         <Pagination
-          pathPrefix={`/blog/pages`}
+          pathPrefix={pagePathPrefix}
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
         />

@@ -29,10 +29,12 @@ export default function PostList({ pageContext, location, data }) {
 
       <Media greaterThan="xs">
         <PostListDesktop
+          title={t("blog:pageTitle")}
+          description={t("blog:pageDescription")}
           edges={edges}
-          t={t}
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
+          pagePathPrefix={`/blog/pages`}
         />
       </Media>
     </>
