@@ -4,7 +4,11 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import DesktopLayout from "../components/desktop-layout";
 import { format } from "date-fns";
 import { genRandomColorStyleMap } from "../util";
+import { ExternalLinkWithQuery } from "../components/common";
+import * as constants from "../components/constants";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
+import svgFooterLeftBG from "../images/footer-left-bg.svg";
+import svgFooterRightBG from "../images/footer-right-bg.svg";
 import {
   pageContainer,
   postContainer,
@@ -24,6 +28,12 @@ import {
   authorPhotoWrapper,
   nameAndDate,
   createdTime,
+  startNowSection,
+  leftBG,
+  rightBG,
+  startNowTitle,
+  startNowDesc,
+  startNowButton,
 } from "./desktop-postview.module.css";
 import PostBody from "./PostBody";
 
@@ -115,6 +125,22 @@ const PostFooter = ({ prevPostData, nextPostData }) => {
   );
 };
 
+const StartNow = () => {
+  return (
+    <section className={startNowSection}>
+      <img className={leftBG} src={svgFooterLeftBG} alt="leftBG" />
+      <img className={rightBG} src={svgFooterRightBG} alt="rightBG" />
+      <span className={startNowTitle}>재고관리의 시작, 박스히어로</span>
+      <span className={startNowDesc}>
+        한달 동안 모든 기능을 무료로 사용해 보세요!
+      </span>
+      <ExternalLinkWithQuery href={constants.urlStart}>
+        <button className={startNowButton}>지금 무료로 시작하기</button>
+      </ExternalLinkWithQuery>
+    </section>
+  );
+};
+
 export default function DesktopPostView({
   currentPostData,
   prevPostData,
@@ -147,6 +173,7 @@ export default function DesktopPostView({
           />
         )}
         <PostBody postContentInHTML={currentPostData.html} />
+        <StartNow />
         {(prevPostData || nextPostData) && (
           <PostFooter prevPostData={prevPostData} nextPostData={nextPostData} />
         )}
