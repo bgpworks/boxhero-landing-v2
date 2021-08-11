@@ -12,8 +12,8 @@
 /* 형태 관련 */
 
 .postBodyView h2,
-h3,
-h4 {
+.postBodyView h3,
+.postBodyView h4 {
   font-weight: bold;
 }
 
@@ -78,9 +78,30 @@ h4 {
 }
 
 .postBodyView h2,
-h3,
-h4 {
+.postBodyView h3,
+.postBodyView h4 {
   margin-top: 64px;
+}
+
+.postBodyView table {
+  margin: 64px auto;
+
+  max-width: 100%;
+  overflow: auto;
+  width: 100%;
+  width: max-content;
+}
+
+.postBodyView table th,
+.postBodyView table td {
+  padding: 6px 13px;
+  text-align: center;
+
+  border: 1px solid var(--color-light-gray);
+}
+
+.postBodyView table tr:nth-child(2n) {
+  background-color: var(--color-bg-light);
 }
 
 /* 최상단, 최하단 여백 초기화 */
