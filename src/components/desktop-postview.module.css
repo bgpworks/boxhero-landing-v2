@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding-bottom: 120px;
 }
 
-.postView,
-.postHeaderSection,
-.postFooterSection,
-.postThumbnail {
+.postContainer {
   width: 800px;
 }
 

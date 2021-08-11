@@ -7,8 +7,7 @@ import { genRandomColorStyleMap } from "../util";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
 import {
   pageContainer,
-  postView,
-  postHeaderSection,
+  postContainer,
   postFooterSection,
   postCategory,
   postTitle,
@@ -25,6 +24,7 @@ import {
   nameAndDate,
   createdTime,
 } from "./desktop-postview.module.css";
+import PostBody from "./postBody";
 
 const LinkToListSection = () => {
   return (
@@ -49,32 +49,21 @@ const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
   );
 };
 
-const PostHeader = ({
-  category,
-  categorySlug,
-  title,
-  author,
-  authorPhoto,
-  date,
-}) => {
+const PostHeader = ({ category, title, author, authorPhoto, date }) => {
   const categoryStyle = genRandomColorStyleMap(category);
 
   return (
-    <section className={postHeaderSection}>
-      <Link
-        to={`/blog/categories/${categorySlug}`}
-        className={postCategory}
-        style={categoryStyle}
-      >
+    <header>
+      <span className={postCategory} style={categoryStyle}>
         {category}
-      </Link>
+      </span>
       <h1 className={postTitle}>{title}</h1>
       <AuthorAndDateSection
         author={author}
         authorPhoto={authorPhoto}
         date={date}
       />
-    </section>
+    </header>
   );
 };
 
@@ -82,20 +71,11 @@ const PostThumbnail = ({ thumbnailData }) => {
   return <GatsbyImage className={postThumbnail} image={thumbnailData} />;
 };
 
-const PostView = ({ postContentInHTML }) => {
-  return (
-    <article
-      className={postView}
-      dangerouslySetInnerHTML={{ __html: postContentInHTML }}
-    />
-  );
-};
-
-const RelatedPostCard = ({ slug, category, title, label }) => {
+const RelatedPostCard = ({ slug, rel, category, title, label }) => {
   const categoryStyle = genRandomColorStyleMap(category);
 
   return (
-    <Link to={`/blog/posts/${slug}`} className={relatedPostCard}>
+    <Link rel={rel} to={`/blog/posts/${slug}`} className={relatedPostCard}>
       <span className={categoryInRelatedPost} style={categoryStyle}>
         {category}
       </span>
@@ -107,10 +87,11 @@ const RelatedPostCard = ({ slug, category, title, label }) => {
 
 const PostFooter = ({ prevPostData, nextPostData }) => {
   return (
-    <section className={postFooterSection}>
+    <nav className={postFooterSection}>
       <div className={relatedPostCardWrapper}>
         {prevPostData && (
           <RelatedPostCard
+            rel="prev"
             slug={prevPostData.fields.slug}
             title={prevPostData.frontmatter.title}
             category={prevPostData.frontmatter.category}
@@ -121,6 +102,7 @@ const PostFooter = ({ prevPostData, nextPostData }) => {
       <div className={relatedPostCardWrapper}>
         {nextPostData && (
           <RelatedPostCard
+            rel="next"
             slug={nextPostData.fields.slug}
             title={nextPostData.frontmatter.title}
             category={nextPostData.frontmatter.category}
@@ -128,7 +110,7 @@ const PostFooter = ({ prevPostData, nextPostData }) => {
           />
         )}
       </div>
-    </section>
+    </nav>
   );
 };
 
@@ -138,13 +120,16 @@ export default function DesktopPostView({
   nextPostData,
 }) {
   return (
-    <DesktopLayout isFloatMenu={false} hideStartNow={true}>
-      <div className={pageContainer}>
-        <LinkToListSection />
+    <DesktopLayout
+      mainClassName={pageContainer}
+      isFloatMenu={false}
+      showEssential={true}
+    >
+      <LinkToListSection />
+      <article className={postContainer}>
         <PostHeader
           title={currentPostData.frontmatter.title}
           category={currentPostData.frontmatter.category}
-          categorySlug={currentPostData.fields.categorySlug}
           author={currentPostData.frontmatter.author}
           authorPhoto={
             currentPostData.frontmatter.authorPhoto.childImageSharp
@@ -160,11 +145,11 @@ export default function DesktopPostView({
             }
           />
         )}
-        <PostView postContentInHTML={currentPostData.html} />
+        <PostBody postContentInHTML={currentPostData.html} />
         {(prevPostData || nextPostData) && (
           <PostFooter prevPostData={prevPostData} nextPostData={nextPostData} />
         )}
-      </div>
+      </article>
     </DesktopLayout>
   );
 }

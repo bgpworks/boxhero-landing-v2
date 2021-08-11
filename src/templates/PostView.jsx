@@ -47,7 +47,6 @@ export const query = graphql`
       fields {
         slug
         date
-        categorySlug
       }
       frontmatter {
         category
@@ -69,7 +68,6 @@ export const query = graphql`
     prevPostData: markdownRemark(id: { eq: $prevPostId }) {
       fields {
         slug
-        categorySlug
       }
       frontmatter {
         title
@@ -79,7 +77,6 @@ export const query = graphql`
     nextPostData: markdownRemark(id: { eq: $nextPostId }) {
       fields {
         slug
-        categorySlug
       }
       frontmatter {
         title

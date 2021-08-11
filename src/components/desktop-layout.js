@@ -10,21 +10,24 @@ export const DesktopLayout = ({
   curMenu,
   closingEmoji,
   closingMsg,
-  hideStartNow,
+  showEssential,
+  mainClassName,
   children,
 }) => (
   <div className={styles.desktopLayout}>
     <DesktopHeader isFloatMenu={isFloatMenu} curMenu={curMenu} />
-    <main>{children}</main>
+    <main className={mainClassName}>{children}</main>
     <DesktopFooter
       closingEmoji={closingEmoji}
       closingMsg={closingMsg}
-      hideStartNow={hideStartNow}
+      showEssential={showEssential}
     />
   </div>
 );
 
 DesktopLayout.propTypes = {
+  mainClassName: PropTypes.string,
+  showEssential: PropTypes.bool,
   isFloatMenu: PropTypes.bool,
   curMenu: PropTypes.string,
   closingEmoji: PropTypes.object,

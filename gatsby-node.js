@@ -21,9 +21,6 @@ const REQUIRED_FRONTMATTER_FIELD_NAMES = [
 
 const PostPage = path.resolve("src/templates/PostView.jsx");
 const PostListPage = path.resolve("src/templates/PostList.jsx");
-const PostListByCategoryPage = path.resolve(
-  "src/templates/PostListByCategory.jsx"
-);
 
 // Helper Functions for Node
 
@@ -35,12 +32,8 @@ const checkIsMarkdownNode = (node) => node.internal.type === "MarkdownRemark";
 // Path generators
 
 const genBlogHomePath = (localeCode) => `/${localeCode}/blog`;
-const genCategoryHomePath = (localeCode, categorySlug) =>
-  `/${localeCode}/blog/categories/${categorySlug}`;
 const genPostListPath = (localeCode, pageIndex) =>
   `/${localeCode}/blog/pages/${pageIndex}`;
-const genCategoryListPath = (localeCode, category, pageIndex) =>
-  `/${localeCode}/blog/categories/${category}/${pageIndex}`;
 const genPostPath = (localeCode, slug) => `/${localeCode}/blog/posts/${slug}`;
 
 // Slugify
@@ -106,21 +99,6 @@ const createSlugField = (node, actions, getNode) => {
   }
 };
 
-const createCategorySlugField = (node, actions, getNode) => {
-  const { createNodeField } = actions;
-
-  if (checkHasFiled(node.frontmatter, "category")) {
-    const fileNode = getNode(node.parent);
-    const parsedFilePath = path.parse(fileNode.relativePath);
-    const slug = genSlugByBaseName(
-      node.frontmatter.category,
-      parsedFilePath.dir
-    );
-
-    createNodeField({ node, name: "categorySlug", value: slug });
-  }
-};
-
 const createDateField = (node, actions) => {
   const { createNodeField } = actions;
 
@@ -150,7 +128,6 @@ const addFieldsToMarkdownNode = (node, actions, getNode) => {
     createLocaleField(node, actions, getNode);
     createSlugField(node, actions, getNode);
     createDateField(node, actions);
-    createCategorySlugField(node, actions, getNode);
 
     createNodeField({ node, name: "title", value: node.frontmatter.title });
     createNodeField({
@@ -248,47 +225,6 @@ const createPostListPage = (actions, locale, postsEdges) => {
   }
 };
 
-const createPostListByCategoryPage = (
-  actions,
-  locale,
-  categorySlug,
-  postsEdges
-) => {
-  const { createPage } = actions;
-  const pageCount = Math.ceil(postsEdges.length / PER_PAGE);
-  const postIds = postsEdges.map(({ node }) => node.id);
-  const category = postsEdges.length >= 1 && postsEdges[0].node.fields.category;
-
-  for (let page = 0; page < pageCount; page++) {
-    const listPath = genCategoryListPath(locale, categorySlug, page);
-    const startIndex = page * PER_PAGE;
-    const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
-    const postIdsInPage = postIds.slice(startIndex, endIndex);
-    const pageContext = {
-      locale,
-      category,
-      ids: postIdsInPage,
-      categorySlug: categorySlug,
-      pageIndex: page,
-      lastPageIndex: pageCount - 1,
-    };
-
-    if (page === 0) {
-      createPage({
-        path: genCategoryHomePath(locale, categorySlug),
-        component: PostListByCategoryPage,
-        context: pageContext,
-      });
-    }
-
-    createPage({
-      path: listPath,
-      component: PostListByCategoryPage,
-      context: pageContext,
-    });
-  }
-};
-
 const getFieldValues = (postsEdges, fieldName) => {
   const localeSet = new Set();
   postsEdges.forEach((edge) => localeSet.add(edge.node.fields[fieldName]));
@@ -297,7 +233,6 @@ const getFieldValues = (postsEdges, fieldName) => {
 };
 
 const createPagesByLocale = (actions, locale, postsEdges) => {
-  const categorySlugs = getFieldValues(postsEdges, "categorySlug");
   const filteredEdges = postsEdges.filter(
     (edge) => edge.node.fields.locale === locale
   );
@@ -305,23 +240,6 @@ const createPagesByLocale = (actions, locale, postsEdges) => {
 
   createPostPages(actions, locale, sortedEdges);
   createPostListPage(actions, locale, sortedEdges);
-
-  categorySlugs.forEach((categorySlug) => {
-    const categoryFilteredEdges = sortedEdges.filter(
-      ({
-        node: {
-          fields: { categorySlug: categorySlugInNode },
-        },
-      }) => categorySlugInNode && categorySlugInNode === categorySlug
-    );
-
-    createPostListByCategoryPage(
-      actions,
-      locale,
-      categorySlug,
-      categoryFilteredEdges
-    );
-  });
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -336,7 +254,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 title
                 category
                 slug
-                categorySlug
                 locale
                 date
               }

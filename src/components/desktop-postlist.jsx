@@ -30,9 +30,13 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
   const lastPageIndexReadable = lastPageIndex + 1;
 
   return (
-    <div className={paginationBar}>
+    <nav className={paginationBar}>
       {canGoPrev && (
-        <Link to={`${pathPrefix}/${pageIndex - 1}`} className={navButton}>
+        <Link
+          rel="prev"
+          to={`${pathPrefix}/${pageIndex - 1}`}
+          className={navButton}
+        >
           <img src={svgArrowPrev} />
           <span className={prevButtonLabel}>이전</span>
         </Link>
@@ -41,27 +45,24 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
       <span>{`page ${pageIndexReadable} of ${lastPageIndexReadable}`}</span>
 
       {canGoNext && (
-        <Link to={`${pathPrefix}/${pageIndex + 1}`} className={navButton}>
+        <Link
+          rel="next"
+          to={`${pathPrefix}/${pageIndex + 1}`}
+          className={navButton}
+        >
           <span className={nextButtonLabel}>다음</span>
           <img src={svgArrowNext} />
         </Link>
       )}
-    </div>
+    </nav>
   );
 };
 
-const PostCard = ({
-  title,
-  category,
-  categorySlug,
-  description,
-  path,
-  thumbnail,
-}) => {
+const PostCard = ({ title, category, description, path, thumbnail }) => {
   const categoryColorMap = genRandomColorStyleMap(category);
 
   return (
-    <div className={postCardWrapper}>
+    <li className={postCardWrapper}>
       <Link to={path}>
         <article className={postCard}>
           <GatsbyImage
@@ -70,19 +71,15 @@ const PostCard = ({
             alt={description}
           />
           <div className={postCardDetail}>
-            <Link
-              to={`/blog/categories/${categorySlug}`}
-              className={postCategory}
-              style={categoryColorMap}
-            >
+            <span className={postCategory} style={categoryColorMap}>
               {category}
-            </Link>
+            </span>
             <h3 className={postTitle}>{title}</h3>
             <span className={postDescription}>{description}</span>
           </div>
         </article>
       </Link>
-    </div>
+    </li>
   );
 };
 
@@ -95,32 +92,33 @@ export default function PostListDesktop({
   lastPageIndex,
 }) {
   return (
-    <DesktopLayout isFloatMenu={false} hideStartNow={true}>
-      <section className={pageContainer}>
-        <h2 className={pageTitle}>{title}</h2>
-        <p className={pageDescription}>{description}</p>
-        <section className={postList}>
-          {edges.map(({ node }) => (
-            <PostCard
-              key={node.fields.slug}
-              thumbnail={
-                node.frontmatter.thumbnail &&
-                node.frontmatter.thumbnail.childImageSharp.gatsbyImageData
-              }
-              title={node.frontmatter.title}
-              category={node.frontmatter.category}
-              categorySlug={node.fields.categorySlug}
-              description={node.frontmatter.description}
-              path={`/blog/posts/${node.fields.slug}`}
-            />
-          ))}
-        </section>
-        <Pagination
-          pathPrefix={pagePathPrefix}
-          pageIndex={pageIndex}
-          lastPageIndex={lastPageIndex}
-        />
-      </section>
+    <DesktopLayout
+      mainClassName={pageContainer}
+      isFloatMenu={false}
+      showEssential={true}
+    >
+      <h2 className={pageTitle}>{title}</h2>
+      <p className={pageDescription}>{description}</p>
+      <ul className={postList}>
+        {edges.map(({ node }) => (
+          <PostCard
+            key={node.fields.slug}
+            thumbnail={
+              node.frontmatter.thumbnail &&
+              node.frontmatter.thumbnail.childImageSharp.gatsbyImageData
+            }
+            title={node.frontmatter.title}
+            category={node.frontmatter.category}
+            description={node.frontmatter.description}
+            path={`/blog/posts/${node.fields.slug}`}
+          />
+        ))}
+      </ul>
+      <Pagination
+        pathPrefix={pagePathPrefix}
+        pageIndex={pageIndex}
+        lastPageIndex={lastPageIndex}
+      />
     </DesktopLayout>
   );
 }

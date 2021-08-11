@@ -203,21 +203,23 @@ const DesktopFooterMenusAndInfo = (props) => (
   </div>
 );
 
-const DesktopFooter = ({ hideStartNow, closingEmoji, closingMsg }) => {
+const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
   const { t } = useI18next();
   return (
     <div>
-      {!hideStartNow && (
-        <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+      {!showEssential && (
+        <>
+          <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+          <Platforms t={t} />
+        </>
       )}
-      <Platforms t={t} />
       <DesktopFooterMenusAndInfo t={t} />
     </div>
   );
 };
 
 DesktopFooter.propTypes = {
-  hideStartNow: PropTypes.bool,
+  showEssential: PropTypes.bool,
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
