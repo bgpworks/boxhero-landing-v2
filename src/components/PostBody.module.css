@@ -1,4 +1,10 @@
 .postBodyView {
+  --color-hr: #e0e0e3;
+  --color-bg-mark: #50a4fa33;
+  --color-image-caption: #8f91a0;
+  --color-table-odd-bg: #f7f9fc;
+  --color-table-border: #e0e0e3;
+
   color: var(--color-font-darker);
 }
 
@@ -54,7 +60,7 @@
 
 .postBodyView hr {
   margin: 0;
-  border-top: 1px solid var(--color-light-gray);
+  border-top: 1px solid var(--color-hr);
 }
 
 .postBodyView figure figcaption {
@@ -64,13 +70,17 @@
   justify-content: center;
 
   font-size: 14px;
-  color: var(--color-font-header);
+  color: var(--color-image-caption);
 }
 
 /* 위치 관련 */
 
 .postBodyView p {
   margin: 16px 0;
+}
+
+.postBodyView mark {
+  background-color: var(--color-bg-mark);
 }
 
 .postBodyView li > p {
@@ -81,6 +91,10 @@
 .postBodyView h3,
 .postBodyView h4 {
   margin-top: 64px;
+}
+
+.postBodyView hr {
+  margin: 16px 0;
 }
 
 .postBodyView table {
@@ -97,11 +111,11 @@
   padding: 6px 13px;
   text-align: center;
 
-  border: 1px solid var(--color-light-gray);
+  border: 1px solid var(--color-table-border);
 }
 
 .postBodyView table tr:nth-child(2n) {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-table-odd-bg);
 }
 
 /* 최상단, 최하단 여백 초기화 */
