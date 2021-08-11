@@ -155,8 +155,8 @@ const sortPostsEdges = (postsEdges) => {
     const dateA = new Date(postA.node.fields.date);
     const dateB = new Date(postB.node.fields.date);
 
-    if (isBefore(dateB, dateA)) return 1;
-    if (isBefore(dateA, dateB)) return -1;
+    if (isBefore(dateA, dateB)) return 1;
+    if (isBefore(dateB, dateA)) return -1;
 
     const titleA = new Date(postA.node.fields.title);
     const titleB = new Date(postB.node.fields.title);
