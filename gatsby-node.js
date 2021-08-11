@@ -148,26 +148,6 @@ module.exports.onCreateNode = ({ node, actions, getNode }) => {
 
 // createPages
 
-const sortPostsEdges = (postsEdges) => {
-  const sortedPostEdges = [...postsEdges];
-
-  return sortedPostEdges.sort((postA, postB) => {
-    const dateA = new Date(postA.node.fields.date);
-    const dateB = new Date(postB.node.fields.date);
-
-    if (isBefore(dateA, dateB)) return 1;
-    if (isBefore(dateB, dateA)) return -1;
-
-    const titleA = new Date(postA.node.fields.title);
-    const titleB = new Date(postB.node.fields.title);
-
-    if (titleA > titleB) return 1;
-    if (titleB > titleA) return -1;
-
-    return 0;
-  });
-};
-
 const createPostPages = (actions, locale, postsEdges) => {
   const { createPage } = actions;
 
@@ -226,27 +206,31 @@ const createPostListPage = (actions, locale, postsEdges) => {
 };
 
 const getFieldValues = (postsEdges, fieldName) => {
-  const localeSet = new Set();
-  postsEdges.forEach((edge) => localeSet.add(edge.node.fields[fieldName]));
+  const valueSet = new Set();
+  postsEdges.forEach((edge) => valueSet.add(edge.node.fields[fieldName]));
 
-  return [...localeSet];
+  return [...valueSet];
 };
 
 const createPagesByLocale = (actions, locale, postsEdges) => {
   const filteredEdges = postsEdges.filter(
     (edge) => edge.node.fields.locale === locale
   );
-  const sortedEdges = sortPostsEdges(filteredEdges);
 
-  createPostPages(actions, locale, sortedEdges);
-  createPostListPage(actions, locale, sortedEdges);
+  createPostPages(actions, locale, filteredEdges);
+  createPostListPage(actions, locale, filteredEdges);
 };
 
 exports.createPages = async ({ graphql, actions }) => {
   const markdownQueryResult = await graphql(
     `
       {
-        allMarkdownRemark {
+        allMarkdownRemark(
+          sort: {
+            fields: [frontmatter___title, fields___date]
+            order: [DESC, DESC]
+          }
+        ) {
           edges {
             node {
               id
