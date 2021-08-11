@@ -172,7 +172,7 @@ export default function DesktopPostView({
             }
           />
         )}
-        <PostBody postContentInHTML={currentPostData.html} />
+        <PostBody postContentHTMLAst={currentPostData.htmlAst} />
         <StartNow />
         {(prevPostData || nextPostData) && (
           <PostFooter prevPostData={prevPostData} nextPostData={nextPostData} />

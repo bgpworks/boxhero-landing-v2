@@ -49,7 +49,7 @@ export const query = graphql`
     allMarkdownRemark(
       filter: { id: { in: $ids } }
       sort: {
-        fields: [frontmatter___title, fields___date]
+        fields: [frontmatter___title, frontmatter___date]
         order: [DESC, DESC]
       }
     ) {

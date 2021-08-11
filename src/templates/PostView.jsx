@@ -63,7 +63,7 @@ export const query = graphql`
           }
         }
       }
-      html
+      htmlAst
     }
     prevPostData: markdownRemark(id: { eq: $prevPostId }) {
       fields {
