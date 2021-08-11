@@ -46,7 +46,13 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    allMarkdownRemark(filter: { id: { in: $ids } }) {
+    allMarkdownRemark(
+      filter: { id: { in: $ids } }
+      sort: {
+        fields: [frontmatter___title, fields___date]
+        order: [DESC, DESC]
+      }
+    ) {
       edges {
         node {
           fields {
