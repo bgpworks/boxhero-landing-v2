@@ -41,8 +41,9 @@ h4 {
   margin: 0 0 0 1em;
 }
 
-.postBodyView li > p {
-  line-height: 32px;
+.postBodyView li {
+  font-size: 18px;
+  line-height: 1.8em;
 }
 
 .postBodyView blockquote {
