@@ -25,7 +25,7 @@ import {
   nameAndDate,
   createdTime,
 } from "./desktop-postview.module.css";
-import PostBody from "./postBody";
+import PostBody from "./PostBody";
 
 const LinkToListSection = () => {
   return (
