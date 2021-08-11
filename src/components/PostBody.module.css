@@ -32,6 +32,9 @@ h4 {
 .postBodyView p {
   font-size: 18px;
   line-height: 27px;
+
+  text-align: justify;
+  hyphens: auto;
 }
 
 .postBodyView li {
