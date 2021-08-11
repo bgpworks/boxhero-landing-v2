@@ -53,10 +53,6 @@ h4 {
   border-top: 1px solid var(--color-light-gray);
 }
 
-.postBodyView figure {
-  margin: 0;
-}
-
 .postBodyView figure figcaption {
   margin-top: 16px;
 
@@ -68,3 +64,32 @@ h4 {
 }
 
 /* 위치 관련 */
+
+.postBodyView p {
+  margin: 16px 0;
+}
+
+.postBodyView li > p {
+  margin: 0;
+}
+
+.postBodyView h2,
+h3,
+h4 {
+  margin-top: 64px;
+}
+
+/* 최상단, 최하단 여백 초기화 */
+
+.postBodyView *:first-child {
+  margin-top: 0;
+}
+
+.postBodyView *:last-child {
+  margin-bottom: 0;
+}
+
+.postBodyView img {
+  display: block;
+  margin: 64px 0;
+}

@@ -9,6 +9,7 @@ import {
   pageContainer,
   postContainer,
   postFooterSection,
+  postHeader,
   postCategory,
   postTitle,
   postThumbnail,
@@ -53,7 +54,7 @@ const PostHeader = ({ category, title, author, authorPhoto, date }) => {
   const categoryStyle = genRandomColorStyleMap(category);
 
   return (
-    <header>
+    <header className={postHeader}>
       <span className={postCategory} style={categoryStyle}>
         {category}
       </span>

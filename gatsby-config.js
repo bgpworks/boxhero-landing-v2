@@ -172,6 +172,15 @@ module.exports = {
             options: {
               showCaptions: true,
               maxWidth: 800,
+              wrapperStyle: "margin: 64px 0",
+            },
+          },
+          {
+            resolve: `gatsby-remark-copy-relative-linked-files`,
+            options: {
+              filename: ({ hash, name, extension }) =>
+                `${name}-${hash}.${extension}`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
             },
           },
         ],

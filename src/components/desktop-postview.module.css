@@ -24,6 +24,10 @@
   color: var(--color-font-darker);
 }
 
+.postHeader {
+  margin-bottom: 64px;
+}
+
 .postCategory {
   padding: 1.5px 8px;
   color: white;
@@ -41,7 +45,7 @@
 
 .postThumbnail {
   height: 360px;
-  margin: 50px 0;
+  margin-bottom: 64px;
 }
 
 .postFooterSection {
