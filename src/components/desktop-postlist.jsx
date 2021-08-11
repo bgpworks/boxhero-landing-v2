@@ -37,7 +37,7 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
           to={`${pathPrefix}/${pageIndex - 1}`}
           className={navButton}
         >
-          <img src={svgArrowPrev} />
+          <img src={svgArrowPrev} alt="arrow-prev" />
           <span className={prevButtonLabel}>이전</span>
         </Link>
       )}
@@ -51,7 +51,7 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
           className={navButton}
         >
           <span className={nextButtonLabel}>다음</span>
-          <img src={svgArrowNext} />
+          <img src={svgArrowNext} alt="arrow-next" />
         </Link>
       )}
     </nav>

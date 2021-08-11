@@ -31,7 +31,7 @@ const LinkToListSection = () => {
   return (
     <section className={linkToListSection}>
       <Link to={`/blog`}>
-        <img src={svgCompleteArrowPrev} />
+        <img src={svgCompleteArrowPrev} alt="arrow-prev" />
         <span className={linkToListLabel}>블로그 리스트</span>
       </Link>
     </section>
