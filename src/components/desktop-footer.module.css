@@ -183,6 +183,8 @@
 }
 
 .footerLangSelector {
+  width: 90px;
+
   vertical-align: middle;
   background-repeat: no-repeat;
   background-position: right 8px center;
