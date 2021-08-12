@@ -7,8 +7,6 @@ import { genRandomColorStyleMap } from "../util";
 import { ExternalLinkWithQuery } from "../components/common";
 import * as constants from "../components/constants";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
-import svgFooterLeftBG from "../images/footer-left-bg.svg";
-import svgFooterRightBG from "../images/footer-right-bg.svg";
 import {
   pageContainer,
   postContainer,
@@ -51,10 +49,19 @@ const LinkToListSection = () => {
 const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
   return (
     <div className={authorSection}>
-      <GatsbyImage image={authorPhoto} className={authorPhotoWrapper} />
+      <GatsbyImage
+        image={authorPhoto}
+        className={authorPhotoWrapper}
+        alt={author}
+      />
       <div className={nameAndDate}>
-        <span>{author}</span>
-        <span className={createdTime}>{format(new Date(date), "PPP")}</span>
+        <address>{author}</address>
+        <time
+          dateTime={format(new Date(date), "yyyy-MM-dd")}
+          className={createdTime}
+        >
+          {format(new Date(date), "PPP")}
+        </time>
       </div>
     </div>
   );
@@ -98,38 +105,39 @@ const RelatedPostCard = ({ slug, rel, category, title, label }) => {
 
 const PostFooter = ({ prevPostData, nextPostData }) => {
   return (
-    <nav className={postFooterSection}>
-      <div className={relatedPostCardWrapper}>
-        {prevPostData && (
-          <RelatedPostCard
-            rel="prev"
-            slug={prevPostData.fields.slug}
-            title={prevPostData.frontmatter.title}
-            category={prevPostData.frontmatter.category}
-            label={`이전글`}
-          />
-        )}
-      </div>
-      <div className={relatedPostCardWrapper}>
-        {nextPostData && (
-          <RelatedPostCard
-            rel="next"
-            slug={nextPostData.fields.slug}
-            title={nextPostData.frontmatter.title}
-            category={nextPostData.frontmatter.category}
-            label={`다음글`}
-          />
-        )}
-      </div>
-    </nav>
+    <footer>
+      <StartNow />
+      <nav className={postFooterSection}>
+        <div className={relatedPostCardWrapper}>
+          {prevPostData && (
+            <RelatedPostCard
+              rel="prev"
+              slug={prevPostData.fields.slug}
+              title={prevPostData.frontmatter.title}
+              category={prevPostData.frontmatter.category}
+              label={`이전글`}
+            />
+          )}
+        </div>
+        <div className={relatedPostCardWrapper}>
+          {nextPostData && (
+            <RelatedPostCard
+              rel="next"
+              slug={nextPostData.fields.slug}
+              title={nextPostData.frontmatter.title}
+              category={nextPostData.frontmatter.category}
+              label={`다음글`}
+            />
+          )}
+        </div>
+      </nav>
+    </footer>
   );
 };
 
 const StartNow = () => {
   return (
     <section className={startNowSection}>
-      <img className={leftBG} src={svgFooterLeftBG} alt="leftBG" />
-      <img className={rightBG} src={svgFooterRightBG} alt="rightBG" />
       <span className={startNowTitle}>재고관리의 시작, 박스히어로</span>
       <span className={startNowDesc}>
         한달 동안 모든 기능을 무료로 사용해 보세요!
@@ -173,7 +181,6 @@ export default function DesktopPostView({
           />
         )}
         <PostBody postContentHTMLAst={currentPostData.htmlAst} />
-        <StartNow />
         {(prevPostData || nextPostData) && (
           <PostFooter prevPostData={prevPostData} nextPostData={nextPostData} />
         )}
