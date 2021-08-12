@@ -4,6 +4,7 @@
   --color-image-caption: #8f91a0;
   --color-table-odd-bg: #f7f9fc;
   --color-table-border: #e0e0e3;
+  --color-anchor: #4f67ff;
 
   color: var(--color-font-darker);
 }
@@ -43,13 +44,15 @@
   hyphens: auto;
 }
 
-.postBodyView li {
-  margin: 0 0 0 1em;
+.postBodyView a {
+  color: var(--color-anchor);
+  text-decoration: underline;
 }
 
 .postBodyView li {
   font-size: 18px;
   line-height: 1.8em;
+  margin-left: 1.4em;
 }
 
 .postBodyView blockquote {
@@ -75,7 +78,7 @@
 
 /* 위치 관련 */
 
-.postBodyView p {
+.postBodyView > p {
   margin: 16px 0;
 }
 
