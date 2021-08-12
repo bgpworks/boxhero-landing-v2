@@ -17,10 +17,13 @@ const REQUIRED_FRONTMATTER_FIELD_NAMES = [
   "description",
 ];
 const CATEGORY_STYLE_MAP = [
-  { backgroundColor: "#3cb9a0", color: "white" },
-  { backgroundColor: "#9369e6", color: "white" },
-  { backgroundColor: "#55adfd", color: "white" },
-  { backgroundColor: "#f0443b", color: "white" },
+  { backgroundColor: "#599fe0", color: "white" },
+  { backgroundColor: "#51baa5", color: "white" },
+  { backgroundColor: "#e57678", color: "white" },
+  { backgroundColor: "#ea9b18", color: "white" },
+  { backgroundColor: "#6e7fe8", color: "white" },
+  { backgroundColor: "#75b534", color: "white" },
+  { backgroundColor: "#d38457", color: "white" },
 ];
 
 // Components
