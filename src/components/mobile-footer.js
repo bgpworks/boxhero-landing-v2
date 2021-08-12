@@ -135,11 +135,14 @@ const MobileFooter = ({
   closingEmoji,
   closingMsg,
   onChangeIsShowLangPopup,
+  showEssentialOnly,
 }) => {
   const { t } = useI18next();
   return (
     <div>
-      <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+      {!showEssentialOnly && (
+        <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+      )}
       <MobileFooterMenusAndInfo
         t={t}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
@@ -152,6 +155,7 @@ MobileFooter.propTypes = {
   closingEmoji: PropTypes.object.isRequired,
   // string or object
   closingMsg: PropTypes.any.isRequired,
+  showEssentialOnly: PropTypes.bool,
 };
 
 export default MobileFooter;

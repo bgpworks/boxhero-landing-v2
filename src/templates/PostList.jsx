@@ -6,6 +6,7 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 import { Media } from "../media";
 import SEOHelmet from "../components/SEOHelmet";
 import PostListDesktop from "../components/desktop-postlist";
+import PostListMobile from "../components/mobile-postlist";
 
 export default function PostList({ pageContext, location, data }) {
   const { pageIndex, lastPageIndex, categoryStyleMapSerialized } = pageContext;
@@ -25,7 +26,15 @@ export default function PostList({ pageContext, location, data }) {
       />
 
       <Media at="xs">
-        <div>fsadfasd</div>
+        <PostListMobile
+          title={t("blog:pageTitle")}
+          description={t("blog:pageDescription")}
+          edges={edges}
+          pageIndex={pageIndex}
+          lastPageIndex={lastPageIndex}
+          pagePathPrefix={`/blog/pages`}
+          categoryStyleMap={categoryStyleMap}
+        />
       </Media>
 
       <Media greaterThan="xs">
