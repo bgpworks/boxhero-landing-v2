@@ -5,6 +5,7 @@
   --color-table-odd-bg: #f7f9fc;
   --color-table-border: #e0e0e3;
   --color-anchor: #4f67ff;
+  --color-box-border: #e0e0e3;
   --color-bg-tip-box: rgba(80, 164, 250, 0.1);
   --color-bg-caution-box: rgba(245, 166, 35, 0.1);
   --color-bg-notice-box: rgba(60, 185, 160, 0.1);
@@ -129,6 +130,7 @@
 .boxWrapper {
   padding: 16px 20px;
   border-radius: 6px;
+  border: 1px solid var(--color-box-border);
 
   display: flex;
   align-items: flex-start;
