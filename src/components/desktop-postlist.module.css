@@ -6,7 +6,7 @@
 
 .postList {
   list-style: none;
-  width: 1024px;
+  width: 920px;
 
   display: flex;
   flex-wrap: wrap;
@@ -17,7 +17,7 @@
   margin: 0;
 
   width: 33.33%;
-  min-height: 450px;
+  min-height: 372px;
   padding: 15px;
 }
 
@@ -89,6 +89,12 @@
   font-weight: 500;
 
   color: black;
+
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .postDescription {
