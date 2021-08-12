@@ -13,6 +13,7 @@ import {
   postCard,
   postCardWrapper,
   thumbnailWrapper,
+  thumbnailImage,
   postCardDetail,
   postCategory,
   postTitle,
@@ -65,18 +66,24 @@ const PostCard = ({ title, category, description, path, thumbnail }) => {
     <li className={postCardWrapper}>
       <Link to={path}>
         <article className={postCard}>
-          <GatsbyImage
-            image={thumbnail}
+          <section
             className={thumbnailWrapper}
-            alt={description}
-          />
-          <div className={postCardDetail}>
+            style={{ backgroundColor: categoryColorMap.backgroundColor }}
+          >
+            <GatsbyImage
+              image={thumbnail}
+              alt={description}
+              className={thumbnailImage}
+            />
+          </section>
+
+          <section className={postCardDetail}>
             <span className={postCategory} style={categoryColorMap}>
               {category}
             </span>
             <h3 className={postTitle}>{title}</h3>
             <span className={postDescription}>{description}</span>
-          </div>
+          </section>
         </article>
       </Link>
     </li>
@@ -104,8 +111,7 @@ export default function PostListDesktop({
           <PostCard
             key={node.fields.slug}
             thumbnail={
-              node.frontmatter.thumbnail &&
-              node.frontmatter.thumbnail.childImageSharp.gatsbyImageData
+              node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData
             }
             title={node.frontmatter.title}
             category={node.frontmatter.category}
