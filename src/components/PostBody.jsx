@@ -1,17 +1,50 @@
 import React from "react";
+import cn from "classnames";
 import rehypeReact from "rehype-react";
-import { postBodyView } from "./PostBody.module.css";
+import pngTipIcon from "../images/tip-icon.png";
+import pngCautionIcon from "../images/caution-icon.png";
+import pngNoticeIcon from "../images/notice-icon.png";
+import {
+  boxWrapper,
+  postBodyView,
+  boxIcon,
+  tipBox,
+  cautionBox,
+  noticeBox,
+  boxBody,
+} from "./PostBody.module.css";
+
+const Box = ({ className, icon, children }) => {
+  return (
+    <section className={cn(boxWrapper, className)}>
+      <img className={boxIcon} src={icon} alt="box-decorator" />
+      <div className={boxBody}>{children}</div>
+    </section>
+  );
+};
 
 const TipBox = ({ children }) => {
-  return <mark>{children}</mark>;
+  return (
+    <Box className={tipBox} icon={pngTipIcon}>
+      {children}
+    </Box>
+  );
 };
 
 const NoticeBox = ({ children }) => {
-  return <span>{children}</span>;
+  return (
+    <Box className={noticeBox} icon={pngNoticeIcon}>
+      {children}
+    </Box>
+  );
 };
 
 const CautionBox = ({ children }) => {
-  return <span>{children}</span>;
+  return (
+    <Box className={cautionBox} icon={pngCautionIcon}>
+      {children}
+    </Box>
+  );
 };
 
 const renderAST = new rehypeReact({

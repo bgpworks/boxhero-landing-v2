@@ -7,6 +7,7 @@
   "dependencies": {
     "@artsy/fresnel": "1.9.0",
     "accept-language-parser": "^1.5.0",
+    "classnames": "^2.3.1",
     "date-fns": "^2.23.0",
     "gatsby": "^3.10.2",
     "gatsby-plugin-anchor-links": "1.2.1",

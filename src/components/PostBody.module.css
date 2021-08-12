@@ -5,6 +5,9 @@
   --color-table-odd-bg: #f7f9fc;
   --color-table-border: #e0e0e3;
   --color-anchor: #4f67ff;
+  --color-bg-tip-box: rgba(80, 164, 250, 0.1);
+  --color-bg-caution-box: rgba(245, 166, 35, 0.1);
+  --color-bg-notice-box: rgba(60, 185, 160, 0.1);
 
   color: var(--color-font-darker);
 }
@@ -121,6 +124,43 @@
   background-color: var(--color-table-odd-bg);
 }
 
+/* 커스텀 요소 */
+
+.boxWrapper {
+  padding: 16px 20px;
+  border-radius: 6px;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.boxIcon {
+  flex: 0 0 auto;
+
+  width: 24px;
+  height: 24px;
+
+  object-fit: cover;
+}
+
+.boxBody {
+  margin-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.boxWrapper.tipBox {
+  background-color: var(--color-bg-tip-box);
+}
+
+.boxWrapper.cautionBox {
+  background-color: var(--color-bg-caution-box);
+}
+
+.boxWrapper.noticeBox {
+  background-color: var(--color-bg-notice-box);
+}
+
 /* 최상단, 최하단 여백 초기화 */
 
 .postBodyView *:first-child {
@@ -131,7 +171,7 @@
   margin-bottom: 0;
 }
 
-.postBodyView img {
+.postBodyView > img {
   display: block;
   margin: 64px 0;
 }
