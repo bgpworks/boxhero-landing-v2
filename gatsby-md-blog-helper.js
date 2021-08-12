@@ -8,7 +8,7 @@ const PER_PAGE = 9;
 const DATE_FORMAT = "yyyy-MM-dd HH:mm";
 const SLUGIFY_COMMON_OPTION = { lower: true, trim: true };
 const REGEX_SPACES = /\s+/g;
-const REGEX_NOT_ALLOWED_IN_KOREAN_SLUG = /[^가-힣a-z\d\s\-]/gi;
+const REGEX_NOT_ALLOWED_IN_KOREAN_SLUG = /[^가-힣a-z\d\s]/gi;
 const REQUIRED_FRONTMATTER_FIELD_NAMES = [
   "title",
   "date",
