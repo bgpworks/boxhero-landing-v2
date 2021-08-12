@@ -5,6 +5,7 @@ category: 사용사례
 author: 유상석
 authorPhoto: ../images/authors/sangseok.jpeg
 thumbnail: ./images/pharmacy_thumbnail.jpg
+description: fdsafsdfasdf
 ---
 
 # 정리 및 게시
