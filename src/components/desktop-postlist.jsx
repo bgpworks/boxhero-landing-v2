@@ -62,7 +62,13 @@ const PostCardThumbnail = ({ thumbnail, alt }) => {
   return (
     <section className={thumbnailWrapper}>
       {thumbnail && (
-        <GatsbyImage image={thumbnail} alt={alt} className={thumbnailImage} />
+        <GatsbyImage
+          image={thumbnail}
+          alt={alt}
+          className={thumbnailImage}
+          // Safari에서 부모의 border-radius를 탈출하는 문제 수정
+          imgStyle={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+        />
       )}
     </section>
   );
