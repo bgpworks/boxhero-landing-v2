@@ -1,7 +1,7 @@
 .postBodyView {
   --color-hr: #e0e0e3;
   --color-bg-mark: #50a4fa33;
-  --color-image-caption: #8f91a0;
+  --color-caption: #8f91a0;
   --color-table-odd-bg: #f7f9fc;
   --color-table-border: #e0e0e3;
   --color-anchor: #4f67ff;
@@ -77,7 +77,7 @@
   justify-content: center;
 
   font-size: 14px;
-  color: var(--color-image-caption);
+  color: var(--color-caption);
 }
 
 /* 위치 관련 */
@@ -86,6 +86,10 @@
 .postBodyView > ul,
 .postBodyView > ol,
 .postBodyView > dl {
+  margin: 16px 0;
+}
+
+.postBodyView blockquote {
   margin: 16px 0;
 }
 
@@ -165,6 +169,11 @@
 
 .boxWrapper.noticeBox {
   background-color: var(--color-bg-notice-box);
+}
+
+.caption {
+  font-size: 14px;
+  color: var(--color-caption);
 }
 
 /* 최상단, 최하단 여백 초기화 */

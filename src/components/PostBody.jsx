@@ -12,6 +12,7 @@ import {
   cautionBox,
   noticeBox,
   boxBody,
+  caption,
 } from "./PostBody.module.css";
 
 const Box = ({ className, icon, children }) => {
@@ -47,6 +48,10 @@ const CautionBox = ({ children }) => {
   );
 };
 
+const Caption = ({ children }) => {
+  return <span className={caption}>{children}</span>;
+};
+
 const renderAST = new rehypeReact({
   createElement: React.createElement,
   Fragment: React.Fragment,
@@ -54,6 +59,7 @@ const renderAST = new rehypeReact({
     "tip-box": TipBox,
     "notice-box": NoticeBox,
     "caution-box": CautionBox,
+    "caption-text": Caption,
   },
 }).Compiler;
 
