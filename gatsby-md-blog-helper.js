@@ -16,7 +16,7 @@ const REQUIRED_FRONTMATTER_FIELD_NAMES = [
   "author",
   "description",
 ];
-const CATEGORY_STYLE_MAP = [
+const CATEGORY_STYLES = [
   { backgroundColor: "#599fe0", color: "white" },
   { backgroundColor: "#51baa5", color: "white" },
   { backgroundColor: "#e57678", color: "white" },
@@ -263,7 +263,7 @@ const genCommonPageContext = (postsEdges) => {
   const categoryStyleMap = categories.reduce((acc, category, idx) => {
     return {
       ...acc,
-      [category]: CATEGORY_STYLE_MAP[idx % CATEGORY_STYLE_MAP.length],
+      [category]: CATEGORY_STYLES[idx % CATEGORY_STYLES.length],
     };
   }, {});
 
