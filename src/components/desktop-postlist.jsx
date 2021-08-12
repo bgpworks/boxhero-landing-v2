@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { genRandomColorStyleMap } from "../util";
 import DesktopLayout from "../components/desktop-layout";
 import svgArrowPrev from "../images/arrow-prev.svg";
 import svgArrowNext from "../images/arrow-next.svg";
@@ -59,26 +58,39 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
   );
 };
 
-const PostCard = ({ title, category, description, path, thumbnail }) => {
-  const categoryColorMap = genRandomColorStyleMap(category);
+const PostCardThumbnail = ({ categoryStyle, thumbnail, alt }) => {
+  return (
+    <section
+      className={thumbnailWrapper}
+      style={{ backgroundColor: categoryStyle?.backgroundColor }}
+    >
+      {thumbnail && (
+        <GatsbyImage image={thumbnail} alt={alt} className={thumbnailImage} />
+      )}
+    </section>
+  );
+};
 
+const PostCard = ({
+  title,
+  categoryStyle,
+  category,
+  description,
+  path,
+  thumbnail,
+}) => {
   return (
     <li className={postCardWrapper}>
       <Link to={path}>
         <article className={postCard}>
-          <section
-            className={thumbnailWrapper}
-            style={{ backgroundColor: categoryColorMap.backgroundColor }}
-          >
-            <GatsbyImage
-              image={thumbnail}
-              alt={description}
-              className={thumbnailImage}
-            />
-          </section>
+          <PostCardThumbnail
+            thumbnail={thumbnail}
+            alt={description}
+            categoryStyle={categoryStyle}
+          />
 
           <section className={postCardDetail}>
-            <span className={postCategory} style={categoryColorMap}>
+            <span className={postCategory} style={categoryStyle}>
               {category}
             </span>
             <h3 className={postTitle}>{title}</h3>
@@ -97,6 +109,7 @@ export default function PostListDesktop({
   edges,
   pageIndex,
   lastPageIndex,
+  categoryStyleMap,
 }) {
   return (
     <DesktopLayout
@@ -107,18 +120,23 @@ export default function PostListDesktop({
       <h2 className={pageTitle}>{title}</h2>
       <p className={pageDescription}>{description}</p>
       <ul className={postList}>
-        {edges.map(({ node }) => (
-          <PostCard
-            key={node.fields.slug}
-            thumbnail={
-              node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData
-            }
-            title={node.frontmatter.title}
-            category={node.frontmatter.category}
-            description={node.frontmatter.description}
-            path={`/blog/posts/${node.fields.slug}`}
-          />
-        ))}
+        {edges.map(({ node }) => {
+          const category = node.frontmatter.category;
+
+          return (
+            <PostCard
+              key={node.fields.slug}
+              thumbnail={
+                node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData
+              }
+              title={node.frontmatter.title}
+              category={category}
+              description={node.frontmatter.description}
+              path={`/blog/posts/${node.fields.slug}`}
+              categoryStyle={categoryStyleMap[category]}
+            />
+          );
+        })}
       </ul>
       <Pagination
         pathPrefix={pagePathPrefix}

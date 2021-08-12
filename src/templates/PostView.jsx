@@ -6,8 +6,9 @@ import { Media } from "../media";
 import SEOHelmet from "../components/SEOHelmet";
 import PostViewDesktop from "../components/desktop-postview";
 
-export default function PostView({ data, location }) {
+export default function PostView({ data, location, pageContext }) {
   const { language } = useI18next();
+  const { categoryStyleMap } = pageContext;
   const { currentPostData, prevPostData, nextPostData } = data;
   return (
     <>
@@ -24,6 +25,7 @@ export default function PostView({ data, location }) {
 
       <Media greaterThan="xs">
         <PostViewDesktop
+          categoryStyleMap={categoryStyleMap}
           currentPostData={currentPostData}
           prevPostData={prevPostData}
           nextPostData={nextPostData}

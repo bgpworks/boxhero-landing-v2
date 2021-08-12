@@ -8,7 +8,7 @@ import SEOHelmet from "../components/SEOHelmet";
 import PostListDesktop from "../components/desktop-postlist";
 
 export default function PostList({ pageContext, location, data }) {
-  const { pageIndex, lastPageIndex } = pageContext;
+  const { pageIndex, lastPageIndex, categoryStyleMap } = pageContext;
   const { language, t } = useI18next();
   const {
     allMarkdownRemark: { edges },
@@ -35,6 +35,7 @@ export default function PostList({ pageContext, location, data }) {
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
           pagePathPrefix={`/blog/pages`}
+          categoryStyleMap={categoryStyleMap}
         />
       </Media>
     </>

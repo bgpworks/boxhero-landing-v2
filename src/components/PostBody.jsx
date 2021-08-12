@@ -16,10 +16,10 @@ import {
 
 const Box = ({ className, icon, children }) => {
   return (
-    <section className={cn(boxWrapper, className)}>
+    <span className={cn(boxWrapper, className)}>
       <img className={boxIcon} src={icon} alt="box-decorator" />
-      <div className={boxBody}>{children}</div>
-    </section>
+      <span className={boxBody}>{children}</span>
+    </span>
   );
 };
 

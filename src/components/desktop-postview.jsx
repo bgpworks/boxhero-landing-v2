@@ -3,7 +3,6 @@ import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import DesktopLayout from "../components/desktop-layout";
 import { format } from "date-fns";
-import { genRandomColorStyleMap } from "../util";
 import { ExternalLinkWithQuery } from "../components/common";
 import * as constants from "../components/constants";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
@@ -48,11 +47,13 @@ const LinkToListSection = () => {
 const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
   return (
     <div className={authorSection}>
-      <GatsbyImage
-        image={authorPhoto}
-        className={authorPhotoWrapper}
-        alt={author}
-      />
+      {authorPhoto && (
+        <GatsbyImage
+          image={authorPhoto}
+          className={authorPhotoWrapper}
+          alt={author}
+        />
+      )}
       <div className={nameAndDate}>
         <address>{author}</address>
         <time
@@ -66,9 +67,14 @@ const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
   );
 };
 
-const PostHeader = ({ category, title, author, authorPhoto, date }) => {
-  const categoryStyle = genRandomColorStyleMap(category);
-
+const PostHeader = ({
+  category,
+  title,
+  author,
+  authorPhoto,
+  date,
+  categoryStyle,
+}) => {
   return (
     <header className={postHeader}>
       <span className={postCategory} style={categoryStyle}>
@@ -84,13 +90,18 @@ const PostHeader = ({ category, title, author, authorPhoto, date }) => {
   );
 };
 
-const PostThumbnail = ({ thumbnailData }) => {
-  return <GatsbyImage className={postThumbnail} image={thumbnailData} />;
+const PostThumbnail = ({ thumbnail, alt }) => {
+  return <GatsbyImage className={postThumbnail} image={thumbnail} alt={alt} />;
 };
 
-const RelatedPostCard = ({ slug, rel, category, title, label }) => {
-  const categoryStyle = genRandomColorStyleMap(category);
-
+const RelatedPostCard = ({
+  slug,
+  rel,
+  category,
+  categoryStyle,
+  title,
+  label,
+}) => {
   return (
     <Link rel={rel} to={`/blog/posts/${slug}`} className={relatedPostCard}>
       <span className={categoryInRelatedPost} style={categoryStyle}>
@@ -102,7 +113,7 @@ const RelatedPostCard = ({ slug, rel, category, title, label }) => {
   );
 };
 
-const PostFooter = ({ prevPostData, nextPostData }) => {
+const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
   return (
     <footer className={postFooter}>
       <StartNow />
@@ -114,6 +125,9 @@ const PostFooter = ({ prevPostData, nextPostData }) => {
               slug={prevPostData.fields.slug}
               title={prevPostData.frontmatter.title}
               category={prevPostData.frontmatter.category}
+              categoryStyle={
+                categoryStyleMap[prevPostData.frontmatter.category]
+              }
               label={`이전글`}
             />
           )}
@@ -125,6 +139,9 @@ const PostFooter = ({ prevPostData, nextPostData }) => {
               slug={nextPostData.fields.slug}
               title={nextPostData.frontmatter.title}
               category={nextPostData.frontmatter.category}
+              categoryStyle={
+                categoryStyleMap[nextPostData.frontmatter.category]
+              }
               label={`다음글`}
             />
           )}
@@ -149,10 +166,16 @@ const StartNow = () => {
 };
 
 export default function DesktopPostView({
+  categoryStyleMap,
   currentPostData,
   prevPostData,
   nextPostData,
 }) {
+  const title = currentPostData.frontmatter.title;
+  const category = currentPostData.frontmatter.category;
+  const thumbnail =
+    currentPostData.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData;
+
   return (
     <DesktopLayout
       mainClassName={pageContainer}
@@ -162,26 +185,24 @@ export default function DesktopPostView({
       <LinkToListSection />
       <article className={postContainer}>
         <PostHeader
-          title={currentPostData.frontmatter.title}
-          category={currentPostData.frontmatter.category}
+          title={title}
+          category={category}
           author={currentPostData.frontmatter.author}
           authorPhoto={
             currentPostData.frontmatter?.authorPhoto?.childImageSharp
               ?.gatsbyImageData
           }
           date={currentPostData.fields.date}
+          categoryStyle={categoryStyleMap[category]}
         />
-        {postThumbnail && (
-          <PostThumbnail
-            thumbnailData={
-              currentPostData.frontmatter?.thumbnail?.childImageSharp
-                ?.gatsbyImageData
-            }
-          />
-        )}
+        {thumbnail && <PostThumbnail thumbnail={thumbnail} alt={title} />}
         <PostBody postContentHTMLAst={currentPostData.htmlAst} />
         {(prevPostData || nextPostData) && (
-          <PostFooter prevPostData={prevPostData} nextPostData={nextPostData} />
+          <PostFooter
+            categoryStyleMap={categoryStyleMap}
+            prevPostData={prevPostData}
+            nextPostData={nextPostData}
+          />
         )}
       </article>
     </DesktopLayout>

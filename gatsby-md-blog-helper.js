@@ -16,6 +16,12 @@ const REQUIRED_FRONTMATTER_FIELD_NAMES = [
   "author",
   "description",
 ];
+const CATEGORY_STYLE_MAP = [
+  { backgroundColor: "#3cb9a0", color: "white" },
+  { backgroundColor: "#9369e6", color: "white" },
+  { backgroundColor: "#55adfd", color: "white" },
+  { backgroundColor: "#f0443b", color: "white" },
+];
 
 // Components
 
@@ -152,7 +158,7 @@ const createCustomFields = (node, actions, getNode) => {
 
 // createPages
 
-const createPostPages = (actions, locale, postsEdges) => {
+const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
   const { createPage } = actions;
 
   postsEdges.forEach((edge, index) => {
@@ -167,6 +173,7 @@ const createPostPages = (actions, locale, postsEdges) => {
       path: currentPath,
       component: PostPage,
       context: {
+        ...commonPageContext,
         locale,
         currentPostId: edge.node.id,
         nextPostId: nextEdge && nextEdge.node.id,
@@ -176,7 +183,7 @@ const createPostPages = (actions, locale, postsEdges) => {
   });
 };
 
-const createPostListPage = (actions, locale, postsEdges) => {
+const createPostListPage = (actions, locale, commonPageContext, postsEdges) => {
   const { createPage } = actions;
   const pageCount = Math.ceil(postsEdges.length / PER_PAGE);
   const postIds = postsEdges.map(({ node }) => node.id);
@@ -187,6 +194,7 @@ const createPostListPage = (actions, locale, postsEdges) => {
     const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
     const postIdsInPage = postIds.slice(startIndex, endIndex);
     const pageContext = {
+      ...commonPageContext,
       locale,
       ids: postIdsInPage,
       pageIndex: page,
@@ -216,13 +224,18 @@ const getFieldValues = (postsEdges, fieldName) => {
   return [...valueSet];
 };
 
-const createPagesByLocale = (actions, locale, postsEdges) => {
+const createPagesByLocale = (
+  actions,
+  locale,
+  commonPageContext,
+  postsEdges
+) => {
   const filteredEdges = postsEdges.filter(
     (edge) => edge.node.fields.locale === locale
   );
 
-  createPostPages(actions, locale, filteredEdges);
-  createPostListPage(actions, locale, filteredEdges);
+  createPostPages(actions, locale, commonPageContext, filteredEdges);
+  createPostListPage(actions, locale, commonPageContext, filteredEdges);
 };
 
 // onCreateNode
@@ -241,6 +254,20 @@ exports.onCreateNodeForBlog = ({ node, actions, getNode }) => {
 };
 
 // createPages
+
+const genCommonPageContext = (postsEdges) => {
+  const categories = getFieldValues(postsEdges, "category");
+  const categoryStyleMap = categories.reduce((acc, category, idx) => {
+    return {
+      ...acc,
+      [category]: CATEGORY_STYLE_MAP[idx % CATEGORY_STYLE_MAP.length],
+    };
+  }, {});
+
+  return {
+    categoryStyleMap,
+  };
+};
 
 exports.createPagesForBlog = async ({ graphql, actions }) => {
   const markdownQueryResult = await graphql(
@@ -276,8 +303,9 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
   const edges = markdownQueryResult.data.allMarkdownRemark.edges;
   const postsEdges = edges.filter((edge) => edge.node.fields);
   const locales = getFieldValues(postsEdges, "locale");
+  const commonPageContext = genCommonPageContext(postsEdges);
 
   for (const locale of locales) {
-    createPagesByLocale(actions, locale, postsEdges);
+    createPagesByLocale(actions, locale, commonPageContext, postsEdges);
   }
 };
