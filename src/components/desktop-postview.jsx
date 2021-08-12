@@ -166,8 +166,8 @@ export default function DesktopPostView({
           category={currentPostData.frontmatter.category}
           author={currentPostData.frontmatter.author}
           authorPhoto={
-            currentPostData.frontmatter.authorPhoto.childImageSharp
-              .gatsbyImageData
+            currentPostData.frontmatter?.authorPhoto?.childImageSharp
+              ?.gatsbyImageData
           }
           date={currentPostData.fields.date}
         />

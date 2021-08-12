@@ -113,12 +113,15 @@
   clip-path: circle();
 }
 
+.authorPhotoWrapper + .nameAndDate {
+  margin-left: 18px;
+}
+
 .nameAndDate {
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  margin-left: 18px;
   font-size: 14px;
   color: var(--color-font-darker);
 }
