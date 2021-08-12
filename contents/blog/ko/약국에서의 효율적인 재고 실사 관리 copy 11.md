@@ -1,9 +1,9 @@
 ---
-title: "약국에서의 효율적인 재고 실사 관리"
+title: 제목도 💻 이상하고 🌁 내용도 이상한 글 --- 2"
 date: 2021-08-30 13:28
 category: 동그랑땡
 author: 익명의 작성자
-description: 약국을 위한 박스히어로 특급 처방전.
+description: fdsafsdfasdf
 ---
 
 # 정리 및 게시

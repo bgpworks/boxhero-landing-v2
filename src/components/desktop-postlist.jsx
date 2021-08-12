@@ -58,12 +58,9 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
   );
 };
 
-const PostCardThumbnail = ({ categoryStyle, thumbnail, alt }) => {
+const PostCardThumbnail = ({ thumbnail, alt }) => {
   return (
-    <section
-      className={thumbnailWrapper}
-      style={{ backgroundColor: categoryStyle?.backgroundColor }}
-    >
+    <section className={thumbnailWrapper}>
       {thumbnail && (
         <GatsbyImage image={thumbnail} alt={alt} className={thumbnailImage} />
       )}
@@ -83,11 +80,7 @@ const PostCard = ({
     <li className={postCardWrapper}>
       <Link to={path}>
         <article className={postCard}>
-          <PostCardThumbnail
-            thumbnail={thumbnail}
-            alt={description}
-            categoryStyle={categoryStyle}
-          />
+          <PostCardThumbnail thumbnail={thumbnail} alt={description} />
 
           <section className={postCardDetail}>
             <span className={postCategory} style={categoryStyle}>
