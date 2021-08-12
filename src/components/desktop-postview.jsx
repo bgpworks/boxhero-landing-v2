@@ -174,8 +174,8 @@ export default function DesktopPostView({
         {postThumbnail && (
           <PostThumbnail
             thumbnailData={
-              currentPostData.frontmatter.thumbnail.childImageSharp
-                .gatsbyImageData
+              currentPostData.frontmatter?.thumbnail?.childImageSharp
+                ?.gatsbyImageData
             }
           />
         )}

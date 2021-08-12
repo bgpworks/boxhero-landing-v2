@@ -3,7 +3,6 @@ title: "약국에서의 효율적인 재고 실사 관리"
 date: 2021-08-30 13:28
 category: 사용사례
 author: 익명의 작성자
-thumbnail: ./images/pharmacy_thumbnail.jpg
 description: 약국을 위한 박스히어로 특급 처방전.
 ---
 
