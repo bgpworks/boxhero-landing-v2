@@ -7,14 +7,14 @@ import SEOHelmet from "../components/SEOHelmet";
 import PostViewDesktop from "../components/desktop-postview";
 
 export default function PostView({ data, location }) {
-  const { language, t } = useI18next();
+  const { language } = useI18next();
   const { currentPostData, prevPostData, nextPostData } = data;
   return (
     <>
       <SEOHelmet
         lang={language}
-        title={t("blog:pageTitle")}
-        description={t("blog:pageDescription")}
+        title={currentPostData.frontmatter.title}
+        description={currentPostData.frontmatter.description}
         path={location.pathname}
       />
 
