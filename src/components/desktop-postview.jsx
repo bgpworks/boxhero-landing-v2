@@ -12,6 +12,7 @@ import {
   postContainer,
   postFooterSection,
   postHeader,
+  postFooter,
   postCategory,
   postTitle,
   postThumbnail,
@@ -27,8 +28,6 @@ import {
   nameAndDate,
   createdTime,
   startNowSection,
-  leftBG,
-  rightBG,
   startNowTitle,
   startNowDesc,
   startNowButton,
@@ -105,7 +104,7 @@ const RelatedPostCard = ({ slug, rel, category, title, label }) => {
 
 const PostFooter = ({ prevPostData, nextPostData }) => {
   return (
-    <footer>
+    <footer className={postFooter}>
       <StartNow />
       <nav className={postFooterSection}>
         <div className={relatedPostCardWrapper}>

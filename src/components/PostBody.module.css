@@ -82,7 +82,10 @@
 
 /* 위치 관련 */
 
-.postBodyView > p {
+.postBodyView > p,
+.postBodyView > ul,
+.postBodyView > ol,
+.postBodyView > dl {
   margin: 16px 0;
 }
 
@@ -128,6 +131,7 @@
 /* 커스텀 요소 */
 
 .boxWrapper {
+  margin: 16px 0;
   padding: 16px 20px;
   border-radius: 6px;
   border: 1px solid var(--color-box-border);
@@ -165,11 +169,11 @@
 
 /* 최상단, 최하단 여백 초기화 */
 
-.postBodyView *:first-child {
+.postBodyView > *:first-child {
   margin-top: 0;
 }
 
-.postBodyView *:last-child {
+.postBodyView > *:last-child {
   margin-bottom: 0;
 }
 
