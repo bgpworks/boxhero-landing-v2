@@ -8,7 +8,8 @@ import SEOHelmet from "../components/SEOHelmet";
 import PostListDesktop from "../components/desktop-postlist";
 
 export default function PostList({ pageContext, location, data }) {
-  const { pageIndex, lastPageIndex, categoryStyleMap } = pageContext;
+  const { pageIndex, lastPageIndex, categoryStyleMapSerialized } = pageContext;
+  const categoryStyleMap = JSON.parse(categoryStyleMapSerialized);
   const { language, t } = useI18next();
   const {
     allMarkdownRemark: { edges },

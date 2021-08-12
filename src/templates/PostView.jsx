@@ -8,7 +8,8 @@ import PostViewDesktop from "../components/desktop-postview";
 
 export default function PostView({ data, location, pageContext }) {
   const { language } = useI18next();
-  const { categoryStyleMap } = pageContext;
+  const { categoryStyleMapSerialized } = pageContext;
+  const categoryStyleMap = JSON.parse(categoryStyleMapSerialized);
   const { currentPostData, prevPostData, nextPostData } = data;
   return (
     <>

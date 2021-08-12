@@ -75,9 +75,9 @@
 }
 
 .categoryInRelatedPost {
-  padding: 1px 6px;
+  padding: 2px 8px;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   border-radius: 4px;
   background-color: var(--color-font-darker);
 }

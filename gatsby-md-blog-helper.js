@@ -268,7 +268,7 @@ const genCommonPageContext = (postsEdges) => {
   }, {});
 
   return {
-    categoryStyleMap,
+    categoryStyleMapSerialized: JSON.stringify(categoryStyleMap),
   };
 };
 
