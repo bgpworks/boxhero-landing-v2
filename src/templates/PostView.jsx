@@ -57,12 +57,12 @@ export const query = graphql`
         author
         authorPhoto {
           childImageSharp {
-            gatsbyImageData(quality: 100, width: 40, placeholder: BLURRED)
+            gatsbyImageData(width: 40, placeholder: BLURRED)
           }
         }
         thumbnail {
           childImageSharp {
-            gatsbyImageData(quality: 100, width: 800, placeholder: BLURRED)
+            gatsbyImageData(width: 800, placeholder: BLURRED)
           }
         }
       }
