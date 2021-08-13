@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { format } from "date-fns";
+import * as constants from "../components/constants";
 import { ExternalLinkWithQuery } from "../components/common";
 import DesktopLayout from "../components/desktop-layout";
 import PostBody from "./desktop-postbody";
-import { format } from "date-fns";
-import * as constants from "../components/constants";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
 import {
   pageContainer,
@@ -113,10 +113,23 @@ const RelatedPostCard = ({
   );
 };
 
+const StartNow = () => {
+  return (
+    <section className={startNowSection}>
+      <span className={startNowTitle}>재고관리의 시작, 박스히어로</span>
+      <span className={startNowDesc}>
+        한달 동안 모든 기능을 무료로 사용해 보세요!
+      </span>
+      <ExternalLinkWithQuery href={constants.urlStart}>
+        <button className={startNowButton}>지금 무료로 시작하기</button>
+      </ExternalLinkWithQuery>
+    </section>
+  );
+};
+
 const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
   return (
-    <footer className={postFooter}>
-      <StartNow />
+    <>
       <nav className={postFooterSection}>
         <div className={relatedPostCardWrapper}>
           {prevPostData && (
@@ -147,21 +160,7 @@ const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
           )}
         </div>
       </nav>
-    </footer>
-  );
-};
-
-const StartNow = () => {
-  return (
-    <section className={startNowSection}>
-      <span className={startNowTitle}>재고관리의 시작, 박스히어로</span>
-      <span className={startNowDesc}>
-        한달 동안 모든 기능을 무료로 사용해 보세요!
-      </span>
-      <ExternalLinkWithQuery href={constants.urlStart}>
-        <button className={startNowButton}>지금 무료로 시작하기</button>
-      </ExternalLinkWithQuery>
-    </section>
+    </>
   );
 };
 
@@ -197,13 +196,16 @@ export default function DesktopPostView({
         />
         {thumbnail && <PostThumbnail thumbnail={thumbnail} alt={title} />}
         <PostBody postContentHTMLAst={currentPostData.htmlAst} />
-        {(prevPostData || nextPostData) && (
-          <PostFooter
-            categoryStyleMap={categoryStyleMap}
-            prevPostData={prevPostData}
-            nextPostData={nextPostData}
-          />
-        )}
+        <footer className={postFooter}>
+          <StartNow />
+          {(prevPostData || nextPostData) && (
+            <PostFooter
+              categoryStyleMap={categoryStyleMap}
+              prevPostData={prevPostData}
+              nextPostData={nextPostData}
+            />
+          )}
+        </footer>
       </article>
     </DesktopLayout>
   );
