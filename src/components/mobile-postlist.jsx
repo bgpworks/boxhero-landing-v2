@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
-import DesktopLayout from "../components/desktop-layout";
 import MobileLayout from "../components/mobile-layout";
 import svgArrowPrev from "../images/arrow-prev.svg";
 import svgArrowNext from "../images/arrow-next.svg";
@@ -11,7 +10,6 @@ import {
   pageDescription,
   postList,
   postCard,
-  postCardWrapper,
   thumbnailWrapper,
   thumbnailImage,
   postCardDetail,
@@ -84,21 +82,16 @@ const PostCard = ({
   thumbnail,
 }) => {
   return (
-    <li className={postCardWrapper}>
-      <Link to={path}>
-        <article className={postCard}>
-          <PostCardThumbnail thumbnail={thumbnail} alt={description} />
-
-          <section className={postCardDetail}>
-            <span className={postCategory} style={categoryStyle}>
-              {category}
-            </span>
-            <h3 className={postTitle}>{title}</h3>
-            <span className={postDescription}>{description}</span>
-          </section>
-        </article>
-      </Link>
-    </li>
+    <Link to={path} className={postCard}>
+      <PostCardThumbnail thumbnail={thumbnail} alt={description} />
+      <section className={postCardDetail}>
+        <span className={postCategory} style={categoryStyle}>
+          {category}
+        </span>
+        <h3 className={postTitle}>{title}</h3>
+        <span className={postDescription}>{description}</span>
+      </section>
+    </Link>
   );
 };
 
@@ -120,7 +113,7 @@ export default function PostListMobile({
     >
       <h2 className={pageTitle}>{title}</h2>
       <p className={pageDescription}>{description}</p>
-      <ul className={postList}>
+      <section className={postList}>
         {edges.map(({ node }) => {
           const category = node.frontmatter.category;
 
@@ -138,7 +131,7 @@ export default function PostListMobile({
             />
           );
         })}
-      </ul>
+      </section>
       <Pagination
         pathPrefix={pagePathPrefix}
         pageIndex={pageIndex}
