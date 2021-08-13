@@ -13,6 +13,7 @@
   --color-bg-gray-box: #f7f9fc;
 
   --font-size-caption: 0.875rem;
+  --font-size-small: 0.875rem;
   --font-size-normal: 1rem;
   --font-size-h2: 1.43rem;
   --font-size-h3: 1.285rem;
@@ -22,8 +23,8 @@
   --margin-big: 3.43rem;
   --margin-normal: 0.9rem;
 
-  --padding-box-horizontal: 1.63rem;
-  --padding-box-vertical: 1.142rem;
+  --padding-box-horizontal: 1.42em;
+  --padding-box-vertical: 1.142em;
 
   --line-height-normal: 1.96em;
   --line-heihgt-li: 2.3em;
@@ -153,14 +154,33 @@
 
 /* 커스텀 요소 */
 
-.boxWrapper {
+.boxWrapper,
+.grayBox {
+  display: block;
   margin: var(--margin-normal) 0;
   padding: var(--padding-box-vertical) var(--padding-box-horizontal);
-  border-radius: 6px;
-  border: 1px solid var(--color-box-border);
 
+  font-size: var(--font-size-small);
+
+  border-radius: 6px;
+}
+
+.boxWrapper {
   display: flex;
   align-items: flex-start;
+
+  border: 1px solid var(--color-box-border);
+}
+
+.grayBox {
+  background-color: var(--color-bg-gray-box);
+}
+
+.boxTitle {
+  display: block;
+  font-weight: bold;
+
+  margin-bottom: var(--margin-small);
 }
 
 .boxIcon {
@@ -192,23 +212,6 @@
 
 .grayText {
   color: var(--color-caption);
-}
-
-.grayBox {
-  display: block;
-
-  margin: var(--margin-normal) 0;
-  padding: var(--padding-box-vertical) var(--padding-box-horizontal);
-
-  border-radius: 6px;
-  background-color: var(--color-bg-gray-box);
-}
-
-.boxTitle {
-  display: block;
-  font-weight: bold;
-
-  margin-bottom: var(--margin-small);
 }
 
 /* 최상단, 최하단 여백 초기화 */
