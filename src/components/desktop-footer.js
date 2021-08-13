@@ -15,6 +15,7 @@ import svgOsx from "../images/osx.svg";
 import svgAppstore from "../images/appstore.svg";
 import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
+import SocialLinkList from "./social-link-list";
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
@@ -191,6 +192,7 @@ const CompanyInfo = ({ t }) => (
         © {new Date().getFullYear()}, BGPworks. All rights reserved.
       </div>
     </div>
+    <SocialLinkList />
   </div>
 );
 

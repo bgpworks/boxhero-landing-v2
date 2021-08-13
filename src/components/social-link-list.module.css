@@ -1,0 +1,25 @@
+.socialLinkListContainer {
+  --social-link-bg-color: #585a6c;
+
+  display: flex;
+  margin: 0 0 0 auto;
+  padding: 0;
+  align-self: flex-end;
+  list-style: none;
+}
+
+.socialLinkWrapper {
+  width: 36px;
+  height: 36px;
+  margin: 0;
+}
+
+.socialLinkWrapper + .socialLinkWrapper {
+  margin-left: 8px;
+}
+
+.socialLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

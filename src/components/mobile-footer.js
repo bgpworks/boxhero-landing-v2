@@ -8,6 +8,7 @@ import { Padding } from "./common";
 import * as styles from "./mobile-footer.module.css";
 // images
 import svgCompanyLogo from "../images/company-logo.svg";
+import SocialLinkList from "./social-link-list";
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
@@ -116,7 +117,9 @@ const CompanyInfo = ({ t }) => (
         }}
       />
     </div>
-    <Padding y={10} />
+    <Padding y={40} />
+    <SocialLinkList />
+    <Padding y={20} />
     <div>© {new Date().getFullYear()}, BGPworks. All rights reserved.</div>
   </div>
 );
