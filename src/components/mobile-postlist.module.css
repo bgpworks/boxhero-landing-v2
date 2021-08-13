@@ -102,13 +102,12 @@
 
 .pagination-bar {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
-  padding: 0 100px;
+  width: 100%;
   margin: 48px 0;
-  min-height: 52px;
-
-  position: relative;
+  padding: 0 20px;
 }
 
 .pagination-bar span {
@@ -116,19 +115,19 @@
   color: var(--color-font-darker);
 }
 
-.navButton {
-  position: absolute;
+.navButtonGroup {
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 24px;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.navButton:first-child {
-  left: -110px;
-}
-
-.navButton:last-child {
-  right: -110px;
+.navButton {
+  display: flex;
+  align-items: center;
 }
 
 .prevButtonLabel {

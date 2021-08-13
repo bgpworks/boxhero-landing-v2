@@ -17,6 +17,7 @@ import {
   postTitle,
   postDescription,
   paginationBar,
+  navButtonGroup,
   navButton,
   prevButtonLabel,
   nextButtonLabel,
@@ -30,28 +31,35 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
 
   return (
     <nav className={paginationBar}>
-      {canGoPrev && (
-        <Link
-          rel="prev"
-          to={`${pathPrefix}/${pageIndex - 1}`}
-          className={navButton}
-        >
-          <img src={svgArrowPrev} alt="arrow-prev" />
-          <span className={prevButtonLabel}>이전</span>
-        </Link>
-      )}
-
       <span>{`page ${pageIndexReadable} of ${lastPageIndexReadable}`}</span>
+      {(canGoNext || canGoPrev) && (
+        <section className={navButtonGroup}>
+          <div>
+            {canGoPrev && (
+              <Link
+                rel="prev"
+                to={`${pathPrefix}/${pageIndex - 1}`}
+                className={navButton}
+              >
+                <img src={svgArrowPrev} alt="arrow-prev" />
+                <span className={prevButtonLabel}>이전</span>
+              </Link>
+            )}
+          </div>
 
-      {canGoNext && (
-        <Link
-          rel="next"
-          to={`${pathPrefix}/${pageIndex + 1}`}
-          className={navButton}
-        >
-          <span className={nextButtonLabel}>다음</span>
-          <img src={svgArrowNext} alt="arrow-next" />
-        </Link>
+          <div>
+            {canGoNext && (
+              <Link
+                rel="next"
+                to={`${pathPrefix}/${pageIndex + 1}`}
+                className={navButton}
+              >
+                <span className={nextButtonLabel}>다음</span>
+                <img src={svgArrowNext} alt="arrow-next" />
+              </Link>
+            )}
+          </div>
+        </section>
       )}
     </nav>
   );
