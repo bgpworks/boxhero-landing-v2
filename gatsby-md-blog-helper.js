@@ -281,7 +281,7 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
       {
         allMarkdownRemark(
           sort: {
-            fields: [frontmatter___title, frontmatter___date]
+            fields: [frontmatter___date, frontmatter___title]
             order: [DESC, DESC]
           }
         ) {
