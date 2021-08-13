@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { format } from "date-fns";
-import * as constants from "../components/constants";
-import { ExternalLinkWithQuery } from "../components/common";
+import { AppDownloadLink } from "../components/common";
 import MobileLayout from "../components/mobile-layout";
 import PostBody from "./mobile-postbody";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
@@ -29,7 +28,6 @@ import {
   startNowDesc,
   startNowButton,
   relatedPostsSection,
-  relatedPostCardWrapper,
   postFooter,
 } from "./mobile-postview.module.css";
 
@@ -118,9 +116,9 @@ const StartNow = () => {
       <span className={startNowDesc}>
         한달 동안 모든 기능을 무료로 사용해 보세요!
       </span>
-      <ExternalLinkWithQuery href={constants.urlStart}>
+      <AppDownloadLink>
         <button className={startNowButton}>지금 무료로 시작하기</button>
-      </ExternalLinkWithQuery>
+      </AppDownloadLink>
     </section>
   );
 };
