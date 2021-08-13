@@ -67,10 +67,8 @@ const GhostElement = ({ children }) => {
   return (
     <div
       style={{
-        visibility: "hidden",
-        pointerEvents: "none",
-        height: 0,
         margin: 0,
+        top: "-100vh",
         position: "absolute",
         zIndex: -999999,
       }}
