@@ -6,10 +6,28 @@
   --color-table-border: #e0e0e3;
   --color-anchor: #4f67ff;
   --color-box-border: #e0e0e3;
+
   --color-bg-tip-box: rgba(80, 164, 250, 0.1);
   --color-bg-caution-box: rgba(245, 166, 35, 0.1);
   --color-bg-notice-box: rgba(60, 185, 160, 0.1);
   --color-bg-gray-box: #f7f9fc;
+
+  --font-size-caption: 0.875rem;
+  --font-size-small: 1rem;
+  --font-size-normal: 1.125rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+
+  --margin-small: 0.5rem;
+  --margin-big: 4rem;
+  --margin-normal: 1rem;
+
+  --padding-box-horizontal: 1.25em;
+  --padding-box-vertical: 1em;
+
+  --line-height-normal: 1.5em;
+  --line-heihgt-li: 1.8em;
 
   color: var(--color-font-darker);
 }
@@ -30,20 +48,20 @@
 }
 
 .postBodyView h2 {
-  font-size: 32px;
+  font-size: var(--font-size-h2);
 }
 
 .postBodyView h3 {
-  font-size: 24px;
+  font-size: var(--font-size-h3);
 }
 
 .postBodyView h4 {
-  font-size: 20px;
+  font-size: var(--font-size-h4);
 }
 
 .postBodyView p {
-  font-size: 18px;
-  line-height: 27px;
+  font-size: var(--font-size-normal);
+  line-height: var(--line-height-normal);
 
   text-align: justify;
   hyphens: auto;
@@ -55,14 +73,15 @@
 }
 
 .postBodyView li {
-  font-size: 18px;
-  line-height: 1.8em;
+  font-size: var(--font-size-normal);
+  line-height: var(--line-height-li);
+
   margin-left: 1.4em;
 }
 
 .postBodyView blockquote {
   margin: 0;
-  padding-left: 16px;
+  padding-left: 1rem;
   border-left: 4px solid black;
 }
 
@@ -72,12 +91,12 @@
 }
 
 .postBodyView figure figcaption {
-  margin-top: 16px;
+  margin-top: var(--margin-normal);
 
   display: flex;
   justify-content: center;
 
-  font-size: 14px;
+  font-size: var(--font-size-caption);
   color: var(--color-caption);
 }
 
@@ -87,11 +106,11 @@
 .postBodyView > ul,
 .postBodyView > ol,
 .postBodyView > dl {
-  margin: 16px 0;
+  margin: var(--margin-normal) 0;
 }
 
 .postBodyView blockquote {
-  margin: 16px 0;
+  margin: var(--margin-normal) 0;
 }
 
 .postBodyView mark {
@@ -105,15 +124,15 @@
 .postBodyView h2,
 .postBodyView h3,
 .postBodyView h4 {
-  margin-top: 64px;
+  margin-top: var(--margin-big);
 }
 
 .postBodyView hr {
-  margin: 64px 0;
+  margin: var(--margin-big) 0;
 }
 
 .postBodyView table {
-  margin: 64px auto;
+  margin: var(--margin-big) auto;
 
   max-width: 100%;
   overflow: auto;
@@ -135,15 +154,22 @@
 
 /* 커스텀 요소 */
 
-.boxWrapper {
-  margin: 16px 0;
+.boxWrapper,
+.grayBox {
+  display: block;
+  margin: var(--margin-normal) 0;
+  padding: var(--padding-box-vertical) var(--padding-box-horizontal);
 
-  padding: 16px 20px;
+  font-size: var(--font-size-small);
+
   border-radius: 6px;
-  border: 1px solid var(--color-box-border);
+}
 
+.boxWrapper {
   display: flex;
   align-items: flex-start;
+
+  border: 1px solid var(--color-box-border);
 }
 
 .boxIcon {
@@ -156,9 +182,21 @@
 }
 
 .boxBody {
-  margin-left: 12px;
-  font-size: 16px;
-  line-height: 24px;
+  margin-left: 0.75em;
+  line-height: var(--line-height-normal);
+}
+
+.grayBox {
+  background-color: var(--color-bg-gray-box);
+}
+
+.boxTitle {
+  display: block;
+
+  font-size: 1.125rem;
+  font-weight: bold;
+
+  margin-bottom: var(--margin-small);
 }
 
 .boxWrapper.tipBox {
@@ -177,24 +215,6 @@
   color: var(--color-caption);
 }
 
-.grayBox {
-  margin: 16px 0;
-
-  display: block;
-
-  padding: 24px;
-  border-radius: 6px;
-  background-color: var(--color-bg-gray-box);
-}
-
-.boxTitle {
-  display: block;
-  font-size: 18px;
-  font-weight: bold;
-
-  margin-bottom: 8px;
-}
-
 /* 최상단, 최하단 여백 초기화 */
 
 .postBodyView > *:first-child {
@@ -207,5 +227,5 @@
 
 .postBodyView > img {
   display: block;
-  margin: 64px 0;
+  margin: var(--margin-big) 0;
 }
