@@ -12,7 +12,9 @@ import {
   cautionBox,
   noticeBox,
   boxBody,
-  caption,
+  grayText,
+  grayBox,
+  boxTitle,
 } from "./PostBody.module.css";
 
 const Box = ({ className, icon, children }) => {
@@ -48,8 +50,17 @@ const CautionBox = ({ children }) => {
   );
 };
 
-const Caption = ({ children }) => {
-  return <span className={caption}>{children}</span>;
+const GrayText = ({ children }) => {
+  return <span className={grayText}>{children}</span>;
+};
+
+const GrayBox = ({ title, children }) => {
+  return (
+    <span className={grayBox}>
+      {title && <span className={boxTitle}>{title}</span>}
+      {children}
+    </span>
+  );
 };
 
 const renderAST = new rehypeReact({
@@ -59,7 +70,8 @@ const renderAST = new rehypeReact({
     "tip-box": TipBox,
     "notice-box": NoticeBox,
     "caution-box": CautionBox,
-    "caption-text": Caption,
+    "gray-text": GrayText,
+    "gray-box": GrayBox,
   },
 }).Compiler;
 
