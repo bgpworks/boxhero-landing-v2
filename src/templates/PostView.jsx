@@ -5,6 +5,7 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 import { Media } from "../media";
 import SEOHelmet from "../components/SEOHelmet";
 import PostViewDesktop from "../components/desktop-postview";
+import PostViewMobile from "../components/mobile-postview";
 
 export default function PostView({ data, location, pageContext }) {
   const { language } = useI18next();
@@ -21,7 +22,12 @@ export default function PostView({ data, location, pageContext }) {
       />
 
       <Media at="xs">
-        <div>fsadfasd</div>
+        <PostViewMobile
+          categoryStyleMap={categoryStyleMap}
+          currentPostData={currentPostData}
+          prevPostData={prevPostData}
+          nextPostData={nextPostData}
+        />
       </Media>
 
       <Media greaterThan="xs">

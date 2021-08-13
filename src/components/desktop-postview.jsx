@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
-import DesktopLayout from "../components/desktop-layout";
-import { format } from "date-fns";
 import { ExternalLinkWithQuery } from "../components/common";
+import DesktopLayout from "../components/desktop-layout";
+import PostBody from "./desktop-postbody";
+import { format } from "date-fns";
 import * as constants from "../components/constants";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
 import {
@@ -31,7 +32,6 @@ import {
   startNowDesc,
   startNowButton,
 } from "./desktop-postview.module.css";
-import PostBody from "./PostBody";
 
 const LinkToListSection = () => {
   return (

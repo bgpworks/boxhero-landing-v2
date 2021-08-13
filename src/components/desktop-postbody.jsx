@@ -15,7 +15,7 @@ import {
   grayText,
   grayBox,
   boxTitle,
-} from "./PostBody.module.css";
+} from "./desktop-postbody.module.css";
 
 const Box = ({ className, icon, children }) => {
   return (
