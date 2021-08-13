@@ -65,7 +65,13 @@ const GrayBox = ({ title, children }) => {
 
 const InvisibleTable = ({ children }) => {
   return (
-    <table style={{ opacity: 0, position: "absolute", right: "-110vw" }}>
+    <table
+      style={{
+        visibility: "hidden",
+        pointerEvents: "none",
+        transform: "translateY(-100%)",
+      }}
+    >
       {children}
     </table>
   );
