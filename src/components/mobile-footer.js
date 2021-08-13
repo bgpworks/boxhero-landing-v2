@@ -57,7 +57,7 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
         </a>
       </div>
       <div>
-        <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
+        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
       <div>
         <a href={t("url:hire")} target="_blank" rel="noreferrer">
