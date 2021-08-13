@@ -35,15 +35,9 @@ description: 테스트용 게시물 입니다.
 ## 각종 박스들
 
 <tip-box>팁 상자입니다.</tip-box>
-<caution-box>경고 상자</caution-box>
-<notice-box>공지용 상자</br>두번째 줄</notice-box>
-<gray-box title="제목">하이하이</gray-box>
 
-## 이미지 첨부
-
-![유상석 기획자](../images/authors/sangseok.jpeg)
-
-<invisible-table>
+<invisible>
+<table>
 <thead>
   <tr>
     <th rowspan="2">재고자산</th>
@@ -55,4 +49,13 @@ description: 테스트용 게시물 입니다.
     <td>ㄹㅁㅇㄴㄹㅇㅁㄴㅁㄴㅇㄹㄴㅁ</td>
   </tr>
 </thead>
-</invisible-table>
+</table>
+</invisible>
+
+<caution-box>경고 상자</caution-box>
+<notice-box>공지용 상자</br>두번째 줄</notice-box>
+<gray-box title="제목">하이하이</gray-box>
+
+## 이미지 첨부
+
+![유상석 기획자](../images/authors/sangseok.jpeg)

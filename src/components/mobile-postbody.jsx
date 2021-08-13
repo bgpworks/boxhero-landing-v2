@@ -63,17 +63,20 @@ const GrayBox = ({ title, children }) => {
   );
 };
 
-const InvisibleTable = ({ children }) => {
+const GhostElement = ({ children }) => {
   return (
-    <table
+    <div
       style={{
         visibility: "hidden",
         pointerEvents: "none",
-        transform: "translateY(-100%)",
+        height: 0,
+        margin: 0,
+        position: "absolute",
+        zIndex: -999999,
       }}
     >
       {children}
-    </table>
+    </div>
   );
 };
 
@@ -86,7 +89,7 @@ const renderAST = new rehypeReact({
     "caution-box": CautionBox,
     "gray-text": GrayText,
     "gray-box": GrayBox,
-    "invisible-table": InvisibleTable,
+    invisible: GhostElement,
   },
 }).Compiler;
 
