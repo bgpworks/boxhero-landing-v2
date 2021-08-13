@@ -63,6 +63,14 @@ const GrayBox = ({ title, children }) => {
   );
 };
 
+const InvisibleTable = ({ children }) => {
+  return (
+    <table style={{ opacity: 0, position: "absolute", right: "-110vw" }}>
+      {children}
+    </table>
+  );
+};
+
 const renderAST = new rehypeReact({
   createElement: React.createElement,
   Fragment: React.Fragment,
@@ -72,6 +80,7 @@ const renderAST = new rehypeReact({
     "caution-box": CautionBox,
     "gray-text": GrayText,
     "gray-box": GrayBox,
+    "invisible-table": InvisibleTable,
   },
 }).Compiler;
 

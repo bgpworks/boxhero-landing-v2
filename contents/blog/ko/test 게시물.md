@@ -42,3 +42,17 @@ description: 테스트용 게시물 입니다.
 ## 이미지 첨부
 
 ![유상석 기획자](../images/authors/sangseok.jpeg)
+
+<invisible-table>
+<thead>
+  <tr>
+    <th rowspan="2">재고자산</th>
+    <th>자산1</th>
+    <th>ㄹㅁㄴㅇㄹㅁㄴㅇㄹㄴㄹㅁㄴㄹㅇㄴㅁㄹㅁ</th>
+  </tr>
+  <tr>
+    <td>자산2</td>
+    <td>ㄹㅁㅇㄴㄹㅇㅁㄴㅁㄴㅇㄹㄴㅁ</td>
+  </tr>
+</thead>
+</invisible-table>
