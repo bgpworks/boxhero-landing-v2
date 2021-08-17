@@ -21,7 +21,7 @@ const SocialLink = ({ link, icon }) => {
   );
 };
 
-export default () => {
+export default function SocialLinkList() {
   return (
     <ul className={socialLinkListContainer}>
       <SocialLink icon={svgIconMedium} link={constants.urlMedium} />
@@ -30,4 +30,4 @@ export default () => {
       <SocialLink icon={svgIconInstagram} link={constants.urlInstagram} />
     </ul>
   );
-};
+}
