@@ -17,7 +17,6 @@ import {
   authorSection,
   authorPhotoWrapper,
   nameAndDate,
-  createdTime,
   postThumbnail,
   relatedPostCard,
   categoryInRelatedPost,
@@ -52,10 +51,7 @@ const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
       )}
       <div className={nameAndDate}>
         <address>{author}</address>
-        <time
-          dateTime={format(new Date(date), "yyyy-MM-dd")}
-          className={createdTime}
-        >
+        <time dateTime={format(new Date(date), "yyyy-MM-dd")}>
           {format(new Date(date), "MMM d")}
         </time>
       </div>
