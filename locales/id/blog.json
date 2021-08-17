@@ -1,1 +1,12 @@
-{ "pageTitle": "Blog - BoxHero" }
+{
+  "linkToList": "Daftar Blog",
+  "nextPageLink": "Berikutnya",
+  "nextPost": "Postingan berikutnya",
+  "pageDescription": "Semua ide dan tips manajemen inventaris",
+  "pageTitle": "Blog",
+  "prevPageLink": "Kembali",
+  "prevPost": "Postingan sebelumnya",
+  "startNowButton": "Mulai gratis sekarang",
+  "startNowDescription": "Gunakan semua fitur secara gratis selama 1 bulan!",
+  "startNowTitle": "BoxHero, awal dari manajemen inventaris"
+}

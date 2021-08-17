@@ -1,1 +1,12 @@
-{ "pageTitle": "Blog - BoxHero" }
+{
+  "linkToList": "Lista de Blog",
+  "nextPageLink": "Siguente",
+  "nextPost": "Siguente texto",
+  "pageDescription": "Todos los consejos e ideas de gestión de inventario del mundo",
+  "pageTitle": "Blog",
+  "prevPageLink": "Anterior",
+  "prevPost": "Texto anterior",
+  "startNowButton": "Empezar 1 mes gratis",
+  "startNowDescription": "¡Prueba todas las funciones gratis durante un mes!",
+  "startNowTitle": "El comienzo de la gestión de inventario, BoxHero"
+}
