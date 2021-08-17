@@ -1,3 +1,5 @@
+const { format } = require("date-fns");
+
 module.exports = {
   siteMetadata: {
     title: "BoxHero - The Simplest Inventory Management Solution",
@@ -118,6 +120,7 @@ module.exports = {
             siteMetadata {
               siteUrl
             }
+            buildTime
           }
           allSitePage {
             nodes {
@@ -135,10 +138,12 @@ module.exports = {
           allSitePage: { nodes },
           site: {
             siteMetadata: { siteUrl },
+            buildTime,
           },
         }) => {
           const langsByPathMap = {};
           const pages = [];
+          const lastmod = format(new Date(buildTime), "yyyy-MM-dd");
 
           nodes.forEach(
             ({
@@ -161,7 +166,10 @@ module.exports = {
             pages.push({
               path: originalPath,
               langs: Array.from(langs),
-              context: { siteUrl },
+              context: {
+                siteUrl,
+                lastmod,
+              },
             });
           }
 
@@ -171,7 +179,7 @@ module.exports = {
           const {
             path,
             langs,
-            context: { siteUrl },
+            context: { siteUrl, lastmod },
           } = page;
           const priority = path === "/" ? 1.0 : 0.8;
           const changefreq = "always";
@@ -183,6 +191,7 @@ module.exports = {
               url,
               priority,
               changefreq,
+              lastmod,
             };
           }
 
@@ -200,6 +209,7 @@ module.exports = {
             links,
             priority,
             changefreq,
+            lastmod,
           };
         },
       },
