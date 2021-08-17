@@ -168,7 +168,7 @@ const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
   const { createPage } = actions;
 
   postsEdges.forEach((edge, index) => {
-    const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
+    const nextID = index + 1 < postsEdges.length && index + 1;
     const prevID = index - 1 >= 0 && index - 1;
     const nextEdge = postsEdges[nextID];
     const prevEdge = postsEdges[prevID];
@@ -183,7 +183,7 @@ const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
         locale,
         currentPostId: edge.node.id,
         prevPostId: prevEdge && prevEdge.node.id,
-        nextPostId: nextEdge !== edge && nextEdge.node.id,
+        nextPostId: nextEdge && nextEdge.node.id,
       },
     });
   });
