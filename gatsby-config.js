@@ -111,47 +111,59 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        exclude: ["/**/404", "/**/404.html"],
+        excludes: ["/**/404", "/**/404.html"],
         query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
+        {
+          site {
+            siteMetadata {
+              siteUrl
             }
-            allSitePage(filter: {context: {i18n: {routed: {eq: false}}}}) {
-              edges {
-                node {
-                  context {
-                    i18n {
-                      defaultLanguage
-                      languages
-                      originalPath
-                    }
-                  }
-                  path
+          }
+          allSitePage(filter: {context: {i18n: {routed: {eq: false}}}}) {
+            nodes {
+              path
+              context {
+                i18n {
+                  languages
+                  originalPath
                 }
               }
             }
           }
+        }
         `,
-        serialize: ({ site, allSitePage }) => {
-          return allSitePage.edges.map((edge) => {
-            const { languages, originalPath, defaultLanguage } =
-              edge.node.context.i18n;
-            const { siteUrl } = site.siteMetadata;
-            const url = siteUrl + originalPath;
-            const links = [{ lang: "x-default", url }];
-            languages.forEach((lang) => {
-              links.push({ lang, url: `${siteUrl}/${lang}${originalPath}` });
-            });
-            return {
-              url,
-              changefreq: "always",
-              priority: originalPath === "/" ? 1.0 : 0.85,
-              links,
-            };
+        resolvePages: ({
+          allSitePage,
+          site: {
+            siteMetadata: { siteUrl },
+          },
+        }) => {
+          return allSitePage.nodes.map((node) => {
+            return { ...node, siteUrl };
           });
+        },
+        serialize: (page, _tools) => {
+          const {
+            context: {
+              i18n: { originalPath, languages },
+            },
+            siteUrl,
+          } = page;
+          const url = `${siteUrl}${originalPath}`;
+          const links = [
+            { lang: "x-default", url },
+            ...languages.map((lang) => ({
+              lang,
+              url: `${siteUrl}/${lang}${originalPath}`,
+            })),
+          ];
+
+          return {
+            url,
+            changefreq: "always",
+            priority: originalPath === "/" ? 1.0 : 0.85,
+            links,
+          };
         },
       },
     },
