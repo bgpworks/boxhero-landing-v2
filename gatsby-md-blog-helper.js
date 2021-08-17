@@ -182,7 +182,7 @@ const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
         ...commonPageContext,
         locale,
         currentPostId: edge.node.id,
-        prevPostId: prevEdge?.node?.id,
+        prevPostId: prevEdge && prevEdge.node.id,
         nextPostId: nextEdge !== edge && nextEdge.node.id,
       },
     });
