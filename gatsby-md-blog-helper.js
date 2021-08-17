@@ -230,15 +230,25 @@ const getFieldValues = (postsEdges, fieldName) => {
   return [...valueSet];
 };
 
-const createPagesByLocale = (
-  actions,
-  locale,
-  commonPageContext,
-  postsEdges
-) => {
+const genCommonPageContext = (postsEdges) => {
+  const categories = getFieldValues(postsEdges, "category");
+  const categoryStyleMap = categories.reduce((acc, category, idx) => {
+    return {
+      ...acc,
+      [category]: CATEGORY_STYLES[idx % CATEGORY_STYLES.length],
+    };
+  }, {});
+
+  return {
+    categoryStyleMapSerialized: JSON.stringify(categoryStyleMap),
+  };
+};
+
+const createPagesByLocale = (actions, locale, postsEdges) => {
   const filteredEdges = postsEdges.filter(
     (edge) => edge.node.fields.locale === locale
   );
+  const commonPageContext = genCommonPageContext(filteredEdges);
 
   createPostPages(actions, locale, commonPageContext, filteredEdges);
   createPostListPage(actions, locale, commonPageContext, filteredEdges);
@@ -260,20 +270,6 @@ exports.onCreateNodeForBlog = ({ node, actions, getNode }) => {
 };
 
 // createPages
-
-const genCommonPageContext = (postsEdges) => {
-  const categories = getFieldValues(postsEdges, "category");
-  const categoryStyleMap = categories.reduce((acc, category, idx) => {
-    return {
-      ...acc,
-      [category]: CATEGORY_STYLES[idx % CATEGORY_STYLES.length],
-    };
-  }, {});
-
-  return {
-    categoryStyleMapSerialized: JSON.stringify(categoryStyleMap),
-  };
-};
 
 exports.createPagesForBlog = async ({ graphql, actions }) => {
   const markdownQueryResult = await graphql(
@@ -309,9 +305,8 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
   const edges = markdownQueryResult.data.allMarkdownRemark.edges;
   const postsEdges = edges.filter((edge) => edge.node.fields);
   const locales = getFieldValues(postsEdges, "locale");
-  const commonPageContext = genCommonPageContext(postsEdges);
 
   for (const locale of locales) {
-    createPagesByLocale(actions, locale, commonPageContext, postsEdges);
+    createPagesByLocale(actions, locale, postsEdges);
   }
 };
