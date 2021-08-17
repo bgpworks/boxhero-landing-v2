@@ -58,8 +58,9 @@ export const query = graphql`
         date
       }
       frontmatter {
-        category
         title
+        description
+        category
         author
         authorPhoto {
           childImageSharp {
