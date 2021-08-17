@@ -4,7 +4,11 @@ const {
 } = require("./gatsby-md-blog-helper");
 
 module.exports.onCreateNode = (options) => {
-  onCreateNodeForBlog(options);
+  try {
+    onCreateNodeForBlog(options);
+  } catch (err) {
+    throw err;
+  }
 };
 exports.createPages = async (options) => {
   try {
