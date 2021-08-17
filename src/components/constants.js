@@ -25,5 +25,5 @@ module.exports = {
   urlInstagram: "https://www.instagram.com/boxhero_kor/",
   urlMedium: "https://medium.com/boxhero-ko",
   urlNaverBlog: "https://blog.naver.com/boxhero-official",
-  urlFacebook: "",
+  urlFacebook: "https://www.facebook.com/boxheroofficial/",
 };
