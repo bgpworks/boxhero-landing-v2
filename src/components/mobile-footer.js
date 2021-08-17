@@ -155,9 +155,9 @@ const MobileFooter = ({
 };
 
 MobileFooter.propTypes = {
-  closingEmoji: PropTypes.object.isRequired,
+  closingEmoji: PropTypes.object,
   // string or object
-  closingMsg: PropTypes.any.isRequired,
+  closingMsg: PropTypes.any,
   showEssentialOnly: PropTypes.bool,
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby-plugin-react-i18next";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { format } from "date-fns";
 import { AppDownloadLink } from "../components/common";
@@ -31,10 +31,12 @@ import {
 } from "./mobile-postview.module.css";
 
 const LinkToListSection = () => {
+  const { t } = useI18next();
+
   return (
     <Link to={`/blog`} className={linkToListSection}>
       <img src={svgCompleteArrowPrev} alt="arrow-prev" />
-      <span className={linkToListLabel}>블로그 리스트</span>
+      <span className={linkToListLabel}>{t("blog:linkToList")}</span>
     </Link>
   );
 };
@@ -106,20 +108,22 @@ const RelatedPostCard = ({
 };
 
 const StartNow = () => {
+  const { t } = useI18next();
+
   return (
     <section className={startNowSection}>
-      <span className={startNowTitle}>재고관리의 시작, 박스히어로</span>
-      <span className={startNowDesc}>
-        한달 동안 모든 기능을 무료로 사용해 보세요!
-      </span>
+      <span className={startNowTitle}>{t("blog:startNowTitle")}</span>
+      <span className={startNowDesc}>{t("blog:startNowDescription")}</span>
       <AppDownloadLink>
-        <button className={startNowButton}>지금 무료로 시작하기</button>
+        <button className={startNowButton}>{t("blog:startNowButton")}</button>
       </AppDownloadLink>
     </section>
   );
 };
 
 const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
+  const { t } = useI18next();
+
   return (
     <>
       <nav className={relatedPostsSection}>
@@ -130,7 +134,7 @@ const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
             title={prevPostData.frontmatter.title}
             category={prevPostData.frontmatter.category}
             categoryStyle={categoryStyleMap[prevPostData.frontmatter.category]}
-            label={`이전글`}
+            label={t("blog:prevPost")}
           />
         )}
         {nextPostData && (
@@ -140,7 +144,7 @@ const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
             title={nextPostData.frontmatter.title}
             category={nextPostData.frontmatter.category}
             categoryStyle={categoryStyleMap[nextPostData.frontmatter.category]}
-            label={`다음글`}
+            label={t("blog:nextPost")}
           />
         )}
       </nav>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby-plugin-react-i18next";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import MobileLayout from "../components/mobile-layout";
 import svgArrowPrev from "../images/arrow-prev.svg";
@@ -24,6 +24,7 @@ import {
 } from "./mobile-postlist.module.css";
 
 const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
+  const { t } = useI18next();
   const canGoPrev = pageIndex >= 1;
   const canGoNext = lastPageIndex > pageIndex;
   const pageIndexReadable = pageIndex + 1;
@@ -42,7 +43,9 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
                 className={navButton}
               >
                 <img src={svgArrowPrev} alt="arrow-prev" />
-                <span className={prevButtonLabel}>이전</span>
+                <span className={prevButtonLabel}>
+                  {t("blog:prevPageLink")}
+                </span>
               </Link>
             )}
           </div>
@@ -54,7 +57,9 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
                 to={`${pathPrefix}/${pageIndex + 1}`}
                 className={navButton}
               >
-                <span className={nextButtonLabel}>다음</span>
+                <span className={nextButtonLabel}>
+                  {t("blog:nextPageLink")}
+                </span>
                 <img src={svgArrowNext} alt="arrow-next" />
               </Link>
             )}
