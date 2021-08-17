@@ -119,12 +119,11 @@ module.exports = {
               siteUrl
             }
           }
-          allSitePage(filter: {context: {i18n: {routed: {eq: false}}}}) {
+          allSitePage {
             nodes {
-              path
               context {
                 i18n {
-                  languages
+                  language
                   originalPath
                 }
               }
@@ -133,36 +132,74 @@ module.exports = {
         }
         `,
         resolvePages: ({
-          allSitePage,
+          allSitePage: { nodes },
           site: {
             siteMetadata: { siteUrl },
           },
         }) => {
-          return allSitePage.nodes.map((node) => {
-            return { ...node, siteUrl };
-          });
+          const langsByPathMap = {};
+          const pages = [];
+
+          nodes.forEach(
+            ({
+              context: {
+                i18n: { originalPath, language },
+              },
+            }) => {
+              const prevLangs = langsByPathMap[originalPath];
+
+              if (!prevLangs) {
+                langsByPathMap[originalPath] = new Set([language]);
+                return;
+              }
+
+              prevLangs.add(language);
+            }
+          );
+
+          for (const [originalPath, langs] of Object.entries(langsByPathMap)) {
+            pages.push({
+              path: originalPath,
+              langs: Array.from(langs),
+              context: { siteUrl },
+            });
+          }
+
+          return pages;
         },
         serialize: (page, _tools) => {
           const {
-            context: {
-              i18n: { originalPath, languages },
-            },
-            siteUrl,
+            path,
+            langs,
+            context: { siteUrl },
           } = page;
-          const url = `${siteUrl}${originalPath}`;
+          const priority = path === "/" ? 1.0 : 0.8;
+          const changefreq = "always";
+
+          if (langs.length === 1) {
+            const url = `${siteUrl}/${langs[0]}${path}`;
+
+            return {
+              url,
+              priority,
+              changefreq,
+            };
+          }
+
+          const url = `${siteUrl}${path}`;
           const links = [
             { lang: "x-default", url },
-            ...languages.map((lang) => ({
+            ...langs.map((lang) => ({
               lang,
-              url: `${siteUrl}/${lang}${originalPath}`,
+              url: `${siteUrl}/${lang}${path}`,
             })),
           ];
 
           return {
             url,
-            changefreq: "always",
-            priority: originalPath === "/" ? 1.0 : 0.85,
             links,
+            priority,
+            changefreq,
           };
         },
       },
