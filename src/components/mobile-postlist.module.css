@@ -83,6 +83,13 @@
   white-space: nowrap;
 }
 
+.postTitle,
+.postDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .postTitle {
   margin: 27px 0 0;
   font-size: 18px;
@@ -91,16 +98,16 @@
   color: black;
 
   width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
+
   -webkit-line-clamp: 2;
-  overflow: hidden;
 }
 
 .postDescription {
   margin-top: 10px;
   font-size: 14px;
   color: var(--color-font-header);
+
+  -webkit-line-clamp: 3;
 }
 
 .pagination-bar {
