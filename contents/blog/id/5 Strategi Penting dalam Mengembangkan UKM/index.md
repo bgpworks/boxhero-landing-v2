@@ -44,11 +44,11 @@ Ketika penjualan produk Anda mulai menurun, saatnya untuk menghapus produk yang 
 
 Strategi pertumbuhan UKM lainnya adalah segmentasi pasar. Ini berarti membagi pasar Anda ke dalam berbagai kelompok (segmen) sesuai dengan kecenderungan konsumen, minat, lokasi, dan karakteristik lainnya. Segmen ini memungkinkan Anda untuk membuat promosi bertarget menurut variabel tertentu, dan memberikan persentase kesuksesan promosi yang lebih tinggi. Anda dapat mensegmentasi pasar Anda berdasarkan:
 
-- **Geografis** (kode pos, kota, negara, iklim, perkotaan atau pedesaan, dst.)
-- **Demografis** (umur, jenis kelamin, pendapatan, lokasi,edukasi, etnis, dst.)
-- **Firmografi** (industri, karyawan, jenis organisasi, pendapatan, dst.)
-- **Perilaku** (kebiasaan membeli, status pengguna, interaksi merek, dst.)
-- **Psikografis** (ketertarikan, prioritas, motivasi, gaya hidup, sifat, nilai, dst.)
+- Geografis: kode pos, kota, negara, iklim, perkotaan atau pedesaan.
+- Demografis: umur, jenis kelamin, pendapatan, lokasi,edukasi, etnis.
+- Firmografi: industri, karyawan, jenis organisasi, pendapatan.
+- Perilaku: kebiasaan membeli, status pengguna, interaksi merek.
+- Psikografis: ketertarikan, prioritas, motivasi, gaya hidup, sifat, nilai.
 
 Segmentasi adalah strategi yang biasanya digunakan oleh bisnis seperti kosmetik, bank, pakaian, dan media. Jika produk atau layanan Anda beragam, Anda pasti bisa mendapatkan keuntungan dengan menerapkan segmentasi pasar.
 
@@ -58,7 +58,7 @@ Untuk dapat membuat profil konsumen Anda secara akurat, dan juga menyediakan kon
 
 Terkadang bergabung dengan bisnis lain adalah cara yang paling baik untuk mengembangkan bisnis kecil Anda. Anda dapat melakukannya dengan merger, akuisisi, atau kemitraan. Asalkan membawa keuntungan yang signifikan bagi semua pihak, ini dapat menjadi situasi win-win yang meningkatkan sumber daya secara besar-besaran.
 
-![jabat tangan](./images/2.png)
+![](./images/2.png)
 
 Kemitraan cenderung cocok untuk pedagang tunggal yang dapat berbagi klien dan berkolaborasi untuk menyelesaikan proyek yang kompleks. Contohnya adalah tukang kayu, tukang listrik, dan pekerja bangunan yang dapat saling membantu untuk mendapatkan daya tarik dalam industri konstruksi.
 
