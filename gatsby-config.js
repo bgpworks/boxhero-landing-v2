@@ -122,12 +122,14 @@ module.exports = {
             }
             buildTime
           }
-          allSitePage {
-            nodes {
-              context {
-                i18n {
-                  language
-                  originalPath
+          allSitePage(filter: {context: {i18n: {routed: {eq: true}}}}) {
+            group(field: context___i18n___originalPath) {
+              fieldValue
+              nodes {
+                context {
+                  i18n {
+                    language
+                  }
                 }
               }
             }
@@ -135,45 +137,26 @@ module.exports = {
         }
         `,
         resolvePages: ({
-          allSitePage: { nodes },
+          allSitePage: { group },
           site: {
             siteMetadata: { siteUrl },
             buildTime,
           },
         }) => {
-          const langsByPathMap = {};
-          const pages = [];
           const lastmod = format(new Date(buildTime), "yyyy-MM-dd");
 
-          nodes.forEach(
-            ({
-              context: {
-                i18n: { originalPath, language },
-              },
-            }) => {
-              const prevLangs = langsByPathMap[originalPath];
+          return group.map(({ fieldValue: originalPath, nodes }) => {
+            const langs = nodes.map((node) => node.context.i18n.language);
 
-              if (!prevLangs) {
-                langsByPathMap[originalPath] = new Set([language]);
-                return;
-              }
-
-              prevLangs.add(language);
-            }
-          );
-
-          for (const [originalPath, langs] of Object.entries(langsByPathMap)) {
-            pages.push({
+            return {
               path: originalPath,
-              langs: Array.from(langs),
+              langs: langs,
               context: {
                 siteUrl,
                 lastmod,
               },
-            });
-          }
-
-          return pages;
+            };
+          });
         },
         serialize: (page, _tools) => {
           const {
