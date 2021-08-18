@@ -1,7 +1,7 @@
 ---
 title: 5 Strategi Penting dalam Mengembangkan UKM
 date: 2021-08-04 11:15
-category: 인도네시아어_인사이트
+category: Insight
 author: Sangseok Yoo
 authorPhoto: ../../images/authors/sangseok.jpeg
 thumbnail: ./images/thumbnail.png
