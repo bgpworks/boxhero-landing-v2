@@ -91,7 +91,7 @@ const validateFrontMatter = (frontmatter) => {
 
 const getLocaleCode = (getNode, node) => {
   const fileNode = getNode(node.parent);
-  const parsedFilePath = path.parse(fileNode.relativePath);
+  const parsedFilePath = path.parse(fileNode.relativeDirectory);
   const dirs = parsedFilePath.dir;
 
   return dirs.split(path.sep)[0];
@@ -173,10 +173,8 @@ const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
     const nextEdge = postsEdges[nextID];
     const prevEdge = postsEdges[prevID];
 
-    const currentPath = genPostPath(locale, edge.node.fields.slug);
-
     createPage({
-      path: currentPath,
+      path: genPostPath(locale, edge.node.fields.slug),
       component: PostPage,
       context: {
         ...commonPageContext,
@@ -195,7 +193,6 @@ const createPostListPage = (actions, locale, commonPageContext, postsEdges) => {
   const postIds = postsEdges.map(({ node }) => node.id);
 
   for (let page = 0; page < pageCount; page++) {
-    const listPath = genPostListPath(locale, page);
     const startIndex = page * PER_PAGE;
     const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
     const postIdsInPage = postIds.slice(startIndex, endIndex);
@@ -216,7 +213,7 @@ const createPostListPage = (actions, locale, commonPageContext, postsEdges) => {
     }
 
     createPage({
-      path: listPath,
+      path: genPostListPath(locale, page),
       component: PostListPage,
       context: pageContext,
     });
