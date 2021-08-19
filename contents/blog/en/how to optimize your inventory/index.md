@@ -12,9 +12,9 @@ Are you looking for a better way to manage your inventory?
 
 Whether you’re new to inventory management or want to know if there’s a better way to optimize your inventory, you’re on the right page. Today's topic is inventory management optimization.
 
-## But first, let’s dive into the importance.
-
 ![](./images/1.jpg)
+
+## But first, let’s dive into the importance.
 
 Let’s think of your favorite ice cream shop. Your favorite and the shop’s most popular flavor is chocolate. If that flavor is sold out every time you visit the shop, there’s a high chance that you feel unsatisfied regardless of how good it tastes. Your experience of the shop remains in a negative taste.
 
@@ -22,9 +22,9 @@ When your product is out-of-stock, it affects your customer’s satisfaction and
 
 So how can we always have an optimum level of stocks in our warehouse? <mark>The key is optimizing your inventory.</mark>
 
-## What is inventory optimization?
-
 ![](./images/2.jpg)
+
+## What is inventory optimization?
 
 Although the phrase ‘inventory optimization’ may seem like a big process, it’s actually about knowing and doing your inventory better.
 

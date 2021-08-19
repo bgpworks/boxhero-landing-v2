@@ -61,8 +61,6 @@
 
 .postBodyView p {
   line-height: var(--line-height-normal);
-
-  text-align: justify;
   hyphens: auto;
 }
 
@@ -72,9 +70,8 @@
 }
 
 .postBodyView li {
-  line-height: var(--line-heihgt-li);
-
   margin-left: 1.4em;
+  line-height: var(--line-heihgt-li);
 }
 
 .postBodyView blockquote {
@@ -237,6 +234,7 @@
   margin-bottom: 0;
 }
 
+.postBodyView > p > img,
 .postBodyView > img {
   display: block;
   margin: var(--margin-big) 0;

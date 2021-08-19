@@ -38,7 +38,10 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Support</div>
+      <div className={styles.footerMenuLabel}>Resource</div>
+      <div>
+        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
+      </div>
       <div>
         <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
       </div>
@@ -55,9 +58,6 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
         <a href="https://www.bgpworks.com">
           {t("footer:footerMenuCompanyHome")}
         </a>
-      </div>
-      <div>
-        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
       <div>
         <a href={t("url:hire")} target="_blank" rel="noreferrer">

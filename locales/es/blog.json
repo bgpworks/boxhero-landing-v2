@@ -4,9 +4,11 @@
   "nextPost": "Siguente texto",
   "pageDescription": "Todos los consejos e ideas de gestión de inventario del mundo",
   "pageTitle": "Blog - BoxHero",
+  "postviewTitle": "{{title}} - BoxHero",
   "prevPageLink": "Anterior",
   "prevPost": "Texto anterior",
   "startNowButton": "Empezar 1 mes gratis",
   "startNowDescription": "¡Prueba todas las funciones gratis durante un mes!",
-  "startNowTitle": "El comienzo de la gestión de inventario, BoxHero"
+  "startNowTitle": "El comienzo de la gestión de inventario, BoxHero",
+  "title": "Blog"
 }

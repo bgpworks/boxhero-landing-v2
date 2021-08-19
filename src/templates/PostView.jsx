@@ -8,16 +8,22 @@ import PostViewDesktop from "../components/desktop-postview";
 import PostViewMobile from "../components/mobile-postview";
 
 export default function PostView({ data, location, pageContext }) {
-  const { language } = useI18next();
+  const { t, language } = useI18next();
   const { categoryStyleMapSerialized } = pageContext;
   const categoryStyleMap = JSON.parse(categoryStyleMapSerialized);
   const { currentPostData, prevPostData, nextPostData } = data;
+  const {
+    frontmatter: { title, description },
+  } = currentPostData;
+
   return (
     <>
       <SEOHelmet
         lang={language}
-        title={currentPostData.frontmatter.title}
-        description={currentPostData.frontmatter.description}
+        title={t("blog:postviewTitle", {
+          title,
+        })}
+        description={description}
         path={location.pathname}
       />
 
