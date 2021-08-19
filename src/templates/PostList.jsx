@@ -27,7 +27,7 @@ export default function PostList({ pageContext, location, data }) {
 
       <Media at="xs">
         <PostListMobile
-          title={t("blog:pageTitle")}
+          title={t("blog:title")}
           description={t("blog:pageDescription")}
           edges={edges}
           pageIndex={pageIndex}
@@ -39,7 +39,7 @@ export default function PostList({ pageContext, location, data }) {
 
       <Media greaterThan="xs">
         <PostListDesktop
-          title={t("blog:pageTitle")}
+          title={t("blog:title")}
           description={t("blog:pageDescription")}
           edges={edges}
           pageIndex={pageIndex}
