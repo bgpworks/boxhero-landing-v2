@@ -92,7 +92,7 @@ description: 재고 자산을 계산하는 다양한 방법을 쉽게 풀어봤�
 후입선출법 : 가장 최근에 매입된 상품을 먼저 매출하였다고 가정하는 방법
 </invisible>
 
-- [더 읽어보기 : 재고 자산이란?](https://www.notion.so/0943c132918047b1a011d1eb7a12e840)
+- <internal-link to="/blog/posts/재고자산이란">더 읽어보기 : 재고 자산이란?</internal-link>
 
 ---
 

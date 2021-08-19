@@ -9,7 +9,8 @@
       "caution-box",
       "gray-box",
       "gray-text",
-      "invisible"
+      "invisible",
+      "internal-link"
     ]
   },
   "no-emphasis-as-heading": false,

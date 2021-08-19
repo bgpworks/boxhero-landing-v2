@@ -16,7 +16,7 @@ Untuk barang yang sering terjual, Anda bisa menyediakan tempat khusus agar dapat
 
 ## 2. Gunakan Kode Bar
 
-Dengan membuat kode bar untuk setiap produk, Anda dapat dengan mudah mencari dan menghitung produk Anda. Selain itu, penggunaan kode bar dapat mempercepat pekerjaan Anda saat menerima atau mengirim barang. Jika Anda menggunakan [program manajemen inventaris](https://www.boxhero.io/id/), Anda dapat membuatnya secara otomatis melalui PC atau Smartphone Anda.
+Dengan membuat kode bar untuk setiap produk, Anda dapat dengan mudah mencari dan menghitung produk Anda. Selain itu, penggunaan kode bar dapat mempercepat pekerjaan Anda saat menerima atau mengirim barang. Jika Anda menggunakan <internal-link to="/">program manajemen inventaris</internal-link>, Anda dapat membuatnya secara otomatis melalui PC atau Smartphone Anda.
 
 ![Penggunaan kode bar](./images/1.png)
 
@@ -36,9 +36,9 @@ Tidak yang dapat memastikan barang yang Anda pesan akan terjual di pasaran. Tapi
 
 Hitunglah stok Anda secara berkala untuk menghindari ketidakcocokan data dengan jumlah fisik di lapangan. Jangan lupa juga periksa riwayat stok keluar-masuk, mutasi, penjualan, dan pemesanan untuk memastikan tidak ada transaksi yang terlewat. Sebagai pemilik bisnis, semua data haruslah Anda periksa secara detail untuk menghindari kerugian.
 
-Dengan mengaplikasikan 5 cara di atas, pengelolaan inventaris Anda akan terasa lebih mudah, transparan, dan efisien. Jangan lupa gunakanlah [program manajemen inventaris](https://www.boxhero.io/id/) yang simpel, namun menyediakan semua fitur yang Anda butuhkan.
+Dengan mengaplikasikan 5 cara di atas, pengelolaan inventaris Anda akan terasa lebih mudah, transparan, dan efisien. Jangan lupa gunakanlah <internal-link to="/">program manajemen inventaris</internal-link> yang simpel, namun menyediakan semua fitur yang Anda butuhkan.
 
-[BoxHero](https://www.boxhero.io/id/) siap membantu Anda untuk menjalankan 5 cara efektif di atas dengan fitur:
+<internal-link to="/">BoxHero</internal-link> siap membantu Anda untuk menjalankan 5 cara efektif di atas dengan fitur:
 
 - **Membuat Kategori**
 - **Membuat Kode Bar**
@@ -52,7 +52,7 @@ BoxHero memberikan uji coba gratis selama 30 hari. Mulai pengelolaan inventaris 
 
 <tip-box>
 
-**BoxHero dapat digunakan di semua lingkungan, PC dan Smartphone.**<br/>
+**BoxHero dapat digunakan di semua lingkungan, PC dan *Smartphone*.**<br/>
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.<br/>
 BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
 

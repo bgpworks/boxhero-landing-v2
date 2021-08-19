@@ -77,7 +77,7 @@ Tersedia berbagai fitur manajemen inventaris yang dapat diaplikasikan ke semua i
 
 <tip-box>
 
-**BoxHero dapat digunakan di semua lingkungan, PC dan Smartphone.**<br/>
+**BoxHero dapat digunakan di semua lingkungan, PC dan *Smartphone*.**<br/>
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.<br/>
 BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
 

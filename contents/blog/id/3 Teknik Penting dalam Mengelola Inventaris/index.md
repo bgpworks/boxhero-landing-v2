@@ -58,7 +58,7 @@ Kategori *essential* mencakup inventaris yang akan menjadi *vital*. Ini juga san
 
 Kategori *desirable* tidak begitu penting dibandingkan kategori lain, dan ketidaktersediaannya hanya mengakibatkan penghentian kecil dalam produksi atau proses lainnya. Selain itu, pengisian ulang stok kategori ini dapat dilakukan dalam waktu singkat.
 
-- [Baca juga: Apa itu Penilaian Inventaris? Pentingkah untuk Bisnis Anda?](https://www.notion.so/Apa-itu-Penilaian-Inventaris-Pentingkah-untuk-Bisnis-Anda-611f66362fb841d9ada07cec7b96636e)
+- <internal-link to="/blog/Apa-itu-Penilaian-Inventaris-Pentingkah-untuk-Bisnis-Anda">Baca juga: Apa itu Penilaian Inventaris? Pentingkah untuk Bisnis Anda?]</internal-link>
 
 Menentukan dan menggunakan metode manajemen inventaris yang cocok adalah bagian penting bagi kelanjutan bisnis Anda. Ketersediaan sumber daya, tenaga kerja, dan kebutuhan pasar, dapat menjadi acuan penting bagi Anda dalam menentukan metode apa yang baik untuk Anda gunakan. Untuk dapat mengelola inventaris secara efektif dan efisien, jangan ragu untuk mempelajari metode-metode baru sehingga Anda dapat lebih memahami tentang manajemen inventaris.
 
@@ -72,7 +72,7 @@ Tersedia berbagai fitur manajemen inventaris yang dapat diaplikasikan ke semua i
 
 <tip-box>
 
-**BoxHero dapat digunakan di semua lingkungan, PC dan Smartphone.**<br/>
+**BoxHero dapat digunakan di semua lingkungan, PC dan *Smartphone*.**<br/>
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.<br/>
 BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
 

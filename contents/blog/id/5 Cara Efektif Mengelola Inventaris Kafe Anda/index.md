@@ -48,18 +48,18 @@ Jika Anda memiliki bahan berlebih, cobalah untuk menambahkannya ke menu yang ada
 
 ## Sekarang Anda sudah siap untuk mengelola inventaris kafe Anda secara efektif!
 
-Untuk membantu mengelola inventaris Anda dengan maksimal, [BoxHero](https://www.boxhero-app.com/id/) hadir dengan berbagai fitur bermanfaat yang pas untuk kafe Anda, seperti:
+Untuk membantu mengelola inventaris Anda dengan maksimal, <internal-link to="/">BoxHero</internal-link> hadir dengan berbagai fitur bermanfaat yang pas untuk kafe Anda, seperti:
 
 - **Kategori** yang dapat disesuaikan dengan keperluan Anda.
 - **Analisis inventaris** yang akan membantu Anda dalam memeriksa stok untuk keperluan reorder.
 - **Alarm stok rendah** untuk menjaga tingkat stok Anda tetap optimal.
 - **Stok berlebih** yang dapat Anda maksimalkan sebagai menu baru.
 
-Bergabunglah dengan [BoxHero](https://www.boxhero-app.com/id/) dan dapatkan free trial selama 30 hari!
+Bergabunglah dengan <internal-link to="/">BoxHero</internal-link> dan dapatkan free trial selama 30 hari!
 
 <tip-box>
 
-**BoxHero dapat digunakan di semua lingkungan, PC dan Smartphone.**<br/>
+**BoxHero dapat digunakan di semua lingkungan, PC dan *Smartphone*.**<br/>
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.<br/>
 BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
 
