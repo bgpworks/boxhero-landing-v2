@@ -1,8 +1,7 @@
 import React from "react";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import { ExternalLinkWithQuery } from "./common";
-import * as constants from "./constants";
 import svgIconFacebook from "../images/icon-facebook.svg";
-import svgIconInstagram from "../images/icon-instagram.svg";
 import svgIconMedium from "../images/icon-medium.svg";
 import svgIconNaverBlog from "../images/icon-naverblog.svg";
 import {
@@ -22,12 +21,13 @@ const SocialLink = ({ link, icon }) => {
 };
 
 export default function SocialLinkList() {
+  const { t } = useI18next();
+
   return (
     <ul className={socialLinkListContainer}>
-      <SocialLink icon={svgIconMedium} link={constants.urlMedium} />
-      <SocialLink icon={svgIconNaverBlog} link={constants.urlNaverBlog} />
-      <SocialLink icon={svgIconFacebook} link={constants.urlFacebook} />
-      <SocialLink icon={svgIconInstagram} link={constants.urlInstagram} />
+      <SocialLink icon={svgIconMedium} link={t("url:medium")} />
+      <SocialLink icon={svgIconNaverBlog} link={t("url:naverblog")} />
+      <SocialLink icon={svgIconFacebook} link={t("url:facebook")} />
     </ul>
   );
 }

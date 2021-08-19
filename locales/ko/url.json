@@ -1,10 +1,14 @@
 {
-  "doc": "https://docs-ko.boxhero-app.com",
-  "faq": "https://docs-ko.boxhero-app.com/docs/faq-signup",
-  "manual": "https://docs-ko.boxhero-app.com/docs/manual",
   "blog": "https://medium.com/boxhero-ko",
-  "tos": "https://www.boxhero-app.com/ko/tos/",
-  "privacy": "https://www.boxhero-app.com/ko/privacy/",
+  "doc": "https://docs-ko.boxhero-app.com",
+  "facebook": "https://www.facebook.com/boxheroofficial",
+  "faq": "https://docs-ko.boxhero-app.com/docs/faq-signup",
+  "hire": "https://www.notion.so/bgpworks/22ffb5a593354fc6a1edb12a1ccd600a",
+  "manual": "https://docs-ko.boxhero-app.com/docs/manual",
+  "medium": "https://medium.com/boxhero-ko",
+  "naverblog": "https://blog.naver.com/bgpworks",
   "pricing": "https://docs-ko.boxhero-app.com/docs/pricing",
-  "hire": "https://www.notion.so/bgpworks/22ffb5a593354fc6a1edb12a1ccd600a"
+  "privacy": "https://www.boxhero-app.com/ko/privacy/",
+  "tos": "https://www.boxhero-app.com/ko/tos/",
+  "youtube": "https://www.youtube.com/channel/UCjg2mNYUrfIIYxOHZV9xe5Q"
 }
