@@ -74,9 +74,8 @@
 }
 
 .postBodyView li {
-  line-height: var(--line-heihgt-li);
-
   margin-left: 1.4em;
+  line-height: var(--line-heihgt-li);
 }
 
 .postBodyView blockquote {
