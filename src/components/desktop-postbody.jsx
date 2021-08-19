@@ -19,10 +19,10 @@ import {
 
 const Box = ({ className, icon, children }) => {
   return (
-    <span className={cn(boxWrapper, className)}>
+    <section className={cn(boxWrapper, className)}>
       <img className={boxIcon} src={icon} alt="box-decorator" />
-      <span className={boxBody}>{children}</span>
-    </span>
+      <div className={boxBody}>{children}</div>
+    </section>
   );
 };
 
@@ -56,10 +56,10 @@ const GrayText = ({ children }) => {
 
 const GrayBox = ({ title, children }) => {
   return (
-    <span className={grayBox}>
+    <section className={grayBox}>
       {title && <span className={boxTitle}>{title}</span>}
       {children}
-    </span>
+    </section>
   );
 };
 
