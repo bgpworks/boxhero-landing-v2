@@ -3,17 +3,5 @@ const {
   createPagesForBlog,
 } = require("./gatsby-md-blog-helper");
 
-module.exports.onCreateNode = (options) => {
-  try {
-    onCreateNodeForBlog(options);
-  } catch (err) {
-    throw err;
-  }
-};
-exports.createPages = async (options) => {
-  try {
-    await createPagesForBlog(options);
-  } catch (err) {
-    throw err;
-  }
-};
+exports.onCreateNode = onCreateNodeForBlog;
+exports.createPages = createPagesForBlog;

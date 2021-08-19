@@ -74,7 +74,7 @@
 
 .postBodyView li {
   font-size: var(--font-size-normal);
-  line-height: var(--line-height-li);
+  line-height: var(--line-heihgt-li);
 
   margin-left: 1.4em;
 }
