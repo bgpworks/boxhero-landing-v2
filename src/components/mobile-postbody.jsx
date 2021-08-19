@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
 import rehypeReact from "rehype-react";
 import pngTipIcon from "../images/tip-icon.png";
