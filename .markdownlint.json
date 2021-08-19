@@ -1,0 +1,18 @@
+{
+  "line-length": false,
+  "no-inline-html": {
+    "allowed_elements": [
+      "br",
+      "mark",
+      "tip-box",
+      "notice-box",
+      "caution-box",
+      "gray-box",
+      "gray-text",
+      "invisible"
+    ]
+  },
+  "no-emphasis-as-heading": false,
+  "no-trailing-punctuation": false,
+  "no-alt-text": false
+}
