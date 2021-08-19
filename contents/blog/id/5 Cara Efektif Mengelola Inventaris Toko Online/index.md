@@ -1,6 +1,6 @@
 ---
 title: 5 Cara Efektif Mengelola Inventaris Toko Online
-date: 2021-08-04 11:15
+date: 2021-07-15 08:25
 category: Insight
 author: Roh Inda Devanho
 authorPhoto: ../../images/authors/inho.jpg

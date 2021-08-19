@@ -1,6 +1,6 @@
 ---
 title: Bagaimana Cara Menghitung & Meningkatkan Rasio Perputaran Persediaan?
-date: 2021-08-04 11:15
+date: 2021-08-01 10:15
 category: Insight
 author: Roh Inda Devanho
 authorPhoto: ../../images/authors/inho.jpg
