@@ -63,6 +63,8 @@ const GhostElement = ({ children }) => (
   </div>
 );
 
+const InternalLink = ({ to, children }) => <Link to={to}>{children}</Link>;
+
 const renderAST = new rehypeReact({
   createElement: React.createElement,
   Fragment: React.Fragment,
@@ -72,6 +74,7 @@ const renderAST = new rehypeReact({
     "caution-box": CautionBox,
     "gray-text": GrayText,
     "gray-box": GrayBox,
+    "internal-link": InternalLink,
     invisible: GhostElement,
   },
 }).Compiler;
