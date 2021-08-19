@@ -13,7 +13,12 @@ import {
 const SocialLink = ({ link, icon }) => {
   return (
     <li className={socialLinkWrapper}>
-      <ExternalLinkWithQuery href={link} className={socialLink} target="_blank">
+      <ExternalLinkWithQuery
+        href={link}
+        className={socialLink}
+        target="_blank"
+        rel="noreferrer"
+      >
         <img width={36} height={36} src={icon} alt={link} />
       </ExternalLinkWithQuery>
     </li>
