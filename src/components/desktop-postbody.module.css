@@ -60,7 +60,6 @@
 }
 
 .postBodyView p {
-  font-size: var(--font-size-normal);
   line-height: var(--line-height-normal);
 
   text-align: justify;
@@ -73,7 +72,6 @@
 }
 
 .postBodyView li {
-  font-size: var(--font-size-normal);
   line-height: var(--line-heihgt-li);
 
   margin-left: 1.4em;
@@ -100,12 +98,20 @@
   color: var(--color-caption);
 }
 
-/* 위치 관련 */
+/* Typo */
 
 .postBodyView > p,
-.postBodyView > ul,
 .postBodyView > ol,
-.postBodyView > dl {
+.postBodyView > ul {
+  font-size: var(--font-size-normal);
+}
+
+/* 위치 관련 */
+
+.postBodyView p,
+.postBodyView ul,
+.postBodyView ol,
+.postBodyView dl {
   margin: var(--margin-normal) 0;
 }
 
@@ -115,10 +121,6 @@
 
 .postBodyView mark {
   background-color: var(--color-bg-mark);
-}
-
-.postBodyView li > p {
-  margin: 0;
 }
 
 .postBodyView h2,
@@ -170,6 +172,16 @@
   align-items: flex-start;
 
   border: 1px solid var(--color-box-border);
+}
+
+.grayBox > *:first-child,
+.boxBody *:first-child {
+  margin-top: 0;
+}
+
+.grayBox > *:last-child,
+.boxBody > *:last-child {
+  margin-bottom: 0;
 }
 
 .boxIcon {
