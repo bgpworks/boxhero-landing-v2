@@ -5,7 +5,7 @@ category: Insight
 author: Sangseok Yoo
 authorPhoto: ../../images/authors/sangseok.jpeg
 thumbnail: ./images/thumbnail.png
-description: 인도네시아어_게시물_설명글
+description: Inilah saatnya mencari tahu strategi pertumbuhan yang dapat Anda terapkan pada bisnis Anda!
 ---
 
 Belakangan ini, Usaha Kecil Menengah sangat banyak ditemukan dengan bermacam produk yang mereka tawarkan. Berbekal ide baru dan antusiasme yang tinggi, UKM masuk ke pasar yang sudah mereka targetkan dengan cepat. Namun, untuk dapat benar-benar bersaing di pasar yang kompetitif, dibutuhkan strategi pengembangan bisnis jangka panjang yang tepat.
@@ -34,7 +34,7 @@ Anggaran UKM mungkin tidak sebanding dengan perusahaan besar tersebut, tetapi te
 
 UKM dapat mendapatkan keuntungan besar dari ekspansi produk atau penambahan fitur baru untuk menarik pasar yang ada. Mungkin Anda mengalami penjualan yang menurun karena produk atau teknologi yang sudah ketinggalan zaman. Jika demikian, mungkin sudah saatnya Anda harus menambahkan produk dan layanan baru lewat ekspansi produk.
 
-![Coca Cola](./images/1.png)
+![](./images/1.png)
 
 Coca Cola meluncurkan Cherry Coke pada tahun 1985 untuk mengungguli pesaingnya. Sebagai varian pertama dari minuman aslinya, varian baru ini mengundang minat konsumen sebelumnya sekaligus menarik perhatian konsumen baru lebih banyak lagi.
 
