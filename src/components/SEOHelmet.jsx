@@ -48,7 +48,7 @@ function SEOHelmet({ description, lang, meta, title, path }) {
         },
         {
           property: `og:site_name`,
-          content: "BoxHero",
+          content: `${site.siteMetadata.title}`,
         },
         {
           property: `og:title`,
