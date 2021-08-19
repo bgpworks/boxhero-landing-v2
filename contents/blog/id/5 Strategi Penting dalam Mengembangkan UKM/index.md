@@ -2,8 +2,8 @@
 title: 5 Strategi Penting dalam Mengembangkan UKM
 date: 2021-08-04 11:15
 category: Insight
-author: Sangseok Yoo
-authorPhoto: ../../images/authors/sangseok.jpeg
+author: Roh Inda Devanho
+authorPhoto: ../../images/authors/inho.jpg
 thumbnail: ./images/thumbnail.png
 description: Inilah saatnya mencari tahu strategi pertumbuhan yang dapat Anda terapkan pada bisnis Anda!
 ---
@@ -16,7 +16,8 @@ Jika Anda berada pada tahap di mana bisnis Anda membutuhkan dorongan, inilah saa
 
 ## 1. Penetrasi Pasar
 
-Penetrasi pasar bertujuan untuk meningkatkan pangsa pasar atau _market share_ bagi produk yang sudah ada, atau untuk mempromosikan produk baru. Strategi yang berguna di antaranya periklanan, menggabungkan produk menjadi paket yang menarik, memberikan diskon untuk pembelian jumlah besar, dan menurunkan harga untuk mengalahkan pesaing.
+Penetrasi pasar bertujuan untuk meningkatkan pangsa pasar atau _market share_ bagi produk yang sudah ada, atau untuk mempromosikan produk baru. Strategi yang berguna di antaranya periklanan, menggabungkan p
+roduk menjadi paket yang menarik, memberikan diskon untuk pembelian jumlah besar, dan menurunkan harga untuk mengalahkan pesaing.
 
 Meskipun terlihat standar, menurunkan harga bisa menjadi strategi ekspansi jangka pendek yang baik untuk bisnis yang memiliki banyak pesaing. Misalnya, bisnis dengan produk yang relatif umum seperti perlengkapan kebersihan rumah tangga atau alat tulis.
 
@@ -34,7 +35,7 @@ Anggaran UKM mungkin tidak sebanding dengan perusahaan besar tersebut, tetapi te
 
 UKM dapat mendapatkan keuntungan besar dari ekspansi produk atau penambahan fitur baru untuk menarik pasar yang ada. Mungkin Anda mengalami penjualan yang menurun karena produk atau teknologi yang sudah ketinggalan zaman. Jika demikian, mungkin sudah saatnya Anda harus menambahkan produk dan layanan baru lewat ekspansi produk.
 
-![](./images/1.png)
+![Ekspansi produk Coca Cola](./images/1.png)
 
 Coca Cola meluncurkan Cherry Coke pada tahun 1985 untuk mengungguli pesaingnya. Sebagai varian pertama dari minuman aslinya, varian baru ini mengundang minat konsumen sebelumnya sekaligus menarik perhatian konsumen baru lebih banyak lagi.
 
@@ -58,10 +59,26 @@ Untuk dapat membuat profil konsumen Anda secara akurat, dan juga menyediakan kon
 
 Terkadang bergabung dengan bisnis lain adalah cara yang paling baik untuk mengembangkan bisnis kecil Anda. Anda dapat melakukannya dengan merger, akuisisi, atau kemitraan. Asalkan membawa keuntungan yang signifikan bagi semua pihak, ini dapat menjadi situasi win-win yang meningkatkan sumber daya secara besar-besaran.
 
-![](./images/2.png)
+![Jalin kerja sama](./images/2.png)
 
 Kemitraan cenderung cocok untuk pedagang tunggal yang dapat berbagi klien dan berkolaborasi untuk menyelesaikan proyek yang kompleks. Contohnya adalah tukang kayu, tukang listrik, dan pekerja bangunan yang dapat saling membantu untuk mendapatkan daya tarik dalam industri konstruksi.
 
 Dengan bergabung dengan bisnis lain, Anda dapat memperoleh akses langsung ke konsumen dan pasar baru. Namun, ada baiknya jika Anda memiliki kontrak hukum untuk melindungi bisnis Anda, jika terjadi masalah yang tidak terduga.
 
 Kesimpulannya, strategi pengembangan dan ekspansi bisnis yang dijalankan dengan baik, akan memenangkan pangsa pasar yang lebih besar bagi bisnis Anda. Oleh karena itu, dengan menyusun strategi pengembangan bisnis yang solid, Anda dapat menyuntikkan energi baru ke dalam bisnis Anda, apa pun pasarnya. Bagaimanapun, penting untuk mengetahui strategi apa yang cocok untuk jenis bisnis Anda secara spesifik, dan menyesuaikannya dengan sumber daya yang Anda miliki, kebutuhan target pasar, dan visi perusahaan Anda.
+
+---
+
+## Apakah Anda mengalami kesulitan mengelola inventaris? Mulailah sekarang bersama BoxHero.
+
+BoxHero adalah solusi terbaik untuk manajemen inventaris, yang dapat digunakan siapa saja dengan mudah.<br/>
+Tersedia berbagai fitur manajemen inventaris yang dapat diaplikasikan ke semua industri.<br/>
+**Kelola inventaris Anda dengan mudah dan akurat bersama BoxHero.**
+
+<tip-box>
+
+**BoxHero dapat digunakan di semua lingkungan, PC dan Smartphone.**<br/>
+Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.<br/>
+BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
+
+</tip-box>
