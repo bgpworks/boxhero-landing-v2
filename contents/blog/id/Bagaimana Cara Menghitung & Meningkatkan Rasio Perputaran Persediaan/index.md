@@ -8,7 +8,7 @@ thumbnail: ./images/thumbnail.png
 description: Hitung rasio perputaran persediaan untuk mengukur pertumbuhan bisnis Anda.
 ---
 
-Seberapa baik pengoperasian perusahaan Anda adalah indikator terkuat dari kesuksesan di masa depan, terutama pengelolaan inventaris. Salah satu cara untuk mengukur bahwa bisnis Anda berjalan dengan sehat, adalah dengan menghitung rasio perputaran persediaan. Pemahaman yang kuat tentang rasio perputaran inventaris dapat mengubah ekspektasi bisnis Anda menjadi kenyataan. Rasio perputaran persediaan menunjukkan seberapa efisien perusahaan menangani persediaan yang masuk dari supplier hingga keluar menuju rantai pasokan (*supply chain*).
+Seberapa baik pengoperasian perusahaan Anda adalah indikator terkuat dari kesuksesan di masa depan, terutama pengelolaan inventaris. Salah satu cara untuk mengukur bahwa bisnis Anda berjalan dengan sehat, adalah dengan menghitung rasio perputaran persediaan. Pemahaman yang kuat tentang rasio perputaran inventaris dapat mengubah ekspektasi bisnis Anda menjadi kenyataan. Rasio perputaran persediaan menunjukkan seberapa efisien perusahaan menangani persediaan yang masuk dari supplier hingga keluar menuju rantai pasokan (_supply chain_).
 
 ## Apa itu Rasio Perputaran Persediaan?
 
@@ -57,9 +57,9 @@ Jika sekiranya Anda menyadari bahwa rasio perputaran persediaan Anda rendah, ten
 
 ![Tingkatkan rasio perputaran](./images/2.png)
 
-### Berinvestasi di pemasaran / *marketing*
+### Berinvestasi di pemasaran / _marketing_
 
-Pelajari dan analisis kembali strategi marketing Anda. Pelajari tentang pasar dan kenali target pasar Anda dengan jelas. Ada baiknya juga Anda berinventasi dengan cara mengambil kelas *marketing* atau mempekerjakan seorang *marketer.*
+Pelajari dan analisis kembali strategi marketing Anda. Pelajari tentang pasar dan kenali target pasar Anda dengan jelas. Ada baiknya juga Anda berinventasi dengan cara mengambil kelas _marketing_ atau mempekerjakan seorang _marketer._
 
 ### Biasakan meninjau kembali strategi penetapan harga produk
 
@@ -75,13 +75,13 @@ Ada banyak program manajemen inventaris di luar sana yang akan mempermudah bisni
 
 ### Terapkan manajemen inventaris
 
-Rasio perputaran yang rendah tidak selalu berasal dari *supply* (penawaran) dan *demand* (permintaan). Sering kali, ini berasal dari strategi <internal-link to="/">manajemen inventaris</internal-link> yang kurang tepat. Maka dari itu, sangat disarankan untuk memantapkan strategi manajemen inventaris Anda, dan pastikan proses produksi Anda mampu menahan penawaran dan permintaan.
+Rasio perputaran yang rendah tidak selalu berasal dari _supply_ (penawaran) dan _demand_ (permintaan). Sering kali, ini berasal dari strategi <internal-link to="/">manajemen inventaris</internal-link> yang kurang tepat. Maka dari itu, sangat disarankan untuk memantapkan strategi manajemen inventaris Anda, dan pastikan proses produksi Anda mampu menahan penawaran dan permintaan.
 
 ![Fitur dashboard BoxHero](./images/3.png)
 
 <internal-link to="/">BoxHero</internal-link> hadir untuk membantu Anda mengautomasi manajemen inventaris Anda. Anda dapat menganalisis dan memeriksa inventaris dan penjualan Anda dengan mudah dan cepat. Selain itu, Anda juga dapat melihat rasio perputaran persediaan bisnis Anda tanpa perlu repot-repot menghitungnya sendiri.
 
-![Fitur analisis rasio perputaran persediaan BoxHero](./images/4.gif)
+![Fitur analisis rasio perputaran persediaan BoxHero](./images/4.1.gif)
 
 <internal-link to="/">BoxHero</internal-link> adalah solusi manajemen inventaris termudah yang mendukung semua tipe perangkat. Dengan begitu, Anda dapat secara mudah memeriksa persediaan barang Anda di mana saja dalam waktu real-time! BoxHero memberikan demo gratis selama 30 hari bagi Anda yang baru bergabung.
 
@@ -89,8 +89,8 @@ Rasio perputaran yang rendah tidak selalu berasal dari *supply* (penawaran) dan 
 
 <tip-box>
 
-**BoxHero dapat digunakan di semua lingkungan, PC dan *Smartphone*.**<br/>
+**BoxHero dapat digunakan di semua lingkungan, PC dan _Smartphone_.**<br/>
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.<br/>
-BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
+BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di _smartphone_ Anda.
 
 </tip-box>
