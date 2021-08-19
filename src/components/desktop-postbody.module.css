@@ -237,6 +237,7 @@
   margin-bottom: 0;
 }
 
+.postBodyView > p > img,
 .postBodyView > img {
   display: block;
   margin: var(--margin-big) 0;
