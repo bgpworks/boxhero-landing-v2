@@ -3,5 +3,5 @@ const {
   createPagesForBlog,
 } = require("./gatsby-md-blog-helper");
 
-module.exports.onCreateNode = onCreateNodeForBlog;
+exports.onCreateNode = onCreateNodeForBlog;
 exports.createPages = createPagesForBlog;
