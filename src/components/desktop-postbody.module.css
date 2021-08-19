@@ -61,8 +61,6 @@
 
 .postBodyView p {
   line-height: var(--line-height-normal);
-
-  text-align: justify;
   hyphens: auto;
 }
 
