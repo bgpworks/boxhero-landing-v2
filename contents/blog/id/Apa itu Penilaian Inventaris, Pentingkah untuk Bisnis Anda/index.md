@@ -1,5 +1,5 @@
 ---
-title: Apa itu Penilaian Inventaris? Pentingkah untuk Bisnis Anda?
+title: Apa Fungsi Penilaian Inventaris bagi Bisnis Anda?
 date: 2021-07-27 09:35
 category: Insight
 author: Roh Inda Devanho
@@ -29,7 +29,7 @@ Mengidentifikasi barang yang tidak terjual, hanyalah langkah awal dari penilaian
 
 ### FIFO
 
-FIFO ****atau *First In First Out*, yaitu asumsi bahwa barang pertama yang dibeli, adalah barang pertama yang meninggalkan gudang. Dengan kata lain, setiap kali Anda melakukan penjualan, barang yang dikurangi dari daftar adalah barang yang pertama kali masuk ke toko atau gudang Anda.
+FIFO atau *First In First Out*, yaitu asumsi bahwa barang pertama yang dibeli, adalah barang pertama yang meninggalkan gudang. Dengan kata lain, setiap kali Anda melakukan penjualan, barang yang dikurangi dari daftar adalah barang yang pertama kali masuk ke toko atau gudang Anda.
 
 ### LIFO
 
