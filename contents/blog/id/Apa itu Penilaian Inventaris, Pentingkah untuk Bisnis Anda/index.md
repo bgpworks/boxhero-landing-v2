@@ -1,5 +1,5 @@
 ---
-title: Apa itu Penilaian Inventaris? Pentingkah untuk Bisnis Anda?
+title: Apa Fungsi Penilaian Inventaris bagi Bisnis Anda?
 date: 2021-07-27 09:35
 category: Insight
 author: Roh Inda Devanho
@@ -12,7 +12,7 @@ Manajemen inventaris bukanlah hal yang rumit jika Anda mengerti langkah-langkah 
 
 ## Apa itu Penilaian Inventaris?
 
-Penilaian inventaris atau *inventory valuation* merupakan praktik akuntansi yang digunakan oleh perusahaan, untuk mengetahui nilai stok persediaan yang tidak terjual, pada saat mereka menyusun laporan keuangan. Inventaris merupakan aset bagi suatu perusahaan, dan diperlukan nilai finansial untuk mencatatnya di neraca. Nilai ini dapat membantu Anda menentukan <internal-link to="/blog/posts/Bagaimana-Cara-Menghitung-Meningkatkan-Rasio-Perputaran-Persediaan">rasio perputaran persediaan</internal-link>, yang juga akan membantu Anda merencanakan pembelian.
+Penilaian inventaris atau *inventory valuation* merupakan praktik akuntansi yang digunakan oleh perusahaan, untuk mengetahui nilai stok persediaan yang tidak terjual, pada saat mereka menyusun laporan keuangan. Inventaris merupakan aset bagi suatu perusahaan, dan diperlukan nilai finansial untuk mencatatnya di neraca. Nilai ini dapat membantu Anda menentukan <internal-link to="/blog/posts/bagaimana-cara-menghitung-and-meningkatkan-rasio-perputaran-persediaan">rasio perputaran persediaan</internal-link>, yang juga akan membantu Anda merencanakan pembelian.
 
 ## Mengapa Penilaian Inventaris itu Penting?
 
@@ -29,7 +29,7 @@ Mengidentifikasi barang yang tidak terjual, hanyalah langkah awal dari penilaian
 
 ### FIFO
 
-FIFO ****atau *First In First Out*, yaitu asumsi bahwa barang pertama yang dibeli, adalah barang pertama yang meninggalkan gudang. Dengan kata lain, setiap kali Anda melakukan penjualan, barang yang dikurangi dari daftar adalah barang yang pertama kali masuk ke toko atau gudang Anda.
+FIFO atau *First In First Out*, yaitu asumsi bahwa barang pertama yang dibeli, adalah barang pertama yang meninggalkan gudang. Dengan kata lain, setiap kali Anda melakukan penjualan, barang yang dikurangi dari daftar adalah barang yang pertama kali masuk ke toko atau gudang Anda.
 
 ### LIFO
 

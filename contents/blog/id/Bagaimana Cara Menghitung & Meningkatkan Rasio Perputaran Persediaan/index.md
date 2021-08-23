@@ -1,5 +1,5 @@
 ---
-title: Bagaimana Cara Menghitung & Meningkatkan Rasio Perputaran Persediaan?
+title: Hitung & Tingkatkan Rasio Perputaran Persediaan
 date: 2021-08-01 10:15
 category: Insight
 author: Roh Inda Devanho

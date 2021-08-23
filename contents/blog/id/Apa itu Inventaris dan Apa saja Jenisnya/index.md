@@ -82,6 +82,8 @@ Segala bentuk dan jenis inventaris adalah aset bagi perusahaan. Dengan memahami 
 
 ---
 
+## Apakah Anda mengalami kesulitan mengelola inventaris? Mulailah sekarang bersama BoxHero.
+
 Untuk pengelolaan inventaris secara mudah, Anda dapat mengategorikan inventaris Anda, sesuai jenis dan keperluannya. Program manajemen inventaris <internal-link to="/">BoxHero</internal-link> dapat membantu Anda mengategorikan jenis inventaris Anda dengan mudah dan cepat. Anda dapat membuat kategori apa pun dan mengelompokkannya untuk kenyamanan pengelolaan.
 
 <internal-link to="/">BoxHero</internal-link> adalah solusi manajemen inventaris termudah. Gunakan <internal-link to="/">BoxHero</internal-link> di web PC atau smartphone Anda dan dapatkan uji coba gratis selama 30 hari.

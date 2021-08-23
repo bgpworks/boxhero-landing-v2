@@ -58,7 +58,7 @@ Kategori _essential_ mencakup inventaris yang akan menjadi _vital_. Ini juga san
 
 Kategori _desirable_ tidak begitu penting dibandingkan kategori lain, dan ketidaktersediaannya hanya mengakibatkan penghentian kecil dalam produksi atau proses lainnya. Selain itu, pengisian ulang stok kategori ini dapat dilakukan dalam waktu singkat.
 
-- <internal-link to="/blog/posts/Apa-itu-Penilaian-Inventaris-Pentingkah-untuk-Bisnis-Anda">Baca juga: Apa itu Penilaian Inventaris? Pentingkah untuk Bisnis Anda?]</internal-link>
+- <internal-link to="/blog/posts/apa-itu-penilaian-inventaris-pentingkah-untuk-bisnis-anda">Baca juga: Apa itu Penilaian Inventaris? Pentingkah untuk Bisnis Anda?</internal-link>
 
 Menentukan dan menggunakan metode manajemen inventaris yang cocok adalah bagian penting bagi kelanjutan bisnis Anda. Ketersediaan sumber daya, tenaga kerja, dan kebutuhan pasar, dapat menjadi acuan penting bagi Anda dalam menentukan metode apa yang baik untuk Anda gunakan. Untuk dapat mengelola inventaris secara efektif dan efisien, jangan ragu untuk mempelajari metode-metode baru sehingga Anda dapat lebih memahami tentang manajemen inventaris.
 
