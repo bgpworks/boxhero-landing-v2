@@ -76,7 +76,19 @@ export const query = graphql`
             description
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 320, placeholder: BLURRED)
+                gatsbyImageData(
+                  width: 275
+                  height: 171
+                  layout: FIXED
+                  tracedSVGOptions: {
+                    turnPolicy: TURNPOLICY_MAJORITY
+                    turdSize: 1
+                    alphaMax: 1
+                    color: "#f0f0f3"
+                    threshold: 160
+                  }
+                  placeholder: TRACED_SVG
+                )
               }
             }
           }

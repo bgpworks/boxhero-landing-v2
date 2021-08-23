@@ -70,12 +70,34 @@ export const query = graphql`
         author
         authorPhoto {
           childImageSharp {
-            gatsbyImageData(width: 40, placeholder: BLURRED)
+            gatsbyImageData(
+              width: 40
+              layout: FIXED
+              tracedSVGOptions: {
+                turnPolicy: TURNPOLICY_MAJORITY
+                turdSize: 1
+                alphaMax: 1
+                color: "#f0f0f3"
+                threshold: 160
+              }
+              placeholder: TRACED_SVG
+            )
           }
         }
         thumbnail {
           childImageSharp {
-            gatsbyImageData(width: 800, placeholder: BLURRED)
+            gatsbyImageData(
+              width: 800
+              layout: FIXED
+              tracedSVGOptions: {
+                turnPolicy: TURNPOLICY_MAJORITY
+                turdSize: 1
+                alphaMax: 1
+                color: "#f0f0f3"
+                threshold: 160
+              }
+              placeholder: TRACED_SVG
+            )
           }
         }
       }
