@@ -44,5 +44,5 @@ Let's get a closer look at inventory optimization.
 
 ## Looking for inventory management software?
 
-BoxHero is the easiest inventory management program for any size or type of business.<br/>
+**BoxHero** is the easiest inventory management program for any size or type of business.<br/>
 **Start inventorying your items efficiently than ever.**
