@@ -12,13 +12,13 @@ Manajemen yang efektif dan efisien adalah suatu keharusan dalam menjalankan bisn
 
 ## Apa itu Manajemen Inventaris?
 
-Manajemen Inventaris atau *Inventory Management* adalah kegiatan pelacakan, pengendalian, juga penggunaan dan penyimpanan stok barang, bersama dengan pengelolaan produk yang siap dijual. Manajemen inventaris yang tidak tepat dapat menyebabkan peningkatan biaya penyimpanan, pemborosan sumber daya tenaga kerja, peningkatan waktu menganggur, dll. Semua ini mengarah pada penurunan penjualan dan pelanggan yang tidak puas. Oleh karena itu, manajemen inventaris merupakan aspek penting dari bisnis yang tidak boleh diabaikan.
+Manajemen Inventaris atau _Inventory Management_ adalah kegiatan pelacakan, pengendalian, juga penggunaan dan penyimpanan stok barang, bersama dengan pengelolaan produk yang siap dijual. Manajemen inventaris yang tidak tepat dapat menyebabkan peningkatan biaya penyimpanan, pemborosan sumber daya tenaga kerja, peningkatan waktu menganggur, dll. Semua ini mengarah pada penurunan penjualan dan pelanggan yang tidak puas. Oleh karena itu, manajemen inventaris merupakan aspek penting dari bisnis yang tidak boleh diabaikan.
 
 ![Teknik analisis](./images/1.png)
 
 ### ABC Analysis
 
-*ABC Analysis* atau *Always Better Control Analysis*, adalah metode di mana barang-barang persediaan diklasifikasikan berdasarkan nilai pakai dan nilai investasi, kemudian dibagi menjadi tiga kategori yaitu A,B,dan C. Perusahaan juga dapat dengan bebas menerapkan kategori seperti A, B, C, D, dst..
+_ABC Analysis_ atau _Always Better Control Analysis_, adalah metode di mana barang-barang persediaan diklasifikasikan berdasarkan nilai pakai dan nilai investasi, kemudian dibagi menjadi tiga kategori yaitu A,B,dan C. Perusahaan juga dapat dengan bebas menerapkan kategori seperti A, B, C, D, dst..
 
 Persediaan barang di **kategori A,** memiliki nila harga dan investasi tinggi dengan jumlah yang tidak banyak. Karena itu, persediaan barang di kategori A, wajib dikontrol secara ketat.
 
@@ -36,27 +36,27 @@ Tujuan dari analisis ABC, adalah untuk membantu pemilik usaha memahami produk ma
 
 ### Just In Time (JIT)
 
-Dalam metode *Just in Time*, perusahaan hanya menyimpan persediaan sebanyak yang dibutuhkan selama proses produksi. Ini dapat menghemat biaya asuransi dan penyimpanan, karena tidak ada persediaan berlebih. Perusahaan akan memesan persediaan barang untuk produksi, ketika menerima pesanan dari pembeli.
+Dalam metode _Just in Time_, perusahaan hanya menyimpan persediaan sebanyak yang dibutuhkan selama proses produksi. Ini dapat menghemat biaya asuransi dan penyimpanan, karena tidak ada persediaan berlebih. Perusahaan akan memesan persediaan barang untuk produksi, ketika menerima pesanan dari pembeli.
 
-Tujuan utama dari metode ini adalah untuk menjaga stok di tingkat yang paling rendah sebelum melakukan *reorder,* yang pada akhirnya bertujuan untuk menekan biaya produksi serendah mungkin. Metode ini digunakan juga oleh perusahaan terkenal seperti Toyota dan Dell.
+Tujuan utama dari metode ini adalah untuk menjaga stok di tingkat yang paling rendah sebelum melakukan _reorder,_ yang pada akhirnya bertujuan untuk menekan biaya produksi serendah mungkin. Metode ini digunakan juga oleh perusahaan terkenal seperti Toyota dan Dell.
 
 ![Metode analisis](./images/3.png)
 
 ### VED Analysis
 
-*VED Analysis* atau *Vital Essential and Desirable Analysis,* adalah metode manajemen inventaris yang mengklasifikasikan barang berdasarkan kepentingan fungsionalnya. Persediaan barang dibagi menjadi tiga kategori berdasarkan kepentingan dan kebutuhan proses produksi.
+_VED Analysis_ atau _Vital Essential and Desirable Analysis,_ adalah metode manajemen inventaris yang mengklasifikasikan barang berdasarkan kepentingan fungsionalnya. Persediaan barang dibagi menjadi tiga kategori berdasarkan kepentingan dan kebutuhan proses produksi.
 
 **Vital**
 
-Seperti namanya, kategori *vital* mencakup inventaris yang diperlukan untuk produksi atau proses lainnya dalam suatu perusahaan. Kekurangan stok barang *vital* dapat menghambat atau mengganggu proses produksi dan pengoperasian perusahaan. Pemeriksaan yang tepat harus dilakukan oleh manajemen untuk memastikan ketersediaan stok barang *vital* tersebut.
+Seperti namanya, kategori _vital_ mencakup inventaris yang diperlukan untuk produksi atau proses lainnya dalam suatu perusahaan. Kekurangan stok barang _vital_ dapat menghambat atau mengganggu proses produksi dan pengoperasian perusahaan. Pemeriksaan yang tepat harus dilakukan oleh manajemen untuk memastikan ketersediaan stok barang _vital_ tersebut.
 
 **Essential**
 
-Kategori *essential* mencakup inventaris yang akan menjadi *vital*. Ini juga sangat penting karena kekurangan stok ini dapat menyebabkan penghentian produksi atau menghambat beberapa proses lainnya. Tetapi, kerugian karena ketidaktersediaan stok barang *essential* mungkin hanya bersifat sementara. Manajemen juga harus memastikan ketersediaan dan pemeliharaan inventaris yang optimal di bawah kategori *essential*.
+Kategori _essential_ mencakup inventaris yang akan menjadi _vital_. Ini juga sangat penting karena kekurangan stok ini dapat menyebabkan penghentian produksi atau menghambat beberapa proses lainnya. Tetapi, kerugian karena ketidaktersediaan stok barang _essential_ mungkin hanya bersifat sementara. Manajemen juga harus memastikan ketersediaan dan pemeliharaan inventaris yang optimal di bawah kategori _essential_.
 
 **Desirable**
 
-Kategori *desirable* tidak begitu penting dibandingkan kategori lain, dan ketidaktersediaannya hanya mengakibatkan penghentian kecil dalam produksi atau proses lainnya. Selain itu, pengisian ulang stok kategori ini dapat dilakukan dalam waktu singkat.
+Kategori _desirable_ tidak begitu penting dibandingkan kategori lain, dan ketidaktersediaannya hanya mengakibatkan penghentian kecil dalam produksi atau proses lainnya. Selain itu, pengisian ulang stok kategori ini dapat dilakukan dalam waktu singkat.
 
 - <internal-link to="/blog/posts/apa-itu-penilaian-inventaris-pentingkah-untuk-bisnis-anda">Baca juga: Apa itu Penilaian Inventaris? Pentingkah untuk Bisnis Anda?</internal-link>
 
@@ -72,8 +72,8 @@ Tersedia berbagai fitur manajemen inventaris yang dapat diaplikasikan ke semua i
 
 <tip-box>
 
-**BoxHero dapat digunakan di semua lingkungan, PC dan *Smartphone*.**<br/>
+**BoxHero dapat digunakan di semua lingkungan, PC dan _Smartphone_.**<br/>
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.<br/>
-BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
+BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di _smartphone_ Anda.
 
 </tip-box>
