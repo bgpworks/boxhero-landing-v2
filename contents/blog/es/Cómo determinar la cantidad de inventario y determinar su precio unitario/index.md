@@ -84,7 +84,7 @@ Entonces, resumamos brevemente cómo determinar el precio unitario de los activo
 
 ---
 
-### Con BoxHero, puedes administrar tu inventario de manera efectiva.
+## Con BoxHero, puedes administrar tu inventario de manera efectiva.
 
 BoxHero incluye funciones útiles que son perfectas para la gestión de inventario, como:
 

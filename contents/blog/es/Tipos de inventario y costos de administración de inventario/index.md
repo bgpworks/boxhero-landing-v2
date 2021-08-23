@@ -54,7 +54,7 @@ En segundo lugar, si la demanda se satisface esperando a que se reponga el stock
 
 4 tipos de inventario: stock de seguridad, stock de reserva, stock periódico, stock en tránsito
 
-### stock de seguridad
+### Stock de seguridad
 
 El stock de seguridad, también llamado stock de reserva, es el stock que se mantiene en respuesta a cambios inciertos en la demanda, incertidumbre de ventas / producción e incertidumbre de adquisición de material.
 
@@ -80,9 +80,8 @@ El inventario en tránsito, también llamado inventario en movimiento, se refier
 
 ---
 
-## Con BoxHero, la gestión de inventario ya no es difícil.
+## ¿Tiene problemas con la gestión de inventario? Empieza a utilizar BoxHero ahora mismo.
 
-¿Tiene problemas con la gestión de inventario? Empieza a jugar BoxHero ahora mismo.<br/>
 BoxHero es una solución especializada en gestión de inventario que cualquiera puede usar fácilmente.<br/>
 Puede introducirse en cualquier negocio independientemente de la industria a través de varias funciones de gestión de inventario.<br/>
 **Ahora gestione su inventario de forma fácil y precisa con BoxHero.**

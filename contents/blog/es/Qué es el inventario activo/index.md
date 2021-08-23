@@ -33,11 +33,11 @@ Entonces, ¿cuáles son los tipos de inventario activo?
 
 Primero, los inventarios pueden clasificarse en varios tipos según su existencia o propósito de uso. Los inventarios en los estados financieros se pueden informar como un monto total o se pueden clasificar en bienes / trabajo en proceso / materias primas, etc.
 
-### a. los activos mantenidos para la venta
+### A. Los activos mantenidos para la venta
 
 ex) productos y materias primas
 
-### B. activos en producción
+### B. Activos en producción
 
 Trabajo en curso (etapa antes de pasar de la materia prima al estado del producto, estado incompleto)
 
@@ -110,7 +110,7 @@ Introduce el método de valoración de la cantidad de inventario y el método de
 
 ---
 
-### Con Box Hero, puedes administrar tu inventario de manera efectiva.
+## Con Box Hero, puedes administrar tu inventario de manera efectiva.
 
 BoxHero incluye funciones útiles que son perfectas para la gestión de inventario, como:
 

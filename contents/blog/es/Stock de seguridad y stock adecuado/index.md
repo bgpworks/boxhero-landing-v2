@@ -1,5 +1,5 @@
 ---
-title: Stock de seguridad y stock adecuado
+title: Stock de seguridad y Stock adecuado
 date: 2021-08-15 14:50
 category: Conocimiento
 author: Lili

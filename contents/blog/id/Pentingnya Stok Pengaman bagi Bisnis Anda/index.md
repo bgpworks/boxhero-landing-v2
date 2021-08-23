@@ -66,7 +66,7 @@ Berdasarkan hasil perhitungan di atas, perusahaan ban tersebut membutuhkan stok 
 
 Sebuah perusahaan dapat memilih untuk mengurangi tingkat stok pengaman jika permintaan konsumen menurun. Tidak ada alasan untuk memenuhi tingkat stok pengaman jika permintaan konsumen hanya sedikit. Jumlah stok pengaman juga dapat dikurangi jika konsumen tidak bermasalah dengan penundaan pengiriman, atau biaya pengeluaran yang mahal untuk mempertahankan tingkat stok pengaman yang mencukupi.
 
-Stok pengaman dapat meningkatkan kepuasan konsumen Anda. Tapi di sisi lain, ini dapat berakibat buruk bagi arus kas perusahaan. Ini dikarenakan besarnya investasi yang Anda keluarkan untuk stok pengaman. Anda juga harus mengeluarkan holding cost atau biaya penyimpanan yang tidak sedikit.
+Stok pengaman dapat meningkatkan kepuasan konsumen Anda. Tapi di sisi lain, ini dapat berakibat buruk bagi arus kas perusahaan. Ini dikarenakan besarnya investasi yang Anda keluarkan untuk stok pengaman. Anda juga harus mengeluarkan *holding cost* atau biaya penyimpanan yang tidak sedikit.
 
 Meningkatkan kepuasan konsumen sekaligus menjaga alur produksi tentunya adalah hal yang diinginkan para pengusaha termasuk Anda. Anda dapat memenuhi keduanya dengan menerapkan stok pengaman dengan disertai analisis yang akurat. Ada baiknya untuk berjaga-jaga karena kita tidak pernah tahu apa yang akan terjadi dalam ruang lingkup penawaran dan permintaan.
 

@@ -65,7 +65,7 @@ Rotación de inventario = ventas totales / inventario promedio, [envíos (ventas
 
 ---
 
-### Con BoxHero, puedes gestionar eficazmente la rotación de inventario.
+## Con BoxHero, puedes gestionar eficazmente la rotación de inventario.
 
 BoxHero tiene una serie de funciones que le permiten calcular y analizar la rotación de inventario.
 
