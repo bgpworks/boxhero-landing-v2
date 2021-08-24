@@ -1,29 +1,32 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
 // js
-import { Container1024, ExternalLinkWithQuery } from "./common";
-import * as constants from "./constants";
-import { LangSelect } from "./language-selector";
+import { Container1024, ExternalLinkWithQuery } from './common';
+import * as constants from './constants';
+import { LangSelect } from './language-selector';
 // css
-import * as styles from "./desktop-footer.module.css";
+import * as styles from './desktop-footer.module.css';
 // images
-import svgPcWeb from "../images/pcweb.svg";
-import svgWindows from "../images/windows.svg";
-import svgOsx from "../images/osx.svg";
-import svgAppstore from "../images/appstore.svg";
-import svgPlaystore from "../images/playstore.svg";
-import svgCompanyLogo from "../images/company-logo.svg";
-import SocialLinkList from "./social-link-list";
+import svgPcWeb from '../images/pcweb.svg';
+import svgWindows from '../images/windows.svg';
+import svgOsx from '../images/osx.svg';
+import svgAppstore from '../images/appstore.svg';
+import svgPlaystore from '../images/playstore.svg';
+import svgCompanyLogo from '../images/company-logo.svg';
+import SocialLinkList from './social-link-list';
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
     <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
     <div className={styles.startNowDescription}>{message}</div>
     <ExternalLinkWithQuery href={constants.urlStart}>
-      <button className={styles.startNowButton}>
-        {t("footer:startNowButton")}
+      <button
+        type="button"
+        className={styles.startNowButton}
+      >
+        {t('footer:startNowButton')}
       </button>
     </ExternalLinkWithQuery>
   </div>
@@ -40,13 +43,19 @@ const Platforms = ({ t }) => (
     <div className={styles.platformGroups}>
       <div className={styles.platformGroup}>
         <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupWeb")}
+          {t('footer:platformGroupWeb')}
         </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlStart}>
-            <button className={styles.platformButton}>
-              <img src={svgPcWeb} alt="PC" />
-              {t("footer:platformsPC")}
+            <button
+              type="button"
+              className={styles.platformButton}
+            >
+              <img
+                src={svgPcWeb}
+                alt="PC"
+              />
+              {t('footer:platformsPC')}
             </button>
           </a>
         </div>
@@ -54,19 +63,31 @@ const Platforms = ({ t }) => (
 
       <div className={styles.platformGroup}>
         <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupDesktop")}
+          {t('footer:platformGroupDesktop')}
         </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlDownloadWindows}>
-            <button className={styles.platformButton}>
-              <img src={svgWindows} alt="Windows" />
-              {t("footer:platformsWindows")}
+            <button
+              type="button"
+              className={styles.platformButton}
+            >
+              <img
+                src={svgWindows}
+                alt="Windows"
+              />
+              {t('footer:platformsWindows')}
             </button>
           </a>
           <a href={constants.urlDownloadOsx}>
-            <button className={styles.platformButton}>
-              <img src={svgOsx} alt="macOS" />
-              {t("footer:platformsOsx")}
+            <button
+              type="button"
+              className={styles.platformButton}
+            >
+              <img
+                src={svgOsx}
+                alt="macOS"
+              />
+              {t('footer:platformsOsx')}
             </button>
           </a>
         </div>
@@ -74,7 +95,7 @@ const Platforms = ({ t }) => (
 
       <div className={styles.platformGroup}>
         <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupMobile")}
+          {t('footer:platformGroupMobile')}
         </div>
         <div className={styles.platformGroupButtons}>
           <a href="https://itunes.apple.com/app/id1325512157">
@@ -96,7 +117,7 @@ const Platforms = ({ t }) => (
     </div>
 
     <div className={styles.platformFooterMsg}>
-      {t("footer:platformsLastMessage")}
+      {t('footer:platformsLastMessage')}
     </div>
   </div>
 );
@@ -106,58 +127,65 @@ const DesktopFooterMenus = ({ t }) => (
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Service</div>
       <div>
-        <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
+        <Link to="/about/">{t('footer:footerMenuServiceAbout')}</Link>
       </div>
       <div>
-        <Link to="/features/">{t("footer:footerMenuServiceFeatures")}</Link>
+        <Link to="/features/">{t('footer:footerMenuServiceFeatures')}</Link>
       </div>
       <div>
-        <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
+        <Link to="/pricing/">{t('footer:footerMenuServicePricing')}</Link>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Resource</div>
       <div>
-        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
+        <Link to="/blog">{t('footer:footerMenuCompanyBlog')}</Link>
       </div>
       <div>
-        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+        <a href={t('url:doc')}>{t('footer:footerMenuSupportDocs')}</a>
       </div>
       <div>
-        <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
+        <a href={t('url:faq')}>{t('footer:footerMenuSupportFaq')}</a>
       </div>
       <div>
-        <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+        <a href={t('url:manual')}>{t('footer:footerMenuSupportManual')}</a>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Company</div>
       <div>
         <a href="https://www.bgpworks.com">
-          {t("footer:footerMenuCompanyHome")}
+          {t('footer:footerMenuCompanyHome')}
         </a>
       </div>
       <div>
-        <a href={t("url:hire")} target="_blank" rel="noreferrer">
-          {t("footer:footerMenuCompanyHire")}
+        <a
+          href={t('url:hire')}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t('footer:footerMenuCompanyHire')}
         </a>
       </div>
     </div>
     <div className={styles.wideFooterMenusColumn}>
       <div className={styles.footerMenuLabel}>Contact</div>
-      <div>{t("footer:footerMenuContactTel")}</div>
+      <div>{t('footer:footerMenuContactTel')}</div>
       <div>
-        {t("footer:footerMenuContactEmail")}{" "}
+        {t('footer:footerMenuContactEmail')}
+        {' '}
         <a href="mailto:support+boxhero@bgpworks.com">
           support+boxhero@bgpworks.com
         </a>
       </div>
       <div>
-        {t("footer:footerMenuContactBusiness")}{" "}
+        {t('footer:footerMenuContactBusiness')}
+        {' '}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </div>
       <div>
-        {t("footer:footerMenuContactKakao")}{" "}
+        {t('footer:footerMenuContactKakao')}
+        {' '}
         <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
       </div>
     </div>
@@ -172,7 +200,11 @@ const DesktopFooterMenus = ({ t }) => (
 const CompanyInfo = ({ t }) => (
   <div className={styles.companyInfoContainer}>
     <div className={styles.logoContainer}>
-      <img className={styles.companyLogo} src={svgCompanyLogo} alt="BGPworks" />
+      <img
+        className={styles.companyLogo}
+        src={svgCompanyLogo}
+        alt="BGPworks"
+      />
     </div>
     <div>
       <div className={styles.companyInfoDetail}>
@@ -189,18 +221,21 @@ const CompanyInfo = ({ t }) => (
         />
       </div>
       <div className={styles.copyRight}>
-        © {new Date().getFullYear()}, BGPworks. All rights reserved.
+        ©
+        {' '}
+        {new Date().getFullYear()}
+        , BGPworks. All rights reserved.
       </div>
     </div>
     <SocialLinkList />
   </div>
 );
 
-const DesktopFooterMenusAndInfo = (props) => (
+const DesktopFooterMenusAndInfo = ({ t }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <Container1024 className={styles.px10}>
-      <DesktopFooterMenus {...props} />
-      <CompanyInfo {...props} />
+      <DesktopFooterMenus t={t} />
+      <CompanyInfo t={t} />
     </Container1024>
   </div>
 );
@@ -211,7 +246,11 @@ const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
     <div>
       {!showEssential && (
         <>
-          <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+          <StartNow
+            emoji={closingEmoji}
+            message={closingMsg}
+            t={t}
+          />
           <Platforms t={t} />
         </>
       )}

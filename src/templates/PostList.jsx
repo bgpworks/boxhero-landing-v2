@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 // js
 
-import { Media } from "../media";
-import SEOHelmet from "../components/SEOHelmet";
-import PostListDesktop from "../components/desktop-postlist";
-import PostListMobile from "../components/mobile-postlist";
+import { Media } from '../media';
+import SEOHelmet from '../components/SEOHelmet';
+import PostListDesktop from '../components/desktop-postlist';
+import PostListMobile from '../components/mobile-postlist';
 
 export default function PostList({ pageContext, location, data }) {
   const { pageIndex, lastPageIndex, categoryStyleMapSerialized } = pageContext;
@@ -20,31 +20,31 @@ export default function PostList({ pageContext, location, data }) {
     <>
       <SEOHelmet
         lang={language}
-        title={t("blog:pageTitle")}
-        description={t("blog:pageDescription")}
+        title={t('blog:pageTitle')}
+        description={t('blog:pageDescription')}
         path={location.pathname}
       />
 
       <Media at="xs">
         <PostListMobile
-          title={t("blog:title")}
-          description={t("blog:pageDescription")}
+          title={t('blog:title')}
+          description={t('blog:pageDescription')}
           edges={edges}
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
-          pagePathPrefix={`/blog/pages`}
+          pagePathPrefix="/blog/pages"
           categoryStyleMap={categoryStyleMap}
         />
       </Media>
 
       <Media greaterThan="xs">
         <PostListDesktop
-          title={t("blog:title")}
-          description={t("blog:pageDescription")}
+          title={t('blog:title')}
+          description={t('blog:pageDescription')}
           edges={edges}
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
-          pagePathPrefix={`/blog/pages`}
+          pagePathPrefix="/blog/pages"
           categoryStyleMap={categoryStyleMap}
         />
       </Media>
@@ -77,9 +77,7 @@ export const query = graphql`
             thumbnail {
               childImageSharp {
                 gatsbyImageData(
-                  width: 275
-                  height: 171
-                  layout: FIXED
+                  width: 320
                   tracedSVGOptions: {
                     turnPolicy: TURNPOLICY_MAJORITY
                     turdSize: 1

@@ -1,9 +1,9 @@
-import React from "react";
-import { Link, useI18next } from "gatsby-plugin-react-i18next";
-import { GatsbyImage } from "gatsby-plugin-image";
-import MobileLayout from "../components/mobile-layout";
-import svgArrowPrev from "../images/arrow-prev.svg";
-import svgArrowNext from "../images/arrow-next.svg";
+import React from 'react';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import MobileLayout from './mobile-layout';
+import svgArrowPrev from '../images/arrow-prev.svg';
+import svgArrowNext from '../images/arrow-next.svg';
 import {
   pageContainer,
   pageTitle,
@@ -21,7 +21,7 @@ import {
   navButton,
   prevButtonLabel,
   nextButtonLabel,
-} from "./mobile-postlist.module.css";
+} from './mobile-postlist.module.css';
 
 const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
   const { t } = useI18next();
@@ -42,9 +42,12 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
                 to={`${pathPrefix}/${pageIndex - 1}`}
                 className={navButton}
               >
-                <img src={svgArrowPrev} alt="arrow-prev" />
+                <img
+                  src={svgArrowPrev}
+                  alt="arrow-prev"
+                />
                 <span className={prevButtonLabel}>
-                  {t("blog:prevPageLink")}
+                  {t('blog:prevPageLink')}
                 </span>
               </Link>
             )}
@@ -58,9 +61,12 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
                 className={navButton}
               >
                 <span className={nextButtonLabel}>
-                  {t("blog:nextPageLink")}
+                  {t('blog:nextPageLink')}
                 </span>
-                <img src={svgArrowNext} alt="arrow-next" />
+                <img
+                  src={svgArrowNext}
+                  alt="arrow-next"
+                />
               </Link>
             )}
           </div>
@@ -70,21 +76,19 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
   );
 };
 
-const PostCardThumbnail = ({ thumbnail, alt }) => {
-  return (
-    <section className={thumbnailWrapper}>
-      {thumbnail && (
-        <GatsbyImage
-          image={thumbnail}
-          alt={alt}
-          className={thumbnailImage}
+const PostCardThumbnail = ({ thumbnail, alt }) => (
+  <section className={thumbnailWrapper}>
+    {thumbnail && (
+    <GatsbyImage
+      image={thumbnail}
+      alt={alt}
+      className={thumbnailImage}
           // Safari에서 부모의 border-radius를 탈출하는 문제 수정
-          imgStyle={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
-        />
-      )}
-    </section>
-  );
-};
+      imgStyle={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+    />
+    )}
+  </section>
+);
 
 const PostCard = ({
   title,
@@ -93,20 +97,27 @@ const PostCard = ({
   description,
   path,
   thumbnail,
-}) => {
-  return (
-    <Link to={path} className={postCard}>
-      <PostCardThumbnail thumbnail={thumbnail} alt={description} />
-      <section className={postCardDetail}>
-        <span className={postCategory} style={categoryStyle}>
-          {category}
-        </span>
-        <h3 className={postTitle}>{title}</h3>
-        <span className={postDescription}>{description}</span>
-      </section>
-    </Link>
-  );
-};
+}) => (
+  <Link
+    to={path}
+    className={postCard}
+  >
+    <PostCardThumbnail
+      thumbnail={thumbnail}
+      alt={description}
+    />
+    <section className={postCardDetail}>
+      <span
+        className={postCategory}
+        style={categoryStyle}
+      >
+        {category}
+      </span>
+      <h3 className={postTitle}>{title}</h3>
+      <span className={postDescription}>{description}</span>
+    </section>
+  </Link>
+);
 
 export default function PostListMobile({
   title,
@@ -121,14 +132,14 @@ export default function PostListMobile({
     <MobileLayout
       mainClassName={pageContainer}
       isFloatMenu={false}
-      showEssentialOnly={true}
-      hideFloatAppInstallButton={true}
+      showEssentialOnly
+      hideFloatAppInstallButton
     >
       <h2 className={pageTitle}>{title}</h2>
       <p className={pageDescription}>{description}</p>
       <section className={postList}>
         {edges.map(({ node }) => {
-          const category = node.frontmatter.category;
+          const { category } = node.frontmatter;
 
           return (
             <PostCard

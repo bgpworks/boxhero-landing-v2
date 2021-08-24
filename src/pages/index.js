@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 // js
-import SEOHelmet from "../components/SEOHelmet";
-import { Media } from "../media";
-import DesktopIndex from "../components/desktop-index";
-import MobileIndex from "../components/mobile-index";
-import { useHelpscout } from "../components/helpscout";
+import SEOHelmet from '../components/SEOHelmet';
+import { Media } from '../media';
+import DesktopIndex from '../components/desktop-index';
+import MobileIndex from '../components/mobile-index';
+import { useHelpscout } from '../components/helpscout';
 
 const IndexPage = ({ data, location }) => {
   const { language, t } = useI18next();
@@ -15,17 +15,25 @@ const IndexPage = ({ data, location }) => {
     <>
       <SEOHelmet
         lang={language}
-        title={t("index:pageTitle")}
-        description={t("index:pageDescription")}
+        title={t('index:pageTitle')}
+        description={t('index:pageDescription')}
         path={location.pathname}
       />
 
       <Media at="xs">
-        <MobileIndex data={data} language={language} t={t} />
+        <MobileIndex
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopIndex data={data} language={language} t={t} />
+        <DesktopIndex
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
     </>
   );

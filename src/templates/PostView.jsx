@@ -1,11 +1,11 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 // js
-import { Media } from "../media";
-import SEOHelmet from "../components/SEOHelmet";
-import PostViewDesktop from "../components/desktop-postview";
-import PostViewMobile from "../components/mobile-postview";
+import { Media } from '../media';
+import SEOHelmet from '../components/SEOHelmet';
+import PostViewDesktop from '../components/desktop-postview';
+import PostViewMobile from '../components/mobile-postview';
 
 export default function PostView({ data, location, pageContext }) {
   const { t, language } = useI18next();
@@ -20,7 +20,7 @@ export default function PostView({ data, location, pageContext }) {
     <>
       <SEOHelmet
         lang={language}
-        title={t("blog:postviewTitle", {
+        title={t('blog:postviewTitle', {
           title,
         })}
         description={description}
@@ -72,7 +72,6 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               width: 40
-              layout: FIXED
               tracedSVGOptions: {
                 turnPolicy: TURNPOLICY_MAJORITY
                 turdSize: 1
@@ -88,7 +87,6 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               width: 800
-              layout: FIXED
               tracedSVGOptions: {
                 turnPolicy: TURNPOLICY_MAJORITY
                 turdSize: 1

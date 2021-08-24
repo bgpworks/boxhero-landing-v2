@@ -1,4 +1,4 @@
-import { createMedia } from "@artsy/fresnel";
+import { createMedia } from '@artsy/fresnel';
 
 const BoxHeroMedia = createMedia({
   breakpoints: {

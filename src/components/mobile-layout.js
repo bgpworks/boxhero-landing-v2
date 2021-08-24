@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Trans } from "gatsby-plugin-react-i18next";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 // js
-import MobileHeader from "./mobile-header";
-import MobileFooter from "./mobile-footer";
-import { AppDownloadLink } from "../components/common";
-import { LangPopup } from "./language-selector";
+import MobileHeader from './mobile-header';
+import MobileFooter from './mobile-footer';
+import { AppDownloadLink } from './common';
+import { LangPopup } from './language-selector';
 // css
-import * as styles from "./mobile-layout.module.css";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import * as styles from './mobile-layout.module.css';
+import { useCheckScrolled } from '../hooks/useCheckScrolled';
 // images
-import svgDownload from "../images/download.svg";
+import svgDownload from '../images/download.svg';
 
 const InstallButton = () => {
   const { isScrolled } = useCheckScrolled();
@@ -18,7 +18,7 @@ const InstallButton = () => {
   return (
     <AppDownloadLink>
       <div
-        className={`${styles.installButton} ${isScrolled ? styles.fixed : ""}`}
+        className={`${styles.installButton} ${isScrolled ? styles.fixed : ''}`}
       >
         <img
           className={styles.downloadImage}

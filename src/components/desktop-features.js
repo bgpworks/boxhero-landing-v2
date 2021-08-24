@@ -1,24 +1,24 @@
-import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Link, Trans } from "gatsby-plugin-react-i18next";
-import scrollTo from "gatsby-plugin-smoothscroll";
+import React from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { Link, Trans } from 'gatsby-plugin-react-i18next';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 // js
-import DesktopLayout from "../components/desktop-layout";
+import DesktopLayout from './desktop-layout';
 import {
   Container1024,
   Padding,
   SimpleTop,
   ExternalLinkWithQuery,
-} from "../components/common";
-import * as constants from "../components/constants";
+} from './common';
+import * as constants from './constants';
 // css
-import * as styles from "./desktop-features.module.css";
+import * as styles from './desktop-features.module.css';
 // img
-import iconMenuEmpty from "../images/features-menu-empty.svg";
-import iconMenuCustomization from "../images/features-menu-customization.svg";
-import iconMenuSummary from "../images/features-menu-summary.svg";
-import iconViewPastQuantity from "../images/features-menu-view-past-quantity.svg";
-import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
+import iconMenuEmpty from '../images/features-menu-empty.svg';
+import iconMenuCustomization from '../images/features-menu-customization.svg';
+import iconMenuSummary from '../images/features-menu-summary.svg';
+import iconViewPastQuantity from '../images/features-menu-view-past-quantity.svg';
+import iconMenuLocationmode from '../images/features-menu-locationmode.svg';
 
 const {
   bgWhite,
@@ -31,7 +31,9 @@ const {
   barBlue,
 } = styles;
 
-const MenuItem = ({ to, icon, label, title }) => (
+const MenuItem = ({
+  to, icon, label, title,
+}) => (
   <Link
     to={`/features/${to}`}
     title={title}
@@ -42,7 +44,10 @@ const MenuItem = ({ to, icon, label, title }) => (
     }}
   >
     <div>
-      <img src={icon} alt={label} />
+      <img
+        src={icon}
+        alt={label}
+      />
     </div>
     <Padding y={13} />
     <div className={styles.menuItemLabel}>{label}</div>
@@ -55,51 +60,63 @@ const Menu = ({ t }) => (
       to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
       label={<Trans i18nKey="features:menuLowstock" />}
-      title={t("features:menuLowstockLinkTitle")}
+      title={t('features:menuLowstockLinkTitle')}
     />
     <MenuItem
       to={`#${constants.idFeatureBarcodelabel}`}
       icon={iconMenuCustomization}
       label={<Trans i18nKey="features:menuBarcodelabel" />}
-      title={t("features:menuBarcodelabelLinkTitle")}
+      title={t('features:menuBarcodelabelLinkTitle')}
     />
     <MenuItem
       to={`#${constants.idFeatureSummary}`}
       icon={iconMenuSummary}
       label={<Trans i18nKey="features:menuSummary" />}
-      title={t("features:menuSummaryLinkTitle")}
+      title={t('features:menuSummaryLinkTitle')}
     />
     <MenuItem
       to={`#${constants.idFeatureViewPastQuantity}`}
       icon={iconViewPastQuantity}
       label={<Trans i18nKey="features:menuViewPastQuantity" />}
-      title={t("features:menuViewPastQuantityLinkTitle")}
+      title={t('features:menuViewPastQuantityLinkTitle')}
     />
     <MenuItem
       to={`#${constants.idFeatureLocation}`}
       icon={iconMenuLocationmode}
       label={<Trans i18nKey="features:menuLocation" />}
-      title={t("features:menuLocationLinkTitle")}
+      title={t('features:menuLocationLinkTitle')}
     />
   </Container1024>
 );
 
-const DemoTemplate = ({ barColor, icon, title, desc }) => (
-  <div className={[styles.demoTemplate, barColor].join(" ")}>
+const DemoTemplate = ({
+  barColor, icon, title, desc,
+}) => (
+  <div className={[styles.demoTemplate, barColor].join(' ')}>
     <div className={styles.demoUserProfile}>
-      <GatsbyImage image={icon} className={styles.demoLogo} />
-      <span className={styles.demoTitle}>- {title} -</span>
+      <GatsbyImage
+        image={icon}
+        className={styles.demoLogo}
+      />
+      <span className={styles.demoTitle}>
+        -
+        {title}
+        {' '}
+        -
+      </span>
     </div>
     <Padding y={20} />
     <div className={styles.demoDesc}>{desc}</div>
   </div>
 );
 
-function FeatureTemplate(props) {
+function FeatureTemplate({
+  id, bgColor, title, desc, figure, figureStyle, barColor, demoData,
+}) {
   return (
     <div
-      id={props.id}
-      className={[styles.featureTemplate, props.bgColor].join(" ")}
+      id={id}
+      className={[styles.featureTemplate, bgColor].join(' ')}
     >
       <Container1024>
         <div className={styles.featureTemplateDescFigContainer}>
@@ -110,7 +127,7 @@ function FeatureTemplate(props) {
               data-sal-duration="500"
               data-sal-easing="easeOutQuint"
             >
-              {props.title}
+              {title}
             </div>
             <Padding y={35} />
             <div
@@ -120,7 +137,7 @@ function FeatureTemplate(props) {
               data-sal-delay="300"
               data-sal-easing="easeOutQuint"
             >
-              {props.desc}
+              {desc}
             </div>
             <Padding y={30} />
             <ExternalLinkWithQuery
@@ -130,7 +147,10 @@ function FeatureTemplate(props) {
               data-sal-delay="300"
               data-sal-easing="easeOutQuint"
             >
-              <button className={styles.featureTemplateStartNow}>
+              <button
+                type="button"
+                className={styles.featureTemplateStartNow}
+              >
                 <Trans i18nKey="features:startNowButton" />
               </button>
             </ExternalLinkWithQuery>
@@ -141,7 +161,10 @@ function FeatureTemplate(props) {
             data-sal-duration="500"
             data-sal-easing="easeOutQuint"
           >
-            <GatsbyImage image={props.figure} style={props.figureStyle} />
+            <GatsbyImage
+              image={figure}
+              style={figureStyle}
+            />
           </div>
         </div>
         <Padding y={150} />
@@ -152,10 +175,10 @@ function FeatureTemplate(props) {
           data-sal-delay="300"
           data-sal-easing="easeOutQuint"
         >
-          {props.demoData.slice(0, 2).map((data, index) => (
+          {demoData.slice(0, 2).map((data, index) => (
             <DemoTemplate
               key={index}
-              barColor={props.barColor}
+              barColor={barColor}
               icon={data.icon}
               title={data.title}
               desc={data.desc}
@@ -167,22 +190,22 @@ function FeatureTemplate(props) {
   );
 }
 
-const FeatureLowstock = (props) => (
+const FeatureLowstock = ({ data }) => (
   <FeatureTemplate
     id={constants.idFeatureLowstock}
     bgColor={bgGreen}
     title={<Trans i18nKey="features:lowstockTitle" />}
-    figure={props.data.lowstockFig.childImageSharp.gatsbyImageData}
+    figure={data.lowstockFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:lowstockDesc" />}
     barColor={barGreen}
     demoData={[
       {
-        icon: props.data.lowstockDemo1.childImageSharp.gatsbyImageData,
+        icon: data.lowstockDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:lowstockDemo1Title" />,
         desc: <Trans i18nKey="features:lowstockDemo1Desc" />,
       },
       {
-        icon: props.data.lowstockDemo2.childImageSharp.gatsbyImageData,
+        icon: data.lowstockDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:lowstockDemo2Title" />,
         desc: <Trans i18nKey="features:lowstockDemo2Desc" />,
       },
@@ -190,22 +213,22 @@ const FeatureLowstock = (props) => (
   />
 );
 
-const FeatureBarcodelabel = (props) => (
+const FeatureBarcodelabel = ({ data }) => (
   <FeatureTemplate
     id={constants.idFeatureBarcodelabel}
     bgColor={bgWhite}
     title={<Trans i18nKey="features:barcodelabelTitle" />}
-    figure={props.data.barcodelabelFig.childImageSharp.gatsbyImageData}
+    figure={data.barcodelabelFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:barcodelabelDesc" />}
     barColor={barGray}
     demoData={[
       {
-        icon: props.data.barcodelabelDemo1.childImageSharp.gatsbyImageData,
+        icon: data.barcodelabelDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:barcodelabelDemo1Title" />,
         desc: <Trans i18nKey="features:barcodelabelDemo1Desc" />,
       },
       {
-        icon: props.data.barcodelabelDemo2.childImageSharp.gatsbyImageData,
+        icon: data.barcodelabelDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:barcodelabelDemo2Title" />,
         desc: <Trans i18nKey="features:barcodelabelDemo2Desc" />,
       },
@@ -213,22 +236,22 @@ const FeatureBarcodelabel = (props) => (
   />
 );
 
-const FeatureSummary = (props) => (
+const FeatureSummary = ({ data }) => (
   <FeatureTemplate
     id={constants.idFeatureSummary}
     bgColor={bgBlue}
     title={<Trans i18nKey="features:summaryTitle" />}
-    figure={props.data.summaryFig.childImageSharp.gatsbyImageData}
+    figure={data.summaryFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:summaryDesc" />}
     barColor={barBlue}
     demoData={[
       {
-        icon: props.data.summaryDemo1.childImageSharp.gatsbyImageData,
+        icon: data.summaryDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:summaryDemo1Title" />,
         desc: <Trans i18nKey="features:summaryDemo1Desc" />,
       },
       {
-        icon: props.data.summaryDemo2.childImageSharp.gatsbyImageData,
+        icon: data.summaryDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:summaryDemo2Title" />,
         desc: <Trans i18nKey="features:summaryDemo2Desc" />,
       },
@@ -236,22 +259,22 @@ const FeatureSummary = (props) => (
   />
 );
 
-const FeatureViewPastQuantity = (props) => (
+const FeatureViewPastQuantity = ({ data }) => (
   <FeatureTemplate
     id={constants.idFeatureViewPastQuantity}
     bgColor={bgWhite}
     title={<Trans i18nKey="features:viewPastQuantityTitle" />}
-    figure={props.data.viewPastQuantityFig.childImageSharp.gatsbyImageData}
+    figure={data.viewPastQuantityFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:viewPastQuantityDesc" />}
     barColor={barGray}
     demoData={[
       {
-        icon: props.data.viewPastQuantityDemo1.childImageSharp.gatsbyImageData,
+        icon: data.viewPastQuantityDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:viewPastQuantityDemo1Title" />,
         desc: <Trans i18nKey="features:viewPastQuantityDemo1Desc" />,
       },
       {
-        icon: props.data.viewPastQuantityDemo2.childImageSharp.gatsbyImageData,
+        icon: data.viewPastQuantityDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:viewPastQuantityDemo2Title" />,
         desc: <Trans i18nKey="features:viewPastQuantityDemo2Desc" />,
       },
@@ -259,22 +282,22 @@ const FeatureViewPastQuantity = (props) => (
   />
 );
 
-const FeatureLocation = (props) => (
+const FeatureLocation = ({ data }) => (
   <FeatureTemplate
     id={constants.idFeatureLocation}
     bgColor={bgOrange}
     title={<Trans i18nKey="features:locationTitle" />}
-    figure={props.data.locationFig.childImageSharp.gatsbyImageData}
+    figure={data.locationFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:locationDesc" />}
     barColor={barOrange}
     demoData={[
       {
-        icon: props.data.locationDemo1.childImageSharp.gatsbyImageData,
+        icon: data.locationDemo1.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:locationDemo1Title" />,
         desc: <Trans i18nKey="features:locationDemo1Desc" />,
       },
       {
-        icon: props.data.locationDemo2.childImageSharp.gatsbyImageData,
+        icon: data.locationDemo2.childImageSharp.gatsbyImageData,
         title: <Trans i18nKey="features:locationDemo2Title" />,
         desc: <Trans i18nKey="features:locationDemo2Desc" />,
       },
@@ -282,14 +305,14 @@ const FeatureLocation = (props) => (
   />
 );
 
-export const DesktopFeatures = ({ data, language, t }) => (
+const DesktopFeatures = ({ data, t }) => (
   <DesktopLayout
     isFloatMenu={false}
     curMenu="features"
     closingEmoji={data.dinosaur}
     closingMsg={<Trans i18nKey="features:closingMsg" />}
   >
-    <SimpleTop title={t("features:topTitle")}>
+    <SimpleTop title={t('features:topTitle')}>
       <Trans i18nKey="features:topDesc" />
     </SimpleTop>
 

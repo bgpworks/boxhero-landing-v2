@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { CarouselContext } from "pure-react-carousel";
-import PropTypes from "prop-types";
-import * as styles from "./common.module.css";
-import svgDown from "../images/down.svg";
-import svgUp from "../images/up.svg";
+import React, { useState, useContext, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { CarouselContext } from 'pure-react-carousel';
+import PropTypes from 'prop-types';
+import * as styles from './common.module.css';
+import svgDown from '../images/down.svg';
+import svgUp from '../images/up.svg';
 import {
   urlDownloadApp,
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
-} from "../components/constants";
+} from './constants';
 
 export const Container1024 = ({ className, children }) => (
   <div className={`${styles.container1024} ${className}`}>{children}</div>
@@ -21,7 +21,7 @@ Container1024.propTypes = {
 };
 
 Container1024.defaultProps = {
-  className: "",
+  className: '',
 };
 
 export const Container320 = ({ className, children }) => (
@@ -33,7 +33,7 @@ Container320.propTypes = {
 };
 
 Container320.defaultProps = {
-  className: "",
+  className: '',
 };
 
 export const ContainerCenter = ({ className, children }) => (
@@ -73,9 +73,7 @@ export const MobileSimpleTop = ({ title, children }) => (
 );
 
 export const DropDownQNA = ({
-  isFirst,
   title,
-  content,
   children,
   titleClassName,
   bodyClassName,
@@ -86,11 +84,14 @@ export const DropDownQNA = ({
     <div className={styles.dropDownQNA}>
       <div
         role="presentation"
-        className={[styles.dropDownQNATitle, titleClassName].join(" ")}
+        className={[styles.dropDownQNATitle, titleClassName].join(' ')}
         onClick={() => setShow(!isShow)}
       >
-        <span className={isShow ? styles.open : ""}>{title}</span>
-        <img src={isShow ? svgUp : svgDown} alt="자세히 보기" />
+        <span className={isShow ? styles.open : ''}>{title}</span>
+        <img
+          src={isShow ? svgUp : svgDown}
+          alt="자세히 보기"
+        />
       </div>
       {isShow && (
         <div className={`${styles.dropDownQNABody} ${bodyClassName}`}>
@@ -111,9 +112,9 @@ export const SupportEmail = () => {
           }
         }
       }
-    `
+    `,
   );
-  const email = data.site.siteMetadata.email;
+  const { email } = data.site.siteMetadata;
   return <a href={`mailto:${email}`}>{email}</a>;
 };
 
@@ -128,8 +129,11 @@ export const Switch = ({ isActive, onChange }) => {
         checked={isActive}
         onChange={(evt) => onChange(evt.target.checked)}
       />
-      <label htmlFor={id} className={styles.switchLabel}>
-        {" "}
+      <label
+        htmlFor={id}
+        className={styles.switchLabel}
+      >
+        {' '}
       </label>
     </div>
   );
@@ -137,7 +141,7 @@ export const Switch = ({ isActive, onChange }) => {
 
 export const Ribbon = ({ className, children }) => (
   <div
-    className={`${styles.ribbon} ${styles.ribbonTopLeft} ${className || ""}`}
+    className={`${styles.ribbon} ${styles.ribbonTopLeft} ${className || ''}`}
   >
     <span>{children}</span>
   </div>
@@ -146,7 +150,7 @@ export const Ribbon = ({ className, children }) => (
 export const WithCurrentSlide = ({ children }) => {
   const carouselContext = useContext(CarouselContext);
   const [currentSlide, setCurrentSlide] = useState(
-    carouselContext.state.currentSlide
+    carouselContext.state.currentSlide,
   );
   useEffect(() => {
     function onChange() {
@@ -158,7 +162,7 @@ export const WithCurrentSlide = ({ children }) => {
   if (children && children instanceof Function) {
     return children(currentSlide);
   }
-  return "";
+  return '';
 };
 
 // query param을 유지하면서 a href를 사용한다.
@@ -166,28 +170,31 @@ export const WithCurrentSlide = ({ children }) => {
 export const ExternalLinkWithQuery = ({ href, children, ...props }) => {
   const [search, setSearch] = useState(null);
   useEffect(() => {
-    setSearch(localStorage.getItem("search_param"));
+    setSearch(localStorage.getItem('search_param'));
   }, []);
 
   const hrefWithSearch = search == null ? href : href + search;
 
   return (
-    <a {...props} href={hrefWithSearch}>
+    <a
+      {...props}
+      href={hrefWithSearch}
+    >
       {children}
     </a>
   );
 };
 
 function parseQuery(search) {
-  var ret = {};
+  const ret = {};
   if (!search) {
     return ret;
   }
 
-  var query = search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
+  const query = search.substring(1);
+  const vars = query.split('&');
+  for (let i = 0; i < vars.length; i += 1) {
+    const pair = vars[i].split('=');
     ret[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
   }
   return ret;
@@ -198,28 +205,32 @@ export const AppDownloadLink = ({ children, ...props }) => {
   const [trackingUrl, setTrackingUrl] = useState(null);
 
   useEffect(() => {
-    const param = parseQuery(localStorage.getItem("search_param"));
+    const param = parseQuery(localStorage.getItem('search_param'));
 
-    if (param["n_media"]) {
+    if (param.n_media) {
       // 네이버
       setTrackingUrl(urlDownloadAppSearchAd);
-    } else if (param["gclid"] || param["utm_source"] === "google") {
+    } else if (param.gclid || param.utm_source === 'google') {
       // 구글
       setTrackingUrl(urlDownloadAppSearchAd);
-    } else if (param["utm_source"] === "dable") {
+    } else if (param.utm_source === 'dable') {
       // 데이블
       setTrackingUrl(urlDownloadAppDable);
-    } else if (param["utm_source"] === "kakao") {
+    } else if (param.utm_source === 'kakao') {
       // 카카오 비즈보드
       setTrackingUrl(urlDownloadAppKakao);
     }
   }, []);
 
   const appDownloadLink = trackingUrl != null ? trackingUrl : urlDownloadApp;
-  const linkType = trackingUrl != null ? "searchAd" : "organic";
+  const linkType = trackingUrl != null ? 'searchAd' : 'organic';
 
   return (
-    <a {...props} href={appDownloadLink} data-link-type={linkType}>
+    <a
+      {...props}
+      href={appDownloadLink}
+      data-link-type={linkType}
+    >
       {children}
     </a>
   );
@@ -230,16 +241,14 @@ export const GradientBG = ({
   colorSet,
   backgroundColor,
   className,
-}) => {
-  return (
-    <div
-      className={[className, styles.gradientBG].join(" ")}
-      style={{
-        backgroundColor,
-        backgroundImage: `linear-gradient(240deg, ${colorSet.join(",")})`,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
+}) => (
+  <div
+    className={[className, styles.gradientBG].join(' ')}
+    style={{
+      backgroundColor,
+      backgroundImage: `linear-gradient(240deg, ${colorSet.join(',')})`,
+    }}
+  >
+    {children}
+  </div>
+);

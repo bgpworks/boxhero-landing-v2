@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 // js
-import SEOHelmet from "../components/SEOHelmet";
-import { ExternalLinkWithQuery } from "../components/common";
-import { useHelpscout } from "../components/helpscout";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { urlStart } from "../components/constants";
+import { GatsbyImage } from 'gatsby-plugin-image';
+import SEOHelmet from '../components/SEOHelmet';
+import { ExternalLinkWithQuery } from '../components/common';
+import { useHelpscout } from '../components/helpscout';
+import { urlStart } from '../components/constants';
 
 const MarketingPage = ({ data, location }) => {
   const { language, t } = useI18next();
@@ -15,11 +15,11 @@ const MarketingPage = ({ data, location }) => {
     <>
       <SEOHelmet
         lang={language}
-        title={t("index:pageTitle")}
-        description={t("index:pageDescription")}
+        title={t('index:pageTitle')}
+        description={t('index:pageDescription')}
         path={location.pathname}
       />
-      <div style={{ maxWidth: 960, margin: "0 auto" }}>
+      <div style={{ maxWidth: 960, margin: '0 auto' }}>
         <GatsbyImage image={data.mobile1.childImageSharp.gatsbyImageData} />
         <ExternalLinkWithQuery href={urlStart}>
           <GatsbyImage image={data.mobile2.childImageSharp.gatsbyImageData} />

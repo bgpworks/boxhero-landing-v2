@@ -1,17 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 // js
-import { Container1024, ExternalLinkWithQuery } from "./common";
-import { urlStart } from "../components/constants";
+import { Container1024, ExternalLinkWithQuery } from './common';
+import { urlStart } from './constants';
 // css
-import * as styles from "./desktop-header.module.css";
+import * as styles from './desktop-header.module.css';
 // images
-import svgBiWhite from "../images/bi-white.svg";
-import svgBiBlue from "../images/bi-blue.svg";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import svgBiWhite from '../images/bi-white.svg';
+import svgBiBlue from '../images/bi-blue.svg';
+import { useCheckScrolled } from '../hooks/useCheckScrolled';
 
-export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
+const DesktopHeader = ({ isFloatMenu, curMenu }) => {
   const { isScrolled } = useCheckScrolled();
   const isWhite = !isFloatMenu || isScrolled;
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
@@ -20,7 +20,7 @@ export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
     <>
       <header
         className={`${styles.headerContainer} ${
-          isWhite ? styles.whiteContainer : ""
+          isWhite ? styles.whiteContainer : ''
         }`}
       >
         <Container1024 className={styles.menuContainer}>
@@ -36,35 +36,38 @@ export const DesktopHeader = ({ isFloatMenu, curMenu }) => {
 
           <Link
             to="/about/"
-            className={curMenu === "about" ? styles.selected : ""}
+            className={curMenu === 'about' ? styles.selected : ''}
           >
-            {t("header:menuAbout")}
+            {t('header:menuAbout')}
           </Link>
 
           <Link
             to="/features/"
-            className={curMenu === "features" ? styles.selected : ""}
+            className={curMenu === 'features' ? styles.selected : ''}
           >
-            {t("header:menuFeatures")}
+            {t('header:menuFeatures')}
           </Link>
 
           <Link
             to="/pricing/"
-            className={curMenu === "pricing" ? styles.selected : ""}
+            className={curMenu === 'pricing' ? styles.selected : ''}
           >
-            {t("header:menuPricing")}
+            {t('header:menuPricing')}
           </Link>
 
-          <a href={t("url:doc")}>{t("header:menuDoc")}</a>
+          <a href={t('url:doc')}>{t('header:menuDoc')}</a>
 
           <ExternalLinkWithQuery href={urlStart}>
-            <button className={styles.loginButton}>
-              {t("header:menuLoginButton")}
+            <button
+              type="button"
+              className={styles.loginButton}
+            >
+              {t('header:menuLoginButton')}
             </button>
           </ExternalLinkWithQuery>
         </Container1024>
       </header>
-      {!isFloatMenu && <div className={styles.headerPlaceholder}></div>}
+      {!isFloatMenu && <div className={styles.headerPlaceholder} />}
     </>
   );
 };

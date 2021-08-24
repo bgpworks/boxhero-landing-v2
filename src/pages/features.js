@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 // js
-import SEOHelmet from "../components/SEOHelmet";
-import { Media } from "../media";
-import DesktopFeatures from "../components/desktop-features";
-import MobileFeatures from "../components/mobile-features";
-import { useHelpscout } from "../components/helpscout";
+import SEOHelmet from '../components/SEOHelmet';
+import { Media } from '../media';
+import DesktopFeatures from '../components/desktop-features';
+import MobileFeatures from '../components/mobile-features';
+import { useHelpscout } from '../components/helpscout';
 
 export default function FeaturesPage({ data, location }) {
   const { language, t } = useI18next();
@@ -15,17 +15,25 @@ export default function FeaturesPage({ data, location }) {
     <>
       <SEOHelmet
         lang={language}
-        title={t("features:pageTitle")}
-        description={t("features:pageDescription")}
+        title={t('features:pageTitle')}
+        description={t('features:pageDescription')}
         path={location.pathname}
       />
 
       <Media at="xs">
-        <MobileFeatures data={data} language={language} t={t} />
+        <MobileFeatures
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopFeatures data={data} language={language} t={t} />
+        <DesktopFeatures
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
     </>
   );

@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 // js
-import SEOHelmet from "../components/SEOHelmet";
-import { Media } from "../media";
-import DesktopPricing from "../components/desktop-pricing";
-import MobilePricing from "../components/mobile-pricing";
-import { useHelpscout } from "../components/helpscout";
+import SEOHelmet from '../components/SEOHelmet';
+import { Media } from '../media';
+import DesktopPricing from '../components/desktop-pricing';
+import MobilePricing from '../components/mobile-pricing';
+import { useHelpscout } from '../components/helpscout';
 
 export default function PricingPage({ data, location }) {
   const { language, t } = useI18next();
@@ -15,17 +15,25 @@ export default function PricingPage({ data, location }) {
     <>
       <SEOHelmet
         lang={language}
-        title={t("pricing:pageTitle")}
-        description={t("pricing:pageDescription")}
+        title={t('pricing:pageTitle')}
+        description={t('pricing:pageDescription')}
         path={location.pathname}
       />
 
       <Media at="xs">
-        <MobilePricing data={data} language={language} t={t} />
+        <MobilePricing
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopPricing data={data} language={language} t={t} />
+        <DesktopPricing
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
     </>
   );

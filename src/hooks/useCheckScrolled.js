@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export const useCheckScrolled = () => {
   const [isScrolled, onChangeIsScrolled] = useState(false);
@@ -10,9 +10,9 @@ export const useCheckScrolled = () => {
         onChangeIsScrolled(scrolled);
       }
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   });
 

@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 // js
-import SEOHelmet from "../components/SEOHelmet";
-import { Media } from "../media";
-import DesktopAbout from "../components/desktop-about";
-import MobileAbout from "../components/mobile-about";
-import { useHelpscout } from "../components/helpscout";
+import SEOHelmet from '../components/SEOHelmet';
+import { Media } from '../media';
+import DesktopAbout from '../components/desktop-about';
+import MobileAbout from '../components/mobile-about';
+import { useHelpscout } from '../components/helpscout';
 
 const AboutPage = ({ data, location }) => {
   const { language, t } = useI18next();
@@ -15,15 +15,23 @@ const AboutPage = ({ data, location }) => {
     <>
       <SEOHelmet
         lang={language}
-        title={t("about:pageTitle")}
-        description={t("about:pageDescription")}
+        title={t('about:pageTitle')}
+        description={t('about:pageDescription')}
         path={location.pathname}
       />
       <Media at="xs">
-        <MobileAbout data={data} language={language} t={t} />
+        <MobileAbout
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
       <Media greaterThan="xs">
-        <DesktopAbout data={data} language={language} t={t} />
+        <DesktopAbout
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
     </>
   );
