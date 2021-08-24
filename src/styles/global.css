@@ -282,3 +282,6 @@ h1 {
 /* [data-sal="slide-up-image-piano"] { */
 /*   transform: translateY(10%); */
 /* } */
+
+/* https://www.gitmemory.com/issue/gatsbyjs/gatsby/30053/808824581 */
+.object-fit-polyfill[style] { position:static !important; }
