@@ -7,7 +7,8 @@
   "dependencies": {
     "@artsy/fresnel": "1.9.0",
     "accept-language-parser": "^1.5.0",
-    "eslint-config-react-app": "^6.0.0",
+    "classnames": "^2.3.1",
+    "date-fns": "^2.23.0",
     "gatsby": "^3.10.2",
     "gatsby-plugin-anchor-links": "1.2.1",
     "gatsby-plugin-image": "^1.10.1",
@@ -17,9 +18,12 @@
     "gatsby-plugin-react-i18next": "^1.1.1",
     "gatsby-plugin-scroll-reveal": "0.0.7",
     "gatsby-plugin-sharp": "^3.10.2",
-    "gatsby-plugin-sitemap": "2.4.13",
+    "gatsby-plugin-sitemap": "^4.7.0",
     "gatsby-plugin-smoothscroll": "1.2.0",
+    "gatsby-remark-copy-relative-linked-files": "^1.4.0",
+    "gatsby-remark-images": "^5.8.0",
     "gatsby-source-filesystem": "^3.10.0",
+    "gatsby-transformer-remark": "^4.8.0",
     "gatsby-transformer-sharp": "^3.10.0",
     "i18next": "20.3.5",
     "intersection-observer": "0.12.0",
@@ -29,9 +33,13 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-i18next": "11.11.4",
-    "react-indiana-drag-scroll": "2.0.1"
+    "react-indiana-drag-scroll": "2.0.1",
+    "rehype-react": "^7.0.0",
+    "slugify": "^1.6.0"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "markdownlint": "^0.23.1",
     "prettier": "2.3.2"
   },
   "keywords": [

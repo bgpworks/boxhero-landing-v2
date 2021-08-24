@@ -1,3 +1,5 @@
+const { format } = require("date-fns");
+
 module.exports = {
   siteMetadata: {
     title: "BoxHero - The Simplest Inventory Management Solution",
@@ -76,6 +78,7 @@ module.exports = {
             "pricing",
             "layout",
             "language-selector",
+            "blog",
           ],
           fallbackLng: false,
           interpolation: {
@@ -86,6 +89,11 @@ module.exports = {
           {
             matchPath: "/(privacy|tos)",
             languages: [],
+          },
+          {
+            matchPath: "/:lang?/blog(.*)",
+            getLanguageFromPath: true,
+            languages: [`en`, `ko`, `es`, `id`],
           },
           {
             matchPath: "/marketing-210524",
@@ -105,53 +113,120 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        exclude: ["/**/404", "/**/404.html"],
+        excludes: ["/**/404", "/**/404.html", "/**/marketing*"],
         query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
+        {
+          site {
+            siteMetadata {
+              siteUrl
             }
-            allSitePage(filter: {context: {i18n: {routed: {eq: false}}}}) {
-              edges {
-                node {
-                  context {
-                    i18n {
-                      defaultLanguage
-                      languages
-                      originalPath
-                    }
+            buildTime
+          }
+          allSitePage(filter: {context: {i18n: {routed: {eq: true}}}}) {
+            group(field: context___i18n___originalPath) {
+              fieldValue
+              nodes {
+                context {
+                  i18n {
+                    language
                   }
-                  path
                 }
               }
             }
           }
+        }
         `,
-        serialize: ({ site, allSitePage }) => {
-          return allSitePage.edges.map((edge) => {
-            const {
-              languages,
-              originalPath,
-              defaultLanguage,
-            } = edge.node.context.i18n;
-            const { siteUrl } = site.siteMetadata;
-            const url = siteUrl + originalPath;
-            const links = [{ lang: "x-default", url }];
-            languages.forEach((lang) => {
-              links.push({ lang, url: `${siteUrl}/${lang}${originalPath}` });
-            });
+        resolvePages: ({
+          allSitePage: { group },
+          site: {
+            siteMetadata: { siteUrl },
+            buildTime,
+          },
+        }) => {
+          const lastmod = format(new Date(buildTime), "yyyy-MM-dd");
+
+          return group.map(({ fieldValue: originalPath, nodes }) => {
+            const langs = nodes.map((node) => node.context.i18n.language);
+
             return {
-              url,
-              changefreq: "always",
-              priority: originalPath === "/" ? 1.0 : 0.85,
-              links,
+              path: originalPath,
+              langs: langs,
+              context: {
+                siteUrl,
+                lastmod,
+              },
             };
           });
+        },
+        serialize: (page, _tools) => {
+          const {
+            path,
+            langs,
+            context: { siteUrl, lastmod },
+          } = page;
+          const priority = path === "/" ? 1.0 : 0.8;
+          const changefreq = "always";
+
+          if (langs.length === 1) {
+            const url = `${siteUrl}/${langs[0]}${path}`;
+
+            return {
+              url,
+              priority,
+              changefreq,
+              lastmod,
+            };
+          }
+
+          const url = `${siteUrl}${path}`;
+          const links = [
+            { lang: "x-default", url },
+            ...langs.map((lang) => ({
+              lang,
+              url: `${siteUrl}/${lang}${path}`,
+            })),
+          ];
+
+          return {
+            url,
+            links,
+            priority,
+            changefreq,
+            lastmod,
+          };
         },
       },
     },
     `gatsby-plugin-smoothscroll`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/contents/blog/`,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              showCaptions: true,
+              maxWidth: 800,
+              wrapperStyle: "margin: 64px 0",
+            },
+          },
+          {
+            resolve: `gatsby-remark-copy-relative-linked-files`,
+            options: {
+              filename: ({ hash, name, extension }) =>
+                `${name}-${hash}.${extension}`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+        ],
+      },
+    },
   ],
 };

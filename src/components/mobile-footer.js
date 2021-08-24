@@ -8,6 +8,7 @@ import { Padding } from "./common";
 import * as styles from "./mobile-footer.module.css";
 // images
 import svgCompanyLogo from "../images/company-logo.svg";
+import SocialLinkList from "./social-link-list";
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
@@ -37,7 +38,10 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Support</div>
+      <div className={styles.footerMenuLabel}>Resource</div>
+      <div>
+        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
+      </div>
       <div>
         <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
       </div>
@@ -54,9 +58,6 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
         <a href="https://www.bgpworks.com">
           {t("footer:footerMenuCompanyHome")}
         </a>
-      </div>
-      <div>
-        <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
       </div>
       <div>
         <a href={t("url:hire")} target="_blank" rel="noreferrer">
@@ -116,7 +117,9 @@ const CompanyInfo = ({ t }) => (
         }}
       />
     </div>
-    <Padding y={10} />
+    <Padding y={40} />
+    <SocialLinkList />
+    <Padding y={20} />
     <div>© {new Date().getFullYear()}, BGPworks. All rights reserved.</div>
   </div>
 );
@@ -135,11 +138,14 @@ const MobileFooter = ({
   closingEmoji,
   closingMsg,
   onChangeIsShowLangPopup,
+  showEssentialOnly,
 }) => {
   const { t } = useI18next();
   return (
     <div>
-      <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+      {!showEssentialOnly && (
+        <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+      )}
       <MobileFooterMenusAndInfo
         t={t}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
@@ -149,9 +155,10 @@ const MobileFooter = ({
 };
 
 MobileFooter.propTypes = {
-  closingEmoji: PropTypes.object.isRequired,
+  closingEmoji: PropTypes.object,
   // string or object
-  closingMsg: PropTypes.any.isRequired,
+  closingMsg: PropTypes.any,
+  showEssentialOnly: PropTypes.bool,
 };
 
 export default MobileFooter;

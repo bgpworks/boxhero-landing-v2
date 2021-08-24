@@ -1,0 +1,160 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postList {
+  flex: 0 0 auto;
+
+  list-style: none;
+  width: 920px;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 35px -15px -15px;
+}
+
+.postCardWrapper {
+  margin: 0;
+
+  width: 33.33%;
+  min-height: 372px;
+  padding: 15px;
+}
+
+.postCard {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-light-gray);
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
+
+  overflow: hidden;
+}
+
+.thumbnailWrapper,
+.postCardDetail {
+  height: 50%;
+}
+
+.thumbnailWrapper {
+  width: 100%;
+
+  background-color: var(--color-light-gray);
+}
+
+.thumbnailImage {
+  height: 100%;
+}
+
+.pageTitle,
+.pageDescription {
+  color: var(--color-font-darker);
+}
+
+.pageTitle {
+  margin: 60px 0 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.pageDescription {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+.postCardDetail {
+  padding: 0 20px 20px;
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.postCategory {
+  position: absolute;
+  top: 0;
+
+  transform: translateY(-50%);
+
+  padding: 2px 8px;
+  background-color: var(--color-font-darker);
+  border-radius: 4px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+}
+
+.postTitle,
+.postDescription {
+  width: 100%;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postTitle {
+  margin: 27px 0 0;
+  font-size: 18px;
+  font-weight: 500;
+
+  color: black;
+
+  width: 100%;
+
+  -webkit-line-clamp: 2;
+}
+
+.postDescription {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--color-font-header);
+
+  -webkit-line-clamp: 3;
+}
+
+.pagination-bar {
+  display: flex;
+  justify-content: center;
+
+  padding: 0 100px;
+  margin: 80px 0 40px;
+  min-height: 52px;
+
+  position: relative;
+}
+
+.pagination-bar span {
+  font-size: 14px;
+  color: var(--color-font-darker);
+}
+
+.navButton {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+}
+
+.navButton:first-child {
+  left: -110px;
+}
+
+.navButton:last-child {
+  right: -110px;
+}
+
+.prevButtonLabel {
+  flex: 0 0 auto;
+  margin-left: 10px;
+}
+
+.nextButtonLabel {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}

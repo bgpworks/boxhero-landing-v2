@@ -15,6 +15,7 @@ import svgOsx from "../images/osx.svg";
 import svgAppstore from "../images/appstore.svg";
 import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
+import SocialLinkList from "./social-link-list";
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
@@ -115,7 +116,10 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Support</div>
+      <div className={styles.footerMenuLabel}>Resource</div>
+      <div>
+        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
+      </div>
       <div>
         <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
       </div>
@@ -132,9 +136,6 @@ const DesktopFooterMenus = ({ t }) => (
         <a href="https://www.bgpworks.com">
           {t("footer:footerMenuCompanyHome")}
         </a>
-      </div>
-      <div>
-        <a href={t("url:blog")}>{t("footer:footerMenuCompanyBlog")}</a>
       </div>
       <div>
         <a href={t("url:hire")} target="_blank" rel="noreferrer">
@@ -191,6 +192,7 @@ const CompanyInfo = ({ t }) => (
         © {new Date().getFullYear()}, BGPworks. All rights reserved.
       </div>
     </div>
+    <SocialLinkList />
   </div>
 );
 
@@ -203,21 +205,25 @@ const DesktopFooterMenusAndInfo = (props) => (
   </div>
 );
 
-const DesktopFooter = ({ closingEmoji, closingMsg }) => {
+const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
   const { t } = useI18next();
   return (
     <div>
-      <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
-      <Platforms t={t} />
+      {!showEssential && (
+        <>
+          <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+          <Platforms t={t} />
+        </>
+      )}
       <DesktopFooterMenusAndInfo t={t} />
     </div>
   );
 };
 
 DesktopFooter.propTypes = {
-  closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
+  showEssential: PropTypes.bool,
+  closingEmoji: PropTypes.object,
+  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 export default DesktopFooter;

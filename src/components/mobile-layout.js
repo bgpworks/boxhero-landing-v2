@@ -37,6 +37,8 @@ const MobileLayout = ({
   curMenu,
   closingEmoji,
   closingMsg,
+  mainClassName,
+  showEssentialOnly,
   children,
 }) => {
   const [isShowLangPopup, onChangeIsShowLangPopup] = useState(false);
@@ -47,9 +49,10 @@ const MobileLayout = ({
         curMenu={curMenu}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
-      <main>{children}</main>
+      <main className={mainClassName}>{children}</main>
       {!hideFloatAppInstallButton && <InstallButton />}
       <MobileFooter
+        showEssentialOnly={showEssentialOnly}
         closingEmoji={closingEmoji}
         closingMsg={closingMsg}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
@@ -66,8 +69,10 @@ MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
   hideFloatAppInstallButton: PropTypes.bool,
   curMenu: PropTypes.string,
-  closingEmoji: PropTypes.object.isRequired,
-  closingMsg: PropTypes.any.isRequired,
+  closingEmoji: PropTypes.object,
+  closingMsg: PropTypes.any,
+  mainClassName: PropTypes.string,
+  showEssentialOnly: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
