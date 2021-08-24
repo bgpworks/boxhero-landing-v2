@@ -1,13 +1,13 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import React from "react";
+import { graphql } from "gatsby";
+import { useI18next } from "gatsby-plugin-react-i18next";
 // js
-import SEOHelmet from '../components/SEOHelmet';
-import { Media } from '../media';
-import DesktopMarketingKo from '../components/desktop-marketing-ko';
-import DesktopMarketingEn from '../components/desktop-marketing-en';
-import MobileMarketing from '../components/mobile-marketing';
-import { useHelpscout } from '../components/helpscout';
+import SEOHelmet from "../components/SEOHelmet";
+import { Media } from "../media";
+import DesktopMarketingKo from "../components/desktop-marketing-ko";
+import DesktopMarketingEn from "../components/desktop-marketing-en";
+import MobileMarketing from "../components/mobile-marketing";
+import { useHelpscout } from "../components/helpscout";
 
 const MarketingPage = ({ data, location }) => {
   const { language, t } = useI18next();
@@ -16,8 +16,8 @@ const MarketingPage = ({ data, location }) => {
     <>
       <SEOHelmet
         lang={language}
-        title={t('index:pageTitle')}
-        description={t('index:pageDescription')}
+        title={t("index:pageTitle")}
+        description={t("index:pageDescription")}
         path={location.pathname}
       />
 
@@ -26,7 +26,7 @@ const MarketingPage = ({ data, location }) => {
       </Media>
 
       <Media greaterThan="xs">
-        {language === 'ko' ? (
+        {language === "ko" ? (
           <DesktopMarketingKo data={data} />
         ) : (
           <DesktopMarketingEn data={data} />

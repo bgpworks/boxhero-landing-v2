@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { GatsbyImage } from 'gatsby-plugin-image';
-import * as styles from './mobile-marketing.module.css';
+import { GatsbyImage } from "gatsby-plugin-image";
+import * as styles from "./mobile-marketing.module.css";
 
-import { AppDownloadLink } from './common';
+import { AppDownloadLink } from "./common";
 
 const MobileMarketing = ({ data }) => (
   <div className={styles.container}>

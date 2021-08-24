@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { format } from 'date-fns';
-import * as constants from './constants';
-import { ExternalLinkWithQuery } from './common';
-import DesktopLayout from './desktop-layout';
-import PostBody from './desktop-postbody';
-import svgCompleteArrowPrev from '../images/complete-arrow-prev.svg';
+import React from "react";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { format } from "date-fns";
+import * as constants from "./constants";
+import { ExternalLinkWithQuery } from "./common";
+import DesktopLayout from "./desktop-layout";
+import PostBody from "./desktop-postbody";
+import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
 import {
   pageContainer,
   postContainer,
@@ -31,7 +31,7 @@ import {
   startNowTitle,
   startNowDesc,
   startNowButton,
-} from './desktop-postview.module.css';
+} from "./desktop-postview.module.css";
 
 const LinkToListSection = () => {
   const { t } = useI18next();
@@ -43,7 +43,7 @@ const LinkToListSection = () => {
           src={svgCompleteArrowPrev}
           alt="arrow-prev"
         />
-        <span className={linkToListLabel}>{t('blog:linkToList')}</span>
+        <span className={linkToListLabel}>{t("blog:linkToList")}</span>
       </Link>
     </section>
   );
@@ -61,10 +61,10 @@ const AuthorAndDateSection = ({ author, authorPhoto, date }) => (
     <div className={nameAndDate}>
       <address>{author}</address>
       <time
-        dateTime={format(new Date(date), 'yyyy-MM-dd')}
+        dateTime={format(new Date(date), "yyyy-MM-dd")}
         className={createdTime}
       >
-        {format(new Date(date), 'PPP')}
+        {format(new Date(date), "PPP")}
       </time>
     </div>
   </div>
@@ -131,14 +131,14 @@ const StartNow = () => {
 
   return (
     <section className={startNowSection}>
-      <span className={startNowTitle}>{t('blog:startNowTitle')}</span>
-      <span className={startNowDesc}>{t('blog:startNowDescription')}</span>
+      <span className={startNowTitle}>{t("blog:startNowTitle")}</span>
+      <span className={startNowDesc}>{t("blog:startNowDescription")}</span>
       <ExternalLinkWithQuery href={constants.urlStart}>
         <button
           type="button"
           className={startNowButton}
         >
-          {t('blog:startNowButton')}
+          {t("blog:startNowButton")}
         </button>
       </ExternalLinkWithQuery>
     </section>
@@ -161,7 +161,7 @@ const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
               categoryStyle={
                 categoryStyleMap[prevPostData.frontmatter.category]
               }
-              label={t('blog:prevPost')}
+              label={t("blog:prevPost")}
             />
           )}
         </div>
@@ -175,7 +175,7 @@ const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
               categoryStyle={
                 categoryStyleMap[nextPostData.frontmatter.category]
               }
-              label={t('blog:nextPost')}
+              label={t("blog:nextPost")}
             />
           )}
         </div>

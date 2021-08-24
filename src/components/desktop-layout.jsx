@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import DesktopHeader from './desktop-header';
-import DesktopFooter from './desktop-footer';
-import * as styles from './desktop-layout.module.css';
+import DesktopHeader from "./desktop-header";
+import DesktopFooter from "./desktop-footer";
+import * as styles from "./desktop-layout.module.css";
 
 const DesktopLayout = ({
   isFloatMenu,

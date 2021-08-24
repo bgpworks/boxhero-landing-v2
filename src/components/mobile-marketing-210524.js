@@ -1,8 +1,8 @@
-import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby-plugin-react-i18next';
+import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Link } from "gatsby-plugin-react-i18next";
 
-const APP_DOWNLOAD_LINK = 'https://redirect.appmetrica.yandex.com/serve/603693493260452581';
+const APP_DOWNLOAD_LINK = "https://redirect.appmetrica.yandex.com/serve/603693493260452581";
 
 const MobileMarketing = ({ data }) => (
   <div>

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'gatsby-plugin-react-i18next';
-import cn from 'classnames';
-import RehypeReact from 'rehype-react';
-import pngTipIcon from '../images/tip-icon.png';
-import pngCautionIcon from '../images/caution-icon.png';
-import pngNoticeIcon from '../images/notice-icon.png';
+import React from "react";
+import { Link } from "gatsby-plugin-react-i18next";
+import cn from "classnames";
+import RehypeReact from "rehype-react";
+import pngTipIcon from "../images/tip-icon.png";
+import pngCautionIcon from "../images/caution-icon.png";
+import pngNoticeIcon from "../images/notice-icon.png";
 import {
   boxWrapper,
   postBodyView,
@@ -16,7 +16,7 @@ import {
   grayText,
   grayBox,
   boxTitle,
-} from './desktop-postbody.module.css';
+} from "./desktop-postbody.module.css";
 
 const Box = ({ className, icon, children }) => (
   <div className={cn(boxWrapper, className)}>
@@ -68,8 +68,8 @@ const GrayBox = ({ title, children }) => (
 const GhostElement = ({ children }) => (
   <div
     style={{
-      top: '-100vh',
-      position: 'absolute',
+      top: "-100vh",
+      position: "absolute",
       zIndex: -999999,
     }}
   >
@@ -83,12 +83,12 @@ const renderAST = new RehypeReact({
   createElement: React.createElement,
   Fragment: React.Fragment,
   components: {
-    'tip-box': TipBox,
-    'notice-box': NoticeBox,
-    'caution-box': CautionBox,
-    'gray-text': GrayText,
-    'gray-box': GrayBox,
-    'internal-link': InternalLink,
+    "tip-box": TipBox,
+    "notice-box": NoticeBox,
+    "caution-box": CautionBox,
+    "gray-text": GrayText,
+    "gray-box": GrayBox,
+    "internal-link": InternalLink,
     invisible: GhostElement,
   },
 }).Compiler;

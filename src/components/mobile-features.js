@@ -1,12 +1,12 @@
-import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Trans } from "gatsby-plugin-react-i18next";
 // js
-import MobileLayout from './mobile-layout';
-import { Container320, Padding, MobileSimpleTop } from './common';
-import * as constants from './constants';
+import MobileLayout from "./mobile-layout";
+import { Container320, Padding, MobileSimpleTop } from "./common";
+import * as constants from "./constants";
 // css
-import * as styles from './mobile-features.module.css';
+import * as styles from "./mobile-features.module.css";
 
 const {
   bgOrange, bgGreen, bgBlue, bgWhite,
@@ -22,7 +22,7 @@ const DemoTemplate = ({ icon, title, desc }) => (
       <span className={styles.demoTitle}>
         -
         {title}
-        {' '}
+        {" "}
         -
       </span>
     </div>
@@ -37,7 +37,7 @@ function FeatureTemplate({
   return (
     <div
       id={id}
-      className={[styles.featureTemplate, bgColor].join(' ')}
+      className={[styles.featureTemplate, bgColor].join(" ")}
     >
       <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
         {title}
@@ -196,10 +196,10 @@ const MobileFeatures = ({ data, t }) => (
     isFloatMenu={false}
     curMenu="features"
     closingEmoji={data.mobileDinosaur}
-    closingMsg={t('features:closingMsg')}
+    closingMsg={t("features:closingMsg")}
   >
     <Container320 className={styles.px20}>
-      <MobileSimpleTop title={t('features:topTitle')}>
+      <MobileSimpleTop title={t("features:topTitle")}>
         <Trans i18nKey="features:topDescMobile" />
       </MobileSimpleTop>
     </Container320>

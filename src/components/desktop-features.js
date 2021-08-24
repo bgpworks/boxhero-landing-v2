@@ -1,24 +1,24 @@
-import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { Link, Trans } from 'gatsby-plugin-react-i18next';
-import scrollTo from 'gatsby-plugin-smoothscroll';
+import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Link, Trans } from "gatsby-plugin-react-i18next";
+import scrollTo from "gatsby-plugin-smoothscroll";
 // js
-import DesktopLayout from './desktop-layout';
+import DesktopLayout from "./desktop-layout";
 import {
   Container1024,
   Padding,
   SimpleTop,
   ExternalLinkWithQuery,
-} from './common';
-import * as constants from './constants';
+} from "./common";
+import * as constants from "./constants";
 // css
-import * as styles from './desktop-features.module.css';
+import * as styles from "./desktop-features.module.css";
 // img
-import iconMenuEmpty from '../images/features-menu-empty.svg';
-import iconMenuCustomization from '../images/features-menu-customization.svg';
-import iconMenuSummary from '../images/features-menu-summary.svg';
-import iconViewPastQuantity from '../images/features-menu-view-past-quantity.svg';
-import iconMenuLocationmode from '../images/features-menu-locationmode.svg';
+import iconMenuEmpty from "../images/features-menu-empty.svg";
+import iconMenuCustomization from "../images/features-menu-customization.svg";
+import iconMenuSummary from "../images/features-menu-summary.svg";
+import iconViewPastQuantity from "../images/features-menu-view-past-quantity.svg";
+import iconMenuLocationmode from "../images/features-menu-locationmode.svg";
 
 const {
   bgWhite,
@@ -60,31 +60,31 @@ const Menu = ({ t }) => (
       to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
       label={<Trans i18nKey="features:menuLowstock" />}
-      title={t('features:menuLowstockLinkTitle')}
+      title={t("features:menuLowstockLinkTitle")}
     />
     <MenuItem
       to={`#${constants.idFeatureBarcodelabel}`}
       icon={iconMenuCustomization}
       label={<Trans i18nKey="features:menuBarcodelabel" />}
-      title={t('features:menuBarcodelabelLinkTitle')}
+      title={t("features:menuBarcodelabelLinkTitle")}
     />
     <MenuItem
       to={`#${constants.idFeatureSummary}`}
       icon={iconMenuSummary}
       label={<Trans i18nKey="features:menuSummary" />}
-      title={t('features:menuSummaryLinkTitle')}
+      title={t("features:menuSummaryLinkTitle")}
     />
     <MenuItem
       to={`#${constants.idFeatureViewPastQuantity}`}
       icon={iconViewPastQuantity}
       label={<Trans i18nKey="features:menuViewPastQuantity" />}
-      title={t('features:menuViewPastQuantityLinkTitle')}
+      title={t("features:menuViewPastQuantityLinkTitle")}
     />
     <MenuItem
       to={`#${constants.idFeatureLocation}`}
       icon={iconMenuLocationmode}
       label={<Trans i18nKey="features:menuLocation" />}
-      title={t('features:menuLocationLinkTitle')}
+      title={t("features:menuLocationLinkTitle")}
     />
   </Container1024>
 );
@@ -92,7 +92,7 @@ const Menu = ({ t }) => (
 const DemoTemplate = ({
   barColor, icon, title, desc,
 }) => (
-  <div className={[styles.demoTemplate, barColor].join(' ')}>
+  <div className={[styles.demoTemplate, barColor].join(" ")}>
     <div className={styles.demoUserProfile}>
       <GatsbyImage
         image={icon}
@@ -101,7 +101,7 @@ const DemoTemplate = ({
       <span className={styles.demoTitle}>
         -
         {title}
-        {' '}
+        {" "}
         -
       </span>
     </div>
@@ -116,7 +116,7 @@ function FeatureTemplate({
   return (
     <div
       id={id}
-      className={[styles.featureTemplate, bgColor].join(' ')}
+      className={[styles.featureTemplate, bgColor].join(" ")}
     >
       <Container1024>
         <div className={styles.featureTemplateDescFigContainer}>
@@ -312,7 +312,7 @@ const DesktopFeatures = ({ data, t }) => (
     closingEmoji={data.dinosaur}
     closingMsg={<Trans i18nKey="features:closingMsg" />}
   >
-    <SimpleTop title={t('features:topTitle')}>
+    <SimpleTop title={t("features:topTitle")}>
       <Trans i18nKey="features:topDesc" />
     </SimpleTop>
 

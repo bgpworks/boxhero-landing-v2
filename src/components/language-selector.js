@@ -1,14 +1,14 @@
-import React from 'react';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Padding } from './common';
+import React from "react";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { Padding } from "./common";
 // css
-import * as styles from './language-selector.module.css';
+import * as styles from "./language-selector.module.css";
 
 const LANG_NAME = {
-  ko: '한국어',
-  en: 'English',
-  es: 'Español',
-  id: 'Indonesia',
+  ko: "한국어",
+  en: "English",
+  es: "Español",
+  id: "Indonesia",
 };
 
 export const LangSelect = ({ className }) => {
@@ -19,12 +19,12 @@ export const LangSelect = ({ className }) => {
     <select
       className={className}
       onChange={(e) => {
-        if (e.target.value !== '' && e.target.value !== language) {
+        if (e.target.value !== "" && e.target.value !== language) {
           changeLanguage(e.target.value);
         }
       }}
     >
-      <option value="">{t('language-selector:selectPlaceholder')}</option>
+      <option value="">{t("language-selector:selectPlaceholder")}</option>
       {languages.map((lng) => (
         <option
           key={lng}
@@ -43,7 +43,7 @@ const LangOption = ({ lang }) => {
     <button
       type="button"
       className={`${styles.languageOption} ${
-        language === lang ? styles.selected : ''
+        language === lang ? styles.selected : ""
       }`}
       onClick={() => changeLanguage(lang)}
     >
@@ -82,7 +82,7 @@ export const LangPopup = ({ isShow, onClickClose }) => {
         </div>
 
         <div className={`${styles.titleContainer}`}>
-          {t('language-selector:popupTitle')}
+          {t("language-selector:popupTitle")}
         </div>
 
         <Padding y={20} />

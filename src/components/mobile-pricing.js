@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import React, { useState } from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Trans } from "gatsby-plugin-react-i18next";
 // js
-import MobileLayout from './mobile-layout';
+import MobileLayout from "./mobile-layout";
 import {
   Container320,
   ContainerCenter,
@@ -12,18 +12,18 @@ import {
   Switch,
   Ribbon,
   AppDownloadLink,
-} from './common';
-import * as constants from './constants';
+} from "./common";
+import * as constants from "./constants";
 
 // css
-import * as styles from './mobile-pricing.module.css';
+import * as styles from "./mobile-pricing.module.css";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <>
     <GatsbyImage
       image={emoji}
       alt={title}
-      style={{ margin: '0 auto' }}
+      style={{ margin: "0 auto" }}
     />
     <div className={styles.topDescTitle}>{title}</div>
     <Padding y={5} />
@@ -35,13 +35,13 @@ const TopDesc = ({ data, t }) => (
   <div>
     <TopDescColumn
       emoji={data.emojiOneSmall.childImageSharp.gatsbyImageData}
-      title={t('pricing:topDesc1Title')}
+      title={t("pricing:topDesc1Title")}
       desc={<Trans i18nKey="pricing:topDesc1Desc" />}
     />
     <Padding y={30} />
     <TopDescColumn
       emoji={data.emojiTwoSmall.childImageSharp.gatsbyImageData}
-      title={t('pricing:topDesc2Title')}
+      title={t("pricing:topDesc2Title")}
       desc={<Trans i18nKey="pricing:topDesc2Desc" />}
     />
   </div>
@@ -53,9 +53,9 @@ const PriceTable = ({ t }) => {
   return (
     <Container320 className={styles.px20}>
       <div className={styles.freePlanContainer}>
-        <div className={styles.planTitle}>{t('pricing:freePlanTitle')}</div>
+        <div className={styles.planTitle}>{t("pricing:freePlanTitle")}</div>
         <div className={styles.planSubtitle}>For Personal</div>
-        <div className={styles.planPrice}>{t('pricing:freePlanPrice')}</div>
+        <div className={styles.planPrice}>{t("pricing:freePlanPrice")}</div>
 
         <div className={styles.planDesc}>
           <Trans i18nKey="pricing:freePlanDesc" />
@@ -66,13 +66,13 @@ const PriceTable = ({ t }) => {
               type="button"
               className={styles.startButton}
             >
-              {t('pricing:startNowButton')}
+              {t("pricing:startNowButton")}
             </button>
           </AppDownloadLink>
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>
-          {t('pricing:headerLimit')}
+          {t("pricing:headerLimit")}
         </div>
         <div className={styles.planDetailItem}>
           <Trans i18nKey="pricing:limitMemberFree" />
@@ -95,7 +95,7 @@ const PriceTable = ({ t }) => {
             components={{ small: <small /> }}
           />
         </Ribbon>
-        <div className={styles.planTitle}>{t('pricing:bizPlanTitle')}</div>
+        <div className={styles.planTitle}>{t("pricing:bizPlanTitle")}</div>
         <div className={styles.planSubtitle}>For Teams &amp; Businesses</div>
 
         <Padding y={30} />
@@ -103,11 +103,11 @@ const PriceTable = ({ t }) => {
           <button
             type="button"
             className={`${styles.billingCycleButton} ${
-              isYearly ? '' : styles.active
+              isYearly ? "" : styles.active
             }`}
             onClick={() => setIsYearly(false)}
           >
-            {t('pricing:switchLabelMonthly')}
+            {t("pricing:switchLabelMonthly")}
           </button>
           <Switch
             isActive={isYearly}
@@ -116,20 +116,20 @@ const PriceTable = ({ t }) => {
           <button
             type="button"
             className={`${styles.billingCycleButton} ${
-              isYearly ? styles.active : ''
+              isYearly ? styles.active : ""
             }`}
             onClick={() => setIsYearly(true)}
           >
-            {t('pricing:switchLabelYearly')}
+            {t("pricing:switchLabelYearly")}
             <div className={styles.yearlyPlanSaveLabel}>
-              {t('pricing:yearlyPlanSaveLabel')}
+              {t("pricing:yearlyPlanSaveLabel")}
             </div>
           </button>
         </div>
 
-        <div className={styles.planPrice}>{isYearly ? '$16.6' : '$20'}</div>
+        <div className={styles.planPrice}>{isYearly ? "$16.6" : "$20"}</div>
         <div className={styles.planPriceUnit}>
-          {t('pricing:bizPlanPriceUnit')}
+          {t("pricing:bizPlanPriceUnit")}
         </div>
         <div className={styles.planDesc}>
           <Trans i18nKey="pricing:bizPlanDesc" />
@@ -140,13 +140,13 @@ const PriceTable = ({ t }) => {
               type="button"
               className={styles.startButton}
             >
-              {t('pricing:startTrialButton')}
+              {t("pricing:startTrialButton")}
             </button>
           </AppDownloadLink>
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>
-          {t('pricing:headerLimit')}
+          {t("pricing:headerLimit")}
         </div>
         <div className={styles.planDetailItem}>
           <Trans i18nKey="pricing:limitMemberBiz" />
@@ -156,7 +156,7 @@ const PriceTable = ({ t }) => {
         </div>
         {/* */}
         <div className={styles.planDetailHeader}>
-          {t('pricing:headerExtension')}
+          {t("pricing:headerExtension")}
         </div>
         <div className={styles.planDetailItem}>
           <Trans
@@ -186,15 +186,15 @@ const PriceTable = ({ t }) => {
 const Faq = ({ t }) => {
   const faqData = [
     {
-      question: t('pricing:faq1Question'),
+      question: t("pricing:faq1Question"),
       answer: {
-        i18nKey: 'pricing:faq1Answer',
+        i18nKey: "pricing:faq1Answer",
       },
     },
     {
-      question: t('pricing:faq2Question'),
+      question: t("pricing:faq2Question"),
       answer: {
-        i18nKey: 'pricing:faq2Answer',
+        i18nKey: "pricing:faq2Answer",
         components: {
           ul: <ul />,
           li: <li />,
@@ -204,39 +204,39 @@ const Faq = ({ t }) => {
       },
     },
     {
-      question: t('pricing:faq3Question'),
+      question: t("pricing:faq3Question"),
       answer: {
-        i18nKey: 'pricing:faq3Answer',
+        i18nKey: "pricing:faq3Answer",
       },
     },
     {
-      question: t('pricing:faq4Question'),
+      question: t("pricing:faq4Question"),
       answer: {
-        i18nKey: 'pricing:faq4Answer',
+        i18nKey: "pricing:faq4Answer",
       },
     },
     {
-      question: t('pricing:faq5Question'),
+      question: t("pricing:faq5Question"),
       answer: {
-        i18nKey: 'pricing:faq5Answer',
+        i18nKey: "pricing:faq5Answer",
       },
     },
     {
-      question: t('pricing:faq6Question'),
+      question: t("pricing:faq6Question"),
       answer: {
-        i18nKey: 'pricing:faq6Answer',
+        i18nKey: "pricing:faq6Answer",
       },
     },
     {
-      question: t('pricing:faq7Question'),
+      question: t("pricing:faq7Question"),
       answer: {
-        i18nKey: 'pricing:faq7Answer',
+        i18nKey: "pricing:faq7Answer",
       },
     },
     {
-      question: t('pricing:faq8Question'),
+      question: t("pricing:faq8Question"),
       answer: {
-        i18nKey: 'pricing:faq8Answer',
+        i18nKey: "pricing:faq8Answer",
         components: {
           faqPaymentLink: (
             // eslint-disable-next-line
@@ -246,15 +246,15 @@ const Faq = ({ t }) => {
       },
     },
     {
-      question: t('pricing:faq9Question'),
+      question: t("pricing:faq9Question"),
       answer: {
-        i18nKey: 'pricing:faq9Answer',
+        i18nKey: "pricing:faq9Answer",
       },
     },
   ];
   return (
     <div className={styles.faqContainer}>
-      <div className={styles.faqTitle}>{t('pricing:faqTitle')}</div>
+      <div className={styles.faqTitle}>{t("pricing:faqTitle")}</div>
 
       <Padding y={39} />
 
@@ -274,12 +274,12 @@ const Faq = ({ t }) => {
 
       <Padding y={30} />
 
-      <a href={t('url:pricing')}>
+      <a href={t("url:pricing")}>
         <button
           type="button"
           className={styles.buttonShowMore}
         >
-          {t('pricing:faqMoreButton')}
+          {t("pricing:faqMoreButton")}
         </button>
       </a>
     </div>
@@ -290,13 +290,13 @@ const DirectContact = ({ t }) => (
   <div className={styles.directContactContainer}>
     <Container320 className={styles.px20}>
       <div className={styles.directContactTitle}>
-        {t('pricing:directContactTitle')}
+        {t("pricing:directContactTitle")}
       </div>
 
       <Padding y={14} />
 
       <div className={styles.directContactDesc}>
-        {t('pricing:directContactDesc')}
+        {t("pricing:directContactDesc")}
       </div>
 
       <Padding y={30} />
@@ -305,12 +305,12 @@ const DirectContact = ({ t }) => (
         type="button"
         className={styles.directContactButton}
         onClick={() => {
-          if ('Beacon' in window) {
-            window.Beacon('toggle');
+          if ("Beacon" in window) {
+            window.Beacon("toggle");
           }
         }}
       >
-        {t('pricing:directContactInquiryButon')}
+        {t("pricing:directContactInquiryButon")}
       </button>
     </Container320>
   </div>
@@ -322,10 +322,10 @@ const MobilePricing = ({ data, language, t }) => (
     hideFloatAppInstallButton
     curMenu="pricing"
     closingEmoji={data.mobileBox}
-    closingMsg={t('pricing:closingMsg')}
+    closingMsg={t("pricing:closingMsg")}
   >
     <ContainerCenter className={styles.px20}>
-      <MobileSimpleTop title={t('pricing:topTitle')}>
+      <MobileSimpleTop title={t("pricing:topTitle")}>
         <Padding y={10} />
         <TopDesc
           data={data}

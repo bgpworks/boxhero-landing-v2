@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { ExternalLinkWithQuery } from './common';
-import * as constants from './constants';
+import { GatsbyImage } from "gatsby-plugin-image";
+import { ExternalLinkWithQuery } from "./common";
+import * as constants from "./constants";
 
-import * as styles from './desktop-marketing.module.css';
+import * as styles from "./desktop-marketing.module.css";
 
 const Link = ({
   href, x, y, width, height,

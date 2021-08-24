@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import React from "react";
+import { graphql } from "gatsby";
+import { useI18next } from "gatsby-plugin-react-i18next";
 // js
-import SEOHelmet from '../components/SEOHelmet';
-import MobileMarketing from '../components/mobile-marketing-210524';
-import { useHelpscout } from '../components/helpscout';
+import SEOHelmet from "../components/SEOHelmet";
+import MobileMarketing from "../components/mobile-marketing-210524";
+import { useHelpscout } from "../components/helpscout";
 
 const MarketingPage = ({ data, location }) => {
   const { language, t } = useI18next();
@@ -13,8 +13,8 @@ const MarketingPage = ({ data, location }) => {
     <>
       <SEOHelmet
         lang={language}
-        title={t('index:pageTitle')}
-        description={t('index:pageDescription')}
+        title={t("index:pageTitle")}
+        description={t("index:pageDescription")}
         path={location.pathname}
       />
       <MobileMarketing data={data} />

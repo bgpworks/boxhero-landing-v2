@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import DesktopLayout from './desktop-layout';
-import svgArrowPrev from '../images/arrow-prev.svg';
-import svgArrowNext from '../images/arrow-next.svg';
+import React from "react";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import { GatsbyImage } from "gatsby-plugin-image";
+import DesktopLayout from "./desktop-layout";
+import svgArrowPrev from "../images/arrow-prev.svg";
+import svgArrowNext from "../images/arrow-next.svg";
 import {
   pageContainer,
   pageTitle,
@@ -21,7 +21,7 @@ import {
   navButton,
   prevButtonLabel,
   nextButtonLabel,
-} from './desktop-postlist.module.css';
+} from "./desktop-postlist.module.css";
 
 const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
   const { t } = useI18next();
@@ -42,7 +42,7 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
             src={svgArrowPrev}
             alt="arrow-prev"
           />
-          <span className={prevButtonLabel}>{t('blog:prevPageLink')}</span>
+          <span className={prevButtonLabel}>{t("blog:prevPageLink")}</span>
         </Link>
       )}
 
@@ -54,7 +54,7 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
           to={`${pathPrefix}/${pageIndex + 1}`}
           className={navButton}
         >
-          <span className={nextButtonLabel}>{t('blog:nextPageLink')}</span>
+          <span className={nextButtonLabel}>{t("blog:nextPageLink")}</span>
           <img
             src={svgArrowNext}
             alt="arrow-next"

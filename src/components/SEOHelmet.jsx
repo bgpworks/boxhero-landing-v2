@@ -5,10 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 function SEOHelmet({
   description, lang, meta, title, path,
@@ -45,55 +45,55 @@ function SEOHelmet({
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
-          name: 'description',
+          name: "description",
           content: metaDescription,
         },
         {
-          property: 'og:site_name',
+          property: "og:site_name",
           content: `${site.siteMetadata.title}`,
         },
         {
-          property: 'og:title',
+          property: "og:title",
           content: title,
         },
         {
-          property: 'og:description',
+          property: "og:description",
           content: metaDescription,
         },
         {
-          property: 'og:type',
-          content: 'website',
+          property: "og:type",
+          content: "website",
         },
         {
-          name: 'twitter:card',
-          content: 'summary',
+          name: "twitter:card",
+          content: "summary",
         },
         {
-          name: 'twitter:creator',
+          name: "twitter:creator",
           content: site.siteMetadata.author,
         },
         {
-          name: 'twitter:title',
+          name: "twitter:title",
           content: title,
         },
         {
-          name: 'twitter:description',
+          name: "twitter:description",
           content: metaDescription,
         },
         {
-          property: 'og:image',
+          property: "og:image",
           content: `${siteUrl}${data.ogImg.publicURL}`,
         },
         {
-          property: 'og:url',
+          property: "og:url",
           content: `${siteUrl}${path}`,
         },
         {
-          property: 'og:name',
+          property: "og:name",
           content: title,
         },
         {
-          property: 'fb:app_id',
+          property: "fb:app_id",
           content: site.siteMetadata.fbAppId,
         },
       ].concat(meta)}
@@ -102,10 +102,10 @@ function SEOHelmet({
 }
 
 SEOHelmet.defaultProps = {
-  lang: 'ko',
+  lang: "ko",
   meta: [],
-  description: '',
-  path: '/',
+  description: "",
+  path: "/",
 };
 
 SEOHelmet.propTypes = {

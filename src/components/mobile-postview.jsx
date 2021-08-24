@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { format } from 'date-fns';
-import { AppDownloadLink } from './common';
-import MobileLayout from './mobile-layout';
-import PostBody from './mobile-postbody';
-import svgCompleteArrowPrev from '../images/complete-arrow-prev.svg';
+import React from "react";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { format } from "date-fns";
+import { AppDownloadLink } from "./common";
+import MobileLayout from "./mobile-layout";
+import PostBody from "./mobile-postbody";
+import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
 import {
   pageContainer,
   linkToListSection,
@@ -28,7 +28,7 @@ import {
   startNowButton,
   relatedPostsSection,
   postFooter,
-} from './mobile-postview.module.css';
+} from "./mobile-postview.module.css";
 
 const LinkToListSection = () => {
   const { t } = useI18next();
@@ -42,7 +42,7 @@ const LinkToListSection = () => {
         src={svgCompleteArrowPrev}
         alt="arrow-prev"
       />
-      <span className={linkToListLabel}>{t('blog:linkToList')}</span>
+      <span className={linkToListLabel}>{t("blog:linkToList")}</span>
     </Link>
   );
 };
@@ -58,8 +58,8 @@ const AuthorAndDateSection = ({ author, authorPhoto, date }) => (
     )}
     <div className={nameAndDate}>
       <address>{author}</address>
-      <time dateTime={format(new Date(date), 'yyyy-MM-dd')}>
-        {format(new Date(date), 'MMM d')}
+      <time dateTime={format(new Date(date), "yyyy-MM-dd")}>
+        {format(new Date(date), "MMM d")}
       </time>
     </div>
   </div>
@@ -126,14 +126,14 @@ const StartNow = () => {
 
   return (
     <section className={startNowSection}>
-      <span className={startNowTitle}>{t('blog:startNowTitle')}</span>
-      <span className={startNowDesc}>{t('blog:startNowDescription')}</span>
+      <span className={startNowTitle}>{t("blog:startNowTitle")}</span>
+      <span className={startNowDesc}>{t("blog:startNowDescription")}</span>
       <AppDownloadLink>
         <button
           type="button"
           className={startNowButton}
         >
-          {t('blog:startNowButton')}
+          {t("blog:startNowButton")}
         </button>
       </AppDownloadLink>
     </section>
@@ -153,7 +153,7 @@ const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
             title={prevPostData.frontmatter.title}
             category={prevPostData.frontmatter.category}
             categoryStyle={categoryStyleMap[prevPostData.frontmatter.category]}
-            label={t('blog:prevPost')}
+            label={t("blog:prevPost")}
           />
         )}
         {nextPostData && (
@@ -163,7 +163,7 @@ const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
             title={nextPostData.frontmatter.title}
             category={nextPostData.frontmatter.category}
             categoryStyle={categoryStyleMap[nextPostData.frontmatter.category]}
-            label={t('blog:nextPost')}
+            label={t("blog:nextPost")}
           />
         )}
       </nav>

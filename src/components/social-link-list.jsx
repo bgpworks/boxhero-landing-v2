@@ -1,16 +1,16 @@
-import React from 'react';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { ExternalLinkWithQuery } from './common';
-import svgIconFacebook from '../images/icon-facebook.svg';
-import svgIconMedium from '../images/icon-medium.svg';
-import svgIconNaverBlog from '../images/icon-naverblog.svg';
-import svgIconYoutube from '../images/icon-youtube.svg';
-import svgIconTwitter from '../images/icon-twitter.svg';
+import React from "react";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { ExternalLinkWithQuery } from "./common";
+import svgIconFacebook from "../images/icon-facebook.svg";
+import svgIconMedium from "../images/icon-medium.svg";
+import svgIconNaverBlog from "../images/icon-naverblog.svg";
+import svgIconYoutube from "../images/icon-youtube.svg";
+import svgIconTwitter from "../images/icon-twitter.svg";
 import {
   socialLinkListContainer,
   socialLinkWrapper,
   socialLink,
-} from './social-link-list.module.css';
+} from "./social-link-list.module.css";
 
 const SocialLink = ({ link, icon }) => (
   <li className={socialLinkWrapper}>
@@ -37,27 +37,27 @@ export default function SocialLinkList() {
     <ul className={socialLinkListContainer}>
       <SocialLink
         icon={svgIconMedium}
-        link={t('url:medium')}
+        link={t("url:medium")}
       />
-      {language === 'ko' && (
+      {language === "ko" && (
         <SocialLink
           icon={svgIconNaverBlog}
-          link={t('url:naverblog')}
+          link={t("url:naverblog")}
         />
       )}
-      {language !== 'ko' && (
+      {language !== "ko" && (
         <SocialLink
           icon={svgIconTwitter}
-          link={t('url:twitter')}
+          link={t("url:twitter")}
         />
       )}
       <SocialLink
         icon={svgIconFacebook}
-        link={t('url:facebook')}
+        link={t("url:facebook")}
       />
       <SocialLink
         icon={svgIconYoutube}
-        link={t('url:youtube')}
+        link={t("url:youtube")}
       />
     </ul>
   );

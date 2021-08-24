@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { Container320, ExternalLinkWithQuery } from './common';
-import { urlStart } from './constants';
+import { Container320, ExternalLinkWithQuery } from "./common";
+import { urlStart } from "./constants";
 // css
-import * as styles from './mobile-header.module.css';
+import * as styles from "./mobile-header.module.css";
 // images
-import svgBiWhite from '../images/bi-white.svg';
-import svgBiBlue from '../images/bi-blue.svg';
-import { useCheckScrolled } from '../hooks/useCheckScrolled';
+import svgBiWhite from "../images/bi-white.svg";
+import svgBiBlue from "../images/bi-blue.svg";
+import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
 const MenuItem = ({ children }) => (
   <div className={`${styles.splitLine} ${styles.menuItem}`}>{children}</div>
@@ -29,11 +29,11 @@ const MobileHeader = ({
   return (
     <>
       <div
-        className={`${styles.menuOpenBg} ${isShow ? styles.isOpen : ''}`}
+        className={`${styles.menuOpenBg} ${isShow ? styles.isOpen : ""}`}
       />
       <header
         className={`${styles.headerContainer} ${
-          isWhite ? styles.whiteContainer : ''
+          isWhite ? styles.whiteContainer : ""
         }`}
       >
         <div className={styles.logoAndExpandCotainer}>
@@ -46,7 +46,7 @@ const MobileHeader = ({
           </Link>
           <button
             type="button"
-            className={`${styles.menuBtn} ${isShow ? styles.isOpen : ''}`}
+            className={`${styles.menuBtn} ${isShow ? styles.isOpen : ""}`}
             onClick={() => onChangeIsShow(!isShow)}
           >
             <div className={styles.menuBtnLine} />
@@ -59,32 +59,32 @@ const MobileHeader = ({
               <MenuItem>
                 <Link
                   to="/about/"
-                  className={curMenu === 'about' ? styles.selected : ''}
+                  className={curMenu === "about" ? styles.selected : ""}
                 >
-                  {t('header:menuAbout')}
+                  {t("header:menuAbout")}
                 </Link>
               </MenuItem>
 
               <MenuItem>
                 <Link
                   to="/features/"
-                  className={curMenu === 'features' ? styles.selected : ''}
+                  className={curMenu === "features" ? styles.selected : ""}
                 >
-                  {t('header:menuFeatures')}
+                  {t("header:menuFeatures")}
                 </Link>
               </MenuItem>
 
               <MenuItem>
                 <Link
                   to="/pricing/"
-                  className={curMenu === 'pricing' ? styles.selected : ''}
+                  className={curMenu === "pricing" ? styles.selected : ""}
                 >
-                  {t('header:menuPricing')}
+                  {t("header:menuPricing")}
                 </Link>
               </MenuItem>
 
               <MenuItem>
-                <a href={t('url:doc')}>{t('header:menuDoc')}</a>
+                <a href={t("url:doc")}>{t("header:menuDoc")}</a>
               </MenuItem>
 
               <div className={styles.langButtonContainer}>
@@ -96,7 +96,7 @@ const MobileHeader = ({
                     onChangeIsShow(false);
                   }}
                 >
-                  {t('header:menuLanguage')}
+                  {t("header:menuLanguage")}
                 </button>
               </div>
 
@@ -106,7 +106,7 @@ const MobileHeader = ({
                     type="button"
                     className={styles.startNowButton}
                   >
-                    {t('header:menuLoginButton')}
+                    {t("header:menuLoginButton")}
                   </button>
                 </ExternalLinkWithQuery>
               </div>

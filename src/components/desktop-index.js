@@ -1,9 +1,9 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import React from "react";
+import PropTypes from "prop-types";
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   CarouselProvider,
   Slider,
@@ -12,42 +12,42 @@ import {
   ButtonNext,
   DotGroup,
   Dot,
-} from 'pure-react-carousel';
-import ScrollContainer from 'react-indiana-drag-scroll';
-import { Link, Trans } from 'gatsby-plugin-react-i18next';
+} from "pure-react-carousel";
+import ScrollContainer from "react-indiana-drag-scroll";
+import { Link, Trans } from "gatsby-plugin-react-i18next";
 // js
-import DesktopLayout from './desktop-layout';
+import DesktopLayout from "./desktop-layout";
 import {
   Container1024,
   Padding,
   WithCurrentSlide,
   ExternalLinkWithQuery,
   GradientBG,
-} from './common';
-import * as constants from './constants';
+} from "./common";
+import * as constants from "./constants";
 // css
-import * as styles from './desktop-index.module.css';
+import * as styles from "./desktop-index.module.css";
 // img
-import svgVolt from '../images/volt.svg';
-import svgAddItem from '../images/additem.svg';
-import svgCounting from '../images/counting.svg';
-import svgDashboard from '../images/dashboard.svg';
-import svgSmallRightBlue from '../images/smallright-blue.svg';
-import svgSmallRight from '../images/smallright.svg';
-import svgSwipeLeft from '../images/swipeleft.svg';
-import svgSwipeRight from '../images/swiperight.svg';
+import svgVolt from "../images/volt.svg";
+import svgAddItem from "../images/additem.svg";
+import svgCounting from "../images/counting.svg";
+import svgDashboard from "../images/dashboard.svg";
+import svgSmallRightBlue from "../images/smallright-blue.svg";
+import svgSmallRight from "../images/smallright.svg";
+import svgSwipeLeft from "../images/swipeleft.svg";
+import svgSwipeRight from "../images/swiperight.svg";
 
 const Top = ({ data, t }) => (
   <GradientBG
     className={styles.topContainer}
-    colorSet={['#8122ff', '#854afe', '#4260ef', '#00b0f8']}
+    colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
     backgroundColor="#4260ef"
   >
     <Container1024 className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
         <img
           src={svgVolt}
-          alt={t('index:topIconAlt')}
+          alt={t("index:topIconAlt")}
         />
         <Padding y={10} />
         <div className={styles.topLeftTitle}>
@@ -63,7 +63,7 @@ const Top = ({ data, t }) => (
             type="button"
             className={styles.startNowButton}
           >
-            {t('index:topStartNowButton')}
+            {t("index:topStartNowButton")}
           </button>
         </ExternalLinkWithQuery>
         <Padding y={161} />
@@ -88,7 +88,7 @@ const KeyFeature = ({
   linkDetail,
 }) => (
   <div
-    className={`${styles.keyFeatureContainer} ${isDarkBg ? styles.darkBg : ''}`}
+    className={`${styles.keyFeatureContainer} ${isDarkBg ? styles.darkBg : ""}`}
   >
     <Container1024 className={styles.keyFeatureContentContainer}>
       <div className={styles.keyFeatureLeftContainer}>
@@ -141,10 +141,10 @@ KeyFeature.defaultProps = {
 const TeamPlay = ({ data, t }) => (
   <GradientBG
     className={styles.teamPlayContainer}
-    colorSet={['#7D24FF', '#276EFE', '#7F50FE', '#0C92FE']}
+    colorSet={["#7D24FF", "#276EFE", "#7F50FE", "#0C92FE"]}
     backgroundColor="#6159F5"
   >
-    <div className={styles.teamPlayTitle}>{t('index:teamPlayTitle')}</div>
+    <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
     <Padding y={40} />
     <div className={styles.teamPlayDesc}>
       <Trans i18nKey="index:teamPlayDesc" />
@@ -181,47 +181,47 @@ const CustomerCard = ({
 const Customers = ({ data, t, language }) => {
   const customerData = [
     {
-      title: t('index:customerData1Title'),
+      title: t("index:customerData1Title"),
       img: data.customerMart.childImageSharp.gatsbyImageData,
-      link: t('index:customerData1Link'),
+      link: t("index:customerData1Link"),
     },
     // 영문 문서가 없어서 한글에서만 추가.
-    language === 'ko'
+    language === "ko"
       ? {
-        title: t('index:customerData2Title'),
+        title: t("index:customerData2Title"),
         img: data.customerFasion.childImageSharp.gatsbyImageData,
-        link: t('index:customerData2Link'),
+        link: t("index:customerData2Link"),
       }
       : null,
     {
-      title: t('index:customerData3Title'),
+      title: t("index:customerData3Title"),
       img: data.customerCosmetics.childImageSharp.gatsbyImageData,
-      link: t('index:customerData3Link'),
+      link: t("index:customerData3Link"),
     },
     {
-      title: t('index:customerData4Title'),
+      title: t("index:customerData4Title"),
       img: data.customerCafe.childImageSharp.gatsbyImageData,
-      link: t('index:customerData4Link'),
+      link: t("index:customerData4Link"),
     },
     {
-      title: t('index:customerData5Title'),
+      title: t("index:customerData5Title"),
       img: data.customerPharmacy.childImageSharp.gatsbyImageData,
-      link: t('index:customerData5Link'),
+      link: t("index:customerData5Link"),
     },
     {
-      title: t('index:customerData6Title'),
+      title: t("index:customerData6Title"),
       img: data.customerHandmade.childImageSharp.gatsbyImageData,
-      link: t('index:customerData6Link'),
+      link: t("index:customerData6Link"),
     },
     {
-      title: t('index:customerData7Title'),
+      title: t("index:customerData7Title"),
       img: data.customerTextbook.childImageSharp.gatsbyImageData,
-      link: t('index:customerData7Link'),
+      link: t("index:customerData7Link"),
     },
     {
-      title: t('index:customerData8Title'),
+      title: t("index:customerData8Title"),
       img: data.customerLocation.childImageSharp.gatsbyImageData,
-      link: t('index:customerData8Link'),
+      link: t("index:customerData8Link"),
     },
   ].filter((item) => item);
 
@@ -234,18 +234,18 @@ const Customers = ({ data, t, language }) => {
       <Padding y={40} />
       <Link
         to="/features/"
-        title={t('index:customerDetailLink')}
+        title={t("index:customerDetailLink")}
       >
         <button
           type="button"
           className={styles.customersDetailButton}
         >
-          {t('index:customerDetailLink')}
+          {t("index:customerDetailLink")}
           <Padding x={10} />
           <img
             src={svgSmallRight}
             className={styles.rightArrow}
-            alt={t('index:customerDataDetailLink')}
+            alt={t("index:customerDataDetailLink")}
           />
         </button>
       </Link>
@@ -262,13 +262,13 @@ const Customers = ({ data, t, language }) => {
             indexLabel={(`0${index + 1}`).slice(-2)}
             title={customer.title}
             link={customer.link}
-            linkLabel={t('index:customerDataDetailLink')}
+            linkLabel={t("index:customerDataDetailLink")}
           />
         ))}
         <CustomerCard
           img={data.customerETC.childImageSharp.gatsbyImageData}
-          indexLabel={t('index:customerOtherIndexLabel')}
-          title={t('index:customerOtherTitle')}
+          indexLabel={t("index:customerOtherIndexLabel")}
+          title={t("index:customerOtherTitle")}
           link="https://web.boxhero-app.com/login"
           linkLabel="GO! >"
         />
@@ -281,27 +281,27 @@ const Customers = ({ data, t, language }) => {
 function genFeatureData(data, t) {
   return [
     {
-      title: t('index:featureSafetyStock'),
+      title: t("index:featureSafetyStock"),
       link: `/features/#${constants.idFeatureLowstock}`,
       img: data.featureLowstock.childImageSharp.gatsbyImageData,
     },
     {
-      title: t('index:featurePrintLabel'),
+      title: t("index:featurePrintLabel"),
       link: `/features/#${constants.idFeatureBarcodelabel}`,
       img: data.featureBarcodeLabel.childImageSharp.gatsbyImageData,
     },
     {
-      title: t('index:featureTransactionStats'),
+      title: t("index:featureTransactionStats"),
       link: `/features/#${constants.idFeatureSummary}`,
       img: data.featureSummary.childImageSharp.gatsbyImageData,
     },
     {
-      title: t('index:featureViewPastQuantity'),
+      title: t("index:featureViewPastQuantity"),
       link: `/features/#${constants.idFeatureViewPastQuantity}`,
       img: data.featureViewPastQuantity.childImageSharp.gatsbyImageData,
     },
     {
-      title: t('index:featureLocationManagement'),
+      title: t("index:featureLocationManagement"),
       link: `/features/#${constants.idFeatureLocation}`,
       img: data.featureLocation.childImageSharp.gatsbyImageData,
     },
@@ -320,7 +320,7 @@ function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
         slide={slide}
         selected={selected}
         className={`${styles.slideDetailDot} ${
-          selected ? styles.slideDetailDotSelected : ''
+          selected ? styles.slideDetailDotSelected : ""
         }`}
       >
         {allData[slide].title}
@@ -355,7 +355,7 @@ const Features = ({ data, t }) => {
           <ButtonBack className={styles.slideNavButton}>
             <img
               src={svgSwipeLeft}
-              alt={t('index:featuresNavBack')}
+              alt={t("index:featuresNavBack")}
             />
           </ButtonBack>
           <Slider className={styles.sliderWrapper}>
@@ -374,7 +374,7 @@ const Features = ({ data, t }) => {
           <ButtonNext className={styles.slideNavButton}>
             <img
               src={svgSwipeRight}
-              alt={t('index:featuresNavNext')}
+              alt={t("index:featuresNavNext")}
             />
           </ButtonNext>
         </div>
@@ -389,11 +389,11 @@ const Features = ({ data, t }) => {
                 title={featureData[currentSlide].title}
                 className={styles.slideDetailLink}
               >
-                {t('index:featuresDetailLink')}
+                {t("index:featuresDetailLink")}
                 <img
                   src={svgSmallRightBlue}
                   className={styles.rightArrow}
-                  alt={t('index:featuresDetailLink')}
+                  alt={t("index:featuresDetailLink")}
                 />
               </Link>
             )}
@@ -420,11 +420,11 @@ const StartNow = ({ data, t }) => (
       to="/pricing/"
       className={styles.startNowDetailLink}
     >
-      {t('index:startNowDetailLink')}
+      {t("index:startNowDetailLink")}
       <img
         src={svgSmallRightBlue}
         className={styles.rightArrow}
-        alt={t('index:startNowDetailLink')}
+        alt={t("index:startNowDetailLink")}
       />
     </Link>
   </div>
@@ -434,7 +434,7 @@ const DesktopIndex = ({ data, language, t }) => (
   <DesktopLayout
     isFloatMenu
     closingEmoji={data.coffee}
-    closingMsg={t('index:closingMsg')}
+    closingMsg={t("index:closingMsg")}
   >
     <Top
       data={data}
@@ -443,39 +443,39 @@ const DesktopIndex = ({ data, language, t }) => (
 
     <KeyFeature
       icon={svgAddItem}
-      iconAlt={t('index:keyFeature1IconAlt')}
+      iconAlt={t("index:keyFeature1IconAlt")}
       title={<Trans i18nKey="index:keyFeature1Title" />}
       desc={<Trans i18nKey="index:keyFeature1Desc" />}
       subTitle={<Trans i18nKey="index:keyFeature1SubTitle" />}
       subDesc={<Trans i18nKey="index:keyFeature1SubDesc" />}
       detailUrl={`/about/#${constants.idAboutFeatureAddItem}`}
       image={data.feature1}
-      linkDetail={t('index:keyFeatureLinkDetail')}
+      linkDetail={t("index:keyFeatureLinkDetail")}
     />
 
     <KeyFeature
       isDarkBg
       icon={svgCounting}
-      iconAlt={t('index:keyFeature2IconAlt')}
+      iconAlt={t("index:keyFeature2IconAlt")}
       title={<Trans i18nKey="index:keyFeature2Title" />}
       desc={<Trans i18nKey="index:keyFeature2Desc" />}
-      subTitle={t('index:keyFeature2SubTitle')}
+      subTitle={t("index:keyFeature2SubTitle")}
       subDesc={<Trans i18nKey="index:keyFeature2SubDesc" />}
       detailUrl={`/about/#${constants.idAboutFeatureTx}`}
       image={data.feature2}
-      linkDetail={t('index:keyFeatureLinkDetail')}
+      linkDetail={t("index:keyFeatureLinkDetail")}
     />
 
     <KeyFeature
       icon={svgDashboard}
-      iconAlt={t('index:keyFeature3IconAlt')}
+      iconAlt={t("index:keyFeature3IconAlt")}
       title={<Trans i18nKey="index:keyFeature3Title" />}
       desc={<Trans i18nKey="index:keyFeature3Desc" />}
-      subTitle={t('index:keyFeature3SubTitle')}
+      subTitle={t("index:keyFeature3SubTitle")}
       subDesc={<Trans i18nKey="index:keyFeature3SubDesc" />}
       detailUrl={`/about/#${constants.idAboutFeatureStatus}`}
       image={data.feature3}
-      linkDetail={t('index:keyFeatureLinkDetail')}
+      linkDetail={t("index:keyFeatureLinkDetail")}
     />
 
     <TeamPlay
