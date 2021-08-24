@@ -66,7 +66,7 @@
     { "src": "/en/tos\\/?", "dest": "tos_en.html" },
     { "src": "/ko/privacy\\/?", "dest": "privacy_ko.pdf" },
     { "src": "/ko/tos\\/?", "dest": "tos_ko.pdf" },
-    { "src": "/sitemap.xml", "dest": "/sitemap/sitemap-index.xml" },
+    { "src": "/sitemap(-.*)?.xml", "dest": "sitemap$1.xml" },
     { "src": "/(.*)", "dest": "404.html", "status": 404 }
   ]
 }
