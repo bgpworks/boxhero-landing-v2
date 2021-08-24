@@ -47,8 +47,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-webpack-plugin": "^3.0.1",
     "gatsby-plugin-eslint": "^4.0.0",
-    "markdownlint": "^0.23.1",
-    "prettier": "^2.3.2"
+    "markdownlint": "^0.23.1"
   },
   "keywords": [
     "gatsby"
