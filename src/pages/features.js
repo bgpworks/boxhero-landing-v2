@@ -21,26 +21,18 @@ export default function FeaturesPage({ data, location }) {
       />
 
       <Media at="xs">
-        <MobileFeatures
-          data={data}
-          language={language}
-          t={t}
-        />
+        <MobileFeatures data={data} language={language} t={t} />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopFeatures
-          data={data}
-          language={language}
-          t={t}
-        />
+        <DesktopFeatures data={data} language={language} t={t} />
       </Media>
     </>
   );
 }
 
 export const query = graphql`
-  query($language: String!) {
+  query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
