@@ -122,32 +122,15 @@ function FeatureTemplate({
       <Container1024>
         <div className={styles.featureTemplateDescFigContainer}>
           <div className={styles.featureTemplateTitleDescContainer}>
-            <div
-              className={styles.featureTemplateTitle}
-              data-sal="slide-up-10"
-              data-sal-duration="500"
-              data-sal-easing="easeOutQuint"
-            >
+            <div className={styles.featureTemplateTitle}>
               {title}
             </div>
             <Padding y={35} />
-            <div
-              className={styles.featureTemplateDesc}
-              data-sal="slide-up-10"
-              data-sal-duration="500"
-              data-sal-delay="300"
-              data-sal-easing="easeOutQuint"
-            >
+            <div className={styles.featureTemplateDesc}>
               {desc}
             </div>
             <Padding y={30} />
-            <ExternalLinkWithQuery
-              href={constants.urlStart}
-              data-sal="slide-up-10"
-              data-sal-duration="500"
-              data-sal-delay="300"
-              data-sal-easing="easeOutQuint"
-            >
+            <ExternalLinkWithQuery href={constants.urlStart}>
               <button
                 type="button"
                 className={styles.featureTemplateStartNow}
@@ -156,12 +139,7 @@ function FeatureTemplate({
               </button>
             </ExternalLinkWithQuery>
           </div>
-          <div
-            className={styles.featureTemplateFigureContainer}
-            data-sal="slide-up-10"
-            data-sal-duration="500"
-            data-sal-easing="easeOutQuint"
-          >
+          <div className={styles.featureTemplateFigureContainer}>
             <GatsbyImage
               image={figure}
               style={figureStyle}
@@ -169,13 +147,7 @@ function FeatureTemplate({
           </div>
         </div>
         <Padding y={150} />
-        <div
-          className={styles.halfContainer}
-          data-sal="slide-up-10"
-          data-sal-duration="500"
-          data-sal-delay="300"
-          data-sal-easing="easeOutQuint"
-        >
+        <div className={styles.halfContainer}>
           {demoData
             .slice(0, 2)
             .map((data, index) => (
