@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
-import rehypeReact from "rehype-react";
+import RehypeReact from "rehype-react";
 import pngTipIcon from "../images/tip-icon.png";
 import pngCautionIcon from "../images/caution-icon.png";
 import pngNoticeIcon from "../images/notice-icon.png";
@@ -20,25 +20,38 @@ import {
 
 const Box = ({ className, icon, children }) => (
   <div className={cn(boxWrapper, className)}>
-    <img className={boxIcon} src={icon} alt="box-decorator" />
+    <img
+      className={boxIcon}
+      src={icon}
+      alt="box-decorator"
+    />
     <div className={boxBody}>{children}</div>
   </div>
 );
 
 const TipBox = ({ children }) => (
-  <Box className={tipBox} icon={pngTipIcon}>
+  <Box
+    className={tipBox}
+    icon={pngTipIcon}
+  >
     {children}
   </Box>
 );
 
 const NoticeBox = ({ children }) => (
-  <Box className={noticeBox} icon={pngNoticeIcon}>
+  <Box
+    className={noticeBox}
+    icon={pngNoticeIcon}
+  >
     {children}
   </Box>
 );
 
 const CautionBox = ({ children }) => (
-  <Box className={cautionBox} icon={pngCautionIcon}>
+  <Box
+    className={cautionBox}
+    icon={pngCautionIcon}
+  >
     {children}
   </Box>
 );
@@ -66,7 +79,7 @@ const GhostElement = ({ children }) => (
 
 const InternalLink = ({ to, children }) => <Link to={to}>{children}</Link>;
 
-const renderAST = new rehypeReact({
+const renderAST = new RehypeReact({
   createElement: React.createElement,
   Fragment: React.Fragment,
   components: {

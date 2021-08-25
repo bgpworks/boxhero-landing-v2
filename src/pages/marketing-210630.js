@@ -2,10 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
+import { GatsbyImage } from "gatsby-plugin-image";
 import SEOHelmet from "../components/SEOHelmet";
 import { ExternalLinkWithQuery } from "../components/common";
 import { useHelpscout } from "../components/helpscout";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { urlStart } from "../components/constants";
 
 const MarketingPage = ({ data, location }) => {

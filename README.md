@@ -13,7 +13,7 @@ gatsby develop
 ### Tools
 
 - [EditorConfig](https://editorconfig.org/)
-- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
 
 ## 🧐 메모
 

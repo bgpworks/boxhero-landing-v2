@@ -12,11 +12,12 @@ const LANG_NAME = {
 };
 
 export const LangSelect = ({ className }) => {
-  const { language, languages, changeLanguage, t } = useI18next();
+  const {
+    language, languages, changeLanguage, t,
+  } = useI18next();
   return (
     <select
       className={className}
-      onBlur={(e) => {}}
       onChange={(e) => {
         if (e.target.value !== "" && e.target.value !== language) {
           changeLanguage(e.target.value);
@@ -25,7 +26,10 @@ export const LangSelect = ({ className }) => {
     >
       <option value="">{t("language-selector:selectPlaceholder")}</option>
       {languages.map((lng) => (
-        <option key={lng} value={lng}>
+        <option
+          key={lng}
+          value={lng}
+        >
           {LANG_NAME[lng] || lng}
         </option>
       ))}
@@ -37,6 +41,7 @@ const LangOption = ({ lang }) => {
   const { language, changeLanguage } = useI18next();
   return (
     <button
+      type="button"
       className={`${styles.languageOption} ${
         language === lang ? styles.selected : ""
       }`}
@@ -60,7 +65,10 @@ export const LangPopup = ({ isShow, onClickClose }) => {
     >
       <div className={`${styles.container}`}>
         <div className={`${styles.closeWrapper}`}>
-          <button className={`${styles.closeButton}`}>
+          <button
+            type="button"
+            className={`${styles.closeButton}`}
+          >
             <svg
               width="18"
               height="18"
@@ -68,7 +76,7 @@ export const LangPopup = ({ isShow, onClickClose }) => {
               viewBox="-255 347 100 100"
               aria-hidden="true"
             >
-              <path d="M-160.4 434.2l-37.2-37.2 37.1-37.1-7-7-37.1 37.1-37.1-37.1-7 7 37.1 37.1-37.2 37.2 7.1 7 37.1-37.2 37.2 37.2"></path>
+              <path d="M-160.4 434.2l-37.2-37.2 37.1-37.1-7-7-37.1 37.1-37.1-37.1-7 7 37.1 37.1-37.2 37.2 7.1 7 37.1-37.2 37.2 37.2" />
             </svg>
           </button>
         </div>

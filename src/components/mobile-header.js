@@ -15,7 +15,7 @@ const MenuItem = ({ children }) => (
   <div className={`${styles.splitLine} ${styles.menuItem}`}>{children}</div>
 );
 
-export const MobileHeader = ({
+const MobileHeader = ({
   isFloatMenu,
   curMenu,
   onChangeIsShowLangPopup,
@@ -30,7 +30,7 @@ export const MobileHeader = ({
     <>
       <div
         className={`${styles.menuOpenBg} ${isShow ? styles.isOpen : ""}`}
-      ></div>
+      />
       <header
         className={`${styles.headerContainer} ${
           isWhite ? styles.whiteContainer : ""
@@ -45,11 +45,12 @@ export const MobileHeader = ({
             />
           </Link>
           <button
+            type="button"
             className={`${styles.menuBtn} ${isShow ? styles.isOpen : ""}`}
             onClick={() => onChangeIsShow(!isShow)}
           >
-            <div className={styles.menuBtnLine}></div>
-            <div className={styles.menuBtnLine}></div>
+            <div className={styles.menuBtnLine} />
+            <div className={styles.menuBtnLine} />
           </button>
         </div>
         <Container320 className={styles.menuContainer}>
@@ -88,6 +89,7 @@ export const MobileHeader = ({
 
               <div className={styles.langButtonContainer}>
                 <button
+                  type="button"
                   className={styles.langButton}
                   onClick={() => {
                     onChangeIsShowLangPopup(true);
@@ -100,7 +102,10 @@ export const MobileHeader = ({
 
               <div className={styles.startNowContainer}>
                 <ExternalLinkWithQuery href={urlStart}>
-                  <button className={styles.startNowButton}>
+                  <button
+                    type="button"
+                    className={styles.startNowButton}
+                  >
                     {t("header:menuLoginButton")}
                   </button>
                 </ExternalLinkWithQuery>
@@ -109,7 +114,7 @@ export const MobileHeader = ({
           )}
         </Container320>
       </header>
-      {!isFloatMenu && <div className={styles.headerPlaceholder}></div>}
+      {!isFloatMenu && <div className={styles.headerPlaceholder} />}
     </>
   );
 };

@@ -22,7 +22,10 @@ const StartNow = ({ emoji, message, t }) => (
     <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
     <div className={styles.startNowDescription}>{message}</div>
     <ExternalLinkWithQuery href={constants.urlStart}>
-      <button className={styles.startNowButton}>
+      <button
+        type="button"
+        className={styles.startNowButton}
+      >
         {t("footer:startNowButton")}
       </button>
     </ExternalLinkWithQuery>
@@ -44,8 +47,14 @@ const Platforms = ({ t }) => (
         </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlStart}>
-            <button className={styles.platformButton}>
-              <img src={svgPcWeb} alt="PC" />
+            <button
+              type="button"
+              className={styles.platformButton}
+            >
+              <img
+                src={svgPcWeb}
+                alt="PC"
+              />
               {t("footer:platformsPC")}
             </button>
           </a>
@@ -58,14 +67,26 @@ const Platforms = ({ t }) => (
         </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlDownloadWindows}>
-            <button className={styles.platformButton}>
-              <img src={svgWindows} alt="Windows" />
+            <button
+              type="button"
+              className={styles.platformButton}
+            >
+              <img
+                src={svgWindows}
+                alt="Windows"
+              />
               {t("footer:platformsWindows")}
             </button>
           </a>
           <a href={constants.urlDownloadOsx}>
-            <button className={styles.platformButton}>
-              <img src={svgOsx} alt="macOS" />
+            <button
+              type="button"
+              className={styles.platformButton}
+            >
+              <img
+                src={svgOsx}
+                alt="macOS"
+              />
               {t("footer:platformsOsx")}
             </button>
           </a>
@@ -118,7 +139,7 @@ const DesktopFooterMenus = ({ t }) => (
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Resource</div>
       <div>
-        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
+        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
       <div>
         <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
@@ -138,7 +159,11 @@ const DesktopFooterMenus = ({ t }) => (
         </a>
       </div>
       <div>
-        <a href={t("url:hire")} target="_blank" rel="noreferrer">
+        <a
+          href={t("url:hire")}
+          target="_blank"
+          rel="noreferrer"
+        >
           {t("footer:footerMenuCompanyHire")}
         </a>
       </div>
@@ -147,17 +172,20 @@ const DesktopFooterMenus = ({ t }) => (
       <div className={styles.footerMenuLabel}>Contact</div>
       <div>{t("footer:footerMenuContactTel")}</div>
       <div>
-        {t("footer:footerMenuContactEmail")}{" "}
+        {t("footer:footerMenuContactEmail")}
+        {" "}
         <a href="mailto:support+boxhero@bgpworks.com">
           support+boxhero@bgpworks.com
         </a>
       </div>
       <div>
-        {t("footer:footerMenuContactBusiness")}{" "}
+        {t("footer:footerMenuContactBusiness")}
+        {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </div>
       <div>
-        {t("footer:footerMenuContactKakao")}{" "}
+        {t("footer:footerMenuContactKakao")}
+        {" "}
         <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
       </div>
     </div>
@@ -172,7 +200,11 @@ const DesktopFooterMenus = ({ t }) => (
 const CompanyInfo = ({ t }) => (
   <div className={styles.companyInfoContainer}>
     <div className={styles.logoContainer}>
-      <img className={styles.companyLogo} src={svgCompanyLogo} alt="BGPworks" />
+      <img
+        className={styles.companyLogo}
+        src={svgCompanyLogo}
+        alt="BGPworks"
+      />
     </div>
     <div>
       <div className={styles.companyInfoDetail}>
@@ -189,18 +221,18 @@ const CompanyInfo = ({ t }) => (
         />
       </div>
       <div className={styles.copyRight}>
-        © {new Date().getFullYear()}, BGPworks. All rights reserved.
+        {`© ${new Date().getFullYear()}, BGPworks. All rights reserved.`}
       </div>
     </div>
     <SocialLinkList />
   </div>
 );
 
-const DesktopFooterMenusAndInfo = (props) => (
+const DesktopFooterMenusAndInfo = ({ t }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <Container1024 className={styles.px10}>
-      <DesktopFooterMenus {...props} />
-      <CompanyInfo {...props} />
+      <DesktopFooterMenus t={t} />
+      <CompanyInfo t={t} />
     </Container1024>
   </div>
 );
@@ -211,7 +243,11 @@ const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
     <div>
       {!showEssential && (
         <>
-          <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+          <StartNow
+            emoji={closingEmoji}
+            message={closingMsg}
+            t={t}
+          />
           <Platforms t={t} />
         </>
       )}

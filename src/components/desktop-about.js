@@ -2,9 +2,9 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
-import DesktopLayout from "../components/desktop-layout";
-import { Container1024, GradientBG, Padding } from "../components/common";
-import * as constants from "../components/constants";
+import DesktopLayout from "./desktop-layout";
+import { Container1024, GradientBG, Padding } from "./common";
+import * as constants from "./constants";
 // css
 import * as styles from "./desktop-about.module.css";
 // img
@@ -50,7 +50,8 @@ const StrongPoints = ({ data }) => (
             position: "relative",
             top: 152,
             right: 219,
-          }} />
+          }}
+        />
       </div>
       <div>
         <Padding y={271} />
@@ -79,7 +80,8 @@ const StrongPoints = ({ data }) => (
           style={{
             position: "relative",
             top: 137,
-          }} />
+          }}
+        />
       </div>
     </Container1024>
 
@@ -91,7 +93,8 @@ const StrongPoints = ({ data }) => (
             position: "relative",
             top: 190,
             right: 109,
-          }} />
+          }}
+        />
       </div>
       <div>
         <Padding y={271} />
@@ -106,12 +109,23 @@ const StrongPoints = ({ data }) => (
   </div>
 );
 
-const FeatureCard = ({ img, title, content, link }) => (
-  <a href={link} title={title} target="_blank" rel="noreferrer">
+const FeatureCard = ({
+  img, title, content, link,
+}) => (
+  <a
+    href={link}
+    title={title}
+    target="_blank"
+    rel="noreferrer"
+  >
     <div className={styles.featureCard}>
-      <div className={styles.featureCardBackground}></div>
+      <div className={styles.featureCardBackground} />
       <div className={styles.featureCardContentContainer}>
-        <img className={styles.featureIcon} src={img} alt={title} />
+        <img
+          className={styles.featureIcon}
+          src={img}
+          alt={title}
+        />
         <Padding y={10} />
         <div className={styles.featureCardTitle}>{title}</div>
         <Padding y={15} />
@@ -122,7 +136,10 @@ const FeatureCard = ({ img, title, content, link }) => (
 );
 
 const FeatureRow = ({ id, title, columns }) => (
-  <div id={id} className={styles.featureRow}>
+  <div
+    id={id}
+    className={styles.featureRow}
+  >
     <div className={styles.featureRowTitle}>{title}</div>
     <Padding y={32} />
     <div className={styles.featureContainer}>
@@ -256,9 +273,9 @@ const OtherFeatures = ({ t }) => (
   </GradientBG>
 );
 
-const DesktopAbout = ({ data, language, t }) => (
+const DesktopAbout = ({ data, t }) => (
   <DesktopLayout
-    isFloatMenu={true}
+    isFloatMenu
     curMenu="about"
     closingEmoji={data.light}
     closingMsg={t("about:closingMsg")}
@@ -267,7 +284,10 @@ const DesktopAbout = ({ data, language, t }) => (
 
     <StrongPoints data={data} />
 
-    <OtherFeatures data={data} t={t} />
+    <OtherFeatures
+      data={data}
+      t={t}
+    />
   </DesktopLayout>
 );
 

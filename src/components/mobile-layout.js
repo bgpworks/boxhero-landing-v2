@@ -4,7 +4,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileHeader from "./mobile-header";
 import MobileFooter from "./mobile-footer";
-import { AppDownloadLink } from "../components/common";
+import { AppDownloadLink } from "./common";
 import { LangPopup } from "./language-selector";
 // css
 import * as styles from "./mobile-layout.module.css";

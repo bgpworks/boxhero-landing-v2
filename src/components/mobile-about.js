@@ -2,14 +2,14 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
-import MobileLayout from "../components/mobile-layout";
+import MobileLayout from "./mobile-layout";
 import {
   Container320,
   ContainerCenter,
   GradientBG,
   Padding,
-} from "../components/common";
-import * as constants from "../components/constants";
+} from "./common";
+import * as constants from "./constants";
 // css
 import * as styles from "./mobile-about.module.css";
 // img
@@ -84,10 +84,21 @@ const StrongPoints = ({ data }) => (
   </ContainerCenter>
 );
 
-const FeatureCard = ({ img, title, content, link }) => (
-  <a href={link} title={title} target="_blank" rel="noreferrer">
+const FeatureCard = ({
+  img, title, content, link,
+}) => (
+  <a
+    href={link}
+    title={title}
+    target="_blank"
+    rel="noreferrer"
+  >
     <div className={styles.featureCard}>
-      <img className={styles.featureIcon} src={img} alt={title} />
+      <img
+        className={styles.featureIcon}
+        src={img}
+        alt={title}
+      />
       <Padding y={8} />
       <div className={styles.featureCardTitle}>{title}</div>
       <Padding y={8} />
@@ -97,7 +108,10 @@ const FeatureCard = ({ img, title, content, link }) => (
 );
 
 const FeatureRow = ({ id, title, columns }) => (
-  <div id={id} className={styles.featureRow}>
+  <div
+    id={id}
+    className={styles.featureRow}
+  >
     <div className={styles.featureRowTitle}>{title}</div>
     <Padding y={21} />
     <div className={styles.featureContainer}>
@@ -231,21 +245,22 @@ const OtherFeatures = ({ t }) => (
   </GradientBG>
 );
 
-const MobileAbout = ({ data, language, t }) => {
-  return (
-    <MobileLayout
-      isFloatMenu={true}
-      curMenu="about"
-      closingEmoji={data.mobileLight}
-      closingMsg={t("about:closingMsg")}
-    >
-      <Top data={data} />
+const MobileAbout = ({ data, t }) => (
+  <MobileLayout
+    isFloatMenu
+    curMenu="about"
+    closingEmoji={data.mobileLight}
+    closingMsg={t("about:closingMsg")}
+  >
+    <Top data={data} />
 
-      <StrongPoints data={data} />
+    <StrongPoints data={data} />
 
-      <OtherFeatures data={data} t={t} />
-    </MobileLayout>
-  );
-};
+    <OtherFeatures
+      data={data}
+      t={t}
+    />
+  </MobileLayout>
+);
 
 export default MobileAbout;

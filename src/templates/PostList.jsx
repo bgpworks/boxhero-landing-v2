@@ -32,7 +32,7 @@ export default function PostList({ pageContext, location, data }) {
           edges={edges}
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
-          pagePathPrefix={`/blog/pages`}
+          pagePathPrefix="/blog/pages"
           categoryStyleMap={categoryStyleMap}
         />
       </Media>
@@ -44,7 +44,7 @@ export default function PostList({ pageContext, location, data }) {
           edges={edges}
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
-          pagePathPrefix={`/blog/pages`}
+          pagePathPrefix="/blog/pages"
           categoryStyleMap={categoryStyleMap}
         />
       </Media>
@@ -77,9 +77,7 @@ export const query = graphql`
             thumbnail {
               childImageSharp {
                 gatsbyImageData(
-                  width: 275
-                  height: 171
-                  layout: FIXED
+                  width: 320
                   tracedSVGOptions: {
                     turnPolicy: TURNPOLICY_MAJORITY
                     turdSize: 1

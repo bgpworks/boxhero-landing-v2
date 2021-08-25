@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
-import DesktopLayout from "../components/desktop-layout";
+import DesktopLayout from "./desktop-layout";
 import {
   Container1024,
   Padding,
@@ -11,14 +11,18 @@ import {
   Switch,
   Ribbon,
   ExternalLinkWithQuery,
-} from "../components/common";
-import * as constants from "../components/constants";
+} from "./common";
+import * as constants from "./constants";
 // css
 import * as styles from "./desktop-pricing.module.css";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <div className={styles.topDescColumn}>
-    <GatsbyImage image={emoji} alt={title} style={{ margin: "0 auto" }} />
+    <GatsbyImage
+      image={emoji}
+      alt={title}
+      style={{ margin: "0 auto" }}
+    />
 
     <Padding y={10} />
     <div className={styles.topDescTitle}>{title}</div>
@@ -27,7 +31,7 @@ const TopDescColumn = ({ emoji, title, desc }) => (
   </div>
 );
 
-const TopDescSpliter = () => <div className={styles.vl}></div>;
+const TopDescSpliter = () => <div className={styles.vl} />;
 
 const TopDesc = ({ data, t }) => (
   <Container1024>
@@ -47,13 +51,14 @@ const TopDesc = ({ data, t }) => (
   </Container1024>
 );
 
-const PriceTable = ({ data, language, t }) => {
+const PriceTable = ({ t }) => {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
     <>
       <div className={styles.switchContainer}>
         <button
+          type="button"
           className={`${styles.billingCycleButton} ${
             isYearly ? "" : styles.active
           }`}
@@ -66,6 +71,7 @@ const PriceTable = ({ data, language, t }) => {
           onChange={(active) => setIsYearly(active)}
         />
         <button
+          type="button"
           className={`${styles.billingCycleButton} ${
             isYearly ? styles.active : ""
           }`}
@@ -124,14 +130,20 @@ const PriceTable = ({ data, language, t }) => {
           <tr className={styles.startButtonRow}>
             <td>
               <ExternalLinkWithQuery href={constants.urlStart}>
-                <button className={styles.startButton}>
+                <button
+                  type="button"
+                  className={styles.startButton}
+                >
                   {t("pricing:startNowButton")}
                 </button>
               </ExternalLinkWithQuery>
             </td>
             <td>
               <ExternalLinkWithQuery href={constants.urlStart}>
-                <button className={styles.startButton}>
+                <button
+                  type="button"
+                  className={styles.startButton}
+                >
                   {t("pricing:startTrialButton")}
                 </button>
               </ExternalLinkWithQuery>
@@ -161,11 +173,11 @@ const PriceTable = ({ data, language, t }) => {
           </tr>
 
           <tr className={styles.sectionTitleRow}>
-            <td></td>
+            <td />
             <td>{t("pricing:headerExtension")}</td>
           </tr>
           <tr>
-            <td></td>
+            <td />
             <td className={styles.multiLine}>
               <Trans
                 i18nKey="pricing:limitMemberBizExtensible"
@@ -279,8 +291,14 @@ const Faq = ({ t }) => {
 
       <div className={styles.faqContentContainer}>
         {faqData.map((faq, index) => (
-          <DropDownQNA key={index} title={faq.question}>
-            <Trans {...faq.answer} />
+          <DropDownQNA
+            key={index}
+            title={faq.question}
+          >
+            <Trans
+              i18nKey={faq.answer.i18nKey}
+              components={faq.answer.components}
+            />
           </DropDownQNA>
         ))}
       </div>
@@ -288,7 +306,10 @@ const Faq = ({ t }) => {
       <Padding y={50} />
 
       <a href={t("url:pricing")}>
-        <button className={styles.buttonShowMore}>
+        <button
+          type="button"
+          className={styles.buttonShowMore}
+        >
           {t("pricing:faqMoreButton")}
         </button>
       </a>
@@ -311,6 +332,7 @@ const DirectContact = ({ t }) => (
     <Padding y={50} />
 
     <button
+      type="button"
       className={styles.directContactButton}
       onClick={() => {
         if ("Beacon" in window) {
@@ -323,29 +345,34 @@ const DirectContact = ({ t }) => (
   </div>
 );
 
-export const DesktopPricing = ({ data, language, t }) => {
-  return (
-    <DesktopLayout
-      isFloatMenu={false}
-      curMenu="pricing"
-      closingEmoji={data.box}
-      closingMsg={t("pricing:closingMsg")}
-    >
-      <SimpleTop title={t("pricing:topTitle")}>
-        <TopDesc data={data} t={t} />
-      </SimpleTop>
+const DesktopPricing = ({ data, language, t }) => (
+  <DesktopLayout
+    isFloatMenu={false}
+    curMenu="pricing"
+    closingEmoji={data.box}
+    closingMsg={t("pricing:closingMsg")}
+  >
+    <SimpleTop title={t("pricing:topTitle")}>
+      <TopDesc
+        data={data}
+        t={t}
+      />
+    </SimpleTop>
 
-      <Padding y={80} />
+    <Padding y={80} />
 
-      <PriceTable data={data} language={language} t={t} />
+    <PriceTable
+      data={data}
+      language={language}
+      t={t}
+    />
 
-      <Padding y={100} />
+    <Padding y={100} />
 
-      <Faq t={t} />
+    <Faq t={t} />
 
-      <DirectContact t={t} />
-    </DesktopLayout>
-  );
-};
+    <DirectContact t={t} />
+  </DesktopLayout>
+);
 
 export default DesktopPricing;

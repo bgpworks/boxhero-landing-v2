@@ -2,9 +2,9 @@ import React from "react";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { format } from "date-fns";
-import * as constants from "../components/constants";
-import { ExternalLinkWithQuery } from "../components/common";
-import DesktopLayout from "../components/desktop-layout";
+import * as constants from "./constants";
+import { ExternalLinkWithQuery } from "./common";
+import DesktopLayout from "./desktop-layout";
 import PostBody from "./desktop-postbody";
 import svgCompleteArrowPrev from "../images/complete-arrow-prev.svg";
 import {
@@ -38,36 +38,37 @@ const LinkToListSection = () => {
 
   return (
     <section className={linkToListSection}>
-      <Link to={`/blog`}>
-        <img src={svgCompleteArrowPrev} alt="arrow-prev" />
+      <Link to="/blog">
+        <img
+          src={svgCompleteArrowPrev}
+          alt="arrow-prev"
+        />
         <span className={linkToListLabel}>{t("blog:linkToList")}</span>
       </Link>
     </section>
   );
 };
 
-const AuthorAndDateSection = ({ author, authorPhoto, date }) => {
-  return (
-    <div className={authorSection}>
-      {authorPhoto && (
-        <GatsbyImage
-          image={authorPhoto}
-          className={authorPhotoWrapper}
-          alt={author}
-        />
-      )}
-      <div className={nameAndDate}>
-        <address>{author}</address>
-        <time
-          dateTime={format(new Date(date), "yyyy-MM-dd")}
-          className={createdTime}
-        >
-          {format(new Date(date), "PPP")}
-        </time>
-      </div>
+const AuthorAndDateSection = ({ author, authorPhoto, date }) => (
+  <div className={authorSection}>
+    {authorPhoto && (
+    <GatsbyImage
+      image={authorPhoto}
+      className={authorPhotoWrapper}
+      alt={author}
+    />
+    )}
+    <div className={nameAndDate}>
+      <address>{author}</address>
+      <time
+        dateTime={format(new Date(date), "yyyy-MM-dd")}
+        className={createdTime}
+      >
+        {format(new Date(date), "PPP")}
+      </time>
     </div>
-  );
-};
+  </div>
+);
 
 const PostHeader = ({
   category,
@@ -76,25 +77,30 @@ const PostHeader = ({
   authorPhoto,
   date,
   categoryStyle,
-}) => {
-  return (
-    <header className={postHeader}>
-      <span className={postCategory} style={categoryStyle}>
-        {category}
-      </span>
-      <h1 className={postTitle}>{title}</h1>
-      <AuthorAndDateSection
-        author={author}
-        authorPhoto={authorPhoto}
-        date={date}
-      />
-    </header>
-  );
-};
+}) => (
+  <header className={postHeader}>
+    <span
+      className={postCategory}
+      style={categoryStyle}
+    >
+      {category}
+    </span>
+    <h1 className={postTitle}>{title}</h1>
+    <AuthorAndDateSection
+      author={author}
+      authorPhoto={authorPhoto}
+      date={date}
+    />
+  </header>
+);
 
-const PostThumbnail = ({ thumbnail, alt }) => {
-  return <GatsbyImage className={postThumbnail} image={thumbnail} alt={alt} />;
-};
+const PostThumbnail = ({ thumbnail, alt }) => (
+  <GatsbyImage
+    className={postThumbnail}
+    image={thumbnail}
+    alt={alt}
+  />
+);
 
 const RelatedPostCard = ({
   slug,
@@ -103,17 +109,22 @@ const RelatedPostCard = ({
   categoryStyle,
   title,
   label,
-}) => {
-  return (
-    <Link rel={rel} to={`/blog/posts/${slug}`} className={relatedPostCard}>
-      <span className={categoryInRelatedPost} style={categoryStyle}>
-        {category}
-      </span>
-      <div className={titleInRelatedPost}>{title}</div>
-      <div className={labelInRelatedPost}>{label}</div>
-    </Link>
-  );
-};
+}) => (
+  <Link
+    rel={rel}
+    to={`/blog/posts/${slug}`}
+    className={relatedPostCard}
+  >
+    <span
+      className={categoryInRelatedPost}
+      style={categoryStyle}
+    >
+      {category}
+    </span>
+    <div className={titleInRelatedPost}>{title}</div>
+    <div className={labelInRelatedPost}>{label}</div>
+  </Link>
+);
 
 const StartNow = () => {
   const { t } = useI18next();
@@ -123,7 +134,12 @@ const StartNow = () => {
       <span className={startNowTitle}>{t("blog:startNowTitle")}</span>
       <span className={startNowDesc}>{t("blog:startNowDescription")}</span>
       <ExternalLinkWithQuery href={constants.urlStart}>
-        <button className={startNowButton}>{t("blog:startNowButton")}</button>
+        <button
+          type="button"
+          className={startNowButton}
+        >
+          {t("blog:startNowButton")}
+        </button>
       </ExternalLinkWithQuery>
     </section>
   );
@@ -174,32 +190,34 @@ export default function DesktopPostView({
   prevPostData,
   nextPostData,
 }) {
-  const title = currentPostData.frontmatter.title;
-  const category = currentPostData.frontmatter.category;
-  const thumbnail =
-    currentPostData.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData;
+  const { frontmatter, htmlAst, fields: { date } } = currentPostData;
+  const {
+    title, category, thumbnail, author, authorPhoto,
+  } = frontmatter;
 
   return (
     <DesktopLayout
       mainClassName={pageContainer}
       isFloatMenu={false}
-      showEssential={true}
+      showEssential
     >
       <LinkToListSection />
       <article className={postContainer}>
         <PostHeader
           title={title}
           category={category}
-          author={currentPostData.frontmatter.author}
-          authorPhoto={
-            currentPostData.frontmatter?.authorPhoto?.childImageSharp
-              ?.gatsbyImageData
-          }
-          date={currentPostData.fields.date}
+          author={author}
+          authorPhoto={authorPhoto?.childImageSharp?.gatsbyImageData}
+          date={date}
           categoryStyle={categoryStyleMap[category]}
         />
-        {thumbnail && <PostThumbnail thumbnail={thumbnail} alt={title} />}
-        <PostBody postContentHTMLAst={currentPostData.htmlAst} />
+        {thumbnail && (
+        <PostThumbnail
+          thumbnail={thumbnail?.childImageSharp?.gatsbyImageData}
+          alt={title}
+        />
+        )}
+        <PostBody postContentHTMLAst={htmlAst} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (

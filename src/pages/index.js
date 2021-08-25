@@ -21,11 +21,19 @@ const IndexPage = ({ data, location }) => {
       />
 
       <Media at="xs">
-        <MobileIndex data={data} language={language} t={t} />
+        <MobileIndex
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopIndex data={data} language={language} t={t} />
+        <DesktopIndex
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
     </>
   );

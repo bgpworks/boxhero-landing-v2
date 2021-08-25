@@ -10,7 +10,7 @@ import {
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
-} from "../components/constants";
+} from "./constants";
 
 export const Container1024 = ({ className, children }) => (
   <div className={`${styles.container1024} ${className}`}>{children}</div>
@@ -73,9 +73,7 @@ export const MobileSimpleTop = ({ title, children }) => (
 );
 
 export const DropDownQNA = ({
-  isFirst,
   title,
-  content,
   children,
   titleClassName,
   bodyClassName,
@@ -90,7 +88,10 @@ export const DropDownQNA = ({
         onClick={() => setShow(!isShow)}
       >
         <span className={isShow ? styles.open : ""}>{title}</span>
-        <img src={isShow ? svgUp : svgDown} alt="자세히 보기" />
+        <img
+          src={isShow ? svgUp : svgDown}
+          alt="자세히 보기"
+        />
       </div>
       {isShow && (
         <div className={`${styles.dropDownQNABody} ${bodyClassName}`}>
@@ -111,9 +112,9 @@ export const SupportEmail = () => {
           }
         }
       }
-    `
+    `,
   );
-  const email = data.site.siteMetadata.email;
+  const { email } = data.site.siteMetadata;
   return <a href={`mailto:${email}`}>{email}</a>;
 };
 
@@ -128,7 +129,10 @@ export const Switch = ({ isActive, onChange }) => {
         checked={isActive}
         onChange={(evt) => onChange(evt.target.checked)}
       />
-      <label htmlFor={id} className={styles.switchLabel}>
+      <label
+        htmlFor={id}
+        className={styles.switchLabel}
+      >
         {" "}
       </label>
     </div>
@@ -146,7 +150,7 @@ export const Ribbon = ({ className, children }) => (
 export const WithCurrentSlide = ({ children }) => {
   const carouselContext = useContext(CarouselContext);
   const [currentSlide, setCurrentSlide] = useState(
-    carouselContext.state.currentSlide
+    carouselContext.state.currentSlide,
   );
   useEffect(() => {
     function onChange() {
@@ -172,22 +176,25 @@ export const ExternalLinkWithQuery = ({ href, children, ...props }) => {
   const hrefWithSearch = search == null ? href : href + search;
 
   return (
-    <a {...props} href={hrefWithSearch}>
+    <a
+      {...props}
+      href={hrefWithSearch}
+    >
       {children}
     </a>
   );
 };
 
 function parseQuery(search) {
-  var ret = {};
+  const ret = {};
   if (!search) {
     return ret;
   }
 
-  var query = search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
+  const query = search.substring(1);
+  const vars = query.split("&");
+  for (let i = 0; i < vars.length; i += 1) {
+    const pair = vars[i].split("=");
     ret[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
   }
   return ret;
@@ -200,16 +207,16 @@ export const AppDownloadLink = ({ children, ...props }) => {
   useEffect(() => {
     const param = parseQuery(localStorage.getItem("search_param"));
 
-    if (param["n_media"]) {
+    if (param.n_media) {
       // 네이버
       setTrackingUrl(urlDownloadAppSearchAd);
-    } else if (param["gclid"] || param["utm_source"] === "google") {
+    } else if (param.gclid || param.utm_source === "google") {
       // 구글
       setTrackingUrl(urlDownloadAppSearchAd);
-    } else if (param["utm_source"] === "dable") {
+    } else if (param.utm_source === "dable") {
       // 데이블
       setTrackingUrl(urlDownloadAppDable);
-    } else if (param["utm_source"] === "kakao") {
+    } else if (param.utm_source === "kakao") {
       // 카카오 비즈보드
       setTrackingUrl(urlDownloadAppKakao);
     }
@@ -219,7 +226,11 @@ export const AppDownloadLink = ({ children, ...props }) => {
   const linkType = trackingUrl != null ? "searchAd" : "organic";
 
   return (
-    <a {...props} href={appDownloadLink} data-link-type={linkType}>
+    <a
+      {...props}
+      href={appDownloadLink}
+      data-link-type={linkType}
+    >
       {children}
     </a>
   );
@@ -230,16 +241,14 @@ export const GradientBG = ({
   colorSet,
   backgroundColor,
   className,
-}) => {
-  return (
-    <div
-      className={[className, styles.gradientBG].join(" ")}
-      style={{
-        backgroundColor,
-        backgroundImage: `linear-gradient(240deg, ${colorSet.join(",")})`,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
+}) => (
+  <div
+    className={[className, styles.gradientBG].join(" ")}
+    style={{
+      backgroundColor,
+      backgroundImage: `linear-gradient(240deg, ${colorSet.join(",")})`,
+    }}
+  >
+    {children}
+  </div>
+);

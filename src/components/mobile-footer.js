@@ -10,7 +10,7 @@ import * as styles from "./mobile-footer.module.css";
 import svgCompanyLogo from "../images/company-logo.svg";
 import SocialLinkList from "./social-link-list";
 
-const StartNow = ({ emoji, message, t }) => (
+const StartNow = ({ emoji, message }) => (
   <div className={styles.startNowContainer}>
     <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
     <div className={styles.startNowDescription}>{message}</div>
@@ -40,7 +40,7 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Resource</div>
       <div>
-        <Link to={"/blog"}>{t("footer:footerMenuCompanyBlog")}</Link>
+        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
       <div>
         <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
@@ -60,7 +60,11 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
         </a>
       </div>
       <div>
-        <a href={t("url:hire")} target="_blank" rel="noreferrer">
+        <a
+          href={t("url:hire")}
+          target="_blank"
+          rel="noreferrer"
+        >
           {t("footer:footerMenuCompanyHire")}
         </a>
       </div>
@@ -68,6 +72,7 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>
         <button
+          type="button"
           className={styles.langButton}
           onClick={() => onChangeIsShowLangPopup(true)}
         >
@@ -79,17 +84,20 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
       <div className={styles.footerMenuLabel}>Contact</div>
       <div>{t("footer:footerMenuContactTel")}</div>
       <div>
-        {t("footer:footerMenuContactEmail")}{" "}
+        {t("footer:footerMenuContactEmail")}
+        {" "}
         <a href="mailto:support+boxhero@bgpworks.com">
           support+boxhero@bgpworks.com
         </a>
       </div>
       <div>
-        {t("footer:footerMenuContactBusiness")}{" "}
+        {t("footer:footerMenuContactBusiness")}
+        {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </div>
       <div>
-        {t("footer:footerMenuContactKakao")}{" "}
+        {t("footer:footerMenuContactKakao")}
+        {" "}
         <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
       </div>
     </div>
@@ -99,7 +107,11 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
 const CompanyInfo = ({ t }) => (
   <div>
     <div>
-      <img className={styles.companyLogo} src={svgCompanyLogo} alt="BGPworks" />
+      <img
+        className={styles.companyLogo}
+        src={svgCompanyLogo}
+        alt="BGPworks"
+      />
     </div>
     <Padding y={10} />
     <div className={styles.companyInfoDetail}>
@@ -120,16 +132,21 @@ const CompanyInfo = ({ t }) => (
     <Padding y={40} />
     <SocialLinkList />
     <Padding y={20} />
-    <div>© {new Date().getFullYear()}, BGPworks. All rights reserved.</div>
+    <div>
+      {`© ${new Date().getFullYear()}, BGPworks. All rights reserved.`}
+    </div>
   </div>
 );
 
-const MobileFooterMenusAndInfo = (props) => (
+const MobileFooterMenusAndInfo = ({ t, onChangeIsShowLangPopup }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <div className={styles.footerMenusAndInfoContentContainer}>
-      <MobileFooterMenus {...props} />
+      <MobileFooterMenus
+        t={t}
+        onChangeIsShowLangPopup={onChangeIsShowLangPopup}
+      />
       <Padding y={50} />
-      <CompanyInfo {...props} />
+      <CompanyInfo t={t} />
     </div>
   </div>
 );
@@ -144,7 +161,11 @@ const MobileFooter = ({
   return (
     <div>
       {!showEssentialOnly && (
-        <StartNow emoji={closingEmoji} message={closingMsg} t={t} />
+        <StartNow
+          emoji={closingEmoji}
+          message={closingMsg}
+          t={t}
+        />
       )}
       <MobileFooterMenusAndInfo
         t={t}

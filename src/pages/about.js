@@ -20,10 +20,18 @@ const AboutPage = ({ data, location }) => {
         path={location.pathname}
       />
       <Media at="xs">
-        <MobileAbout data={data} language={language} t={t} />
+        <MobileAbout
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
       <Media greaterThan="xs">
-        <DesktopAbout data={data} language={language} t={t} />
+        <DesktopAbout
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
     </>
   );

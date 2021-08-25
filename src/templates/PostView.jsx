@@ -72,7 +72,6 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               width: 40
-              layout: FIXED
               tracedSVGOptions: {
                 turnPolicy: TURNPOLICY_MAJORITY
                 turdSize: 1
@@ -88,7 +87,6 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               width: 800
-              layout: FIXED
               tracedSVGOptions: {
                 turnPolicy: TURNPOLICY_MAJORITY
                 turdSize: 1

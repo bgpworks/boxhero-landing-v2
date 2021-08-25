@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
-import MobileLayout from "../components/mobile-layout";
+import MobileLayout from "./mobile-layout";
 import {
   Container320,
   ContainerCenter,
@@ -11,15 +11,20 @@ import {
   DropDownQNA,
   Switch,
   Ribbon,
-} from "../components/common";
-import * as constants from "../components/constants";
-import { AppDownloadLink } from "../components/common";
+  AppDownloadLink,
+} from "./common";
+import * as constants from "./constants";
+
 // css
 import * as styles from "./mobile-pricing.module.css";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <>
-    <GatsbyImage image={emoji} alt={title} style={{ margin: "0 auto" }} />
+    <GatsbyImage
+      image={emoji}
+      alt={title}
+      style={{ margin: "0 auto" }}
+    />
     <div className={styles.topDescTitle}>{title}</div>
     <Padding y={5} />
     <div className={styles.topDescDesc}>{desc}</div>
@@ -42,7 +47,7 @@ const TopDesc = ({ data, t }) => (
   </div>
 );
 
-const PriceTable = ({ data, language, t }) => {
+const PriceTable = ({ t }) => {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
@@ -57,7 +62,10 @@ const PriceTable = ({ data, language, t }) => {
         </div>
         <div>
           <AppDownloadLink>
-            <button className={styles.startButton}>
+            <button
+              type="button"
+              className={styles.startButton}
+            >
               {t("pricing:startNowButton")}
             </button>
           </AppDownloadLink>
@@ -93,6 +101,7 @@ const PriceTable = ({ data, language, t }) => {
         <Padding y={30} />
         <div className={styles.switchContainer}>
           <button
+            type="button"
             className={`${styles.billingCycleButton} ${
               isYearly ? "" : styles.active
             }`}
@@ -105,6 +114,7 @@ const PriceTable = ({ data, language, t }) => {
             onChange={(active) => setIsYearly(active)}
           />
           <button
+            type="button"
             className={`${styles.billingCycleButton} ${
               isYearly ? styles.active : ""
             }`}
@@ -126,7 +136,10 @@ const PriceTable = ({ data, language, t }) => {
         </div>
         <div>
           <AppDownloadLink>
-            <button className={styles.startButton}>
+            <button
+              type="button"
+              className={styles.startButton}
+            >
               {t("pricing:startTrialButton")}
             </button>
           </AppDownloadLink>
@@ -252,14 +265,20 @@ const Faq = ({ t }) => {
           titleClassName={styles.faqItemTitle}
           bodyClassName={styles.faqItemBody}
         >
-          <Trans {...faq.answer} />
+          <Trans
+            i18nKey={faq.answer.i18nKey}
+            components={faq.answer.components}
+          />
         </DropDownQNA>
       ))}
 
       <Padding y={30} />
 
       <a href={t("url:pricing")}>
-        <button className={styles.buttonShowMore}>
+        <button
+          type="button"
+          className={styles.buttonShowMore}
+        >
           {t("pricing:faqMoreButton")}
         </button>
       </a>
@@ -283,6 +302,7 @@ const DirectContact = ({ t }) => (
       <Padding y={30} />
 
       <button
+        type="button"
         className={styles.directContactButton}
         onClick={() => {
           if ("Beacon" in window) {
@@ -296,31 +316,36 @@ const DirectContact = ({ t }) => (
   </div>
 );
 
-const MobilePricing = ({ data, language, t }) => {
-  return (
-    <MobileLayout
-      isFloatMenu={false}
-      hideFloatAppInstallButton={true}
-      curMenu="pricing"
-      closingEmoji={data.mobileBox}
-      closingMsg={t("pricing:closingMsg")}
-    >
-      <ContainerCenter className={styles.px20}>
-        <MobileSimpleTop title={t("pricing:topTitle")}>
-          <Padding y={10} />
-          <TopDesc data={data} t={t} />
-        </MobileSimpleTop>
-      </ContainerCenter>
+const MobilePricing = ({ data, language, t }) => (
+  <MobileLayout
+    isFloatMenu={false}
+    hideFloatAppInstallButton
+    curMenu="pricing"
+    closingEmoji={data.mobileBox}
+    closingMsg={t("pricing:closingMsg")}
+  >
+    <ContainerCenter className={styles.px20}>
+      <MobileSimpleTop title={t("pricing:topTitle")}>
+        <Padding y={10} />
+        <TopDesc
+          data={data}
+          t={t}
+        />
+      </MobileSimpleTop>
+    </ContainerCenter>
 
-      <Padding y={50} />
+    <Padding y={50} />
 
-      <PriceTable data={data} language={language} t={t} />
+    <PriceTable
+      data={data}
+      language={language}
+      t={t}
+    />
 
-      <Faq t={t} />
+    <Faq t={t} />
 
-      <DirectContact t={t} />
-    </MobileLayout>
-  );
-};
+    <DirectContact t={t} />
+  </MobileLayout>
+);
 
 export default MobilePricing;

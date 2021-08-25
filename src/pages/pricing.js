@@ -21,11 +21,19 @@ export default function PricingPage({ data, location }) {
       />
 
       <Media at="xs">
-        <MobilePricing data={data} language={language} t={t} />
+        <MobilePricing
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopPricing data={data} language={language} t={t} />
+        <DesktopPricing
+          data={data}
+          language={language}
+          t={t}
+        />
       </Media>
     </>
   );
