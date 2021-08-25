@@ -190,9 +190,10 @@ export default function DesktopPostView({
   prevPostData,
   nextPostData,
 }) {
-  const { title } = currentPostData.frontmatter;
-  const { category } = currentPostData.frontmatter;
-  const thumbnail = currentPostData.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData;
+  const { frontmatter, htmlAst, fields: { date } } = currentPostData;
+  const {
+    title, category, thumbnail, author, authorPhoto,
+  } = frontmatter;
 
   return (
     <DesktopLayout
@@ -205,21 +206,18 @@ export default function DesktopPostView({
         <PostHeader
           title={title}
           category={category}
-          author={currentPostData.frontmatter.author}
-          authorPhoto={
-            currentPostData.frontmatter?.authorPhoto?.childImageSharp
-              ?.gatsbyImageData
-          }
-          date={currentPostData.fields.date}
+          author={author}
+          authorPhoto={authorPhoto?.childImageSharp?.gatsbyImageData}
+          date={date}
           categoryStyle={categoryStyleMap[category]}
         />
         {thumbnail && (
         <PostThumbnail
-          thumbnail={thumbnail}
+          thumbnail={thumbnail?.childImageSharp?.gatsbyImageData}
           alt={title}
         />
         )}
-        <PostBody postContentHTMLAst={currentPostData.htmlAst} />
+        <PostBody postContentHTMLAst={htmlAst} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (

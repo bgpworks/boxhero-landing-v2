@@ -133,9 +133,7 @@ const CompanyInfo = ({ t }) => (
     <SocialLinkList />
     <Padding y={20} />
     <div>
-      ©
-      {new Date().getFullYear()}
-      , BGPworks. All rights reserved.
+      {`© ${new Date().getFullYear()}, BGPworks. All rights reserved.`}
     </div>
   </div>
 );

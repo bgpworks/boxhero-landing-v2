@@ -100,6 +100,7 @@ const DemoTemplate = ({
       />
       <span className={styles.demoTitle}>
         -
+        {" "}
         {title}
         {" "}
         -
@@ -175,15 +176,17 @@ function FeatureTemplate({
           data-sal-delay="300"
           data-sal-easing="easeOutQuint"
         >
-          {demoData.slice(0, 2).map((data, index) => (
-            <DemoTemplate
-              key={index}
-              barColor={barColor}
-              icon={data.icon}
-              title={data.title}
-              desc={data.desc}
-            />
-          ))}
+          {demoData
+            .slice(0, 2)
+            .map((data, index) => (
+              <DemoTemplate
+                key={index}
+                barColor={barColor}
+                icon={data.icon}
+                title={data.title}
+                desc={data.desc}
+              />
+            ))}
         </div>
       </Container1024>
     </div>

@@ -21,6 +21,7 @@ const DemoTemplate = ({ icon, title, desc }) => (
       />
       <span className={styles.demoTitle}>
         -
+        {" "}
         {title}
         {" "}
         -
@@ -59,14 +60,16 @@ function FeatureTemplate({
 
       <Container320>
         <div className={styles.px20}>
-          {demoData.slice(0, 2).map((data, index) => (
-            <DemoTemplate
-              key={index}
-              icon={data.icon}
-              title={data.title}
-              desc={data.desc}
-            />
-          ))}
+          {demoData
+            .slice(0, 2)
+            .map((data, index) => (
+              <DemoTemplate
+                key={index}
+                icon={data.icon}
+                title={data.title}
+                desc={data.desc}
+              />
+            ))}
         </div>
       </Container320>
     </div>
