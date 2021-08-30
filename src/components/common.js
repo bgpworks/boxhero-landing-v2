@@ -12,15 +12,15 @@ import {
   urlDownloadAppKakao,
 } from "./constants";
 
-export const Container1024 = ({ className, children }) => (
-  <div className={`${styles.container1024} ${className}`}>{children}</div>
+export const DesktopBaseContainer = ({ className, children }) => (
+  <div className={`${styles.desktopBaseContainer} ${className}`}>{children}</div>
 );
 
-Container1024.propTypes = {
+DesktopBaseContainer.propTypes = {
   className: PropTypes.string,
 };
 
-Container1024.defaultProps = {
+DesktopBaseContainer.defaultProps = {
   className: "",
 };
 

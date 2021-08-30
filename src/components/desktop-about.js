@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
-import { Container1024, GradientBG, Padding } from "./common";
+import { DesktopBaseContainer, GradientBG, Padding } from "./common";
 import * as constants from "./constants";
 // css
 import * as styles from "./desktop-about.module.css";
@@ -29,20 +29,20 @@ const Top = ({ data }) => (
     colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
     backgroundColor="#4260ef"
   >
-    <Container1024 className={styles.topContentContainer}>
+    <DesktopBaseContainer className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
         <Trans i18nKey="about:topTitle" />
       </div>
       <div className={styles.topRightContainer}>
         <GatsbyImage image={data.topLogo.childImageSharp.gatsbyImageData} />
       </div>
-    </Container1024>
+    </DesktopBaseContainer>
   </GradientBG>
 );
 
 const StrongPoints = ({ data }) => (
   <div className={styles.strongPointContainer}>
-    <Container1024 className={styles.section}>
+    <DesktopBaseContainer className={styles.section}>
       <div className={`${styles.left47} ${styles.figContainer}`}>
         <GatsbyImage
           image={data.easy.childImageSharp.gatsbyImageData}
@@ -62,9 +62,9 @@ const StrongPoints = ({ data }) => (
           <Trans i18nKey="about:strongPoint1Desc" />
         </div>
       </div>
-    </Container1024>
+    </DesktopBaseContainer>
 
-    <Container1024 className={styles.section}>
+    <DesktopBaseContainer className={styles.section}>
       <div className={`${styles.left48} ${styles.pl10}`}>
         <Padding y={253} />
         <span className={styles.title}>
@@ -83,9 +83,9 @@ const StrongPoints = ({ data }) => (
           }}
         />
       </div>
-    </Container1024>
+    </DesktopBaseContainer>
 
-    <Container1024 className={styles.section}>
+    <DesktopBaseContainer className={styles.section}>
       <div className={`${styles.left46} ${styles.figContainer}`}>
         <GatsbyImage
           image={data.mobile.childImageSharp.gatsbyImageData}
@@ -105,7 +105,7 @@ const StrongPoints = ({ data }) => (
           <Trans i18nKey="about:strongPoint3Desc" />
         </div>
       </div>
-    </Container1024>
+    </DesktopBaseContainer>
   </div>
 );
 
@@ -161,7 +161,7 @@ const OtherFeatures = ({ t }) => (
     colorSet={["#0291FD", "#0385AA", "#2A59DD", "#8228FD"]}
     backgroundColor="#6159F5"
   >
-    <Container1024 className={styles.featureContentContainer}>
+    <DesktopBaseContainer className={styles.featureContentContainer}>
       <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
       <Padding y={40} />
       <div className={styles.featureDesc}>
@@ -269,7 +269,7 @@ const OtherFeatures = ({ t }) => (
           },
         ]}
       />
-    </Container1024>
+    </DesktopBaseContainer>
   </GradientBG>
 );
 

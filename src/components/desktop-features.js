@@ -5,7 +5,7 @@ import scrollTo from "gatsby-plugin-smoothscroll";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
-  Container1024,
+  DesktopBaseContainer,
   Padding,
   SimpleTop,
   ExternalLinkWithQuery,
@@ -55,7 +55,7 @@ const MenuItem = ({
 );
 
 const Menu = ({ t }) => (
-  <Container1024 className={styles.menuContainer}>
+  <DesktopBaseContainer className={styles.menuContainer}>
     <MenuItem
       to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
@@ -86,7 +86,7 @@ const Menu = ({ t }) => (
       label={<Trans i18nKey="features:menuLocation" />}
       title={t("features:menuLocationLinkTitle")}
     />
-  </Container1024>
+  </DesktopBaseContainer>
 );
 
 const DemoTemplate = ({
@@ -119,7 +119,7 @@ function FeatureTemplate({
       id={id}
       className={[styles.featureTemplate, bgColor].join(" ")}
     >
-      <Container1024>
+      <DesktopBaseContainer>
         <div className={styles.featureTemplateDescFigContainer}>
           <div className={styles.featureTemplateTitleDescContainer}>
             <div className={styles.featureTemplateTitle}>
@@ -160,7 +160,7 @@ function FeatureTemplate({
               />
             ))}
         </div>
-      </Container1024>
+      </DesktopBaseContainer>
     </div>
   );
 }

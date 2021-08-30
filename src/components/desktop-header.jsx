@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 // js
-import { Container1024, ExternalLinkWithQuery } from "./common";
+import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
 // css
 import * as styles from "./desktop-header.module.css";
@@ -23,7 +23,7 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
           isWhite ? styles.whiteContainer : ""
         }`}
       >
-        <Container1024 className={styles.menuContainer}>
+        <DesktopBaseContainer className={styles.menuContainer}>
           <Link to="/">
             <img
               src={isWhite ? svgBiBlue : svgBiWhite}
@@ -65,7 +65,7 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
               {t("header:menuLoginButton")}
             </button>
           </ExternalLinkWithQuery>
-        </Container1024>
+        </DesktopBaseContainer>
       </header>
       {!isFloatMenu && <div className={styles.headerPlaceholder} />}
     </>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { Container1024, ExternalLinkWithQuery } from "./common";
+import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
 import * as constants from "./constants";
 import { LangSelect } from "./language-selector";
 // css
@@ -230,10 +230,10 @@ const CompanyInfo = ({ t }) => (
 
 const DesktopFooterMenusAndInfo = ({ t }) => (
   <div className={styles.footerMenusAndInfoContainer}>
-    <Container1024 className={styles.px10}>
+    <DesktopBaseContainer className={styles.px10}>
       <DesktopFooterMenus t={t} />
       <CompanyInfo t={t} />
-    </Container1024>
+    </DesktopBaseContainer>
   </div>
 );
 
