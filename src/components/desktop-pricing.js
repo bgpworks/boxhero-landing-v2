@@ -4,7 +4,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
-  Container1024,
+  DesktopBaseContainer,
   Padding,
   SimpleTop,
   DropDownQNA,
@@ -34,7 +34,7 @@ const TopDescColumn = ({ emoji, title, desc }) => (
 const TopDescSpliter = () => <div className={styles.vl} />;
 
 const TopDesc = ({ data, t }) => (
-  <Container1024>
+  <DesktopBaseContainer>
     <div className={styles.topDescContainer}>
       <TopDescColumn
         emoji={data.emojiOne.childImageSharp.gatsbyImageData}
@@ -48,7 +48,7 @@ const TopDesc = ({ data, t }) => (
         desc={<Trans i18nKey="pricing:topDesc2Desc" />}
       />
     </div>
-  </Container1024>
+  </DesktopBaseContainer>
 );
 
 const PriceTable = ({ t }) => {

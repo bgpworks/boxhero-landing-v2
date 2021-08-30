@@ -18,7 +18,7 @@ import { Link, Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
-  Container1024,
+  DesktopBaseContainer,
   Padding,
   WithCurrentSlide,
   ExternalLinkWithQuery,
@@ -43,7 +43,7 @@ const Top = ({ data, t }) => (
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
     backgroundColor="#4260ef"
   >
-    <Container1024 className={styles.topContentContainer}>
+    <DesktopBaseContainer className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
         <img
           src={svgVolt}
@@ -71,7 +71,7 @@ const Top = ({ data, t }) => (
       <div className={styles.topRightContainer}>
         <GatsbyImage image={data.homeTopRight.childImageSharp.gatsbyImageData} />
       </div>
-    </Container1024>
+    </DesktopBaseContainer>
   </GradientBG>
 );
 
@@ -90,7 +90,7 @@ const KeyFeature = ({
   <div
     className={`${styles.keyFeatureContainer} ${isDarkBg ? styles.darkBg : ""}`}
   >
-    <Container1024 className={styles.keyFeatureContentContainer}>
+    <DesktopBaseContainer className={styles.keyFeatureContentContainer}>
       <div className={styles.keyFeatureLeftContainer}>
         <img
           src={icon}
@@ -118,7 +118,7 @@ const KeyFeature = ({
       <div className={styles.keyFeatureRightContainer}>
         <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
       </div>
-    </Container1024>
+    </DesktopBaseContainer>
   </div>
 );
 
