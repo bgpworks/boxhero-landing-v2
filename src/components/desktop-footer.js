@@ -140,18 +140,30 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
+      <div className={styles.footerMenuLabel}>사용사례</div>
+      <div>
+        <Link to="/">판매</Link>
+      </div>
+      <div>
+        <Link to="/">자재관리</Link>
+      </div>
+      <div>
+        <Link to="/">자산관리</Link>
+      </div>
+    </div>
+    <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Resource</div>
       <div>
         <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
-      </div>
-      <div>
-        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
       </div>
       <div>
         <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
       </div>
       <div>
         <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+      </div>
+      <div>
+        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
@@ -171,30 +183,31 @@ const DesktopFooterMenus = ({ t }) => (
         </a>
       </div>
     </div>
-    <div className={styles.wideFooterMenusColumn}>
-      <div className={styles.footerMenuLabel}>Contact</div>
-      <div>{t("footer:footerMenuContactTel")}</div>
-      <div>
-        {t("footer:footerMenuContactEmail")}
-        {" "}
-        <a href="mailto:support+boxhero@bgpworks.com">
-          support+boxhero@bgpworks.com
-        </a>
-      </div>
-      <div>
-        {t("footer:footerMenuContactBusiness")}
-        {" "}
-        <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
-      </div>
-      <div>
-        {t("footer:footerMenuContactKakao")}
-        {" "}
-        <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
-      </div>
-    </div>
     <div>
       <div className={styles.footerMenuLabel}>
         <LangSelect className={styles.footerLangSelector} />
+      </div>
+
+      <div className={styles.contactFooterMenusColumn}>
+        <div className={styles.footerMenuLabel}>Contact</div>
+        <div>{t("footer:footerMenuContactTel")}</div>
+        <div>
+          {t("footer:footerMenuContactEmail")}
+          {" "}
+          <a href="mailto:support+boxhero@bgpworks.com">
+            support+boxhero@bgpworks.com
+          </a>
+        </div>
+        <div>
+          {t("footer:footerMenuContactBusiness")}
+          {" "}
+          <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
+        </div>
+        <div>
+          {t("footer:footerMenuContactKakao")}
+          {" "}
+          <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
+        </div>
       </div>
     </div>
   </div>

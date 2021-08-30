@@ -148,17 +148,19 @@
 }
 
 .footerMenusColumn > div:not(:nth-child(1)) {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .footerMenuLabel {
   font-weight: bold;
   color: var(--color-font-darker);
+  margin-bottom: 16px;
 }
 
-.wideFooterMenusColumn {
+.contactFooterMenusColumn {
   composes: footerMenusColumn;
   width: wide-footer-menu-width;
+  margin-top: 36px;
 }
 
 /* Company info */
@@ -179,7 +181,8 @@
 }
 
 .copyRight {
-  margin-top: 20px;
+  margin-top: 3px;
+  font-size: 12px;
 }
 
 .companyInfoContainer a {
