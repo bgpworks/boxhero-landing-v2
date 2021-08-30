@@ -128,7 +128,7 @@ const Platforms = ({ t }) => (
 const DesktopFooterMenus = ({ t }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Service</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuService")}</div>
       <div>
         <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
       </div>
@@ -152,7 +152,7 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Resource</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuResource")}</div>
       <div>
         <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
@@ -167,7 +167,7 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Company</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuCompany")}</div>
       <div>
         <a href="https://www.bgpworks.com">
           {t("footer:footerMenuCompanyHome")}
@@ -189,7 +189,7 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
 
       <div className={styles.contactFooterMenusColumn}>
-        <div className={styles.footerMenuLabel}>Contact</div>
+        <div className={styles.footerMenuLabel}>{t("footer:footerMenuContact")}</div>
         <div>{t("footer:footerMenuContactTel")}</div>
         <div>
           {t("footer:footerMenuContactEmail")}
