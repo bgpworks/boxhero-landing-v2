@@ -243,12 +243,12 @@ const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
     <div>
       {!showEssential && (
         <>
+          <Platforms t={t} />
           <StartNow
             emoji={closingEmoji}
             message={closingMsg}
             t={t}
           />
-          <Platforms t={t} />
         </>
       )}
       <DesktopFooterMenusAndInfo t={t} />
