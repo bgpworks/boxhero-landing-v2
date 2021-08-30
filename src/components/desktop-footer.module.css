@@ -37,6 +37,7 @@
   composes: verticalCenter;
   padding: 80px 0px;
   text-align: center;
+  background-color: var(--color-bg-light);
 }
 
 .platformGroups {
