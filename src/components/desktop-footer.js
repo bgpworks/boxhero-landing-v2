@@ -40,11 +40,15 @@ StartNow.propTypes = {
 
 const Platforms = ({ t }) => (
   <div className={styles.platformContainer}>
+    <div className={styles.platformTitle}>
+      {t("footer:platformsTitle")}
+    </div>
+    <div className={styles.platformFooterMsg}>
+      {t("footer:platformsLastMessage")}
+    </div>
+
     <div className={styles.platformGroups}>
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupWeb")}
-        </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlStart}>
             <button
@@ -59,12 +63,12 @@ const Platforms = ({ t }) => (
             </button>
           </a>
         </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupWeb")}
+        </div>
       </div>
 
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupDesktop")}
-        </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlDownloadWindows}>
             <button
@@ -91,20 +95,13 @@ const Platforms = ({ t }) => (
             </button>
           </a>
         </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupDesktop")}
+        </div>
       </div>
 
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupMobile")}
-        </div>
         <div className={styles.platformGroupButtons}>
-          <a href="https://itunes.apple.com/app/id1325512157">
-            <img
-              src={svgAppstore}
-              className={styles.platformImgButton}
-              alt="iOS"
-            />
-          </a>
           <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
             <img
               src={svgPlaystore}
@@ -112,12 +109,18 @@ const Platforms = ({ t }) => (
               alt="Android"
             />
           </a>
+          <a href="https://itunes.apple.com/app/id1325512157">
+            <img
+              src={svgAppstore}
+              className={styles.platformImgButton}
+              alt="iOS"
+            />
+          </a>
+        </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupMobile")}
         </div>
       </div>
-    </div>
-
-    <div className={styles.platformFooterMsg}>
-      {t("footer:platformsLastMessage")}
     </div>
   </div>
 );

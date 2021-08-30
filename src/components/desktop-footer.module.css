@@ -40,11 +40,23 @@
   background-color: var(--color-bg-light);
 }
 
+.platformTitle {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.platformFooterMsg {
+  margin-top: 16px;
+  font-size: 18px;
+}
+
 .platformGroups {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
 .platformGroup {
@@ -55,12 +67,11 @@
 }
 
 .platformGroupTitle {
+  padding-top: 12px;
   font-weight: bold;
-  line-height: 36px;
 }
 
 .platformGroupButtons {
-  padding-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -93,10 +104,6 @@
   margin-right: 10px;
   width: 24px;
   height: 24px;
-}
-
-.platformFooterMsg {
-  margin-top: 50px;
 }
 
 /* Footer Menus + Company info */
