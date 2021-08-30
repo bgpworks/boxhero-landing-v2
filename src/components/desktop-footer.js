@@ -44,7 +44,7 @@ const Platforms = ({ t }) => (
       {t("footer:platformsTitle")}
     </div>
     <div className={styles.platformFooterMsg}>
-      {t("footer:platformsLastMessage")}
+      {t("footer:platformsMessage")}
     </div>
 
     <div className={styles.platformGroups}>
