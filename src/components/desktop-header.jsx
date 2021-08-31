@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 // js
-import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
+import { DesktopBaseContainer, ExternalLinkWithQuery, Padding } from "./common";
 import { urlStart } from "./constants";
 // css
 import * as styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
+import svgDown from "../images/down.svg";
+import svgSymbol from "../images/icon-symbol.svg";
+import svgFeature from "../images/icon-feature.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
+
+const DropDownMenu = ({
+  title,
+  children,
+}) => {
+  const [isShow, setShow] = useState(false);
+
+  return (
+    <div className={styles.dropDownMenu}>
+      <div
+        role="presentation"
+        className={styles.dropDownMenuTitle}
+        onClick={() => setShow(!isShow)}
+      >
+        <span>{title}</span>
+        <img
+          src={svgDown}
+          alt="펼치기"
+        />
+      </div>
+      {isShow && (
+        <ul className={styles.subMenus}>
+          {children.map((subMenu, index) => (
+            <li
+              key={index}
+              className={styles.subMenu}
+            >
+              {subMenu}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
 
 const DesktopHeader = ({ isFloatMenu, curMenu }) => {
   const { isScrolled } = useCheckScrolled();
@@ -34,23 +72,35 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
 
           <div className={styles.padding} />
 
-          <Link
-            to="/about/"
-            className={curMenu === "about" ? styles.selected : ""}
+          <DropDownMenu
+            title={t("header:menuService")}
           >
-            {t("header:menuAbout")}
-          </Link>
-
-          <Link
-            to="/features/"
-            className={curMenu === "features" ? styles.selected : ""}
-          >
-            {t("header:menuFeatures")}
-          </Link>
+            <Link
+              to="/about/"
+              className={curMenu === "about" ? styles.selected : ""}
+            >
+              <img
+                src={svgSymbol}
+                alt="about"
+              />
+              <Padding x={10} />
+              {t("header:menuServiceAbout")}
+            </Link>
+            <Link
+              to="/features/"
+              className={curMenu === "features" ? styles.selected : ""}
+            >
+              <img
+                src={svgFeature}
+                alt="about"
+              />
+              <Padding x={10} />
+              {t("header:menuServiceFeatures")}
+            </Link>
+          </DropDownMenu>
 
           <Link
             to="/pricing/"
-            className={curMenu === "pricing" ? styles.selected : ""}
           >
             {t("header:menuPricing")}
           </Link>
