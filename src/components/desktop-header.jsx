@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 // js
-import { DesktopBaseContainer, ExternalLinkWithQuery, Padding } from "./common";
+import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
 // css
 import * as styles from "./desktop-header.module.css";
@@ -12,6 +12,9 @@ import svgBiBlue from "../images/bi-blue.svg";
 import svgDown from "../images/down.svg";
 import svgSymbol from "../images/icon-symbol.svg";
 import svgFeature from "../images/icon-feature.svg";
+import svgTransaction from "../images/icon-transaction.svg";
+import svgParts from "../images/icon-parts.svg";
+import svgAsset from "../images/icon-asset.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
 const DropDownMenu = ({
@@ -80,10 +83,10 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
               className={curMenu === "about" ? styles.selected : ""}
             >
               <img
+                className={styles.subMenuIcon}
                 src={svgSymbol}
-                alt="about"
+                alt={t("header:menuServiceAbout")}
               />
-              <Padding x={10} />
               {t("header:menuServiceAbout")}
             </Link>
             <Link
@@ -91,11 +94,43 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
               className={curMenu === "features" ? styles.selected : ""}
             >
               <img
+                className={styles.subMenuIcon}
                 src={svgFeature}
-                alt="about"
+                alt={t("header:menuServiceFeatures")}
               />
-              <Padding x={10} />
               {t("header:menuServiceFeatures")}
+            </Link>
+          </DropDownMenu>
+
+          <DropDownMenu
+            title={t("header:menuUseCases")}
+          >
+            <Link to="/">
+              <img
+                className={styles.subMenuIcon}
+                src={svgTransaction}
+                alt={t("header:menuUseCaseSales")}
+              />
+              {t("header:menuUseCaseSales")}
+            </Link>
+            <Link to="/">
+              <img
+                className={styles.subMenuIcon}
+                src={svgParts}
+                alt={t("header:menuUseCaseMaterial")}
+              />
+              <div>
+                {t("header:menuUseCaseMaterial")}
+                <p className={styles.subMenuDesc}>{t("header:menuUseCaseMaterialDesc")}</p>
+              </div>
+            </Link>
+            <Link to="/">
+              <img
+                className={styles.subMenuIcon}
+                src={svgAsset}
+                alt={t("header:menuUseCaseAssets")}
+              />
+              {t("header:menuUseCaseAssets")}
             </Link>
           </DropDownMenu>
 
