@@ -145,13 +145,13 @@ const DesktopFooterMenus = ({ t }) => (
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>{t("footer:footerMenuUseCases")}</div>
       <div>
-        <Link to="/">{t("footer:footerMenuSale")}</Link>
+        <Link to="/">{t("footer:footerMenuUseCaseSales")}</Link>
       </div>
       <div>
-        <Link to="/">{t("footer:footerMenuMaterialsManagement")}</Link>
+        <Link to="/">{t("footer:footerMenuUseCaseMaterial")}</Link>
       </div>
       <div>
-        <Link to="/">{t("footer:footerMenuAssetsManagement")}</Link>
+        <Link to="/">{t("footer:footerMenuUseCaseAssets")}</Link>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
