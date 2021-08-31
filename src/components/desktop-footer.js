@@ -122,7 +122,7 @@ const Platforms = ({ t }) => (
   </div>
 );
 
-const DesktopFooterMenus = ({ t }) => (
+const DesktopFooterMenus = ({ t, language }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Service</div>
@@ -183,11 +183,21 @@ const DesktopFooterMenus = ({ t }) => (
         {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </div>
-      <div>
-        {t("footer:footerMenuContactKakao")}
-        {" "}
-        <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
-      </div>
+      {language === "ko"
+        ? (
+          <div>
+            {t("footer:footerMenuContactKakao")}
+            { " "}
+            <a href={constants.urlKakaoTalk}>@boxhero</a>
+          </div>
+        )
+        : (
+          <div>
+            {t("footer:footerMenuContactWhatsApp")}
+            {" "}
+            <a href={constants.urlWhatsApp}>@boxhero</a>
+          </div>
+        )}
     </div>
     <div>
       <div className={styles.footerMenuLabel}>
@@ -228,17 +238,20 @@ const CompanyInfo = ({ t }) => (
   </div>
 );
 
-const DesktopFooterMenusAndInfo = ({ t }) => (
+const DesktopFooterMenusAndInfo = ({ t, language }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <Container1024 className={styles.px10}>
-      <DesktopFooterMenus t={t} />
+      <DesktopFooterMenus
+        t={t}
+        language={language}
+      />
       <CompanyInfo t={t} />
     </Container1024>
   </div>
 );
 
 const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
-  const { t } = useI18next();
+  const { t, language } = useI18next();
   return (
     <div>
       {!showEssential && (
@@ -251,7 +264,10 @@ const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
           <Platforms t={t} />
         </>
       )}
-      <DesktopFooterMenusAndInfo t={t} />
+      <DesktopFooterMenusAndInfo
+        t={t}
+        language={language}
+      />
     </div>
   );
 };
