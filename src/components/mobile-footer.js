@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
+import * as constants from "./constants";
 import { Padding } from "./common";
 // css
 import * as styles from "./mobile-footer.module.css";
@@ -23,7 +24,7 @@ StartNow.propTypes = {
   message: PropTypes.any.isRequired,
 };
 
-const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
+const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
   <div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>Service</div>
@@ -95,11 +96,21 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
         {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </div>
-      <div>
-        {t("footer:footerMenuContactKakao")}
-        {" "}
-        <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
-      </div>
+      {language === "ko"
+        ? (
+          <div>
+            {t("footer:footerMenuContactKakao")}
+            { " "}
+            <a href={constants.urlKakaoTalk}>@boxhero</a>
+          </div>
+        )
+        : (
+          <div>
+            {t("footer:footerMenuContactWhatsApp")}
+            {" "}
+            <a href={constants.urlWhatsApp}>@boxhero</a>
+          </div>
+        )}
     </div>
   </div>
 );
@@ -138,11 +149,12 @@ const CompanyInfo = ({ t }) => (
   </div>
 );
 
-const MobileFooterMenusAndInfo = ({ t, onChangeIsShowLangPopup }) => (
+const MobileFooterMenusAndInfo = ({ t, language, onChangeIsShowLangPopup }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <div className={styles.footerMenusAndInfoContentContainer}>
       <MobileFooterMenus
         t={t}
+        language={language}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
       <Padding y={50} />
@@ -157,7 +169,7 @@ const MobileFooter = ({
   onChangeIsShowLangPopup,
   showEssentialOnly,
 }) => {
-  const { t } = useI18next();
+  const { t, language } = useI18next();
   return (
     <div>
       {!showEssentialOnly && (
@@ -169,6 +181,7 @@ const MobileFooter = ({
       )}
       <MobileFooterMenusAndInfo
         t={t}
+        language={language}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
     </div>

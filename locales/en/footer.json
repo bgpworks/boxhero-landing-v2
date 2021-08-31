@@ -24,5 +24,6 @@
   "companyInfoRegisterNo": "<strong>BOXHERO, Inc.</strong>",
   "companyInfoRegisterNoMobile": "<strong>BOXHERO, Inc.</strong>",
   "companyInfoAddress": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea<br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>",
-  "companyInfoAddressMobile": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea<br/><br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>"
+  "companyInfoAddressMobile": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea<br/><br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>",
+  "footerMenuContactWhatsApp": "WhatsApp :"
 }
