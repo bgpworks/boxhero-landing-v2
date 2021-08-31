@@ -187,7 +187,7 @@ const DesktopFooterMenus = ({ t, language }) => (
         ? (
           <div>
             {t("footer:footerMenuContactKakao")}
-            { " "}
+            {" "}
             <a href={constants.urlKakaoTalk}>@boxhero</a>
           </div>
         )
