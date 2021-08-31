@@ -17,6 +17,28 @@ import svgParts from "../images/icon-parts.svg";
 import svgAsset from "../images/icon-asset.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
+/* eslint-disable */
+const DropDownSubMenu = ({
+  title,
+  link,
+  icon,
+}) => {
+  return (
+    <li className={styles.subMenu}>
+      <Link
+        to={link}
+      >
+        <img
+          className={styles.subMenuIcon}
+          src={icon}
+          alt={title}
+        />
+        {title}
+      </Link>
+    </li>
+  );
+};
+
 const DropDownMenu = ({
   title,
   children,
