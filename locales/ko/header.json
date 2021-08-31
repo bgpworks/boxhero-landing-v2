@@ -1,7 +1,14 @@
 {
-  "menuAbout": "박스히어로는?",
-  "menuFeatures": "편의기능",
+  "menuService": "서비스",
+  "menuServiceAbout": "박스히어로는?",
+  "menuServiceFeatures": "편의기능",
+  "menuUseCases": "사용사례",
+  "menuUseCaseSales": "판매",
+  "menuUseCaseMaterial": "자재관리",
+  "menuUseCaseAssets": "자산관리",
   "menuPricing": "요금안내",
+  "menuResource": "리소스",
+  "menuCompanyBlog": "블로그",
   "menuDoc": "고객센터",
   "menuLoginButton": "로그인",
   "menuLanguage": "언어"
