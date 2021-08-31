@@ -41,14 +41,14 @@
 }
 
 .platformTitle {
-  color: black;
+  color: var(--color-font-gray1);
   font-weight: bold;
-  font-size: 24px;
+  font-size: var(--font-size-h4);
 }
 
 .platformFooterMsg {
   margin-top: 16px;
-  font-size: 18px;
+  font-size: var(--font-size-b18);
 }
 
 .platformGroups {
@@ -113,7 +113,7 @@
 
   height: 503px;
   background-color: #f7f9fc;
-  font-size: 14px;
+  font-size: var(--font-size-b14);
 }
 
 .px10 {
@@ -153,7 +153,7 @@
 
 .footerMenuLabel {
   font-weight: bold;
-  color: var(--color-font-darker);
+  color: var(--color-font-gray1);
   margin-bottom: 16px;
 }
 
@@ -182,7 +182,7 @@
 
 .copyRight {
   margin-top: 3px;
-  font-size: 12px;
+  font-size: var(--font-size-b12);
 }
 
 .companyInfoContainer a {
