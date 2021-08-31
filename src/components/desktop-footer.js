@@ -143,15 +143,15 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>사용사례</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuUseCases")}</div>
       <div>
-        <Link to="/">판매</Link>
+        <Link to="/">{t("footer:footerMenuSale")}</Link>
       </div>
       <div>
-        <Link to="/">자재관리</Link>
+        <Link to="/">{t("footer:footerMenuMaterialsManagement")}</Link>
       </div>
       <div>
-        <Link to="/">자산관리</Link>
+        <Link to="/">{t("footer:footerMenuAssetsManagement")}</Link>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
