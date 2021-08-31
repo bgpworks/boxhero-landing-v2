@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
+import { DesktopBaseContainer, ExternalLinkWithQuery, Padding } from "./common";
 import * as constants from "./constants";
 import { LangSelect } from "./language-selector";
 // css
@@ -40,11 +40,18 @@ StartNow.propTypes = {
 
 const Platforms = ({ t }) => (
   <div className={styles.platformContainer}>
+    <div className={styles.platformTitle}>
+      {t("footer:platformsTitle")}
+    </div>
+    <Padding y={16} />
+    <div className={styles.platformFooterMsg}>
+      {t("footer:platformsMessage")}
+    </div>
+
+    <Padding y={50} />
+
     <div className={styles.platformGroups}>
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupWeb")}
-        </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlStart}>
             <button
@@ -59,12 +66,12 @@ const Platforms = ({ t }) => (
             </button>
           </a>
         </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupWeb")}
+        </div>
       </div>
 
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupDesktop")}
-        </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlDownloadWindows}>
             <button
@@ -91,20 +98,13 @@ const Platforms = ({ t }) => (
             </button>
           </a>
         </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupDesktop")}
+        </div>
       </div>
 
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupMobile")}
-        </div>
         <div className={styles.platformGroupButtons}>
-          <a href="https://itunes.apple.com/app/id1325512157">
-            <img
-              src={svgAppstore}
-              className={styles.platformImgButton}
-              alt="iOS"
-            />
-          </a>
           <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
             <img
               src={svgPlaystore}
@@ -112,12 +112,18 @@ const Platforms = ({ t }) => (
               alt="Android"
             />
           </a>
+          <a href="https://itunes.apple.com/app/id1325512157">
+            <img
+              src={svgAppstore}
+              className={styles.platformImgButton}
+              alt="iOS"
+            />
+          </a>
+        </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupMobile")}
         </div>
       </div>
-    </div>
-
-    <div className={styles.platformFooterMsg}>
-      {t("footer:platformsLastMessage")}
     </div>
   </div>
 );
@@ -125,7 +131,7 @@ const Platforms = ({ t }) => (
 const DesktopFooterMenus = ({ t }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Service</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuService")}</div>
       <div>
         <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
       </div>
@@ -137,12 +143,21 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Resource</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuUseCases")}</div>
       <div>
-        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
+        <Link to="/">{t("footer:footerMenuUseCaseSales")}</Link>
       </div>
       <div>
-        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+        <Link to="/">{t("footer:footerMenuUseCaseMaterial")}</Link>
+      </div>
+      <div>
+        <Link to="/">{t("footer:footerMenuUseCaseAssets")}</Link>
+      </div>
+    </div>
+    <div className={styles.footerMenusColumn}>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuResource")}</div>
+      <div>
+        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
       <div>
         <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
@@ -150,9 +165,12 @@ const DesktopFooterMenus = ({ t }) => (
       <div>
         <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
       </div>
+      <div>
+        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+      </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Company</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuCompany")}</div>
       <div>
         <a href="https://www.bgpworks.com">
           {t("footer:footerMenuCompanyHome")}
@@ -168,30 +186,33 @@ const DesktopFooterMenus = ({ t }) => (
         </a>
       </div>
     </div>
-    <div className={styles.wideFooterMenusColumn}>
-      <div className={styles.footerMenuLabel}>Contact</div>
-      <div>{t("footer:footerMenuContactTel")}</div>
-      <div>
-        {t("footer:footerMenuContactEmail")}
-        {" "}
-        <a href="mailto:support+boxhero@bgpworks.com">
-          support+boxhero@bgpworks.com
-        </a>
-      </div>
-      <div>
-        {t("footer:footerMenuContactBusiness")}
-        {" "}
-        <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
-      </div>
-      <div>
-        {t("footer:footerMenuContactKakao")}
-        {" "}
-        <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
-      </div>
-    </div>
     <div>
-      <div className={styles.footerMenuLabel}>
+      <div>
         <LangSelect className={styles.footerLangSelector} />
+      </div>
+
+      <Padding y={36} />
+
+      <div className={styles.wideFooterMenusColumn}>
+        <div className={styles.footerMenuLabel}>{t("footer:footerMenuContact")}</div>
+        <div>{t("footer:footerMenuContactTel")}</div>
+        <div>
+          {t("footer:footerMenuContactEmail")}
+          {" "}
+          <a href="mailto:support+boxhero@bgpworks.com">
+            support+boxhero@bgpworks.com
+          </a>
+        </div>
+        <div>
+          {t("footer:footerMenuContactBusiness")}
+          {" "}
+          <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
+        </div>
+        <div>
+          {t("footer:footerMenuContactKakao")}
+          {" "}
+          <a href="https://pf.kakao.com/_rHxgpxl">@boxhero</a>
+        </div>
       </div>
     </div>
   </div>
@@ -232,6 +253,7 @@ const DesktopFooterMenusAndInfo = ({ t }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <DesktopBaseContainer className={styles.px10}>
       <DesktopFooterMenus t={t} />
+      <Padding y={72} />
       <CompanyInfo t={t} />
     </DesktopBaseContainer>
   </div>
@@ -243,12 +265,12 @@ const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
     <div>
       {!showEssential && (
         <>
+          <Platforms t={t} />
           <StartNow
             emoji={closingEmoji}
             message={closingMsg}
             t={t}
           />
-          <Platforms t={t} />
         </>
       )}
       <DesktopFooterMenusAndInfo t={t} />

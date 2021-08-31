@@ -37,6 +37,17 @@
   composes: verticalCenter;
   padding: 80px 0px;
   text-align: center;
+  background-color: var(--color-bg-light);
+}
+
+.platformTitle {
+  color: var(--color-font-gray1);
+  font-weight: bold;
+  font-size: var(--font-size-h4);
+}
+
+.platformFooterMsg {
+  font-size: var(--font-size-b18);
 }
 
 .platformGroups {
@@ -54,12 +65,11 @@
 }
 
 .platformGroupTitle {
+  padding-top: 12px;
   font-weight: bold;
-  line-height: 36px;
 }
 
 .platformGroupButtons {
-  padding-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -94,10 +104,6 @@
   height: 24px;
 }
 
-.platformFooterMsg {
-  margin-top: 50px;
-}
-
 /* Footer Menus + Company info */
 
 .footerMenusAndInfoContainer {
@@ -105,7 +111,7 @@
 
   height: 503px;
   background-color: #f7f9fc;
-  font-size: 14px;
+  font-size: var(--font-size-b14);
 }
 
 .px10 {
@@ -119,7 +125,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 72px;
 }
 
 .footerMenusContainer a {
@@ -140,12 +145,13 @@
 }
 
 .footerMenusColumn > div:not(:nth-child(1)) {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .footerMenuLabel {
   font-weight: bold;
-  color: var(--color-font-darker);
+  color: var(--color-font-gray1);
+  margin-bottom: 16px;
 }
 
 .wideFooterMenusColumn {
@@ -171,7 +177,8 @@
 }
 
 .copyRight {
-  margin-top: 20px;
+  margin-top: 3px;
+  font-size: var(--font-size-b12);
 }
 
 .companyInfoContainer a {

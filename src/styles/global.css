@@ -24,6 +24,19 @@
   --font-size-mobile-big2: 20px;
   --font-size-mobile-big3: 26px;
   --font-size-mobile-big4: 46px;
+
+  /* new font color, size */
+  --color-font-gray1: #292a2f;
+  --font-size-h1: 42px;
+  --font-size-h2: 32px;
+  --font-size-h3: 28px;
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-b18: 18px;
+  --font-size-b16: 16px;
+  --font-size-b14: 14px;
+  --font-size-b12: 12px;
+  --font-size-b10: 10px;
 }
 
 html {
