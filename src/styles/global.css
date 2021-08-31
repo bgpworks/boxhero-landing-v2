@@ -1,5 +1,4 @@
 :root {
-  --color-font-gray1: #292a2f;
   --color-font-primary: #585a6c;
   --color-font-darker: #292a2f;
   --color-font-header: #8f91a0;
@@ -25,6 +24,9 @@
   --font-size-mobile-big2: 20px;
   --font-size-mobile-big3: 26px;
   --font-size-mobile-big4: 46px;
+
+  /* new font color, size */
+  --color-font-gray1: #292a2f;
   --font-size-h1: 42px;
   --font-size-h2: 32px;
   --font-size-h3: 28px;
