@@ -157,7 +157,6 @@
 .contactFooterMenusColumn {
   composes: footerMenusColumn;
   width: wide-footer-menu-width;
-  margin-top: 36px;
 }
 
 /* Company info */

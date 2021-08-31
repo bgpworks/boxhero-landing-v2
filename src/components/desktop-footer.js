@@ -187,9 +187,11 @@ const DesktopFooterMenus = ({ t }) => (
       </div>
     </div>
     <div>
-      <div className={styles.footerMenuLabel}>
+      <div>
         <LangSelect className={styles.footerLangSelector} />
       </div>
+
+      <Padding y={36} />
 
       <div className={styles.contactFooterMenusColumn}>
         <div className={styles.footerMenuLabel}>{t("footer:footerMenuContact")}</div>
