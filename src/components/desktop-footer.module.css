@@ -154,7 +154,7 @@
   margin-bottom: 16px;
 }
 
-.contactFooterMenusColumn {
+.wideFooterMenusColumn {
   composes: footerMenusColumn;
   width: wide-footer-menu-width;
 }

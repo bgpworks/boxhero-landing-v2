@@ -193,7 +193,7 @@ const DesktopFooterMenus = ({ t }) => (
 
       <Padding y={36} />
 
-      <div className={styles.contactFooterMenusColumn}>
+      <div className={styles.wideFooterMenusColumn}>
         <div className={styles.footerMenuLabel}>{t("footer:footerMenuContact")}</div>
         <div>{t("footer:footerMenuContactTel")}</div>
         <div>
