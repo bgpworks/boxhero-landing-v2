@@ -47,7 +47,6 @@
 }
 
 .platformFooterMsg {
-  margin-top: 16px;
   font-size: var(--font-size-b18);
 }
 
@@ -56,7 +55,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
 }
 
 .platformGroup {
@@ -127,7 +125,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 72px;
 }
 
 .footerMenusContainer a {

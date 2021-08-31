@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
+import { DesktopBaseContainer, ExternalLinkWithQuery, Padding } from "./common";
 import * as constants from "./constants";
 import { LangSelect } from "./language-selector";
 // css
@@ -43,9 +43,12 @@ const Platforms = ({ t }) => (
     <div className={styles.platformTitle}>
       {t("footer:platformsTitle")}
     </div>
+    <Padding y={16} />
     <div className={styles.platformFooterMsg}>
       {t("footer:platformsMessage")}
     </div>
+
+    <Padding y={50} />
 
     <div className={styles.platformGroups}>
       <div className={styles.platformGroup}>
@@ -248,6 +251,7 @@ const DesktopFooterMenusAndInfo = ({ t }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <DesktopBaseContainer className={styles.px10}>
       <DesktopFooterMenus t={t} />
+      <Padding y={72} />
       <CompanyInfo t={t} />
     </DesktopBaseContainer>
   </div>
