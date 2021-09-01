@@ -43,13 +43,13 @@ const DropDownSubMenu = ({
 const DropDownMenu = ({
   title,
   children,
-  subMenusClassName,
 }) => {
   const [isShow, onChangeIsShow] = useState(false);
 
   const dropDownMenuRef = useRef();
   useClickOutside(dropDownMenuRef, () => onChangeIsShow(false));
 
+  const { t } = useTranslation();
   return (
     <div
       ref={dropDownMenuRef}
@@ -63,11 +63,11 @@ const DropDownMenu = ({
         <span>{title}</span>
         <img
           src={svgUnder}
-          alt="펼치기"
+          alt={t("header:menuUnderIconAlt")}
         />
       </div>
       {isShow && (
-        <div className={`${styles.subMenus} ${subMenusClassName}`}>
+        <div className={styles.subMenus}>
           {children}
         </div>
       )}
@@ -116,10 +116,7 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
             </Link>
           </DropDownMenu>
 
-          <DropDownMenu
-            title={t("header:menuUseCases")}
-            subMenusClassName={styles.wideSubMenus}
-          >
+          <DropDownMenu title={t("header:menuUseCases")}>
             <Link to="/">
               <DropDownSubMenu
                 title={t("header:menuUseCaseSales")}
