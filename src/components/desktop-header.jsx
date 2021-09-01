@@ -18,7 +18,7 @@ import svgAsset from "../images/icon-asset.svg";
 import svgBlog from "../images/icon-blog.svg";
 import svgCS from "../images/icon-cs.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
-import { useOutsideClick } from "../hooks/useOutsideClick";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const DropDownSubMenu = ({
   title,
@@ -45,20 +45,20 @@ const DropDownMenu = ({
   children,
   subMenusClassName,
 }) => {
-  const [isShow, setShow] = useState(false);
+  const [isShow, onChangeIsShow] = useState(false);
 
-  const dropDownMenu = useRef();
-  useOutsideClick(dropDownMenu, () => setShow(false));
+  const dropDownMenuRef = useRef();
+  useClickOutside(dropDownMenuRef, () => onChangeIsShow(false));
 
   return (
     <div
-      ref={dropDownMenu}
+      ref={dropDownMenuRef}
       className={styles.dropDownMenu}
     >
       <div
         role="presentation"
         className={styles.dropDownMenuTitle}
-        onClick={() => setShow(!isShow)}
+        onClick={() => onChangeIsShow(!isShow)}
       >
         <span>{title}</span>
         <img
