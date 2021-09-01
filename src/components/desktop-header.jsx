@@ -146,6 +146,7 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
 
           <Link
             to="/pricing/"
+            className={curMenu === "pricing" ? styles.selected : ""}
           >
             {t("header:menuPricing")}
           </Link>
