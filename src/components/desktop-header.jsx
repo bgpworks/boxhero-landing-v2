@@ -32,7 +32,7 @@ const DropDownSubMenu = ({
       alt={title}
     />
     <div>
-      {title}
+      <div className={styles.subMenuTitle}>{title}</div>
       {description && (
         <div className={styles.subMenuDesc}>{description}</div>
       )}
@@ -67,7 +67,7 @@ const DropDownMenu = ({
         />
       </div>
       {isShow && (
-        <div className={styles.subMenus}>
+        <div className={styles.floatingMenuContianer}>
           {children}
         </div>
       )}
