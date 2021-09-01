@@ -9,7 +9,7 @@ import * as styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import svgDown from "../images/down.svg";
+import svgUnder from "../images/under.svg";
 import svgSymbol from "../images/icon-symbol.svg";
 import svgFeature from "../images/icon-feature.svg";
 import svgTransaction from "../images/icon-transaction.svg";
@@ -33,7 +33,7 @@ const DropDownSubMenu = ({
     <div>
       {title}
       {description && (
-        <p className={styles.subMenuDesc}>{description}</p>
+        <div className={styles.subMenuDesc}>{description}</div>
       )}
     </div>
   </div>
@@ -42,6 +42,7 @@ const DropDownSubMenu = ({
 const DropDownMenu = ({
   title,
   children,
+  subMenusClassName,
 }) => {
   const [isShow, setShow] = useState(false);
 
@@ -54,12 +55,12 @@ const DropDownMenu = ({
       >
         <span>{title}</span>
         <img
-          src={svgDown}
+          src={svgUnder}
           alt="펼치기"
         />
       </div>
       {isShow && (
-        <div className={styles.subMenus}>
+        <div className={`${styles.subMenus} ${subMenusClassName}`}>
           {children}
         </div>
       )}
@@ -108,7 +109,10 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
             </Link>
           </DropDownMenu>
 
-          <DropDownMenu title={t("header:menuUseCases")}>
+          <DropDownMenu
+            title={t("header:menuUseCases")}
+            subMenusClassName={styles.wideSubMenus}
+          >
             <Link to="/">
               <DropDownSubMenu
                 title={t("header:menuUseCaseSales")}

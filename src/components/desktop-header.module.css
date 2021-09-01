@@ -9,7 +9,6 @@
 }
 
 .dropDownMenuTitle > img {
-  width: 16px;
   margin-left: 2px;
 }
 
@@ -26,9 +25,12 @@
   background-color: white;
 }
 
+.wideSubMenus {
+  width: 360px;
+}
+
 .subMenu {
   display: flex;
-  width: 100%;
   padding: 12px;
   font-weight: 500;
   color: var(--color-font-gray1);
@@ -46,6 +48,7 @@
 .subMenuDesc {
   font-weight: normal;
   margin-top: 4px;
+  padding-right: 4px;
 }
 
 .headerContainer {
