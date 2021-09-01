@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 // js
@@ -18,6 +18,7 @@ import svgAsset from "../images/icon-asset.svg";
 import svgBlog from "../images/icon-blog.svg";
 import svgCS from "../images/icon-cs.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
 const DropDownSubMenu = ({
   title,
@@ -46,8 +47,14 @@ const DropDownMenu = ({
 }) => {
   const [isShow, setShow] = useState(false);
 
+  const dropDownMenu = useRef();
+  useOutsideClick(dropDownMenu, () => setShow(false));
+
   return (
-    <div className={styles.dropDownMenu}>
+    <div
+      ref={dropDownMenu}
+      className={styles.dropDownMenu}
+    >
       <div
         role="presentation"
         className={styles.dropDownMenuTitle}
