@@ -15,29 +15,29 @@ import svgFeature from "../images/icon-feature.svg";
 import svgTransaction from "../images/icon-transaction.svg";
 import svgParts from "../images/icon-parts.svg";
 import svgAsset from "../images/icon-asset.svg";
+import svgBlog from "../images/icon-blog.svg";
+import svgCS from "../images/icon-cs.svg";
 import { useCheckScrolled } from "../hooks/useCheckScrolled";
 
-/* eslint-disable */
 const DropDownSubMenu = ({
   title,
-  link,
+  description,
   icon,
-}) => {
-  return (
-    <li className={styles.subMenu}>
-      <Link
-        to={link}
-      >
-        <img
-          className={styles.subMenuIcon}
-          src={icon}
-          alt={title}
-        />
-        {title}
-      </Link>
-    </li>
-  );
-};
+}) => (
+  <div className={styles.subMenu}>
+    <img
+      className={styles.subMenuIcon}
+      src={icon}
+      alt={title}
+    />
+    <div>
+      {title}
+      {description && (
+        <p className={styles.subMenuDesc}>{description}</p>
+      )}
+    </div>
+  </div>
+);
 
 const DropDownMenu = ({
   title,
@@ -59,16 +59,9 @@ const DropDownMenu = ({
         />
       </div>
       {isShow && (
-        <ul className={styles.subMenus}>
-          {children.map((subMenu, index) => (
-            <li
-              key={index}
-              className={styles.subMenu}
-            >
-              {subMenu}
-            </li>
-          ))}
-        </ul>
+        <div className={styles.subMenus}>
+          {children}
+        </div>
       )}
     </div>
   );
@@ -99,60 +92,44 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
 
           <DropDownMenu
             title={t("header:menuService")}
+            curMenu={curMenu}
           >
-            <Link
-              to="/about/"
-              className={curMenu === "about" ? styles.selected : ""}
-            >
-              <img
-                className={styles.subMenuIcon}
-                src={svgSymbol}
-                alt={t("header:menuServiceAbout")}
+            <Link to="/about/">
+              <DropDownSubMenu
+                title={t("header:menuServiceAbout")}
+                icon={svgSymbol}
               />
-              {t("header:menuServiceAbout")}
             </Link>
-            <Link
-              to="/features/"
-              className={curMenu === "features" ? styles.selected : ""}
-            >
-              <img
-                className={styles.subMenuIcon}
-                src={svgFeature}
-                alt={t("header:menuServiceFeatures")}
+            <Link to="/features/">
+              <DropDownSubMenu
+                title={t("header:menuServiceFeatures")}
+                icon={svgFeature}
               />
-              {t("header:menuServiceFeatures")}
             </Link>
           </DropDownMenu>
 
-          <DropDownMenu
-            title={t("header:menuUseCases")}
-          >
+          <DropDownMenu title={t("header:menuUseCases")}>
             <Link to="/">
-              <img
-                className={styles.subMenuIcon}
-                src={svgTransaction}
-                alt={t("header:menuUseCaseSales")}
+              <DropDownSubMenu
+                title={t("header:menuUseCaseSales")}
+                description={t("header:menuUseCaseSalesDesc")}
+                icon={svgTransaction}
               />
-              {t("header:menuUseCaseSales")}
             </Link>
             <Link to="/">
-              <img
-                className={styles.subMenuIcon}
-                src={svgParts}
-                alt={t("header:menuUseCaseMaterial")}
+              <DropDownSubMenu
+                title={t("header:menuUseCaseMaterial")}
+                description={t("header:menuUseCaseMaterialDesc")}
+                icon={svgParts}
               />
-              <div>
-                {t("header:menuUseCaseMaterial")}
-                <p className={styles.subMenuDesc}>{t("header:menuUseCaseMaterialDesc")}</p>
-              </div>
             </Link>
             <Link to="/">
-              <img
-                className={styles.subMenuIcon}
-                src={svgAsset}
-                alt={t("header:menuUseCaseAssets")}
+              <DropDownSubMenu
+                title={t("header:menuUseCaseAssets")}
+                description={t("header:menuUseCaseAssetsDesc")}
+                link="/"
+                icon={svgAsset}
               />
-              {t("header:menuUseCaseAssets")}
             </Link>
           </DropDownMenu>
 
@@ -162,7 +139,20 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
             {t("header:menuPricing")}
           </Link>
 
-          <a href={t("url:doc")}>{t("header:menuDoc")}</a>
+          <DropDownMenu title={t("header:menuResource")}>
+            <Link to="/blog">
+              <DropDownSubMenu
+                title={t("header:menuCompanyBlog")}
+                icon={svgBlog}
+              />
+            </Link>
+            <a href={t("url:doc")}>
+              <DropDownSubMenu
+                title={t("header:menuDoc")}
+                icon={svgCS}
+              />
+            </a>
+          </DropDownMenu>
 
           <ExternalLinkWithQuery href={urlStart}>
             <button

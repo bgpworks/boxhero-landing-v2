@@ -27,21 +27,14 @@
 }
 
 .subMenu {
-  list-style: none;
+  display: flex;
   width: 100%;
   padding: 12px;
-  margin: 0;
   font-weight: 500;
   color: var(--color-font-gray1);
 }
 .subMenu:hover {
   background-color: var(--color-bg-light);
-}
-
-.subMenu > a {
-  display: flex;
-  width: 100%;
-  height: 100%;
 }
 
 .subMenuIcon {
