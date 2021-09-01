@@ -75,7 +75,7 @@ const DropDownMenu = ({
   );
 };
 
-const DesktopHeader = ({ isFloatMenu, curMenu }) => {
+const DesktopHeader = ({ isFloatMenu }) => {
   const { isScrolled } = useCheckScrolled();
   const isWhite = !isFloatMenu || isScrolled;
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
@@ -98,10 +98,7 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
 
           <div className={styles.padding} />
 
-          <DropDownMenu
-            title={t("header:menuService")}
-            curMenu={curMenu}
-          >
+          <DropDownMenu title={t("header:menuService")}>
             <Link to="/about/">
               <DropDownSubMenu
                 title={t("header:menuServiceAbout")}
@@ -141,12 +138,7 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
             </Link>
           </DropDownMenu>
 
-          <Link
-            to="/pricing/"
-            className={curMenu === "pricing" ? styles.selected : ""}
-          >
-            {t("header:menuPricing")}
-          </Link>
+          <Link to="/pricing/">{t("header:menuPricing")}</Link>
 
           <DropDownMenu title={t("header:menuResource")}>
             <Link to="/blog">

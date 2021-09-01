@@ -283,7 +283,6 @@ const FeatureLocation = ({ data }) => (
 const DesktopFeatures = ({ data, t }) => (
   <DesktopLayout
     isFloatMenu={false}
-    curMenu="features"
     closingEmoji={data.dinosaur}
     closingMsg={<Trans i18nKey="features:closingMsg" />}
   >
