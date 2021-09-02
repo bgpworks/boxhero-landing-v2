@@ -1,8 +1,8 @@
 {
   "menuAbout": "About BoxHero",
-  "menuFeatures": "Features",
-  "menuPricing": "Pricing",
   "menuDoc": "Customer Service",
+  "menuFeatures": "Features",
+  "menuLanguage": "Language",
   "menuLoginButton": "LOG IN",
-  "menuLanguage": "Language"
+  "menuPricing": "Pricing"
 }

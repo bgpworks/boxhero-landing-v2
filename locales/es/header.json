@@ -1,8 +1,8 @@
 {
   "menuAbout": "Sobre BoxHero",
-  "menuFeatures": "Características",
-  "menuPricing": "Precios",
   "menuDoc": "Contacto",
+  "menuFeatures": "Características",
+  "menuLanguage": "Idioma",
   "menuLoginButton": "Iniciar Sesión",
-  "menuLanguage": "Idioma"
+  "menuPricing": "Precios"
 }
