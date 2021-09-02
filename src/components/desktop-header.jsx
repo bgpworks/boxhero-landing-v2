@@ -26,11 +26,12 @@ const DropDownSubMenu = ({
   icon,
 }) => (
   <div className={styles.subMenu}>
-    <img
-      className={styles.subMenuIcon}
-      src={icon}
-      alt={title}
-    />
+    <div className={styles.subMenuIcon}>
+      <img
+        src={icon}
+        alt={title}
+      />
+    </div>
     <div>
       <div className={styles.subMenuTitle}>{title}</div>
       {description && (
@@ -67,7 +68,7 @@ const DropDownMenu = ({
         />
       </div>
       {isShow && (
-        <div className={styles.floatingMenuContianer}>
+        <div className={styles.floatingMenuContainer}>
           {children}
         </div>
       )}

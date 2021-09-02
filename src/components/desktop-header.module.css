@@ -12,7 +12,7 @@
   margin-left: 2px;
 }
 
-.floatingMenuContianer {
+.floatingMenuContainer {
   position: absolute;
   right: 0;
   z-index: 100;
@@ -25,9 +25,7 @@
 }
 
 .subMenu {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  column-gap: 10px;
+  display: flex;
   padding: 12px;
   color: var(--color-font-gray1);
 }
@@ -85,10 +83,6 @@
 .padding {
   margin: 0px;
   flex: 1;
-}
-
-.selected {
-  font-weight: bold;
 }
 
 .biLogo {
