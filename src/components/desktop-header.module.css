@@ -1,3 +1,54 @@
+.dropDownMenu {
+  position: relative;
+}
+
+.dropDownMenuTitle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropDownMenuTitle > img {
+  margin-left: 2px;
+}
+
+.floatingMenuContainer {
+  position: absolute;
+  right: 0;
+  z-index: 100;
+  margin-top: 4px;
+  padding: 6px 1px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border: solid 1px var(--color-gray4);
+  background-color: white;
+}
+
+.subMenu {
+  display: flex;
+  padding: 12px;
+  color: var(--color-font-gray1);
+}
+.subMenu:hover {
+  background-color: var(--color-bg-light);
+}
+
+.subMenuIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.subMenuTitle {
+  min-width: 180px;
+  font-weight: 500;
+}
+
+.subMenuDesc {
+  width: 300px;
+  margin: 4px 4px 0 0;
+}
+
 .headerContainer {
   margin: 0;
   width: 100%;
@@ -32,10 +83,6 @@
 .padding {
   margin: 0px;
   flex: 1;
-}
-
-.selected {
-  font-weight: bold;
 }
 
 .biLogo {

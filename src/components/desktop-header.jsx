@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 // js
@@ -9,24 +9,91 @@ import * as styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import svgDropDownArrowBlack from "../images/icon-dropdown-arrow-black.svg";
+import svgDropDownArrowWhite from "../images/icon-dropdown-arrow-white.svg";
+import svgSymbol from "../images/icon-symbol.svg";
+import svgFeature from "../images/icon-feature.svg";
+import svgTransaction from "../images/icon-transaction.svg";
+import svgParts from "../images/icon-parts.svg";
+import svgAsset from "../images/icon-asset.svg";
+import svgBlog from "../images/icon-blog.svg";
+import svgCS from "../images/icon-cs.svg";
+import { useCheckScrolled } from "../hooks/use-check-scrolled";
+import { useClickOutside } from "../hooks/use-click-outside";
 
-const DesktopHeader = ({ isFloatMenu, curMenu }) => {
+const DropDownSubMenu = ({
+  title,
+  description,
+  icon,
+}) => (
+  <div className={styles.subMenu}>
+    <div className={styles.subMenuIcon}>
+      <img
+        src={icon}
+        alt={title}
+      />
+    </div>
+    <div>
+      <div className={styles.subMenuTitle}>{title}</div>
+      {description && (
+        <div className={styles.subMenuDesc}>{description}</div>
+      )}
+    </div>
+  </div>
+);
+
+const DropDownMenu = ({
+  title,
+  isBackgroundWhite,
+  children,
+}) => {
+  const [isShow, onChangeIsShow] = useState(false);
+
+  const dropDownMenuRef = useRef();
+  useClickOutside(dropDownMenuRef, () => onChangeIsShow(false));
+
+  const { t } = useTranslation();
+  return (
+    <div
+      ref={dropDownMenuRef}
+      className={styles.dropDownMenu}
+    >
+      <div
+        role="presentation"
+        className={styles.dropDownMenuTitle}
+        onClick={() => onChangeIsShow(!isShow)}
+      >
+        <span>{title}</span>
+        <img
+          src={isBackgroundWhite ? svgDropDownArrowBlack : svgDropDownArrowWhite}
+          alt={t("header:menuUnderIconAlt")}
+        />
+      </div>
+      {isShow && (
+        <div className={styles.floatingMenuContainer}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const DesktopHeader = ({ isFloatMenu }) => {
   const { isScrolled } = useCheckScrolled();
-  const isWhite = !isFloatMenu || isScrolled;
+  const isBackgroundWhite = !isFloatMenu || isScrolled;
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useTranslation();
   return (
     <>
       <header
         className={`${styles.headerContainer} ${
-          isWhite ? styles.whiteContainer : ""
+          isBackgroundWhite ? styles.whiteContainer : ""
         }`}
       >
         <DesktopBaseContainer className={styles.menuContainer}>
           <Link to="/">
             <img
-              src={isWhite ? svgBiBlue : svgBiWhite}
+              src={isBackgroundWhite ? svgBiBlue : svgBiWhite}
               className={styles.biLogo}
               alt="Home"
             />
@@ -34,28 +101,70 @@ const DesktopHeader = ({ isFloatMenu, curMenu }) => {
 
           <div className={styles.padding} />
 
-          <Link
-            to="/about/"
-            className={curMenu === "about" ? styles.selected : ""}
+          <DropDownMenu
+            title={t("header:menuService")}
+            isBackgroundWhite={isBackgroundWhite}
           >
-            {t("header:menuAbout")}
-          </Link>
+            <Link to="/about/">
+              <DropDownSubMenu
+                title={t("header:menuServiceAbout")}
+                icon={svgSymbol}
+              />
+            </Link>
+            <Link to="/features/">
+              <DropDownSubMenu
+                title={t("header:menuServiceFeatures")}
+                icon={svgFeature}
+              />
+            </Link>
+          </DropDownMenu>
 
-          <Link
-            to="/features/"
-            className={curMenu === "features" ? styles.selected : ""}
+          <DropDownMenu
+            title={t("header:menuUseCases")}
+            isBackgroundWhite={isBackgroundWhite}
           >
-            {t("header:menuFeatures")}
-          </Link>
+            <Link to="/usecase-sales">
+              <DropDownSubMenu
+                title={t("header:menuUseCaseSales")}
+                description={t("header:menuUseCaseSalesDesc")}
+                icon={svgTransaction}
+              />
+            </Link>
+            <Link to="/usecase-material">
+              <DropDownSubMenu
+                title={t("header:menuUseCaseMaterial")}
+                description={t("header:menuUseCaseMaterialDesc")}
+                icon={svgParts}
+              />
+            </Link>
+            <Link to="/usecase-assets">
+              <DropDownSubMenu
+                title={t("header:menuUseCaseAssets")}
+                description={t("header:menuUseCaseAssetsDesc")}
+                icon={svgAsset}
+              />
+            </Link>
+          </DropDownMenu>
 
-          <Link
-            to="/pricing/"
-            className={curMenu === "pricing" ? styles.selected : ""}
+          <Link to="/pricing/">{t("header:menuPricing")}</Link>
+
+          <DropDownMenu
+            title={t("header:menuResource")}
+            isBackgroundWhite={isBackgroundWhite}
           >
-            {t("header:menuPricing")}
-          </Link>
-
-          <a href={t("url:doc")}>{t("header:menuDoc")}</a>
+            <Link to="/blog">
+              <DropDownSubMenu
+                title={t("header:menuCompanyBlog")}
+                icon={svgBlog}
+              />
+            </Link>
+            <a href={t("url:doc")}>
+              <DropDownSubMenu
+                title={t("header:menuDoc")}
+                icon={svgCS}
+              />
+            </a>
+          </DropDownMenu>
 
           <ExternalLinkWithQuery href={urlStart}>
             <button
