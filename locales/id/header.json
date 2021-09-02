@@ -1,8 +1,8 @@
 {
   "menuAbout": "Tentang BoxHero",
-  "menuFeatures": "Fitur",
-  "menuPricing": "Harga",
   "menuDoc": "Layanan Pelanggan",
+  "menuFeatures": "Fitur",
+  "menuLanguage": "Bahasa",
   "menuLoginButton": "LOG IN",
-  "menuLanguage": "Bahasa"
+  "menuPricing": "Harga"
 }
