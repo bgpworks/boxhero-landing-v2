@@ -9,7 +9,7 @@ import * as styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import svgUnder from "../images/under.svg";
+import svgUnder from "../images/icon-dropdown-arrow-black.svg";
 import svgSymbol from "../images/icon-symbol.svg";
 import svgFeature from "../images/icon-feature.svg";
 import svgTransaction from "../images/icon-transaction.svg";
@@ -17,8 +17,8 @@ import svgParts from "../images/icon-parts.svg";
 import svgAsset from "../images/icon-asset.svg";
 import svgBlog from "../images/icon-blog.svg";
 import svgCS from "../images/icon-cs.svg";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
-import { useClickOutside } from "../hooks/useClickOutside";
+import { useCheckScrolled } from "../hooks/use-check-scrolled";
+import { useClickOutside } from "../hooks/use-click-outside";
 
 const DropDownSubMenu = ({
   title,

@@ -8,7 +8,7 @@ import { AppDownloadLink } from "./common";
 import { LangPopup } from "./language-selector";
 // css
 import * as styles from "./mobile-layout.module.css";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import { useCheckScrolled } from "../hooks/use-check-scrolled";
 // images
 import svgDownload from "../images/download.svg";
 

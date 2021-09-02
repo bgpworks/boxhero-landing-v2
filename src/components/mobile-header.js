@@ -9,7 +9,7 @@ import * as styles from "./mobile-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import { useCheckScrolled } from "../hooks/use-check-scrolled";
 
 const MenuItem = ({ children }) => (
   <div className={`${styles.splitLine} ${styles.menuItem}`}>{children}</div>
