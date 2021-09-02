@@ -1,8 +1,8 @@
 {
   "menuAbout": "박스히어로는?",
-  "menuFeatures": "편의기능",
-  "menuPricing": "요금안내",
   "menuDoc": "고객센터",
+  "menuFeatures": "편의기능",
+  "menuLanguage": "언어",
   "menuLoginButton": "로그인",
-  "menuLanguage": "언어"
+  "menuPricing": "요금안내"
 }
