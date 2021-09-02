@@ -9,7 +9,8 @@ import * as styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import svgUnder from "../images/icon-dropdown-arrow-black.svg";
+import svgDropDownArrowBlack from "../images/icon-dropdown-arrow-black.svg";
+import svgDropDownArrowWhite from "../images/icon-dropdown-arrow-white.svg";
 import svgSymbol from "../images/icon-symbol.svg";
 import svgFeature from "../images/icon-feature.svg";
 import svgTransaction from "../images/icon-transaction.svg";
@@ -43,6 +44,7 @@ const DropDownSubMenu = ({
 
 const DropDownMenu = ({
   title,
+  isBackgroundWhite,
   children,
 }) => {
   const [isShow, onChangeIsShow] = useState(false);
@@ -63,7 +65,7 @@ const DropDownMenu = ({
       >
         <span>{title}</span>
         <img
-          src={svgUnder}
+          src={isBackgroundWhite ? svgDropDownArrowBlack : svgDropDownArrowWhite}
           alt={t("header:menuUnderIconAlt")}
         />
       </div>
@@ -78,20 +80,20 @@ const DropDownMenu = ({
 
 const DesktopHeader = ({ isFloatMenu }) => {
   const { isScrolled } = useCheckScrolled();
-  const isWhite = !isFloatMenu || isScrolled;
+  const isBackgroundWhite = !isFloatMenu || isScrolled;
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useTranslation();
   return (
     <>
       <header
         className={`${styles.headerContainer} ${
-          isWhite ? styles.whiteContainer : ""
+          isBackgroundWhite ? styles.whiteContainer : ""
         }`}
       >
         <DesktopBaseContainer className={styles.menuContainer}>
           <Link to="/">
             <img
-              src={isWhite ? svgBiBlue : svgBiWhite}
+              src={isBackgroundWhite ? svgBiBlue : svgBiWhite}
               className={styles.biLogo}
               alt="Home"
             />
@@ -99,7 +101,10 @@ const DesktopHeader = ({ isFloatMenu }) => {
 
           <div className={styles.padding} />
 
-          <DropDownMenu title={t("header:menuService")}>
+          <DropDownMenu
+            title={t("header:menuService")}
+            isBackgroundWhite={isBackgroundWhite}
+          >
             <Link to="/about/">
               <DropDownSubMenu
                 title={t("header:menuServiceAbout")}
@@ -114,7 +119,10 @@ const DesktopHeader = ({ isFloatMenu }) => {
             </Link>
           </DropDownMenu>
 
-          <DropDownMenu title={t("header:menuUseCases")}>
+          <DropDownMenu
+            title={t("header:menuUseCases")}
+            isBackgroundWhite={isBackgroundWhite}
+          >
             <Link to="/usecase-sales">
               <DropDownSubMenu
                 title={t("header:menuUseCaseSales")}
@@ -140,7 +148,10 @@ const DesktopHeader = ({ isFloatMenu }) => {
 
           <Link to="/pricing/">{t("header:menuPricing")}</Link>
 
-          <DropDownMenu title={t("header:menuResource")}>
+          <DropDownMenu
+            title={t("header:menuResource")}
+            isBackgroundWhite={isBackgroundWhite}
+          >
             <Link to="/blog">
               <DropDownSubMenu
                 title={t("header:menuCompanyBlog")}
