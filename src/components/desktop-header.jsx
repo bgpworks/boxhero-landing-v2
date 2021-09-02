@@ -115,25 +115,24 @@ const DesktopHeader = ({ isFloatMenu }) => {
           </DropDownMenu>
 
           <DropDownMenu title={t("header:menuUseCases")}>
-            <Link to="/">
+            <Link to="/usecase-sales">
               <DropDownSubMenu
                 title={t("header:menuUseCaseSales")}
                 description={t("header:menuUseCaseSalesDesc")}
                 icon={svgTransaction}
               />
             </Link>
-            <Link to="/">
+            <Link to="/usecase-material">
               <DropDownSubMenu
                 title={t("header:menuUseCaseMaterial")}
                 description={t("header:menuUseCaseMaterialDesc")}
                 icon={svgParts}
               />
             </Link>
-            <Link to="/">
+            <Link to="/usecase-assets">
               <DropDownSubMenu
                 title={t("header:menuUseCaseAssets")}
                 description={t("header:menuUseCaseAssetsDesc")}
-                link="/"
                 icon={svgAsset}
               />
             </Link>
