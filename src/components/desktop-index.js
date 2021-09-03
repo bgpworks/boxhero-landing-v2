@@ -49,7 +49,7 @@ const Top = ({ data, t }) => (
           src={svgVolt}
           alt={t("index:topIconAlt")}
         />
-        <Padding y={10} />
+        <Padding y={17} />
         <div className={styles.topLeftTitle}>
           <Trans i18nKey="index:topTitle" />
         </div>
@@ -66,7 +66,7 @@ const Top = ({ data, t }) => (
             {t("index:topStartNowButton")}
           </button>
         </ExternalLinkWithQuery>
-        <Padding y={161} />
+        <Padding y={124} />
       </div>
       <div className={styles.topRightContainer}>
         <GatsbyImage image={data.homeTopRight.childImageSharp.gatsbyImageData} />
