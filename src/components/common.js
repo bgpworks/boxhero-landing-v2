@@ -68,12 +68,15 @@ const SpeechBubble = ({
   </div>
 );
 
-export const SpeechBubbleContainer = ({ containerClassName, speechBubbles, columnGap }) => {
+export const SpeechBubbleContainer = ({ containerWidth, speechBubbles, columnGap }) => {
   const isEvenNumber = (index) => index % 2 === 0;
   const isLastChild = (index) => index === speechBubbles.length;
 
   return (
-    <div className={[styles.speechBubbleContainer, containerClassName].join(" ")}>
+    <div
+      className={styles.speechBubbleContainer}
+      style={{ width: containerWidth }}
+    >
       {speechBubbles.map((bubble, index) => (
         <>
           <SpeechBubble
