@@ -41,6 +41,33 @@
   font-weight: bold;
 }
 
+/* Chatting */
+
+.chattingContainer {
+  color: var(--color-font-gray1);
+}
+
+.chattingContentContainer {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--font-size-b18);
+}
+
+.chattingSpeechBubbleContainer {
+  width: 582px;
+}
+
+.chattingTitle {
+  font-size: var(--font-size-36);
+  font-weight: bold;
+}
+
+.chattingDescription {
+  text-align: center;
+}
+
 /* keyFeature */
 
 .keyFeatureContainer {
