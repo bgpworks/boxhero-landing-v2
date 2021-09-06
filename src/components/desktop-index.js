@@ -67,7 +67,6 @@ const Top = ({ data, t }) => (
             {t("index:topStartNowButton")}
           </button>
         </ExternalLinkWithQuery>
-        <Padding y={124} />
       </div>
       <div className={styles.topRightContainer}>
         <GatsbyImage image={data.homeTopRight.childImageSharp.gatsbyImageData} />

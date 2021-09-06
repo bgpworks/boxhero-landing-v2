@@ -8,15 +8,16 @@
 }
 
 .topContentContainer {
-  padding-bottom: 71px;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .topLeftContainer {
+  --volt-symbol-height: 48px;
+  margin-top: calc(-1 * var(--volt-symbol-height));
 }
 
 .topRightContainer {
