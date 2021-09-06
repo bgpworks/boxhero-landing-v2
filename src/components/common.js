@@ -70,7 +70,7 @@ const SpeechBubble = ({
 
 export const SpeechBubbleContainer = ({ containerWidth, speechBubbles, columnGap }) => {
   const isEvenNumber = (index) => index % 2 === 0;
-  const isLastChild = (index) => index === speechBubbles.length;
+  const isLastChild = (index) => index === speechBubbles.length - 1;
 
   return (
     <div
