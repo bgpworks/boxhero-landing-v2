@@ -54,6 +54,49 @@ Padding.defaultProps = {
   y: 0,
 };
 
+const SpeechBubble = ({
+  text, alignRight, style,
+}) => (
+  <div
+    className={[
+      styles.speechBubble,
+      alignRight ? styles.speechBubbleRight : styles.speechBubbleLeft,
+    ].join(" ")}
+    style={style}
+  >
+    {text}
+  </div>
+);
+
+export const SpeechBubbleContainer = ({ containerWidth, speechBubbles, columnGap }) => {
+  const isEvenNumber = (index) => index % 2 === 0;
+  const isLastChild = (index) => index === speechBubbles.length - 1;
+
+  return (
+    <div
+      className={styles.speechBubbleContainer}
+      style={{ width: containerWidth }}
+    >
+      {speechBubbles.map((bubble, index) => (
+        <>
+          <SpeechBubble
+            key={index}
+            text={bubble.text}
+            alignRight={isEvenNumber(index + 1)}
+            style={{
+              color: bubble.color,
+              backgroundColor: bubble.backgroundColor,
+              marginRight: bubble.marginRight,
+              marginLeft: bubble.marginLeft,
+            }}
+          />
+          {!isLastChild(index) && <Padding y={columnGap} />}
+        </>
+      ))}
+    </div>
+  );
+};
+
 export const SimpleTop = ({ title, children }) => (
   <div>
     <Padding y={100} />

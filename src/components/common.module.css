@@ -15,6 +15,30 @@
   align-items: center;
 }
 
+.speechBubble {
+  display: inline-block;
+  letter-spacing: -0.3px;
+  padding: 8px 20px;
+  border-radius: 21px;
+}
+
+.speechBubbleLeft {
+  border-bottom-left-radius: 0px;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.speechBubbleRight {
+  border-bottom-right-radius: 0px;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.speechBubbleContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .simpleTopTitle {
   height: 70px;
   font-size: 52px;

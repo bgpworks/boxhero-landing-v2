@@ -8,28 +8,25 @@
 }
 
 .topContentContainer {
-  padding: 0px 10px;
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .topLeftContainer {
-  padding-left: 20px;
+  --volt-symbol-height: 48px;
+  margin-top: calc(-1 * var(--volt-symbol-height));
 }
 
 .topRightContainer {
-  width: 100px;
   overflow: visible;
 }
 
 .topLeftTitle {
-  font-size: 52px;
+  font-size: var(--font-size-40);
   font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 70px;
 }
 
 .topLeftDescription {
@@ -41,8 +38,31 @@
 .startNowButton {
   background: black;
   color: white;
-  padding: 10px 76px;
+  padding: 10px 55px;
   font-weight: bold;
+}
+
+/* Chatting */
+
+.chattingContainer {
+  color: var(--color-font-gray1);
+}
+
+.chattingContentContainer {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--font-size-b18);
+}
+
+.chattingTitle {
+  font-size: var(--font-size-36);
+  font-weight: bold;
+}
+
+.chattingDescription {
+  text-align: center;
 }
 
 /* keyFeature */

@@ -23,6 +23,7 @@ import {
   WithCurrentSlide,
   ExternalLinkWithQuery,
   GradientBG,
+  SpeechBubbleContainer,
 } from "./common";
 import * as constants from "./constants";
 // css
@@ -49,7 +50,7 @@ const Top = ({ data, t }) => (
           src={svgVolt}
           alt={t("index:topIconAlt")}
         />
-        <Padding y={10} />
+        <Padding y={17} />
         <div className={styles.topLeftTitle}>
           <Trans i18nKey="index:topTitle" />
         </div>
@@ -66,7 +67,6 @@ const Top = ({ data, t }) => (
             {t("index:topStartNowButton")}
           </button>
         </ExternalLinkWithQuery>
-        <Padding y={161} />
       </div>
       <div className={styles.topRightContainer}>
         <GatsbyImage image={data.homeTopRight.childImageSharp.gatsbyImageData} />
@@ -74,6 +74,70 @@ const Top = ({ data, t }) => (
     </DesktopBaseContainer>
   </GradientBG>
 );
+
+const Chatting = ({ t }) => {
+  const bubbles = [
+    {
+      text: t("index:chattingBubble1"),
+      color: "#292a2f",
+      backgroundColor: "#fbc200",
+      marginLeft: 102,
+    },
+    {
+      text: t("index:chattingBubble2"),
+      color: "white",
+      backgroundColor: "#50a4fa",
+    },
+    {
+      text: t("index:chattingBubble3"),
+      color: "#292a2f",
+      backgroundColor: "#e0e0e3",
+    },
+    {
+      text: t("index:chattingBubble4"),
+      color: "white",
+      backgroundColor: "rgba(79, 103, 255, 0.9)",
+      marginRight: 102,
+    },
+    {
+      text: t("index:chattingBubble5"),
+      color: "white",
+      backgroundColor: "rgba(60, 185, 160, 0.8)",
+      marginLeft: 102,
+    },
+    {
+      text: t("index:chattingBubble6"),
+      color: "white",
+      backgroundColor: "rgba(126, 187, 64, 0.6)",
+      marginRight: 72,
+    },
+    {
+      text: t("index:chattingBubble7"),
+      color: "white",
+      backgroundColor: "rgba(251, 97, 100, 0.6)",
+      marginLeft: 72,
+    },
+  ];
+
+  return (
+    <div className={styles.chattingContainer}>
+      <DesktopBaseContainer className={styles.chattingContentContainer}>
+        <SpeechBubbleContainer
+          containerWidth={582}
+          speechBubbles={bubbles}
+          columnGap={10}
+        />
+
+        <Padding y={51} />
+        <div className={styles.chattingTitle}>{t("index:chattingTitle")}</div>
+        <Padding y={16} />
+        <div className={styles.chattingDescription}>
+          <Trans i18nKey="index:chattingDescription" />
+        </div>
+      </DesktopBaseContainer>
+    </div>
+  );
+};
 
 const KeyFeature = ({
   isDarkBg,
@@ -440,6 +504,8 @@ const DesktopIndex = ({ data, language, t }) => (
       data={data}
       t={t}
     />
+
+    <Chatting t={t} />
 
     <KeyFeature
       icon={svgAddItem}
