@@ -67,85 +67,63 @@
 
 /* keyFeature */
 
-.keyFeatureContainer {
-  height: 880px;
-  overflow: hidden;
-}
-
 .darkBg {
   background: var(--color-bg-light);
 }
 
+.keyFeatureContainer {
+  composes: darkBg;
+}
+
 .keyFeatureContentContainer {
-  padding: 0px 10px;
-  height: 100%;
+  min-height: 714px;
+  color: var(--color-font-gray1);
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
-.keyFeatureLeftContainer {
-  padding-left: 20px;
-  width: 526px;
-  overflow: visible;
-  word-break: keep-all;
-}
-
-.keyFeatureLeftTitle {
-  font-size: 52px;
+.keyFeatureTitle {
+  font-size: var(--font-size-36);
   font-weight: bold;
-
-  letter-spacing: -1px;
-  color: black;
+}
+.keyFeatureTitle strong {
+  color: var(--color-primary);
 }
 
-.keyFeatureLeftTitle strong {
-  color: var(--color-font-blue);
+.KeyFeatureDescription {
+  font-size: var(--font-size-b18);
 }
 
-.keyFeatureLeftDescription {
-  font-size: 20px;
-  line-height: 1.8;
-  letter-spacing: -0.22px;
-}
-
-.keyFeatureLeftSubTitle {
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: -0.2px;
-  line-height: 1.8;
-}
-
-.keyFeatureLeftSubDesc {
-  font-size: 20px;
-  line-height: 1.8;
-  letter-spacing: -0.22px;
-}
-
-.keyFeatureDetail {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: -0.2px;
-}
-
-.keyFeatureDetail a {
-  color: var(--color-font-blue);
+.keyFeatureMenuContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.keyFeatureMenuButton {
+  color: var(--color-font-gray1);
+  width: 480px;
+  height: 60px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 18px;
+  display: flex;
   align-items: center;
+  background-color: transparent;
+}
+.keyFeatureMenuButton:last-child {
+  margin-bottom: 0;
 }
 
-.rightArrow {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.selectedKeyFeatureMenu {
+  background-color: white;
+  font-weight: 500;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
 }
 
-.keyFeatureRightContainer {
-  width: 100px;
-  overflow: visible;
+.keyFeatureImage {
+  width: 581px;
 }
 
 /* team play */
@@ -227,6 +205,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.rightArrow {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .customerButton {

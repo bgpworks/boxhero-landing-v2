@@ -1,8 +1,7 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import {
   CarouselProvider,
@@ -30,9 +29,18 @@ import * as constants from "./constants";
 import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
-import svgAddItem from "../images/additem.svg";
-import svgCounting from "../images/counting.svg";
-import svgDashboard from "../images/dashboard.svg";
+import svgCategory from "../images/icon-category.svg";
+import svgScanning from "../images/icon-scanning.svg";
+import svgImage from "../images/icon-image.svg";
+import svgExcel from "../images/icon-excel.svg";
+import svgFinger from "../images/icon-finger.svg";
+import svgMobileScan from "../images/icon-mobile-scan.svg";
+import svgHistory from "../images/icon-history.svg";
+import svgConnectExcel from "../images/icon-connect-excel.svg";
+import svgGraph from "../images/icon-graph.svg";
+import svgList from "../images/icon-list.svg";
+import svgSummary from "../images/icon-summary.svg";
+import svgDashboard from "../images/icon-dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
@@ -139,67 +147,54 @@ const Chatting = ({ t }) => {
   );
 };
 
-const KeyFeature = ({
-  isDarkBg,
-  icon,
-  iconAlt,
-  title,
-  desc,
-  subTitle,
-  subDesc,
-  detailUrl,
-  image,
-  linkDetail,
+const KeyFeatureMenu = ({
+  icon, text, selected, onClick,
 }) => (
-  <div
-    className={`${styles.keyFeatureContainer} ${isDarkBg ? styles.darkBg : ""}`}
+  <button
+    type="button"
+    className={`${styles.keyFeatureMenuButton} ${selected ? styles.selectedKeyFeatureMenu : ""}`}
+    onClick={onClick}
   >
-    <DesktopBaseContainer className={styles.keyFeatureContentContainer}>
-      <div className={styles.keyFeatureLeftContainer}>
-        <img
-          src={icon}
-          alt={iconAlt}
-        />
-        <Padding y={20} />
-        <div className={styles.keyFeatureLeftTitle}>{title}</div>
-        <Padding y={35} />
-        <div className={styles.keyFeatureLeftDescription}>{desc}</div>
-        <Padding y={40} />
-        <div className={styles.keyFeatureLeftSubTitle}>{subTitle}</div>
-        <div className={styles.keyFeatureLeftSubDesc}>{subDesc}</div>
-        <Padding y={20} />
-        <div className={styles.keyFeatureDetail}>
-          <Link to={detailUrl}>
-            {linkDetail}
-            <img
-              src={svgSmallRightBlue}
-              className={styles.rightArrow}
-              alt={linkDetail}
-            />
-          </Link>
-        </div>
-      </div>
-      <div className={styles.keyFeatureRightContainer}>
-        <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
-      </div>
-    </DesktopBaseContainer>
-  </div>
+    <img
+      src={icon}
+      alt={text}
+    />
+    <Padding x={10} />
+    <div>{text}</div>
+  </button>
 );
 
-KeyFeature.propTypes = {
-  isDarkBg: PropTypes.bool,
-  icon: PropTypes.string.isRequired,
-  iconAlt: PropTypes.string.isRequired,
-  title: PropTypes.node.isRequired,
-  desc: PropTypes.node.isRequired,
-  subTitle: PropTypes.node.isRequired,
-  subDesc: PropTypes.node.isRequired,
-  detailUrl: PropTypes.string.isRequired,
-  image: PropTypes.object.isRequired,
-};
+const KeyFeature = ({ title, description, menus }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-KeyFeature.defaultProps = {
-  isDarkBg: false,
+  return (
+    <div className={styles.keyFeatureContainer}>
+      <DesktopBaseContainer className={styles.keyFeatureContentContainer}>
+        <div>
+          <div className={styles.keyFeatureTitle}>{title}</div>
+          <Padding y={16} />
+          <div className={styles.KeyFeatureDescription}>{description}</div>
+          <Padding y={40} />
+          <div className={styles.keyFeatureMenuContainer}>
+            {menus.map((menu, index) => (
+              <KeyFeatureMenu
+                key={index}
+                icon={menu.icon}
+                text={menu.text}
+                selected={index === currentIndex}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
+        </div>
+
+        <GatsbyImage
+          image={menus[currentIndex].img}
+          alt={menus[currentIndex].text}
+        />
+      </DesktopBaseContainer>
+    </div>
+  );
 };
 
 const TeamPlay = ({ data, t }) => (
@@ -508,40 +503,36 @@ const DesktopIndex = ({ data, language, t }) => (
     <Chatting t={t} />
 
     <KeyFeature
-      icon={svgAddItem}
-      iconAlt={t("index:keyFeature1IconAlt")}
       title={<Trans i18nKey="index:keyFeature1Title" />}
-      desc={<Trans i18nKey="index:keyFeature1Desc" />}
-      subTitle={<Trans i18nKey="index:keyFeature1SubTitle" />}
-      subDesc={<Trans i18nKey="index:keyFeature1SubDesc" />}
-      detailUrl={`/about/#${constants.idAboutFeatureAddItem}`}
-      image={data.feature1}
-      linkDetail={t("index:keyFeatureLinkDetail")}
+      description={<Trans i18nKey="index:keyFeature1Desc" />}
+      menus={[
+        { icon: svgCategory, text: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
+        { icon: svgScanning, text: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
+        { icon: svgImage, text: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
+        { icon: svgExcel, text: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
+      ]}
     />
 
     <KeyFeature
-      isDarkBg
-      icon={svgCounting}
-      iconAlt={t("index:keyFeature2IconAlt")}
       title={<Trans i18nKey="index:keyFeature2Title" />}
-      desc={<Trans i18nKey="index:keyFeature2Desc" />}
-      subTitle={t("index:keyFeature2SubTitle")}
-      subDesc={<Trans i18nKey="index:keyFeature2SubDesc" />}
-      detailUrl={`/about/#${constants.idAboutFeatureTx}`}
-      image={data.feature2}
-      linkDetail={t("index:keyFeatureLinkDetail")}
+      description={<Trans i18nKey="index:keyFeature2Desc" />}
+      menus={[
+        { icon: svgFinger, text: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
+        { icon: svgMobileScan, text: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
+        { icon: svgHistory, text: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
+        { icon: svgConnectExcel, text: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
+      ]}
     />
 
     <KeyFeature
-      icon={svgDashboard}
-      iconAlt={t("index:keyFeature3IconAlt")}
       title={<Trans i18nKey="index:keyFeature3Title" />}
-      desc={<Trans i18nKey="index:keyFeature3Desc" />}
-      subTitle={t("index:keyFeature3SubTitle")}
-      subDesc={<Trans i18nKey="index:keyFeature3SubDesc" />}
-      detailUrl={`/about/#${constants.idAboutFeatureStatus}`}
-      image={data.feature3}
-      linkDetail={t("index:keyFeatureLinkDetail")}
+      description={<Trans i18nKey="index:keyFeature3Desc" />}
+      menus={[
+        { icon: svgGraph, text: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
+        { icon: svgList, text: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
+        { icon: svgSummary, text: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
+        { icon: svgDashboard, text: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
+      ]}
     />
 
     <TeamPlay
