@@ -203,17 +203,12 @@
 }
 
 .teamPlayTitle {
-  height: 44px;
-  font-size: 52px;
+  font-size: var(--font-size-36);
   font-weight: bold;
-  line-height: 0.85;
-  letter-spacing: -1px;
 }
 
 .teamPlayDesc {
-  font-size: 18px;
-  line-height: 1.67;
-  letter-spacing: -0.2px;
+  font-size: var(--font-size-b18);
   text-align: center;
 }
 

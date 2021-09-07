@@ -257,10 +257,11 @@ const TeamPlay = ({ data, t }) => (
     backgroundColor="#6159F5"
   >
     <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
-    <Padding y={40} />
+    <Padding y={16} />
     <div className={styles.teamPlayDesc}>
       <Trans i18nKey="index:teamPlayDesc" />
     </div>
+    <Padding y={22} />
     <div className={styles.teamImageFlex}>
       <GatsbyImage image={data.teamPlay.childImageSharp.gatsbyImageData} />
     </div>
