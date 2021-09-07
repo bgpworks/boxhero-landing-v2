@@ -160,6 +160,9 @@
   text-align: center;
   font-size: var(--font-size-b18);
 }
+.salesManagementDesc strong {
+  background-color: var(--color-light-blue-20);
+}
 
 .salesManagementMenuContainer {
   background-color: var(--color-bg-light);
@@ -219,8 +222,8 @@
 /* Customers  */
 
 .customersContainer {
-  height: 830px;
-  color: black;
+  height: 738px;
+  color: var(--color-font-gray1);
 
   display: flex;
   flex-direction: column;
