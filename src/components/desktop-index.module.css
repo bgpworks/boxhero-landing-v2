@@ -101,7 +101,7 @@
   flex-direction: column;
 }
 
-.keyFeatureMenuButton {
+.keyFeatureMenu {
   color: var(--color-font-gray1);
   width: 480px;
   height: 60px;
@@ -112,8 +112,12 @@
   align-items: center;
   background-color: transparent;
 }
-.keyFeatureMenuButton:last-child {
+.keyFeatureMenu:last-child {
   margin-bottom: 0;
+}
+
+.keyFeatureMenu img {
+  margin-right: 10px;
 }
 
 .selectedKeyFeatureMenu {

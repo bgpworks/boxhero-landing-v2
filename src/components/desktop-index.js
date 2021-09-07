@@ -9,8 +9,6 @@ import {
   Slide,
   ButtonBack,
   ButtonNext,
-  DotGroup,
-  Dot,
 } from "pure-react-carousel";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { Link, Trans } from "gatsby-plugin-react-i18next";
@@ -45,6 +43,7 @@ import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
+import CustomDotGroup from "./CustomDotGroup";
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -147,42 +146,17 @@ const Chatting = ({ t }) => {
   );
 };
 
-function renderKeyFeatureDots(carouselData, { currentSlide, totalSlides, visibleSlides }) {
-  const dots = [];
-  for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
-    const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
-    dots.push(
-      <Dot
-        key={i}
-        slide={slide}
-        selected={selected}
-        className={`${styles.keyFeatureMenuButton} ${
-          selected ? styles.selectedKeyFeatureMenu : ""
-        }`}
-      >
-        <img
-          src={carouselData[slide].icon}
-          alt={carouselData[slide].title}
-        />
-        <Padding x={10} />
-        {carouselData[slide].title}
-      </Dot>,
-    );
-  }
-  return dots;
-}
-
 const KeyFeatureMenuContainer = ({ title, description, carouselData }) => (
   <div>
     <div className={styles.keyFeatureTitle}>{title}</div>
     <Padding y={16} />
     <div className={styles.KeyFeatureDescription}>{description}</div>
     <Padding y={40} />
-    <DotGroup
+    <CustomDotGroup
       className={styles.keyFeatureMenuContainer}
-      renderDots={(props) => renderKeyFeatureDots(carouselData, props)}
+      data={carouselData}
+      dotClassName={styles.keyFeatureMenu}
+      dotSelectedClassName={styles.selectedKeyFeatureMenu}
     />
   </div>
 );
@@ -228,28 +202,6 @@ function genSalesManagementData(data, t) {
   ];
 }
 
-function renderSalesManagementDots(carouselData, { currentSlide, totalSlides, visibleSlides }) {
-  const dots = [];
-  for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
-    const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
-    dots.push(
-      <Dot
-        key={i}
-        slide={slide}
-        selected={selected}
-        className={`${styles.salesManagementMenuButton} ${
-          selected ? styles.selectedSalesManagementMenu : ""
-        }`}
-      >
-        {carouselData[slide].title}
-      </Dot>,
-    );
-  }
-  return dots;
-}
-
 const SalesManagement = ({ data, t }) => {
   const salesManagementData = genSalesManagementData(data, t);
 
@@ -271,9 +223,11 @@ const SalesManagement = ({ data, t }) => {
 
         <Padding y={50} />
 
-        <DotGroup
+        <CustomDotGroup
           className={styles.salesManagementMenuContainer}
-          renderDots={(props) => renderSalesManagementDots(salesManagementData, props)}
+          data={salesManagementData}
+          dotClassName={styles.salesManagementMenuButton}
+          dotSelectedClassName={styles.selectedSalesManagementMenu}
         />
 
         <Padding y={25} />
@@ -466,28 +420,6 @@ function genFeatureData(data, t) {
   ];
 }
 
-function renderDots(allData, { currentSlide, totalSlides, visibleSlides }) {
-  const dots = [];
-  for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
-    const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
-    dots.push(
-      <Dot
-        key={i}
-        slide={slide}
-        selected={selected}
-        className={`${styles.slideDetailDot} ${
-          selected ? styles.slideDetailDotSelected : ""
-        }`}
-      >
-        {allData[slide].title}
-      </Dot>,
-    );
-  }
-  return dots;
-}
-
 const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);
   return (
@@ -502,9 +434,11 @@ const Features = ({ data, t }) => {
         naturalSlideHeight={360}
         totalSlides={featureData.length}
       >
-        <DotGroup
+        <CustomDotGroup
           className={styles.slideDetailDotGroup}
-          renderDots={(props) => renderDots(featureData, props)}
+          data={featureData}
+          dotClassName={styles.slideDetailDot}
+          dotSelectedClassName={styles.slideDetailDotSelected}
         />
 
         <Padding y={80} />
