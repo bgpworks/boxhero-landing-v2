@@ -164,19 +164,22 @@
 .salesManagementMenuContainer {
   background-color: var(--color-bg-light);
   border-radius: 8px;
-  padding: 6px;
 }
 
 .salesManagementImageContainer {
   width: 828px;
 }
 
-.salesManagementMenuButton {
+.salesManagementMenu {
   color: var(--color-gray2);
   width: 254px;
   height: 48px;
+  margin: 6px;
   background-color: transparent;
   font-weight: 500;
+}
+.salesManagementMenu:not(:last-child) {
+  margin-right: 0;
 }
 
 .selectedSalesManagementMenu {

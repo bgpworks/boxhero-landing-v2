@@ -226,7 +226,7 @@ const SalesManagement = ({ data, t }) => {
         <CustomDotGroup
           className={styles.salesManagementMenuContainer}
           data={salesManagementData}
-          dotClassName={styles.salesManagementMenuButton}
+          dotClassName={styles.salesManagementMenu}
           dotSelectedClassName={styles.selectedSalesManagementMenu}
         />
 
