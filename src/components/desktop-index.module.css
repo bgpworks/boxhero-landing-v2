@@ -353,7 +353,7 @@
   font-size: 18px;
   font-weight: bold;
   background-color: transparent;
-  color: var(--color-font-darker);
+  color: var(--color-font-gray1);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -362,7 +362,7 @@
 }
 
 .slideDetailDotSelected {
-  background-color: var(--color-carousel-dot);
+  background-color: var(--color-light-blue);
   color: white;
 }
 
@@ -373,34 +373,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 140px 0px;
+  padding: 100px 0px;
+  color: var(--color-font-gray1);
 }
 
 .startNowTitle {
-  font-size: 36px;
+  font-size: var(--font-size-36);
   font-weight: bold;
-  letter-spacing: -1px;
   text-align: center;
-  color: black;
 }
 
 .startNowDescription {
-  font-size: 18px;
-  line-height: 1.67;
-  letter-spacing: -0.2px;
+  font-size: var(--font-size-b18);
   text-align: center;
 }
 
 .startNowDescription strong {
   font-weight: bold;
-  color: var(--color-font-blue);
 }
 
 .startNowDetailLink {
-  font-size: 20px;
+  font-size: var(--font-size-h5);
   font-weight: bold;
   letter-spacing: -0.2px;
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .startNowDetailLink img {

@@ -425,13 +425,13 @@ const StartNow = ({ data, t }) => (
     <div className={styles.startNowTitle}>
       <Trans i18nKey="index:startNowTitle" />
     </div>
-    <Padding y={60} />
+    <Padding y={50} />
     <GatsbyImage image={data.homeStartNow.childImageSharp.gatsbyImageData} />
     <Padding y={40} />
     <div className={styles.startNowDescription}>
       <Trans i18nKey="index:startNowDescription" />
     </div>
-    <Padding y={20} />
+    <Padding y={40} />
     <Link
       to="/pricing/"
       className={styles.startNowDetailLink}
