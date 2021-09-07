@@ -306,6 +306,66 @@ export const query = graphql`
         )
       }
     }
+    featureTransaction: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-transaction.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 828
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featureOut: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-out.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 826
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featureSalesAnalysis: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-sales-analysis.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 826
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
     teamPlay: file(
       relativeDirectory: { eq: $language }
       base: { eq: "img-team.png" }

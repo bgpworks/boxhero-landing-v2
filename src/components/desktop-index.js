@@ -220,6 +220,82 @@ const KeyFeature = ({ totalSlides, children }) => (
   </div>
 );
 
+function genSalesManagementData(data, t) {
+  return [
+    { title: t("index:salesManagementMenu1"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
+    { title: t("index:salesManagementMenu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
+    { title: t("index:salesManagementMenu3"), img: data.featureSalesAnalysis.childImageSharp.gatsbyImageData },
+  ];
+}
+
+function renderSalesManagementDots(carouselData, { currentSlide, totalSlides, visibleSlides }) {
+  const dots = [];
+  for (let i = 0; i < totalSlides; i += 1) {
+    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
+    const selected = multipleSelected;
+    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
+    dots.push(
+      <Dot
+        key={i}
+        slide={slide}
+        selected={selected}
+        className={`${styles.salesManagementMenuButton} ${
+          selected ? styles.selectedSalesManagementMenu : ""
+        }`}
+      >
+        {carouselData[slide].title}
+      </Dot>,
+    );
+  }
+  return dots;
+}
+
+const SalesManagement = ({ data, t }) => {
+  const salesManagementData = genSalesManagementData(data, t);
+
+  return (
+    <DesktopBaseContainer>
+      <CarouselProvider
+        className={styles.salesManagementContentContainer}
+        naturalSlideWidth={828}
+        naturalSlideHeight={682}
+        totalSlides={salesManagementData.length}
+      >
+        <div className={styles.salesManagementTitle}>
+          <Trans i18nKey="index:salesManagementTitle" />
+        </div>
+        <Padding y={16} />
+        <div className={styles.salesManagementDesc}>
+          <Trans i18nKey="index:salesManagementDesc" />
+        </div>
+
+        <Padding y={50} />
+
+        <DotGroup
+          className={styles.salesManagementMenuContainer}
+          renderDots={(props) => renderSalesManagementDots(salesManagementData, props)}
+        />
+
+        <Padding y={25} />
+
+        <Slider className={styles.salesManagementImageContainer}>
+          {salesManagementData.map(({ img, title }, index) => (
+            <Slide
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={img}
+                alt={title}
+              />
+            </Slide>
+          ))}
+        </Slider>
+      </CarouselProvider>
+    </DesktopBaseContainer>
+  );
+};
+
 const TeamPlay = ({ data, t }) => (
   <GradientBG
     className={styles.teamPlayContainer}
@@ -583,6 +659,11 @@ const DesktopIndex = ({ data, language, t }) => {
           carouselData={keyFeatureData[2]}
         />
       </KeyFeature>
+
+      <SalesManagement
+        data={data}
+        t={t}
+      />
 
       <TeamPlay
         data={data}
