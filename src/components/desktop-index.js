@@ -74,7 +74,10 @@ const Top = ({ data, t }) => (
         </ExternalLinkWithQuery>
       </div>
       <div className={styles.topRightContainer}>
-        <GatsbyImage image={data.homeTopRight.childImageSharp.gatsbyImageData} />
+        <GatsbyImage
+          image={data.homeTopRight.childImageSharp.gatsbyImageData}
+          alt={t("index:topIconAlt")}
+        />
       </div>
     </DesktopBaseContainer>
   </GradientBG>
@@ -261,7 +264,10 @@ const TeamPlay = ({ data, t }) => (
     </div>
     <Padding y={22} />
     <div className={styles.teamImageFlex}>
-      <GatsbyImage image={data.teamPlay.childImageSharp.gatsbyImageData} />
+      <GatsbyImage
+        image={data.teamPlay.childImageSharp.gatsbyImageData}
+        alt={t("index:teamPlayTitle")}
+      />
     </div>
   </GradientBG>
 );
@@ -270,7 +276,10 @@ const CustomerCard = ({
   img, title,
 }) => (
   <div className={styles.customerCard}>
-    <GatsbyImage image={img.childImageSharp.gatsbyImageData} />
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      alt={title}
+    />
     <Padding x={4} />
     {title}
   </div>
@@ -426,7 +435,10 @@ const StartNow = ({ data, t }) => (
       <Trans i18nKey="index:startNowTitle" />
     </div>
     <Padding y={50} />
-    <GatsbyImage image={data.homeStartNow.childImageSharp.gatsbyImageData} />
+    <GatsbyImage
+      image={data.homeStartNow.childImageSharp.gatsbyImageData}
+      alt={t("index:startNowTitle")}
+    />
     <Padding y={40} />
     <div className={styles.startNowDescription}>
       <Trans i18nKey="index:startNowDescription" />
