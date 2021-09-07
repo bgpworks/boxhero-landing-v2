@@ -387,6 +387,391 @@ export const query = graphql`
         )
       }
     }
+    book: file(relativePath: { eq: "emoji-book.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    box: file(relativePath: { eq: "emoji-box.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    truck: file(relativePath: { eq: "emoji-truck.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    bag: file(relativePath: { eq: "emoji-bag.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    coat: file(relativePath: { eq: "emoji-coat.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    teeth: file(relativePath: { eq: "emoji-teeth.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    car: file(relativePath: { eq: "emoji-car.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    pinkT: file(relativePath: { eq: "emoji-pink-t.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    heel: file(relativePath: { eq: "emoji-heel.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    thermometer: file(relativePath: { eq: "emoji-thermometer.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    dress: file(relativePath: { eq: "emoji-dress.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    bag2: file(relativePath: { eq: "emoji-bag-2.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    mobile: file(relativePath: { eq: "emoji-mobile.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    lipstick: file(relativePath: { eq: "emoji-lipstick.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    burger: file(relativePath: { eq: "emoji-burger.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    bolt: file(relativePath: { eq: "emoji-bolt.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    brick: file(relativePath: { eq: "emoji-brick.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    ring: file(relativePath: { eq: "emoji-ring.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    coffeeSmall: file(relativePath: { eq: "emoji-coffee.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    tip: file(relativePath: { eq: "emoji-tip.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    icecream: file(relativePath: { eq: "emoji-icecream.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    lip: file(relativePath: { eq: "emoji-lip.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    cart: file(relativePath: { eq: "emoji-cart.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    chair: file(relativePath: { eq: "emoji-chair.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    tea: file(relativePath: { eq: "emoji-tea.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    pill: file(relativePath: { eq: "emoji-pill.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    movie: file(relativePath: { eq: "emoji-movie.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    tv: file(relativePath: { eq: "emoji-tv.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    puzzle: file(relativePath: { eq: "emoji-puzzle.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    camera: file(relativePath: { eq: "emoji-camera.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    electronic: file(relativePath: { eq: "emoji-electronic.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    wheelchair: file(relativePath: { eq: "emoji-wheelchair.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    hammer: file(relativePath: { eq: "emoji-hammer.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    bed: file(relativePath: { eq: "emoji-bed.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    meat: file(relativePath: { eq: "emoji-meat.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 24
+          height: 24
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
     coffee: file(relativePath: { eq: "emoji-coffee.png" }) {
       childImageSharp {
         gatsbyImageData(

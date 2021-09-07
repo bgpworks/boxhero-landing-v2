@@ -10,7 +10,6 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
-import ScrollContainer from "react-indiana-drag-scroll";
 import { Link, Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
@@ -40,7 +39,6 @@ import svgList from "../images/icon-list.svg";
 import svgSummary from "../images/icon-summary.svg";
 import svgDashboard from "../images/icon-dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
-import svgSmallRight from "../images/smallright.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 import CustomDotGroup from "./CustomDotGroup";
@@ -269,124 +267,49 @@ const TeamPlay = ({ data, t }) => (
 );
 
 const CustomerCard = ({
-  img, indexLabel, title, linkLabel, link,
+  img, title,
 }) => (
-  <div className={styles.customerButton}>
-    <div className={styles.customerButtonBackground}>
-      <GatsbyImage image={img} />
-    </div>
-    <div className={styles.customerButtonContent}>
-      <span className={styles.customButtonContentNumber}>{indexLabel}</span>
-      <span className={styles.customButtonContentTitle}>{title}</span>
-      <span className={styles.customButtonContentPadding} />
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener"
-        className={styles.customButtonContentLink}
-      >
-        {linkLabel}
-      </a>
-    </div>
+  <div className={styles.customerCard}>
+    <GatsbyImage image={img.childImageSharp.gatsbyImageData} />
+    <Padding x={4} />
+    {title}
   </div>
 );
 
-const Customers = ({ data, t, language }) => {
-  const customerData = [
-    {
-      title: t("index:customerData1Title"),
-      img: data.customerMart.childImageSharp.gatsbyImageData,
-      link: t("index:customerData1Link"),
-    },
-    // 영문 문서가 없어서 한글에서만 추가.
-    language === "ko"
-      ? {
-        title: t("index:customerData2Title"),
-        img: data.customerFasion.childImageSharp.gatsbyImageData,
-        link: t("index:customerData2Link"),
-      }
-      : null,
-    {
-      title: t("index:customerData3Title"),
-      img: data.customerCosmetics.childImageSharp.gatsbyImageData,
-      link: t("index:customerData3Link"),
-    },
-    {
-      title: t("index:customerData4Title"),
-      img: data.customerCafe.childImageSharp.gatsbyImageData,
-      link: t("index:customerData4Link"),
-    },
-    {
-      title: t("index:customerData5Title"),
-      img: data.customerPharmacy.childImageSharp.gatsbyImageData,
-      link: t("index:customerData5Link"),
-    },
-    {
-      title: t("index:customerData6Title"),
-      img: data.customerHandmade.childImageSharp.gatsbyImageData,
-      link: t("index:customerData6Link"),
-    },
-    {
-      title: t("index:customerData7Title"),
-      img: data.customerTextbook.childImageSharp.gatsbyImageData,
-      link: t("index:customerData7Link"),
-    },
-    {
-      title: t("index:customerData8Title"),
-      img: data.customerLocation.childImageSharp.gatsbyImageData,
-      link: t("index:customerData8Link"),
-    },
-  ].filter((item) => item);
+const Customers = ({ data, t }) => {
+  const customerEmojis = [
+    data.book, data.box, data.truck, data.bag, data.coat, data.teeth, data.car,
+    data.pinkT, data.heel, data.thermometer, data.dress, data.bag2, data.mobile,
+    data.lipstick, data.burger, data.bolt, data.brick, data.ring, data.coffeeSmall,
+    data.tip, data.icecream, data.lip, data.cart, data.chair, data.tea, data.pill,
+    data.movie, data.tv, data.puzzle, data.camera, data.electronic, data.wheelchair,
+    data.hammer, data.bed, data.meat,
+  ];
 
   return (
     <div className={styles.customersContainer}>
-      <Padding y={130} />
       <div className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
       </div>
-      <Padding y={40} />
-      <Link
-        to="/features/"
-        title={t("index:customerDetailLink")}
-      >
-        <button
-          type="button"
-          className={styles.customersDetailButton}
-        >
-          {t("index:customerDetailLink")}
-          <Padding x={10} />
-          <img
-            src={svgSmallRight}
-            className={styles.rightArrow}
-            alt={t("index:customerDataDetailLink")}
-          />
-        </button>
-      </Link>
-      <ScrollContainer
-        className={styles.customersWrapper}
-        vertical={false}
-        horizontal
-        hideScrollbars
-      >
-        {customerData.map((customer, index) => (
+      <Padding y={16} />
+      <div className={styles.customersDesc}>
+        <Trans i18nKey="index:customerDesc" />
+      </div>
+
+      <Padding y={50} />
+
+      <div className={styles.customersCardContainer}>
+        {customerEmojis.map((emoji, index) => (
           <CustomerCard
             key={index}
-            img={customer.img}
-            indexLabel={(`0${index + 1}`).slice(-2)}
-            title={customer.title}
-            link={customer.link}
-            linkLabel={t("index:customerDataDetailLink")}
+            img={emoji}
+            title={t(`index:customerType${index + 1}`)}
           />
         ))}
-        <CustomerCard
-          img={data.customerETC.childImageSharp.gatsbyImageData}
-          indexLabel={t("index:customerOtherIndexLabel")}
-          title={t("index:customerOtherTitle")}
-          link="https://web.boxhero-app.com/login"
-          linkLabel="GO! >"
-        />
-        <Padding x={500} />
-      </ScrollContainer>
+        <div className={[styles.customerCard, styles.darkBg].join(" ")}>
+          {t("index:customerMore")}
+        </div>
+      </div>
     </div>
   );
 };
