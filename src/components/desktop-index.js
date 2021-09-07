@@ -147,7 +147,7 @@ const Chatting = ({ t }) => {
   );
 };
 
-function renderKeyFeatureDots(menus, { currentSlide, totalSlides, visibleSlides }) {
+function renderKeyFeatureDots(carouselData, { currentSlide, totalSlides, visibleSlides }) {
   const dots = [];
   for (let i = 0; i < totalSlides; i += 1) {
     const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
@@ -163,18 +163,18 @@ function renderKeyFeatureDots(menus, { currentSlide, totalSlides, visibleSlides 
         }`}
       >
         <img
-          src={menus[slide].icon}
-          alt={menus[slide].text}
+          src={carouselData[slide].icon}
+          alt={carouselData[slide].title}
         />
         <Padding x={10} />
-        {menus[slide].text}
+        {carouselData[slide].title}
       </Dot>,
     );
   }
   return dots;
 }
 
-const KeyFeatureMenuContainer = ({ title, description, menus }) => (
+const KeyFeatureMenuContainer = ({ title, description, carouselData }) => (
   <div>
     <div className={styles.keyFeatureTitle}>{title}</div>
     <Padding y={16} />
@@ -182,14 +182,14 @@ const KeyFeatureMenuContainer = ({ title, description, menus }) => (
     <Padding y={40} />
     <DotGroup
       className={styles.keyFeatureMenuContainer}
-      renderDots={(props) => renderKeyFeatureDots(menus, props)}
+      renderDots={(props) => renderKeyFeatureDots(carouselData, props)}
     />
   </div>
 );
 
-const KeyFeatureImageContainer = ({ menus }) => (
+const KeyFeatureImageContainer = ({ carouselData }) => (
   <Slider className={styles.keyFeatureImageContainer}>
-    {menus.map(({ img, text }, index) => (
+    {carouselData.map(({ img, text }, index) => (
       <Slide
         className={styles.keyFeatureSlide}
         key={index}
@@ -512,35 +512,31 @@ const StartNow = ({ data, t }) => (
   </div>
 );
 
-function genKeyFeature1Data(data, t) {
+function genKeyFeatureData(data, t) {
   return [
-    { icon: svgCategory, text: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
-    { icon: svgScanning, text: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
-    { icon: svgImage, text: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
-    { icon: svgExcel, text: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
-  ];
-}
-function genKeyFeature2Data(data, t) {
-  return [
-    { icon: svgFinger, text: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
-    { icon: svgMobileScan, text: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
-    { icon: svgHistory, text: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
-    { icon: svgConnectExcel, text: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
-  ];
-}
-function genKeyFeature3Data(data, t) {
-  return [
-    { icon: svgGraph, text: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
-    { icon: svgList, text: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
-    { icon: svgSummary, text: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
-    { icon: svgDashboard, text: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
+    [
+      { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
+      { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
+      { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
+      { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
+    ],
+    [
+      { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
+      { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
+      { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
+    ],
+    [
+      { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
+      { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
+      { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
+      { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
+    ],
   ];
 }
 
 const DesktopIndex = ({ data, language, t }) => {
-  const keyFeature1Data = genKeyFeature1Data(data, t);
-  const keyFeature2Data = genKeyFeature2Data(data, t);
-  const keyFeature3Data = genKeyFeature3Data(data, t);
+  const keyFeatureData = genKeyFeatureData(data, t);
 
   return (
     <DesktopLayout
@@ -555,36 +551,36 @@ const DesktopIndex = ({ data, language, t }) => {
 
       <Chatting t={t} />
 
-      <KeyFeature totalSlides={keyFeature1Data.length}>
+      <KeyFeature totalSlides={keyFeatureData[0].length}>
         <KeyFeatureMenuContainer
           title={<Trans i18nKey="index:keyFeature1Title" />}
           description={<Trans i18nKey="index:keyFeature1Desc" />}
-          menus={keyFeature1Data}
+          carouselData={keyFeatureData[0]}
         />
         <KeyFeatureImageContainer
-          menus={keyFeature1Data}
+          carouselData={keyFeatureData[0]}
         />
       </KeyFeature>
 
-      <KeyFeature totalSlides={keyFeature2Data.length}>
+      <KeyFeature totalSlides={keyFeatureData[1].length}>
         <KeyFeatureImageContainer
-          menus={keyFeature2Data}
+          carouselData={keyFeatureData[1]}
         />
         <KeyFeatureMenuContainer
           title={<Trans i18nKey="index:keyFeature2Title" />}
           description={<Trans i18nKey="index:keyFeature2Desc" />}
-          menus={keyFeature2Data}
+          carouselData={keyFeatureData[1]}
         />
       </KeyFeature>
 
-      <KeyFeature totalSlides={keyFeature3Data.length}>
+      <KeyFeature totalSlides={keyFeatureData[2].length}>
         <KeyFeatureMenuContainer
           title={<Trans i18nKey="index:keyFeature3Title" />}
           description={<Trans i18nKey="index:keyFeature3Desc" />}
-          menus={keyFeature3Data}
+          carouselData={keyFeatureData[2]}
         />
         <KeyFeatureImageContainer
-          menus={keyFeature3Data}
+          carouselData={keyFeatureData[2]}
         />
       </KeyFeature>
 
