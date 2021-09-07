@@ -351,7 +351,7 @@ const Features = ({ data, t }) => {
       <div className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitle" />
       </div>
-      <Padding y={80} />
+      <Padding y={50} />
 
       <CarouselProvider
         naturalSlideWidth={495}
@@ -365,7 +365,7 @@ const Features = ({ data, t }) => {
           dotSelectedClassName={styles.slideDetailDotSelected}
         />
 
-        <Padding y={80} />
+        <Padding y={42} />
 
         <div className={styles.slideAndNavButtons}>
           <ButtonBack className={styles.slideNavButton}>
