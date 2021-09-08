@@ -10,6 +10,7 @@ import * as styles from "./desktop-usecase-sales.module.css";
 const DesktopUsecaseSales = ({ data, t }) => (
   <DesktopLayout
     isFloatMenu={false}
+    showPlatforms={false}
     closingEmoji={data.finger}
     closingMsg={t("usecase:closingMsg")}
   >

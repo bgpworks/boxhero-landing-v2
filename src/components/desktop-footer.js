@@ -272,19 +272,19 @@ const DesktopFooterMenusAndInfo = ({ t, language }) => (
   </div>
 );
 
-const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
+const DesktopFooter = ({
+  showPlatforms, showStartNow, closingEmoji, closingMsg,
+}) => {
   const { t, language } = useI18next();
   return (
     <div>
-      {!showEssential && (
-        <>
-          <Platforms t={t} />
-          <StartNow
-            emoji={closingEmoji}
-            message={closingMsg}
-            t={t}
-          />
-        </>
+      {showPlatforms && <Platforms t={t} />}
+      {showStartNow && (
+        <StartNow
+          emoji={closingEmoji}
+          message={closingMsg}
+          t={t}
+        />
       )}
       <DesktopFooterMenusAndInfo
         t={t}
@@ -295,9 +295,15 @@ const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
 };
 
 DesktopFooter.propTypes = {
-  showEssential: PropTypes.bool,
+  showPlatforms: PropTypes.bool,
+  showStartNow: PropTypes.bool,
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+};
+
+DesktopFooter.defaultProps = {
+  showPlatforms: true,
+  showStartNow: true,
 };
 
 export default DesktopFooter;
