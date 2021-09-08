@@ -67,85 +67,128 @@
 
 /* keyFeature */
 
-.keyFeatureContainer {
-  height: 880px;
-  overflow: hidden;
-}
-
 .darkBg {
   background: var(--color-bg-light);
 }
 
+.keyFeatureContainer {
+  composes: darkBg;
+}
+
 .keyFeatureContentContainer {
-  padding: 0px 10px;
-  height: 100%;
+  height: 714px;
+  color: var(--color-font-gray1);
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
-.keyFeatureLeftContainer {
-  padding-left: 20px;
-  width: 526px;
-  overflow: visible;
-  word-break: keep-all;
-}
-
-.keyFeatureLeftTitle {
-  font-size: 52px;
+.keyFeatureTitle {
+  font-size: var(--font-size-36);
   font-weight: bold;
-
-  letter-spacing: -1px;
-  color: black;
+}
+.keyFeatureTitle strong {
+  color: var(--color-primary);
 }
 
-.keyFeatureLeftTitle strong {
-  color: var(--color-font-blue);
+.KeyFeatureDescription {
+  font-size: var(--font-size-b18);
 }
 
-.keyFeatureLeftDescription {
-  font-size: 20px;
-  line-height: 1.8;
-  letter-spacing: -0.22px;
-}
-
-.keyFeatureLeftSubTitle {
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: -0.2px;
-  line-height: 1.8;
-}
-
-.keyFeatureLeftSubDesc {
-  font-size: 20px;
-  line-height: 1.8;
-  letter-spacing: -0.22px;
-}
-
-.keyFeatureDetail {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: -0.2px;
-}
-
-.keyFeatureDetail a {
-  color: var(--color-font-blue);
+.keyFeatureMenuContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.keyFeatureMenu {
+  color: var(--color-font-gray1);
+  width: 480px;
+  height: 60px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+.keyFeatureMenu:last-child {
+  margin-bottom: 0;
+}
+
+.keyFeatureMenu img {
+  margin-right: 10px;
+}
+
+.selectedKeyFeatureMenu {
+  background-color: white;
+  font-weight: 500;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.keyFeatureSlider {
+  width: 581px;
+}
+
+.keyFeatureSlide {
+  display: flex;
   align-items: center;
 }
 
-.rightArrow {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+/* sales management */
+
+.salesManagementContentContainer {
+  color: var(--color-font-gray1);
+  height: 1120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.keyFeatureRightContainer {
-  width: 100px;
-  overflow: visible;
+.salesManagementTitle {
+  font-size: var(--font-size-36);
+  font-weight: bold;
+}
+.salesManagementTitle strong {
+  color: var(--color-primary);
+}
+
+.salesManagementDesc {
+  text-align: center;
+  font-size: var(--font-size-b18);
+}
+.salesManagementDesc strong {
+  background-color: var(--color-light-blue-20);
+}
+
+.salesManagementMenuContainer {
+  background-color: var(--color-bg-light);
+  border-radius: 8px;
+}
+
+.salesManagementImageContainer {
+  width: 828px;
+}
+
+.salesManagementMenu {
+  color: var(--color-gray2);
+  width: 254px;
+  height: 48px;
+  margin: 6px;
+  background-color: transparent;
+  font-weight: 500;
+}
+.salesManagementMenu:not(:last-child) {
+  margin-right: 0;
+}
+
+.selectedSalesManagementMenu {
+  color: var(--color-primary);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
+  border: solid 1px var(--color-gray4);
 }
 
 /* team play */
@@ -161,17 +204,12 @@
 }
 
 .teamPlayTitle {
-  height: 44px;
-  font-size: 52px;
+  font-size: var(--font-size-36);
   font-weight: bold;
-  line-height: 0.85;
-  letter-spacing: -1px;
 }
 
 .teamPlayDesc {
-  font-size: 18px;
-  line-height: 1.67;
-  letter-spacing: -0.2px;
+  font-size: var(--font-size-b18);
   text-align: center;
 }
 
@@ -182,8 +220,8 @@
 /* Customers  */
 
 .customersContainer {
-  height: 830px;
-  color: black;
+  padding: 100px 0;
+  color: var(--color-font-gray1);
 
   display: flex;
   flex-direction: column;
@@ -192,10 +230,8 @@
 }
 
 .customersTitle {
-  font-size: 36px;
+  font-size: var(--font-size-36);
   font-weight: bold;
-  line-height: 1.39;
-  letter-spacing: -2px;
   text-align: center;
 }
 
@@ -205,97 +241,28 @@
   color: var(--color-font-blue);
 }
 
-.customersWrapper {
-  width: 100%;
-  padding-left: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+.customersDesc {
+  font-size: var(--font-size-b18);
+  text-align: center;
 }
 
-.customersDetailButton {
-  padding: 0px 35px;
-  height: 44px;
-  border-radius: 22px;
-  background-color: #50a4fa;
-
-  color: white;
-  font-weight: bold;
-
+.customersCardContainer {
+  width: 990px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: -10px 0 0 -10px;
 }
 
-.customerButton {
-  width: 220px;
-  height: 280px;
-  position: relative;
-  margin: 80px 17px 140px;
-  flex-shrink: 0;
-}
-
-.customerButtonBackground {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: transform, filter;
-  overflow: hidden;
-}
-
-.customerButton:hover .customerButtonBackground {
-  filter: grayscale(1) brightness(0.2);
-  transform: scale(1.08197);
-}
-
-.customerButtonContent {
-  position: relative;
-  padding: 25px;
-  width: 100%;
-  height: 100%;
-
+.customerCard {
+  font-weight: 500;
   display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  align-items: flex-start;
-
-  color: white;
-}
-
-.customButtonContentNumber {
-  height: 29px;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.customButtonContentTitle {
-  font-size: 24px;
-  font-weight: bold;
-  white-space: pre-line;
-}
-
-.customButtonContentPadding {
-  flex: 1;
-}
-
-.customButtonContentLink {
-  height: 27px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  transition: color 0.3s;
-}
-
-.customButtonContentLink:hover {
-  color: var(--color-carousel-dot);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  border: solid 1px var(--color-gray4);
+  margin: 10px 0 0 10px;
 }
 
 /* Features */
@@ -303,8 +270,8 @@
 .featuresContainer {
   composes: darkBg;
 
-  height: 1011px;
-  color: black;
+  padding: 100px 0;
+  color: var(--color-font-gray1);
 
   display: flex;
   flex-direction: column;
@@ -314,15 +281,13 @@
 
 .featuresTitle {
   height: 100px;
-  font-size: 36px;
+  font-size: var(--font-size-36);
   font-weight: bold;
-  line-height: 1.39;
-  letter-spacing: -1px;
   text-align: center;
 }
 
 .featuresTitle strong {
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .slideAndNavButtons {
@@ -337,7 +302,7 @@
   width: 495px;
   height: 360px;
   border-radius: 12px;
-  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
   background-color: #ffffff;
 }
 
@@ -352,10 +317,10 @@
 .slideDetailLink {
   width: 136px;
   height: 29px;
-  font-size: 20px;
+  font-size: var(--font-size-h5);
   font-weight: bold;
   letter-spacing: -0.2px;
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .slideDetailLinkContainer {
@@ -364,6 +329,12 @@
 
 .slideDetailLink img {
   vertical-align: middle;
+}
+
+.rightArrow {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .slideDetailDotGroup {
@@ -380,7 +351,7 @@
   font-size: 18px;
   font-weight: bold;
   background-color: transparent;
-  color: var(--color-font-darker);
+  color: var(--color-font-gray1);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -389,7 +360,7 @@
 }
 
 .slideDetailDotSelected {
-  background-color: var(--color-carousel-dot);
+  background-color: var(--color-light-blue);
   color: white;
 }
 
@@ -400,34 +371,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 140px 0px;
+  padding: 100px 0px;
+  color: var(--color-font-gray1);
 }
 
 .startNowTitle {
-  font-size: 36px;
+  font-size: var(--font-size-36);
   font-weight: bold;
-  letter-spacing: -1px;
   text-align: center;
-  color: black;
 }
 
 .startNowDescription {
-  font-size: 18px;
-  line-height: 1.67;
-  letter-spacing: -0.2px;
+  font-size: var(--font-size-b18);
   text-align: center;
 }
 
 .startNowDescription strong {
   font-weight: bold;
-  color: var(--color-font-blue);
 }
 
 .startNowDetailLink {
-  font-size: 20px;
+  font-size: var(--font-size-h5);
   font-weight: bold;
   letter-spacing: -0.2px;
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .startNowDetailLink img {

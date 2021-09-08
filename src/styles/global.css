@@ -26,7 +26,11 @@
   --font-size-mobile-big4: 46px;
 
   /* new color, size */
+  --color-primary: #4f67ff;
+  --color-light-blue: #50a4fa;
+  --color-light-blue-20: rgba(80, 164, 250, 0.2);
   --color-font-gray1: #292a2f;
+  --color-gray2: #8f91a0;
   --color-gray4: #e0e0e3;
   --font-size-h1: 42px;
   --font-size-40: 40px;
