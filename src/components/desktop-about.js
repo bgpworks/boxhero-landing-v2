@@ -33,80 +33,51 @@ const Top = ({ data }) => (
       <div className={styles.topLeftContainer}>
         <Trans i18nKey="about:topTitle" />
       </div>
-      <div className={styles.topRightContainer}>
-        <GatsbyImage image={data.topLogo.childImageSharp.gatsbyImageData} />
-      </div>
+      <GatsbyImage image={data.topLogo.childImageSharp.gatsbyImageData} />
     </DesktopBaseContainer>
   </GradientBG>
 );
 
-const StrongPoints = ({ data }) => (
-  <div className={styles.strongPointContainer}>
-    <DesktopBaseContainer className={styles.section}>
-      <div className={`${styles.left47} ${styles.figContainer}`}>
-        <GatsbyImage
-          image={data.easy.childImageSharp.gatsbyImageData}
-          style={{
-            position: "relative",
-            top: 152,
-            right: 219,
-          }}
-        />
-      </div>
-      <div>
-        <Padding y={271} />
-        <span className={styles.title}>
-          <Trans i18nKey="about:strongPoint1Title" />
-        </span>
-        <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint1Desc" />
-        </div>
-      </div>
-    </DesktopBaseContainer>
+const StrongPoint = ({ children }) => (
+  <DesktopBaseContainer className={styles.section}>
+    {children}
+  </DesktopBaseContainer>
+);
 
-    <DesktopBaseContainer className={styles.section}>
-      <div className={`${styles.left48} ${styles.pl10}`}>
-        <Padding y={253} />
-        <span className={styles.title}>
-          <Trans i18nKey="about:strongPoint2Title" />
-        </span>
-        <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint2Desc" />
-        </div>
-      </div>
-      <div className={`${styles.left46} ${styles.figContainer}`}>
-        <GatsbyImage
-          image={data.great.childImageSharp.gatsbyImageData}
-          style={{
-            position: "relative",
-            top: 137,
-          }}
-        />
-      </div>
-    </DesktopBaseContainer>
-
-    <DesktopBaseContainer className={styles.section}>
-      <div className={`${styles.left46} ${styles.figContainer}`}>
-        <GatsbyImage
-          image={data.mobile.childImageSharp.gatsbyImageData}
-          style={{
-            position: "relative",
-            top: 190,
-            right: 109,
-          }}
-        />
-      </div>
-      <div>
-        <Padding y={271} />
-        <span className={styles.title}>
-          <Trans i18nKey="about:strongPoint3Title" />
-        </span>
-        <div className={styles.desc}>
-          <Trans i18nKey="about:strongPoint3Desc" />
-        </div>
-      </div>
-    </DesktopBaseContainer>
+const StrongPointDescription = ({ title, description }) => (
+  <div>
+    <div className={styles.title}>{title}</div>
+    <Padding y={16} />
+    <div className={styles.desc}>{description}</div>
   </div>
+);
+
+const StrongPoints = ({ data }) => (
+  <>
+    <StrongPoint>
+      <GatsbyImage image={data.easy.childImageSharp.gatsbyImageData} />
+      <StrongPointDescription
+        title={<Trans i18nKey="about:strongPoint1Title" />}
+        description={<Trans i18nKey="about:strongPoint1Desc" />}
+      />
+    </StrongPoint>
+
+    <StrongPoint>
+      <StrongPointDescription
+        title={<Trans i18nKey="about:strongPoint2Title" />}
+        description={<Trans i18nKey="about:strongPoint2Desc" />}
+      />
+      <GatsbyImage image={data.great.childImageSharp.gatsbyImageData} />
+    </StrongPoint>
+
+    <StrongPoint>
+      <GatsbyImage image={data.mobile.childImageSharp.gatsbyImageData} />
+      <StrongPointDescription
+        title={<Trans i18nKey="about:strongPoint3Title" />}
+        description={<Trans i18nKey="about:strongPoint3Desc" />}
+      />
+    </StrongPoint>
+  </>
 );
 
 const FeatureCard = ({
@@ -126,9 +97,9 @@ const FeatureCard = ({
           src={img}
           alt={title}
         />
-        <Padding y={10} />
+        <Padding y={4} />
         <div className={styles.featureCardTitle}>{title}</div>
-        <Padding y={15} />
+        <Padding y={21} />
         <div className={styles.featureCardContent}>{content}</div>
       </div>
     </div>
@@ -141,7 +112,7 @@ const FeatureRow = ({ id, title, columns }) => (
     className={styles.featureRow}
   >
     <div className={styles.featureRowTitle}>{title}</div>
-    <Padding y={32} />
+    <Padding y={24} />
     <div className={styles.featureContainer}>
       {columns.map((column, index) => (
         <FeatureCard
@@ -156,122 +127,140 @@ const FeatureRow = ({ id, title, columns }) => (
   </div>
 );
 
-const OtherFeatures = ({ t }) => (
-  <GradientBG
-    colorSet={["#0291FD", "#0385AA", "#2A59DD", "#8228FD"]}
-    backgroundColor="#6159F5"
-  >
-    <DesktopBaseContainer className={styles.featureContentContainer}>
-      <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
-      <Padding y={40} />
-      <div className={styles.featureDesc}>
-        <Trans i18nKey="about:otherFeaturesDesc" />
-      </div>
-      <FeatureRow
-        id={constants.idAboutFeatureAddItem}
-        title={t("about:otherFeatureRow1Title")}
-        columns={[
-          {
-            img: iconCategory,
-            title: t("about:otherFeatureRow1Col1Title"),
-            content: t("about:otherFeatureRow1Col1Content"),
-            link: t("about:otherFeatureRow1Col1Link"),
-          },
-          {
-            img: iconAddItem,
-            title: t("about:otherFeatureRow1Col2Title"),
-            content: t("about:otherFeatureRow1Col2Content"),
-            link: t("about:otherFeatureRow1Col2Link"),
-          },
-          {
-            img: iconImage,
-            title: t("about:otherFeatureRow1Col3Title"),
-            content: t("about:otherFeatureRow1Col3Content"),
-            link: t("about:otherFeatureRow1Col3Link"),
-          },
-          {
-            img: iconBulkAdd,
-            title: t("about:otherFeatureRow1Col4Title"),
-            content: t("about:otherFeatureRow1Col4Content"),
-            link: t("about:otherFeatureRow1Col4Link"),
-          },
-        ]}
-      />
-      <FeatureRow
-        id={constants.idAboutFeatureTx}
-        title={t("about:otherFeatureRow2Title")}
-        columns={[
-          {
-            img: iconMobilescan,
-            title: t("about:otherFeatureRow2Col1Title"),
-            content: t("about:otherFeatureRow2Col1Content"),
-            link: t("about:otherFeatureRow2Col1Link"),
-          },
-          {
-            img: iconPartner,
-            title: t("about:otherFeatureRow2Col2Title"),
-            content: t("about:otherFeatureRow2Col2Content"),
-            link: t("about:otherFeatureRow2Col2Link"),
-          },
-          {
-            img: iconHistory,
-            title: t("about:otherFeatureRow2Col3Title"),
-            content: t("about:otherFeatureRow2Col3Content"),
-            link: t("about:otherFeatureRow2Col3Link"),
-          },
-          {
-            img: iconUppdown,
-            title: t("about:otherFeatureRow2Col4Title"),
-            content: t("about:otherFeatureRow2Col4Content"),
-            link: t("about:otherFeatureRow2Col4Link"),
-          },
-          {
-            img: iconInvoice,
-            title: t("about:otherFeatureRow2Col5Title"),
-            content: t("about:otherFeatureRow2Col5Content"),
-            link: t("about:otherFeatureRow2Col5Link"),
-          },
-        ]}
-      />
-      <FeatureRow
-        id={constants.idAboutFeatureStatus}
-        title={t("about:otherFeatureRow3Title")}
-        columns={[
-          {
-            img: iconBasicmode,
-            title: t("about:otherFeatureRow3Col1Title"),
-            content: t("about:otherFeatureRow3Col1Content"),
-            link: t("about:otherFeatureRow3Col1Link"),
-          },
-          {
-            img: iconCounting,
-            title: t("about:otherFeatureRow3Col2Title"),
-            content: t("about:otherFeatureRow3Col2Content"),
-            link: t("about:otherFeatureRow3Col2Link"),
-          },
-          {
-            img: iconGraph,
-            title: t("about:otherFeatureRow3Col3Title"),
-            content: t("about:otherFeatureRow3Col3Content"),
-            link: t("about:otherFeatureRow3Col3Link"),
-          },
-          {
-            img: iconDashboard,
-            title: t("about:otherFeatureRow3Col4Title"),
-            content: t("about:otherFeatureRow3Col4Content"),
-            link: t("about:otherFeatureRow3Col4Link"),
-          },
-          {
-            img: iconAnalysis,
-            title: t("about:otherFeatureRow3Col5Title"),
-            content: t("about:otherFeatureRow3Col5Content"),
-            link: t("about:otherFeatureRow3Col5Link"),
-          },
-        ]}
-      />
-    </DesktopBaseContainer>
-  </GradientBG>
-);
+function genOtherFeaturesData(t) {
+  return [
+    {
+      id: constants.idAboutFeatureAddItem,
+      title: t("about:otherFeatureRow1Title"),
+      columns: [
+        {
+          img: iconCategory,
+          title: t("about:otherFeatureRow1Col1Title"),
+          content: t("about:otherFeatureRow1Col1Content"),
+          link: t("about:otherFeatureRow1Col1Link"),
+        },
+        {
+          img: iconAddItem,
+          title: t("about:otherFeatureRow1Col2Title"),
+          content: t("about:otherFeatureRow1Col2Content"),
+          link: t("about:otherFeatureRow1Col2Link"),
+        },
+        {
+          img: iconImage,
+          title: t("about:otherFeatureRow1Col3Title"),
+          content: t("about:otherFeatureRow1Col3Content"),
+          link: t("about:otherFeatureRow1Col3Link"),
+        },
+        {
+          img: iconBulkAdd,
+          title: t("about:otherFeatureRow1Col4Title"),
+          content: t("about:otherFeatureRow1Col4Content"),
+          link: t("about:otherFeatureRow1Col4Link"),
+        },
+      ],
+    },
+    {
+      id: constants.idAboutFeatureTx,
+      title: t("about:otherFeatureRow2Title"),
+      columns: [
+        {
+          img: iconMobilescan,
+          title: t("about:otherFeatureRow2Col1Title"),
+          content: t("about:otherFeatureRow2Col1Content"),
+          link: t("about:otherFeatureRow2Col1Link"),
+        },
+        {
+          img: iconPartner,
+          title: t("about:otherFeatureRow2Col2Title"),
+          content: t("about:otherFeatureRow2Col2Content"),
+          link: t("about:otherFeatureRow2Col2Link"),
+        },
+        {
+          img: iconHistory,
+          title: t("about:otherFeatureRow2Col3Title"),
+          content: t("about:otherFeatureRow2Col3Content"),
+          link: t("about:otherFeatureRow2Col3Link"),
+        },
+        {
+          img: iconUppdown,
+          title: t("about:otherFeatureRow2Col4Title"),
+          content: t("about:otherFeatureRow2Col4Content"),
+          link: t("about:otherFeatureRow2Col4Link"),
+        },
+        {
+          img: iconInvoice,
+          title: t("about:otherFeatureRow2Col5Title"),
+          content: t("about:otherFeatureRow2Col5Content"),
+          link: t("about:otherFeatureRow2Col5Link"),
+        },
+      ],
+    },
+    {
+      id: constants.idAboutFeatureStatus,
+      title: t("about:otherFeatureRow3Title"),
+      columns: [
+        {
+          img: iconBasicmode,
+          title: t("about:otherFeatureRow3Col1Title"),
+          content: t("about:otherFeatureRow3Col1Content"),
+          link: t("about:otherFeatureRow3Col1Link"),
+        },
+        {
+          img: iconCounting,
+          title: t("about:otherFeatureRow3Col2Title"),
+          content: t("about:otherFeatureRow3Col2Content"),
+          link: t("about:otherFeatureRow3Col2Link"),
+        },
+        {
+          img: iconGraph,
+          title: t("about:otherFeatureRow3Col3Title"),
+          content: t("about:otherFeatureRow3Col3Content"),
+          link: t("about:otherFeatureRow3Col3Link"),
+        },
+        {
+          img: iconDashboard,
+          title: t("about:otherFeatureRow3Col4Title"),
+          content: t("about:otherFeatureRow3Col4Content"),
+          link: t("about:otherFeatureRow3Col4Link"),
+        },
+        {
+          img: iconAnalysis,
+          title: t("about:otherFeatureRow3Col5Title"),
+          content: t("about:otherFeatureRow3Col5Content"),
+          link: t("about:otherFeatureRow3Col5Link"),
+        },
+      ],
+    },
+  ];
+}
+
+const OtherFeatures = ({ t }) => {
+  const rowData = genOtherFeaturesData(t);
+
+  return (
+    <GradientBG
+      colorSet={["#0291FD", "#0385AA", "#2A59DD", "#8228FD"]}
+      backgroundColor="#6159F5"
+    >
+      <DesktopBaseContainer className={styles.featureContentContainer}>
+        <div className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</div>
+        <Padding y={16} />
+        <div className={styles.featureDesc}>
+          <Trans i18nKey="about:otherFeaturesDesc" />
+        </div>
+        <Padding y={50} />
+        {rowData.map((row) => (
+          <FeatureRow
+            key={row.id}
+            id={row.id}
+            title={row.title}
+            columns={row.columns}
+          />
+        ))}
+      </DesktopBaseContainer>
+    </GradientBG>
+  );
+};
 
 const DesktopAbout = ({ data, t }) => (
   <DesktopLayout

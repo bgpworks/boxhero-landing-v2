@@ -50,7 +50,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 697
+          width: 786
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
@@ -80,7 +80,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 673
+          width: 582
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -96,7 +96,7 @@ export const query = graphql`
     great: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 660
+          width: 582
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -112,7 +112,7 @@ export const query = graphql`
     mobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 463
+          width: 582
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
