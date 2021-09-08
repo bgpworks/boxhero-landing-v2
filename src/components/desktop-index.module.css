@@ -126,13 +126,11 @@
   box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
 }
 
-.keyFeatureImageContainer {
+.keyFeatureSlider {
   width: 581px;
 }
 
-/* .carousel__inner-slide
-   slide 내부 이미지 정렬을 위해 사용 */
-.keyFeatureSlide > div {
+.keyFeatureSlide {
   display: flex;
   align-items: center;
 }

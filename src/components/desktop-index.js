@@ -147,7 +147,7 @@ const Chatting = ({ t }) => {
   );
 };
 
-const KeyFeatureMenuContainer = ({ title, description, carouselData }) => (
+const KeyFeatureDescription = ({ title, description, carouselData }) => (
   <div>
     <div className={styles.keyFeatureTitle}>{title}</div>
     <Padding y={16} />
@@ -162,11 +162,11 @@ const KeyFeatureMenuContainer = ({ title, description, carouselData }) => (
   </div>
 );
 
-const KeyFeatureImageContainer = ({ carouselData }) => (
-  <Slider className={styles.keyFeatureImageContainer}>
+const KeyFeatureSlider = ({ carouselData }) => (
+  <Slider className={styles.keyFeatureSlider}>
     {carouselData.map(({ img, text }, index) => (
       <Slide
-        className={styles.keyFeatureSlide}
+        innerClassName={styles.keyFeatureSlide}
         key={index}
         index={index}
       >
@@ -194,6 +194,70 @@ const KeyFeature = ({ totalSlides, children }) => (
     </DesktopBaseContainer>
   </div>
 );
+
+function genKeyFeatureData(data, t) {
+  return [
+    [
+      { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
+      { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
+      { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
+      { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
+    ],
+    [
+      { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
+      { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
+      { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
+    ],
+    [
+      { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
+      { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
+      { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
+      { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
+    ],
+  ];
+}
+
+const KeyFeatures = ({ data, t }) => {
+  const keyFeatureData = genKeyFeatureData(data, t);
+
+  return (
+    <>
+      <KeyFeature totalSlides={keyFeatureData[0].length}>
+        <KeyFeatureDescription
+          title={<Trans i18nKey="index:keyFeature1Title" />}
+          description={<Trans i18nKey="index:keyFeature1Desc" />}
+          carouselData={keyFeatureData[0]}
+        />
+        <KeyFeatureSlider
+          carouselData={keyFeatureData[0]}
+        />
+      </KeyFeature>
+
+      <KeyFeature totalSlides={keyFeatureData[1].length}>
+        <KeyFeatureSlider
+          carouselData={keyFeatureData[1]}
+        />
+        <KeyFeatureDescription
+          title={<Trans i18nKey="index:keyFeature2Title" />}
+          description={<Trans i18nKey="index:keyFeature2Desc" />}
+          carouselData={keyFeatureData[1]}
+        />
+      </KeyFeature>
+
+      <KeyFeature totalSlides={keyFeatureData[2].length}>
+        <KeyFeatureDescription
+          title={<Trans i18nKey="index:keyFeature3Title" />}
+          description={<Trans i18nKey="index:keyFeature3Desc" />}
+          carouselData={keyFeatureData[2]}
+        />
+        <KeyFeatureSlider
+          carouselData={keyFeatureData[2]}
+        />
+      </KeyFeature>
+    </>
+  );
+};
 
 function genSalesManagementData(data, t) {
   return [
@@ -285,15 +349,48 @@ const CustomerCard = ({
   </div>
 );
 
-const Customers = ({ data, t }) => {
-  const customerEmojis = [
-    data.book, data.box, data.truck, data.bag, data.coat, data.teeth, data.car,
-    data.pinkT, data.heel, data.thermometer, data.dress, data.bag2, data.mobile,
-    data.lipstick, data.burger, data.bolt, data.brick, data.ring, data.coffeeSmall,
-    data.tip, data.icecream, data.lip, data.cart, data.chair, data.tea, data.pill,
-    data.movie, data.tv, data.puzzle, data.camera, data.electronic, data.wheelchair,
-    data.hammer, data.bed, data.meat,
+function genCustomerData(data) {
+  return [
+    { i18nKey: "index:customerTypeBookstore", emoji: data.book },
+    { i18nKey: "index:customerTypeWarehouse", emoji: data.box },
+    { i18nKey: "index:customerType3PL", emoji: data.truck },
+    { i18nKey: "index:customerTypeBags", emoji: data.bag },
+    { i18nKey: "index:customerTypeFashionBrand", emoji: data.coat },
+    { i18nKey: "index:customerTypeDentalClinic", emoji: data.teeth },
+    { i18nKey: "index:customerTypeAutoParts", emoji: data.car },
+    { i18nKey: "index:customerTypeFabric", emoji: data.pinkT },
+    { i18nKey: "index:customerTypeShoes", emoji: data.heel },
+    { i18nKey: "index:customerTypeMedicine", emoji: data.thermometer },
+    { i18nKey: "index:customerTypeClothes", emoji: data.dress },
+    { i18nKey: "index:customerTypeUsedItems", emoji: data.bag2 },
+    { i18nKey: "index:customerTypeCellphones", emoji: data.mobile },
+    { i18nKey: "index:customerTypeCosmetics", emoji: data.lipstick },
+    { i18nKey: "index:customerTypeFood", emoji: data.burger },
+    { i18nKey: "index:customerTypeElevatorParts", emoji: data.bolt },
+    { i18nKey: "index:customerTypeRawMeterial", emoji: data.brick },
+    { i18nKey: "index:customerTypeJewelry", emoji: data.ring },
+    { i18nKey: "index:customerTypeCafe", emoji: data.coffeeSmall },
+    { i18nKey: "index:customerTypeCreativeProduct", emoji: data.tip },
+    { i18nKey: "index:customerTypeIcecream", emoji: data.icecream },
+    { i18nKey: "index:customerTypeCosmeticSurgery", emoji: data.lip },
+    { i18nKey: "index:customerTypeSupermarket", emoji: data.cart },
+    { i18nKey: "index:customerTypeFurniture", emoji: data.chair },
+    { i18nKey: "index:customerTypeTea", emoji: data.tea },
+    { i18nKey: "index:customerTypePharmacy", emoji: data.pill },
+    { i18nKey: "index:customerTypeCinema", emoji: data.movie },
+    { i18nKey: "index:customerTypeApplianceStore", emoji: data.tv },
+    { i18nKey: "index:customerTypeSticker", emoji: data.puzzle },
+    { i18nKey: "index:customerTypeCamera", emoji: data.camera },
+    { i18nKey: "index:customerTypeElectronicParts", emoji: data.electronic },
+    { i18nKey: "index:customerTypeMedicalEquipment", emoji: data.wheelchair },
+    { i18nKey: "index:customerTypeAirConditionerParts", emoji: data.hammer },
+    { i18nKey: "index:customerTypeComforter", emoji: data.bed },
+    { i18nKey: "index:customerTypeMeat", emoji: data.meat },
   ];
+}
+
+const Customers = ({ data, t }) => {
+  const customerData = genCustomerData(data);
 
   return (
     <div className={styles.customersContainer}>
@@ -308,11 +405,11 @@ const Customers = ({ data, t }) => {
       <Padding y={50} />
 
       <div className={styles.customersCardContainer}>
-        {customerEmojis.map((emoji, index) => (
+        {customerData.map((customer, index) => (
           <CustomerCard
             key={index}
-            img={emoji}
-            title={t(`index:customerType${index + 1}`)}
+            img={customer.emoji}
+            title={t(customer.i18nKey)}
           />
         ))}
         <div className={[styles.customerCard, styles.darkBg].join(" ")}>
@@ -458,105 +555,50 @@ const StartNow = ({ data, t }) => (
   </div>
 );
 
-function genKeyFeatureData(data, t) {
-  return [
-    [
-      { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
-      { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
-      { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
-      { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
-    ],
-    [
-      { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
-      { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
-      { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
-      { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
-    ],
-    [
-      { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
-      { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
-      { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
-      { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
-    ],
-  ];
-}
+const DesktopIndex = ({ data, language, t }) => (
+  <DesktopLayout
+    isFloatMenu
+    closingEmoji={data.coffee}
+    closingMsg={t("index:closingMsg")}
+  >
+    <Top
+      data={data}
+      t={t}
+    />
 
-const DesktopIndex = ({ data, language, t }) => {
-  const keyFeatureData = genKeyFeatureData(data, t);
+    <Chatting t={t} />
 
-  return (
-    <DesktopLayout
-      isFloatMenu
-      closingEmoji={data.coffee}
-      closingMsg={t("index:closingMsg")}
-    >
-      <Top
-        data={data}
-        t={t}
-      />
+    <KeyFeatures
+      data={data}
+      t={t}
+    />
 
-      <Chatting t={t} />
+    <SalesManagement
+      data={data}
+      t={t}
+    />
 
-      <KeyFeature totalSlides={keyFeatureData[0].length}>
-        <KeyFeatureMenuContainer
-          title={<Trans i18nKey="index:keyFeature1Title" />}
-          description={<Trans i18nKey="index:keyFeature1Desc" />}
-          carouselData={keyFeatureData[0]}
-        />
-        <KeyFeatureImageContainer
-          carouselData={keyFeatureData[0]}
-        />
-      </KeyFeature>
+    <TeamPlay
+      data={data}
+      t={t}
+    />
 
-      <KeyFeature totalSlides={keyFeatureData[1].length}>
-        <KeyFeatureImageContainer
-          carouselData={keyFeatureData[1]}
-        />
-        <KeyFeatureMenuContainer
-          title={<Trans i18nKey="index:keyFeature2Title" />}
-          description={<Trans i18nKey="index:keyFeature2Desc" />}
-          carouselData={keyFeatureData[1]}
-        />
-      </KeyFeature>
+    <Customers
+      data={data}
+      t={t}
+      language={language}
+    />
 
-      <KeyFeature totalSlides={keyFeatureData[2].length}>
-        <KeyFeatureMenuContainer
-          title={<Trans i18nKey="index:keyFeature3Title" />}
-          description={<Trans i18nKey="index:keyFeature3Desc" />}
-          carouselData={keyFeatureData[2]}
-        />
-        <KeyFeatureImageContainer
-          carouselData={keyFeatureData[2]}
-        />
-      </KeyFeature>
+    <Features
+      data={data}
+      t={t}
+    />
 
-      <SalesManagement
-        data={data}
-        t={t}
-      />
-
-      <TeamPlay
-        data={data}
-        t={t}
-      />
-
-      <Customers
-        data={data}
-        t={t}
-        language={language}
-      />
-
-      <Features
-        data={data}
-        t={t}
-      />
-
-      <StartNow
-        data={data}
-        t={t}
-      />
-    </DesktopLayout>
-  );
-};
+    <StartNow
+      data={data}
+      t={t}
+    />
+  </DesktopLayout>
+);
 
 export default DesktopIndex;
