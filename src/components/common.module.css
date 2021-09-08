@@ -75,6 +75,37 @@ html[lang="ko"] .mobileSimpleTopDesc {
   letter-spacing: -0.16px;
 }
 
+.usecaseTopContentContainer {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-font-gray1);
+}
+
+.usecaseTopTitle {
+  font-size: var(--font-size-36);
+  font-weight: bold;
+  text-align: center;
+}
+.usecaseTopTitle strong {
+  color: var(--color-primary);
+}
+
+.usecaseTopDesc {
+  font-size: var(--font-size-b18);
+  text-align: center;
+}
+
+.startNowButton {
+  width: 243px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: #000;
+  font-weight: bold;
+  color: white;
+}
+
 .dropDownQNA {
   border-bottom: 1px solid #e0e0e3;
 }

@@ -1,11 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import {
+  urlStart,
   urlDownloadApp,
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
@@ -113,6 +115,34 @@ export const MobileSimpleTop = ({ title, children }) => (
     <Padding y={20} />
     <div className={styles.mobileSimpleTopDesc}>{children}</div>
   </div>
+);
+
+export const StartNowButton = ({ startNow, className }) => (
+  <ExternalLinkWithQuery href={urlStart}>
+    <button
+      type="button"
+      className={className}
+    >
+      {startNow}
+    </button>
+  </ExternalLinkWithQuery>
+);
+
+export const UsecaseTop = ({
+  title, description, startNow, img,
+}) => (
+  <DesktopBaseContainer className={styles.usecaseTopContentContainer}>
+    <div className={styles.usecaseTopTitle}>{title}</div>
+    <Padding y={16} />
+    <div className={styles.usecaseTopDesc}>{description}</div>
+    <Padding y={30} />
+    <StartNowButton
+      startNow={startNow}
+      className={styles.startNowButton}
+    />
+    <Padding y={49} />
+    <GatsbyImage image={img.childImageSharp.gatsbyImageData} />
+  </DesktopBaseContainer>
 );
 
 export const DropDownQNA = ({
