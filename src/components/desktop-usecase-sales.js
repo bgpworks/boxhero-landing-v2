@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { UseCaseFeature, Padding, UseCaseTop } from "./common";
 // js
 import DesktopLayout from "./desktop-layout";
-import DesktopUsecaseFooter from "./desktop-usecase-footer";
+import DesktopUseCaseFooter from "./desktop-usecase-footer";
 // css
 import * as styles from "./desktop-usecase-sales.module.css";
 
@@ -145,7 +145,7 @@ const DesktopUsecaseSales = ({ data, t }) => (
       t={t}
     />
 
-    <DesktopUsecaseFooter />
+    <DesktopUseCaseFooter />
   </DesktopLayout>
 );
 
