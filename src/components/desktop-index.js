@@ -41,7 +41,7 @@ import svgDashboard from "../images/icon-dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
-import CustomDotGroup from "./CustomDotGroup";
+import CustomDotGroup from "./custom-dot-group";
 
 const Top = ({ data, t }) => (
   <GradientBG
