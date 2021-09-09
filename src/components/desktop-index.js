@@ -131,7 +131,7 @@ const Chatting = ({ t }) => {
     <div className={styles.chattingContainer}>
       <DesktopBaseContainer className={styles.chattingContentContainer}>
         <SpeechBubbleContainer
-          containerWidth={582}
+          containerGridColumns={6}
           speechBubbles={bubbles}
           columnGap={10}
         />

@@ -74,5 +74,100 @@ export const query = graphql`
         )
       }
     }
+    customProduct: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-custom-product.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 928
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    salesOut: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-sales-out.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1032
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    scanBarcode: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-scan-barcode.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 888
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    customizeBarcode: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-customize-barcode.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 276
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    analysis: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-analysis.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1030
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
   }
 `;

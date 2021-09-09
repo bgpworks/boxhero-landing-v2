@@ -1,3 +1,26 @@
-.usecaseTopContainer {
+.useCaseTopContainer {
   background: var(--color-light-blue-20);
+}
+
+.lightBlueBackground {
+  background: var(--color-light-blue-5);
+}
+
+.useCaseFeatureBottomContent {
+  width: 888px;
+  border-radius: 16px;
+  padding: 30px 49px;
+  background-color: var(--color-green-10);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
+}
+
+.useCaseFeatureBottomContentTitle {
+}
+
+.useCaseFeatureBottomContentDesc {
+  width: 480px;
+  font-size: var(--font-size-b16);
+  font-weight: normal;
 }

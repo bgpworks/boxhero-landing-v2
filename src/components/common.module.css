@@ -24,13 +24,11 @@
 
 .speechBubbleLeft {
   border-bottom-left-radius: 0px;
-  text-align: left;
   align-self: flex-start;
 }
 
 .speechBubbleRight {
   border-bottom-right-radius: 0px;
-  text-align: right;
   align-self: flex-end;
 }
 
@@ -75,7 +73,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
   letter-spacing: -0.16px;
 }
 
-.usecaseTopContentContainer {
+.useCaseTopContentContainer {
   padding: 100px 0;
   display: flex;
   flex-direction: column;
@@ -83,18 +81,64 @@ html[lang="ko"] .mobileSimpleTopDesc {
   color: var(--color-font-gray1);
 }
 
-.usecaseTopTitle {
+.useCaseTopTitle {
   font-size: var(--font-size-36);
   font-weight: bold;
   text-align: center;
 }
-.usecaseTopTitle strong {
+.useCaseTopTitle strong {
   color: var(--color-primary);
 }
 
-.usecaseTopDesc {
+.useCaseTopDesc {
   font-size: var(--font-size-b18);
   text-align: center;
+}
+
+.useCaseFeatureContentContainer {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-font-gray1);
+  font-size: var(--font-size-b18);
+  font-weight: 500;
+}
+
+.useCaseFeatureTitle {
+  font-size: var(--font-size-36);
+  font-weight: bold;
+}
+
+.useCaseFeatureDescContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.useCaseFeatureLeftDesc {
+  width: 174px;
+  font-size: var(--font-size-h5);
+}
+
+.textUnderline {
+  border-bottom: 1px solid var(--color-font-gray1);
+  /* text-decoration: underline; */
+}
+
+.useCaseFeatureRightDescContainer {
+  width: 582px;
+  font-size: var(--font-size-b16);
+  font-weight: normal;
+}
+
+.useCaseFeatureRightDesc {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  letter-spacing: -0.2px;
+}
+.useCaseFeatureRightDesc:last-child {
+  margin-bottom: 0;
 }
 
 .startNowButton {
