@@ -122,7 +122,6 @@ html[lang="ko"] .mobileSimpleTopDesc {
 
 .textUnderline {
   border-bottom: 1px solid var(--color-font-gray1);
-  /* text-decoration: underline; */
 }
 
 .useCaseFeatureRightDescContainer {
@@ -151,7 +150,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
 }
 
 .dropDownQNA {
-  border-bottom: 1px solid #e0e0e3;
+  border-bottom: 1px solid var(--color-gray4);
 }
 
 .dropDownQNATitle {
