@@ -150,7 +150,10 @@ export const UseCaseTop = ({
       className={styles.startNowButton}
     />
     <Padding y={49} />
-    <GatsbyImage image={img.childImageSharp.gatsbyImageData} />
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      alt={startNow}
+    />
   </DesktopBaseContainer>
 );
 
@@ -184,7 +187,10 @@ export const UseCaseFeature = ({
       columnGap={10}
     />
     <Padding y={50} />
-    <GatsbyImage image={img.childImageSharp.gatsbyImageData} />
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      alt={title}
+    />
     <Padding y={50} />
     <div className={styles.useCaseFeatureDescContainer}>
       <div className={styles.useCaseFeatureLeftDesc}>
@@ -198,6 +204,7 @@ export const UseCaseFeature = ({
           const isLastChild = () => index === rightDescriptions.length - 1;
           return (
             <UseCaseFeatureRightDesc
+              key={index}
               icon={isLastChild() ? svgEye : svgCircleCheck}
               text={rightDescription}
             />

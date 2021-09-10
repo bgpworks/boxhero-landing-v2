@@ -92,9 +92,11 @@ const UseCaseFeatures = ({ data, t }) => {
 
   return (
     salesFeaturesdata.map((salesFeaturedata, index) => (
-      <div className={salesFeaturedata.isBgBlue ? styles.lightBlueBackground : ""}>
+      <div
+        key={index}
+        className={salesFeaturedata.isBgBlue ? styles.lightBlueBackground : ""}
+      >
         <UseCaseFeature
-          key={index}
           title={salesFeaturedata.title}
           speechBubbles={[
             {

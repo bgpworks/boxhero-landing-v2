@@ -1,5 +1,5 @@
 import React from "react";
-import { Trans, useI18next } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
 import { DesktopBaseContainer, Padding, StartNowButton } from "./common";
 import * as styles from "./desktop-usecase-footer.module.css";
 import svgPerson from "../images/icon-person.svg";
@@ -80,17 +80,78 @@ const StartNow = ({ t }) => (
   </DesktopBaseContainer>
 );
 
-const RelatedContents = ({ t }) => (
-  <div className={styles.relatedContentsContainer}>
-    <DesktopBaseContainer>
-      <div className={styles.relatedContentsTitle}>
-        {t("usecase-footer:relatedContentsTitle")}
-      </div>
-      <Padding y={50} />
-      {/* TODO: 임의의 블로그 글 정보 가져와서 보여주기 */}
-    </DesktopBaseContainer>
-  </div>
+const PostCard = ({
+  title,
+  categoryStyle,
+  category,
+  description,
+  path,
+}) => (
+  <li className={styles.postCardWrapper}>
+    <Link to={path}>
+      <article className={styles.postCard}>
+        <span
+          className={styles.postCardCategory}
+          style={categoryStyle}
+        >
+          {category}
+        </span>
+        <Padding y={8} />
+        <div className={styles.postCardTitle}>{title}</div>
+        <Padding y={8} />
+        <div className={styles.postCardDescription}>{description}</div>
+      </article>
+    </Link>
+  </li>
 );
+
+const RelatedContents = ({ t }) => {
+  const postCardsData = [
+    {
+      title: "재고 관리를 위한 3가지 중요한 기술",
+      categoryStyle: { backgroundColor: "#55adfd", color: "white" },
+      category: "인사이트",
+      description: "글로벌 기업이 사용하는 세 가지 재고 관리 기술에 대해 알아봅시다!",
+      slug: "재고-관리를-위한-3가지-중요한-기술",
+    },
+    {
+      title: "재고자산이란?",
+      categoryStyle: { backgroundColor: "#55adfd", color: "white" },
+      category: "인사이트",
+      description: "재고자산을 어떻게 사용해야 효율적인 재고관리가 가능할까요?",
+      slug: "재고자산이란",
+    },
+    {
+      title: "카페 재고를 관리하는 5가지 효과적인 방법!",
+      categoryStyle: { backgroundColor: "#55adfd", color: "white" },
+      category: "인사이트",
+      description: "카페를 운영하면서 제일 철저하게 관리해야 할 부분은 무엇일까요?",
+      slug: "카페-재고를-관리하는-5가지-효과적인-방법",
+    },
+  ];
+  return (
+    <div className={styles.relatedContentsContainer}>
+      <DesktopBaseContainer>
+        <div className={styles.relatedContentsTitle}>
+          {t("usecase-footer:relatedContentsTitle")}
+        </div>
+        <Padding y={50} />
+        <ul className={styles.postCards}>
+          {postCardsData.map((postCard, index) => (
+            <PostCard
+              key={index}
+              title={postCard.title}
+              categoryStyle={postCard.categoryStyle}
+              category={postCard.category}
+              description={postCard.description}
+              path={`/blog/posts/${postCard.slug}`}
+            />
+          ))}
+        </ul>
+      </DesktopBaseContainer>
+    </div>
+  );
+};
 
 const DesktopUseCaseFooter = () => {
   const { t } = useI18next();

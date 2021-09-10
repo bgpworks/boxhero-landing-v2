@@ -19,7 +19,10 @@ import SocialLinkList from "./social-link-list";
 
 const StartNow = ({ emoji, message, t }) => (
   <div className={styles.startNowContainer}>
-    <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
+    <GatsbyImage
+      image={emoji.childImageSharp.gatsbyImageData}
+      alt={message}
+    />
     <div className={styles.startNowDescription}>{message}</div>
     <ExternalLinkWithQuery href={constants.urlStart}>
       <button
