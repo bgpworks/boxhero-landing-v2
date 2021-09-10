@@ -23,7 +23,9 @@ const StartNow = ({ emoji, message, t }) => (
       image={emoji.childImageSharp.gatsbyImageData}
       alt={message}
     />
+    <Padding y={20} />
     <div className={styles.startNowDescription}>{message}</div>
+    <Padding y={40} />
     <ExternalLinkWithQuery href={constants.urlStart}>
       <button
         type="button"
