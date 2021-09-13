@@ -72,14 +72,13 @@ const SpeechBubble = ({
   </div>
 );
 
-export const SpeechBubbleContainer = ({ containerGridColumns, speechBubbles, columnGap }) => {
+export const SpeechBubbleContainer = ({ containerGridColumns, speechBubbles }) => {
   const COLUMN_WIDTH = 72;
   const GUTTER_WIDTH = 30;
   const calContainerWidth = () => (
     COLUMN_WIDTH * containerGridColumns + GUTTER_WIDTH * (containerGridColumns - 1)
   );
   const isEvenNumber = (index) => index % 2 === 0;
-  const isLastChild = (index) => index === speechBubbles.length - 1;
 
   return (
     <div
@@ -87,20 +86,17 @@ export const SpeechBubbleContainer = ({ containerGridColumns, speechBubbles, col
       style={{ width: calContainerWidth() }}
     >
       {speechBubbles.map((bubble, index) => (
-        <>
-          <SpeechBubble
-            key={index}
-            text={bubble.text}
-            alignRight={isEvenNumber(index + 1)}
-            style={{
-              color: bubble.color,
-              backgroundColor: bubble.backgroundColor,
-              marginRight: bubble.marginRight,
-              marginLeft: bubble.marginLeft,
-            }}
-          />
-          {!isLastChild(index) && <Padding y={columnGap} />}
-        </>
+        <SpeechBubble
+          key={index}
+          text={bubble.text}
+          alignRight={isEvenNumber(index + 1)}
+          style={{
+            color: bubble.color,
+            backgroundColor: bubble.backgroundColor,
+            marginRight: bubble.marginRight,
+            marginLeft: bubble.marginLeft,
+          }}
+        />
       ))}
     </div>
   );
@@ -136,25 +132,27 @@ export const StartNowButton = ({ startNow, className }) => (
 );
 
 export const UseCaseTop = ({
-  title, description, startNow, img,
+  className, title, description, startNow, img,
 }) => (
-  <DesktopBaseContainer
-    className={styles.useCaseTopContentContainer}
-  >
-    <div className={styles.useCaseTopTitle}>{title}</div>
-    <Padding y={16} />
-    <div className={styles.useCaseTopDesc}>{description}</div>
-    <Padding y={30} />
-    <StartNowButton
-      startNow={startNow}
-      className={styles.startNowButton}
-    />
-    <Padding y={49} />
-    <GatsbyImage
-      image={img.childImageSharp.gatsbyImageData}
-      alt={startNow}
-    />
-  </DesktopBaseContainer>
+  <div className={className}>
+    <DesktopBaseContainer
+      className={styles.useCaseTopContentContainer}
+    >
+      <div className={styles.useCaseTopTitle}>{title}</div>
+      <Padding y={16} />
+      <div className={styles.useCaseTopDesc}>{description}</div>
+      <Padding y={30} />
+      <StartNowButton
+        startNow={startNow}
+        className={styles.startNowButton}
+      />
+      <Padding y={49} />
+      <GatsbyImage
+        image={img.childImageSharp.gatsbyImageData}
+        alt={startNow}
+      />
+    </DesktopBaseContainer>
+  </div>
 );
 
 const UseCaseFeatureRightDesc = ({ icon, text }) => (

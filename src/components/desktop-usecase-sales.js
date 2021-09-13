@@ -8,7 +8,7 @@ import DesktopUseCaseFooter from "./desktop-usecase-footer";
 // css
 import * as styles from "./desktop-usecase-sales.module.css";
 
-const BottomContent = ({ data, t }) => (
+const BarcordScanBottomContent = ({ data, t }) => (
   <div className={styles.useCaseFeatureBottomContent}>
     <GatsbyImage
       image={data.customizeBarcode.childImageSharp.gatsbyImageData}
@@ -71,7 +71,10 @@ const UseCaseFeatures = ({ data, t }) => {
         t("salesFeature3RightDesc2"),
         t("salesFeature3RightDesc3"),
       ],
-      haveBottomContent: true,
+      bottomContent: <BarcordScanBottomContent
+        data={data}
+        t={t}
+      />,
     },
     {
       isBgBlue: true,
@@ -114,12 +117,7 @@ const UseCaseFeatures = ({ data, t }) => {
           leftDescription={salesFeaturedata.leftDescription}
           rightDescriptions={salesFeaturedata.rightDescriptions}
         >
-          {salesFeaturedata.haveBottomContent && (
-            <BottomContent
-              data={data}
-              t={t}
-            />
-          )}
+          {salesFeaturedata.bottomContent}
         </UseCaseFeature>
       </div>
     ))
@@ -133,14 +131,13 @@ const DesktopUsecaseSales = ({ data, t }) => (
     closingEmoji={data.finger}
     closingMsg={t("usecase:closingMsg")}
   >
-    <div className={styles.useCaseTopContainer}>
-      <UseCaseTop
-        title={<Trans i18nKey="usecase:salesTopTitle" />}
-        description={<Trans i18nKey="usecase:salesTopDesc" />}
-        startNow={t("usecase:startNowButton")}
-        img={data.allInOne}
-      />
-    </div>
+    <UseCaseTop
+      className={styles.useCaseTopContainer}
+      title={<Trans i18nKey="usecase:salesTopTitle" />}
+      description={<Trans i18nKey="usecase:salesTopDesc" />}
+      startNow={t("usecase:startNowButton")}
+      img={data.allInOne}
+    />
 
     <UseCaseFeatures
       data={data}

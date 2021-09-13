@@ -22,6 +22,10 @@
   border-radius: 21px;
 }
 
+.speechBubble + .speechBubble {
+  margin-top: 10px;
+}
+
 .speechBubbleLeft {
   border-bottom-left-radius: 0px;
   align-self: flex-start;
