@@ -75,15 +75,14 @@ const SpeechBubble = ({
 export const SpeechBubbleContainer = ({ containerGridColumns, speechBubbles }) => {
   const COLUMN_WIDTH = 72;
   const GUTTER_WIDTH = 30;
-  const calContainerWidth = () => (
-    COLUMN_WIDTH * containerGridColumns + GUTTER_WIDTH * (containerGridColumns - 1)
-  );
+  const containerWidth = COLUMN_WIDTH * containerGridColumns
+  + GUTTER_WIDTH * (containerGridColumns - 1);
   const isEvenNumber = (index) => index % 2 === 0;
 
   return (
     <div
       className={styles.speechBubbleContainer}
-      style={{ width: calContainerWidth() }}
+      style={{ width: containerWidth }}
     >
       {speechBubbles.map((bubble, index) => (
         <SpeechBubble
