@@ -38,7 +38,7 @@
 .planDescription {
   color: var(--color-font-gray1);
   font-weight: bold;
-  font-size: 20px;
+  font-size: var(--font-size-h5);
 }
 
 .plainLink {
