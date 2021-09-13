@@ -123,7 +123,8 @@ export default function PostListDesktop({
     <DesktopLayout
       mainClassName={pageContainer}
       isFloatMenu={false}
-      showEssential
+      showPlatforms={false}
+      showStartNow={false}
     >
       <h2 className={pageTitle}>{title}</h2>
       <p className={pageDescription}>{description}</p>

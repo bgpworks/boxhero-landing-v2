@@ -199,7 +199,8 @@ export default function DesktopPostView({
     <DesktopLayout
       mainClassName={pageContainer}
       isFloatMenu={false}
-      showEssential
+      showPlatforms={false}
+      showStartNow={false}
     >
       <LinkToListSection />
       <article className={postContainer}>

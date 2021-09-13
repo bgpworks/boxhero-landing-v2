@@ -9,7 +9,8 @@ const DesktopLayout = ({
   isFloatMenu,
   closingEmoji,
   closingMsg,
-  showEssential,
+  showPlatforms,
+  showStartNow,
   mainClassName,
   children,
 }) => (
@@ -21,14 +22,16 @@ const DesktopLayout = ({
     <DesktopFooter
       closingEmoji={closingEmoji}
       closingMsg={closingMsg}
-      showEssential={showEssential}
+      showPlatforms={showPlatforms}
+      showStartNow={showStartNow}
     />
   </div>
 );
 
 DesktopLayout.propTypes = {
   mainClassName: PropTypes.string,
-  showEssential: PropTypes.bool,
+  showPlatforms: PropTypes.bool,
+  showStartNow: PropTypes.bool,
   isFloatMenu: PropTypes.bool,
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
