@@ -177,7 +177,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
   display: block;
   width: 120px;
   padding: 6px 0;
-  background-color: var(--color-font-gray1);
+  background-color: var(--color-green);
   color: white;
   font-size: var(--font-size-b14);
   font-weight: bold;
