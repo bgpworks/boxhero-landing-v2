@@ -6,7 +6,6 @@ import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
-  SimpleTop,
   DropDownQNA,
   Switch,
   Ribbon,
@@ -15,6 +14,14 @@ import {
 import * as constants from "./constants";
 // css
 import * as styles from "./desktop-pricing.module.css";
+
+const Top = ({ title, children }) => (
+  <DesktopBaseContainer className={styles.topContentContainer}>
+    <div className={styles.topTitle}>{title}</div>
+    <Padding y={40} />
+    {children}
+  </DesktopBaseContainer>
+);
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <div className={styles.topDescColumn}>
@@ -34,21 +41,19 @@ const TopDescColumn = ({ emoji, title, desc }) => (
 const TopDescSpliter = () => <div className={styles.vl} />;
 
 const TopDesc = ({ data, t }) => (
-  <DesktopBaseContainer>
-    <div className={styles.topDescContainer}>
-      <TopDescColumn
-        emoji={data.emojiOne.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc1Title")}
-        desc={<Trans i18nKey="pricing:topDesc1Desc" />}
-      />
-      <TopDescSpliter />
-      <TopDescColumn
-        emoji={data.emojiTwo.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc2Title")}
-        desc={<Trans i18nKey="pricing:topDesc2Desc" />}
-      />
-    </div>
-  </DesktopBaseContainer>
+  <div className={styles.topDescContainer}>
+    <TopDescColumn
+      emoji={data.emojiOne.childImageSharp.gatsbyImageData}
+      title={t("pricing:topDesc1Title")}
+      desc={<Trans i18nKey="pricing:topDesc1Desc" />}
+    />
+    <TopDescSpliter />
+    <TopDescColumn
+      emoji={data.emojiTwo.childImageSharp.gatsbyImageData}
+      title={t("pricing:topDesc2Title")}
+      desc={<Trans i18nKey="pricing:topDesc2Desc" />}
+    />
+  </div>
 );
 
 const PriceTable = ({ t }) => {
@@ -66,10 +71,12 @@ const PriceTable = ({ t }) => {
         >
           {t("pricing:switchLabelMonthly")}
         </button>
+        <Padding x={35} />
         <Switch
           isActive={isYearly}
           onChange={(active) => setIsYearly(active)}
         />
+        <Padding x={35} />
         <button
           type="button"
           className={`${styles.billingCycleButton} ${
@@ -83,6 +90,7 @@ const PriceTable = ({ t }) => {
           </div>
         </button>
       </div>
+      <Padding y={60} />
       <table className={styles.pricingTable}>
         <thead>
           <tr>
@@ -189,9 +197,7 @@ const PriceTable = ({ t }) => {
             <td className={styles.verticalAlignBottom}>
               <Trans
                 i18nKey="pricing:extensionDescription"
-                components={{
-                  extraSmall: <span className={styles.extraSmall} />,
-                }}
+                components={{ small: <small /> }}
               />
             </td>
             <td className={styles.multiLine}>
@@ -303,7 +309,7 @@ const Faq = ({ t }) => {
         ))}
       </div>
 
-      <Padding y={50} />
+      <Padding y={60} />
 
       <a href={t("url:pricing")}>
         <button
@@ -323,7 +329,7 @@ const DirectContact = ({ t }) => (
       {t("pricing:directContactTitle")}
     </div>
 
-    <Padding y={10} />
+    <Padding y={16} />
 
     <div className={styles.directContactDesc}>
       {t("pricing:directContactDesc")}
@@ -351,22 +357,20 @@ const DesktopPricing = ({ data, language, t }) => (
     closingEmoji={data.box}
     closingMsg={t("pricing:closingMsg")}
   >
-    <SimpleTop title={t("pricing:topTitle")}>
+    <Top title={t("pricing:topTitle")}>
       <TopDesc
         data={data}
         t={t}
       />
-    </SimpleTop>
 
-    <Padding y={80} />
+      <Padding y={60} />
 
-    <PriceTable
-      data={data}
-      language={language}
-      t={t}
-    />
-
-    <Padding y={100} />
+      <PriceTable
+        data={data}
+        language={language}
+        t={t}
+      />
+    </Top>
 
     <Faq t={t} />
 
