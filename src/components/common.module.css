@@ -41,24 +41,6 @@
   flex-direction: column;
 }
 
-.simpleTopTitle {
-  height: 70px;
-  font-size: 52px;
-  font-weight: bold;
-  line-height: 1.35;
-  letter-spacing: -1px;
-  text-align: center;
-  color: black;
-}
-
-.simpleTopDesc {
-  font-size: 20px;
-  line-height: 1.6;
-  letter-spacing: -0.2px;
-  text-align: center;
-  color: var(--color-font-darker);
-}
-
 .mobileSimpleTopTitle {
   height: 38px;
   font-size: var(--font-size-mobile-big3);
@@ -165,14 +147,10 @@ html[lang="ko"] .mobileSimpleTopDesc {
   padding: 14px 0px;
   cursor: pointer;
 
-  font-size: 16px;
+  font-size: var(--font-size-b16);
   line-height: 1;
   letter-spacing: -0.16px;
-  color: var(--color-font-darker);
-}
-
-.dropDownQNATitle > img {
-  margin-left: 6px;
+  color: var(--color-font-gray1);
 }
 
 .dropDownQNATitle .open {
@@ -277,9 +255,9 @@ html[lang="ko"] .mobileSimpleTopDesc {
   display: block;
   width: 120px;
   padding: 6px 0;
-  background-color: var(--color-ribbon-green);
+  background-color: var(--color-green);
   color: white;
-  font-size: 14px;
+  font-size: var(--font-size-b14);
   font-weight: bold;
   text-align: center;
 }

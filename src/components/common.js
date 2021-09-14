@@ -101,15 +101,6 @@ export const SpeechBubbleContainer = ({ containerGridColumns, speechBubbles }) =
   );
 };
 
-export const SimpleTop = ({ title, children }) => (
-  <div>
-    <Padding y={100} />
-    <div className={styles.simpleTopTitle}>{title}</div>
-    <Padding y={30} />
-    <div className={styles.simpleTopDesc}>{children}</div>
-  </div>
-);
-
 export const MobileSimpleTop = ({ title, children }) => (
   <div>
     <Padding y={50} />
