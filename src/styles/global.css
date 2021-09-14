@@ -30,6 +30,9 @@
   --color-light-blue: #50a4fa;
   --color-light-blue-20: rgba(80, 164, 250, 0.2);
   --color-light-blue-5: rgba(80, 164, 250, 0.05);
+  --color-orange-20: rgba(245, 166, 35, 0.2);
+  --color-orange-10: rgba(245, 166, 35, 0.1);
+  --color-green-20: rgba(60, 185, 160, 0.2);
   --color-green-10: rgba(60, 185, 160, 0.1);
   --color-font-gray1: #292a2f;
   --color-gray2: #8f91a0;
