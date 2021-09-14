@@ -1,0 +1,18 @@
+{
+  "businessPlanDesc": "함께하는 여유로운 재고관리",
+  "businessPlanFeature1": "10인",
+  "businessPlanFeature2": "2000개 품목",
+  "businessPlanFeature3": "확장 가능",
+  "businessPlanPrice": "$16.6<br/><small>팀 / 1개월(연간 결제시)</small>",
+  "businessPlanStartNow": "한 달 무료 체험하기",
+  "businessPlanTitle": "비즈니스 플랜",
+  "relatedContentsTitle": "관련 콘텐츠",
+  "singlePlanDesc": "혼자하는 소규모 재고관리",
+  "singlePlanFeature1": "1인",
+  "singlePlanFeature2": "100개 품목",
+  "singlePlanPrice": "무료",
+  "singlePlanStartNow": "지금 시작하기",
+  "singlePlanTitle": "개인 플랜",
+  "startNowDesc": "한 달 동안 먼저 무료로 체험해보고 필요할 때 결제하세요.",
+  "startNowTitle": "지금 바로 사용해보세요"
+}

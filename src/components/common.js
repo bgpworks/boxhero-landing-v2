@@ -1,11 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
+import svgEye from "../images/icon-eye.svg";
+import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import {
+  urlStart,
   urlDownloadApp,
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
@@ -68,9 +72,12 @@ const SpeechBubble = ({
   </div>
 );
 
-export const SpeechBubbleContainer = ({ containerWidth, speechBubbles, columnGap }) => {
+export const SpeechBubbleContainer = ({ containerGridColumns, speechBubbles }) => {
+  const COLUMN_WIDTH = 72;
+  const GUTTER_WIDTH = 30;
+  const containerWidth = COLUMN_WIDTH * containerGridColumns
+  + GUTTER_WIDTH * (containerGridColumns - 1);
   const isEvenNumber = (index) => index % 2 === 0;
-  const isLastChild = (index) => index === speechBubbles.length - 1;
 
   return (
     <div
@@ -78,20 +85,17 @@ export const SpeechBubbleContainer = ({ containerWidth, speechBubbles, columnGap
       style={{ width: containerWidth }}
     >
       {speechBubbles.map((bubble, index) => (
-        <>
-          <SpeechBubble
-            key={index}
-            text={bubble.text}
-            alignRight={isEvenNumber(index + 1)}
-            style={{
-              color: bubble.color,
-              backgroundColor: bubble.backgroundColor,
-              marginRight: bubble.marginRight,
-              marginLeft: bubble.marginLeft,
-            }}
-          />
-          {!isLastChild(index) && <Padding y={columnGap} />}
-        </>
+        <SpeechBubble
+          key={index}
+          text={bubble.text}
+          alignRight={isEvenNumber(index + 1)}
+          style={{
+            color: bubble.color,
+            backgroundColor: bubble.backgroundColor,
+            marginRight: bubble.marginRight,
+            marginLeft: bubble.marginLeft,
+          }}
+        />
       ))}
     </div>
   );
@@ -104,6 +108,100 @@ export const MobileSimpleTop = ({ title, children }) => (
     <Padding y={20} />
     <div className={styles.mobileSimpleTopDesc}>{children}</div>
   </div>
+);
+
+export const StartNowButton = ({ startNow, className }) => (
+  <ExternalLinkWithQuery href={urlStart}>
+    <button
+      type="button"
+      className={className}
+    >
+      {startNow}
+    </button>
+  </ExternalLinkWithQuery>
+);
+
+export const UseCaseTop = ({
+  className, title, description, startNow, img,
+}) => (
+  <div className={className}>
+    <DesktopBaseContainer
+      className={styles.useCaseTopContentContainer}
+    >
+      <div className={styles.useCaseTopTitle}>{title}</div>
+      <Padding y={16} />
+      <div className={styles.useCaseTopDesc}>{description}</div>
+      <Padding y={30} />
+      <StartNowButton
+        startNow={startNow}
+        className={styles.startNowButton}
+      />
+      <Padding y={49} />
+      <GatsbyImage
+        image={img.childImageSharp.gatsbyImageData}
+        alt={startNow}
+      />
+    </DesktopBaseContainer>
+  </div>
+);
+
+const UseCaseFeatureRightDesc = ({ icon, text }) => (
+  <div className={styles.useCaseFeatureRightDesc}>
+    <img
+      src={icon}
+      alt={text}
+    />
+    <Padding x={8} />
+    {text}
+  </div>
+);
+
+export const UseCaseFeature = ({
+  title,
+  speechBubbles,
+  img,
+  leftDescription,
+  rightDescriptions,
+  children,
+}) => (
+  <DesktopBaseContainer
+    className={styles.useCaseFeatureContentContainer}
+  >
+    <div className={styles.useCaseFeatureTitle}>{title}</div>
+    <Padding y={50} />
+    <SpeechBubbleContainer
+      containerGridColumns={6}
+      speechBubbles={speechBubbles}
+      columnGap={10}
+    />
+    <Padding y={50} />
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      alt={title}
+    />
+    <Padding y={50} />
+    <div className={styles.useCaseFeatureDescContainer}>
+      <div className={styles.useCaseFeatureLeftDesc}>
+        <span className={styles.textUnderline}>
+          {leftDescription}
+        </span>
+      </div>
+      <Padding x={30} />
+      <div className={styles.useCaseFeatureRightDescContainer}>
+        {rightDescriptions.map((rightDescription, index) => {
+          const isLastChild = () => index === rightDescriptions.length - 1;
+          return (
+            <UseCaseFeatureRightDesc
+              key={index}
+              icon={isLastChild() ? svgEye : svgCircleCheck}
+              text={rightDescription}
+            />
+          );
+        })}
+      </div>
+    </div>
+    {children}
+  </DesktopBaseContainer>
 );
 
 export const DropDownQNA = ({
