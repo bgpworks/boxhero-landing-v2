@@ -52,7 +52,6 @@ const DropDownMenu = ({
   const dropDownMenuRef = useRef();
   useClickOutside(dropDownMenuRef, () => onChangeIsShow(false));
 
-  const { t } = useTranslation();
   return (
     <div
       ref={dropDownMenuRef}
@@ -66,7 +65,7 @@ const DropDownMenu = ({
         <span>{title}</span>
         <img
           src={isBackgroundWhite ? svgDropDownArrowBlack : svgDropDownArrowWhite}
-          alt={t("header:menuUnderIconAlt")}
+          alt={title}
         />
       </div>
       {isShow && (

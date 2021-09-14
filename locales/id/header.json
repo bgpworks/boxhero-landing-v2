@@ -1,8 +1,18 @@
 {
-  "menuAbout": "Tentang BoxHero",
+  "menuCompanyBlog": "Blog",
   "menuDoc": "Layanan Pelanggan",
-  "menuFeatures": "Fitur",
   "menuLanguage": "Bahasa",
   "menuLoginButton": "LOG IN",
-  "menuPricing": "Harga"
+  "menuPricing": "Harga",
+  "menuResource": "Resource",
+  "menuService": "Service",
+  "menuServiceAbout": "Tentang BoxHero",
+  "menuServiceFeatures": "Fitur",
+  "menuUseCaseAssets": "Aset",
+  "menuUseCaseAssetsDesc": "Solusi untuk mengelola persediaan dan perlengkapan kantor, restoran, dan rumah sakit.",
+  "menuUseCaseMaterial": "Material",
+  "menuUseCaseMaterialDesc": "Solusi untuk mengelola komponen dan suku cadang seperti mobil, interior, dan instalasi",
+  "menuUseCaseSales": "Penjualan",
+  "menuUseCaseSalesDesc": "Solusi yang cocok untuk semua jenis penjualan online maupun offline",
+  "menuUseCases": "Solusi Bisnis"
 }
