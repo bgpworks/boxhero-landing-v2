@@ -43,7 +43,7 @@ import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 import CustomDotGroup from "./custom-dot-group";
 
-const Top = ({ data, t }) => (
+const Top = ({ data, t, language }) => (
   <GradientBG
     className={styles.topContainer}
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
@@ -75,6 +75,7 @@ const Top = ({ data, t }) => (
       </div>
       <div className={styles.topRightContainer}>
         <GatsbyImage
+          style={language !== "ko" && { width: 685, height: 492 }}
           image={data.homeTopRight.childImageSharp.gatsbyImageData}
           alt={t("index:topIconAlt")}
         />
@@ -564,6 +565,7 @@ const DesktopIndex = ({ data, language, t }) => (
     <Top
       data={data}
       t={t}
+      language={language}
     />
 
     <Chatting t={t} />
@@ -586,7 +588,6 @@ const DesktopIndex = ({ data, language, t }) => (
     <Customers
       data={data}
       t={t}
-      language={language}
     />
 
     <Features
