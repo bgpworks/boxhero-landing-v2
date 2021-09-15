@@ -18,6 +18,7 @@
 .topLeftContainer {
   font-size: var(--font-size-40);
   font-weight: bold;
+  line-height: 1.45;
 }
 
 /* StrongPoints */
@@ -43,7 +44,8 @@
 
 .desc {
   font-size: var(--font-size-b18);
-  max-width: 600px;
+  min-width: 480px;
+  max-width: 500px;
 }
 
 /* Other features  */
@@ -62,6 +64,7 @@
 .featureDesc {
   font-size: var(--font-size-b18);
   text-align: center;
+  line-height: 1.5;
 }
 
 .featureRow {
@@ -132,4 +135,5 @@
 
 .featureCardContent {
   font-size: var(--font-size-b14);
+  line-height: 1.45;
 }
