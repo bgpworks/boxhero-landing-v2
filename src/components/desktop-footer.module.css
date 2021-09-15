@@ -87,7 +87,7 @@
   height: 44px;
   border-radius: 6px;
   border: solid 1px #cbccd3;
-  background: transparent;
+  background: white;
   color: #585a6c;
 
   padding: 0px 15px;
@@ -134,11 +134,13 @@
   color: inherit;
 }
 
-@value footer-menu-width: 193px;
+@value footer-menu-width: 174px;
+@value footer-menu-gutter: 30px;
 @value wide-footer-menu-width: 314px;
 
 .footerMenusColumn {
   width: footer-menu-width;
+  margin-right: footer-menu-gutter;
   overflow: visible;
   white-space: nowrap;
 }
@@ -169,6 +171,7 @@
 
 .logoContainer {
   width: footer-menu-width;
+  margin-right: footer-menu-gutter;
 }
 
 .companyLogo {
@@ -176,8 +179,12 @@
 }
 
 .copyRight {
-  margin-top: 3px;
+  margin-top: 10px;
   font-size: var(--font-size-b12);
+}
+
+html[lang="ko"] .copyRight {
+  margin-top: 3px;
 }
 
 .companyInfoContainer a {
@@ -185,6 +192,7 @@
 }
 
 .companyInfoDetail {
+  width: calc((footer-menu-width + footer-menu-gutter) * 3);
   line-height: 24px;
 }
 
