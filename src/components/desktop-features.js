@@ -7,7 +7,6 @@ import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
-  SimpleTop,
   ExternalLinkWithQuery,
 } from "./common";
 import * as constants from "./constants";
@@ -31,6 +30,16 @@ const {
   barBlue,
 } = styles;
 
+const Top = ({ t }) => (
+  <DesktopBaseContainer className={styles.topContentContainer}>
+    <div className={styles.topTitle}>{t("features:topTitle")}</div>
+    <Padding y={16} />
+    <div className={styles.topDesc}>{t("features:topDesc")}</div>
+    <Padding y={50} />
+    <Menu t={t} />
+  </DesktopBaseContainer>
+);
+
 const MenuItem = ({
   to, icon, label, title,
 }) => (
@@ -49,7 +58,7 @@ const MenuItem = ({
         alt={label}
       />
     </div>
-    <Padding y={13} />
+    <Padding y={9} />
     <div className={styles.menuItemLabel}>{label}</div>
   </Link>
 );
@@ -119,17 +128,17 @@ function FeatureTemplate({
       id={id}
       className={[styles.featureTemplate, bgColor].join(" ")}
     >
-      <DesktopBaseContainer>
+      <DesktopBaseContainer className={styles.featureTemplateContentContainer}>
         <div className={styles.featureTemplateDescFigContainer}>
           <div className={styles.featureTemplateTitleDescContainer}>
             <div className={styles.featureTemplateTitle}>
               {title}
             </div>
-            <Padding y={35} />
+            <Padding y={18} />
             <div className={styles.featureTemplateDesc}>
               {desc}
             </div>
-            <Padding y={30} />
+            <Padding y={50} />
             <ExternalLinkWithQuery href={constants.urlStart}>
               <button
                 type="button"
@@ -139,14 +148,14 @@ function FeatureTemplate({
               </button>
             </ExternalLinkWithQuery>
           </div>
-          <div className={styles.featureTemplateFigureContainer}>
+          <div style={figureStyle}>
             <GatsbyImage
               image={figure}
-              style={figureStyle}
+              alt={title}
             />
           </div>
         </div>
-        <Padding y={150} />
+        <Padding y={70} />
         <div className={styles.halfContainer}>
           {demoData
             .slice(0, 2)
@@ -194,6 +203,7 @@ const FeatureBarcodelabel = ({ data }) => (
     bgColor={bgWhite}
     title={<Trans i18nKey="features:barcodelabelTitle" />}
     figure={data.barcodelabelFig.childImageSharp.gatsbyImageData}
+    figureStyle={{ marginRight: -30 }}
     desc={<Trans i18nKey="features:barcodelabelDesc" />}
     barColor={barGray}
     demoData={[
@@ -217,6 +227,7 @@ const FeatureSummary = ({ data }) => (
     bgColor={bgBlue}
     title={<Trans i18nKey="features:summaryTitle" />}
     figure={data.summaryFig.childImageSharp.gatsbyImageData}
+    figureStyle={{ marginTop: -30, marginRight: -102 }}
     desc={<Trans i18nKey="features:summaryDesc" />}
     barColor={barBlue}
     demoData={[
@@ -240,6 +251,7 @@ const FeatureViewPastQuantity = ({ data }) => (
     bgColor={bgWhite}
     title={<Trans i18nKey="features:viewPastQuantityTitle" />}
     figure={data.viewPastQuantityFig.childImageSharp.gatsbyImageData}
+    figureStyle={{ marginTop: -30, marginRight: -102 }}
     desc={<Trans i18nKey="features:viewPastQuantityDesc" />}
     barColor={barGray}
     demoData={[
@@ -263,6 +275,7 @@ const FeatureLocation = ({ data }) => (
     bgColor={bgOrange}
     title={<Trans i18nKey="features:locationTitle" />}
     figure={data.locationFig.childImageSharp.gatsbyImageData}
+    figureStyle={{ marginTop: -30, marginRight: -102 }}
     desc={<Trans i18nKey="features:locationDesc" />}
     barColor={barOrange}
     demoData={[
@@ -286,15 +299,7 @@ const DesktopFeatures = ({ data, t }) => (
     closingEmoji={data.dinosaur}
     closingMsg={<Trans i18nKey="features:closingMsg" />}
   >
-    <SimpleTop title={t("features:topTitle")}>
-      <Trans i18nKey="features:topDesc" />
-    </SimpleTop>
-
-    <Padding y={62} />
-
-    <Menu t={t} />
-
-    <Padding y={100} />
+    <Top t={t} />
 
     <FeatureLowstock data={data} />
     <FeatureBarcodelabel data={data} />
