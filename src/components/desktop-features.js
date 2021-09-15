@@ -34,7 +34,9 @@ const Top = ({ t }) => (
   <DesktopBaseContainer className={styles.topContentContainer}>
     <div className={styles.topTitle}>{t("features:topTitle")}</div>
     <Padding y={16} />
-    <div className={styles.topDesc}>{t("features:topDesc")}</div>
+    <div className={styles.topDesc}>
+      <Trans i18nKey="features:topDesc" />
+    </div>
     <Padding y={50} />
     <Menu t={t} />
   </DesktopBaseContainer>

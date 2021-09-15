@@ -12,6 +12,7 @@
 .topDesc {
   font-size: var(--font-size-b18);
   text-align: center;
+  line-height: 1.5;
 }
 
 .menuItem {
@@ -39,7 +40,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .featureTemplate {
@@ -59,7 +60,7 @@
 }
 
 .featureTemplateTitleDescContainer {
-  width: 497px;
+  width: 480px;
   flex-shrink: 0;
 }
 
