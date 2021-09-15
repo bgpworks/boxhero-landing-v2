@@ -48,7 +48,7 @@
 }
 
 .featureTemplateContentContainer {
-  padding: 100px 102px;
+  padding: 70px 0 100px 102px;
   color: var(--color-font-gray1);
 }
 
@@ -60,6 +60,7 @@
 }
 
 .featureTemplateTitleDescContainer {
+  padding-top: 30px;
   width: 480px;
   flex-shrink: 0;
 }
@@ -87,11 +88,6 @@ html[lang="ko"] .featureTemplateDesc {
   font-weight: bold;
   text-align: center;
   color: white;
-}
-
-.featureTemplateFigure {
-  margin-top: -30px;
-  margin-right: -102px;
 }
 
 .halfContainer {

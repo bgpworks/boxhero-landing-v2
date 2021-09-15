@@ -150,10 +150,7 @@ function FeatureTemplate({
               </button>
             </ExternalLinkWithQuery>
           </div>
-          <div
-            className={styles.featureTemplateFigure}
-            style={figureStyle}
-          >
+          <div style={figureStyle}>
             <GatsbyImage
               image={figure}
               alt={title}
