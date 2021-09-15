@@ -22,12 +22,17 @@
   "footerMenuSupportDocs": "Customer Service",
   "footerMenuSupportFaq": "FAQ",
   "footerMenuSupportManual": "User Guide",
+  "footerMenuUseCaseAssets": "Asset Management",
+  "footerMenuUseCaseMaterial": "Material Management",
+  "footerMenuUseCaseSales": "Sales",
+  "footerMenuUseCases": "Use Cases",
   "platformGroupDesktop": "Desktop App",
   "platformGroupMobile": "Mobile App",
   "platformGroupWeb": "Web App",
-  "platformsLastMessage": "BoxHero supports all device types.",
+  "platformsMessage": "Control your stocks anytime, anywhere.",
   "platformsOsx": "Mac",
   "platformsPC": "Web",
+  "platformsTitle": "BoxHero Supports both PC and Mobile",
   "platformsWindows": "Windows",
-  "startNowButton": "Start Now"
+  "startNowButton": "Get Started - It's Free"
 }
