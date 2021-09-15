@@ -67,8 +67,6 @@
 .featureTemplateTitle {
   font-size: var(--font-size-36);
   font-weight: bold;
-  line-height: 1.35;
-  letter-spacing: -1px;
 }
 
 .featureTemplateDesc {
