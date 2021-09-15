@@ -52,7 +52,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 787
+          width: 685
           quality: 100
           tracedSVGOptions: {
             turdSize: 1

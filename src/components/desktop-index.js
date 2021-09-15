@@ -75,7 +75,6 @@ const Top = ({ data, t, language }) => (
       </div>
       <div className={styles.topRightContainer}>
         <GatsbyImage
-          style={language !== "ko" && { width: 685, height: 492 }}
           image={data.homeTopRight.childImageSharp.gatsbyImageData}
           alt={t("index:topIconAlt")}
         />
