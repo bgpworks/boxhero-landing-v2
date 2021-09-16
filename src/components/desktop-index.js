@@ -43,7 +43,167 @@ import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 import CustomDotGroup from "./custom-dot-group";
 
-const Top = ({ data, t, language }) => (
+const CHATTING_COLOR_SEQUENCE = [
+  { text: "#292a2f", background: "#fbc200" },
+  { text: "white", background: "#50a4fa" },
+  { text: "#292a2f", background: "#e0e0e3" },
+  { text: "white", background: "rgba(79, 103, 255, 0.9)" },
+  { text: "white", background: "rgba(60, 185, 160, 0.8)" },
+  { text: "white", background: "rgba(126, 187, 64, 0.6)" },
+  { text: "white", background: "rgba(251, 97, 100, 0.6)" },
+];
+
+const CHATTING_GRID_COLUMN_COUNT_BY_LANGUAGE = {
+  ko: 6,
+  en: 8,
+  es: 7,
+  id: 7,
+};
+
+const MARGIN_BIG = 102;
+const MARGIN_SMALL = 72;
+
+const genBubblesMap = (t) => ({
+  ko: [
+    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble2") },
+    { text: t("index:chattingBubble3") },
+    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
+    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
+    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
+  ],
+  en: [
+    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble2") },
+    { text: t("index:chattingBubble3") },
+    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
+    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
+    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
+  ],
+  es: [
+    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble2") },
+    { text: t("index:chattingBubble3") },
+    { text: t("index:chattingBubble4"), marginRight: MARGIN_SMALL },
+    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble6") },
+    { text: t("index:chattingBubble7") },
+  ],
+  id: [
+    { text: t("index:chattingBubble1") },
+    { text: t("index:chattingBubble2") },
+    { text: t("index:chattingBubble3"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
+    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
+    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
+    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
+  ],
+});
+
+function genKeyFeatureData(data, t) {
+  return [
+    [
+      { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
+      { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
+      { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
+      { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
+    ],
+    [
+      { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
+      { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
+      { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
+    ],
+    [
+      { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
+      { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
+      { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
+      { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
+    ],
+  ];
+}
+
+function genSalesManagementData(data, t) {
+  return [
+    { title: t("index:salesManagementMenu1"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
+    { title: t("index:salesManagementMenu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
+    { title: t("index:salesManagementMenu3"), img: data.featureSalesAnalysis.childImageSharp.gatsbyImageData },
+  ];
+}
+
+function genCustomerData(data) {
+  return [
+    { i18nKey: "index:customerTypeBookstore", emoji: data.book },
+    { i18nKey: "index:customerTypeWarehouse", emoji: data.box },
+    { i18nKey: "index:customerType3PL", emoji: data.truck },
+    { i18nKey: "index:customerTypeBags", emoji: data.bag },
+    { i18nKey: "index:customerTypeFashionBrand", emoji: data.coat },
+    { i18nKey: "index:customerTypeDentalClinic", emoji: data.teeth },
+    { i18nKey: "index:customerTypeAutoParts", emoji: data.car },
+    { i18nKey: "index:customerTypeFabric", emoji: data.pinkT },
+    { i18nKey: "index:customerTypeShoes", emoji: data.heel },
+    { i18nKey: "index:customerTypeMedicine", emoji: data.thermometer },
+    { i18nKey: "index:customerTypeClothes", emoji: data.dress },
+    { i18nKey: "index:customerTypeUsedItems", emoji: data.bag2 },
+    { i18nKey: "index:customerTypeCellphones", emoji: data.mobile },
+    { i18nKey: "index:customerTypeCosmetics", emoji: data.lipstick },
+    { i18nKey: "index:customerTypeFood", emoji: data.burger },
+    { i18nKey: "index:customerTypeElevatorParts", emoji: data.bolt },
+    { i18nKey: "index:customerTypeRawMeterial", emoji: data.brick },
+    { i18nKey: "index:customerTypeJewelry", emoji: data.ring },
+    { i18nKey: "index:customerTypeCafe", emoji: data.coffeeSmall },
+    { i18nKey: "index:customerTypeCreativeProduct", emoji: data.tip },
+    { i18nKey: "index:customerTypeIcecream", emoji: data.icecream },
+    { i18nKey: "index:customerTypeCosmeticSurgery", emoji: data.lip },
+    { i18nKey: "index:customerTypeSupermarket", emoji: data.cart },
+    { i18nKey: "index:customerTypeFurniture", emoji: data.chair },
+    { i18nKey: "index:customerTypeTea", emoji: data.tea },
+    { i18nKey: "index:customerTypePharmacy", emoji: data.pill },
+    { i18nKey: "index:customerTypeCinema", emoji: data.movie },
+    { i18nKey: "index:customerTypeApplianceStore", emoji: data.tv },
+    { i18nKey: "index:customerTypeSticker", emoji: data.puzzle },
+    { i18nKey: "index:customerTypeCamera", emoji: data.camera },
+    { i18nKey: "index:customerTypeElectronicParts", emoji: data.electronic },
+    { i18nKey: "index:customerTypeMedicalEquipment", emoji: data.wheelchair },
+    { i18nKey: "index:customerTypeAirConditionerParts", emoji: data.hammer },
+    { i18nKey: "index:customerTypeComforter", emoji: data.bed },
+    { i18nKey: "index:customerTypeMeat", emoji: data.meat },
+  ];
+}
+
+function genFeatureData(data, t) {
+  return [
+    {
+      title: t("index:featureSafetyStock"),
+      link: `/features/#${constants.idFeatureLowstock}`,
+      img: data.featureLowstock.childImageSharp.gatsbyImageData,
+    },
+    {
+      title: t("index:featurePrintLabel"),
+      link: `/features/#${constants.idFeatureBarcodelabel}`,
+      img: data.featureBarcodeLabel.childImageSharp.gatsbyImageData,
+    },
+    {
+      title: t("index:featureTransactionStats"),
+      link: `/features/#${constants.idFeatureSummary}`,
+      img: data.featureSummary.childImageSharp.gatsbyImageData,
+    },
+    {
+      title: t("index:featureViewPastQuantity"),
+      link: `/features/#${constants.idFeatureViewPastQuantity}`,
+      img: data.featureViewPastQuantity.childImageSharp.gatsbyImageData,
+    },
+    {
+      title: t("index:featureLocationManagement"),
+      link: `/features/#${constants.idFeatureLocation}`,
+      img: data.featureLocation.childImageSharp.gatsbyImageData,
+    },
+  ];
+}
+
+const Top = ({ data, t }) => (
   <GradientBG
     className={styles.topContainer}
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
@@ -84,63 +244,15 @@ const Top = ({ data, t, language }) => (
 );
 
 const Chatting = ({ t, language }) => {
-  const bubbles = [
-    {
-      text: t("index:chattingBubble1"),
-      color: "#292a2f",
-      backgroundColor: "#fbc200",
-      marginLeft: language === "id" ? 0 : 102,
-    },
-    {
-      text: t("index:chattingBubble2"),
-      color: "white",
-      backgroundColor: "#50a4fa",
-    },
-    {
-      text: t("index:chattingBubble3"),
-      color: "#292a2f",
-      backgroundColor: "#e0e0e3",
-      marginLeft: language === "id" ? 102 : 0,
-    },
-    {
-      text: t("index:chattingBubble4"),
-      color: "white",
-      backgroundColor: "rgba(79, 103, 255, 0.9)",
-      marginRight: language === "es" ? 72 : 102,
-    },
-    {
-      text: t("index:chattingBubble5"),
-      color: "white",
-      backgroundColor: "rgba(60, 185, 160, 0.8)",
-      marginLeft: 102,
-    },
-    {
-      text: t("index:chattingBubble6"),
-      color: "white",
-      backgroundColor: "rgba(126, 187, 64, 0.6)",
-      marginRight: language === "es" ? 0 : 72,
-    },
-    {
-      text: t("index:chattingBubble7"),
-      color: "white",
-      backgroundColor: "rgba(251, 97, 100, 0.6)",
-      marginLeft: language === "es" ? 0 : 72,
-    },
-  ];
-  const gridColumns = {
-    ko: 6,
-    en: 8,
-    es: 7,
-    id: 7,
-  };
+  const speechBubblesByLanguageMap = genBubblesMap(t);
 
   return (
     <div className={styles.chattingContainer}>
       <DesktopBaseContainer className={styles.chattingContentContainer}>
         <SpeechBubbleContainer
-          containerGridColumns={gridColumns[language]}
-          speechBubbles={bubbles}
-          columnGap={10}
+          containerGridColumns={CHATTING_GRID_COLUMN_COUNT_BY_LANGUAGE[language]}
+          speechBubbles={speechBubblesByLanguageMap[language]}
+          colorSequence={CHATTING_COLOR_SEQUENCE}
         />
 
         <Padding y={51} />
@@ -202,29 +314,6 @@ const KeyFeature = ({ totalSlides, children }) => (
   </div>
 );
 
-function genKeyFeatureData(data, t) {
-  return [
-    [
-      { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
-      { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
-      { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
-      { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
-    ],
-    [
-      { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
-      { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
-      { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
-      { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
-    ],
-    [
-      { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
-      { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
-      { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
-      { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
-    ],
-  ];
-}
-
 const KeyFeatures = ({ data, t }) => {
   const keyFeatureData = genKeyFeatureData(data, t);
 
@@ -265,14 +354,6 @@ const KeyFeatures = ({ data, t }) => {
     </>
   );
 };
-
-function genSalesManagementData(data, t) {
-  return [
-    { title: t("index:salesManagementMenu1"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
-    { title: t("index:salesManagementMenu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
-    { title: t("index:salesManagementMenu3"), img: data.featureSalesAnalysis.childImageSharp.gatsbyImageData },
-  ];
-}
 
 const SalesManagement = ({ data, t }) => {
   const salesManagementData = genSalesManagementData(data, t);
@@ -356,46 +437,6 @@ const CustomerCard = ({
   </div>
 );
 
-function genCustomerData(data) {
-  return [
-    { i18nKey: "index:customerTypeBookstore", emoji: data.book },
-    { i18nKey: "index:customerTypeWarehouse", emoji: data.box },
-    { i18nKey: "index:customerType3PL", emoji: data.truck },
-    { i18nKey: "index:customerTypeBags", emoji: data.bag },
-    { i18nKey: "index:customerTypeFashionBrand", emoji: data.coat },
-    { i18nKey: "index:customerTypeDentalClinic", emoji: data.teeth },
-    { i18nKey: "index:customerTypeAutoParts", emoji: data.car },
-    { i18nKey: "index:customerTypeFabric", emoji: data.pinkT },
-    { i18nKey: "index:customerTypeShoes", emoji: data.heel },
-    { i18nKey: "index:customerTypeMedicine", emoji: data.thermometer },
-    { i18nKey: "index:customerTypeClothes", emoji: data.dress },
-    { i18nKey: "index:customerTypeUsedItems", emoji: data.bag2 },
-    { i18nKey: "index:customerTypeCellphones", emoji: data.mobile },
-    { i18nKey: "index:customerTypeCosmetics", emoji: data.lipstick },
-    { i18nKey: "index:customerTypeFood", emoji: data.burger },
-    { i18nKey: "index:customerTypeElevatorParts", emoji: data.bolt },
-    { i18nKey: "index:customerTypeRawMeterial", emoji: data.brick },
-    { i18nKey: "index:customerTypeJewelry", emoji: data.ring },
-    { i18nKey: "index:customerTypeCafe", emoji: data.coffeeSmall },
-    { i18nKey: "index:customerTypeCreativeProduct", emoji: data.tip },
-    { i18nKey: "index:customerTypeIcecream", emoji: data.icecream },
-    { i18nKey: "index:customerTypeCosmeticSurgery", emoji: data.lip },
-    { i18nKey: "index:customerTypeSupermarket", emoji: data.cart },
-    { i18nKey: "index:customerTypeFurniture", emoji: data.chair },
-    { i18nKey: "index:customerTypeTea", emoji: data.tea },
-    { i18nKey: "index:customerTypePharmacy", emoji: data.pill },
-    { i18nKey: "index:customerTypeCinema", emoji: data.movie },
-    { i18nKey: "index:customerTypeApplianceStore", emoji: data.tv },
-    { i18nKey: "index:customerTypeSticker", emoji: data.puzzle },
-    { i18nKey: "index:customerTypeCamera", emoji: data.camera },
-    { i18nKey: "index:customerTypeElectronicParts", emoji: data.electronic },
-    { i18nKey: "index:customerTypeMedicalEquipment", emoji: data.wheelchair },
-    { i18nKey: "index:customerTypeAirConditionerParts", emoji: data.hammer },
-    { i18nKey: "index:customerTypeComforter", emoji: data.bed },
-    { i18nKey: "index:customerTypeMeat", emoji: data.meat },
-  ];
-}
-
 const Customers = ({ data, t }) => {
   const customerData = genCustomerData(data);
 
@@ -426,36 +467,6 @@ const Customers = ({ data, t }) => {
     </div>
   );
 };
-
-function genFeatureData(data, t) {
-  return [
-    {
-      title: t("index:featureSafetyStock"),
-      link: `/features/#${constants.idFeatureLowstock}`,
-      img: data.featureLowstock.childImageSharp.gatsbyImageData,
-    },
-    {
-      title: t("index:featurePrintLabel"),
-      link: `/features/#${constants.idFeatureBarcodelabel}`,
-      img: data.featureBarcodeLabel.childImageSharp.gatsbyImageData,
-    },
-    {
-      title: t("index:featureTransactionStats"),
-      link: `/features/#${constants.idFeatureSummary}`,
-      img: data.featureSummary.childImageSharp.gatsbyImageData,
-    },
-    {
-      title: t("index:featureViewPastQuantity"),
-      link: `/features/#${constants.idFeatureViewPastQuantity}`,
-      img: data.featureViewPastQuantity.childImageSharp.gatsbyImageData,
-    },
-    {
-      title: t("index:featureLocationManagement"),
-      link: `/features/#${constants.idFeatureLocation}`,
-      img: data.featureLocation.childImageSharp.gatsbyImageData,
-    },
-  ];
-}
 
 const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);

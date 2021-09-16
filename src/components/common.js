@@ -58,45 +58,59 @@ Padding.defaultProps = {
   y: 0,
 };
 
-const SpeechBubble = ({
-  text, alignRight, style,
-}) => (
+const SpeechBubble = ({ text, style }) => (
   <div
-    className={[
-      styles.speechBubble,
-      alignRight ? styles.speechBubbleRight : styles.speechBubbleLeft,
-    ].join(" ")}
+    className={styles.speechBubble}
     style={style}
   >
     {text}
   </div>
 );
 
-export const SpeechBubbleContainer = ({ containerGridColumns, speechBubbles }) => {
+const DEFAULT_CHATTING_COLOR_SEQUENCE = [
+  { text: "#292a2f", background: "#fbc200" },
+  { text: "white", background: "#50a4fa" },
+  { text: "#292a2f", background: "#e0e0e3" },
+  { text: "white", background: "rgba(79, 103, 255, 0.9)" },
+  { text: "white", background: "rgba(60, 185, 160, 0.8)" },
+  { text: "white", background: "rgba(126, 187, 64, 0.6)" },
+  { text: "white", background: "rgba(251, 97, 100, 0.6)" },
+];
+
+export const SpeechBubbleContainer = ({
+  containerGridColumns,
+  speechBubbles,
+  colorSequence = DEFAULT_CHATTING_COLOR_SEQUENCE,
+}) => {
   const COLUMN_WIDTH = 72;
   const GUTTER_WIDTH = 30;
   const containerWidth = COLUMN_WIDTH * containerGridColumns
   + GUTTER_WIDTH * (containerGridColumns - 1);
-  const isEvenNumber = (index) => index % 2 === 0;
+  const colorSeqquenceIterator = (idx) => {
+    const derivedIdx = idx % colorSequence.length;
+    return colorSequence[derivedIdx];
+  };
 
   return (
     <div
       className={styles.speechBubbleContainer}
       style={{ width: containerWidth }}
     >
-      {speechBubbles.map((bubble, index) => (
-        <SpeechBubble
-          key={index}
-          text={bubble.text}
-          alignRight={isEvenNumber(index + 1)}
-          style={{
-            color: bubble.color,
-            backgroundColor: bubble.backgroundColor,
-            marginRight: bubble.marginRight,
-            marginLeft: bubble.marginLeft,
-          }}
-        />
-      ))}
+      {speechBubbles.map((bubble, index) => {
+        const { text, background } = colorSeqquenceIterator(index);
+        return (
+          <SpeechBubble
+            key={index}
+            text={bubble.text}
+            style={{
+              color: text,
+              backgroundColor: background,
+              marginRight: bubble.marginRight,
+              marginLeft: bubble.marginLeft,
+            }}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -181,7 +195,6 @@ export const UseCaseFeature = ({
     <SpeechBubbleContainer
       containerGridColumns={6}
       speechBubbles={speechBubbles}
-      columnGap={10}
     />
     <Padding y={50} />
     <GatsbyImage
