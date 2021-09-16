@@ -50,19 +50,19 @@ const StartNow = ({ t }) => (
 
     <div className={styles.priceCards}>
       <PriceCard
-        title={t("usecase-footer:singlePlanTitle")}
-        description={t("usecase-footer:singlePlanDesc")}
+        title={<Trans i18nKey="usecase-footer:singlePlanTitle" />}
+        description={<Trans i18nKey="usecase-footer:singlePlanDesc" />}
         price={t("usecase-footer:singlePlanPrice")}
         features={[
-          { icon: svgPerson, text: t("usecase-footer:singlePlanFeature1") },
-          { icon: svgBox, text: t("usecase-footer:singlePlanFeature2") },
+          { icon: svgPerson, text: <Trans i18nKey="usecase-footer:singlePlanFeature1" /> },
+          { icon: svgBox, text: <Trans i18nKey="usecase-footer:singlePlanFeature2" /> },
         ]}
         startNowButton={t("usecase-footer:singlePlanStartNow")}
       />
       <Padding x={30} />
       <PriceCard
-        title={t("usecase-footer:businessPlanTitle")}
-        description={t("usecase-footer:businessPlanDesc")}
+        title={<Trans i18nKey="usecase-footer:businessPlanTitle" />}
+        description={<Trans i18nKey="usecase-footer:businessPlanDesc" />}
         price={(
           <Trans
             i18nKey="usecase-footer:businessPlanPrice"
@@ -70,9 +70,9 @@ const StartNow = ({ t }) => (
           />
         )}
         features={[
-          { icon: svgPerson, text: t("usecase-footer:businessPlanFeature1") },
-          { icon: svgBox, text: t("usecase-footer:businessPlanFeature2") },
-          { icon: svgPlus, text: t("usecase-footer:businessPlanFeature3") },
+          { icon: svgPerson, text: <Trans i18nKey="usecase-footer:businessPlanFeature1" /> },
+          { icon: svgBox, text: <Trans i18nKey="usecase-footer:businessPlanFeature2" /> },
+          { icon: svgPlus, text: <Trans i18nKey="usecase-footer:businessPlanFeature3" /> },
         ]}
         startNowButton={t("usecase-footer:businessPlanStartNow")}
       />
