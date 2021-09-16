@@ -27,6 +27,7 @@
 .topLeftTitle {
   font-size: var(--font-size-40);
   font-weight: bold;
+  line-height: 1.45;
 }
 
 .topLeftDescription {
@@ -63,6 +64,7 @@
 
 .chattingDescription {
   text-align: center;
+  line-height: 1.5;
 }
 
 /* keyFeature */
@@ -84,6 +86,10 @@
   align-items: center;
 }
 
+.KeyFeatureDescriptionContainer {
+  max-width: 480px;
+}
+
 .keyFeatureTitle {
   font-size: var(--font-size-36);
   font-weight: bold;
@@ -94,6 +100,7 @@
 
 .KeyFeatureDescription {
   font-size: var(--font-size-b18);
+  line-height: 1.5;
 }
 
 .keyFeatureMenuContainer {
@@ -157,12 +164,14 @@
 .salesManagementDesc {
   text-align: center;
   font-size: var(--font-size-b18);
+  line-height: 1.5;
 }
 .salesManagementDesc strong {
   background-color: var(--color-light-blue-20);
 }
 
 .salesManagementMenuContainer {
+  display: flex;
   background-color: var(--color-bg-light);
   border-radius: 8px;
 }
@@ -211,6 +220,7 @@
 .teamPlayDesc {
   font-size: var(--font-size-b18);
   text-align: center;
+  line-height: 1.5;
 }
 
 .teamImageFlex {
@@ -244,6 +254,7 @@
 .customersDesc {
   font-size: var(--font-size-b18);
   text-align: center;
+  line-height: 1.5;
 }
 
 .customersCardContainer {
@@ -258,6 +269,7 @@
 .customerCard {
   font-weight: 500;
   display: flex;
+  align-items: center;
   padding: 15px 20px;
   border-radius: 8px;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12);
@@ -384,6 +396,7 @@
 .startNowDescription {
   font-size: var(--font-size-b18);
   text-align: center;
+  line-height: 1.5;
 }
 
 .startNowDescription strong {

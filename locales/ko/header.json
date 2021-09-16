@@ -8,12 +8,11 @@
   "menuService": "서비스",
   "menuServiceAbout": "박스히어로는?",
   "menuServiceFeatures": "편의기능",
-  "menuUnderIconAlt": "펼치기",
   "menuUseCaseAssets": "자산관리",
   "menuUseCaseAssetsDesc": "사무실, 병원, 음식점 등 비품과 소모품을 관리할 수 있는 솔루션",
   "menuUseCaseMaterial": "자재관리",
   "menuUseCaseMaterialDesc": "자동차, 인테리어, 설비 등 부품과 자재를 관리할 수 있는 솔루션",
-  "menuUseCases": "사용사례",
   "menuUseCaseSales": "판매",
-  "menuUseCaseSalesDesc": "온라인 판매, 오프라인 매장 등 모든 유형에서 사용할 수 있는 맞춤형 솔루션"
+  "menuUseCaseSalesDesc": "온라인 판매, 오프라인 매장 등 모든 유형에서 사용할 수 있는 맞춤형 솔루션",
+  "menuUseCases": "사용사례"
 }

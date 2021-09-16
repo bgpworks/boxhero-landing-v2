@@ -257,7 +257,7 @@ const CompanyInfo = ({ t }) => (
         />
       </div>
       <div className={styles.copyRight}>
-        {`© ${new Date().getFullYear()}, BGPworks. All rights reserved.`}
+        {`© ${new Date().getFullYear()}, BGPworks. ${t("footer:copyRight")}`}
       </div>
     </div>
     <SocialLinkList />
