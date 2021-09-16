@@ -27,7 +27,7 @@ const UseCaseFeatures = ({ data, t }) => {
       isBgOrange: true,
       title: t("usecase:assetsFeature2Title"),
       bubbles: [
-        { text: t("usecase:assetsFeature2Bubble1") },
+        { text: <Trans i18nKey="usecase:assetsFeature2Bubble1" /> },
         { text: <Trans i18nKey="usecase:assetsFeature2Bubble2" /> },
       ],
       img: data.history,

@@ -27,7 +27,7 @@ const UseCaseFeatures = ({ data, t }) => {
       isBgGreen: true,
       title: t("usecase:materialFeature2Title"),
       bubbles: [
-        { text: t("usecase:materialFeature2Bubble1") },
+        { text: <Trans i18nKey="usecase:materialFeature2Bubble1" /> },
         { text: <Trans i18nKey="usecase:materialFeature2Bubble2" /> },
       ],
       img: data.inOut,
@@ -41,7 +41,7 @@ const UseCaseFeatures = ({ data, t }) => {
     {
       title: t("usecase:materialFeature3Title"),
       bubbles: [
-        { text: t("usecase:materialFeature3Bubble1") },
+        { text: <Trans i18nKey="usecase:materialFeature3Bubble1" /> },
         { text: <Trans i18nKey="usecase:materialFeature3Bubble2" /> },
       ],
       img: data.lowStock,
