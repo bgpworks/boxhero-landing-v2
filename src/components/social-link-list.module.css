@@ -2,7 +2,7 @@
   --social-link-bg-color: #585a6c;
 
   display: flex;
-  margin: 0 0 0 auto;
+  margin: 0;
   padding: 0;
   align-self: flex-end;
   list-style: none;

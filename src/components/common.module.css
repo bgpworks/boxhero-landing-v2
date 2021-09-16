@@ -27,12 +27,12 @@
   margin-top: 10px;
 }
 
-.speechBubbleLeft {
+.speechBubble:nth-child(2n + 1) {
   border-bottom-left-radius: 0px;
   align-self: flex-start;
 }
 
-.speechBubbleRight {
+.speechBubble:nth-child(2n) {
   border-bottom-right-radius: 0px;
   align-self: flex-end;
 }
