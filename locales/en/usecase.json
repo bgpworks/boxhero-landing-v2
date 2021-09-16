@@ -39,7 +39,7 @@
   "materialFeature2Title": "Stock In / Stock Out",
   "materialFeature3Bubble1": "Q) I wish to know ahead of time before the<br/>materials run out.",
   "materialFeature3Bubble2": "A) Get a reminder before your stock runs<br/>out by setting a minimum quantity of<br/>each material. ",
-  "materialFeature3LeftDesc": "Receive push notifications<br/>from BoxHero when<br/>running low stock.",
+  "materialFeature3LeftDesc": "Receive push notifications<br/>from BoxHero when running<br/>low stock.",
   "materialFeature3RightDesc1": "Set a minimum quantity to check low stock, overstock, etc. for each material/part.",
   "materialFeature3RightDesc2": "Check the item's low stock to excess stock status at once with BoxHero's auto-calculation.",
   "materialFeature3RightDesc3": "Push notifications are sent every morning at 9 AM from BoxHero app when your stock is running low.",
