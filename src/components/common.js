@@ -173,6 +173,7 @@ const UseCaseFeatureRightDesc = ({ icon, text }) => (
 export const UseCaseFeature = ({
   title,
   speechBubbles,
+  bubleColorSequence,
   img,
   leftDescription,
   rightDescriptions,
@@ -185,6 +186,7 @@ export const UseCaseFeature = ({
     <Padding y={50} />
     <SpeechBubbleContainer
       containerGridColumns={6}
+      colorSequence={bubleColorSequence}
       speechBubbles={speechBubbles}
     />
     <Padding y={50} />

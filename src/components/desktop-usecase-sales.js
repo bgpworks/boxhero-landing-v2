@@ -31,9 +31,9 @@ const UseCaseFeatures = ({ data, t }) => {
   const salesFeaturesdata = [
     {
       title: t("usecase:salesFeature1Title"),
-      speechBubbles: [
-        t("usecase:salesFeature1Bubble1"),
-        <Trans i18nKey="usecase:salesFeature1Bubble2" />,
+      bubbles: [
+        { text: t("usecase:salesFeature1Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature1Bubble2" /> },
       ],
       img: data.customProduct,
       leftDescription: <Trans i18nKey="usecase:salesFeature1LeftDesc" />,
@@ -46,9 +46,9 @@ const UseCaseFeatures = ({ data, t }) => {
     {
       isBgBlue: true,
       title: t("usecase:salesFeature2Title"),
-      speechBubbles: [
-        t("usecase:salesFeature2Bubble1"),
-        <Trans i18nKey="usecase:salesFeature2Bubble2" />,
+      bubbles: [
+        { text: t("usecase:salesFeature2Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature2Bubble2" /> },
       ],
       img: data.salesOut,
       leftDescription: <Trans i18nKey="usecase:salesFeature2LeftDesc" />,
@@ -60,9 +60,9 @@ const UseCaseFeatures = ({ data, t }) => {
     },
     {
       title: t("usecase:salesFeature3Title"),
-      speechBubbles: [
-        t("usecase:salesFeature3Bubble1"),
-        <Trans i18nKey="usecase:salesFeature3Bubble2" />,
+      bubbles: [
+        { text: t("usecase:salesFeature3Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature3Bubble2" /> },
       ],
       img: data.scanBarcode,
       leftDescription: <Trans i18nKey="usecase:salesFeature3LeftDesc" />,
@@ -79,9 +79,9 @@ const UseCaseFeatures = ({ data, t }) => {
     {
       isBgBlue: true,
       title: t("usecase:salesFeature4Title"),
-      speechBubbles: [
-        t("usecase:salesFeature4Bubble1"),
-        <Trans i18nKey="usecase:salesFeature4Bubble2" />,
+      bubbles: [
+        { text: t("usecase:salesFeature4Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature4Bubble2" /> },
       ],
       img: data.analysis,
       leftDescription: <Trans i18nKey="usecase:salesFeature4LeftDesc" />,
@@ -101,18 +101,11 @@ const UseCaseFeatures = ({ data, t }) => {
       >
         <UseCaseFeature
           title={salesFeaturedata.title}
-          speechBubbles={[
-            {
-              text: salesFeaturedata.speechBubbles[0],
-              color: "#292a2f",
-              backgroundColor: "rgba(80, 164, 250, 0.3)",
-            },
-            {
-              text: salesFeaturedata.speechBubbles[1],
-              color: "white",
-              backgroundColor: "#50a4fa",
-            },
+          bubleColorSequence={[
+            { text: "#292a2f", background: "rgba(80, 164, 250, 0.3)" },
+            { text: "white", background: "#50a4fa" },
           ]}
+          speechBubbles={salesFeaturedata.bubbles}
           img={salesFeaturedata.img}
           leftDescription={salesFeaturedata.leftDescription}
           rightDescriptions={salesFeaturedata.rightDescriptions}
