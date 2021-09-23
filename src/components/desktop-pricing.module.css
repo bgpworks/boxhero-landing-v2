@@ -33,12 +33,15 @@
 
 .topDescDesc {
   font-size: var(--font-size-b16);
+  color: var(--color-font-primary);
+  line-height: 1.5;
 }
 
 .planDescription {
   color: var(--color-font-gray1);
   font-weight: bold;
   font-size: var(--font-size-h5);
+  line-height: 1.37;
 }
 
 .plainLink {
@@ -110,7 +113,7 @@
 .pricingTable td,
 .pricingTable th {
   border: none;
-  padding: 0;
+  padding: 0 26px;
   text-align: center;
 }
 
@@ -120,6 +123,7 @@
 
 .pricingTable td.verticalAlignBottom {
   vertical-align: bottom;
+  letter-spacing: -0.2px;
 }
 
 .pricingTable tbody tr:first-child td {
@@ -163,10 +167,11 @@
   font-size: var(--font-size-b14);
   color: var(--color-font-primary);
   text-align: center;
+  line-height: 1.45;
 }
 
 .startButtonRow > td {
-  padding-top: 30px;
+  padding: 30px 0;
 }
 
 .startButton {
@@ -179,20 +184,22 @@
   color: white;
 }
 
-.sectionTitleRow ~ tr:not(.sectionTitleRow) td {
+.sectionTitleRow td,
+.sectionTitleRow ~ tr:not(.paddingBottom40) td {
   padding-bottom: 16px;
+}
+
+.paddingBottom40 td {
+  padding-bottom: 40px;
 }
 
 .sectionTitleRow > td {
   color: var(--color-gray2);
   font-size: var(--font-size-b16);
-  padding-bottom: 16px;
-  padding-top: 30px;
   font-weight: bold;
 }
 
 .price {
-  height: 77px;
   font-size: 52px;
   font-weight: bold;
   line-height: normal;
@@ -225,7 +232,6 @@
   font-size: var(--font-size-36);
   font-weight: bold;
   line-height: 1.35;
-  letter-spacing: -1px;
   text-align: center;
   color: var(--color-font-gray1);
 }
@@ -253,7 +259,6 @@
   height: 54px;
   font-size: var(--font-size-36);
   font-weight: bold;
-  letter-spacing: -1px;
   color: var(--color-primary);
 }
 
@@ -263,7 +268,6 @@
   font-stretch: normal;
   font-style: normal;
   line-height: 1.6;
-  letter-spacing: -0.2px;
   text-align: center;
   color: var(--color-font-gray1);
 }

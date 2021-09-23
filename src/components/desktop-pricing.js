@@ -171,7 +171,7 @@ const PriceTable = ({ t }) => {
               <Trans i18nKey="pricing:limitMemberBiz" />
             </td>
           </tr>
-          <tr>
+          <tr className={styles.paddingBottom40}>
             <td>
               <Trans i18nKey="pricing:limitItemFree" />
             </td>
