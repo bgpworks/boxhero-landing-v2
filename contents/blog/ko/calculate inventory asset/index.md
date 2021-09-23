@@ -3,7 +3,7 @@ title: 재고 자산의 수량 결정과 단가 결정 방법
 date: 2021-07-23 13:05
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 재고 자산을 계산하는 다양한 방법을 쉽게 풀어봤어요.
 ---

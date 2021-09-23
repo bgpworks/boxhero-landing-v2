@@ -3,7 +3,7 @@ title: 효율적인 재고관리를 위한 데이터 분석에는 어떤 방법�
 date: 2021-08-19 13:06
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 정확한 재고관리를 위한 두 가지 핵심 재고 데이터 분석 방법에 대해 알아봅시다!
 ---

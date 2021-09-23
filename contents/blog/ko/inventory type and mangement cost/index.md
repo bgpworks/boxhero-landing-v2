@@ -3,7 +3,7 @@ title: 재고유형과 재고관리 비용
 date: 2021-07-22 13:44
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 재고관리는 곧 돈이라는 말을 들어보셨죠? 효과적인 재고관리를 위한 재고유형과 관리비용을 알아봐요.
 ---

@@ -3,7 +3,7 @@ title: ¡5 consejos para la gestión del inventario de la tienda online!
 date: 2021-07-09 13:58
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Vamos a ver 5 consejos para hacer que su negocio de centro comercial sea un éxito mientras aumenta las ventas.
 ---

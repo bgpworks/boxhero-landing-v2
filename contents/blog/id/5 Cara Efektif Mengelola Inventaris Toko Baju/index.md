@@ -3,7 +3,7 @@ title: 5 Cara Efektif Mengelola Inventaris Toko Baju
 date: 2021-07-09 14:20
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Tingkatkan efektivitas dan efisiensi manajemen inventaris Anda.
 ---

@@ -3,7 +3,7 @@ title: ¿Qué es la gestión de inventarios?
 date: 2021-08-12 09:42
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Veamos la definición de gestión de inventario y por qué es esencial.
 ---

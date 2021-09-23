@@ -3,7 +3,7 @@ title: 5 Cara Efektif Mengelola Inventaris Toko Online
 date: 2021-07-15 08:25
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Tips efektif dalam mengelola inventaris, untuk Anda yang sedang menjalankan toko online.
 ---

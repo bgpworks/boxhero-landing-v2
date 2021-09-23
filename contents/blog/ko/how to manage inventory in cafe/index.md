@@ -3,7 +3,7 @@ title: 카페 재고를 관리하는 5가지 효과적인 방법!
 date: 2021-08-14 10:02
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 카페를 운영하면서 제일 철저하게 관리해야 할 부분은 무엇일까요?
 ---

@@ -3,7 +3,7 @@ title: 약국에서의 효율적인 재고 실사 관리
 date: 2021-07-12 13:52
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 의약품 재고관리에서 제일 필요한 재고 실사 작업을 A-Z까지 알려드립니다.
 ---

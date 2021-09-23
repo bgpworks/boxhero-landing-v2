@@ -3,7 +3,7 @@ title: 재고 회전율을 활용하여 매출을 올리는 방법!
 date: 2021-07-28 10:02
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 비즈니스가 잘 운영되고 있는지 판단할 수 있는 재고 회전율에 대해 알아볼까요?
 ---
