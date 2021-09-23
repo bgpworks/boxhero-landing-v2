@@ -16,7 +16,7 @@ import {
 // js
 import MobileLayout from "./mobile-layout";
 import {
-  Container320,
+  MobileBaseContainer,
   ContainerCenter,
   Padding,
   WithCurrentSlide,
@@ -40,7 +40,7 @@ const Top = ({ data, t }) => (
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
     backgroundColor="#6159F5"
   >
-    <Container320 className={styles.topContentContainer}>
+    <MobileBaseContainer className={styles.topContentContainer}>
       <Padding y={74} />
       <img
         className={styles.topIcon}
@@ -61,7 +61,7 @@ const Top = ({ data, t }) => (
           image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
         />
       </div>
-    </Container320>
+    </MobileBaseContainer>
   </GradientBG>
 );
 
@@ -138,9 +138,9 @@ const TeamPlay = ({ data, t }) => (
     <Padding y={50} />
     <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
     <Padding y={20} />
-    <Container320 className={styles.teamPlayDesc}>
+    <MobileBaseContainer className={styles.teamPlayDesc}>
       <Trans i18nKey="index:teamPlayDescMobile" />
-    </Container320>
+    </MobileBaseContainer>
     <Padding y={29} />
     <div className={styles.teamImageFlex}>
       <GatsbyImage

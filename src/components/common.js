@@ -28,15 +28,15 @@ DesktopBaseContainer.defaultProps = {
   className: "",
 };
 
-export const Container320 = ({ className, children }) => (
-  <div className={`${styles.container320} ${className}`}>{children}</div>
+export const MobileBaseContainer = ({ className, children }) => (
+  <div className={`${styles.mobileBaseContainer} ${className}`}>{children}</div>
 );
 
-Container320.propTypes = {
+MobileBaseContainer.propTypes = {
   className: PropTypes.string,
 };
 
-Container320.defaultProps = {
+MobileBaseContainer.defaultProps = {
   className: "",
 };
 

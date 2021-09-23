@@ -3,9 +3,9 @@
   width: 1194px;
 }
 
-.container320 {
+.mobileBaseContainer {
   margin: 0 auto;
-  width: 320px;
+  width: 375px;
 }
 
 .containerCenter {
