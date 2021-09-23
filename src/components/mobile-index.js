@@ -2,7 +2,6 @@
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
 import React from "react";
-import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
@@ -12,6 +11,8 @@ import {
   Slide,
   DotGroup,
   Dot,
+  ButtonBack,
+  ButtonNext,
 } from "pure-react-carousel";
 // js
 import MobileLayout from "./mobile-layout";
@@ -29,9 +30,20 @@ import * as constants from "./constants";
 import * as styles from "./mobile-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
-import svgAddItem from "../images/additem.svg";
-import svgCounting from "../images/counting.svg";
-import svgDashboard from "../images/dashboard.svg";
+import svgCategory from "../images/icon-category.svg";
+import svgScanning from "../images/icon-scanning.svg";
+import svgImage from "../images/icon-image.svg";
+import svgExcel from "../images/icon-excel.svg";
+import svgFinger from "../images/icon-finger.svg";
+import svgMobileScan from "../images/icon-mobile-scan.svg";
+import svgHistory from "../images/icon-history.svg";
+import svgConnectExcel from "../images/icon-connect-excel.svg";
+import svgGraph from "../images/icon-graph.svg";
+import svgList from "../images/icon-list.svg";
+import svgSummary from "../images/icon-summary.svg";
+import svgDashboard from "../images/icon-dashboard.svg";
+import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
+import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSmallRight from "../images/smallright.svg";
 
@@ -104,68 +116,102 @@ const Chatting = ({ t }) => {
 };
 
 const KeyFeature = ({
-  isDarkBg,
-  icon,
-  iconAlt,
-  title,
-  desc,
-  subTitle,
-  subDesc,
-  detailUrl,
-  image,
-  linkDetail,
+  title, description, carouselData,
 }) => (
-  <div className={isDarkBg ? styles.darkBg : ""}>
-    <ContainerCenter className={styles.keyFeatureContentContainer}>
-      <img
-        className={styles.keyFeatureIcon}
-        src={icon}
-        alt={iconAlt}
-      />
-      <Padding y={10} />
-      <div className={styles.keyFeatureTitle}>{title}</div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureDescription}>{desc}</div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureSubTitle}>{subTitle}</div>
-      <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureDetail}>
-        <Link
-          className={styles.keyFeatureDetailLinkContainer}
-          to={detailUrl}
-        >
-          {linkDetail}
-          <img
-            src={svgSmallRightBlue}
-            className={styles.rightArrow}
-            alt={linkDetail}
-          />
-        </Link>
-      </div>
-      <Padding y={30} />
-      <div>
-        <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
-      </div>
-    </ContainerCenter>
+  <div className={styles.keyFeatureContainer}>
+    <MobileBaseContainer className={styles.keyFeatureContentContainer}>
+      <h2 className={styles.keyFeatureTitle}>{title}</h2>
+      <Padding y={16} />
+      <p className={styles.keyFeatureDescription}>{description}</p>
+      <Padding y={40} />
+      <CarouselProvider
+        naturalSlideWidth={335}
+        naturalSlideHeight={388}
+        totalSlides={carouselData.length}
+        isIntrinsicHeight
+      >
+        <div className={styles.keyFeatureMenuContainer}>
+          <ButtonBack className={styles.slideNavButton}>
+            <img
+              src={svgLeftArrow}
+              alt="index:featuresNavBack"
+            />
+          </ButtonBack>
+          <WithCurrentSlide>
+            {(currentSlide) => (
+              <div className={styles.keyFeatureMenu}>
+                <img
+                  src={carouselData[currentSlide].icon}
+                  alt={carouselData[currentSlide].title}
+                />
+                {carouselData[currentSlide].title}
+              </div>
+            )}
+          </WithCurrentSlide>
+          <ButtonNext className={styles.slideNavButton}>
+            <img
+              src={svgRightArrow}
+              alt="t(index:featuresNavNext)"
+            />
+          </ButtonNext>
+        </div>
+        <Padding y={30} />
+        <Slider>
+          {carouselData.map((slider, index) => (
+            <Slide
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={slider.img.childImageSharp.gatsbyImageData}
+                alt={slider.title}
+              />
+            </Slide>
+          ))}
+        </Slider>
+        <Padding y={10} />
+        <DotGroup className={styles.keyFeatureDotGroup} />
+      </CarouselProvider>
+    </MobileBaseContainer>
   </div>
 );
 
-KeyFeature.propTypes = {
-  isDarkBg: PropTypes.bool,
-  icon: PropTypes.string.isRequired,
-  iconAlt: PropTypes.string.isRequired,
-  title: PropTypes.node.isRequired,
-  desc: PropTypes.node.isRequired,
-  subTitle: PropTypes.node.isRequired,
-  subDesc: PropTypes.node.isRequired,
-  detailUrl: PropTypes.string.isRequired,
-  image: PropTypes.object.isRequired,
-};
+const KeyFeatures = ({ data, t }) => (
+  <>
+    <KeyFeature
+      title={<Trans i18nKey="index:keyFeature1Title" />}
+      description={<Trans i18nKey="index:keyFeature1Desc" />}
+      carouselData={[
+        { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.mobileFeature1CustomProducts },
+        { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.mobileFeature1PrintLabel },
+        { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.mobileFeature1ProductList },
+        { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.mobileFeature1ImportExcel },
+      ]}
+    />
 
-KeyFeature.defaultProps = {
-  isDarkBg: false,
-};
+    <KeyFeature
+      title={<Trans i18nKey="index:keyFeature2Title" />}
+      description={<Trans i18nKey="index:keyFeature2Desc" />}
+      carouselData={[
+        { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.mobileFeature2SelectProduct },
+        { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.mobileFeature2ScanBarcode },
+        { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.mobileFeature2History },
+        { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.mobileFeature2ConnectExcel },
+      ]}
+    />
+
+    <KeyFeature
+      title={<Trans i18nKey="index:keyFeature3Title" />}
+      description={<Trans i18nKey="index:keyFeature3Desc" />}
+      carouselData={[
+        { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.mobileFeature3Analysis },
+        { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.mobileFeature3GroupList },
+        { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.mobileFeature3EmailReport },
+        { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.mobileFeature3Dashboard },
+      ]}
+    />
+  </>
+);
 
 const TeamPlay = ({ data, t }) => (
   <GradientBG
@@ -547,41 +593,9 @@ const MobileIndex = ({ data, language, t }) => (
 
     <Chatting t={t} />
 
-    <KeyFeature
-      icon={svgAddItem}
-      iconAlt={t("index:keyFeature1IconAlt")}
-      title={<Trans i18nKey="index:keyFeature1Title" />}
-      desc={<Trans i18nKey="index:keyFeature1DescMobile" />}
-      subTitle={<Trans i18nKey="index:keyFeature1SubTitleMobile" />}
-      subDesc={<Trans i18nKey="index:keyFeature1SubDescMobile" />}
-      detailUrl={`/about/#${constants.idAboutFeatureAddItem}`}
-      image={data.mobileFeature1}
-      linkDetail={t("index:keyFeatureLinkDetail")}
-    />
-
-    <KeyFeature
-      isDarkBg
-      icon={svgCounting}
-      iconAlt={t("index:keyFeature2IconAlt")}
-      title={<Trans i18nKey="index:keyFeature2TitleMobile" />}
-      desc={<Trans i18nKey="index:keyFeature2DescMobile" />}
-      subTitle={t("index:keyFeature2SubTitle")}
-      subDesc={<Trans i18nKey="index:keyFeature2SubDescMobile" />}
-      detailUrl={`/about/#${constants.idAboutFeatureTx}`}
-      image={data.mobileFeature2}
-      linkDetail={t("index:keyFeatureLinkDetail")}
-    />
-
-    <KeyFeature
-      icon={svgDashboard}
-      iconAlt={t("index:keyFeature3IconAlt")}
-      title={<Trans i18nKey="index:keyFeature3Title" />}
-      desc={<Trans i18nKey="index:keyFeature3Desc" />}
-      subTitle={t("index:keyFeature3SubTitle")}
-      subDesc={<Trans i18nKey="index:keyFeature3SubDescMobile" />}
-      detailUrl={`/about/#${constants.idAboutFeatureStatus}`}
-      image={data.mobileFeature3}
-      linkDetail={t("index:keyFeatureLinkDetail")}
+    <KeyFeatures
+      data={data}
+      t={t}
     />
 
     <TeamPlay

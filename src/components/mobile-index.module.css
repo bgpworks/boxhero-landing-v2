@@ -60,76 +60,90 @@
   line-height: 1.5;
 }
 
+
 /* keyFeature */
 
 .darkBg {
   background: var(--color-bg-light);
 }
 
+.keyFeatureContainer {
+  composes: darkBg;
+}
+
 .keyFeatureContentContainer {
-  padding: 50px 0px 0px;
-  text-align: center;
-}
-
-.px20 {
-  padding: 0px 20px;
-}
-
-.keyFeatureIcon {
-  display: block;
-  width: 24px;
-  height: 24px;
+  padding: 50px 20px;
+  color: var(--color-font-gray1);
 }
 
 .keyFeatureTitle {
-  composes: px20;
-  font-size: var(--font-size-mobile-big3);
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size-mobile-h2);
   font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.5px;
 }
-
 .keyFeatureTitle strong {
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .keyFeatureDescription {
-  composes: px20;
-  line-height: 1.71;
-  letter-spacing: -0.14px;
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size-mobile-normal);
+  line-height: 1.5;
 }
 
-.keyFeatureSubTitle {
-  composes: px20;
-  line-height: 1.71;
-  letter-spacing: -0.14px;
-  font-weight: bold;
-}
-
-.keyFeatureSubDesc {
-  composes: px20;
-  line-height: 1.71;
-  letter-spacing: -0.14px;
-}
-
-.keyFeatureDetail {
-  font-weight: bold;
-  line-height: 1.71;
-  letter-spacing: -0.14px;
-}
-
-.keyFeatureDetailLinkContainer {
-  color: var(--color-font-blue);
+.keyFeatureMenuContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.rightArrow {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.slideNavButton {
+  background: transparent;
+}
+.slideNavButton:disabled {
+  opacity: 0;
+}
+
+.keyFeatureMenu {
+  color: var(--color-font-gray1);
+  font-weight: 500;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.keyFeatureMenu img {
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.keyFeatureDotGroup {
+  display: flex;
+  justify-content: center;
+}
+
+.keyFeatureDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--color-gray3);
+}
+
+/* carousel__dot */
+.keyFeatureDotGroup button {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--color-gray3);
+}
+
+.keyFeatureDotGroup button:not(:last-child) {
+  margin-right: 8px;
+}
+
+.keyFeatureDotGroup button:disabled {
+  background-color: var(--color-primary);
 }
 
 /* team play */

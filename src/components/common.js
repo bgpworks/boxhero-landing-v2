@@ -94,7 +94,7 @@ export const SpeechBubbleContainer = ({
   return (
     <div
       className={styles.speechBubbleContainer}
-      style={{ width: containerWidth }}
+      style={containerGridColumns && { width: containerWidth }}
     >
       {speechBubbles.map((bubble, index) => {
         const { text, background } = colorSeqquenceIterator(index);
