@@ -3,7 +3,7 @@ title: Apa itu Inventaris dan Apa saja Jenisnya?
 date: 2021-07-23 12:10
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Memahami definisi inventaris dengan jelas.
 ---

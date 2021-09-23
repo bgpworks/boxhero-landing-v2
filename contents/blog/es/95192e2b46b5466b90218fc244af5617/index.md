@@ -1,9 +1,9 @@
 ---
 title: Cómo convertirse en un líder de marca de moda, RFID
 date: 2021-08-17 14:30
-category: 인사이트
-author: 박채림
-authorPhoto: "../../images/authors/박채림.jpg"
+category: Conocimiento
+author: Lili
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: "./images/img_1.jpg"
 description: ¡Profundicemos en el sistema RFID con un ejemplo!
 ---

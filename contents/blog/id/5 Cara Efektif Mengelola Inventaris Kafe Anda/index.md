@@ -3,7 +3,7 @@ title: 5 Cara Efektif Mengelola Inventaris Kafe Anda
 date: 2021-07-06 12:15
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Manajemen inventaris sebagai penentu masa depan kafe Anda.
 ---

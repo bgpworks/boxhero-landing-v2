@@ -3,7 +3,7 @@ title: Tipos de inventario y costos de administración de inventario
 date: 2021-08-19 14:55
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Obtenga información sobre los tipos de inventario y los costos de gestión para una gestión de inventario eficaz.
 ---

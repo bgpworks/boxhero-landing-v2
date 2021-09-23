@@ -3,7 +3,7 @@ title: 재고관리란 무엇일까요?
 date: 2021-08-05 10:20
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 재고관리 정복! 재고관리의 정의와 꼭 필요한 이유에 대해서 알아봅시다.
 ---

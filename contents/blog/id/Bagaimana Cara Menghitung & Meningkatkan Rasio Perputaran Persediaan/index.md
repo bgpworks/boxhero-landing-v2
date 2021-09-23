@@ -3,7 +3,7 @@ title: Hitung & Tingkatkan Rasio Perputaran Persediaan
 date: 2021-08-01 10:15
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Hitung rasio perputaran persediaan untuk mengukur pertumbuhan bisnis Anda.
 ---

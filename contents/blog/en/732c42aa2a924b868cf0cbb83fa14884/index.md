@@ -1,9 +1,9 @@
 ---
 title: 5 Effective Ways to Manage Online Store Inventory
-date: 2021-08-18 13:27
-category: 인사이트
-author: 윤수진
-authorPhoto: "../../images/authors/윤수진.jpg"
+date: 2021-09-23 13:27
+category: Insight
+author: Yunie
+authorPhoto: "../../images/authors/Yunie.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Follow these tips to improve your inventory management and be one step closer to a successful business.
 ---

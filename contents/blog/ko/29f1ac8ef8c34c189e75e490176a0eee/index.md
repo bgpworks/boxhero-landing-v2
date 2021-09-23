@@ -1,6 +1,6 @@
 ---
 title: 거래명세서, 쉽고 정확하게 작성하는 방법
-date: 2021-08-30 10:21
+date: 2021-08-24 17:04
 category: 기능
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"

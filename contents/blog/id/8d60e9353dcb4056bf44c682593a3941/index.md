@@ -1,9 +1,9 @@
 ---
 title: Pengertian dan Cara Menghitung Biaya Penyimpanan
-date: 2021-08-12 16:46
-category: 인사이트
-author: inho roh
-authorPhoto: "../../images/authors/inho roh.jpg"
+date: 2021-09-23 16:46
+category: Insight
+author: Roh Inda Devanho
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
 description: Hitung berapa dana yang Anda keluarkan hanya untuk menyimpan inventaris Anda.
 ---

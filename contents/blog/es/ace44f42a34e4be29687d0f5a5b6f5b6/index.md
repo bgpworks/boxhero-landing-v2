@@ -1,9 +1,9 @@
 ---
 title: Desde la creación de códigos de barras hasta la impresión.
 date: 2021-08-20 15:43
-category: 기능
-author: 박채림
-authorPhoto: "../../images/authors/박채림.jpg"
+category: Función
+author: Lili
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Creación e impresión de códigos de barras que parecen difíciles y fáciles de entender.
 ---
@@ -24,7 +24,7 @@ La razón número uno para usar códigos de barras es la "eficiencia". En el mos
 
 ¡Junto con BoxHero, haremos de todo, desde la creación de códigos de barras hasta la impresión!
 
-## 1. Generar códigos de barras 
+## 1. Generar códigos de barras
 
 Para crear un código de barras, primero vaya al menú 'Agregar producto' en la esquina superior izquierda.
 
@@ -36,7 +36,7 @@ Para crear un código de barras, primero vaya al menú 'Agregar producto' en la 
 
 Hay dos formas de generar códigos de barras.
 
-1. Cree un código de barras automáticamente> Haga clic en el botón 'Generar automáticamente'  para crear 
+1. Cree un código de barras automáticamente> Haga clic en el botón 'Generar automáticamente'  para crear
 
 1. Entrada directa de código de barras> Puede ingresar directamente el número de código de barras deseado.
 
@@ -48,7 +48,7 @@ Primero, ¡veámoslo juntos en la versión web para PC!
 
 
 
-Si desea utilizar la versión móvil, 
+Si desea utilizar la versión móvil,
 
 ![](images/img_4.gif)
 
@@ -118,7 +118,7 @@ BoxHero incluye funciones útiles que son perfectas para la creación e impresi�
 
 <tip-box>
 
-- BoxHero se puede usar en PC y dispositivos móviles, en todos los entornos. 
+- BoxHero se puede usar en PC y dispositivos móviles, en todos los entornos.
 
 La gestión de inventario continúa sin detenerse incluso en un entorno sin una PC.
 

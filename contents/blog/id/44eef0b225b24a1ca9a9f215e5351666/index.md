@@ -1,11 +1,11 @@
 ---
 title: Buat dan Gunakan Desain Barcode Anda Sendiri
-date: 2021-08-18 16:25
-category: 기능
-author: inho roh
-authorPhoto: "../../images/authors/inho roh.jpg"
+date: 2021-09-10 16:25
+category: Feature
+author: Roh Inda Devanho
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
-description: Buat dan cetak 
+description: Buat dan cetak
 ---
 
 Dikutip dari wikipedia, kode bar atau *barcode *adalah suatu kumpulan data optik yang dibaca mesin. Kumpulan data ini berbentuk garis paralel hitam dengan spasi diantaranya. Biasanya, kode bar ditempelkan pada produk atau barang untuk keperluan pengecekan hingga penjualan. Untuk mengetahui fungsi dan pengertian kode bar lebih jauh, Anda dapat membacanya [di sini](/1ca120bc2eaa47c59006cd585a73a171).
@@ -58,7 +58,7 @@ Berdasarkan label template yang Anda gunakan, Anda dapat menyertakan kategori ya
 
 ### 3. Cetak Label
 
-Untuk mencetak label di BoxHero, pilihlah barang yang ingin Anda cetak dan jangan lupa untuk memasukkan kuantitas label. 
+Untuk mencetak label di BoxHero, pilihlah barang yang ingin Anda cetak dan jangan lupa untuk memasukkan kuantitas label.
 
 ![Fitur cetak label BoxHero](images/img_6.gif)
 

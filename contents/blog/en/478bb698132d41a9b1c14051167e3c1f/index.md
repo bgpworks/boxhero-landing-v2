@@ -1,9 +1,9 @@
 ---
 title: What is Inventory Management?
-date: 2021-08-19 17:52
-category: 인사이트
-author: 윤수진
-authorPhoto: "../../images/authors/윤수진.jpg"
+date: 2021-08-25 17:52
+category: Insight
+author: Yunie
+authorPhoto: "../../images/authors/Yunie.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Learn about the importance and benefits of inventory management.
 ---

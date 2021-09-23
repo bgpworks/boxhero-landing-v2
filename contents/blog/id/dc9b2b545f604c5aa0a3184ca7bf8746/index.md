@@ -1,9 +1,9 @@
 ---
 title: Kemudahan Mengelola Anggota Tim
 date: 2021-08-23 09:46
-category: 기능
-author: inho roh
-authorPhoto: "../../images/authors/inho roh.jpg"
+category: Feature
+author: Roh Inda Devanho
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
 description: Kelola anggota tim Anda untuk manajemen inventaris yang optimal.
 ---

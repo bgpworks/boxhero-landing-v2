@@ -1,6 +1,6 @@
 ---
 title: 바코드 생성부터 출력까지 박스히어로와 함께 시작하세요!
-date: 2021-08-18 16:07
+date: 2021-09-01 16:07
 category: 기능
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"

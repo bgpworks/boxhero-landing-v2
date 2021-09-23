@@ -3,7 +3,7 @@ title: ¡5 formas efectivas de administrar el inventario de su cafetería!
 date: 2021-07-12 16:12
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: ¿Cuál es la parte más minuciosa de administrar un café?
 ---

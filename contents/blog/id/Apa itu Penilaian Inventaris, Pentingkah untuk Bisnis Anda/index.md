@@ -3,7 +3,7 @@ title: Apa Fungsi Penilaian Inventaris bagi Bisnis Anda?
 date: 2021-07-27 09:35
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Temukan jenis dan kegunaan penilaian inventaris yang cocok untuk bisnis Anda.
 ---

@@ -3,7 +3,7 @@ title: 5 Strategi Penting dalam Mengembangkan UKM
 date: 2021-07-19 11:15
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Inilah saatnya mencari tahu strategi pertumbuhan yang dapat Anda terapkan pada bisnis Anda!
 ---

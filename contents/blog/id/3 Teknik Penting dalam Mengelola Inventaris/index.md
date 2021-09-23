@@ -3,7 +3,7 @@ title: 3 Teknik Penting dalam Mengelola Inventaris
 date: 2021-07-04 10:15
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Simak teknik jitu untuk menigkatkan level manajemen inventaris Anda.
 ---

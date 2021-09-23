@@ -3,7 +3,7 @@ title: 바코드는 어떻게 만들까?
 date: 2021-07-05 12:03
 category: 인사이트
 author: 문희홍
-authorPhoto: ../../images/authors/heehong.png
+authorPhoto: "../../images/authors/문희홍.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 바코드, 더이상 어렵게 생각할 필요없어요.
 ---
