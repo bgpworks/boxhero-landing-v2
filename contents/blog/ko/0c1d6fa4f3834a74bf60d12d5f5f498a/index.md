@@ -24,7 +24,7 @@ description: RFID 시스템을 예시를 통해 더 자세히 파헤쳐봐요!
 
 </tip-box>
 
-- [더 읽어보기: 무선 식별 시스템, RFID](/aedfc00624d3499cab211d627fc09e82?v=ea94dbd881fc4e3aa7a9337a32a60db5&p=21686ee590d44818b077d4ed19be141e)
+- [더 읽어보기: 무선 식별 시스템, RFID](/ko/blog/posts/무선-식별-시스템-rfid)
 
 
 
