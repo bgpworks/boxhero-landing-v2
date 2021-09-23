@@ -40,6 +40,26 @@
   overflow: visible;
 }
 
+/* Chatting */
+
+.chattingContentContainer {
+  color: var(--color-font-gray1);
+  padding: 50px 20px;
+}
+
+.chattingTitle {
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
+}
+
+.chattingDescription {
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
 /* keyFeature */
 
 .darkBg {

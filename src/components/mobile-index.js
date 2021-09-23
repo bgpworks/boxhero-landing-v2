@@ -19,6 +19,7 @@ import {
   MobileBaseContainer,
   ContainerCenter,
   Padding,
+  SpeechBubbleContainer,
   WithCurrentSlide,
   GradientBG,
   AppDownloadLink,
@@ -64,6 +65,43 @@ const Top = ({ data, t }) => (
     </MobileBaseContainer>
   </GradientBG>
 );
+
+const CHATTING_COLOR_SEQUENCE = [
+  { text: "#292a2f", background: "#fbc200" },
+  { text: "white", background: "#50a4fa" },
+  { text: "#292a2f", background: "#e0e0e3" },
+  { text: "white", background: "rgba(79, 103, 255, 0.9)" },
+  { text: "white", background: "rgba(60, 185, 160, 0.8)" },
+  { text: "white", background: "rgba(126, 187, 64, 0.6)" },
+  { text: "white", background: "rgba(251, 97, 100, 0.6)" },
+];
+
+const Chatting = ({ t }) => {
+  const speechBubbles = [
+    { text: <Trans i18nKey="index:chattingBubble1Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble2Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble3Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble4Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble5Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble6Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble7Mobile" /> },
+  ];
+
+  return (
+    <MobileBaseContainer className={styles.chattingContentContainer}>
+      <SpeechBubbleContainer
+        speechBubbles={speechBubbles}
+        colorSequence={CHATTING_COLOR_SEQUENCE}
+      />
+      <Padding y={50} />
+      <h2 className={styles.chattingTitle}>{t("index:chattingTitle")}</h2>
+      <Padding y={16} />
+      <p className={styles.chattingDescription}>
+        <Trans i18nKey="index:chattingDescription" />
+      </p>
+    </MobileBaseContainer>
+  );
+};
 
 const KeyFeature = ({
   isDarkBg,
@@ -506,6 +544,8 @@ const MobileIndex = ({ data, language, t }) => (
       data={data}
       t={t}
     />
+
+    <Chatting t={t} />
 
     <KeyFeature
       icon={svgAddItem}
