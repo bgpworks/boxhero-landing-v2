@@ -20,6 +20,8 @@
 }
 
 .priceCard {
+  width: 380px;
+
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.12), 0 2px 12px -4px rgba(0, 0, 0, 0.12);
@@ -27,14 +29,17 @@
 }
 
 .priceCardTitle {
+  height: 36px;
   text-align: center;
   font-size: var(--font-size-h4);
   font-weight: bold;
 }
 
 .priceCardDesc {
+  height: 27px;
   text-align: center;
   font-size: var(--font-size-b18);
+  line-height: 1.37;
 }
 
 .price {
@@ -53,14 +58,18 @@
 }
 
 .priceCardFeatures {
+  height: 62px;
   display: flex;
   justify-content: space-around;
 }
 
 .priceCardFeature {
+  width: 33.33%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  line-height: 1.37;
 }
 
 .priceCardFeature img {

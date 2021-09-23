@@ -11,9 +11,9 @@ const UseCaseFeatures = ({ data, t }) => {
   const materialFeaturesdata = [
     {
       title: t("usecase:materialFeature1Title"),
-      speechBubbles: [
-        t("usecase:materialFeature1Bubble1"),
-        <Trans i18nKey="usecase:materialFeature1Bubble2" />,
+      bubbles: [
+        { text: t("usecase:materialFeature1Bubble1") },
+        { text: <Trans i18nKey="usecase:materialFeature1Bubble2" /> },
       ],
       img: data.customMaterial,
       leftDescription: <Trans i18nKey="usecase:materialFeature1LeftDesc" />,
@@ -26,9 +26,9 @@ const UseCaseFeatures = ({ data, t }) => {
     {
       isBgGreen: true,
       title: t("usecase:materialFeature2Title"),
-      speechBubbles: [
-        t("usecase:materialFeature2Bubble1"),
-        <Trans i18nKey="usecase:materialFeature2Bubble2" />,
+      bubbles: [
+        { text: <Trans i18nKey="usecase:materialFeature2Bubble1" /> },
+        { text: <Trans i18nKey="usecase:materialFeature2Bubble2" /> },
       ],
       img: data.inOut,
       leftDescription: <Trans i18nKey="usecase:materialFeature2LeftDesc" />,
@@ -40,9 +40,9 @@ const UseCaseFeatures = ({ data, t }) => {
     },
     {
       title: t("usecase:materialFeature3Title"),
-      speechBubbles: [
-        t("usecase:materialFeature3Bubble1"),
-        <Trans i18nKey="usecase:materialFeature3Bubble2" />,
+      bubbles: [
+        { text: <Trans i18nKey="usecase:materialFeature3Bubble1" /> },
+        { text: <Trans i18nKey="usecase:materialFeature3Bubble2" /> },
       ],
       img: data.lowStock,
       leftDescription: <Trans i18nKey="usecase:materialFeature3LeftDesc" />,
@@ -62,18 +62,11 @@ const UseCaseFeatures = ({ data, t }) => {
       >
         <UseCaseFeature
           title={materialFeaturedata.title}
-          speechBubbles={[
-            {
-              text: materialFeaturedata.speechBubbles[0],
-              color: "#292a2f",
-              backgroundColor: "rgba(60, 185, 160, 0.3)",
-            },
-            {
-              text: materialFeaturedata.speechBubbles[1],
-              color: "white",
-              backgroundColor: "#3cb9a0",
-            },
+          bubleColorSequence={[
+            { text: "#292a2f", background: "rgba(60, 185, 160, 0.3)" },
+            { text: "white", background: "#3cb9a0" },
           ]}
+          speechBubbles={materialFeaturedata.bubbles}
           img={materialFeaturedata.img}
           leftDescription={materialFeaturedata.leftDescription}
           rightDescriptions={materialFeaturedata.rightDescriptions}

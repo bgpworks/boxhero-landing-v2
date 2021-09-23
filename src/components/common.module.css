@@ -20,6 +20,7 @@
   letter-spacing: -0.3px;
   padding: 8px 20px;
   border-radius: 21px;
+  line-height: 1.5;
 }
 
 .speechBubble + .speechBubble {
@@ -79,6 +80,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
 .useCaseTopDesc {
   font-size: var(--font-size-b18);
   text-align: center;
+  line-height: 1.5;
 }
 
 .useCaseFeatureContentContainer {
@@ -104,6 +106,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
 .useCaseFeatureLeftDesc {
   width: 174px;
   font-size: var(--font-size-h5);
+  line-height: 1.5;
 }
 
 .textUnderline {
@@ -121,6 +124,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
   align-items: flex-start;
   margin-bottom: 16px;
   letter-spacing: -0.2px;
+  line-height: 1.5;
 }
 .useCaseFeatureRightDesc:last-child {
   margin-bottom: 0;
