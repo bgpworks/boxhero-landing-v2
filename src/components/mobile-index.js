@@ -3,7 +3,7 @@
 
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Link, Trans } from "gatsby-plugin-react-i18next";
+import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import {
   CarouselProvider,
@@ -115,6 +115,37 @@ const Chatting = ({ t }) => {
   );
 };
 
+const KeyFeatureSelector = ({ carouselData }) => {
+  const { t } = useI18next();
+  return (
+    <div className={styles.KeyFeatureSelector}>
+      <ButtonBack className={styles.slideNavButton}>
+        <img
+          src={svgLeftArrow}
+          alt={t("index:featuresNavBack")}
+        />
+      </ButtonBack>
+      <WithCurrentSlide>
+        {(currentSlide) => (
+          <div className={styles.keyFeatureSlideTitle}>
+            <img
+              src={carouselData[currentSlide].icon}
+              alt={carouselData[currentSlide].title}
+            />
+            {carouselData[currentSlide].title}
+          </div>
+        )}
+      </WithCurrentSlide>
+      <ButtonNext className={styles.slideNavButton}>
+        <img
+          src={svgRightArrow}
+          alt={t("index:featuresNavNext")}
+        />
+      </ButtonNext>
+    </div>
+  );
+};
+
 const KeyFeature = ({
   title, description, carouselData,
 }) => (
@@ -124,52 +155,33 @@ const KeyFeature = ({
       <Padding y={16} />
       <p className={styles.keyFeatureDescription}>{description}</p>
       <Padding y={40} />
+
       <CarouselProvider
         naturalSlideWidth={335}
         naturalSlideHeight={388}
         totalSlides={carouselData.length}
         isIntrinsicHeight
       >
-        <div className={styles.keyFeatureMenuContainer}>
-          <ButtonBack className={styles.slideNavButton}>
-            <img
-              src={svgLeftArrow}
-              alt="index:featuresNavBack"
-            />
-          </ButtonBack>
-          <WithCurrentSlide>
-            {(currentSlide) => (
-              <div className={styles.keyFeatureMenu}>
-                <img
-                  src={carouselData[currentSlide].icon}
-                  alt={carouselData[currentSlide].title}
-                />
-                {carouselData[currentSlide].title}
-              </div>
-            )}
-          </WithCurrentSlide>
-          <ButtonNext className={styles.slideNavButton}>
-            <img
-              src={svgRightArrow}
-              alt="t(index:featuresNavNext)"
-            />
-          </ButtonNext>
-        </div>
+        <KeyFeatureSelector carouselData={carouselData} />
+
         <Padding y={30} />
+
         <Slider>
-          {carouselData.map((slider, index) => (
+          {carouselData.map((slide, index) => (
             <Slide
               key={index}
               index={index}
             >
               <GatsbyImage
-                image={slider.img.childImageSharp.gatsbyImageData}
-                alt={slider.title}
+                image={slide.img.childImageSharp.gatsbyImageData}
+                alt={slide.title}
               />
             </Slide>
           ))}
         </Slider>
+
         <Padding y={10} />
+
         <DotGroup className={styles.keyFeatureDotGroup} />
       </CarouselProvider>
     </MobileBaseContainer>
