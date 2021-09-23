@@ -1,32 +1,38 @@
 /* top */
 
 .topContainer {
+  padding-top: var(--height-mobile-top-menu);
+  height: 630px;
   overflow: hidden;
 }
 
 .topContentContainer {
-  padding: 0px 10px;
+  padding: 0 20px;
   height: 100%;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .topIcon {
   display: block;
   width: 24px;
   height: 24px;
-  margin: 0px auto;
 }
 
 .topLeftTitle {
-  font-size: var(--font-size-mobile-big3);
+  margin: 0;
+  font-size: var(--font-size-mobile-h1);
   font-weight: bold;
-  line-height: 1.5;
+  line-height: 1.47;
   text-align: center;
 }
 
 .topLeftDescription {
-  padding: 0px;
-  line-height: 1.71;
+  margin: 0;
+  line-height: 1.5;
   text-align: center;
 }
 

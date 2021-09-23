@@ -41,24 +41,24 @@ const Top = ({ data, t }) => (
     backgroundColor="#6159F5"
   >
     <MobileBaseContainer className={styles.topContentContainer}>
-      <Padding y={74} />
       <img
         className={styles.topIcon}
         src={svgVolt}
         alt={t("index:topIconAlt")}
       />
       <Padding y={10} />
-      <div className={styles.topLeftTitle}>
+      <h2 className={styles.topLeftTitle}>
         <Trans i18nKey="index:topTitleMobile" />
-      </div>
+      </h2>
       <Padding y={20} />
-      <div className={styles.topLeftDescription}>
+      <p className={styles.topLeftDescription}>
         <Trans i18nKey="index:topDescMobile" />
-      </div>
-      <Padding y={30} />
+      </p>
+      <Padding y={50} />
       <div className={styles.topImageContainer}>
         <GatsbyImage
           image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
+          alt={t("index:topIconAlt")}
         />
       </div>
     </MobileBaseContainer>
