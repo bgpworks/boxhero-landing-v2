@@ -123,7 +123,7 @@ const DemoTemplate = ({
 );
 
 function FeatureTemplate({
-  id, bgColor, title, desc, figure, figureStyle, barColor, demoData,
+  id, bgColor, title, desc, figure, barColor, demoData,
 }) {
   return (
     <div
@@ -150,12 +150,10 @@ function FeatureTemplate({
               </button>
             </ExternalLinkWithQuery>
           </div>
-          <div style={figureStyle}>
-            <GatsbyImage
-              image={figure}
-              alt={title}
-            />
-          </div>
+          <GatsbyImage
+            image={figure}
+            alt={title}
+          />
         </div>
         <Padding y={70} />
         <div className={styles.halfContainer}>

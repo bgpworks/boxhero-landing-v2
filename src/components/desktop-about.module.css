@@ -32,6 +32,11 @@
   color: var(--color-font-gray1);
 }
 
+.strongPointDesc {
+  min-width: 480px;
+  max-width: 500px;
+}
+
 .title {
   font-size: var(--font-size-36);
   font-weight: bold;
@@ -43,8 +48,6 @@
 
 .desc {
   font-size: var(--font-size-b18);
-  min-width: 480px;
-  max-width: 500px;
   line-height: 1.5;
 }
 

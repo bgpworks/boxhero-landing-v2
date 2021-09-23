@@ -45,7 +45,7 @@ const StrongPoint = ({ children }) => (
 );
 
 const StrongPointDescription = ({ title, description }) => (
-  <div>
+  <div className={styles.strongPointDesc}>
     <div className={styles.title}>{title}</div>
     <Padding y={16} />
     <div className={styles.desc}>{description}</div>
