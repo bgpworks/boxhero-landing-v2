@@ -9,7 +9,7 @@ import * as styles from "./desktop-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import svgDropDownArrowBlack from "../images/icon-dropdown-arrow-black.svg";
+import svgDropDownArrowGray from "../images/icon-dropdown-arrow-gray.svg";
 import svgDropDownArrowWhite from "../images/icon-dropdown-arrow-white.svg";
 import svgSymbol from "../images/icon-symbol.svg";
 import svgFeature from "../images/icon-feature.svg";
@@ -64,7 +64,7 @@ const DropDownMenu = ({
       >
         <span>{title}</span>
         <img
-          src={isBackgroundWhite ? svgDropDownArrowBlack : svgDropDownArrowWhite}
+          src={isBackgroundWhite ? svgDropDownArrowGray : svgDropDownArrowWhite}
           alt={title}
         />
       </div>

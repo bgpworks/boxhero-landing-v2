@@ -34,7 +34,9 @@ const Top = ({ t }) => (
   <DesktopBaseContainer className={styles.topContentContainer}>
     <div className={styles.topTitle}>{t("features:topTitle")}</div>
     <Padding y={16} />
-    <div className={styles.topDesc}>{t("features:topDesc")}</div>
+    <div className={styles.topDesc}>
+      <Trans i18nKey="features:topDesc" />
+    </div>
     <Padding y={50} />
     <Menu t={t} />
   </DesktopBaseContainer>
@@ -121,7 +123,7 @@ const DemoTemplate = ({
 );
 
 function FeatureTemplate({
-  id, bgColor, title, desc, figure, figureStyle, barColor, demoData,
+  id, bgColor, title, desc, figure, barColor, demoData,
 }) {
   return (
     <div
@@ -148,12 +150,10 @@ function FeatureTemplate({
               </button>
             </ExternalLinkWithQuery>
           </div>
-          <div style={figureStyle}>
-            <GatsbyImage
-              image={figure}
-              alt={title}
-            />
-          </div>
+          <GatsbyImage
+            image={figure}
+            alt={title}
+          />
         </div>
         <Padding y={70} />
         <div className={styles.halfContainer}>
@@ -203,7 +203,6 @@ const FeatureBarcodelabel = ({ data }) => (
     bgColor={bgWhite}
     title={<Trans i18nKey="features:barcodelabelTitle" />}
     figure={data.barcodelabelFig.childImageSharp.gatsbyImageData}
-    figureStyle={{ marginRight: -30 }}
     desc={<Trans i18nKey="features:barcodelabelDesc" />}
     barColor={barGray}
     demoData={[
@@ -227,7 +226,6 @@ const FeatureSummary = ({ data }) => (
     bgColor={bgBlue}
     title={<Trans i18nKey="features:summaryTitle" />}
     figure={data.summaryFig.childImageSharp.gatsbyImageData}
-    figureStyle={{ marginTop: -30, marginRight: -102 }}
     desc={<Trans i18nKey="features:summaryDesc" />}
     barColor={barBlue}
     demoData={[
@@ -251,7 +249,6 @@ const FeatureViewPastQuantity = ({ data }) => (
     bgColor={bgWhite}
     title={<Trans i18nKey="features:viewPastQuantityTitle" />}
     figure={data.viewPastQuantityFig.childImageSharp.gatsbyImageData}
-    figureStyle={{ marginTop: -30, marginRight: -102 }}
     desc={<Trans i18nKey="features:viewPastQuantityDesc" />}
     barColor={barGray}
     demoData={[
@@ -275,7 +272,6 @@ const FeatureLocation = ({ data }) => (
     bgColor={bgOrange}
     title={<Trans i18nKey="features:locationTitle" />}
     figure={data.locationFig.childImageSharp.gatsbyImageData}
-    figureStyle={{ marginTop: -30, marginRight: -102 }}
     desc={<Trans i18nKey="features:locationDesc" />}
     barColor={barOrange}
     demoData={[

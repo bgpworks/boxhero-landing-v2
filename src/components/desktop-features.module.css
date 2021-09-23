@@ -12,6 +12,7 @@
 .topDesc {
   font-size: var(--font-size-b18);
   text-align: center;
+  line-height: 1.5;
 }
 
 .menuItem {
@@ -37,9 +38,7 @@
 .menuContainer {
   padding: 0 174px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
 }
 
 .featureTemplate {
@@ -47,7 +46,7 @@
 }
 
 .featureTemplateContentContainer {
-  padding: 100px 102px;
+  padding: 70px 0 100px 102px;
   color: var(--color-font-gray1);
 }
 
@@ -59,15 +58,14 @@
 }
 
 .featureTemplateTitleDescContainer {
-  width: 497px;
+  padding-top: 30px;
+  width: 480px;
   flex-shrink: 0;
 }
 
 .featureTemplateTitle {
   font-size: var(--font-size-36);
   font-weight: bold;
-  line-height: 1.35;
-  letter-spacing: -1px;
 }
 
 .featureTemplateDesc {
