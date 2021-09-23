@@ -3,7 +3,7 @@ title: Análisis de datos para una gestión de inventario eficiente
 date: 2021-07-15 11:32
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: ¡Aprendamos a analizar dos datos de inventario clave para una gestión de inventario precisa!
 ---

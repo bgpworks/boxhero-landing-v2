@@ -3,7 +3,7 @@ title: ¿Qué es el inventario activo?
 date: 2021-08-06 12:51
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: ¿Cómo podríamos utilizar mi inventario para una gestión eficiente del inventario?
 ---

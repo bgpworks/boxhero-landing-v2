@@ -3,7 +3,7 @@ title: Gestión eficiente de inventarios en farmacias
 date: 2021-08-01 09:50
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Le informaremos de la A a la Z sobre el conteo de inventarios más necesario en la gestión de inventarios farmacéuticos.
 ---

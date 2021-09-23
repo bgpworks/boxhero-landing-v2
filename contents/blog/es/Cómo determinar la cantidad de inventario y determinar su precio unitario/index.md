@@ -3,7 +3,7 @@ title: Cómo determinar la cantidad de inventario y determinar su precio unitari
 date: 2021-07-20 14:10
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Hemos resuelto fácilmente varias formas de calcular los activos de inventario.
 ---

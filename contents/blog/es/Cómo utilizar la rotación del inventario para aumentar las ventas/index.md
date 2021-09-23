@@ -3,7 +3,7 @@ title: ¿Cómo utilizar la rotación del inventario para aumentar las ventas?
 date: 2021-07-29 14:30
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Vamos a ver el índice de rotación de inventario, que puede determinar si su negocio está funcionando bien.
 ---

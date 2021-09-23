@@ -3,7 +3,7 @@ title: 온라인 쇼핑몰 재고관리의 5가지 팁!
 date: 2021-07-15 16:02
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 매출 증가와 함께 쇼핑몰 비즈니스를 성공시키기 위한 5가지 팁에 대해 알아볼까요?
 ---

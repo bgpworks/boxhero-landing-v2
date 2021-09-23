@@ -3,7 +3,7 @@ title: Pentingnya Analisis Inventaris bagi Bisnis Anda
 date: 2021-08-14 13:45
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Analisis inventaris untuk mengetahui data inventaris Anda dengan akurat.
 ---

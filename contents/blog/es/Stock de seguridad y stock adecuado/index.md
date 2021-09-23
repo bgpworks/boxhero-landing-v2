@@ -3,7 +3,7 @@ title: Stock de seguridad y Stock adecuado
 date: 2021-08-15 14:50
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Le mostraremos cómo reducir el riesgo de gestión de inventario a través de una gestión de inventario segura y adecuada.
 ---

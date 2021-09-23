@@ -3,7 +3,7 @@ title: 3 funciones importantes para la gestión de inventarios
 date: 2021-07-05 14:55
 category: Conocimiento
 author: Lili
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: ¡Vamos a ver las tres técnicas de gestión de inventario que utilizan las empresas globales!
 ---

@@ -3,7 +3,7 @@ title: Pentingnya Stok Pengaman bagi Bisnis Anda
 date: 2021-08-19 10:15
 category: Insight
 author: Roh Inda Devanho
-authorPhoto: ../../images/authors/inho.jpg
+authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Solusi untuk memenuhi permintaan konsumen dan menjaga produksi tetap lancar.
 ---

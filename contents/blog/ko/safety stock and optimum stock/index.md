@@ -3,7 +3,7 @@ title: 안전재고와 적정재고
 date: 2021-07-07 11:02
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 안전재고와 적정재고 관리를 통해 재고관리 리스크를 줄이는 방법을 알려드려요.
 ---
