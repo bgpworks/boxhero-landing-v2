@@ -335,18 +335,19 @@ const TeamPlay = ({ data, t }) => (
     colorSet={["#7D24FF", "#276EFE", "#7F50FE", "#0C92FE"]}
     backgroundColor="#6159F5"
   >
-    <Padding y={50} />
-    <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
-    <Padding y={20} />
-    <MobileBaseContainer className={styles.teamPlayDesc}>
-      <Trans i18nKey="index:teamPlayDescMobile" />
-    </MobileBaseContainer>
-    <Padding y={29} />
-    <div className={styles.teamImageFlex}>
+    <MobileBaseContainer className={styles.teamPlayContentContainer}>
+      <Padding y={50} />
+      <h2 className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</h2>
+      <Padding y={16} />
+      <p className={styles.teamPlayDesc}>
+        <Trans i18nKey="index:teamPlayDescMobile" />
+      </p>
+      <Padding y={40} />
       <GatsbyImage
         image={data.mobileTeamPlay.childImageSharp.gatsbyImageData}
+        alt={t("index:teamPlayTitle")}
       />
-    </div>
+    </MobileBaseContainer>
   </GradientBG>
 );
 

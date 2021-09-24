@@ -252,30 +252,25 @@
 /* team play */
 
 .teamPlayContainer {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   overflow: hidden;
 }
 
-.teamPlayTitle {
-  height: 36px;
-  font-size: var(--font-size-mobile-big3);
-  font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: -0.5px;
+.teamPlayContentContainer {
+  padding: 0 20px;
+  color: white;
 }
 
-.teamPlayDesc {
-  line-height: 1.71;
-  letter-spacing: -0.14px;
+.teamPlayTitle {
+  margin: 0;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
   text-align: center;
 }
 
-.teamImageFlex {
-  display: flex;
+.teamPlayDesc {
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* Customers  */
