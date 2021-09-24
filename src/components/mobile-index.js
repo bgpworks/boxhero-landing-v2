@@ -225,6 +225,63 @@ const KeyFeatures = ({ data, t }) => (
   </>
 );
 
+const SalesManagement = ({ data, t }) => {
+  const salesManagementData = [
+    { title: t("index:salesManagementMenu1"), img: data.mobileFeatureTransaction },
+    { title: t("index:salesManagementMenu2"), img: data.mobileFeatureOut },
+    { title: t("index:salesManagementMenu3"), img: data.mobileFeatureSalesAnalysis },
+  ];
+
+  return (
+    <MobileBaseContainer className={styles.salesManagementContentContainer}>
+      <CarouselProvider
+        naturalSlideWidth={335}
+        naturalSlideHeight={276}
+        totalSlides={salesManagementData.length}
+      >
+        <h2 className={styles.salesManagementTitle}>
+          <Trans i18nKey="index:salesManagementTitle" />
+        </h2>
+        <Padding y={16} />
+        <p className={styles.salesManagementDesc}>
+          <Trans i18nKey="index:salesManagementDesc" />
+        </p>
+
+        <Padding y={40} />
+
+        <DotGroup className={styles.salesManagementMenuContainer}>
+          {salesManagementData.map(({ title }, index) => (
+            <Dot
+              key={index}
+              slide={index}
+              className={styles.salesManagementMenu}
+            >
+              {title}
+            </Dot>
+          ))}
+        </DotGroup>
+
+        <Padding y={30} />
+
+        <Slider>
+          {salesManagementData.map(({ img, title }, index) => (
+            <Slide
+              innerClassName={styles.salesManagementSlide}
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={img.childImageSharp.gatsbyImageData}
+                alt={title}
+              />
+            </Slide>
+          ))}
+        </Slider>
+      </CarouselProvider>
+    </MobileBaseContainer>
+  );
+};
+
 const TeamPlay = ({ data, t }) => (
   <GradientBG
     className={styles.teamPlayContainer}
@@ -606,6 +663,11 @@ const MobileIndex = ({ data, language, t }) => (
     <Chatting t={t} />
 
     <KeyFeatures
+      data={data}
+      t={t}
+    />
+
+    <SalesManagement
       data={data}
       t={t}
     />

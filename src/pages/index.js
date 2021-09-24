@@ -1206,6 +1206,63 @@ export const query = graphql`
         )
       }
     }
+    mobileFeatureTransaction: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-transaction.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 335
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+        )
+      }
+    }
+    mobileFeatureOut: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-out.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 335
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+        )
+      }
+    }
+    mobileFeatureSalesAnalysis: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-sales-analysis.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 335
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+        )
+      }
+    }
     mobileTeamPlay: file(
       relativeDirectory: { eq: $language }
       base: { eq: "img-team.png" }
@@ -1223,7 +1280,6 @@ export const query = graphql`
           }
           placeholder: TRACED_SVG
           transformOptions: { cropFocus: NORTH }
-          layout: FIXED
         )
       }
     }
@@ -1247,7 +1303,6 @@ export const query = graphql`
           height: 204
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1261,7 +1316,6 @@ export const query = graphql`
           height: 204
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1275,7 +1329,6 @@ export const query = graphql`
           height: 204
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1289,7 +1342,6 @@ export const query = graphql`
           height: 204
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1303,7 +1355,6 @@ export const query = graphql`
           height: 204
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1315,7 +1366,6 @@ export const query = graphql`
           tracedSVGOptions: { background: "#DCE1FF", color: "#c7c8d2" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1327,7 +1377,6 @@ export const query = graphql`
           tracedSVGOptions: { color: "#c7c8d2", background: "#DCEDFE" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1341,7 +1390,6 @@ export const query = graphql`
           tracedSVGOptions: { color: "#c7c8d2", background: "#E9E1FA" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1353,7 +1401,6 @@ export const query = graphql`
           tracedSVGOptions: { color: "#c7c8d2", background: "#D8F1EC" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1367,7 +1414,6 @@ export const query = graphql`
           tracedSVGOptions: { color: "#c7c8d2", background: "#DEDEE2" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1381,7 +1427,6 @@ export const query = graphql`
           tracedSVGOptions: { background: "#DCE1FF", color: "#c7c8d2" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1395,7 +1440,6 @@ export const query = graphql`
           tracedSVGOptions: { color: "#c7c8d2", background: "#E9E1FA" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1407,7 +1451,6 @@ export const query = graphql`
           tracedSVGOptions: { color: "#c7c8d2", background: "#E9E1FA" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1421,7 +1464,6 @@ export const query = graphql`
           tracedSVGOptions: { background: "#DCE1FF", color: "#DCEDFE" }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
@@ -1458,7 +1500,6 @@ export const query = graphql`
           }
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }
