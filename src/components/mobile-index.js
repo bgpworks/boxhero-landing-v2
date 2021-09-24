@@ -226,25 +226,7 @@ const KeyFeatures = ({ data, t }) => (
   </>
 );
 
-const SalesManagementSelectorKOR = ({ salesManagementData }) => (
-  <DotGroup className={styles.salesManagementSelectorKOR}>
-    {salesManagementData.map(({ title }, index) => (
-      <Dot
-        key={index}
-        slide={index}
-        className={styles.salesManagementDotKOR}
-      >
-        {title}
-      </Dot>
-    ))}
-  </DotGroup>
-);
-
-const SM_DEFAULT_OFFSET_TO_SELECTED = {
-  en: -95.5,
-  es: -100,
-  id: -90.5,
-};
+const DEFAULT_OFFSET = -95.5;
 const DOT_WIDTH = 200;
 const DOT_GAP = 10;
 const OFFSET_PER_DOT = DOT_WIDTH + DOT_GAP;
@@ -277,17 +259,16 @@ function renderSalesManagementDots(
 }
 
 const SalesManagementSelector = ({
-  language, salesManagementData,
+  salesManagementData,
 }) => {
   const { currentSlide } = useCurrentSlide();
-  const defaultOffset = SM_DEFAULT_OFFSET_TO_SELECTED[language] || -71.5;
   const additionalOffset = currentSlide * OFFSET_PER_DOT * -1;
 
   return (
     <div className={styles.salesManagementSelectorContainer}>
       <DotGroup
         className={styles.salesManagementSelector}
-        style={{ marginLeft: defaultOffset + additionalOffset }}
+        style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
         renderDots={(props) => renderSalesManagementDots(
           salesManagementData,
           props,
@@ -297,7 +278,7 @@ const SalesManagementSelector = ({
   );
 };
 
-const SalesManagement = ({ data, t, language }) => {
+const SalesManagement = ({ data, t }) => {
   const salesManagementData = [
     { title: t("index:salesManagementMenu1"), img: data.mobileFeatureTransaction },
     { title: t("index:salesManagementMenu2"), img: data.mobileFeatureOut },
@@ -309,6 +290,8 @@ const SalesManagement = ({ data, t, language }) => {
       <CarouselProvider
         naturalSlideWidth={335}
         naturalSlideHeight={276}
+        interval={3000}
+        isPlaying
         totalSlides={salesManagementData.length}
       >
         <h2 className={styles.salesManagementTitle}>
@@ -321,16 +304,9 @@ const SalesManagement = ({ data, t, language }) => {
 
         <Padding y={40} />
 
-        {language === "ko" ? (
-          <SalesManagementSelectorKOR
-            salesManagementData={salesManagementData}
-          />
-        ) : (
-          <SalesManagementSelector
-            language={language}
-            salesManagementData={salesManagementData}
-          />
-        )}
+        <SalesManagementSelector
+          salesManagementData={salesManagementData}
+        />
 
         <Padding y={30} />
 
