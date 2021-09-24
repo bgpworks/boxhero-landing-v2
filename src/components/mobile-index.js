@@ -225,7 +225,82 @@ const KeyFeatures = ({ data, t }) => (
   </>
 );
 
-const SalesManagement = ({ data, t }) => {
+const SalesManagementSelectorKOR = ({ salesManagementData }) => (
+  <DotGroup className={styles.salesManagementSelectorKOR}>
+    {salesManagementData.map(({ title }, index) => (
+      <Dot
+        key={index}
+        slide={index}
+        className={styles.salesManagementDotKOR}
+      >
+        {title}
+      </Dot>
+    ))}
+  </DotGroup>
+);
+
+function renderSalesManagementDots(
+  allData,
+  setOffsetToSelected,
+  { currentSlide, totalSlides, visibleSlides },
+) {
+  const dots = [];
+  for (let i = 0; i < totalSlides; i += 1) {
+    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
+    const selected = multipleSelected;
+    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
+    dots.push(
+      <Dot
+        key={i}
+        slide={slide}
+        selected={selected}
+        className={`${styles.salesManagementDot} ${
+          selected ? styles.salesManagementDotSelected : ""
+        }`}
+        onClick={(evt) => {
+          const dom = evt.target;
+          const left = dom.offsetLeft + dom.clientWidth / 2;
+          setOffsetToSelected(-left);
+        }}
+      >
+        {allData[slide].title}
+      </Dot>,
+    );
+  }
+  return dots;
+}
+
+// div.carousel__dot-group mobile-index-module--salesManagementSelector--GSaLI 의 margin-left
+const SM_DEFAULT_OFFSET_TO_SELECTED = {
+  en: -80.5,
+  es: -163,
+  id: -69.5,
+};
+
+const SalesManagementSelector = ({
+  language, salesManagementData,
+}) => {
+  // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
+  const [offsetToSelected, setOffsetToSelected] = React.useState(
+    SM_DEFAULT_OFFSET_TO_SELECTED[language] || -71.5,
+  );
+
+  return (
+    <div className={styles.salesManagementSelectorContainer}>
+      <DotGroup
+        className={styles.salesManagementSelector}
+        style={{ marginLeft: offsetToSelected }}
+        renderDots={(props) => renderSalesManagementDots(
+          salesManagementData,
+          setOffsetToSelected,
+          props,
+        )}
+      />
+    </div>
+  );
+};
+
+const SalesManagement = ({ data, t, language }) => {
   const salesManagementData = [
     { title: t("index:salesManagementMenu1"), img: data.mobileFeatureTransaction },
     { title: t("index:salesManagementMenu2"), img: data.mobileFeatureOut },
@@ -249,17 +324,16 @@ const SalesManagement = ({ data, t }) => {
 
         <Padding y={40} />
 
-        <DotGroup className={styles.salesManagementMenuContainer}>
-          {salesManagementData.map(({ title }, index) => (
-            <Dot
-              key={index}
-              slide={index}
-              className={styles.salesManagementMenu}
-            >
-              {title}
-            </Dot>
-          ))}
-        </DotGroup>
+        {language === "ko" ? (
+          <SalesManagementSelectorKOR
+            salesManagementData={salesManagementData}
+          />
+        ) : (
+          <SalesManagementSelector
+            language={language}
+            salesManagementData={salesManagementData}
+          />
+        )}
 
         <Padding y={30} />
 
@@ -670,6 +744,7 @@ const MobileIndex = ({ data, language, t }) => (
     <SalesManagement
       data={data}
       t={t}
+      language={language}
     />
 
     <TeamPlay
