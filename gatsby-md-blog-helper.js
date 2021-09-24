@@ -36,7 +36,7 @@ const PostListPage = path.resolve("src/templates/PostList.jsx");
 
 // Helper Functions for Node
 
-const checkHasFiled = (node, fieldName) =>
+const checkHasField = (node, fieldName) =>
   Object.prototype.hasOwnProperty.call(node, fieldName);
 
 const checkIsMarkdownNode = (node) => node.internal.type === "MarkdownRemark";
@@ -81,7 +81,7 @@ const genSlug = (baseName, locale) => {
 
 const validateFrontMatter = (frontmatter) => {
   REQUIRED_FRONTMATTER_FIELD_NAMES.forEach((fieldName) => {
-    if (!checkHasFiled(frontmatter, fieldName)) {
+    if (!checkHasField(frontmatter, fieldName)) {
       throw new Error(`${fieldName} field is required.`);
     }
   });
@@ -110,7 +110,7 @@ const createLocaleField = (node, actions, getNode) => {
 const createSlugField = (node, actions, getNode) => {
   const { createNodeField } = actions;
 
-  if (checkHasFiled(node.frontmatter, "slug")) {
+  if (checkHasField(node.frontmatter, "slug")) {
     createNodeField({ node, name: "slug", value: node.frontmatter.slug });
   } else {
     const localeCode = getLocaleCode(getNode, node);
@@ -126,7 +126,7 @@ const createSlugField = (node, actions, getNode) => {
 const createDateField = (node, actions) => {
   const { createNodeField } = actions;
 
-  if (checkHasFiled(node.frontmatter, "date")) {
+  if (checkHasField(node.frontmatter, "date")) {
     const date = parse(node.frontmatter.date, DATE_FORMAT, new Date());
 
     if (!isValid(date))
@@ -146,7 +146,7 @@ const createCustomFields = (node, actions, getNode) => {
   const { createNodeField } = actions;
 
   if (
-    checkHasFiled(node, "frontmatter") &&
+    checkHasField(node, "frontmatter") &&
     validateFrontMatter(node.frontmatter)
   ) {
     createLocaleField(node, actions, getNode);

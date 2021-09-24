@@ -37,6 +37,7 @@
 
 .thumbnailImage {
   width: 100%;
+  height: 100%;
 }
 
 .pageTitle,
@@ -148,4 +149,9 @@
 .nextButtonLabel {
   flex: 0 0 auto;
   margin-right: 10px;
+}
+
+/* IE11에서 이미지가 제대로 표시되지 않는 문제 수정 목적 */
+.thumbnailImage > div:first-child {
+  display: none !important;
 }

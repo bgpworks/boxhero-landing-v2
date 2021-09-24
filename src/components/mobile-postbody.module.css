@@ -6,11 +6,13 @@
   --color-table-border: #e0e0e3;
   --color-anchor: #4f67ff;
   --color-box-border: #e0e0e3;
+  --color-text-code: white;
 
   --color-bg-tip-box: rgba(80, 164, 250, 0.1);
   --color-bg-caution-box: rgba(245, 166, 35, 0.1);
   --color-bg-notice-box: rgba(60, 185, 160, 0.1);
   --color-bg-gray-box: #f7f9fc;
+  --color-bg-code: #808080;
 
   --font-size-caption: 0.875rem;
   --font-size-gray-text: 0.875rem;
@@ -97,6 +99,15 @@
 
   font-size: var(--font-size-caption);
   color: var(--color-caption);
+}
+
+.postBodyView code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  color: var(--color-text-code);
+  background-color: var(--color-bg-code);
+  border-radius: 6px;
 }
 
 /* Typo */
