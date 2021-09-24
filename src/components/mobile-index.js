@@ -228,33 +228,6 @@ const DOT_WIDTH = 200;
 const DOT_GAP = 10;
 const OFFSET_PER_DOT = DOT_WIDTH + DOT_GAP;
 
-function renderSalesManagementDots(
-  allData,
-  { currentSlide, totalSlides, visibleSlides },
-) {
-  const dots = [];
-  for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
-    const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
-    dots.push(
-      <Dot
-        key={i}
-        slide={slide}
-        selected={selected}
-        className={styles.salesManagementDot}
-        style={{
-          width: DOT_WIDTH,
-          marginRight: DOT_GAP,
-        }}
-      >
-        {allData[slide].title}
-      </Dot>,
-    );
-  }
-  return dots;
-}
-
 const SalesManagementSelector = ({
   salesManagementData,
 }) => {
@@ -266,11 +239,21 @@ const SalesManagementSelector = ({
       <DotGroup
         className={styles.salesManagementSelector}
         style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
-        renderDots={(props) => renderSalesManagementDots(
-          salesManagementData,
-          props,
-        )}
-      />
+      >
+        {salesManagementData.map(({ title }, index) => (
+          <Dot
+            key={index}
+            slide={index}
+            className={styles.salesManagementDot}
+            style={{
+              width: DOT_WIDTH,
+              marginRight: DOT_GAP,
+            }}
+          >
+            {title}
+          </Dot>
+        ))}
+      </DotGroup>
     </div>
   );
 };
