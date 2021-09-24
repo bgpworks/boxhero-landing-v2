@@ -967,7 +967,6 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 336
           quality: 100
           tracedSVGOptions: {
             turdSize: 1
@@ -977,7 +976,6 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -987,7 +985,6 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -997,7 +994,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1017,7 +1013,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1037,7 +1032,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1057,7 +1051,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1077,7 +1070,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1097,7 +1089,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1117,7 +1108,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1137,7 +1127,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1157,7 +1146,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1177,7 +1165,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1197,7 +1184,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -1217,7 +1203,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }

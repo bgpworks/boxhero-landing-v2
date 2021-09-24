@@ -5,7 +5,8 @@
 
 .mobileBaseContainer {
   margin: 0 auto;
-  width: 375px;
+  width: 100vw;
+  max-width: 370px;
 }
 
 .containerCenter {
