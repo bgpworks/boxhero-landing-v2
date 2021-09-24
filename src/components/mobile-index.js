@@ -4,7 +4,6 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
-import ScrollContainer from "react-indiana-drag-scroll";
 import {
   CarouselProvider,
   Slider,
@@ -23,7 +22,6 @@ import {
   SpeechBubbleContainer,
   WithCurrentSlide,
   GradientBG,
-  AppDownloadLink,
   useCurrentSlide,
 } from "./common";
 import * as constants from "./constants";
@@ -46,7 +44,6 @@ import svgDashboard from "../images/icon-dashboard.svg";
 import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
-import svgSmallRight from "../images/smallright.svg";
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -351,137 +348,84 @@ const TeamPlay = ({ data, t }) => (
   </GradientBG>
 );
 
-const CustomerCardWrapper = ({ img, children }) => (
-  <div className={styles.customerButton}>
-    <div className={styles.customerButtonBackground}>
-      <GatsbyImage image={img} />
-    </div>
-    {children}
+function genCustomerData(data) {
+  return [
+    { i18nKey: "index:customerTypeBookstore", emoji: data.book },
+    { i18nKey: "index:customerTypeWarehouse", emoji: data.box },
+    { i18nKey: "index:customerType3PL", emoji: data.truck },
+    { i18nKey: "index:customerTypeBags", emoji: data.bag },
+    { i18nKey: "index:customerTypeFashionBrand", emoji: data.coat },
+    { i18nKey: "index:customerTypeDentalClinic", emoji: data.teeth },
+    { i18nKey: "index:customerTypeAutoParts", emoji: data.car },
+    { i18nKey: "index:customerTypeFabric", emoji: data.pinkT },
+    { i18nKey: "index:customerTypeShoes", emoji: data.heel },
+    { i18nKey: "index:customerTypeMedicine", emoji: data.thermometer },
+    { i18nKey: "index:customerTypeClothes", emoji: data.dress },
+    { i18nKey: "index:customerTypeUsedItems", emoji: data.bag2 },
+    { i18nKey: "index:customerTypeCellphones", emoji: data.mobile },
+    { i18nKey: "index:customerTypeCafe", emoji: data.coffeeSmall },
+    { i18nKey: "index:customerTypeCosmetics", emoji: data.lipstick },
+    { i18nKey: "index:customerTypeFood", emoji: data.burger },
+    { i18nKey: "index:customerTypeJewelry", emoji: data.ring },
+    { i18nKey: "index:customerTypeElevatorParts", emoji: data.bolt },
+    { i18nKey: "index:customerTypeRawMeterial", emoji: data.brick },
+    { i18nKey: "index:customerTypeCreativeProduct", emoji: data.tip },
+    { i18nKey: "index:customerTypeIcecream", emoji: data.icecream },
+    { i18nKey: "index:customerTypeCosmeticSurgery", emoji: data.lip },
+    { i18nKey: "index:customerTypePharmacy", emoji: data.pill },
+    { i18nKey: "index:customerTypeCinema", emoji: data.movie },
+    { i18nKey: "index:customerTypeSupermarket", emoji: data.cart },
+    { i18nKey: "index:customerTypeElectronicParts", emoji: data.electronic },
+    { i18nKey: "index:customerTypeTea", emoji: data.tea },
+    { i18nKey: "index:customerTypeApplianceStore", emoji: data.tv },
+    { i18nKey: "index:customerTypeCamera", emoji: data.camera },
+    { i18nKey: "index:customerTypeFurniture", emoji: data.chair },
+    { i18nKey: "index:customerTypeSticker", emoji: data.puzzle },
+    { i18nKey: "index:customerTypeMedicalEquipment", emoji: data.wheelchair },
+    { i18nKey: "index:customerTypeMeat", emoji: data.meat },
+    { i18nKey: "index:customerTypeAirConditionerParts", emoji: data.hammer },
+    { i18nKey: "index:customerTypeComforter", emoji: data.bed },
+  ];
+}
+
+const CustomerCard = ({
+  img, title,
+}) => (
+  <div className={styles.customerCard}>
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      alt={title}
+    />
+    <Padding x={4} />
+    {title}
   </div>
 );
 
-const Customers = ({ data, t, language }) => {
-  const customerData = [
-    {
-      title: t("index:customerData1Title"),
-      img: data.mobileCustomerMart.childImageSharp.gatsbyImageData,
-      link: t("index:customerData1Link"),
-    },
-    // 영문 문서가 없어서 한글에서만 추가.
-    language === "ko"
-      ? {
-        title: t("index:customerData2Title"),
-        img: data.mobileCustomerFasion.childImageSharp.gatsbyImageData,
-        link: t("index:customerData2Link"),
-      }
-      : null,
-    {
-      title: t("index:customerData3Title"),
-      img: data.mobileCustomerCosmetics.childImageSharp.gatsbyImageData,
-      link: t("index:customerData3Link"),
-    },
-    {
-      title: t("index:customerData4Title"),
-      img: data.mobileCustomerCafe.childImageSharp.gatsbyImageData,
-      link: t("index:customerData4Link"),
-    },
-    {
-      title: t("index:customerData5Title"),
-      img: data.mobileCustomerPharmacy.childImageSharp.gatsbyImageData,
-      link: t("index:customerData5Link"),
-    },
-    {
-      title: t("index:customerData6Title"),
-      img: data.mobileCustomerHandmade.childImageSharp.gatsbyImageData,
-      link: t("index:customerData6Link"),
-    },
-    {
-      title: t("index:customerData7Title"),
-      img: data.mobileCustomerTextbook.childImageSharp.gatsbyImageData,
-      link: t("index:customerData7Link"),
-    },
-    {
-      title: t("index:customerData8Title"),
-      img: data.mobileCustomerLocation.childImageSharp.gatsbyImageData,
-      link: t("index:customerData8Link"),
-    },
-  ].filter((item) => item);
+const Customers = ({ data, t }) => {
+  const customerData = genCustomerData(data);
 
   return (
     <div className={styles.customersContainer}>
-      <Padding y={50} />
-      <div className={styles.customersTitle}>
+      <h1 className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
-      </div>
-      <Padding y={30} />
-      <Link
-        to="/features/"
-        title={t("index:customerDetailLink")}
-      >
-        <button
-          type="button"
-          className={styles.customersDetailButton}
-        >
-          {t("index:customerDetailLink")}
-          <Padding x={5} />
-          <img
-            src={svgSmallRight}
-            className={styles.rightArrow}
-            alt={t("index:customerDataDetailLink")}
-          />
-        </button>
-      </Link>
+      </h1>
+      <Padding y={16} />
+      <p className={styles.customersDesc}>
+        <Trans i18nKey="index:customerDesc" />
+      </p>
 
-      <ScrollContainer
-        className={styles.customersWrapper}
-        vertical={false}
-        horizontal
-        hideScrollbars
-      >
+      <Padding y={40} />
+
+      <div className={styles.customersCardContainer}>
         {customerData.map((customer, index) => (
-          <CustomerCardWrapper
+          <CustomerCard
             key={index}
-            img={customer.img}
-          >
-            <a
-              className={styles.customerButtonContent}
-              rel="noopener"
-              target="_blank"
-              href={customer.link}
-            >
-              <span className={styles.customButtonContentNumber}>
-                {(`0${index + 1}`).slice(-2)}
-              </span>
-              <span className={styles.customButtonContentTitle}>
-                {customer.title}
-              </span>
-              <span className={styles.customButtonContentPadding} />
-              <span className={styles.customButtonContentLink}>
-                {t("index:customerDataDetailLink")}
-              </span>
-            </a>
-          </CustomerCardWrapper>
+            img={customer.emoji}
+            title={t(customer.i18nKey)}
+          />
         ))}
-        <CustomerCardWrapper
-          img={data.mobileCustomerETC.childImageSharp.gatsbyImageData}
-        >
-          <AppDownloadLink
-            className={styles.customerButtonContent}
-            rel="noopener"
-            target="_blank"
-          >
-            <span className={styles.customButtonContentNumber}>
-              {t("index:customerOtherIndexLabel")}
-            </span>
-            <span className={styles.customButtonContentTitle}>
-              {t("index:customerOtherTitle")}
-            </span>
-            <span className={styles.customButtonContentPadding} />
-            <span className={styles.customButtonContentLink}>{"GO! >"}</span>
-          </AppDownloadLink>
-        </CustomerCardWrapper>
-        <Padding x={300} />
-      </ScrollContainer>
+        <div className={styles.customersFadeOut} />
+      </div>
     </div>
   );
 };
@@ -729,7 +673,6 @@ const MobileIndex = ({ data, language, t }) => (
     <Customers
       data={data}
       t={t}
-      language={language}
     />
 
     <Features
