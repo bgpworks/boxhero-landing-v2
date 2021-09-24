@@ -228,14 +228,12 @@
 }
 
 .salesManagementDot {
-  max-width: 60vw;
   padding: 14px 20px;
   border-radius: 8px;
   font-weight: 500;
   background-color: transparent;
   color: var(--color-gray2);
   flex: 0 0 auto;
-  margin-right: 9px;
 }
 
 .salesManagementDot:disabled {

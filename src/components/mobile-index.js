@@ -24,6 +24,7 @@ import {
   WithCurrentSlide,
   GradientBG,
   AppDownloadLink,
+  useCurrentSlide,
 } from "./common";
 import * as constants from "./constants";
 // css
@@ -239,9 +240,17 @@ const SalesManagementSelectorKOR = ({ salesManagementData }) => (
   </DotGroup>
 );
 
+const SM_DEFAULT_OFFSET_TO_SELECTED = {
+  en: -95.5,
+  es: -100,
+  id: -90.5,
+};
+const DOT_WIDTH = 200;
+const DOT_GAP = 10;
+const OFFSET_PER_DOT = DOT_WIDTH + DOT_GAP;
+
 function renderSalesManagementDots(
   allData,
-  setOffsetToSelected,
   { currentSlide, totalSlides, visibleSlides },
 ) {
   const dots = [];
@@ -254,13 +263,10 @@ function renderSalesManagementDots(
         key={i}
         slide={slide}
         selected={selected}
-        className={`${styles.salesManagementDot} ${
-          selected ? styles.salesManagementDotSelected : ""
-        }`}
-        onClick={(evt) => {
-          const dom = evt.target;
-          const left = dom.offsetLeft + dom.clientWidth / 2;
-          setOffsetToSelected(-left);
+        className={styles.salesManagementDot}
+        style={{
+          width: DOT_WIDTH,
+          marginRight: DOT_GAP,
         }}
       >
         {allData[slide].title}
@@ -270,29 +276,20 @@ function renderSalesManagementDots(
   return dots;
 }
 
-// div.carousel__dot-group mobile-index-module--salesManagementSelector--GSaLI 의 margin-left
-const SM_DEFAULT_OFFSET_TO_SELECTED = {
-  en: -80.5,
-  es: -163,
-  id: -69.5,
-};
-
 const SalesManagementSelector = ({
   language, salesManagementData,
 }) => {
-  // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
-  const [offsetToSelected, setOffsetToSelected] = React.useState(
-    SM_DEFAULT_OFFSET_TO_SELECTED[language] || -71.5,
-  );
+  const { currentSlide } = useCurrentSlide();
+  const defaultOffset = SM_DEFAULT_OFFSET_TO_SELECTED[language] || -71.5;
+  const additionalOffset = currentSlide * OFFSET_PER_DOT * -1;
 
   return (
     <div className={styles.salesManagementSelectorContainer}>
       <DotGroup
         className={styles.salesManagementSelector}
-        style={{ marginLeft: offsetToSelected }}
+        style={{ marginLeft: defaultOffset + additionalOffset }}
         renderDots={(props) => renderSalesManagementDots(
           salesManagementData,
-          setOffsetToSelected,
           props,
         )}
       />
@@ -694,7 +691,7 @@ const Features = ({ data, t, language }) => {
 
 const StartNow = ({ data, t }) => (
   <ContainerCenter className={styles.startNowContainer}>
-    <div className={styles.px20}>
+    <div>
       <div className={styles.startNowTitle}>
         <Trans i18nKey="index:startNowTitle" />
       </div>

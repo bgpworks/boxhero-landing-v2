@@ -310,6 +310,24 @@ export const WithCurrentSlide = ({ children }) => {
   return "";
 };
 
+export const useCurrentSlide = () => {
+  const carouselContext = useContext(CarouselContext);
+
+  const [currentSlide, setCurrentSlide] = useState(
+    carouselContext.state.currentSlide,
+  );
+
+  useEffect(() => {
+    function onChange() {
+      setCurrentSlide(carouselContext.state.currentSlide);
+    }
+    carouselContext.subscribe(onChange);
+    return () => carouselContext.unsubscribe(onChange);
+  }, [carouselContext]);
+
+  return { currentSlide };
+};
+
 // query param을 유지하면서 a href를 사용한다.
 // 광고 트래킹을 위해 사용되며, 첫 진입시 query param을 붙여서 나간다.
 export const ExternalLinkWithQuery = ({ href, children, ...props }) => {
