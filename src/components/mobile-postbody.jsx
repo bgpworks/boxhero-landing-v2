@@ -79,6 +79,17 @@ const GhostElement = ({ children }) => (
 
 const InternalLink = ({ to, children }) => <Link to={to}>{children}</Link>;
 
+const VideoAutoplay = ({ src }) => (
+  <video
+    src={src}
+    autoPlay
+    muted
+    loop
+  >
+    Sorry, your browser does not support embedded videos.
+  </video>
+);
+
 const renderAST = new RehypeReact({
   createElement: React.createElement,
   Fragment: React.Fragment,
@@ -89,6 +100,7 @@ const renderAST = new RehypeReact({
     "gray-text": GrayText,
     "gray-box": GrayBox,
     "internal-link": InternalLink,
+    "video-autoplay": VideoAutoplay,
     invisible: GhostElement,
   },
 }).Compiler;

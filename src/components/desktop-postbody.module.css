@@ -162,6 +162,10 @@
   background-color: var(--color-table-odd-bg);
 }
 
+.postBodyView video {
+  width: 100%;
+}
+
 /* 커스텀 요소 */
 
 .boxWrapper,
@@ -237,16 +241,17 @@
 
 /* 최상단, 최하단 여백 초기화 */
 
+.postBodyView > p > img,
+.postBodyView > img,
+.postBodyView video {
+  display: block;
+  margin: var(--margin-big) 0;
+}
+
 .postBodyView > *:first-child {
   margin-top: 0;
 }
 
 .postBodyView > *:last-child {
   margin-bottom: 0;
-}
-
-.postBodyView > p > img,
-.postBodyView > img {
-  display: block;
-  margin: var(--margin-big) 0;
 }
