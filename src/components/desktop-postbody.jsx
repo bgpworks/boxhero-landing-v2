@@ -85,6 +85,7 @@ const VideoAutoplay = ({ src }) => (
     autoPlay
     muted
     loop
+    playsInline
   >
     Sorry, your browser does not support embedded videos.
   </video>
