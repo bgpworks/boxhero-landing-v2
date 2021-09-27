@@ -197,7 +197,6 @@ const FeatureLocation = ({ data }) => (
 const MobileFeatures = ({ data, t }) => (
   <MobileLayout
     isFloatMenu={false}
-    curMenu="features"
     closingEmoji={data.mobileDinosaur}
     closingMsg={t("features:closingMsg")}
   >
