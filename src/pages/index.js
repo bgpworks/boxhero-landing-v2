@@ -1272,8 +1272,8 @@ export const query = graphql`
     mobileHomeStartNow: file(relativePath: { eq: "home-start-now.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 240
-          height: 157
+          width: 307
+          height: 200
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1

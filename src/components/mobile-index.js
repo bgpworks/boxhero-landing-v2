@@ -17,7 +17,6 @@ import {
 import MobileLayout from "./mobile-layout";
 import {
   MobileBaseContainer,
-  ContainerCenter,
   Padding,
   SpeechBubbleContainer,
   WithCurrentSlide,
@@ -594,34 +593,32 @@ const Features = ({ data, t, language }) => {
 };
 
 const StartNow = ({ data, t }) => (
-  <ContainerCenter className={styles.startNowContainer}>
-    <div>
-      <div className={styles.startNowTitle}>
-        <Trans i18nKey="index:startNowTitle" />
-      </div>
-      <Padding y={30} />
-      <GatsbyImage
-        image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData}
-        style={{ margin: "0 auto" }}
+  <MobileBaseContainer className={styles.startNowContainer}>
+    <h2 className={styles.startNowTitle}>
+      <Trans i18nKey="index:startNowTitleMobile" />
+    </h2>
+    <Padding y={40} />
+    <GatsbyImage
+      image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData}
+      style={{ margin: "0 auto" }}
+    />
+    <Padding y={40} />
+    <p className={styles.startNowDescription}>
+      <Trans i18nKey="index:startNowDescription" />
+    </p>
+    <Padding y={40} />
+    <Link
+      to="/pricing/"
+      className={styles.startNowDetailLink}
+    >
+      {t("index:startNowDetailLink")}
+      <img
+        src={svgSmallRightBlue}
+        className={styles.rightArrow}
+        alt={t("index:startNowDetailLink")}
       />
-      <Padding y={30} />
-      <div className={styles.startNowDescription}>
-        <Trans i18nKey="index:startNowDescription" />
-      </div>
-      <Padding y={30} />
-      <Link
-        to="/pricing/"
-        className={styles.startNowDetailLink}
-      >
-        {t("index:startNowDetailLink")}
-        <img
-          src={svgSmallRightBlue}
-          className={styles.rightArrow}
-          alt={t("index:startNowDetailLink")}
-        />
-      </Link>
-    </div>
-  </ContainerCenter>
+    </Link>
+  </MobileBaseContainer>
 );
 
 const MobileIndex = ({ data, language, t }) => (

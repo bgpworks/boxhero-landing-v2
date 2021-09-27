@@ -433,27 +433,27 @@
   transition: min-width 0.3s;
 }
 
+/* StartNow */
+
 .startNowContainer {
-  padding: 50px 0px;
+  padding: 50px 20px;
   text-align: center;
+  color: var(--color-font-gray1);
 }
 
 .startNowTitle {
-  font-size: var(--font-size-mobile-big2);
+  margin: 0;
+  font-size: var(--font-size-mobile-h2);
   font-weight: bold;
-  letter-spacing: -0.42px;
   text-align: center;
-  color: black;
 }
 
 .startNowDescription {
+  margin: 0;
+  font-size: var(--font-size-mobile-h4);
   letter-spacing: -0.16px;
   text-align: center;
-}
-
-.startNowDescription strong {
-  font-weight: bold;
-  color: var(--color-font-blue);
+  line-height: 1.5;
 }
 
 .startNowDetailLink {
