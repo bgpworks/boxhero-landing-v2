@@ -265,46 +265,44 @@ const SalesManagement = ({ data, t }) => {
   ];
 
   return (
-    <MobileBaseContainer className={styles.salesManagementContentContainer}>
-      <CarouselProvider
-        naturalSlideWidth={335}
-        naturalSlideHeight={276}
-        interval={3000}
-        isPlaying
-        totalSlides={salesManagementData.length}
-      >
-        <h2 className={styles.salesManagementTitle}>
-          <Trans i18nKey="index:salesManagementTitle" />
-        </h2>
-        <Padding y={16} />
-        <p className={styles.salesManagementDesc}>
-          <Trans i18nKey="index:salesManagementDesc" />
-        </p>
+    <CarouselProvider
+      className={styles.salesManagementContentContainer}
+      naturalSlideWidth={335}
+      naturalSlideHeight={276}
+      interval={3000}
+      isPlaying
+      totalSlides={salesManagementData.length}
+    >
+      <h2 className={styles.salesManagementTitle}>
+        <Trans i18nKey="index:salesManagementTitle" />
+      </h2>
+      <Padding y={16} />
+      <p className={styles.salesManagementDesc}>
+        <Trans i18nKey="index:salesManagementDesc" />
+      </p>
 
-        <Padding y={40} />
+      <Padding y={40} />
 
-        <SalesManagementSelector
-          salesManagementData={salesManagementData}
-        />
+      <SalesManagementSelector
+        salesManagementData={salesManagementData}
+      />
 
-        <Padding y={30} />
+      <Padding y={30} />
 
-        <Slider>
-          {salesManagementData.map(({ img, title }, index) => (
-            <Slide
-              innerClassName={styles.salesManagementSlide}
-              key={index}
-              index={index}
-            >
-              <GatsbyImage
-                image={img.childImageSharp.gatsbyImageData}
-                alt={title}
-              />
-            </Slide>
-          ))}
-        </Slider>
-      </CarouselProvider>
-    </MobileBaseContainer>
+      <Slider className={styles.salesManagementSlider}>
+        {salesManagementData.map(({ img, title }, index) => (
+          <Slide
+            key={index}
+            index={index}
+          >
+            <GatsbyImage
+              image={img.childImageSharp.gatsbyImageData}
+              alt={title}
+            />
+          </Slide>
+        ))}
+      </Slider>
+    </CarouselProvider>
   );
 };
 

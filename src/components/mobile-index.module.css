@@ -155,13 +155,17 @@
 
 .salesManagementContentContainer {
   color: var(--color-font-gray1);
-  padding: 50px 0;
+  padding: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .salesManagementTitle {
   margin: 0;
   padding: 0 20px;
   text-align: center;
+  max-width: 375px;
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
 }
@@ -173,40 +177,12 @@
   margin: 0;
   padding: 0 20px;
   text-align: center;
+  max-width: 375px;
   font-size: var(--font-size-mobile-normal);
   line-height: 1.5;
 }
 .salesManagementDesc strong {
   background-color: var(--color-light-blue-20);
-}
-
-.salesManagementSelectorKOR {
-  padding: 0 20px;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--color-bg-light);
-  border-bottom: 2px solid var(--color-gray4);
-}
-
-.salesManagementDotKOR {
-  color: var(--color-gray2);
-  width: 33.33%;
-  height: 100%;
-  background-color: transparent;
-  font-weight: 500;
-  letter-spacing: -0.1px;
-  border-radius: 0;
-  margin-top: 2px;
-}
-.salesManagementDotKOR + .salesManagementDotKOR {
-  margin-left: 20px;
-}
-
-.salesManagementDotKOR:disabled {
-  color: var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
 }
 
 .salesManagementSelectorContainer {
@@ -245,8 +221,9 @@
   background-color: white;
 }
 
-.salesManagementSlide {
-  padding: 0 20px;
+.salesManagementSlider {
+  width: 335px;
+  height: 276px;
 }
 
 /* team play */
