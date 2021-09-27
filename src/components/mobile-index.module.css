@@ -347,10 +347,10 @@
 }
 
 .featuresTitle {
+  margin: 0;
   padding: 0px 20px;
-  font-size: var(--font-size-mobile-big2);
+  font-size: var(--font-size-mobile-h2);
   font-weight: bold;
-  letter-spacing: -0.42px;
   text-align: center;
 }
 
@@ -362,7 +362,7 @@
   width: 280px;
   height: 204px;
   border-radius: 12px;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
   background-color: #ffffff;
 }
 

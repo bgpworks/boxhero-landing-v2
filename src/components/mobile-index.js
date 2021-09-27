@@ -541,10 +541,10 @@ const Features = ({ data, t, language }) => {
       dragEnabled={false}
       totalSlides={featureData.length}
     >
-      <div className={styles.featuresTitle}>
+      <h2 className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitleMobile" />
-      </div>
-      <Padding y={32} />
+      </h2>
+      <Padding y={40} />
 
       <FeatureSelector
         data={data}
@@ -553,7 +553,7 @@ const Features = ({ data, t, language }) => {
         featureData={featureData}
       />
 
-      <Padding y={40} />
+      <Padding y={25} />
 
       <Slider className={styles.sliderWrapper}>
         {featureData.map(({ img, title }, index) => (
