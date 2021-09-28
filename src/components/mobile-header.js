@@ -7,6 +7,7 @@ import { ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
 import { useCheckScrolled } from "../hooks/use-check-scrolled";
 import { useClickOutside } from "../hooks/use-click-outside";
+import { LANG_NAME } from "./language-selector";
 // css
 import * as styles from "./mobile-header.module.css";
 // images
@@ -52,13 +53,6 @@ const DropDown = ({ className, title, children }) => {
 const DropDownItem = ({ children }) => (
   <li className={styles.dropDownItem}>{children}</li>
 );
-
-const LANG_NAME = {
-  ko: "한국어",
-  en: "English",
-  es: "Español",
-  id: "Indonesia",
-};
 
 const LangOption = ({ lang }) => {
   const { language, changeLanguage } = useI18next();
