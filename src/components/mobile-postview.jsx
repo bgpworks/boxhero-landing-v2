@@ -185,7 +185,8 @@ export default function PostViewMobile({
     <MobileLayout
       mainClassName={pageContainer}
       isFloatMenu={false}
-      showEssentialOnly
+      showPlatforms={false}
+      showStartNow={false}
       hideFloatAppInstallButton
     >
       <LinkToListSection />

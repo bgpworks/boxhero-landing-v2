@@ -38,7 +38,8 @@ const MobileLayout = ({
   closingEmoji,
   closingMsg,
   mainClassName,
-  showEssentialOnly,
+  showPlatforms,
+  showStartNow,
   children,
 }) => {
   const [isShowLangPopup, onChangeIsShowLangPopup] = useState(false);
@@ -52,7 +53,8 @@ const MobileLayout = ({
       <main className={mainClassName}>{children}</main>
       {!hideFloatAppInstallButton && <InstallButton />}
       <MobileFooter
-        showEssentialOnly={showEssentialOnly}
+        showPlatforms={showPlatforms}
+        showStartNow={showStartNow}
         closingEmoji={closingEmoji}
         closingMsg={closingMsg}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
@@ -72,7 +74,8 @@ MobileLayout.propTypes = {
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.any,
   mainClassName: PropTypes.string,
-  showEssentialOnly: PropTypes.bool,
+  showPlatforms: PropTypes.bool,
+  showStartNow: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 

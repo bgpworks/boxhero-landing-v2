@@ -1,8 +1,9 @@
 {
   "companyInfoAddress": "06247 서울특별시 강남구 역삼로 165, 7층 ㅣ <tosLink>이용약관</tosLink> ㅣ <privacyLink>개인정보처리방침</privacyLink>",
-  "companyInfoAddressMobile": "06247 서울특별시 강남구 역삼로 165, 7층<br/><br/><tosLink>이용약관</tosLink> ㅣ <privacyLink>개인정보처리방침</privacyLink>",
+  "companyInfoAddressMobile": "06247 서울특별시 강남구 역삼로 165, 7층",
   "companyInfoRegisterNo": "(주)비지피웍스 ㅣ 사업자 등록 번호 : 832-86-00696 ㅣ 대표 : 문희홍",
   "companyInfoRegisterNoMobile": "(주)비지피웍스<br/>사업자 등록 번호 : 832-86-00696<br/>대표 : 문희홍",
+  "copyRight": "All rights reserved.",
   "footerMenuCompany": "회사",
   "footerMenuCompanyBlog": "블로그",
   "footerMenuCompanyHire": "채용",
@@ -23,8 +24,8 @@
   "footerMenuSupportManual": "매뉴얼",
   "footerMenuUseCaseAssets": "자산관리",
   "footerMenuUseCaseMaterial": "자재관리",
-  "footerMenuUseCases": "사용사례",
   "footerMenuUseCaseSales": "판매",
+  "footerMenuUseCases": "사용사례",
   "platformGroupDesktop": "데스크탑 앱",
   "platformGroupMobile": "모바일 앱",
   "platformGroupWeb": "웹 앱",
@@ -33,5 +34,6 @@
   "platformsPC": "웹",
   "platformsTitle": "박스히어로는 PC, 모바일 모두 완벽하게 지원합니다",
   "platformsWindows": "윈도우",
+  "policyLinkMobile": "<tosLink>이용약관</tosLink> ㅣ <privacyLink>개인정보처리방침</privacyLink>",
   "startNowButton": "지금 무료로 시작하기"
 }

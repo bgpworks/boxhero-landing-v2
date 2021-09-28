@@ -5,17 +5,22 @@ import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import * as constants from "./constants";
 import { Padding } from "./common";
+import SocialLinkList from "./social-link-list";
 // css
 import * as styles from "./mobile-footer.module.css";
 // images
 import svgCompanyLogo from "../images/company-logo.svg";
-import SocialLinkList from "./social-link-list";
+
+const Platforms = ({ t }) => (
+  <section>{t("footer:platformsTitle")}</section>
+);
 
 const StartNow = ({ emoji, message }) => (
-  <div className={styles.startNowContainer}>
+  <section className={styles.startNowContainer}>
     <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
-    <div className={styles.startNowDescription}>{message}</div>
-  </div>
+    <Padding y={10} />
+    <p className={styles.startNowDescription}>{message}</p>
+  </section>
 );
 
 StartNow.propTypes = {
@@ -24,54 +29,53 @@ StartNow.propTypes = {
   message: PropTypes.any.isRequired,
 };
 
+const FooterMenu = ({ title, children }) => (
+  <div className={styles.footerMenu}>
+    <strong className={styles.footerMenuLabel}>{title}</strong>
+    <ul className={styles.footerSubMenu}>
+      {children && children.map((subMenu, index) => (
+        <li key={index}>{subMenu}</li>
+      ))}
+    </ul>
+  </div>
+);
+
 const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
-  <div>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Service</div>
-      <div>
-        <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
-      </div>
-      <div>
-        <Link to="/features/">{t("footer:footerMenuServiceFeatures")}</Link>
-      </div>
-      <div>
-        <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
-      </div>
-    </div>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Resource</div>
-      <div>
-        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
-      </div>
-      <div>
-        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
-      </div>
-      <div>
-        <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
-      </div>
-      <div>
-        <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
-      </div>
-    </div>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Company</div>
-      <div>
-        <a href="https://www.bgpworks.com">
-          {t("footer:footerMenuCompanyHome")}
-        </a>
-      </div>
-      <div>
-        <a
-          href={t("url:hire")}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {t("footer:footerMenuCompanyHire")}
-        </a>
-      </div>
-    </div>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>
+  <article>
+    <FooterMenu title={t("footer:footerMenuService")}>
+      <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
+      <Link to="/features/">{t("footer:footerMenuServiceFeatures")}</Link>
+      <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
+    </FooterMenu>
+
+    <FooterMenu title={t("footer:footerMenuUseCases")}>
+      <Link to="/usecase-sales">{t("footer:footerMenuUseCaseSales")}</Link>
+      <Link to="/usecase-material">{t("footer:footerMenuUseCaseMaterial")}</Link>
+      <Link to="/usecase-assets">{t("footer:footerMenuUseCaseAssets")}</Link>
+    </FooterMenu>
+
+    <FooterMenu title={t("footer:footerMenuResource")}>
+      <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
+      <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+      <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
+      <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+    </FooterMenu>
+
+    <FooterMenu title={t("footer:footerMenuCompany")}>
+      <a href="https://www.bgpworks.com">
+        {t("footer:footerMenuCompanyHome")}
+      </a>
+      <a
+        href={t("url:hire")}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {t("footer:footerMenuCompanyHire")}
+      </a>
+    </FooterMenu>
+
+    <FooterMenu
+      title={(
         <button
           type="button"
           className={styles.langButton}
@@ -79,57 +83,61 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
         >
           {t("footer:footerMenuLanguage")}
         </button>
-      </div>
-    </div>
-    <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Contact</div>
-      <div>{t("footer:footerMenuContactTel")}</div>
-      <div>
+      )}
+    />
+
+    <FooterMenu title={t("footer:footerMenuContact")}>
+      <span>{t("footer:footerMenuContactTel")}</span>
+      <span>
         {t("footer:footerMenuContactEmail")}
         {" "}
         <a href="mailto:support+boxhero@bgpworks.com">
           support+boxhero@bgpworks.com
         </a>
-      </div>
-      <div>
+      </span>
+      <span>
         {t("footer:footerMenuContactBusiness")}
         {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
-      </div>
+      </span>
       {language === "ko"
         ? (
-          <div>
+          <span>
             {t("footer:footerMenuContactKakao")}
             { " "}
             <a href={constants.urlKakaoTalk}>@boxhero</a>
-          </div>
+          </span>
         )
         : (
-          <div>
+          <span>
             {t("footer:footerMenuContactWhatsApp")}
             {" "}
             <a href={constants.urlWhatsApp}>@boxhero</a>
-          </div>
+          </span>
         )}
-    </div>
-  </div>
+    </FooterMenu>
+  </article>
 );
 
 const CompanyInfo = ({ t }) => (
-  <div>
-    <div>
-      <img
-        className={styles.companyLogo}
-        src={svgCompanyLogo}
-        alt="BGPworks"
-      />
-    </div>
-    <Padding y={10} />
+  <article>
+    <img
+      className={styles.companyLogo}
+      src={svgCompanyLogo}
+      alt="BGPworks"
+    />
+    <Padding y={20} />
     <div className={styles.companyInfoDetail}>
       <Trans i18nKey="footer:companyInfoRegisterNoMobile" />
       <br />
       <Trans
         i18nKey="footer:companyInfoAddressMobile"
+      />
+    </div>
+    <Padding y={40} />
+    <div className={styles.policyLink}>
+      <Trans
+        i18nKey="footer:policyLinkMobile"
         components={{
           // eslint-disable-next-line
           tosLink: <a className={styles.tosPrivacyLink} href={t("url:tos")} />,
@@ -144,39 +152,38 @@ const CompanyInfo = ({ t }) => (
     <SocialLinkList />
     <Padding y={20} />
     <div>
-      {`© ${new Date().getFullYear()}, BGPworks. All rights reserved.`}
+      {`© ${new Date().getFullYear()}, BGPworks. ${t("footer:copyRight")}`}
     </div>
-  </div>
+  </article>
 );
 
 const MobileFooterMenusAndInfo = ({ t, language, onChangeIsShowLangPopup }) => (
-  <div className={styles.footerMenusAndInfoContainer}>
-    <div className={styles.footerMenusAndInfoContentContainer}>
-      <MobileFooterMenus
-        t={t}
-        language={language}
-        onChangeIsShowLangPopup={onChangeIsShowLangPopup}
-      />
-      <Padding y={50} />
-      <CompanyInfo t={t} />
-    </div>
-  </div>
+  <section className={styles.footerMenusAndInfoContainer}>
+    <MobileFooterMenus
+      t={t}
+      language={language}
+      onChangeIsShowLangPopup={onChangeIsShowLangPopup}
+    />
+    <Padding y={50} />
+    <CompanyInfo t={t} />
+  </section>
 );
 
 const MobileFooter = ({
   closingEmoji,
   closingMsg,
   onChangeIsShowLangPopup,
-  showEssentialOnly,
+  showPlatforms,
+  showStartNow,
 }) => {
   const { t, language } = useI18next();
   return (
-    <div>
-      {!showEssentialOnly && (
+    <footer>
+      {showPlatforms && <Platforms t={t} />}
+      {showStartNow && (
         <StartNow
           emoji={closingEmoji}
           message={closingMsg}
-          t={t}
         />
       )}
       <MobileFooterMenusAndInfo
@@ -184,7 +191,7 @@ const MobileFooter = ({
         language={language}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
-    </div>
+    </footer>
   );
 };
 
@@ -192,7 +199,13 @@ MobileFooter.propTypes = {
   closingEmoji: PropTypes.object,
   // string or object
   closingMsg: PropTypes.any,
-  showEssentialOnly: PropTypes.bool,
+  showPlatforms: PropTypes.bool,
+  showStartNow: PropTypes.bool,
+};
+
+MobileFooter.defaultProps = {
+  showPlatforms: true,
+  showStartNow: true,
 };
 
 export default MobileFooter;
