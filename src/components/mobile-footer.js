@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
@@ -11,13 +12,47 @@ import * as styles from "./mobile-footer.module.css";
 // images
 import svgCompanyLogo from "../images/company-logo.svg";
 
-const Platforms = ({ t }) => (
-  <section>{t("footer:platformsTitle")}</section>
-);
+const Platforms = ({ t }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      mobileFooterPlatforms: file(relativePath: { eq: "platforms.png" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 335
+            tracedSVGOptions: {
+              turnPolicy: TURNPOLICY_MAJORITY
+              turdSize: 1
+              color: "#f0f0f31f"
+              threshold: 160
+              alphaMax: 1
+            }
+            placeholder: TRACED_SVG
+            transformOptions: { fit: FILL }
+          )
+        }
+      }
+    }
+  `);
+  return (
+    <section className={styles.platformsContainer}>
+      <h2 className={styles.platformsTitle}>{t("footer:platformsTitle")}</h2>
+      <Padding y={16} />
+      <p className={styles.platformsDesc}>{t("footer:platformsMessage")}</p>
+      <Padding y={40} />
+      <GatsbyImage
+        image={data.mobileFooterPlatforms.childImageSharp.gatsbyImageData}
+        alt={t("footer:platformsTitle")}
+      />
+    </section>
+  );
+};
 
 const StartNow = ({ emoji, message }) => (
   <section className={styles.startNowContainer}>
-    <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
+    <GatsbyImage
+      image={emoji.childImageSharp.gatsbyImageData}
+      alt={message}
+    />
     <Padding y={10} />
     <p className={styles.startNowDescription}>{message}</p>
   </section>
