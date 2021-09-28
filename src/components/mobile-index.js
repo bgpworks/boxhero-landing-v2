@@ -66,10 +66,12 @@ const Top = ({ data, t }) => (
       </p>
       <Padding y={50} />
       <div className={styles.topImageContainer}>
-        <GatsbyImage
-          image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
-          alt={t("index:topIconAlt")}
-        />
+        <div className={styles.topImageScrollContainer}>
+          <GatsbyImage
+            image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
+            alt={t("index:topIconAlt")}
+          />
+        </div>
       </div>
     </MobileBaseContainer>
   </GradientBG>
@@ -154,16 +156,17 @@ const KeyFeature = ({
       <Padding y={40} />
 
       <CarouselProvider
-        naturalSlideWidth={335}
-        naturalSlideHeight={388}
+        naturalSlideWidth={375}
+        naturalSlideHeight={0}
         totalSlides={carouselData.length}
+        touchEnabled={false}
         isIntrinsicHeight
       >
         <KeyFeatureSelector carouselData={carouselData} />
 
         <Padding y={30} />
 
-        <Slider>
+        <Slider className={styles.keyFeatureSlider}>
           {carouselData.map((slide, index) => (
             <Slide
               key={index}
@@ -224,8 +227,7 @@ const KeyFeatures = ({ data, t }) => (
 
 const DEFAULT_OFFSET = -95.5;
 const DOT_WIDTH = 200;
-const DOT_GAP = 10;
-const OFFSET_PER_DOT = DOT_WIDTH + DOT_GAP;
+const OFFSET_PER_DOT = DOT_WIDTH;
 
 const SalesManagementSelector = ({
   salesManagementData,
@@ -246,7 +248,6 @@ const SalesManagementSelector = ({
             className={styles.salesManagementDot}
             style={{
               width: DOT_WIDTH,
-              marginRight: DOT_GAP,
             }}
           >
             {title}
@@ -272,6 +273,7 @@ const SalesManagement = ({ data, t }) => {
       interval={3000}
       isPlaying
       totalSlides={salesManagementData.length}
+      touchEnabled={false}
     >
       <h2 className={styles.salesManagementTitle}>
         <Trans i18nKey="index:salesManagementTitle" />

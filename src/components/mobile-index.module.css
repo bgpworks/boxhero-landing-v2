@@ -2,12 +2,11 @@
 
 .topContainer {
   padding-top: var(--height-mobile-top-menu);
-  height: 630px;
   overflow: hidden;
 }
 
 .topContentContainer {
-  padding: 0 20px;
+  padding: 0 20px 50px;
   height: 100%;
   color: white;
   display: flex;
@@ -37,7 +36,18 @@
 }
 
 .topImageContainer {
-  overflow: visible;
+  width: 100vw;
+  height: 323px;
+  position: relative;
+  overflow: hidden;
+}
+
+.topImageScrollContainer {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  overflow-x: scroll;
 }
 
 /* Chatting */
@@ -100,16 +110,18 @@
 }
 
 .slideNavButton {
-  width: 24px;
-  height: 24px;
-  background: transparent;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: var(--color-gray4);
 }
 .slideNavButton:disabled {
   opacity: 0;
 }
 
 .keyFeatureSlideTitle {
-  max-width: 280px;
+  max-width: 223px;
   color: var(--color-font-gray1);
   font-weight: 500;
   padding: 12px 18px;
@@ -121,6 +133,11 @@
 
 .keyFeatureSlideTitle img {
   margin-right: 10px;
+}
+
+.keyFeatureSlider {
+  width: 100vw;
+  margin-left: -20px;
 }
 
 .keyFeatureDotGroup {
@@ -196,7 +213,6 @@
 .salesManagementSelector {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: flex-start;
   position: relative;
   /* carousel default animation */

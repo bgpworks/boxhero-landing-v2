@@ -859,6 +859,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
+          width: 450
           quality: 100
           tracedSVGOptions: {
             turdSize: 1
@@ -868,12 +869,13 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
+          layout: FIXED
         )
       }
     }
     mobileFeature1CustomProducts: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-custom-products.png" }
+      base: { eq: "feature-mobile-custom-products.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
@@ -891,11 +893,10 @@ export const query = graphql`
     }
     mobileFeature1PrintLabel: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-print-label.png" }
+      base: { eq: "feature-mobile-print-label.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -910,11 +911,10 @@ export const query = graphql`
     }
     mobileFeature1ProductList: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-product-list.png" }
+      base: { eq: "feature-mobile-product-list.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -929,11 +929,10 @@ export const query = graphql`
     }
     mobileFeature1ImportExcel: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-import-excel.png" }
+      base: { eq: "feature-mobile-import-excel.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -948,11 +947,10 @@ export const query = graphql`
     }
     mobileFeature2SelectProduct: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-select-product.png" }
+      base: { eq: "feature-mobile-select-product.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -967,11 +965,10 @@ export const query = graphql`
     }
     mobileFeature2ScanBarcode: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-scan-barcode.png" }
+      base: { eq: "feature-mobile-scan-barcode.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -986,11 +983,10 @@ export const query = graphql`
     }
     mobileFeature2History: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-history.png" }
+      base: { eq: "feature-mobile-history.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -1005,11 +1001,10 @@ export const query = graphql`
     }
     mobileFeature2ConnectExcel: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-connect-excel.png" }
+      base: { eq: "feature-mobile-connect-excel.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -1024,11 +1019,10 @@ export const query = graphql`
     }
     mobileFeature3Analysis: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-analysis.png" }
+      base: { eq: "feature-mobile-analysis.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -1043,11 +1037,10 @@ export const query = graphql`
     }
     mobileFeature3GroupList: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-group-list.png" }
+      base: { eq: "feature-mobile-group-list.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -1062,11 +1055,10 @@ export const query = graphql`
     }
     mobileFeature3EmailReport: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-email-report.png" }
+      base: { eq: "feature-mobile-email-report.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -1081,11 +1073,10 @@ export const query = graphql`
     }
     mobileFeature3Dashboard: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-dashboard.png" }
+      base: { eq: "feature-mobile-dashboard.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -1161,7 +1152,6 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
           height: 261
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
