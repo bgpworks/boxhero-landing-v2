@@ -87,6 +87,7 @@
   max-height: calc(700px - var(--height-mobile-top-menu));
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .logoAndExpandCotainer {
