@@ -13,7 +13,7 @@ import * as styles from "./mobile-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import svgArrowBlack from "../images/icon-dropdown-arrow-black.svg";
+import svgArrowGray from "../images/icon-dropdown-arrow-gray.svg";
 
 const DropDown = ({ className, title, children }) => {
   const [isShowDropDown, onChangeIsShowDropDown] = useState(false);
@@ -37,7 +37,7 @@ const DropDown = ({ className, title, children }) => {
         <span className={styles.dropDownTitle}>{title}</span>
         <img
           className={styles.dropDownIcon}
-          src={svgArrowBlack}
+          src={svgArrowGray}
           alt={title}
         />
       </button>
@@ -154,9 +154,6 @@ const MobileHeader = ({ isFloatMenu }) => {
   const isBackgroundWhite = !isFloatMenu || isScrolled || isShow;
   return (
     <>
-      <div
-        className={`${styles.menuOpenBg} ${isShow ? styles.isOpen : ""}`}
-      />
       <header
         className={`${styles.headerContainer} ${
           isBackgroundWhite ? styles.whiteContainer : ""
@@ -179,9 +176,10 @@ const MobileHeader = ({ isFloatMenu }) => {
             <div className={styles.menuBtnLine} />
           </button>
         </div>
-
-        {isShow && <MobileMenu />}
       </header>
+
+      {isShow && <MobileMenu />}
+
       {!isFloatMenu && <div className={styles.headerPlaceholder} />}
     </>
   );

@@ -1,18 +1,3 @@
-.menuOpenBg {
-  position: fixed;
-  display: none;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 199;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.menuOpenBg.isOpen {
-  display: block;
-}
-
 .headerContainer {
   position: fixed;
   top: 0;
@@ -82,9 +67,14 @@
 }
 
 .menuContainer {
-  padding: 0px 20px 30px 20px;
-  height: calc(100vh - var(--height-mobile-top-menu));
-  max-height: calc(700px - var(--height-mobile-top-menu));
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: var(--height-mobile-top-menu) 20px 30px 20px;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  z-index: 199;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
