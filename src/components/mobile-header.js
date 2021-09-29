@@ -43,16 +43,19 @@ const DropDown = ({ className, title, children }) => {
       </button>
       {isShowDropDown && (
         <ul className={styles.dropDownSubMenus}>
-          {children}
+          {children && children.map((dropDownItem, index) => (
+            <li
+              key={index}
+              className={styles.dropDownItem}
+            >
+              {dropDownItem}
+            </li>
+          ))}
         </ul>
       )}
     </div>
   );
 };
-
-const DropDownItem = ({ children }) => (
-  <li className={styles.dropDownItem}>{children}</li>
-);
 
 const LangOption = ({ lang }) => {
   const { language, changeLanguage } = useI18next();
@@ -90,34 +93,24 @@ const MobileMenu = () => {
   return (
     <nav className={styles.menuContainer}>
       <DropDown title={t("header:menuService")}>
-        <DropDownItem>
-          <Link to="/about/">
-            {t("header:menuServiceAbout")}
-          </Link>
-        </DropDownItem>
-        <DropDownItem>
-          <Link to="/features/">
-            {t("header:menuServiceFeatures")}
-          </Link>
-        </DropDownItem>
+        <Link to="/about/">
+          {t("header:menuServiceAbout")}
+        </Link>
+        <Link to="/features/">
+          {t("header:menuServiceFeatures")}
+        </Link>
       </DropDown>
 
       <DropDown title={t("header:menuUseCases")}>
-        <DropDownItem>
-          <Link to="/usecase-sales/">
-            {t("header:menuUseCaseSales")}
-          </Link>
-        </DropDownItem>
-        <DropDownItem>
-          <Link to="/usecase-material/">
-            {t("header:menuUseCaseMaterial")}
-          </Link>
-        </DropDownItem>
-        <DropDownItem>
-          <Link to="/usecase-assets/">
-            {t("header:menuUseCaseAssets")}
-          </Link>
-        </DropDownItem>
+        <Link to="/usecase-sales/">
+          {t("header:menuUseCaseSales")}
+        </Link>
+        <Link to="/usecase-material/">
+          {t("header:menuUseCaseMaterial")}
+        </Link>
+        <Link to="/usecase-assets/">
+          {t("header:menuUseCaseAssets")}
+        </Link>
       </DropDown>
 
       <div className={styles.singleMenu}>
@@ -127,25 +120,19 @@ const MobileMenu = () => {
       </div>
 
       <DropDown title={t("header:menuResource")}>
-        <DropDownItem>
-          <Link to="/blog/">
-            {t("header:menuCompanyBlog")}
-          </Link>
-        </DropDownItem>
-        <DropDownItem>
-          <a href={t("url:doc")}>
-            {t("header:menuDoc")}
-          </a>
-        </DropDownItem>
+        <Link to="/blog/">
+          {t("header:menuCompanyBlog")}
+        </Link>
+        <a href={t("url:doc")}>
+          {t("header:menuDoc")}
+        </a>
       </DropDown>
 
       <DropDown title={t("header:menuLanguage")}>
-        <DropDownItem>
-          <LangOption lang="en" />
-          <LangOption lang="ko" />
-          <LangOption lang="es" />
-          <LangOption lang="id" />
-        </DropDownItem>
+        <LangOption lang="en" />
+        <LangOption lang="ko" />
+        <LangOption lang="es" />
+        <LangOption lang="id" />
       </DropDown>
 
       <div className={styles.startNowContainer}>
