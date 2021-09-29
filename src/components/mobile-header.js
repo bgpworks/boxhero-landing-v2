@@ -72,6 +72,21 @@ const LangOption = ({ lang }) => {
 const MobileMenu = () => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useI18next();
+
+  React.useEffect(() => {
+    function disableScrolling() {
+      const x = window.scrollX;
+      const y = window.scrollY;
+      window.onscroll = () => window.scrollTo(x, y);
+    }
+    disableScrolling();
+
+    function enableScrolling() {
+      window.onscroll = () => {};
+    }
+    return () => enableScrolling();
+  }, []);
+
   return (
     <nav className={styles.menuContainer}>
       <DropDown title={t("header:menuService")}>
