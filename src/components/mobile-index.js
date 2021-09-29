@@ -68,6 +68,7 @@ const Top = ({ data, t }) => (
       <div className={styles.topImageContainer}>
         <div className={styles.topImageScrollContainer}>
           <GatsbyImage
+            className={styles.topImage}
             image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
             alt={t("index:topIconAlt")}
           />
@@ -117,7 +118,7 @@ const Chatting = ({ t }) => {
 const KeyFeatureSelector = ({ carouselData }) => {
   const { t } = useI18next();
   return (
-    <div className={styles.KeyFeatureSelector}>
+    <MobileBaseContainer className={styles.KeyFeatureSelector}>
       <ButtonBack className={styles.slideNavButton}>
         <img
           src={svgLeftArrow}
@@ -141,7 +142,7 @@ const KeyFeatureSelector = ({ carouselData }) => {
           alt={t("index:featuresNavNext")}
         />
       </ButtonNext>
-    </div>
+    </MobileBaseContainer>
   );
 };
 
@@ -154,37 +155,36 @@ const KeyFeature = ({
       <Padding y={16} />
       <p className={styles.keyFeatureDescription}>{description}</p>
       <Padding y={40} />
-
-      <CarouselProvider
-        naturalSlideWidth={375}
-        naturalSlideHeight={0}
-        totalSlides={carouselData.length}
-        touchEnabled={false}
-        isIntrinsicHeight
-      >
-        <KeyFeatureSelector carouselData={carouselData} />
-
-        <Padding y={30} />
-
-        <Slider className={styles.keyFeatureSlider}>
-          {carouselData.map((slide, index) => (
-            <Slide
-              key={index}
-              index={index}
-            >
-              <GatsbyImage
-                image={slide.img.childImageSharp.gatsbyImageData}
-                alt={slide.title}
-              />
-            </Slide>
-          ))}
-        </Slider>
-
-        <Padding y={10} />
-
-        <DotGroup className={styles.keyFeatureDotGroup} />
-      </CarouselProvider>
     </MobileBaseContainer>
+    <CarouselProvider
+      naturalSlideWidth={375}
+      naturalSlideHeight={0}
+      totalSlides={carouselData.length}
+      touchEnabled={false}
+      isIntrinsicHeight
+    >
+      <KeyFeatureSelector carouselData={carouselData} />
+
+      <Padding y={30} />
+
+      <Slider className={styles.keyFeatureSlider}>
+        {carouselData.map((slide, index) => (
+          <Slide
+            key={index}
+            index={index}
+          >
+            <GatsbyImage
+              image={slide.img.childImageSharp.gatsbyImageData}
+              alt={slide.title}
+            />
+          </Slide>
+        ))}
+      </Slider>
+
+      <Padding y={10} />
+
+      <DotGroup className={styles.keyFeatureDotGroup} />
+    </CarouselProvider>
   </div>
 );
 

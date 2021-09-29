@@ -46,8 +46,11 @@
   width: 100%;
   position: absolute;
   top: 0;
-  left: 20px;
   overflow-x: scroll;
+}
+
+.topImage {
+  margin-left: 20px;
 }
 
 /* Chatting */
@@ -82,7 +85,7 @@
 }
 
 .keyFeatureContentContainer {
-  padding: 50px 20px;
+  padding: 50px 20px 0;
   color: var(--color-font-gray1);
 }
 
@@ -107,6 +110,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 }
 
 .slideNavButton {
@@ -137,12 +141,12 @@
 
 .keyFeatureSlider {
   width: 100vw;
-  margin-left: -20px;
 }
 
 .keyFeatureDotGroup {
   display: flex;
   justify-content: center;
+  padding: 0 20px 50px;
 }
 
 .keyFeatureDot {
