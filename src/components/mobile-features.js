@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "./mobile-layout";
-import { Container320, Padding, MobileSimpleTop } from "./common";
+import { Container320, Padding } from "./common";
 import * as constants from "./constants";
 // css
 import * as styles from "./mobile-features.module.css";
@@ -12,13 +12,24 @@ const {
   bgOrange, bgGreen, bgBlue, bgWhite,
 } = styles;
 
+const Top = ({ t }) => (
+  <Container320 className={styles.topContainer}>
+    <h1 className={styles.topTitle}>{t("features:topTitle")}</h1>
+    <Padding y={16} />
+    <p className={styles.topDesc}>
+      <Trans i18nKey="features:topDescMobile" />
+    </p>
+  </Container320>
+);
+
 const DemoTemplate = ({ icon, title, desc }) => (
-  <div className={styles.demoTemplate}>
+  <article className={styles.demoTemplate}>
     <div className={styles.demoUserProfile}>
       <GatsbyImage
         image={icon}
-        className={styles.demoLogo}
+        alt={title}
       />
+      <Padding y={12} />
       <span className={styles.demoTitle}>
         -
         {" "}
@@ -27,39 +38,31 @@ const DemoTemplate = ({ icon, title, desc }) => (
         -
       </span>
     </div>
-    <Padding y={20} />
+    <Padding y={16} />
     <div className={styles.demoDesc}>{desc}</div>
-  </div>
+  </article>
 );
 
 function FeatureTemplate({
   id, bgColor, title, desc, figure, demoData,
 }) {
   return (
-    <div
-      id={id}
-      className={[styles.featureTemplate, bgColor].join(" ")}
-    >
-      <div className={`${styles.px20} ${styles.featureTemplateTitle}`}>
-        {title}
-      </div>
+    <section className={bgColor}>
+      <Container320
+        id={id}
+        className={styles.featureTemplate}
+      >
+        <h2 className={styles.featureTemplateTitle}>{title}</h2>
+        <Padding y={16} />
+        <p className={styles.featureTemplateDesc}>{desc}</p>
+        <Padding y={40} />
+        <GatsbyImage
+          image={figure}
+          alt={title}
+        />
+        <Padding y={30} />
 
-      <Padding y={20} />
-
-      <div className={`${styles.px20} ${styles.featureTemplateDesc}`}>
-        {desc}
-      </div>
-
-      <Padding y={30} />
-
-      <div className={styles.featureTemplateFigureContainer}>
-        <GatsbyImage image={figure} />
-      </div>
-
-      <Padding y={31} />
-
-      <Container320>
-        <div className={styles.px20}>
+        <div>
           {demoData
             .slice(0, 2)
             .map((data, index) => (
@@ -72,7 +75,7 @@ function FeatureTemplate({
             ))}
         </div>
       </Container320>
-    </div>
+    </section>
   );
 }
 
@@ -201,18 +204,16 @@ const MobileFeatures = ({ data, t }) => (
     closingEmoji={data.mobileDinosaur}
     closingMsg={t("features:closingMsg")}
   >
-    <Container320 className={styles.px20}>
-      <MobileSimpleTop title={t("features:topTitle")}>
-        <Trans i18nKey="features:topDescMobile" />
-      </MobileSimpleTop>
-    </Container320>
-
-    <Padding y={50} />
+    <Top t={t} />
 
     <FeatureLowstock data={data} />
+
     <FeatureBarcodelabel data={data} />
+
     <FeatureSummary data={data} />
+
     <FeatureViewPastQuantity data={data} />
+
     <FeatureLocation data={data} />
   </MobileLayout>
 );

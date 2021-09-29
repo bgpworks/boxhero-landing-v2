@@ -344,7 +344,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -353,7 +353,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -399,7 +398,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f3"
@@ -408,7 +407,6 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -454,7 +452,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f3"
@@ -463,7 +461,6 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -509,7 +506,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
@@ -518,7 +515,6 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -564,7 +560,7 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -573,7 +569,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
