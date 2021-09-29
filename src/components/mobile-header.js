@@ -75,8 +75,8 @@ const MobileMenu = () => {
 
   React.useEffect(() => {
     function disableScrolling() {
-      const x = window.scrollX;
-      const y = window.scrollY;
+      const x = window.scrollX || window.pageXOffset;
+      const y = window.scrollY || window.pageYOffset;
       window.onscroll = () => window.scrollTo(x, y);
     }
     disableScrolling();
