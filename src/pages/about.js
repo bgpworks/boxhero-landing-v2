@@ -131,7 +131,8 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 335
+          width: 450
+          quality: 100
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
@@ -140,6 +141,7 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
+          layout: FIXED
         )
       }
     }
@@ -160,6 +162,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -175,6 +178,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -190,6 +194,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1

@@ -38,10 +38,15 @@ const Top = ({ data }) => (
         <Trans i18nKey="about:topTitleMobile" />
       </h2>
       <Padding y={40} />
-      <GatsbyImage
-        image={data.mobileTopLogo.childImageSharp.gatsbyImageData}
-        alt={<Trans i18nKey="about:topTitleMobile" />}
-      />
+      <div className={styles.topImageContainer}>
+        <div className={styles.topImageScrollContainer}>
+          <GatsbyImage
+            className={styles.topImage}
+            image={data.mobileTopLogo.childImageSharp.gatsbyImageData}
+            alt={<Trans i18nKey="about:topTitleMobile" />}
+          />
+        </div>
+      </div>
     </Container320>
   </GradientBG>
 );
