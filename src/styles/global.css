@@ -51,6 +51,11 @@
   --font-size-b14: 14px;
   --font-size-b12: 12px;
   --font-size-b10: 10px;
+  --font-size-mobile-h1: 26px;
+  --font-size-mobile-h2: 24px;
+  --font-size-mobile-h3: 20px;
+  --font-size-mobile-h4: 18px;
+  --font-size-mobile-normal: 16px;
 }
 
 html {

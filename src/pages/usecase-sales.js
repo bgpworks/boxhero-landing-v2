@@ -169,5 +169,135 @@ export const query = graphql`
         )
       }
     }
+    mobileFinger: file(relativePath: { eq: "emoji-finger.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 36
+          height: 36
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    mobileAllInOne: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-all-in-one.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 335
+          quality: 90
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+        )
+      }
+    }
+    mobileCustomProduct: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-custom-product.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          height: 390
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    mobileSalesOut: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-sales-out.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          height: 416
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    mobileScanBarcode: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-scan-barcode.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          height: 390
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    mobileCustomizeBarcode: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-customize-barcode.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 276
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    mobileAnalysis: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-analysis.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          height: 372
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
   }
 `;
