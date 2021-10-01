@@ -97,6 +97,8 @@ html[lang="ko"] .mobileSimpleTopDesc {
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
   text-align: center;
+  letter-spacing: -0.1px;
+  line-height: normal;
 }
 .mobileUseCaseTopTitle strong {
   color: var(--color-primary);
