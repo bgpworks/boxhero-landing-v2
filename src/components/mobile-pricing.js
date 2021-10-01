@@ -272,34 +272,36 @@ const Faq = ({ t }) => {
   ];
   return (
     <section className={styles.faqContainer}>
-      <h2 className={styles.faqTitle}>{t("pricing:faqTitle")}</h2>
+      <Container320 className={styles.faqContentContainer}>
+        <h2 className={styles.faqTitle}>{t("pricing:faqTitle")}</h2>
 
-      <Padding y={35} />
+        <Padding y={35} />
 
-      {faqData.map((faq, index) => (
-        <DropDownQNA
-          key={index}
-          title={faq.question}
-          titleClassName={styles.faqItemTitle}
-          bodyClassName={styles.faqItemBody}
-        >
-          <Trans
-            i18nKey={faq.answer.i18nKey}
-            components={faq.answer.components}
-          />
-        </DropDownQNA>
-      ))}
+        {faqData.map((faq, index) => (
+          <DropDownQNA
+            key={index}
+            title={faq.question}
+            titleClassName={styles.faqItemTitle}
+            bodyClassName={styles.faqItemBody}
+          >
+            <Trans
+              i18nKey={faq.answer.i18nKey}
+              components={faq.answer.components}
+            />
+          </DropDownQNA>
+        ))}
 
-      <Padding y={30} />
+        <Padding y={30} />
 
-      <a href={t("url:pricing")}>
-        <button
-          type="button"
-          className={styles.buttonShowMore}
-        >
-          {t("pricing:faqMoreButton")}
-        </button>
-      </a>
+        <a href={t("url:pricing")}>
+          <button
+            type="button"
+            className={styles.buttonShowMore}
+          >
+            {t("pricing:faqMoreButton")}
+          </button>
+        </a>
+      </Container320>
     </section>
   );
 };

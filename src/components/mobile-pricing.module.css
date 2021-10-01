@@ -160,7 +160,7 @@
 }
 
 .planPostscript {
-  width: 300px;
+  max-width: 300px;
   margin: 0 auto;
   font-size: var(--font-size-mobile-small);
   text-align: center;
@@ -171,6 +171,9 @@
 
 .faqContainer {
   background-color: var(--color-bg-light);
+}
+
+.faqContentContainer {
   padding: 50px 40px;
   color: var(--color-font-gray1);
 }
