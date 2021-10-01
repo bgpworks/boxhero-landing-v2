@@ -7,6 +7,7 @@
   "directContactInquiryButon": "1:1 Konsultasi",
   "directContactTitle": "Butuh bantuan?",
   "extensionDescription": "<small>*Business Plan diperlukan<br/>untuk menambah opsi.</small>",
+  "extensionDescriptionMobile": "*Business Plan diperlukan<br/>untuk menambah opsi.",
   "faq1Answer": "<p>Undang anggota tidak termasuk dalam <strong>Single Plan</strong> dan hanya dapat digunakan sendiri. Hingga 100 barang diperbolehkan dan 3 lokasi jika menggunakan Mode Lokasi. Selain itu, opsi penambahan tidak tersedia untuk Single Plan.</p><p><strong>Business Plan</strong> memungkinkan mengundang anggota hingga 10 anggota untuk efisiensi pengelolaan tim. Hingga 2.000 barang diperbolehkan dan 10 lokasi jika menggunakan Mode Lokasi. Opsi penambahan tersedia kapan saja dengan biaya tambahan.</p>",
   "faq1Question": "Apa perbedaan antara Single Plan dan Business Plan?",
   "faq2Answer": "<p>Harganya tetap sama, tetapi jumlah batasannya sedikit berbeda.</p><ul><li><strong>Mode Unit:</strong> Batasan dihitung dengan jumlah unit yang terdaftar.</li><li><strong>Mode Lokasi:</strong> Batasan dihitung oleh plan.</li><ul><li><strong> Single Plan:</strong> 3 lokasi (Penambahan opsi tidak tersedia)</li><li><strong>Business Plan:</strong> 10 lokasi (Penambahan hingga 100 lokasi tersedia / $10 untuk 10 lokasi per bulan)</li></ul></ul><p>Untuk informasi lebih lanjut tentang setiap mode, silakan lihat <faqModeLink>di sini</faqModeLink> atau halaman pembuatan tim.</p>",

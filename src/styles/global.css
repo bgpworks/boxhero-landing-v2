@@ -39,6 +39,7 @@
   --color-font-gray1: #292a2f;
   --color-gray2: #8f91a0;
   --color-gray4: #e0e0e3;
+  --font-size-46: 46px;
   --font-size-h1: 42px;
   --font-size-40: 40px;
   --font-size-36: 36px;
@@ -51,6 +52,11 @@
   --font-size-b14: 14px;
   --font-size-b12: 12px;
   --font-size-b10: 10px;
+  --font-size-mobile-h1: 26px;
+  --font-size-mobile-h2: 24px;
+  --font-size-mobile-h3: 20px;
+  --font-size-mobile-h4: 18px;
+  --font-size-mobile-normal: 16px;
 }
 
 html {
