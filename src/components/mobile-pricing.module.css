@@ -19,12 +19,12 @@
 
 .topDescTitle {
   margin: 0;
-  font-size: var(--font-size-mobile-normal);
+  font-size: var(--font-size-mobile-h4);
   font-weight: normal;
 }
 
 .topDescDesc {
-  font-size: var(--font-size-mobile-small);
+  font-size: var(--font-size-mobile-normal);
   color: var(--color-font-primary);
 }
 
@@ -174,7 +174,7 @@
 }
 
 .faqContentContainer {
-  padding: 50px 40px;
+  padding: 50px 20px;
   color: var(--color-font-gray1);
 }
 
@@ -224,7 +224,7 @@
 /* direct contact */
 
 .directContactContainer {
-  padding: 50px 40px;
+  padding: 50px 20px;
   text-align: center;
 }
 
