@@ -19,22 +19,9 @@
   color: white;
 }
 
-.topImageContainer {
-  width: 100vw;
-  height: 348px;
-  position: relative;
-  overflow: hidden;
-}
-
 .topImageScrollContainer {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  overflow-x: scroll;
-}
-
-.topImage {
-  margin-left: 20px;
+  width: 100vw;
+  padding-left: 20px;
 }
 
 /* StrongPoints */

@@ -1,6 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
+import ScrollContainer from "react-indiana-drag-scroll";
 // js
 import MobileLayout from "./mobile-layout";
 import {
@@ -38,15 +39,12 @@ const Top = ({ data }) => (
         <Trans i18nKey="about:topTitleMobile" />
       </h2>
       <Padding y={40} />
-      <div className={styles.topImageContainer}>
-        <div className={styles.topImageScrollContainer}>
-          <GatsbyImage
-            className={styles.topImage}
-            image={data.mobileTopLogo.childImageSharp.gatsbyImageData}
-            alt={<Trans i18nKey="about:topTitleMobile" />}
-          />
-        </div>
-      </div>
+      <ScrollContainer className={styles.topImageScrollContainer}>
+        <GatsbyImage
+          image={data.mobileTopLogo.childImageSharp.gatsbyImageData}
+          alt={<Trans i18nKey="about:topTitleMobile" />}
+        />
+      </ScrollContainer>
     </Container320>
   </GradientBG>
 );
