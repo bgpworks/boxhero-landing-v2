@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import ScrollContainer from "react-indiana-drag-scroll";
 import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
@@ -274,13 +275,17 @@ export const MobileUseCaseFeature = ({
       />
     </article>
     <Padding y={40} />
-    <article className={styles.mobileUseCaseFeatureImageContainer}>
+    <ScrollContainer
+      vertical={false}
+      horizontal
+      hideScrollbars
+      className={styles.mobileUseCaseFeatureImageContainer}
+    >
       <GatsbyImage
-        className={styles.mobileUseCaseFeatureImage}
         image={img.childImageSharp.gatsbyImageData}
         alt={title}
       />
-    </article>
+    </ScrollContainer>
     <Padding y={16} />
     <ul className={styles.mobileUseCaseFeatureDescContainer}>
       {descriptions.map((description, index) => {
