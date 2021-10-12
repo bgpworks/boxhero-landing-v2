@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import cn from "classnames";
-import { ExternalLinkWithQuery } from "./common";
-import { urlStart } from "./constants";
+import { StartNowButton } from "./common";
 import { useCheckScrolled } from "../hooks/use-check-scrolled";
 import { useClickOutside } from "../hooks/use-click-outside";
 import { LANG_NAME } from "./language-selector";
@@ -137,14 +136,10 @@ const MobileMenu = () => {
       </DropDown>
 
       <div className={styles.startNowContainer}>
-        <ExternalLinkWithQuery href={urlStart}>
-          <button
-            type="button"
-            className={styles.startNowButton}
-          >
-            {t("header:startNowButton")}
-          </button>
-        </ExternalLinkWithQuery>
+        <StartNowButton
+          className={styles.startNowButton}
+          startNow={t("header:startNowButton")}
+        />
       </div>
     </nav>
   );
@@ -163,26 +158,21 @@ const MobileHeader = ({ isFloatMenu }) => {
           { [styles.whiteContainer]: isBackgroundWhite },
         )}
       >
-        <div className={styles.logoAndExpandCotainer}>
-          <Link to="/">
-            <img
-              src={isBackgroundWhite ? svgBiBlue : svgBiWhite}
-              className={styles.biLogo}
-              alt="Home"
-            />
-          </Link>
-          <button
-            type="button"
-            className={cn(
-              styles.menuBtn,
-              { [styles.isOpen]: isShow },
-            )}
-            onClick={() => onChangeIsShow(!isShow)}
-          >
-            <div className={styles.menuBtnLine} />
-            <div className={styles.menuBtnLine} />
-          </button>
-        </div>
+        <Link to="/">
+          <img
+            src={isBackgroundWhite ? svgBiBlue : svgBiWhite}
+            className={styles.biLogo}
+            alt="Home"
+          />
+        </Link>
+        <button
+          type="button"
+          className={cn(styles.menuBtn, { [styles.isOpen]: isShow })}
+          onClick={() => onChangeIsShow(!isShow)}
+        >
+          <div className={styles.menuBtnLine} />
+          <div className={styles.menuBtnLine} />
+        </button>
       </header>
 
       {isShow && <MobileMenu />}
