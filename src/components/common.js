@@ -282,6 +282,7 @@ export const MobileUseCaseFeature = ({
       className={styles.mobileUseCaseFeatureImageContainer}
     >
       <GatsbyImage
+        className={styles.mobileUseCaseFeatureImage}
         image={img.childImageSharp.gatsbyImageData}
         alt={title}
       />

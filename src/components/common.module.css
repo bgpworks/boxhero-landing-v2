@@ -190,7 +190,11 @@ html[lang="ko"] .mobileSimpleTopDesc {
 
 .mobileUseCaseFeatureImageContainer {
   width: 100vw;
-  padding-left: 20px;
+  padding: 0 20px;
+}
+
+.mobileUseCaseFeatureImage {
+  margin: 0 auto;
 }
 
 .mobileUseCaseFeatureDescContainer {
