@@ -13,6 +13,7 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
+import ScrollContainer from "react-indiana-drag-scroll";
 // js
 import MobileLayout from "./mobile-layout";
 import {
@@ -65,15 +66,18 @@ const Top = ({ data, t }) => (
         <Trans i18nKey="index:topDescMobile" />
       </p>
       <Padding y={50} />
-      <div className={styles.topImageContainer}>
-        <div className={styles.topImageScrollContainer}>
-          <GatsbyImage
-            className={styles.topImage}
-            image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
-            alt={t("index:topIconAlt")}
-          />
-        </div>
-      </div>
+      <ScrollContainer
+        vertical={false}
+        horizontal
+        hideScrollbars
+        className={styles.topImageScrollContainer}
+      >
+        <GatsbyImage
+          className={styles.topImage}
+          image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
+          alt={t("index:topIconAlt")}
+        />
+      </ScrollContainer>
     </MobileBaseContainer>
   </GradientBG>
 );
