@@ -47,11 +47,11 @@ function FeatureTemplate({
   id, bgColor, title, desc, figure, demoData,
 }) {
   return (
-    <section className={bgColor}>
-      <Container320
-        id={id}
-        className={styles.featureTemplate}
-      >
+    <section
+      id={id}
+      className={bgColor}
+    >
+      <Container320 className={styles.featureTemplate}>
         <h2 className={styles.featureTemplateTitle}>{title}</h2>
         <Padding y={16} />
         <p className={styles.featureTemplateDesc}>{desc}</p>
