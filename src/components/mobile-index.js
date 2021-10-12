@@ -605,6 +605,7 @@ const StartNow = ({ data, t }) => (
     <Padding y={40} />
     <GatsbyImage
       image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData}
+      alt={t("index:startNowTitle")}
       style={{ margin: "0 auto" }}
     />
     <Padding y={40} />

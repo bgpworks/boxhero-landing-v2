@@ -283,7 +283,7 @@ const KeyFeatureDescription = ({ title, description, carouselData }) => (
 
 const KeyFeatureSlider = ({ carouselData }) => (
   <Slider className={styles.keyFeatureSlider}>
-    {carouselData.map(({ img, text }, index) => (
+    {carouselData.map(({ img, title }, index) => (
       <Slide
         innerClassName={styles.keyFeatureSlide}
         key={index}
@@ -291,7 +291,7 @@ const KeyFeatureSlider = ({ carouselData }) => (
       >
         <GatsbyImage
           image={img}
-          alt={text}
+          alt={title}
         />
       </Slide>
     ))}
