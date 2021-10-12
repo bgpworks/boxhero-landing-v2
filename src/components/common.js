@@ -1,7 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
 import svgEye from "../images/icon-eye.svg";
@@ -291,24 +290,6 @@ export const Ribbon = ({ className, children }) => (
     <span>{children}</span>
   </div>
 );
-
-export const useCurrentSlide = () => {
-  const carouselContext = useContext(CarouselContext);
-
-  const [currentSlide, setCurrentSlide] = useState(
-    carouselContext.state.currentSlide,
-  );
-
-  useEffect(() => {
-    function onChange() {
-      setCurrentSlide(carouselContext.state.currentSlide);
-    }
-    carouselContext.subscribe(onChange);
-    return () => carouselContext.unsubscribe(onChange);
-  }, [carouselContext]);
-
-  return { currentSlide };
-};
 
 // query param을 유지하면서 a href를 사용한다.
 // 광고 트래킹을 위해 사용되며, 첫 진입시 query param을 붙여서 나간다.

@@ -19,8 +19,8 @@ import {
   ExternalLinkWithQuery,
   GradientBG,
   SpeechBubbleContainer,
-  useCurrentSlide,
 } from "./common";
+import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
 // css
 import * as styles from "./desktop-index.module.css";

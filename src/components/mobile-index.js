@@ -21,8 +21,8 @@ import {
   Padding,
   SpeechBubbleContainer,
   GradientBG,
-  useCurrentSlide,
 } from "./common";
+import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
 // css
 import * as styles from "./mobile-index.module.css";
