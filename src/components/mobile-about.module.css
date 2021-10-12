@@ -21,7 +21,11 @@
 
 .topImageScrollContainer {
   width: 100vw;
-  padding-left: 20px;
+  padding: 0 20px;
+}
+
+.topImage {
+  margin: 0 auto;
 }
 
 /* StrongPoints */

@@ -41,6 +41,7 @@ const Top = ({ data }) => (
       <Padding y={40} />
       <ScrollContainer className={styles.topImageScrollContainer}>
         <GatsbyImage
+          className={styles.topImage}
           image={data.mobileTopLogo.childImageSharp.gatsbyImageData}
           alt={<Trans i18nKey="about:topTitleMobile" />}
         />
