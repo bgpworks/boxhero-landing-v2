@@ -73,6 +73,7 @@ const Top = ({ data, t }) => (
         className={styles.topImageScrollContainer}
       >
         <GatsbyImage
+          className={styles.topImage}
           image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
           alt={t("index:topIconAlt")}
         />
@@ -152,7 +153,7 @@ const KeyFeatureSelector = ({ carouselData }) => {
 const KeyFeature = ({
   title, description, carouselData,
 }) => (
-  <div className={styles.keyFeatureContainer}>
+  <section className={styles.keyFeatureContainer}>
     <MobileBaseContainer className={styles.keyFeatureContentContainer}>
       <h2 className={styles.keyFeatureTitle}>{title}</h2>
       <Padding y={16} />
@@ -170,25 +171,27 @@ const KeyFeature = ({
 
       <Padding y={30} />
 
-      <Slider className={styles.keyFeatureSlider}>
-        {carouselData.map((slide, index) => (
-          <Slide
-            key={index}
-            index={index}
-          >
-            <GatsbyImage
-              image={slide.img.childImageSharp.gatsbyImageData}
-              alt={slide.title}
-            />
-          </Slide>
-        ))}
-      </Slider>
+      <MobileBaseContainer>
+        <Slider className={styles.keyFeatureSlider}>
+          {carouselData.map((slide, index) => (
+            <Slide
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={slide.img.childImageSharp.gatsbyImageData}
+                alt={slide.title}
+              />
+            </Slide>
+          ))}
+        </Slider>
+      </MobileBaseContainer>
 
       <Padding y={10} />
 
       <DotGroup className={styles.keyFeatureDotGroup} />
     </CarouselProvider>
-  </div>
+  </section>
 );
 
 const KeyFeatures = ({ data, t }) => (
@@ -390,7 +393,7 @@ const Customers = ({ data, t }) => {
   const customerData = genCustomerData(data);
 
   return (
-    <div className={styles.customersContainer}>
+    <MobileBaseContainer className={styles.customersContainer}>
       <h1 className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
       </h1>
@@ -411,7 +414,7 @@ const Customers = ({ data, t }) => {
         ))}
         <div className={styles.customersFadeOut} />
       </div>
-    </div>
+    </MobileBaseContainer>
   );
 };
 

@@ -37,7 +37,11 @@
 
 .topImageScrollContainer {
   width: 100vw;
-  padding-left: 20px;
+  padding: 0 20px;
+}
+
+.topImage {
+  margin: 0 auto;
 }
 
 /* Chatting */
@@ -127,7 +131,7 @@
 }
 
 .keyFeatureSlider {
-  width: 100vw;
+  width: 100%;
 }
 
 .keyFeatureDotGroup {
@@ -229,7 +233,8 @@
 }
 
 .salesManagementSlider {
-  width: 335px;
+  width: 100vw;
+  max-width: 335px;
   height: 276px;
 }
 
