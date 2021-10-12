@@ -4,6 +4,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
+import ScrollContainer from "react-indiana-drag-scroll";
 import {
   CarouselProvider,
   Slider,
@@ -13,7 +14,6 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
-import ScrollContainer from "react-indiana-drag-scroll";
 // js
 import MobileLayout from "./mobile-layout";
 import {
@@ -73,7 +73,6 @@ const Top = ({ data, t }) => (
         className={styles.topImageScrollContainer}
       >
         <GatsbyImage
-          className={styles.topImage}
           image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
           alt={t("index:topIconAlt")}
         />
