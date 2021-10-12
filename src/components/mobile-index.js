@@ -20,7 +20,6 @@ import {
   MobileBaseContainer,
   Padding,
   SpeechBubbleContainer,
-  WithCurrentSlide,
   GradientBG,
   useCurrentSlide,
 } from "./common";
@@ -121,6 +120,8 @@ const Chatting = ({ t }) => {
 
 const KeyFeatureSelector = ({ carouselData }) => {
   const { t } = useI18next();
+  const { currentSlide } = useCurrentSlide();
+
   return (
     <MobileBaseContainer className={styles.KeyFeatureSelector}>
       <ButtonBack className={styles.slideNavButton}>
@@ -129,17 +130,13 @@ const KeyFeatureSelector = ({ carouselData }) => {
           alt={t("index:featuresNavBack")}
         />
       </ButtonBack>
-      <WithCurrentSlide>
-        {(currentSlide) => (
-          <div className={styles.keyFeatureSlideTitle}>
-            <img
-              src={carouselData[currentSlide].icon}
-              alt={carouselData[currentSlide].title}
-            />
-            {carouselData[currentSlide].title}
-          </div>
-        )}
-      </WithCurrentSlide>
+      <div className={styles.keyFeatureSlideTitle}>
+        <img
+          src={carouselData[currentSlide].icon}
+          alt={carouselData[currentSlide].title}
+        />
+        {carouselData[currentSlide].title}
+      </div>
       <ButtonNext className={styles.slideNavButton}>
         <img
           src={svgRightArrow}
@@ -509,29 +506,45 @@ const FeatureSelector = ({
   );
 
   return (
-    <WithCurrentSlide>
-      {() => (
-        <div className={styles.slideDetailDotGroupContainer}>
-          <div
-            key="background"
-            className={styles.slideDetailDotBackground}
-            style={{ minWidth: selectedWidth }}
-          >
-            0
-          </div>
-          <DotGroup
-            className={styles.slideDetailDotGroup}
-            style={{ marginLeft: offsetToSelected }}
-            renderDots={(props) => renderDots(
-              featureData,
-              setOffsetToSelected,
-              setSelectedWidth,
-              props,
-            )}
-          />
-        </div>
-      )}
-    </WithCurrentSlide>
+    <div className={styles.slideDetailDotGroupContainer}>
+      <div
+        key="background"
+        className={styles.slideDetailDotBackground}
+        style={{ minWidth: selectedWidth }}
+      >
+        0
+      </div>
+      <DotGroup
+        className={styles.slideDetailDotGroup}
+        style={{ marginLeft: offsetToSelected }}
+        renderDots={(props) => renderDots(
+          featureData,
+          setOffsetToSelected,
+          setSelectedWidth,
+          props,
+        )}
+      />
+    </div>
+  );
+};
+
+const FeatureDetailLink = ({ t, featureData }) => {
+  const { currentSlide } = useCurrentSlide();
+  return (
+    <div className={styles.slideDetailLinkContainer}>
+      <Link
+        to={featureData[currentSlide].link}
+        title={featureData[currentSlide].title}
+        className={styles.slideDetailLink}
+      >
+        {t("index:featuresDetailLink")}
+        <img
+          src={svgSmallRightBlue}
+          className={styles.rightArrow}
+          alt={t("index:featuresDetailLink")}
+        />
+      </Link>
+    </div>
   );
 };
 
@@ -576,24 +589,10 @@ const Features = ({ data, t, language }) => {
 
       <Padding y={30} />
 
-      <div className={styles.slideDetailLinkContainer}>
-        <WithCurrentSlide>
-          {(currentSlide) => (
-            <Link
-              to={featureData[currentSlide].link}
-              title={featureData[currentSlide].title}
-              className={styles.slideDetailLink}
-            >
-              {t("index:featuresDetailLink")}
-              <img
-                src={svgSmallRightBlue}
-                className={styles.rightArrow}
-                alt={t("index:featuresDetailLink")}
-              />
-            </Link>
-          )}
-        </WithCurrentSlide>
-      </div>
+      <FeatureDetailLink
+        t={t}
+        featureData={featureData}
+      />
     </CarouselProvider>
   );
 };

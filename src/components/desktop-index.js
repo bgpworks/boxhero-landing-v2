@@ -16,10 +16,10 @@ import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
-  WithCurrentSlide,
   ExternalLinkWithQuery,
   GradientBG,
   SpeechBubbleContainer,
+  useCurrentSlide,
 } from "./common";
 import * as constants from "./constants";
 // css
@@ -468,6 +468,26 @@ const Customers = ({ data, t }) => {
   );
 };
 
+const FeatureDetailLink = ({ t, featureData }) => {
+  const { currentSlide } = useCurrentSlide();
+  return (
+    <div className={styles.slideDetailLinkContainer}>
+      <Link
+        to={featureData[currentSlide].link}
+        title={featureData[currentSlide].title}
+        className={styles.slideDetailLink}
+      >
+        {t("index:featuresDetailLink")}
+        <img
+          src={svgSmallRightBlue}
+          className={styles.rightArrow}
+          alt={t("index:featuresDetailLink")}
+        />
+      </Link>
+    </div>
+  );
+};
+
 const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);
   return (
@@ -521,24 +541,10 @@ const Features = ({ data, t }) => {
 
         <Padding y={40} />
 
-        <div className={styles.slideDetailLinkContainer}>
-          <WithCurrentSlide>
-            {(currentSlide) => (
-              <Link
-                to={featureData[currentSlide].link}
-                title={featureData[currentSlide].title}
-                className={styles.slideDetailLink}
-              >
-                {t("index:featuresDetailLink")}
-                <img
-                  src={svgSmallRightBlue}
-                  className={styles.rightArrow}
-                  alt={t("index:featuresDetailLink")}
-                />
-              </Link>
-            )}
-          </WithCurrentSlide>
-        </div>
+        <FeatureDetailLink
+          t={t}
+          featureData={featureData}
+        />
       </CarouselProvider>
     </div>
   );

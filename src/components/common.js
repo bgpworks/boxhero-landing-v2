@@ -292,24 +292,6 @@ export const Ribbon = ({ className, children }) => (
   </div>
 );
 
-export const WithCurrentSlide = ({ children }) => {
-  const carouselContext = useContext(CarouselContext);
-  const [currentSlide, setCurrentSlide] = useState(
-    carouselContext.state.currentSlide,
-  );
-  useEffect(() => {
-    function onChange() {
-      setCurrentSlide(carouselContext.state.currentSlide);
-    }
-    carouselContext.subscribe(onChange);
-    return () => carouselContext.unsubscribe(onChange);
-  }, [carouselContext]);
-  if (children && children instanceof Function) {
-    return children(currentSlide);
-  }
-  return "";
-};
-
 export const useCurrentSlide = () => {
   const carouselContext = useContext(CarouselContext);
 
