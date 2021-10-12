@@ -28,10 +28,10 @@ const DropDown = ({ className, title, children }) => {
     >
       <button
         type="button"
-        className={cn([
+        className={cn(
           styles.dropDownButton,
-          isShowDropDown ? styles.dropDownActive : "",
-        ])}
+          { [styles.dropDownActive]: isShowDropDown },
+        )}
         onClick={() => onChangeIsShowDropDown(!isShowDropDown)}
       >
         <span className={styles.dropDownTitle}>{title}</span>
@@ -62,9 +62,10 @@ const LangOption = ({ lang }) => {
   return (
     <button
       type="button"
-      className={`${styles.langButton} ${
-        language === lang ? styles.selected : ""
-      }`}
+      className={cn(
+        styles.langButton,
+        { [styles.selected]: language === lang },
+      )}
       onClick={() => changeLanguage(lang)}
     >
       {LANG_NAME[lang] || lang}
@@ -157,9 +158,10 @@ const MobileHeader = ({ isFloatMenu }) => {
   return (
     <>
       <header
-        className={`${styles.headerContainer} ${
-          isBackgroundWhite ? styles.whiteContainer : ""
-        }`}
+        className={cn(
+          styles.headerContainer,
+          { [styles.whiteContainer]: isBackgroundWhite },
+        )}
       >
         <div className={styles.logoAndExpandCotainer}>
           <Link to="/">
@@ -171,7 +173,10 @@ const MobileHeader = ({ isFloatMenu }) => {
           </Link>
           <button
             type="button"
-            className={`${styles.menuBtn} ${isShow ? styles.isOpen : ""}`}
+            className={cn(
+              styles.menuBtn,
+              { [styles.isOpen]: isShow },
+            )}
             onClick={() => onChangeIsShow(!isShow)}
           >
             <div className={styles.menuBtnLine} />
