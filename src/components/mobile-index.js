@@ -123,7 +123,7 @@ const KeyFeatureSelector = ({ carouselData }) => {
   const { currentSlide } = useCurrentSlide();
 
   return (
-    <MobileBaseContainer className={styles.KeyFeatureSelector}>
+    <div className={styles.KeyFeatureSelector}>
       <ButtonBack className={styles.slideNavButton}>
         <img
           src={svgLeftArrow}
@@ -143,7 +143,7 @@ const KeyFeatureSelector = ({ carouselData }) => {
           alt={t("index:featuresNavNext")}
         />
       </ButtonNext>
-    </MobileBaseContainer>
+    </div>
   );
 };
 
@@ -156,19 +156,19 @@ const KeyFeature = ({
       <Padding y={16} />
       <p className={styles.keyFeatureDescription}>{description}</p>
       <Padding y={40} />
-    </MobileBaseContainer>
-    <CarouselProvider
-      naturalSlideWidth={375}
-      naturalSlideHeight={0}
-      totalSlides={carouselData.length}
-      touchEnabled={false}
-      isIntrinsicHeight
-    >
-      <KeyFeatureSelector carouselData={carouselData} />
 
-      <Padding y={30} />
+      <CarouselProvider
+        className={styles.keyFeatureCarousel}
+        naturalSlideWidth={375}
+        naturalSlideHeight={0}
+        totalSlides={carouselData.length}
+        touchEnabled={false}
+        isIntrinsicHeight
+      >
+        <KeyFeatureSelector carouselData={carouselData} />
 
-      <MobileBaseContainer>
+        <Padding y={30} />
+
         <Slider className={styles.keyFeatureSlider}>
           {carouselData.map((slide, index) => (
             <Slide
@@ -182,12 +182,12 @@ const KeyFeature = ({
             </Slide>
           ))}
         </Slider>
-      </MobileBaseContainer>
 
-      <Padding y={10} />
+        <Padding y={10} />
 
-      <DotGroup className={styles.keyFeatureDotGroup} />
-    </CarouselProvider>
+        <DotGroup className={styles.keyFeatureDotGroup} />
+      </CarouselProvider>
+    </MobileBaseContainer>
   </section>
 );
 
