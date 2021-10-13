@@ -5,7 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import * as constants from "./constants";
-import { Padding } from "./common";
+import { Padding, SupportEmail } from "./common";
 import SocialLinkList from "./social-link-list";
 // css
 import * as styles from "./mobile-footer.module.css";
@@ -126,9 +126,7 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
       <span>
         {t("footer:footerMenuContactEmail")}
         {" "}
-        <a href="mailto:support+boxhero@bgpworks.com">
-          support+boxhero@bgpworks.com
-        </a>
+        <SupportEmail />
       </span>
       <span>
         {t("footer:footerMenuContactBusiness")}
@@ -169,6 +167,7 @@ const CompanyInfo = ({ t }) => (
         i18nKey="footer:companyInfoAddressMobile"
       />
     </div>
+
     <Padding y={40} />
     <div className={styles.policyLink}>
       <Trans
@@ -184,6 +183,7 @@ const CompanyInfo = ({ t }) => (
       />
     </div>
     <Padding y={40} />
+
     <SocialLinkList />
     <Padding y={20} />
     <div>
