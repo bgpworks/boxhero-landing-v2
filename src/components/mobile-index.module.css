@@ -6,7 +6,7 @@
 }
 
 .topContentContainer {
-  padding: 0 20px 50px;
+  padding: 30px 20px 50px;
   height: 100%;
   color: white;
   display: flex;
@@ -21,7 +21,7 @@
   height: 24px;
 }
 
-.topLeftTitle {
+.topTitle {
   margin: 0;
   font-size: var(--font-size-mobile-h1);
   font-weight: bold;
@@ -29,14 +29,14 @@
   text-align: center;
 }
 
-.topLeftDescription {
+.topDescription {
   margin: 0;
   line-height: 1.5;
+  letter-spacing: -0.16px;
   text-align: center;
 }
 
 .topImageScrollContainer {
-  width: 100vw;
   padding: 0 20px;
 }
 

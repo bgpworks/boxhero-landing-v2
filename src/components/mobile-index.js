@@ -57,27 +57,27 @@ const Top = ({ data, t }) => (
         alt={t("index:topIconAlt")}
       />
       <Padding y={10} />
-      <h2 className={styles.topLeftTitle}>
+      <h2 className={styles.topTitle}>
         <Trans i18nKey="index:topTitleMobile" />
       </h2>
       <Padding y={20} />
-      <p className={styles.topLeftDescription}>
+      <p className={styles.topDescription}>
         <Trans i18nKey="index:topDescMobile" />
       </p>
-      <Padding y={50} />
-      <ScrollContainer
-        vertical={false}
-        horizontal
-        hideScrollbars
-        className={styles.topImageScrollContainer}
-      >
-        <GatsbyImage
-          className={styles.topImage}
-          image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
-          alt={t("index:topIconAlt")}
-        />
-      </ScrollContainer>
     </MobileBaseContainer>
+    <ScrollContainer
+      vertical={false}
+      horizontal
+      hideScrollbars
+      className={styles.topImageScrollContainer}
+    >
+      <GatsbyImage
+        className={styles.topImage}
+        image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
+        alt={t("index:topIconAlt")}
+      />
+    </ScrollContainer>
+    <Padding y={50} />
   </GradientBG>
 );
 
