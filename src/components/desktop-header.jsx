@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 // js
 import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
+import { useCheckScrolled } from "../hooks/use-check-scrolled";
 // css
 import * as styles from "./desktop-header.module.css";
 // images
@@ -18,8 +19,6 @@ import svgParts from "../images/icon-parts.svg";
 import svgAsset from "../images/icon-asset.svg";
 import svgBlog from "../images/icon-blog.svg";
 import svgCS from "../images/icon-cs.svg";
-import { useCheckScrolled } from "../hooks/use-check-scrolled";
-import { useClickOutside } from "../hooks/use-click-outside";
 
 const DropDownSubMenu = ({
   title,
@@ -46,36 +45,23 @@ const DropDownMenu = ({
   title,
   isBackgroundWhite,
   children,
-}) => {
-  const [isShow, onChangeIsShow] = useState(false);
-
-  const dropDownMenuRef = useRef();
-  useClickOutside(dropDownMenuRef, () => onChangeIsShow(false));
-
-  return (
+}) => (
+  <div className={styles.dropDownMenu}>
     <div
-      ref={dropDownMenuRef}
-      className={styles.dropDownMenu}
+      role="presentation"
+      className={styles.dropDownMenuTitle}
     >
-      <div
-        role="presentation"
-        className={styles.dropDownMenuTitle}
-        onClick={() => onChangeIsShow(!isShow)}
-      >
-        <span>{title}</span>
-        <img
-          src={isBackgroundWhite ? svgDropDownArrowGray : svgDropDownArrowWhite}
-          alt={title}
-        />
-      </div>
-      {isShow && (
-        <div className={styles.floatingMenuContainer}>
-          {children}
-        </div>
-      )}
+      <span>{title}</span>
+      <img
+        src={isBackgroundWhite ? svgDropDownArrowGray : svgDropDownArrowWhite}
+        alt={title}
+      />
     </div>
-  );
-};
+    <div className={styles.floatingMenuContainer}>
+      {children}
+    </div>
+  </div>
+);
 
 const DesktopHeader = ({ isFloatMenu }) => {
   const { isScrolled } = useCheckScrolled();
