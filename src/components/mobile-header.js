@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
-// js
 import cn from "classnames";
-import { StartNowButton } from "./common";
+// js
+import { AppDownloadLink, StartNowButton, Padding } from "./common";
 import { useCheckScrolled } from "../hooks/use-check-scrolled";
 import { useClickOutside } from "../hooks/use-click-outside";
 import { LANG_NAME } from "./language-selector";
@@ -136,9 +136,18 @@ const MobileMenu = () => {
       </DropDown>
 
       <div className={styles.startNowContainer}>
+        <AppDownloadLink>
+          <button
+            type="button"
+            className={styles.appDownloadButton}
+          >
+            {t("header:appInstall")}
+          </button>
+        </AppDownloadLink>
+        <Padding x={20} />
         <StartNowButton
           className={styles.startNowButton}
-          startNow={t("header:startNowButton")}
+          startNow={t("header:menuLoginButton")}
         />
       </div>
     </nav>
