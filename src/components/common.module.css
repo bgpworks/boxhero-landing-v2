@@ -112,6 +112,24 @@ html[lang="ko"] .mobileSimpleTopDesc {
   letter-spacing: -0.1px;
 }
 
+.appDownloadButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 243px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: black;
+  font-weight: bold;
+  color: white;
+}
+
+.appDownloadIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
 .useCaseFeatureContentContainer {
   padding: 100px 0;
   display: flex;

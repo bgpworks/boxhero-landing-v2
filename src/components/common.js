@@ -9,6 +9,7 @@ import svgEye from "../images/icon-eye.svg";
 import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
+import svgDownload from "../images/download.svg";
 import {
   urlStart,
   urlDownloadApp,
@@ -161,7 +162,7 @@ export const UseCaseTop = ({
 );
 
 export const MobileUseCaseTop = ({
-  className, title, description, startNow, img,
+  className, title, description, appDownload, img,
 }) => (
   <section className={className}>
     <Container320
@@ -171,10 +172,19 @@ export const MobileUseCaseTop = ({
       <Padding y={16} />
       <p className={styles.mobileUseCaseTopDesc}>{description}</p>
       <Padding y={40} />
-      <StartNowButton
-        startNow={startNow}
-        className={styles.startNowButton}
-      />
+      <AppDownloadLink>
+        <button
+          type="button"
+          className={styles.appDownloadButton}
+        >
+          <img
+            className={styles.appDownloadIcon}
+            src={svgDownload}
+            alt={appDownload}
+          />
+          {appDownload}
+        </button>
+      </AppDownloadLink>
       <Padding y={40} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}

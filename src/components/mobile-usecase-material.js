@@ -75,6 +75,7 @@ const UseCaseFeatures = ({ data, t }) => {
 const MobileUsecaseMaterial = ({ data, t }) => (
   <MobileLayout
     isFloatMenu={false}
+    hideFloatAppInstallButton
     showPlatforms={false}
     closingEmoji={data.mobileFinger}
     closingMsg={t("usecase:closingMsg")}
@@ -83,7 +84,7 @@ const MobileUsecaseMaterial = ({ data, t }) => (
       className={styles.useCaseTopContainer}
       title={<Trans i18nKey="usecase:materialTopTitleMobile" />}
       description={<Trans i18nKey="usecase:materialTopDesc" />}
-      startNow={t("usecase:startNowButton")}
+      appDownload={t("usecase:appInstall")}
       img={data.mobileHistory4}
     />
 

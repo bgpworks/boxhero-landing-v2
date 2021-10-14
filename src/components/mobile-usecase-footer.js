@@ -1,7 +1,10 @@
 import React from "react";
 import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
-import { Container320, Padding, StartNowButton } from "./common";
+// js
+import { Container320, Padding, AppDownloadLink } from "./common";
+// css
 import * as styles from "./mobile-usecase-footer.module.css";
+// img
 import svgPerson from "../images/icon-person.svg";
 import svgBox from "../images/icon-box.svg";
 import svgPlus from "../images/icon-plus.svg";
@@ -30,10 +33,14 @@ const PriceCard = ({
       ))}
     </ul>
     <Padding y={40} />
-    <StartNowButton
-      className={styles.startNowButton}
-      startNow={startNowButton}
-    />
+    <AppDownloadLink>
+      <button
+        type="button"
+        className={styles.startNowButton}
+      >
+        {startNowButton}
+      </button>
+    </AppDownloadLink>
   </article>
 );
 

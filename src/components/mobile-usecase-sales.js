@@ -114,6 +114,7 @@ const UseCaseFeatures = ({ data, t }) => {
 const MobileUsecaseSales = ({ data, t }) => (
   <MobileLayout
     isFloatMenu={false}
+    hideFloatAppInstallButton
     showPlatforms={false}
     closingEmoji={data.mobileFinger}
     closingMsg={t("usecase:closingMsg")}
@@ -122,7 +123,7 @@ const MobileUsecaseSales = ({ data, t }) => (
       className={styles.useCaseTopContainer}
       title={<Trans i18nKey="usecase:salesTopTitle" />}
       description={<Trans i18nKey="usecase:salesTopDesc" />}
-      startNow={t("usecase:startNowButton")}
+      appDownload={t("usecase:appInstall")}
       img={data.mobileAllInOne}
     />
 
