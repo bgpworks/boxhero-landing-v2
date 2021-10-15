@@ -16,7 +16,7 @@ import * as constants from "./constants";
 import * as styles from "./mobile-pricing.module.css";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
-  <article>
+  <>
     <GatsbyImage
       className={styles.topDescIcon}
       image={emoji}
@@ -26,7 +26,7 @@ const TopDescColumn = ({ emoji, title, desc }) => (
     <h3 className={styles.topDescTitle}>{title}</h3>
     <Padding y={5} />
     <p className={styles.topDescDesc}>{desc}</p>
-  </article>
+  </>
 );
 
 const Top = ({ data, t }) => (

@@ -24,6 +24,7 @@
 }
 
 .topDescDesc {
+  margin: 0;
   font-size: var(--font-size-mobile-normal);
   color: var(--color-font-primary);
 }
