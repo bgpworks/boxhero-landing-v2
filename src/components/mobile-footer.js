@@ -47,11 +47,11 @@ const Platforms = ({ t }) => {
   );
 };
 
-const StartNow = ({ emoji, message }) => (
+const StartNow = ({ t, emoji, message }) => (
   <section className={styles.startNowContainer}>
     <GatsbyImage
       image={emoji.childImageSharp.gatsbyImageData}
-      alt={message}
+      alt={t("footer:startNowButton")}
     />
     <Padding y={10} />
     <p className={styles.startNowDescription}>{message}</p>
@@ -217,6 +217,7 @@ const MobileFooter = ({
       {showPlatforms && <Platforms t={t} />}
       {showStartNow && (
         <StartNow
+          t={t}
           emoji={closingEmoji}
           message={closingMsg}
         />
