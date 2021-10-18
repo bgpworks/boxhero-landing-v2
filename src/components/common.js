@@ -272,17 +272,20 @@ export const MobileUseCaseFeature = ({
   descriptions,
   children,
 }) => (
-  <MobileBaseContainer
-    className={styles.mobileUseCaseFeatureContentContainer}
-  >
-    <h2 className={styles.mobileUseCaseFeatureTitle}>{title}</h2>
-    <Padding y={40} />
-    <article className={styles.mobileSpeechBubbleContainer}>
-      <SpeechBubbleContainer
-        colorSequence={bubleColorSequence}
-        speechBubbles={speechBubbles}
-      />
-    </article>
+  <>
+    <MobileBaseContainer
+      className={styles.mobileUseCaseFeatureTopContainer}
+    >
+      <h2 className={styles.mobileUseCaseFeatureTitle}>{title}</h2>
+      <Padding y={40} />
+      <article className={styles.mobileSpeechBubbleContainer}>
+        <SpeechBubbleContainer
+          colorSequence={bubleColorSequence}
+          speechBubbles={speechBubbles}
+        />
+      </article>
+    </MobileBaseContainer>
+
     <Padding y={40} />
     <ScrollContainer
       vertical={false}
@@ -297,20 +300,25 @@ export const MobileUseCaseFeature = ({
       />
     </ScrollContainer>
     <Padding y={16} />
-    <ul className={styles.mobileUseCaseFeatureDescContainer}>
-      {descriptions.map((description, index) => {
-        const isLastChild = index === descriptions.length - 1;
-        return (
-          <MobileUseCaseFeatureDesc
-            key={index}
-            icon={isLastChild ? svgEye : svgCircleCheck}
-            text={description}
-          />
-        );
-      })}
-    </ul>
-    {children}
-  </MobileBaseContainer>
+
+    <MobileBaseContainer
+      className={styles.mobileUseCaseFeatureBottomContainer}
+    >
+      <ul className={styles.mobileUseCaseFeatureDescContainer}>
+        {descriptions.map((description, index) => {
+          const isLastChild = index === descriptions.length - 1;
+          return (
+            <MobileUseCaseFeatureDesc
+              key={index}
+              icon={isLastChild ? svgEye : svgCircleCheck}
+              text={description}
+            />
+          );
+        })}
+      </ul>
+      {children}
+    </MobileBaseContainer>
+  </>
 );
 
 export const DropDownQNA = ({
