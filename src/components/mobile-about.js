@@ -5,7 +5,7 @@ import ScrollContainer from "react-indiana-drag-scroll";
 // js
 import MobileLayout from "./mobile-layout";
 import {
-  Container320,
+  MobileBaseContainer,
   GradientBG,
   Padding,
 } from "./common";
@@ -34,7 +34,7 @@ const Top = ({ data }) => (
     colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
     backgroundColor="#6159F5"
   >
-    <Container320 className={styles.topContentContainer}>
+    <MobileBaseContainer className={styles.topContentContainer}>
       <h2 className={styles.topTitle}>
         <Trans i18nKey="about:topTitleMobile" />
       </h2>
@@ -46,7 +46,7 @@ const Top = ({ data }) => (
           alt={<Trans i18nKey="about:topTitleMobile" />}
         />
       </ScrollContainer>
-    </Container320>
+    </MobileBaseContainer>
   </GradientBG>
 );
 
@@ -64,7 +64,7 @@ const StrongPoint = ({ title, desc, img }) => (
 );
 
 const StrongPoints = ({ data }) => (
-  <Container320>
+  <MobileBaseContainer>
     <StrongPoint
       title={<Trans i18nKey="about:strongPoint1Title" />}
       desc={<Trans i18nKey="about:strongPoint1DescMobile" />}
@@ -82,7 +82,7 @@ const StrongPoints = ({ data }) => (
       desc={<Trans i18nKey="about:strongPoint3DescMobile" />}
       img={data.mobileMobile}
     />
-  </Container320>
+  </MobileBaseContainer>
 );
 
 const FeatureCard = ({
@@ -244,7 +244,7 @@ const OtherFeatures = ({ t }) => {
       colorSet={["#0291FD", "#0385AA", "#2A59DD", "#8228FD"]}
       backgroundColor="#6159F5"
     >
-      <Container320 className={styles.featureContentContainer}>
+      <MobileBaseContainer className={styles.featureContentContainer}>
         <h2 className={styles.featureTitle}>{t("about:otherFeaturesTitle")}</h2>
         <Padding y={16} />
         <p className={styles.featureDesc}>
@@ -258,7 +258,7 @@ const OtherFeatures = ({ t }) => {
             columns={columns}
           />
         ))}
-      </Container320>
+      </MobileBaseContainer>
     </GradientBG>
   );
 };
