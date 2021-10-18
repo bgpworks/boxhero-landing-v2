@@ -4,7 +4,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "./mobile-layout";
 import {
-  Container320,
+  MobileBaseContainer,
   Padding,
   DropDownQNA,
   Switch,
@@ -30,7 +30,7 @@ const TopDescColumn = ({ emoji, title, desc }) => (
 );
 
 const Top = ({ data, t }) => (
-  <Container320 className={styles.topContentContainer}>
+  <MobileBaseContainer className={styles.topContentContainer}>
     <h1 className={styles.topTitle}>{t("pricing:topTitle")}</h1>
     <Padding y={30} />
     <TopDescColumn
@@ -44,7 +44,7 @@ const Top = ({ data, t }) => (
       title={t("pricing:topDesc2Title")}
       desc={<Trans i18nKey="pricing:topDesc2Desc" />}
     />
-  </Container320>
+  </MobileBaseContainer>
 );
 
 const PlanDetail = ({ header, children }) => (
@@ -189,7 +189,7 @@ const BusinessPlan = ({ t }) => {
 };
 
 const PriceTable = ({ t }) => (
-  <Container320 className={styles.priceTableContentContainer}>
+  <MobileBaseContainer className={styles.priceTableContentContainer}>
     <FreePlan t={t} />
 
     <BusinessPlan t={t} />
@@ -198,7 +198,7 @@ const PriceTable = ({ t }) => (
     <p className={styles.planPostscript}>
       <Trans i18nKey="pricing:footerDescription" />
     </p>
-  </Container320>
+  </MobileBaseContainer>
 );
 
 const Faq = ({ t }) => {
@@ -272,7 +272,7 @@ const Faq = ({ t }) => {
   ];
   return (
     <section className={styles.faqContainer}>
-      <Container320 className={styles.faqContentContainer}>
+      <MobileBaseContainer className={styles.faqContentContainer}>
         <h2 className={styles.faqTitle}>{t("pricing:faqTitle")}</h2>
 
         <Padding y={35} />
@@ -301,13 +301,13 @@ const Faq = ({ t }) => {
             {t("pricing:faqMoreButton")}
           </button>
         </a>
-      </Container320>
+      </MobileBaseContainer>
     </section>
   );
 };
 
 const DirectContact = ({ t }) => (
-  <Container320 className={styles.directContactContainer}>
+  <MobileBaseContainer className={styles.directContactContainer}>
     <h2 className={styles.directContactTitle}>
       {t("pricing:directContactTitle")}
     </h2>
@@ -331,7 +331,7 @@ const DirectContact = ({ t }) => (
     >
       {t("pricing:directContactInquiryButon")}
     </button>
-  </Container320>
+  </MobileBaseContainer>
 );
 
 const MobilePricing = ({ data, language, t }) => (
