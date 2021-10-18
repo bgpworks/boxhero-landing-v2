@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { CarouselContext } from "pure-react-carousel";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
 import svgEye from "../images/icon-eye.svg";
@@ -30,15 +29,15 @@ DesktopBaseContainer.defaultProps = {
   className: "",
 };
 
-export const Container320 = ({ className, children }) => (
-  <div className={`${styles.container320} ${className}`}>{children}</div>
+export const MobileBaseContainer = ({ className, children }) => (
+  <div className={`${styles.mobileBaseContainer} ${className}`}>{children}</div>
 );
 
-Container320.propTypes = {
+MobileBaseContainer.propTypes = {
   className: PropTypes.string,
 };
 
-Container320.defaultProps = {
+MobileBaseContainer.defaultProps = {
   className: "",
 };
 
@@ -165,7 +164,7 @@ export const MobileUseCaseTop = ({
   className, title, description, appDownload, img,
 }) => (
   <section className={className}>
-    <Container320
+    <MobileBaseContainer
       className={styles.mobileUseCaseTopContentContainer}
     >
       <h2 className={styles.mobileUseCaseTopTitle}>{title}</h2>
@@ -190,7 +189,7 @@ export const MobileUseCaseTop = ({
         image={img.childImageSharp.gatsbyImageData}
         alt={title}
       />
-    </Container320>
+    </MobileBaseContainer>
   </section>
 );
 
@@ -273,7 +272,7 @@ export const MobileUseCaseFeature = ({
   descriptions,
   children,
 }) => (
-  <Container320
+  <MobileBaseContainer
     className={styles.mobileUseCaseFeatureContentContainer}
   >
     <h2 className={styles.mobileUseCaseFeatureTitle}>{title}</h2>
@@ -311,7 +310,7 @@ export const MobileUseCaseFeature = ({
       })}
     </ul>
     {children}
-  </Container320>
+  </MobileBaseContainer>
 );
 
 export const DropDownQNA = ({
@@ -388,24 +387,6 @@ export const Ribbon = ({ className, children }) => (
     <span>{children}</span>
   </div>
 );
-
-export const WithCurrentSlide = ({ children }) => {
-  const carouselContext = useContext(CarouselContext);
-  const [currentSlide, setCurrentSlide] = useState(
-    carouselContext.state.currentSlide,
-  );
-  useEffect(() => {
-    function onChange() {
-      setCurrentSlide(carouselContext.state.currentSlide);
-    }
-    carouselContext.subscribe(onChange);
-    return () => carouselContext.unsubscribe(onChange);
-  }, [carouselContext]);
-  if (children && children instanceof Function) {
-    return children(currentSlide);
-  }
-  return "";
-};
 
 // query param을 유지하면서 a href를 사용한다.
 // 광고 트래킹을 위해 사용되며, 첫 진입시 query param을 붙여서 나간다.

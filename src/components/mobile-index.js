@@ -2,9 +2,8 @@
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
 import React from "react";
-import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Link, Trans } from "gatsby-plugin-react-i18next";
+import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import {
   CarouselProvider,
@@ -12,27 +11,38 @@ import {
   Slide,
   DotGroup,
   Dot,
+  ButtonBack,
+  ButtonNext,
 } from "pure-react-carousel";
 // js
 import MobileLayout from "./mobile-layout";
 import {
-  Container320,
-  ContainerCenter,
+  MobileBaseContainer,
   Padding,
-  WithCurrentSlide,
+  SpeechBubbleContainer,
   GradientBG,
-  AppDownloadLink,
 } from "./common";
+import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
 // css
 import * as styles from "./mobile-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
-import svgAddItem from "../images/additem.svg";
-import svgCounting from "../images/counting.svg";
-import svgDashboard from "../images/dashboard.svg";
+import svgCategory from "../images/icon-category.svg";
+import svgScanning from "../images/icon-scanning.svg";
+import svgImage from "../images/icon-image.svg";
+import svgExcel from "../images/icon-excel.svg";
+import svgFinger from "../images/icon-finger.svg";
+import svgMobileScan from "../images/icon-mobile-scan.svg";
+import svgHistory from "../images/icon-history.svg";
+import svgConnectExcel from "../images/icon-connect-excel.svg";
+import svgGraph from "../images/icon-graph.svg";
+import svgList from "../images/icon-list.svg";
+import svgSummary from "../images/icon-summary.svg";
+import svgDashboard from "../images/icon-dashboard.svg";
+import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
+import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
-import svgSmallRight from "../images/smallright.svg";
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -40,93 +50,265 @@ const Top = ({ data, t }) => (
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
     backgroundColor="#6159F5"
   >
-    <Container320 className={styles.topContentContainer}>
-      <Padding y={74} />
+    <MobileBaseContainer className={styles.topContentContainer}>
       <img
         className={styles.topIcon}
         src={svgVolt}
         alt={t("index:topIconAlt")}
       />
       <Padding y={10} />
-      <div className={styles.topLeftTitle}>
+      <h2 className={styles.topTitle}>
         <Trans i18nKey="index:topTitleMobile" />
-      </div>
+      </h2>
       <Padding y={20} />
-      <div className={styles.topLeftDescription}>
+      <p className={styles.topDescription}>
         <Trans i18nKey="index:topDescMobile" />
-      </div>
-      <Padding y={30} />
-      <div className={styles.topImageContainer}>
-        <GatsbyImage
-          image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
-        />
-      </div>
-    </Container320>
+      </p>
+    </MobileBaseContainer>
+    <ScrollContainer
+      vertical={false}
+      horizontal
+      hideScrollbars
+      className={styles.topImageScrollContainer}
+    >
+      <GatsbyImage
+        className={styles.topImage}
+        image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
+        alt={t("index:topIconAlt")}
+      />
+    </ScrollContainer>
+    <Padding y={50} />
   </GradientBG>
 );
 
-const KeyFeature = ({
-  isDarkBg,
-  icon,
-  iconAlt,
-  title,
-  desc,
-  subTitle,
-  subDesc,
-  detailUrl,
-  image,
-  linkDetail,
-}) => (
-  <div className={isDarkBg ? styles.darkBg : ""}>
-    <ContainerCenter className={styles.keyFeatureContentContainer}>
-      <img
-        className={styles.keyFeatureIcon}
-        src={icon}
-        alt={iconAlt}
-      />
-      <Padding y={10} />
-      <div className={styles.keyFeatureTitle}>{title}</div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureDescription}>{desc}</div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureSubTitle}>{subTitle}</div>
-      <div className={styles.keyFeatureSubDesc}>{subDesc}</div>
-      <Padding y={20} />
-      <div className={styles.keyFeatureDetail}>
-        <Link
-          className={styles.keyFeatureDetailLinkContainer}
-          to={detailUrl}
-        >
-          {linkDetail}
-          <img
-            src={svgSmallRightBlue}
-            className={styles.rightArrow}
-            alt={linkDetail}
-          />
-        </Link>
-      </div>
-      <Padding y={30} />
-      <div>
-        <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
-      </div>
-    </ContainerCenter>
-  </div>
-);
+const CHATTING_COLOR_SEQUENCE = [
+  { text: "#292a2f", background: "#fbc200" },
+  { text: "white", background: "#50a4fa" },
+  { text: "#292a2f", background: "#e0e0e3" },
+  { text: "white", background: "rgba(79, 103, 255, 0.9)" },
+  { text: "white", background: "rgba(60, 185, 160, 0.8)" },
+  { text: "white", background: "rgba(126, 187, 64, 0.6)" },
+  { text: "white", background: "rgba(251, 97, 100, 0.6)" },
+];
 
-KeyFeature.propTypes = {
-  isDarkBg: PropTypes.bool,
-  icon: PropTypes.string.isRequired,
-  iconAlt: PropTypes.string.isRequired,
-  title: PropTypes.node.isRequired,
-  desc: PropTypes.node.isRequired,
-  subTitle: PropTypes.node.isRequired,
-  subDesc: PropTypes.node.isRequired,
-  detailUrl: PropTypes.string.isRequired,
-  image: PropTypes.object.isRequired,
+const Chatting = ({ t }) => {
+  const speechBubbles = [
+    { text: <Trans i18nKey="index:chattingBubble1Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble2Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble3Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble4Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble5Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble6Mobile" /> },
+    { text: <Trans i18nKey="index:chattingBubble7Mobile" /> },
+  ];
+
+  return (
+    <MobileBaseContainer className={styles.chattingContentContainer}>
+      <SpeechBubbleContainer
+        speechBubbles={speechBubbles}
+        colorSequence={CHATTING_COLOR_SEQUENCE}
+      />
+      <Padding y={50} />
+      <h2 className={styles.chattingTitle}>{t("index:chattingTitle")}</h2>
+      <Padding y={16} />
+      <p className={styles.chattingDescription}>
+        <Trans i18nKey="index:chattingDescription" />
+      </p>
+    </MobileBaseContainer>
+  );
 };
 
-KeyFeature.defaultProps = {
-  isDarkBg: false,
+const KeyFeatureSelector = ({ carouselData }) => {
+  const { t } = useI18next();
+  const { currentSlide } = useCurrentSlide();
+
+  return (
+    <div className={styles.KeyFeatureSelector}>
+      <ButtonBack className={styles.slideNavButton}>
+        <img
+          src={svgLeftArrow}
+          alt={t("index:featuresNavBack")}
+        />
+      </ButtonBack>
+      <div className={styles.keyFeatureSlideTitle}>
+        <img
+          src={carouselData[currentSlide].icon}
+          alt={carouselData[currentSlide].title}
+        />
+        {carouselData[currentSlide].title}
+      </div>
+      <ButtonNext className={styles.slideNavButton}>
+        <img
+          src={svgRightArrow}
+          alt={t("index:featuresNavNext")}
+        />
+      </ButtonNext>
+    </div>
+  );
+};
+
+const KeyFeature = ({
+  title, description, carouselData,
+}) => (
+  <section className={styles.keyFeatureContainer}>
+    <MobileBaseContainer className={styles.keyFeatureContentContainer}>
+      <h2 className={styles.keyFeatureTitle}>{title}</h2>
+      <Padding y={16} />
+      <p className={styles.keyFeatureDescription}>{description}</p>
+      <Padding y={40} />
+
+      <CarouselProvider
+        className={styles.keyFeatureCarousel}
+        naturalSlideWidth={375}
+        naturalSlideHeight={0}
+        totalSlides={carouselData.length}
+        touchEnabled={false}
+        isIntrinsicHeight
+      >
+        <KeyFeatureSelector carouselData={carouselData} />
+
+        <Padding y={30} />
+
+        <Slider className={styles.keyFeatureSlider}>
+          {carouselData.map((slide, index) => (
+            <Slide
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={slide.img.childImageSharp.gatsbyImageData}
+                alt={slide.title}
+              />
+            </Slide>
+          ))}
+        </Slider>
+
+        <Padding y={10} />
+
+        <DotGroup className={styles.keyFeatureDotGroup} />
+      </CarouselProvider>
+    </MobileBaseContainer>
+  </section>
+);
+
+const KeyFeatures = ({ data, t }) => (
+  <>
+    <KeyFeature
+      title={<Trans i18nKey="index:keyFeature1Title" />}
+      description={<Trans i18nKey="index:keyFeature1Desc" />}
+      carouselData={[
+        { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.mobileFeature1CustomProducts },
+        { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.mobileFeature1PrintLabel },
+        { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.mobileFeature1ProductList },
+        { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.mobileFeature1ImportExcel },
+      ]}
+    />
+
+    <KeyFeature
+      title={<Trans i18nKey="index:keyFeature2Title" />}
+      description={<Trans i18nKey="index:keyFeature2Desc" />}
+      carouselData={[
+        { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.mobileFeature2SelectProduct },
+        { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.mobileFeature2ScanBarcode },
+        { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.mobileFeature2History },
+        { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.mobileFeature2ConnectExcel },
+      ]}
+    />
+
+    <KeyFeature
+      title={<Trans i18nKey="index:keyFeature3Title" />}
+      description={<Trans i18nKey="index:keyFeature3Desc" />}
+      carouselData={[
+        { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.mobileFeature3Analysis },
+        { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.mobileFeature3GroupList },
+        { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.mobileFeature3EmailReport },
+        { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.mobileFeature3Dashboard },
+      ]}
+    />
+  </>
+);
+
+const DEFAULT_OFFSET = -95.5;
+const DOT_WIDTH = 200;
+const OFFSET_PER_DOT = DOT_WIDTH;
+
+const SalesManagementSelector = ({
+  salesManagementData,
+}) => {
+  const { currentSlide } = useCurrentSlide();
+  const additionalOffset = currentSlide * OFFSET_PER_DOT * -1;
+
+  return (
+    <div className={styles.salesManagementSelectorContainer}>
+      <DotGroup
+        className={styles.salesManagementSelector}
+        style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
+      >
+        {salesManagementData.map(({ title }, index) => (
+          <Dot
+            key={index}
+            slide={index}
+            className={styles.salesManagementDot}
+            style={{
+              width: DOT_WIDTH,
+            }}
+          >
+            {title}
+          </Dot>
+        ))}
+      </DotGroup>
+    </div>
+  );
+};
+
+const SalesManagement = ({ data, t }) => {
+  const salesManagementData = [
+    { title: t("index:salesManagementMenu1"), img: data.mobileFeatureTransaction },
+    { title: t("index:salesManagementMenu2"), img: data.mobileFeatureOut },
+    { title: t("index:salesManagementMenu3"), img: data.mobileFeatureSalesAnalysis },
+  ];
+
+  return (
+    <CarouselProvider
+      className={styles.salesManagementContentContainer}
+      naturalSlideWidth={335}
+      naturalSlideHeight={276}
+      interval={3000}
+      isPlaying
+      totalSlides={salesManagementData.length}
+      touchEnabled={false}
+    >
+      <h2 className={styles.salesManagementTitle}>
+        <Trans i18nKey="index:salesManagementTitle" />
+      </h2>
+      <Padding y={16} />
+      <p className={styles.salesManagementDesc}>
+        <Trans i18nKey="index:salesManagementDesc" />
+      </p>
+
+      <Padding y={40} />
+
+      <SalesManagementSelector
+        salesManagementData={salesManagementData}
+      />
+
+      <Padding y={30} />
+
+      <Slider className={styles.salesManagementSlider}>
+        {salesManagementData.map(({ img, title }, index) => (
+          <Slide
+            key={index}
+            index={index}
+          >
+            <GatsbyImage
+              image={img.childImageSharp.gatsbyImageData}
+              alt={title}
+            />
+          </Slide>
+        ))}
+      </Slider>
+    </CarouselProvider>
+  );
 };
 
 const TeamPlay = ({ data, t }) => (
@@ -135,153 +317,101 @@ const TeamPlay = ({ data, t }) => (
     colorSet={["#7D24FF", "#276EFE", "#7F50FE", "#0C92FE"]}
     backgroundColor="#6159F5"
   >
-    <Padding y={50} />
-    <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
-    <Padding y={20} />
-    <Container320 className={styles.teamPlayDesc}>
-      <Trans i18nKey="index:teamPlayDescMobile" />
-    </Container320>
-    <Padding y={29} />
-    <div className={styles.teamImageFlex}>
+    <MobileBaseContainer className={styles.teamPlayContentContainer}>
+      <Padding y={50} />
+      <h2 className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</h2>
+      <Padding y={16} />
+      <p className={styles.teamPlayDesc}>
+        <Trans i18nKey="index:teamPlayDescMobile" />
+      </p>
+      <Padding y={40} />
       <GatsbyImage
         image={data.mobileTeamPlay.childImageSharp.gatsbyImageData}
+        alt={t("index:teamPlayTitle")}
       />
-    </div>
+    </MobileBaseContainer>
   </GradientBG>
 );
 
-const CustomerCardWrapper = ({ img, children }) => (
-  <div className={styles.customerButton}>
-    <div className={styles.customerButtonBackground}>
-      <GatsbyImage image={img} />
-    </div>
-    {children}
+function genCustomerData(data) {
+  return [
+    { i18nKey: "index:customerTypeBookstore", emoji: data.book },
+    { i18nKey: "index:customerTypeWarehouse", emoji: data.box },
+    { i18nKey: "index:customerType3PL", emoji: data.truck },
+    { i18nKey: "index:customerTypeBags", emoji: data.bag },
+    { i18nKey: "index:customerTypeFashionBrand", emoji: data.coat },
+    { i18nKey: "index:customerTypeDentalClinic", emoji: data.teeth },
+    { i18nKey: "index:customerTypeAutoParts", emoji: data.car },
+    { i18nKey: "index:customerTypeFabric", emoji: data.pinkT },
+    { i18nKey: "index:customerTypeShoes", emoji: data.heel },
+    { i18nKey: "index:customerTypeMedicine", emoji: data.thermometer },
+    { i18nKey: "index:customerTypeClothes", emoji: data.dress },
+    { i18nKey: "index:customerTypeUsedItems", emoji: data.bag2 },
+    { i18nKey: "index:customerTypeCellphones", emoji: data.mobile },
+    { i18nKey: "index:customerTypeCafe", emoji: data.coffeeSmall },
+    { i18nKey: "index:customerTypeCosmetics", emoji: data.lipstick },
+    { i18nKey: "index:customerTypeFood", emoji: data.burger },
+    { i18nKey: "index:customerTypeJewelry", emoji: data.ring },
+    { i18nKey: "index:customerTypeElevatorParts", emoji: data.bolt },
+    { i18nKey: "index:customerTypeRawMeterial", emoji: data.brick },
+    { i18nKey: "index:customerTypeCreativeProduct", emoji: data.tip },
+    { i18nKey: "index:customerTypeIcecream", emoji: data.icecream },
+    { i18nKey: "index:customerTypeCosmeticSurgery", emoji: data.lip },
+    { i18nKey: "index:customerTypePharmacy", emoji: data.pill },
+    { i18nKey: "index:customerTypeCinema", emoji: data.movie },
+    { i18nKey: "index:customerTypeSupermarket", emoji: data.cart },
+    { i18nKey: "index:customerTypeElectronicParts", emoji: data.electronic },
+    { i18nKey: "index:customerTypeTea", emoji: data.tea },
+    { i18nKey: "index:customerTypeApplianceStore", emoji: data.tv },
+    { i18nKey: "index:customerTypeCamera", emoji: data.camera },
+    { i18nKey: "index:customerTypeFurniture", emoji: data.chair },
+    { i18nKey: "index:customerTypeSticker", emoji: data.puzzle },
+    { i18nKey: "index:customerTypeMedicalEquipment", emoji: data.wheelchair },
+    { i18nKey: "index:customerTypeMeat", emoji: data.meat },
+    { i18nKey: "index:customerTypeAirConditionerParts", emoji: data.hammer },
+    { i18nKey: "index:customerTypeComforter", emoji: data.bed },
+  ];
+}
+
+const CustomerCard = ({
+  img, title,
+}) => (
+  <div className={styles.customerCard}>
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      alt={title}
+    />
+    <Padding x={4} />
+    {title}
   </div>
 );
 
-const Customers = ({ data, t, language }) => {
-  const customerData = [
-    {
-      title: t("index:customerData1Title"),
-      img: data.mobileCustomerMart.childImageSharp.gatsbyImageData,
-      link: t("index:customerData1Link"),
-    },
-    // 영문 문서가 없어서 한글에서만 추가.
-    language === "ko"
-      ? {
-        title: t("index:customerData2Title"),
-        img: data.mobileCustomerFasion.childImageSharp.gatsbyImageData,
-        link: t("index:customerData2Link"),
-      }
-      : null,
-    {
-      title: t("index:customerData3Title"),
-      img: data.mobileCustomerCosmetics.childImageSharp.gatsbyImageData,
-      link: t("index:customerData3Link"),
-    },
-    {
-      title: t("index:customerData4Title"),
-      img: data.mobileCustomerCafe.childImageSharp.gatsbyImageData,
-      link: t("index:customerData4Link"),
-    },
-    {
-      title: t("index:customerData5Title"),
-      img: data.mobileCustomerPharmacy.childImageSharp.gatsbyImageData,
-      link: t("index:customerData5Link"),
-    },
-    {
-      title: t("index:customerData6Title"),
-      img: data.mobileCustomerHandmade.childImageSharp.gatsbyImageData,
-      link: t("index:customerData6Link"),
-    },
-    {
-      title: t("index:customerData7Title"),
-      img: data.mobileCustomerTextbook.childImageSharp.gatsbyImageData,
-      link: t("index:customerData7Link"),
-    },
-    {
-      title: t("index:customerData8Title"),
-      img: data.mobileCustomerLocation.childImageSharp.gatsbyImageData,
-      link: t("index:customerData8Link"),
-    },
-  ].filter((item) => item);
+const Customers = ({ data, t }) => {
+  const customerData = genCustomerData(data);
 
   return (
-    <div className={styles.customersContainer}>
-      <Padding y={50} />
-      <div className={styles.customersTitle}>
+    <MobileBaseContainer className={styles.customersContainer}>
+      <h1 className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
-      </div>
-      <Padding y={30} />
-      <Link
-        to="/features/"
-        title={t("index:customerDetailLink")}
-      >
-        <button
-          type="button"
-          className={styles.customersDetailButton}
-        >
-          {t("index:customerDetailLink")}
-          <Padding x={5} />
-          <img
-            src={svgSmallRight}
-            className={styles.rightArrow}
-            alt={t("index:customerDataDetailLink")}
-          />
-        </button>
-      </Link>
+      </h1>
+      <Padding y={16} />
+      <p className={styles.customersDesc}>
+        <Trans i18nKey="index:customerDesc" />
+      </p>
 
-      <ScrollContainer
-        className={styles.customersWrapper}
-        vertical={false}
-        horizontal
-        hideScrollbars
-      >
+      <Padding y={40} />
+
+      <div className={styles.customersCardContainer}>
         {customerData.map((customer, index) => (
-          <CustomerCardWrapper
+          <CustomerCard
             key={index}
-            img={customer.img}
-          >
-            <a
-              className={styles.customerButtonContent}
-              rel="noopener"
-              target="_blank"
-              href={customer.link}
-            >
-              <span className={styles.customButtonContentNumber}>
-                {(`0${index + 1}`).slice(-2)}
-              </span>
-              <span className={styles.customButtonContentTitle}>
-                {customer.title}
-              </span>
-              <span className={styles.customButtonContentPadding} />
-              <span className={styles.customButtonContentLink}>
-                {t("index:customerDataDetailLink")}
-              </span>
-            </a>
-          </CustomerCardWrapper>
+            img={customer.emoji}
+            title={t(customer.i18nKey)}
+          />
         ))}
-        <CustomerCardWrapper
-          img={data.mobileCustomerETC.childImageSharp.gatsbyImageData}
-        >
-          <AppDownloadLink
-            className={styles.customerButtonContent}
-            rel="noopener"
-            target="_blank"
-          >
-            <span className={styles.customButtonContentNumber}>
-              {t("index:customerOtherIndexLabel")}
-            </span>
-            <span className={styles.customButtonContentTitle}>
-              {t("index:customerOtherTitle")}
-            </span>
-            <span className={styles.customButtonContentPadding} />
-            <span className={styles.customButtonContentLink}>{"GO! >"}</span>
-          </AppDownloadLink>
-        </CustomerCardWrapper>
-        <Padding x={300} />
-      </ScrollContainer>
-    </div>
+        <div className={styles.customersFadeOut} />
+      </div>
+    </MobileBaseContainer>
   );
 };
 
@@ -376,29 +506,45 @@ const FeatureSelector = ({
   );
 
   return (
-    <WithCurrentSlide>
-      {() => (
-        <div className={styles.slideDetailDotGroupContainer}>
-          <div
-            key="background"
-            className={styles.slideDetailDotBackground}
-            style={{ minWidth: selectedWidth }}
-          >
-            0
-          </div>
-          <DotGroup
-            className={styles.slideDetailDotGroup}
-            style={{ marginLeft: offsetToSelected }}
-            renderDots={(props) => renderDots(
-              featureData,
-              setOffsetToSelected,
-              setSelectedWidth,
-              props,
-            )}
-          />
-        </div>
-      )}
-    </WithCurrentSlide>
+    <div className={styles.slideDetailDotGroupContainer}>
+      <div
+        key="background"
+        className={styles.slideDetailDotBackground}
+        style={{ minWidth: selectedWidth }}
+      >
+        0
+      </div>
+      <DotGroup
+        className={styles.slideDetailDotGroup}
+        style={{ marginLeft: offsetToSelected }}
+        renderDots={(props) => renderDots(
+          featureData,
+          setOffsetToSelected,
+          setSelectedWidth,
+          props,
+        )}
+      />
+    </div>
+  );
+};
+
+const FeatureDetailLink = ({ t, featureData }) => {
+  const { currentSlide } = useCurrentSlide();
+  return (
+    <div className={styles.slideDetailLinkContainer}>
+      <Link
+        to={featureData[currentSlide].link}
+        title={featureData[currentSlide].title}
+        className={styles.slideDetailLink}
+      >
+        {t("index:featuresDetailLink")}
+        <img
+          src={svgSmallRightBlue}
+          className={styles.rightArrow}
+          alt={t("index:featuresDetailLink")}
+        />
+      </Link>
+    </div>
   );
 };
 
@@ -413,10 +559,10 @@ const Features = ({ data, t, language }) => {
       dragEnabled={false}
       totalSlides={featureData.length}
     >
-      <div className={styles.featuresTitle}>
+      <h2 className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitleMobile" />
-      </div>
-      <Padding y={32} />
+      </h2>
+      <Padding y={40} />
 
       <FeatureSelector
         data={data}
@@ -425,7 +571,7 @@ const Features = ({ data, t, language }) => {
         featureData={featureData}
       />
 
-      <Padding y={40} />
+      <Padding y={25} />
 
       <Slider className={styles.sliderWrapper}>
         {featureData.map(({ img, title }, index) => (
@@ -443,57 +589,42 @@ const Features = ({ data, t, language }) => {
 
       <Padding y={30} />
 
-      <div className={styles.slideDetailLinkContainer}>
-        <WithCurrentSlide>
-          {(currentSlide) => (
-            <Link
-              to={featureData[currentSlide].link}
-              title={featureData[currentSlide].title}
-              className={styles.slideDetailLink}
-            >
-              {t("index:featuresDetailLink")}
-              <img
-                src={svgSmallRightBlue}
-                className={styles.rightArrow}
-                alt={t("index:featuresDetailLink")}
-              />
-            </Link>
-          )}
-        </WithCurrentSlide>
-      </div>
+      <FeatureDetailLink
+        t={t}
+        featureData={featureData}
+      />
     </CarouselProvider>
   );
 };
 
 const StartNow = ({ data, t }) => (
-  <ContainerCenter className={styles.startNowContainer}>
-    <div className={styles.px20}>
-      <div className={styles.startNowTitle}>
-        <Trans i18nKey="index:startNowTitle" />
-      </div>
-      <Padding y={30} />
-      <GatsbyImage
-        image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData}
-        style={{ margin: "0 auto" }}
+  <MobileBaseContainer className={styles.startNowContainer}>
+    <h2 className={styles.startNowTitle}>
+      <Trans i18nKey="index:startNowTitleMobile" />
+    </h2>
+    <Padding y={40} />
+    <GatsbyImage
+      image={data.mobileHomeStartNow.childImageSharp.gatsbyImageData}
+      alt={t("index:startNowTitle")}
+      style={{ margin: "0 auto" }}
+    />
+    <Padding y={40} />
+    <p className={styles.startNowDescription}>
+      <Trans i18nKey="index:startNowDescription" />
+    </p>
+    <Padding y={40} />
+    <Link
+      to="/pricing/"
+      className={styles.startNowDetailLink}
+    >
+      {t("index:startNowDetailLink")}
+      <img
+        src={svgSmallRightBlue}
+        className={styles.rightArrow}
+        alt={t("index:startNowDetailLink")}
       />
-      <Padding y={30} />
-      <div className={styles.startNowDescription}>
-        <Trans i18nKey="index:startNowDescription" />
-      </div>
-      <Padding y={30} />
-      <Link
-        to="/pricing/"
-        className={styles.startNowDetailLink}
-      >
-        {t("index:startNowDetailLink")}
-        <img
-          src={svgSmallRightBlue}
-          className={styles.rightArrow}
-          alt={t("index:startNowDetailLink")}
-        />
-      </Link>
-    </div>
-  </ContainerCenter>
+    </Link>
+  </MobileBaseContainer>
 );
 
 const MobileIndex = ({ data, language, t }) => (
@@ -507,41 +638,17 @@ const MobileIndex = ({ data, language, t }) => (
       t={t}
     />
 
-    <KeyFeature
-      icon={svgAddItem}
-      iconAlt={t("index:keyFeature1IconAlt")}
-      title={<Trans i18nKey="index:keyFeature1Title" />}
-      desc={<Trans i18nKey="index:keyFeature1DescMobile" />}
-      subTitle={<Trans i18nKey="index:keyFeature1SubTitleMobile" />}
-      subDesc={<Trans i18nKey="index:keyFeature1SubDescMobile" />}
-      detailUrl={`/about/#${constants.idAboutFeatureAddItem}`}
-      image={data.mobileFeature1}
-      linkDetail={t("index:keyFeatureLinkDetail")}
+    <Chatting t={t} />
+
+    <KeyFeatures
+      data={data}
+      t={t}
     />
 
-    <KeyFeature
-      isDarkBg
-      icon={svgCounting}
-      iconAlt={t("index:keyFeature2IconAlt")}
-      title={<Trans i18nKey="index:keyFeature2TitleMobile" />}
-      desc={<Trans i18nKey="index:keyFeature2DescMobile" />}
-      subTitle={t("index:keyFeature2SubTitle")}
-      subDesc={<Trans i18nKey="index:keyFeature2SubDescMobile" />}
-      detailUrl={`/about/#${constants.idAboutFeatureTx}`}
-      image={data.mobileFeature2}
-      linkDetail={t("index:keyFeatureLinkDetail")}
-    />
-
-    <KeyFeature
-      icon={svgDashboard}
-      iconAlt={t("index:keyFeature3IconAlt")}
-      title={<Trans i18nKey="index:keyFeature3Title" />}
-      desc={<Trans i18nKey="index:keyFeature3Desc" />}
-      subTitle={t("index:keyFeature3SubTitle")}
-      subDesc={<Trans i18nKey="index:keyFeature3SubDescMobile" />}
-      detailUrl={`/about/#${constants.idAboutFeatureStatus}`}
-      image={data.mobileFeature3}
-      linkDetail={t("index:keyFeatureLinkDetail")}
+    <SalesManagement
+      data={data}
+      t={t}
+      language={language}
     />
 
     <TeamPlay
@@ -552,7 +659,6 @@ const MobileIndex = ({ data, language, t }) => (
     <Customers
       data={data}
       t={t}
-      language={language}
     />
 
     <Features

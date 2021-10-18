@@ -1,7 +1,7 @@
 import React from "react";
 import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
 // js
-import { Container320, Padding, AppDownloadLink } from "./common";
+import { MobileBaseContainer, Padding, AppDownloadLink } from "./common";
 // css
 import * as styles from "./mobile-usecase-footer.module.css";
 // img
@@ -45,7 +45,7 @@ const PriceCard = ({
 );
 
 const StartNow = ({ t }) => (
-  <Container320 className={styles.startNowContentContainer}>
+  <MobileBaseContainer className={styles.startNowContentContainer}>
     <h2 className={styles.startNowTitle}>
       {t("usecase-footer:startNowTitle")}
     </h2>
@@ -82,7 +82,7 @@ const StartNow = ({ t }) => (
       ]}
       startNowButton={t("usecase-footer:businessPlanStartNow")}
     />
-  </Container320>
+  </MobileBaseContainer>
 );
 
 const PostCard = ({
@@ -136,7 +136,7 @@ const RelatedContents = ({ t }) => {
   ];
   return (
     <section className={styles.darkBg}>
-      <Container320 className={styles.relatedContentsContainer}>
+      <MobileBaseContainer className={styles.relatedContentsContainer}>
         <h2 className={styles.relatedContentsTitle}>
           {t("usecase-footer:relatedContentsTitle")}
         </h2>
@@ -153,7 +153,7 @@ const RelatedContents = ({ t }) => {
             />
           ))}
         </ul>
-      </Container320>
+      </MobileBaseContainer>
     </section>
   );
 };

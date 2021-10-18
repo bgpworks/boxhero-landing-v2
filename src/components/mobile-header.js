@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { Container320, ExternalLinkWithQuery } from "./common";
+import { MobileBaseContainer, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
 // css
 import * as styles from "./mobile-header.module.css";
@@ -53,7 +53,7 @@ const MobileHeader = ({
             <div className={styles.menuBtnLine} />
           </button>
         </div>
-        <Container320 className={styles.menuContainer}>
+        <MobileBaseContainer className={styles.menuContainer}>
           {isShow && (
             <>
               <MenuItem>
@@ -112,7 +112,7 @@ const MobileHeader = ({
               </div>
             </>
           )}
-        </Container320>
+        </MobileBaseContainer>
       </header>
       {!isFloatMenu && <div className={styles.headerPlaceholder} />}
     </>
