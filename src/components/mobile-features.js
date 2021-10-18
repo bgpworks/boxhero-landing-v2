@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "./mobile-layout";
-import { Container320, Padding } from "./common";
+import { MobileBaseContainer, Padding } from "./common";
 import * as constants from "./constants";
 // css
 import * as styles from "./mobile-features.module.css";
@@ -13,13 +13,13 @@ const {
 } = styles;
 
 const Top = ({ t }) => (
-  <Container320 className={styles.topContainer}>
+  <MobileBaseContainer className={styles.topContainer}>
     <h1 className={styles.topTitle}>{t("features:topTitle")}</h1>
     <Padding y={16} />
     <p className={styles.topDesc}>
       <Trans i18nKey="features:topDescMobile" />
     </p>
-  </Container320>
+  </MobileBaseContainer>
 );
 
 const DemoTemplate = ({ icon, title, desc }) => (
@@ -51,7 +51,7 @@ function FeatureTemplate({
       id={id}
       className={bgColor}
     >
-      <Container320 className={styles.featureTemplate}>
+      <MobileBaseContainer className={styles.featureTemplate}>
         <h2 className={styles.featureTemplateTitle}>{title}</h2>
         <Padding y={16} />
         <p className={styles.featureTemplateDesc}>{desc}</p>
@@ -74,7 +74,7 @@ function FeatureTemplate({
               />
             ))}
         </div>
-      </Container320>
+      </MobileBaseContainer>
     </section>
   );
 }

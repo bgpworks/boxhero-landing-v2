@@ -17,9 +17,9 @@ module.exports = {
   urlDownloadAppKakao:
     "https://redirect.appmetrica.yandex.com/serve/99014008425711055",
   urlDownloadWindows:
-    "https://boxhero-autoupdate.s3.ap-northeast-2.amazonaws.com/BoxHero-1.0.0.exe",
+    "https://boxhero-autoupdate.s3.ap-northeast-2.amazonaws.com/BoxHero-latest.exe",
   urlDownloadOsx:
-    "https://boxhero-autoupdate.s3.ap-northeast-2.amazonaws.com/BoxHero-1.0.0.dmg",
+    "https://boxhero-autoupdate.s3.ap-northeast-2.amazonaws.com/BoxHero-latest.dmg",
   urlFaqPaymentDomestic:
     "https://docs-ko.boxhero-app.com/docs/pricing#%EA%B5%AD%EB%82%B4-%EC%B9%B4%EB%93%9C-%EB%B0%8F-%EA%B3%84%EC%A2%8C%EC%9D%B4%EC%B2%B4-%EA%B2%B0%EC%A0%9C-%EB%B0%A9%EB%B2%95",
   urlKakaoTalk: "http://pf.kakao.com/_rHxgpxl/chat",

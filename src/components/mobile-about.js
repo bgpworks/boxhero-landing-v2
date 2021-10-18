@@ -4,7 +4,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "./mobile-layout";
 import {
-  Container320,
+  MobileBaseContainer,
   ContainerCenter,
   GradientBG,
   Padding,
@@ -34,14 +34,14 @@ const Top = ({ data }) => (
     colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
     backgroundColor="#6159F5"
   >
-    <Container320>
+    <MobileBaseContainer>
       <Padding y={94} />
       <div className={styles.topTitleContainer}>
         <Trans i18nKey="about:topTitleMobile" />
       </div>
       <Padding y={30} />
       <GatsbyImage image={data.mobileTopLogo.childImageSharp.gatsbyImageData} />
-    </Container320>
+    </MobileBaseContainer>
   </GradientBG>
 );
 
