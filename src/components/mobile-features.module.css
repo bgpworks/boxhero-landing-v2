@@ -27,6 +27,7 @@
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
   text-align: center;
+  line-height: normal;
 }
 
 .featureTemplateDesc {

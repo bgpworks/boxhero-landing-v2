@@ -79,79 +79,79 @@ function FeatureTemplate({
   );
 }
 
-const FeatureLowstock = ({ data }) => (
+const FeatureLowstock = ({ t, data }) => (
   <FeatureTemplate
     id={constants.idFeatureLowstock}
     bgColor={bgGreen}
-    title={<Trans i18nKey="features:lowstockTitle" />}
+    title={t("features:lowstockTitle")}
     figure={data.mobileLowstockFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:lowstockDescMobile" />}
     demoData={[
       {
         icon: data.mobileLowstockDemo1.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:lowstockDemo1Title" />,
+        title: t("features:lowstockDemo1Title"),
         desc: <Trans i18nKey="features:lowstockDemo1DescMobile" />,
       },
       {
         icon: data.mobileLowstockDemo2.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:lowstockDemo2Title" />,
+        title: t("features:lowstockDemo2Title"),
         desc: <Trans i18nKey="features:lowstockDemo2DescMobile" />,
       },
     ]}
   />
 );
 
-const FeatureBarcodelabel = ({ data }) => (
+const FeatureBarcodelabel = ({ t, data }) => (
   <FeatureTemplate
     id={constants.idFeatureBarcodelabel}
     bgColor={bgWhite}
-    title={<Trans i18nKey="features:barcodelabelTitleMobile" />}
+    title={t("features:barcodelabelTitleMobile")}
     figure={data.mobileBarcodelabelFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:barcodelabelDescMobile" />}
     demoData={[
       {
         icon:
           data.mobileBarcodelabelDemo1.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:barcodelabelDemo1Title" />,
+        title: t("features:barcodelabelDemo1Title"),
         desc: <Trans i18nKey="features:barcodelabelDemo1DescMobile" />,
       },
       {
         icon:
           data.mobileBarcodelabelDemo2.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:barcodelabelDemo2Title" />,
+        title: t("features:barcodelabelDemo2Title"),
         desc: <Trans i18nKey="features:barcodelabelDemo2DescMobile" />,
       },
     ]}
   />
 );
 
-const FeatureSummary = ({ data }) => (
+const FeatureSummary = ({ t, data }) => (
   <FeatureTemplate
     id={constants.idFeatureSummary}
     bgColor={bgBlue}
-    title={<Trans i18nKey="features:summaryTitleMobile" />}
+    title={t("features:summaryTitleMobile")}
     figure={data.mobileSummaryFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:summaryDescMobile" />}
     demoData={[
       {
         icon: data.mobileSummaryDemo1.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:summaryDemo1Title" />,
+        title: t("features:summaryDemo1Title"),
         desc: <Trans i18nKey="features:summaryDemo1DescMobile" />,
       },
       {
         icon: data.mobileSummaryDemo2.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:summaryDemo2Title" />,
+        title: t("features:summaryDemo2Title"),
         desc: <Trans i18nKey="features:summaryDemo2DescMobile" />,
       },
     ]}
   />
 );
 
-const FeatureViewPastQuantity = ({ data }) => (
+const FeatureViewPastQuantity = ({ t, data }) => (
   <FeatureTemplate
     id={constants.idFeatureViewPastQuantity}
     bgColor={bgWhite}
-    title={<Trans i18nKey="features:viewPastQuantityTitleMobile" />}
+    title={t("features:viewPastQuantityTitleMobile")}
     figure={
       data.mobileViewPastQuantityFig.childImageSharp.gatsbyImageData
     }
@@ -161,36 +161,36 @@ const FeatureViewPastQuantity = ({ data }) => (
         icon:
           data.mobileViewPastQuantityDemo1.childImageSharp
             .gatsbyImageData,
-        title: <Trans i18nKey="features:viewPastQuantityDemo1Title" />,
+        title: t("features:viewPastQuantityDemo1Title"),
         desc: <Trans i18nKey="features:viewPastQuantityDemo1DescMobile" />,
       },
       {
         icon:
           data.mobileViewPastQuantityDemo2.childImageSharp
             .gatsbyImageData,
-        title: <Trans i18nKey="features:viewPastQuantityDemo2Title" />,
+        title: t("features:viewPastQuantityDemo2Title"),
         desc: <Trans i18nKey="features:viewPastQuantityDemo2DescMobile" />,
       },
     ]}
   />
 );
 
-const FeatureLocation = ({ data }) => (
+const FeatureLocation = ({ t, data }) => (
   <FeatureTemplate
     id={constants.idFeatureLocation}
     bgColor={bgOrange}
-    title={<Trans i18nKey="features:locationTitleMobile" />}
+    title={t("features:locationTitleMobile")}
     figure={data.mobileLocationFig.childImageSharp.gatsbyImageData}
     desc={<Trans i18nKey="features:locationDescMobile" />}
     demoData={[
       {
         icon: data.mobileLocationDemo1.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:locationDemo1Title" />,
+        title: t("features:locationDemo1Title"),
         desc: <Trans i18nKey="features:locationDemo1DescMobile" />,
       },
       {
         icon: data.mobileLocationDemo2.childImageSharp.gatsbyImageData,
-        title: <Trans i18nKey="features:locationDemo2Title" />,
+        title: t("features:locationDemo2Title"),
         desc: <Trans i18nKey="features:locationDemo2DescMobile" />,
       },
     ]}
@@ -206,15 +206,30 @@ const MobileFeatures = ({ data, t }) => (
   >
     <Top t={t} />
 
-    <FeatureLowstock data={data} />
+    <FeatureLowstock
+      t={t}
+      data={data}
+    />
 
-    <FeatureBarcodelabel data={data} />
+    <FeatureBarcodelabel
+      t={t}
+      data={data}
+    />
 
-    <FeatureSummary data={data} />
+    <FeatureSummary
+      t={t}
+      data={data}
+    />
 
-    <FeatureViewPastQuantity data={data} />
+    <FeatureViewPastQuantity
+      t={t}
+      data={data}
+    />
 
-    <FeatureLocation data={data} />
+    <FeatureLocation
+      t={t}
+      data={data}
+    />
   </MobileLayout>
 );
 
