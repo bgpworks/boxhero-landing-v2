@@ -4,7 +4,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 // js
 import MobileLayout from "./mobile-layout";
 import {
-  Container320,
+  MobileBaseContainer,
   ContainerCenter,
   Padding,
   MobileSimpleTop,
@@ -51,7 +51,7 @@ const PriceTable = ({ t }) => {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
-    <Container320 className={styles.px20}>
+    <MobileBaseContainer className={styles.px20}>
       <div className={styles.freePlanContainer}>
         <div className={styles.planTitle}>{t("pricing:freePlanTitle")}</div>
         <div className={styles.planSubtitle}>For Personal</div>
@@ -179,7 +179,7 @@ const PriceTable = ({ t }) => {
       <div className={styles.planPostscript}>
         <Trans i18nKey="pricing:footerDescription" />
       </div>
-    </Container320>
+    </MobileBaseContainer>
   );
 };
 
@@ -288,7 +288,7 @@ const Faq = ({ t }) => {
 
 const DirectContact = ({ t }) => (
   <div className={styles.directContactContainer}>
-    <Container320 className={styles.px20}>
+    <MobileBaseContainer className={styles.px20}>
       <div className={styles.directContactTitle}>
         {t("pricing:directContactTitle")}
       </div>
@@ -312,7 +312,7 @@ const DirectContact = ({ t }) => (
       >
         {t("pricing:directContactInquiryButon")}
       </button>
-    </Container320>
+    </MobileBaseContainer>
   </div>
 );
 

@@ -16,11 +16,11 @@ import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
-  WithCurrentSlide,
   ExternalLinkWithQuery,
   GradientBG,
   SpeechBubbleContainer,
 } from "./common";
+import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
 // css
 import * as styles from "./desktop-index.module.css";
@@ -283,7 +283,7 @@ const KeyFeatureDescription = ({ title, description, carouselData }) => (
 
 const KeyFeatureSlider = ({ carouselData }) => (
   <Slider className={styles.keyFeatureSlider}>
-    {carouselData.map(({ img, text }, index) => (
+    {carouselData.map(({ img, title }, index) => (
       <Slide
         innerClassName={styles.keyFeatureSlide}
         key={index}
@@ -291,7 +291,7 @@ const KeyFeatureSlider = ({ carouselData }) => (
       >
         <GatsbyImage
           image={img}
-          alt={text}
+          alt={title}
         />
       </Slide>
     ))}
@@ -468,6 +468,26 @@ const Customers = ({ data, t }) => {
   );
 };
 
+const FeatureDetailLink = ({ t, featureData }) => {
+  const { currentSlide } = useCurrentSlide();
+  return (
+    <div className={styles.slideDetailLinkContainer}>
+      <Link
+        to={featureData[currentSlide].link}
+        title={featureData[currentSlide].title}
+        className={styles.slideDetailLink}
+      >
+        {t("index:featuresDetailLink")}
+        <img
+          src={svgSmallRightBlue}
+          className={styles.rightArrow}
+          alt={t("index:featuresDetailLink")}
+        />
+      </Link>
+    </div>
+  );
+};
+
 const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);
   return (
@@ -521,24 +541,10 @@ const Features = ({ data, t }) => {
 
         <Padding y={40} />
 
-        <div className={styles.slideDetailLinkContainer}>
-          <WithCurrentSlide>
-            {(currentSlide) => (
-              <Link
-                to={featureData[currentSlide].link}
-                title={featureData[currentSlide].title}
-                className={styles.slideDetailLink}
-              >
-                {t("index:featuresDetailLink")}
-                <img
-                  src={svgSmallRightBlue}
-                  className={styles.rightArrow}
-                  alt={t("index:featuresDetailLink")}
-                />
-              </Link>
-            )}
-          </WithCurrentSlide>
-        </div>
+        <FeatureDetailLink
+          t={t}
+          featureData={featureData}
+        />
       </CarouselProvider>
     </div>
   );
