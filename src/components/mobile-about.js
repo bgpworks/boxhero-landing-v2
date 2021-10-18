@@ -28,7 +28,7 @@ import iconUppdown from "../images/feature-uppdown.svg";
 import iconAnalysis from "../images/feature-analysis.svg";
 import iconInvoice from "../images/feature-invoice.svg";
 
-const Top = ({ data }) => (
+const Top = ({ data, t }) => (
   <GradientBG
     className={styles.topContainer}
     colorSet={["#0090f9", "#6b3af3", "#2d71f9", "#0097a0"]}
@@ -44,13 +44,15 @@ const Top = ({ data }) => (
       <GatsbyImage
         className={styles.topImage}
         image={data.mobileTopLogo.childImageSharp.gatsbyImageData}
-        alt={<Trans i18nKey="about:topTitleMobile" />}
+        alt={t("about:pageTitle")}
       />
     </ScrollContainer>
   </GradientBG>
 );
 
-const StrongPoint = ({ title, desc, img }) => (
+const StrongPoint = ({
+  title, desc, img, alt,
+}) => (
   <section className={styles.strongPoint}>
     <h2 className={styles.title}>{title}</h2>
     <Padding y={16} />
@@ -58,7 +60,7 @@ const StrongPoint = ({ title, desc, img }) => (
     <Padding y={30} />
     <GatsbyImage
       image={img.childImageSharp.gatsbyImageData}
-      alt={title}
+      alt={alt}
     />
   </section>
 );
@@ -69,18 +71,21 @@ const StrongPoints = ({ data }) => (
       title={<Trans i18nKey="about:strongPoint1Title" />}
       desc={<Trans i18nKey="about:strongPoint1DescMobile" />}
       img={data.mobileEasy}
+      alt="easy"
     />
 
     <StrongPoint
       title={<Trans i18nKey="about:strongPoint2Title" />}
       desc={<Trans i18nKey="about:strongPoint2DescMobile" />}
       img={data.mobileGreat}
+      alt="great"
     />
 
     <StrongPoint
       title={<Trans i18nKey="about:strongPoint3Title" />}
       desc={<Trans i18nKey="about:strongPoint3DescMobile" />}
       img={data.mobileMobile}
+      alt="mobile"
     />
   </MobileBaseContainer>
 );
@@ -270,7 +275,10 @@ const MobileAbout = ({ data, t }) => (
     closingEmoji={data.mobileLight}
     closingMsg={t("about:closingMsg")}
   >
-    <Top data={data} />
+    <Top
+      data={data}
+      t={t}
+    />
 
     <StrongPoints data={data} />
 
