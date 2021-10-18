@@ -5,10 +5,7 @@
 }
 
 .topContentContainer {
-  padding: 50px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 50px 20px 0;
 }
 
 .topTitle {
@@ -20,8 +17,7 @@
 }
 
 .topImageScrollContainer {
-  width: 100vw;
-  padding: 0 20px;
+  padding: 0 20px 50px;
 }
 
 .topImage {
