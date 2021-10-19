@@ -3,7 +3,7 @@ title: 재고 관리를 위한 4가지 중요한 기술
 date: 2021-07-19 09:44
 category: 인사이트
 author: 박채림
-authorPhoto: ../../images/authors/chaerim.jpg
+authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 글로벌 기업이 사용하는 세 가지 재고 관리 기술에 대해 알아봅시다!
 ---
