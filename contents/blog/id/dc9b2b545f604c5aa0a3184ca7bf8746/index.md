@@ -18,7 +18,7 @@ Anda dapat memulainya melalui menu `Pengaturan > Anggota & Hak Kelola`.
 
 ### 1. Mengundang Anggota
 
-Mengundang anggota dapat Anda lakukan secara mudah dengan membagikan *link *undangan tim Anda, *link *undangan akan tersalin secara otomatis ketika Anda menekan `Link Undangan`. Anda tinggal membagikannya kepada anggota tim Anda.
+Mengundang anggota dapat Anda lakukan secara mudah dengan membagikan *link* undangan tim Anda, *link* undangan akan tersalin secara otomatis ketika Anda menekan `Link Undangan`. Anda tinggal membagikannya kepada anggota tim Anda.
 
 ![Mengundang Anggota-Fitur undang anggota](images/img_2.gif)
 
