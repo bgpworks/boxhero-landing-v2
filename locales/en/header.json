@@ -1,4 +1,5 @@
 {
+  "appInstall": "App download",
   "menuCompanyBlog": "Blog",
   "menuDoc": "Customer Service",
   "menuLanguage": "Language",
@@ -14,5 +15,6 @@
   "menuUseCaseMaterialDesc": "Solution to manage cars, interiors, equipment, and other types of materials and parts.",
   "menuUseCaseSales": "Sales",
   "menuUseCaseSalesDesc": "Solution for online sales, instore, and other types of sales.",
-  "menuUseCases": "Use Cases"
+  "menuUseCases": "Use Cases",
+  "startNowButton": "Start Now"
 }

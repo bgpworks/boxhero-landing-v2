@@ -248,7 +248,6 @@ const OtherFeatures = ({ t }) => (
 const MobileAbout = ({ data, t }) => (
   <MobileLayout
     isFloatMenu
-    curMenu="about"
     closingEmoji={data.mobileLight}
     closingMsg={t("about:closingMsg")}
   >

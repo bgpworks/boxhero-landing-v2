@@ -1,4 +1,5 @@
 {
+  "appInstall": "Unduh App",
   "menuCompanyBlog": "Blog",
   "menuDoc": "Layanan Pelanggan",
   "menuLanguage": "Bahasa",
@@ -14,5 +15,6 @@
   "menuUseCaseMaterialDesc": "Solusi untuk mengelola komponen dan suku cadang seperti mobil, interior, dan instalasi",
   "menuUseCaseSales": "Penjualan",
   "menuUseCaseSalesDesc": "Solusi yang cocok untuk semua jenis penjualan online maupun offline",
-  "menuUseCases": "Solusi Bisnis"
+  "menuUseCases": "Solusi Bisnis",
+  "startNowButton": "Mulai Sekarang"
 }

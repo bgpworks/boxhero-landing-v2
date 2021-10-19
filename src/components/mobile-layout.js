@@ -34,7 +34,6 @@ const InstallButton = () => {
 const MobileLayout = ({
   isFloatMenu,
   hideFloatAppInstallButton,
-  curMenu,
   closingEmoji,
   closingMsg,
   mainClassName,
@@ -44,11 +43,7 @@ const MobileLayout = ({
   const [isShowLangPopup, onChangeIsShowLangPopup] = useState(false);
   return (
     <div className={styles.mobileLayout}>
-      <MobileHeader
-        isFloatMenu={isFloatMenu}
-        curMenu={curMenu}
-        onChangeIsShowLangPopup={onChangeIsShowLangPopup}
-      />
+      <MobileHeader isFloatMenu={isFloatMenu} />
       <main className={mainClassName}>{children}</main>
       {!hideFloatAppInstallButton && <InstallButton />}
       <MobileFooter
@@ -68,7 +63,6 @@ const MobileLayout = ({
 MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
   hideFloatAppInstallButton: PropTypes.bool,
-  curMenu: PropTypes.string,
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.any,
   mainClassName: PropTypes.string,

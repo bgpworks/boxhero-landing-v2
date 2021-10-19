@@ -4,7 +4,7 @@ import { Padding } from "./common";
 // css
 import * as styles from "./language-selector.module.css";
 
-const LANG_NAME = {
+export const LANG_NAME = {
   ko: "한국어",
   en: "English",
   es: "Español",
