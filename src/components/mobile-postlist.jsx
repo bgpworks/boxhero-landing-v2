@@ -132,7 +132,8 @@ export default function PostListMobile({
     <MobileLayout
       mainClassName={pageContainer}
       isFloatMenu={false}
-      showEssentialOnly
+      showPlatforms={false}
+      showStartNow={false}
       hideFloatAppInstallButton
     >
       <h2 className={pageTitle}>{title}</h2>

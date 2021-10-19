@@ -1,6 +1,6 @@
 {
   "companyInfoAddress": "165, Yeoksam-ro, Gangnam-gu, Seúl, Corea del Sur<br/><tosLink>Términos de servicio</tosLink> ㅣ <privacyLink>Política de privacidad</privacyLink>",
-  "companyInfoAddressMobile": "165, Yeoksam-ro, Gangnam-gu, Seúl, Corea del Sur<br/><br/><tosLink>Términos de servicio</tosLink> ㅣ <privacyLink>Política de privacidad</privacyLink>",
+  "companyInfoAddressMobile": "165, Yeoksam-ro, Gangnam-gu, Seúl, Corea del Sur",
   "companyInfoRegisterNo": "<strong>BOXHERO, Inc.</strong>",
   "companyInfoRegisterNoMobile": "<strong>BOXHERO, Inc.</strong>",
   "copyRight": "Reservados todos los derechos.",
@@ -35,5 +35,6 @@
   "platformsPC": "Web",
   "platformsTitle": "BoxHero es totalmente compatible tanto con PC como con dispositivos móviles",
   "platformsWindows": "Windows",
+  "policyLinkMobile": "<tosLink>Términos de servicio</tosLink> ㅣ <privacyLink>Política de privacidad</privacyLink>",
   "startNowButton": "Empezar gratis ahora mismo"
 }

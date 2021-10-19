@@ -1,6 +1,6 @@
 {
   "companyInfoAddress": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea<br/><tosLink>Syarat & Ketentuan</tosLink> ㅣ <privacyLink>Privasi & Kebijakan</privacyLink>",
-  "companyInfoAddressMobile": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea<br/><br/><tosLink>Syarat & Ketentuan</tosLink> ㅣ <privacyLink>Privasi & Kebijakan</privacyLink>",
+  "companyInfoAddressMobile": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea",
   "companyInfoRegisterNo": "<strong>BOXHERO, Inc.</strong>",
   "companyInfoRegisterNoMobile": "<strong>BOXHERO, Inc.</strong>",
   "copyRight": "Seluruh hak cipta.",
@@ -35,5 +35,6 @@
   "platformsPC": "Web PC",
   "platformsTitle": "BoxHero mendukung PC dan mobile dengan sempurna.",
   "platformsWindows": "Windows",
+  "policyLinkMobile": "<tosLink>Syarat & Ketentuan</tosLink> ㅣ <privacyLink>Privasi & Kebijakan</privacyLink>",
   "startNowButton": "Mulai gratis sekarang"
 }
