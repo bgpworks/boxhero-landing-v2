@@ -8,7 +8,7 @@ thumbnail: "./images/img_1.png"
 description: Buat dan cetak
 ---
 
-Dikutip dari wikipedia, kode bar atau *barcode *adalah suatu kumpulan data optik yang dibaca mesin. Kumpulan data ini berbentuk garis paralel hitam dengan spasi diantaranya. Biasanya, kode bar ditempelkan pada produk atau barang untuk keperluan pengecekan hingga penjualan. Untuk mengetahui fungsi dan pengertian kode bar lebih jauh, Anda dapat membacanya [di sini](/1ca120bc2eaa47c59006cd585a73a171).
+Dikutip dari wikipedia, kode bar atau *barcode* adalah suatu kumpulan data optik yang dibaca mesin. Kumpulan data ini berbentuk garis paralel hitam dengan spasi diantaranya. Biasanya, kode bar ditempelkan pada produk atau barang untuk keperluan pengecekan hingga penjualan. Untuk mengetahui fungsi dan pengertian kode bar lebih jauh, Anda dapat membacanya [di sini](/1ca120bc2eaa47c59006cd585a73a171).
 
 ## Mengapa Harus Menggunakan Kode Bar?
 
