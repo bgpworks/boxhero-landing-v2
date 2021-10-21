@@ -1,7 +1,7 @@
 ---
 title: Kemudahan Mengelola Anggota Tim
 date: 2021-08-23 09:46
-category: Feature
+category: Fitur
 author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
