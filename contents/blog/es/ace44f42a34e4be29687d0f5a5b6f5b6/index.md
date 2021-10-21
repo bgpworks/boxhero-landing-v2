@@ -118,7 +118,7 @@ BoxHero incluye funciones útiles que son perfectas para la creación e impresi�
 
 <tip-box>
 
-- BoxHero se puede usar en PC y dispositivos móviles, en todos los entornos.
+BoxHero se puede usar en PC y dispositivos móviles, en todos los entornos.
 
 La gestión de inventario continúa sin detenerse incluso en un entorno sin una PC.
 
