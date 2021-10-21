@@ -90,3 +90,17 @@ Foto produk tidak termasuk dalam pengunduhan file.
 
 </caution-box>
 
+<hr/>
+
+BoxHero telah terintegrasi dengan Excel secara akurat. Jadi, Anda tidak perlu merasa repot untuk memindahkan semua data Excel Anda secara manual. Fitur pintar BoxHero, akan membantu Anda menghilangkan segala kerumitan karena, BoxHero adalah solusi termudah untuk manajemen inventaris Anda.
+
+<tip-box>
+
+**BoxHero dapat digunakan di semua lingkungan, PC dan ****Smartphone****.**
+
+Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.
+
+BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
+
+</tip-box>
+
