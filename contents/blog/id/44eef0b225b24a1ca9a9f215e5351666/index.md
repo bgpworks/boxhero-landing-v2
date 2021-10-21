@@ -1,7 +1,7 @@
 ---
 title: Buat dan Gunakan Desain Barcode Anda Sendiri
 date: 2021-09-10 16:25
-category: Feature
+category: Fitur
 author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"

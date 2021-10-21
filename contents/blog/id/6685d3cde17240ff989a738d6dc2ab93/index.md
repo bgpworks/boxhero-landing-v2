@@ -61,7 +61,7 @@ BoxHero membantu Anda mengelola inventaris dan penjualan Anda secara optimal. Da
 
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.
 
-BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone *Anda.
+BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
 
 </tip-box>
 

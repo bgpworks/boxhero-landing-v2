@@ -20,7 +20,7 @@ Sebagai pemilik bisnis yang harus mengetahui inventaris dengan akurat, Anda meme
 
 ## Mengunggah File Excel
 
-Jika sebelumnya Anda mengelola inventaris menggunakan Excel, Anda tetap dapat menggunakan data Excel tersebut di BoxHero. Berapa pun jumlah data yang Anda miliki, Anda dapat memindahkannya langsung dengan sekaligus. Mari kita lihat bagaimana cara memindahkan data inventaris Excel Anda, menggunakan fitur Import **dan Export Excel**dari BoxHero.
+Jika sebelumnya Anda mengelola inventaris menggunakan Excel, Anda tetap dapat menggunakan data Excel tersebut di BoxHero. Berapa pun jumlah data yang Anda miliki, Anda dapat memindahkannya langsung dengan sekaligus. Mari kita lihat bagaimana cara memindahkan data inventaris Excel Anda, menggunakan fitur Import dan Export Excel dari BoxHero.
 
 ### 1. Mendaftarkan Barang via Excel
 

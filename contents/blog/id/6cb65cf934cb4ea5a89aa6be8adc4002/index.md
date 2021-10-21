@@ -72,11 +72,11 @@ Dengan menggunakan BoxHero, Anda dapat memiliki ruang khusus untuk mengelola dat
 
 <tip-box>
 
-**BoxHero dapat digunakan di semua lingkungan, PC dan ****Smartphone****.**
+**BoxHero dapat digunakan di semua lingkungan, PC dan Smartphone.**
 
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.
 
-BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone *Anda.
+BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
 
 </tip-box>
 
