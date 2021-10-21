@@ -23,6 +23,7 @@
   --font-size-h4: 1.125rem;
 
   --margin-small: 0.57rem;
+  --margin-medium: 2.5rem;
   --margin-big: 3rem;
   --margin-normal: 1rem;
 
@@ -93,6 +94,7 @@
 
 .postBodyView figure figcaption {
   margin-top: var(--margin-small);
+  margin-bottom: var(--margin-medium);
 
   display: flex;
   justify-content: center;
