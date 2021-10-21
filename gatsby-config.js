@@ -227,7 +227,6 @@ module.exports = {
             options: {
               showCaptions: true,
               maxWidth: 800,
-              wrapperStyle: "margin: 64px 0",
             },
           },
           {
