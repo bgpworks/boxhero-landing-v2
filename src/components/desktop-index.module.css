@@ -20,11 +20,6 @@
   margin-top: calc(-1 * var(--volt-symbol-height));
 }
 
-/* 한국어는 volt 아이콘이 없음 */
-html[lang="ko"] .topLeftContainer {
-  margin-top: 0;
-}
-
 .topRightContainer {
   overflow: visible;
 }

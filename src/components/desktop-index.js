@@ -216,6 +216,58 @@ const TopTitleAndDescription = () => (
   </>
 );
 
+const TopLeftContainerOfKorea = ({ t }) => (
+  <div>
+    <TopTitleAndDescription />
+    <Padding y={30} />
+    <StartNowButton className={styles.startNowButton}>
+      <img
+        className={styles.topButtonIcon}
+        src={svgVolt}
+        alt={t("index:topIconAlt")}
+      />
+      {t("index:topStartNowButton")}
+    </StartNowButton>
+    <Padding y={12} />
+    <a href={constants.urlConsulting}>
+      <button
+        type="button"
+        className={styles.consultingButton}
+      >
+        <img
+          className={styles.topButtonIcon}
+          src={svgConsulting}
+          alt={t("index:topIconAlt")}
+        />
+        무료 컨설팅 받기
+      </button>
+    </a>
+  </div>
+);
+
+const TopLeftContainer = ({ t }) => (
+  <div className={styles.topLeftContainer}>
+    <img
+      src={svgVolt}
+      alt={t("index:topIconAlt")}
+    />
+    <Padding y={17} />
+    <TopTitleAndDescription />
+    <Padding y={30} />
+    <StartNowButton className={styles.startNowButton}>
+      {t("index:topStartNowButton")}
+    </StartNowButton>
+  </div>
+);
+
+const TopLeftContainerByLanguage = ({ t, language }) => (
+  language === "ko" ? (
+    <TopLeftContainerOfKorea t={t} />
+  ) : (
+    <TopLeftContainer t={t} />
+  )
+);
+
 const Top = ({ data, t, language }) => (
   <GradientBG
     className={styles.topContainer}
@@ -223,50 +275,10 @@ const Top = ({ data, t, language }) => (
     backgroundColor="#4260ef"
   >
     <DesktopBaseContainer className={styles.topContentContainer}>
-      <div className={styles.topLeftContainer}>
-        {language === "ko" ? (
-          <>
-            <TopTitleAndDescription />
-            <Padding y={30} />
-            <StartNowButton className={styles.startNowButton}>
-              <img
-                className={styles.topButtonIcon}
-                src={svgVolt}
-                alt={t("index:topIconAlt")}
-              />
-              {t("index:topStartNowButton")}
-            </StartNowButton>
-            <Padding y={12} />
-            <a href={constants.urlConsulting}>
-              <button
-                type="button"
-                className={styles.consultingButton}
-              >
-                <img
-                  className={styles.topButtonIcon}
-                  src={svgConsulting}
-                  alt={t("index:topIconAlt")}
-                />
-                {t("index:consultingButton")}
-              </button>
-            </a>
-          </>
-        ) : (
-          <>
-            <img
-              src={svgVolt}
-              alt={t("index:topIconAlt")}
-            />
-            <Padding y={17} />
-            <TopTitleAndDescription />
-            <Padding y={30} />
-            <StartNowButton className={styles.startNowButton}>
-              {t("index:topStartNowButton")}
-            </StartNowButton>
-          </>
-        )}
-      </div>
-
+      <TopLeftContainerByLanguage
+        t={t}
+        language={language}
+      />
       <div className={styles.topRightContainer}>
         <GatsbyImage
           image={data.homeTopRight.childImageSharp.gatsbyImageData}

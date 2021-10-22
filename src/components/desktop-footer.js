@@ -38,9 +38,9 @@ const StartNow = ({
           <img
             className={styles.topButtonIcon}
             src={svgVolt}
-            alt={t("index:topIconAlt")}
+            alt={t("footer:topStartNowButton")}
           />
-          {t("index:topStartNowButton")}
+          {t("footer:topStartNowButton")}
         </StartNowButton>
         <Padding y={12} />
         <a href={constants.urlConsulting}>
@@ -51,9 +51,9 @@ const StartNow = ({
             <img
               className={styles.topButtonIcon}
               src={svgConsulting}
-              alt={t("index:topIconAlt")}
+              alt="무료 컨설팅 받기"
             />
-            {t("index:consultingButton")}
+            무료 컨설팅 받기
           </button>
         </a>
       </>
