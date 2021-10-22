@@ -16,7 +16,7 @@ import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
-  ExternalLinkWithQuery,
+  StartNowButton,
   GradientBG,
   SpeechBubbleContainer,
 } from "./common";
@@ -26,6 +26,7 @@ import * as constants from "./constants";
 import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
+import svgConsulting from "../images/icon-consulting.svg";
 import svgCategory from "../images/icon-category.svg";
 import svgScanning from "../images/icon-scanning.svg";
 import svgImage from "../images/icon-image.svg";
@@ -203,7 +204,19 @@ function genFeatureData(data, t) {
   ];
 }
 
-const Top = ({ data, t }) => (
+const TopTitleAndDescription = () => (
+  <>
+    <div className={styles.topLeftTitle}>
+      <Trans i18nKey="index:topTitle" />
+    </div>
+    <Padding y={30} />
+    <div className={styles.topLeftDescription}>
+      <Trans i18nKey="index:topDesc" />
+    </div>
+  </>
+);
+
+const Top = ({ data, t, language }) => (
   <GradientBG
     className={styles.topContainer}
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
@@ -211,28 +224,49 @@ const Top = ({ data, t }) => (
   >
     <DesktopBaseContainer className={styles.topContentContainer}>
       <div className={styles.topLeftContainer}>
-        <img
-          src={svgVolt}
-          alt={t("index:topIconAlt")}
-        />
-        <Padding y={17} />
-        <div className={styles.topLeftTitle}>
-          <Trans i18nKey="index:topTitle" />
-        </div>
-        <Padding y={30} />
-        <div className={styles.topLeftDescription}>
-          <Trans i18nKey="index:topDesc" />
-        </div>
-        <Padding y={30} />
-        <ExternalLinkWithQuery href={constants.urlStart}>
-          <button
-            type="button"
-            className={styles.startNowButton}
-          >
-            {t("index:topStartNowButton")}
-          </button>
-        </ExternalLinkWithQuery>
+        {language === "ko" ? (
+          <>
+            <TopTitleAndDescription />
+            <Padding y={30} />
+            <StartNowButton className={styles.startNowButton}>
+              <img
+                className={styles.topButtonIcon}
+                src={svgVolt}
+                alt={t("index:topIconAlt")}
+              />
+              {t("index:topStartNowButton")}
+            </StartNowButton>
+            <Padding y={12} />
+            <a href={constants.urlConsulting}>
+              <button
+                type="button"
+                className={styles.consultingButton}
+              >
+                <img
+                  className={styles.topButtonIcon}
+                  src={svgConsulting}
+                  alt={t("index:topIconAlt")}
+                />
+                {t("index:consultingButton")}
+              </button>
+            </a>
+          </>
+        ) : (
+          <>
+            <img
+              src={svgVolt}
+              alt={t("index:topIconAlt")}
+            />
+            <Padding y={17} />
+            <TopTitleAndDescription />
+            <Padding y={30} />
+            <StartNowButton className={styles.startNowButton}>
+              {t("index:topStartNowButton")}
+            </StartNowButton>
+          </>
+        )}
       </div>
+
       <div className={styles.topRightContainer}>
         <GatsbyImage
           image={data.homeTopRight.childImageSharp.gatsbyImageData}

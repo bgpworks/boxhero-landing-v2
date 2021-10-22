@@ -131,10 +131,9 @@ const MobileMenu = () => {
           </button>
         </AppDownloadLink>
         <Padding x={20} />
-        <StartNowButton
-          className={styles.startNowButton}
-          startNow={t("header:menuLoginButton")}
-        />
+        <StartNowButton className={styles.startNowButton}>
+          {t("header:menuLoginButton")}
+        </StartNowButton>
       </div>
     </nav>
   );

@@ -125,13 +125,13 @@ export const MobileSimpleTop = ({ title, children }) => (
   </div>
 );
 
-export const StartNowButton = ({ startNow, className }) => (
+export const StartNowButton = ({ className, children }) => (
   <ExternalLinkWithQuery href={urlStart}>
     <button
       type="button"
       className={className}
     >
-      {startNow}
+      {children}
     </button>
   </ExternalLinkWithQuery>
 );
@@ -147,10 +147,9 @@ export const UseCaseTop = ({
       <Padding y={16} />
       <div className={styles.useCaseTopDesc}>{description}</div>
       <Padding y={30} />
-      <StartNowButton
-        startNow={startNow}
-        className={styles.startNowButton}
-      />
+      <StartNowButton className={styles.startNowButton}>
+        {startNow}
+      </StartNowButton>
       <Padding y={49} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}
