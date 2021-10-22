@@ -4,7 +4,10 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import {
-  DesktopBaseContainer, Padding, StartNowButton,
+  ConsultingButton,
+  DesktopBaseContainer,
+  Padding,
+  StartNowButton,
 } from "./common";
 import * as constants from "./constants";
 import { LangSelect } from "./language-selector";
@@ -12,7 +15,6 @@ import { LangSelect } from "./language-selector";
 import * as styles from "./desktop-footer.module.css";
 // images
 import svgVolt from "../images/volt.svg";
-import svgConsulting from "../images/icon-consulting.svg";
 import svgPcWeb from "../images/pcweb.svg";
 import svgWindows from "../images/windows.svg";
 import svgOsx from "../images/osx.svg";
@@ -43,19 +45,7 @@ const StartNow = ({
           {t("footer:topStartNowButton")}
         </StartNowButton>
         <Padding y={12} />
-        <a href={constants.urlConsulting}>
-          <button
-            type="button"
-            className={styles.consultingButton}
-          >
-            <img
-              className={styles.topButtonIcon}
-              src={svgConsulting}
-              alt="무료 컨설팅 받기"
-            />
-            무료 컨설팅 받기
-          </button>
-        </a>
+        <ConsultingButton />
       </>
     ) : (
       <StartNowButton className={styles.startNowButton}>

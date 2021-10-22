@@ -19,6 +19,7 @@ import {
   StartNowButton,
   GradientBG,
   SpeechBubbleContainer,
+  ConsultingButton,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -26,7 +27,6 @@ import * as constants from "./constants";
 import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
-import svgConsulting from "../images/icon-consulting.svg";
 import svgCategory from "../images/icon-category.svg";
 import svgScanning from "../images/icon-scanning.svg";
 import svgImage from "../images/icon-image.svg";
@@ -229,19 +229,7 @@ const TopLeftContainerOfKorea = ({ t }) => (
       {t("index:topStartNowButton")}
     </StartNowButton>
     <Padding y={12} />
-    <a href={constants.urlConsulting}>
-      <button
-        type="button"
-        className={styles.consultingButton}
-      >
-        <img
-          className={styles.topButtonIcon}
-          src={svgConsulting}
-          alt={t("index:topIconAlt")}
-        />
-        무료 컨설팅 받기
-      </button>
-    </a>
+    <ConsultingButton />
   </div>
 );
 

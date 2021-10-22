@@ -48,19 +48,6 @@
   border-radius: 6px;
 }
 
-.consultingButton {
-  background: transparent;
-  color: white;
-  width: 243px;
-  height: 44px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  border: solid 1px rgba(255, 255, 255, 0.5)
-}
-
 .topButtonIcon {
   width: 24px;
   height: 24px;
