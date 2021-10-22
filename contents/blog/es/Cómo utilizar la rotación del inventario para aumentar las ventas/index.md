@@ -33,10 +33,8 @@ Encontrar rotación de Inventario : Verifique la cantidad de productos vendidos 
 
 ---
 
-1. Encuentre la cantidad de inventario vendido dentro del período.
-<gray-text>El período se puede aplicar a varios períodos, como un año o un mes.</gray-text>
-2. Encuentre las cantidades iniciales y finales dentro del período.
-<gray-text>Se recomienda obtener inventario al principio del año y al final del año / cuando se aplica como mes, al principio y al final del mes. ¡No olvide que las cantidades iniciales y finales deben estar dentro del mismo período que el que se aplica a la cantidad de existencias!</gray-text>
+1. Encuentre la cantidad de inventario vendido dentro del período.<br/><gray-text>El período se puede aplicar a varios períodos, como un año o un mes.</gray-text>
+2. Encuentre las cantidades iniciales y finales dentro del período.<br/><gray-text>Se recomienda obtener inventario al principio del año y al final del año / cuando se aplica como mes, al principio y al final del mes. ¡No olvide que las cantidades iniciales y finales deben estar dentro del mismo período que el que se aplica a la cantidad de existencias!</gray-text>
 3. Sume las cantidades iniciales y finales y divida por 2 para obtener el inventario promedio.
 4. Finalmente, el número de inventario vendido en un período dividido por el inventario promedio es el índice de rotación de inventario.
 

@@ -82,7 +82,7 @@ El software de gestión de inventario proporciona datos precisos en tiempo real 
 
 BoxHero es una solución especializada en gestión de inventario que cualquiera puede usar fácilmente.<br/>
 Puede introducirse en cualquier negocio independientemente de la industria a través de varias funciones de gestión de inventario.<br/>
-**hora gestione su inventario de forma fácil y precisa con BoxHero.**
+**Ahora gestione su inventario de forma fácil y precisa con BoxHero.**
 
 <tip-box>
 

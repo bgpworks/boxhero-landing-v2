@@ -1,14 +1,14 @@
 ---
 title: Buat dan Gunakan Desain Barcode Anda Sendiri
 date: 2021-09-10 16:25
-category: Feature
+category: Fitur
 author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
 description: Buat dan cetak
 ---
 
-Dikutip dari wikipedia, kode bar atau *barcode* adalah suatu kumpulan data optik yang dibaca mesin. Kumpulan data ini berbentuk garis paralel hitam dengan spasi diantaranya. Biasanya, kode bar ditempelkan pada produk atau barang untuk keperluan pengecekan hingga penjualan. Untuk mengetahui fungsi dan pengertian kode bar lebih jauh, Anda dapat membacanya [di sini](/1ca120bc2eaa47c59006cd585a73a171).
+Dikutip dari wikipedia, kode bar atau *barcode* adalah suatu kumpulan data optik yang dibaca mesin. Kumpulan data ini berbentuk garis paralel hitam dengan spasi diantaranya. Biasanya, kode bar ditempelkan pada produk atau barang untuk keperluan pengecekan hingga penjualan. Untuk mengetahui fungsi dan pengertian kode bar lebih jauh, Anda dapat membacanya [di sini](/id/blog/posts/mengenal-fungsi-dan-cara-kerja-barcode).
 
 ## Mengapa Harus Menggunakan Kode Bar?
 
