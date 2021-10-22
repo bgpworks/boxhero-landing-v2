@@ -20,7 +20,7 @@ description: RFID 시스템을 예시를 통해 더 자세히 파헤쳐봐요!
 
  **RFID시스템이란 무엇일까요?**
 
-**'RFID'**는 무선 주파수를 인식하는 **R**adio** F**requency **ID**entification의 약자로 안테나와 칩으로 구성된 RFID 태그에 정보를 저장하여 적용 대상에 부착한 후, **RFID 리더기** 등을 통해 물건이나 사람 등과 같은 대상을식별(Identification) 할 수 있도록 해주는 기술을 말합니다!
+**RFID**는 무선 주파수를 인식하는 **R**adio **F**requency **ID**entification의 약자로 안테나와 칩으로 구성된 RFID 태그에 정보를 저장하여 적용 대상에 부착한 후, **RFID 리더기** 등을 통해 물건이나 사람 등과 같은 대상을식별(Identification) 할 수 있도록 해주는 기술을 말합니다!
 
 </tip-box>
 

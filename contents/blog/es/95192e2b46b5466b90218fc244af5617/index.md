@@ -18,7 +18,7 @@ Primero, hablemos de qué tipo de sistema es RFID.
 
 **¿Qué es un sistema RFID?**
 
-- 'RFID' es una abreviatura de  **R**adio** F**requency **ID**entification que reconoce la radiofrecuencia. Se refiere a una tecnología que permite la identificación de objetos, como objetos o personas. ,a través de lector RFID.
+- 'RFID' es una abreviatura de  **R**adio **F**requency **ID**entification que reconoce la radiofrecuencia. Se refiere a una tecnología que permite la identificación de objetos, como objetos o personas. ,a través de lector RFID.
 
 </tip-box>
 
