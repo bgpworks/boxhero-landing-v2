@@ -340,11 +340,12 @@ export const query = graphql`
     }
     mobileLowstockFig: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-lowstock-fig.png" }
+      base: { eq: "mobile-feature-lowstock-fig.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -353,7 +354,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -395,11 +395,12 @@ export const query = graphql`
     }
     mobileBarcodelabelFig: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-barcodelabel-fig.png" }
+      base: { eq: "mobile-feature-barcodelabel-fig.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f3"
@@ -408,7 +409,6 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -450,11 +450,12 @@ export const query = graphql`
     }
     mobileSummaryFig: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-summary-fig.png" }
+      base: { eq: "mobile-feature-summary-fig.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f3"
@@ -463,7 +464,6 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -505,11 +505,12 @@ export const query = graphql`
     }
     mobileViewPastQuantityFig: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-view-past-quantity-fig.png" }
+      base: { eq: "mobile-feature-view-past-quantity-fig.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
@@ -518,7 +519,6 @@ export const query = graphql`
             turnPolicy: TURNPOLICY_MAJORITY
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
@@ -560,11 +560,12 @@ export const query = graphql`
     }
     mobileLocationFig: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-location-fig.png" }
+      base: { eq: "mobile-feature-location-fig.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -573,7 +574,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
