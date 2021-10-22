@@ -84,6 +84,52 @@ html[lang="ko"] .mobileSimpleTopDesc {
   line-height: 1.5;
 }
 
+.mobileUseCaseTopContentContainer {
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-font-gray1);
+}
+
+.mobileUseCaseTopTitle {
+  margin: 0;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: -0.1px;
+  line-height: normal;
+}
+.mobileUseCaseTopTitle strong {
+  color: var(--color-primary);
+}
+
+.mobileUseCaseTopDesc {
+  margin: 0;
+  font-size: var(--font-size-mobile-normal);
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: -0.1px;
+}
+
+.appDownloadButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 243px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: black;
+  font-weight: bold;
+  color: white;
+}
+
+.appDownloadIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
 .useCaseFeatureContentContainer {
   padding: 100px 0;
   display: flex;
@@ -138,6 +184,50 @@ html[lang="ko"] .mobileSimpleTopDesc {
   background-color: #000;
   font-weight: bold;
   color: white;
+}
+
+.mobileUseCaseFeatureTopContainer {
+  padding: 50px 20px 0;
+  color: var(--color-font-gray1);
+  font-weight: 500;
+}
+
+.mobileUseCaseFeatureTitle {
+  margin: 0;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
+  text-align: center;
+}
+
+.mobileSpeechBubbleContainer {
+  width: 100%;
+}
+
+.mobileUseCaseFeatureImageContainer {
+  padding: 0 20px;
+}
+
+.mobileUseCaseFeatureImage {
+  margin: 0 auto;
+}
+
+.mobileUseCaseFeatureBottomContainer {
+  padding: 0 20px 50px;
+  color: var(--color-font-gray1);
+}
+
+.mobileUseCaseFeatureDescContainer {
+  margin: 0;
+}
+
+.mobileUseCaseFeatureDesc {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.5;
+  font-weight: normal;
+}
+.mobileUseCaseFeatureDesc:not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .dropDownQNA {

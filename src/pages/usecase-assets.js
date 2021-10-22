@@ -131,5 +131,95 @@ export const query = graphql`
         )
       }
     }
+    mobileFinger: file(relativePath: { eq: "emoji-finger.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 36
+          height: 36
+          transformOptions: { fit: FILL }
+          layout: FIXED
+          placeholder: BLURRED
+        )
+      }
+    }
+    mobileFeatures: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-features.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 335
+          quality: 90
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+        )
+      }
+    }
+    mobilePrintLabel: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-print-label.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          height: 302
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    mobileHistory: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-history.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          height: 430
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    mobileViewPast: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "usecase-view-past.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          height: 430
+          quality: 80
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
   }
 `;

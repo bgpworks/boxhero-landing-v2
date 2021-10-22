@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
 import svgEye from "../images/icon-eye.svg";
 import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
+import svgDownload from "../images/download.svg";
 import {
   urlStart,
   urlDownloadApp,
@@ -75,14 +77,14 @@ const DEFAULT_CHATTING_COLOR_SEQUENCE = [
   { text: "white", background: "rgba(126, 187, 64, 0.6)" },
   { text: "white", background: "rgba(251, 97, 100, 0.6)" },
 ];
+const COLUMN_WIDTH = 72;
+const GUTTER_WIDTH = 30;
 
 export const SpeechBubbleContainer = ({
   containerGridColumns,
   speechBubbles,
   colorSequence = DEFAULT_CHATTING_COLOR_SEQUENCE,
 }) => {
-  const COLUMN_WIDTH = 72;
-  const GUTTER_WIDTH = 30;
   const containerWidth = COLUMN_WIDTH * containerGridColumns
   + GUTTER_WIDTH * (containerGridColumns - 1);
   const colorSeqquenceIterator = (idx) => {
@@ -158,6 +160,39 @@ export const UseCaseTop = ({
   </div>
 );
 
+export const MobileUseCaseTop = ({
+  className, title, description, appDownload, img,
+}) => (
+  <section className={className}>
+    <MobileBaseContainer
+      className={styles.mobileUseCaseTopContentContainer}
+    >
+      <h2 className={styles.mobileUseCaseTopTitle}>{title}</h2>
+      <Padding y={16} />
+      <p className={styles.mobileUseCaseTopDesc}>{description}</p>
+      <Padding y={40} />
+      <AppDownloadLink>
+        <button
+          type="button"
+          className={styles.appDownloadButton}
+        >
+          <img
+            className={styles.appDownloadIcon}
+            src={svgDownload}
+            alt={appDownload}
+          />
+          {appDownload}
+        </button>
+      </AppDownloadLink>
+      <Padding y={40} />
+      <GatsbyImage
+        image={img.childImageSharp.gatsbyImageData}
+        alt={title}
+      />
+    </MobileBaseContainer>
+  </section>
+);
+
 const UseCaseFeatureRightDesc = ({ icon, text }) => (
   <div className={styles.useCaseFeatureRightDesc}>
     <img
@@ -216,6 +251,74 @@ export const UseCaseFeature = ({
     </div>
     {children}
   </DesktopBaseContainer>
+);
+
+const MobileUseCaseFeatureDesc = ({ icon, text }) => (
+  <li className={styles.mobileUseCaseFeatureDesc}>
+    <img
+      src={icon}
+      alt={text}
+    />
+    <Padding x={8} />
+    {text}
+  </li>
+);
+
+export const MobileUseCaseFeature = ({
+  title,
+  speechBubbles,
+  bubleColorSequence,
+  img,
+  descriptions,
+  children,
+}) => (
+  <>
+    <MobileBaseContainer
+      className={styles.mobileUseCaseFeatureTopContainer}
+    >
+      <h2 className={styles.mobileUseCaseFeatureTitle}>{title}</h2>
+      <Padding y={40} />
+      <article className={styles.mobileSpeechBubbleContainer}>
+        <SpeechBubbleContainer
+          colorSequence={bubleColorSequence}
+          speechBubbles={speechBubbles}
+        />
+      </article>
+    </MobileBaseContainer>
+
+    <Padding y={40} />
+    <ScrollContainer
+      vertical={false}
+      horizontal
+      hideScrollbars
+      className={styles.mobileUseCaseFeatureImageContainer}
+    >
+      <GatsbyImage
+        className={styles.mobileUseCaseFeatureImage}
+        image={img.childImageSharp.gatsbyImageData}
+        alt={title}
+      />
+    </ScrollContainer>
+    <Padding y={16} />
+
+    <MobileBaseContainer
+      className={styles.mobileUseCaseFeatureBottomContainer}
+    >
+      <ul className={styles.mobileUseCaseFeatureDescContainer}>
+        {descriptions.map((description, index) => {
+          const isLastChild = index === descriptions.length - 1;
+          return (
+            <MobileUseCaseFeatureDesc
+              key={index}
+              icon={isLastChild ? svgEye : svgCircleCheck}
+              text={description}
+            />
+          );
+        })}
+      </ul>
+      {children}
+    </MobileBaseContainer>
+  </>
 );
 
 export const DropDownQNA = ({
