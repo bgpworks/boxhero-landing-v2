@@ -51,6 +51,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 786
+          quality: 80
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
@@ -81,6 +82,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 582
+          quality: 80
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -97,6 +99,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 582
+          quality: 80
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -113,6 +116,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 582
+          quality: 80
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1

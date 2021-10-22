@@ -374,6 +374,7 @@ export const query = graphql`
         gatsbyImageData(
           width: 786
           height: 612
+          quality: 80
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
