@@ -294,6 +294,7 @@ html[lang="ko"] .mobileSimpleTopDesc {
   display: block;
   padding: 0 0 0 48px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .switchLabel:before {
