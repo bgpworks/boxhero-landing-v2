@@ -82,7 +82,7 @@
   top: 0;
   left: 0;
   padding: var(--height-mobile-top-menu) 20px 30px 20px;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: white;
   z-index: 199;
