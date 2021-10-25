@@ -109,6 +109,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .slideNavButton {
@@ -116,25 +118,33 @@
   height: 36px;
   padding: 6px;
   border-radius: 8px;
-  background-color: var(--color-gray4);
+  background-color: transparent;
 }
 .slideNavButton:disabled {
   opacity: 0;
 }
 
-.keyFeatureSlideTitle {
-  max-width: 223px;
-  color: var(--color-font-gray1);
-  font-weight: 500;
-  padding: 12px 18px;
-  border-radius: 8px;
-  background-color: white;
-  display: flex;
-  align-items: center;
+.keyFeatureDisplaySlide {
+  overflow: hidden;
 }
 
-.keyFeatureSlideTitle img {
-  margin-right: 10px;
+.keyFeatureSlideTitleContainer {
+  margin: 0;
+  display: flex;
+  /* carousel default animation */
+  transition: margin-left 0.5s cubic-bezier(.645,.045,.355,1);
+}
+
+.keyFeatureSlideTitle {
+  margin: 0;
+  list-style: none;
+  color: var(--color-font-gray1);
+  font-weight: 500;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .keyFeatureSlider {

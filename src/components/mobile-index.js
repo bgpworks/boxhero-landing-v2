@@ -28,18 +28,6 @@ import * as constants from "./constants";
 import * as styles from "./mobile-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
-import svgCategory from "../images/icon-category.svg";
-import svgScanning from "../images/icon-scanning.svg";
-import svgImage from "../images/icon-image.svg";
-import svgExcel from "../images/icon-excel.svg";
-import svgFinger from "../images/icon-finger.svg";
-import svgMobileScan from "../images/icon-mobile-scan.svg";
-import svgHistory from "../images/icon-history.svg";
-import svgConnectExcel from "../images/icon-connect-excel.svg";
-import svgGraph from "../images/icon-graph.svg";
-import svgList from "../images/icon-list.svg";
-import svgSummary from "../images/icon-summary.svg";
-import svgDashboard from "../images/icon-dashboard.svg";
 import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
@@ -122,6 +110,9 @@ const KeyFeatureSelector = ({ carouselData }) => {
   const { t } = useI18next();
   const { currentSlide } = useCurrentSlide();
 
+  const SLIDE_TITLE_WIDTH = 188;
+  const additionalOffset = currentSlide * SLIDE_TITLE_WIDTH * -1;
+
   return (
     <div className={styles.KeyFeatureSelector}>
       <ButtonBack className={styles.slideNavButton}>
@@ -130,13 +121,30 @@ const KeyFeatureSelector = ({ carouselData }) => {
           alt={t("index:featuresNavBack")}
         />
       </ButtonBack>
-      <div className={styles.keyFeatureSlideTitle}>
-        <img
-          src={carouselData[currentSlide].icon}
-          alt={carouselData[currentSlide].title}
-        />
-        {carouselData[currentSlide].title}
+
+      <div
+        className={styles.keyFeatureDisplaySlide}
+        style={{ width: SLIDE_TITLE_WIDTH }}
+      >
+        <ul
+          className={styles.keyFeatureSlideTitleContainer}
+          style={{
+            width: SLIDE_TITLE_WIDTH * carouselData.length,
+            marginLeft: additionalOffset,
+          }}
+        >
+          {carouselData.map(({ title }, index) => (
+            <li
+              key={index}
+              className={styles.keyFeatureSlideTitle}
+              style={{ width: SLIDE_TITLE_WIDTH }}
+            >
+              {title}
+            </li>
+          ))}
+        </ul>
       </div>
+
       <ButtonNext className={styles.slideNavButton}>
         <img
           src={svgRightArrow}
@@ -197,10 +205,10 @@ const KeyFeatures = ({ data, t }) => (
       title={<Trans i18nKey="index:keyFeature1Title" />}
       description={<Trans i18nKey="index:keyFeature1Desc" />}
       carouselData={[
-        { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.mobileFeature1CustomProducts },
-        { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.mobileFeature1PrintLabel },
-        { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.mobileFeature1ProductList },
-        { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.mobileFeature1ImportExcel },
+        { title: t("index:keyFeature1Menu1"), img: data.mobileFeature1CustomProducts },
+        { title: t("index:keyFeature1Menu2"), img: data.mobileFeature1PrintLabel },
+        { title: t("index:keyFeature1Menu3"), img: data.mobileFeature1ProductList },
+        { title: t("index:keyFeature1Menu4"), img: data.mobileFeature1ImportExcel },
       ]}
     />
 
@@ -208,10 +216,10 @@ const KeyFeatures = ({ data, t }) => (
       title={<Trans i18nKey="index:keyFeature2Title" />}
       description={<Trans i18nKey="index:keyFeature2Desc" />}
       carouselData={[
-        { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.mobileFeature2SelectProduct },
-        { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.mobileFeature2ScanBarcode },
-        { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.mobileFeature2History },
-        { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.mobileFeature2ConnectExcel },
+        { title: t("index:keyFeature2Menu1"), img: data.mobileFeature2SelectProduct },
+        { title: t("index:keyFeature2Menu2"), img: data.mobileFeature2ScanBarcode },
+        { title: t("index:keyFeature2Menu3"), img: data.mobileFeature2History },
+        { title: t("index:keyFeature2Menu4"), img: data.mobileFeature2ConnectExcel },
       ]}
     />
 
@@ -219,10 +227,10 @@ const KeyFeatures = ({ data, t }) => (
       title={<Trans i18nKey="index:keyFeature3Title" />}
       description={<Trans i18nKey="index:keyFeature3Desc" />}
       carouselData={[
-        { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.mobileFeature3Analysis },
-        { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.mobileFeature3GroupList },
-        { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.mobileFeature3EmailReport },
-        { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.mobileFeature3Dashboard },
+        { title: t("index:keyFeature3Menu1"), img: data.mobileFeature3Analysis },
+        { title: t("index:keyFeature3Menu2"), img: data.mobileFeature3GroupList },
+        { title: t("index:keyFeature3Menu3"), img: data.mobileFeature3EmailReport },
+        { title: t("index:keyFeature3Menu4"), img: data.mobileFeature3Dashboard },
       ]}
     />
   </>
