@@ -4,7 +4,6 @@ import {
   DesktopBaseContainer,
   Padding,
   StartNowButton,
-  genCategoryStyleMap,
 } from "./common";
 import * as styles from "./desktop-usecase-footer.module.css";
 import svgPerson from "../images/icon-person.svg";
@@ -112,7 +111,6 @@ const PostCard = ({
 
 const RelatedContents = ({ data, t }) => {
   const postCardsData = data.relatedContents.nodes;
-  const categoryStyleMap = genCategoryStyleMap(postCardsData);
 
   return (
     <div className={styles.relatedContentsContainer}>
@@ -122,16 +120,20 @@ const RelatedContents = ({ data, t }) => {
         </div>
         <Padding y={50} />
         <ul className={styles.postCards}>
-          {postCardsData.slice(0, 3).map((postCard, index) => (
-            <PostCard
-              key={index}
-              title={postCard.frontmatter.title}
-              categoryStyle={categoryStyleMap[postCard.frontmatter.category]}
-              category={postCard.frontmatter.category}
-              description={postCard.frontmatter.description}
-              path={`/blog/posts/${postCard.fields.slug}`}
-            />
-          ))}
+          {postCardsData.slice(0, 3).map((postCard, index) => {
+            const catgegoryStyle = JSON.parse(postCard.fields.categoryStyle);
+
+            return (
+              <PostCard
+                key={index}
+                title={postCard.frontmatter.title}
+                categoryStyle={catgegoryStyle}
+                category={postCard.frontmatter.category}
+                description={postCard.frontmatter.description}
+                path={`/blog/posts/${postCard.fields.slug}`}
+              />
+            );
+          })}
         </ul>
       </DesktopBaseContainer>
     </div>
