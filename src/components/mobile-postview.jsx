@@ -50,11 +50,11 @@ const LinkToListSection = () => {
 const AuthorAndDateSection = ({ author, authorPhoto, date }) => (
   <div className={authorSection}>
     {authorPhoto && (
-    <GatsbyImage
-      image={authorPhoto}
-      className={authorPhotoWrapper}
-      alt={author}
-    />
+      <GatsbyImage
+        image={authorPhoto}
+        className={authorPhotoWrapper}
+        alt={author}
+      />
     )}
     <div className={nameAndDate}>
       <address>{author}</address>
@@ -140,8 +140,10 @@ const StartNow = () => {
   );
 };
 
-const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
+const RelatedPosts = ({ prevPostData, nextPostData }) => {
   const { t } = useI18next();
+  const prevPostDataStyle = prevPostData && JSON.parse(prevPostData.fields.categoryStyle);
+  const nextPostDataStyle = nextPostData && JSON.parse(nextPostData.fields.categoryStyle);
 
   return (
     <>
@@ -152,7 +154,7 @@ const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
             slug={prevPostData.fields.slug}
             title={prevPostData.frontmatter.title}
             category={prevPostData.frontmatter.category}
-            categoryStyle={categoryStyleMap[prevPostData.frontmatter.category]}
+            categoryStyle={prevPostDataStyle}
             label={t("blog:prevPost")}
           />
         )}
@@ -162,7 +164,7 @@ const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
             slug={nextPostData.fields.slug}
             title={nextPostData.frontmatter.title}
             category={nextPostData.frontmatter.category}
-            categoryStyle={categoryStyleMap[nextPostData.frontmatter.category]}
+            categoryStyle={nextPostDataStyle}
             label={t("blog:nextPost")}
           />
         )}
@@ -172,13 +174,13 @@ const RelatedPosts = ({ categoryStyleMap, prevPostData, nextPostData }) => {
 };
 
 export default function PostViewMobile({
-  categoryStyleMap,
   currentPostData,
   prevPostData,
   nextPostData,
 }) {
   const { title } = currentPostData.frontmatter;
   const { category } = currentPostData.frontmatter;
+  const categoryStyle = JSON.parse(currentPostData.fields.categoryStyle);
   const thumbnail = currentPostData.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData;
 
   return (
@@ -200,20 +202,19 @@ export default function PostViewMobile({
               ?.gatsbyImageData
           }
           date={currentPostData.fields.date}
-          categoryStyle={categoryStyleMap[category]}
+          categoryStyle={categoryStyle}
         />
         {thumbnail && (
-        <PostThumbnail
-          thumbnail={thumbnail}
-          alt={title}
-        />
+          <PostThumbnail
+            thumbnail={thumbnail}
+            alt={title}
+          />
         )}
         <PostBody postContentHTMLAst={currentPostData.htmlAst} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (
             <RelatedPosts
-              categoryStyleMap={categoryStyleMap}
               prevPostData={prevPostData}
               nextPostData={nextPostData}
             />

@@ -24,6 +24,35 @@ const CATEGORY_STYLES = [
   { backgroundColor: "#d38457", color: "white" },
 ];
 
+function* categoryStyleGenerator() {
+  let idx = 0;
+  while (true) {
+    yield CATEGORY_STYLES[idx % CATEGORY_STYLES.length];
+    idx++;
+  }
+}
+
+const identical = v => v;
+const genSafeStore = (keyGenerator = identical, valueGenerator = identical) => {
+  const store = new Map();
+
+  return (...args) => {
+    const newKey = keyGenerator(...args);
+
+    if (store.has(newKey)) {
+      return store.get(newKey);
+    }
+
+    const newValue = valueGenerator(...args);
+    store.set(newKey, newValue);
+
+    return newValue;
+  }
+}
+
+const getCategoryStyleIterator = genSafeStore(identical, categoryStyleGenerator)
+const getCategoryStyle = genSafeStore((localeCode, category) => localeCode + category, (localeCode) => getCategoryStyleIterator(localeCode).next().value)
+
 // Regexes
 
 const REGEX_SPACES = /\s+/g;
@@ -142,6 +171,17 @@ const createDateField = (node, actions) => {
   }
 };
 
+const createCategoryStyleField = (node, actions, getNode) => {
+  const { createNodeField } = actions;
+  const localeCode = getLocaleCode(getNode, node);
+
+  createNodeField({
+    node,
+    name: "categoryStyle",
+    value: JSON.stringify(getCategoryStyle(localeCode, node.frontmatter.category)),
+  });
+};
+
 const createCustomFields = (node, actions, getNode) => {
   const { createNodeField } = actions;
 
@@ -154,6 +194,7 @@ const createCustomFields = (node, actions, getNode) => {
     createDateField(node, actions);
 
     createNodeField({ node, name: "title", value: node.frontmatter.title });
+    createCategoryStyleField(node, actions, getNode)
     createNodeField({
       node,
       name: "category",
@@ -164,7 +205,7 @@ const createCustomFields = (node, actions, getNode) => {
 
 // createPages
 
-const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
+const createPostPages = (actions, locale, postsEdges) => {
   const { createPage } = actions;
 
   postsEdges.forEach((edge, index) => {
@@ -177,7 +218,6 @@ const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
       path: genPostPath(locale, edge.node.fields.slug),
       component: PostPage,
       context: {
-        ...commonPageContext,
         locale,
         currentPostId: edge.node.id,
         prevPostId: prevEdge && prevEdge.node.id,
@@ -187,7 +227,7 @@ const createPostPages = (actions, locale, commonPageContext, postsEdges) => {
   });
 };
 
-const createPostListPage = (actions, locale, commonPageContext, postsEdges) => {
+const createPostListPage = (actions, locale, postsEdges) => {
   const { createPage } = actions;
   const pageCount = Math.ceil(postsEdges.length / PER_PAGE);
   const postIds = postsEdges.map(({ node }) => node.id);
@@ -197,7 +237,6 @@ const createPostListPage = (actions, locale, commonPageContext, postsEdges) => {
     const endIndex = Math.min(startIndex + PER_PAGE, postsEdges.length);
     const postIdsInPage = postIds.slice(startIndex, endIndex);
     const pageContext = {
-      ...commonPageContext,
       locale,
       ids: postIdsInPage,
       pageIndex: page,
@@ -227,28 +266,13 @@ const getFieldValues = (postsEdges, fieldName) => {
   return [...valueSet];
 };
 
-const genCommonPageContext = (postsEdges) => {
-  const categories = getFieldValues(postsEdges, "category");
-  const categoryStyleMap = categories.reduce((acc, category, idx) => {
-    return {
-      ...acc,
-      [category]: CATEGORY_STYLES[idx % CATEGORY_STYLES.length],
-    };
-  }, {});
-
-  return {
-    categoryStyleMapSerialized: JSON.stringify(categoryStyleMap),
-  };
-};
-
 const createPagesByLocale = (actions, locale, postsEdges) => {
   const filteredEdges = postsEdges.filter(
     (edge) => edge.node.fields.locale === locale
   );
-  const commonPageContext = genCommonPageContext(filteredEdges);
 
-  createPostPages(actions, locale, commonPageContext, filteredEdges);
-  createPostListPage(actions, locale, commonPageContext, filteredEdges);
+  createPostPages(actions, locale, filteredEdges);
+  createPostListPage(actions, locale, filteredEdges);
 };
 
 // onCreateNode
