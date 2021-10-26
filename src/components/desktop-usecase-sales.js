@@ -32,7 +32,7 @@ const UseCaseFeatures = ({ data, t }) => {
     {
       title: t("usecase:salesFeature1Title"),
       bubbles: [
-        { text: t("usecase:salesFeature1Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature1Bubble1" /> },
         { text: <Trans i18nKey="usecase:salesFeature1Bubble2" /> },
       ],
       img: data.customProduct,
@@ -47,7 +47,7 @@ const UseCaseFeatures = ({ data, t }) => {
       isBgBlue: true,
       title: t("usecase:salesFeature2Title"),
       bubbles: [
-        { text: t("usecase:salesFeature2Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature2Bubble1" /> },
         { text: <Trans i18nKey="usecase:salesFeature2Bubble2" /> },
       ],
       img: data.salesOut,
@@ -61,7 +61,7 @@ const UseCaseFeatures = ({ data, t }) => {
     {
       title: t("usecase:salesFeature3Title"),
       bubbles: [
-        { text: t("usecase:salesFeature3Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature3Bubble1" /> },
         { text: <Trans i18nKey="usecase:salesFeature3Bubble2" /> },
       ],
       img: data.scanBarcode,
@@ -80,7 +80,7 @@ const UseCaseFeatures = ({ data, t }) => {
       isBgBlue: true,
       title: t("usecase:salesFeature4Title"),
       bubbles: [
-        { text: t("usecase:salesFeature4Bubble1") },
+        { text: <Trans i18nKey="usecase:salesFeature4Bubble1" /> },
         { text: <Trans i18nKey="usecase:salesFeature4Bubble2" /> },
       ],
       img: data.analysis,

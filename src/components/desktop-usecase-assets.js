@@ -12,7 +12,7 @@ const UseCaseFeatures = ({ data, t }) => {
     {
       title: t("usecase:assetsFeature1Title"),
       bubbles: [
-        { text: t("usecase:assetsFeature1Bubble1") },
+        { text: <Trans i18nKey="usecase:assetsFeature1Bubble1" /> },
         { text: <Trans i18nKey="usecase:assetsFeature1Bubble2" /> },
       ],
       img: data.printLabel,

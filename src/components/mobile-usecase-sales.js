@@ -121,7 +121,7 @@ const MobileUsecaseSales = ({ data, t }) => (
   >
     <MobileUseCaseTop
       className={styles.useCaseTopContainer}
-      title={<Trans i18nKey="usecase:salesTopTitle" />}
+      title={<Trans i18nKey="usecase:salesTopTitleMobile" />}
       description={<Trans i18nKey="usecase:salesTopDesc" />}
       appDownload={t("usecase:appInstall")}
       img={data.mobileAllInOne}

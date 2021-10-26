@@ -91,7 +91,7 @@ const CHATTING_COLOR_SEQUENCE = [
   { text: "white", background: "rgba(251, 97, 100, 0.6)" },
 ];
 
-const Chatting = ({ t }) => {
+const Chatting = () => {
   const speechBubbles = [
     { text: <Trans i18nKey="index:chattingBubble1Mobile" /> },
     { text: <Trans i18nKey="index:chattingBubble2Mobile" /> },
@@ -109,7 +109,9 @@ const Chatting = ({ t }) => {
         colorSequence={CHATTING_COLOR_SEQUENCE}
       />
       <Padding y={50} />
-      <h2 className={styles.chattingTitle}>{t("index:chattingTitle")}</h2>
+      <h2 className={styles.chattingTitle}>
+        <Trans i18nKey="index:chattingTitle" />
+      </h2>
       <Padding y={16} />
       <p className={styles.chattingDescription}>
         <Trans i18nKey="index:chattingDescription" />
@@ -638,7 +640,7 @@ const MobileIndex = ({ data, language, t }) => (
       t={t}
     />
 
-    <Chatting t={t} />
+    <Chatting />
 
     <KeyFeatures
       data={data}
