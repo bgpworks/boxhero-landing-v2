@@ -483,28 +483,3 @@ export const GradientBG = ({
     {children}
   </div>
 );
-
-const CATEGORY_STYLES = [
-  { backgroundColor: "#599fe0", color: "white" },
-  { backgroundColor: "#51baa5", color: "white" },
-  { backgroundColor: "#e57678", color: "white" },
-  { backgroundColor: "#ea9b18", color: "white" },
-  { backgroundColor: "#6e7fe8", color: "white" },
-  { backgroundColor: "#75b534", color: "white" },
-  { backgroundColor: "#d38457", color: "white" },
-];
-
-const getCategories = (postsNodes) => {
-  const valueSet = new Set();
-  postsNodes.forEach((node) => valueSet.add(node.frontmatter.category));
-
-  return [...valueSet];
-};
-
-export const genCategoryStyleMap = (postsNodes) => {
-  const categories = getCategories(postsNodes);
-  return categories.reduce((acc, category, idx) => ({
-    ...acc,
-    [category]: CATEGORY_STYLES[idx % CATEGORY_STYLES.length],
-  }), {});
-};

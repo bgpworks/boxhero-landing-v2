@@ -133,13 +133,24 @@
   border-radius: 4px;
 }
 
+.postCardTitle,
+.postCardDesc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .postCardTitle {
   color: var(--color-font-gray1);
   font-size: var(--font-size-b18);
   font-weight: bold;
+
+  -webkit-line-clamp: 2;
 }
 
 .postCardDescription {
   font-size: var(--font-size-b14);
   color: var(--color-gray2);
+
+  -webkit-line-clamp: 3;
 }

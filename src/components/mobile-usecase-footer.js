@@ -5,7 +5,6 @@ import {
   MobileBaseContainer,
   Padding,
   AppDownloadLink,
-  genCategoryStyleMap,
 } from "./common";
 // css
 import * as styles from "./mobile-usecase-footer.module.css";
@@ -117,7 +116,6 @@ const PostCard = ({
 
 const RelatedContents = ({ data, t }) => {
   const postCardsData = data.relatedContents.nodes;
-  const categoryStyleMap = genCategoryStyleMap(postCardsData);
 
   return (
     <section className={styles.darkBg}>
@@ -127,16 +125,20 @@ const RelatedContents = ({ data, t }) => {
         </h2>
         <Padding y={40} />
         <ul className={styles.postCards}>
-          {postCardsData.slice(0, 3).map((postCard, index) => (
-            <PostCard
-              key={index}
-              title={postCard.frontmatter.title}
-              categoryStyle={categoryStyleMap[postCard.frontmatter.category]}
-              category={postCard.frontmatter.category}
-              description={postCard.frontmatter.description}
-              path={`/blog/posts/${postCard.fields.slug}`}
-            />
-          ))}
+          {postCardsData.slice(0, 3).map((postCard, index) => {
+            const categoryStyle = JSON.parse(postCard.fields.categoryStyle);
+
+            return (
+              <PostCard
+                key={index}
+                title={postCard.frontmatter.title}
+                categoryStyle={categoryStyle}
+                category={postCard.frontmatter.category}
+                description={postCard.frontmatter.description}
+                path={`/blog/posts/${postCard.fields.slug}`}
+              />
+            );
+          })}
         </ul>
       </MobileBaseContainer>
     </section>
