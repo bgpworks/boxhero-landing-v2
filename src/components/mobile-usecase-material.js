@@ -93,7 +93,7 @@ const MobileUsecaseMaterial = ({ data, t }) => (
       t={t}
     />
 
-    <MobileUseCaseFooter />
+    <MobileUseCaseFooter data={data} />
   </MobileLayout>
 );
 

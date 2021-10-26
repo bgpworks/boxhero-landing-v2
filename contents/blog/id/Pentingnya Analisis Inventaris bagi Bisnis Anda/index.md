@@ -6,6 +6,8 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Analisis inventaris untuk mengetahui data inventaris Anda dengan akurat.
+relPage:
+  - usecase-material
 ---
 
 Analisis inventaris membantu Anda untuk lebih aktif lagi dalam mengelola aset yang paling berharga. Ini adalah cara sederhana sekaligus efektif untuk mengetahui mana barang yang paling banyak terjual, barang apa yang memiliki stok berlebih, memeriksa rasio perputaran, dan masih banyak lagi. Mengetahui data-data tersebut, tentunya dapat membantu Anda dalam menentukan langkah tepat untuk menjalankan bisnis Anda di masa depan.

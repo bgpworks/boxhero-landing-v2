@@ -137,7 +137,7 @@ const DesktopUsecaseSales = ({ data, t }) => (
       t={t}
     />
 
-    <DesktopUseCaseFooter />
+    <DesktopUseCaseFooter data={data} />
   </DesktopLayout>
 );
 

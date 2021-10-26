@@ -6,6 +6,10 @@ author: HyungJee Kim
 authorPhoto: "../../images/authors/HyungJee Kim.jpg"
 thumbnail: ./images/1.jpg
 description: Are you looking for a better way to manage your inventory?
+relPage:
+  - usecase-sales
+  - usecase-material
+  - usecase-assets
 ---
 
 Are you looking for a better way to manage your inventory?

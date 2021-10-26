@@ -6,6 +6,9 @@ author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: "./images/img_1.jpg"
 description: 어렵게만 느껴지는 바코드 생성과 출력, 이해하기 쉽게 알려드려요!
+relPage: 
+  - usecase-sales
+  - usecase-assets
 ---
 
 평소 물건을 구입할 때 상품 뒷면 하단을 보면 바코드에 빨간 불빛을 쏘아 자동으로 계산하는 장면을 적지 않게 보셨을 거에요. 바코드란 암호처럼 되어있는 검은 줄무늬 부분을 말합니다. 바코드를 자세히 들여다보면 굵기가 서로 다른 검은 막대와 흰 막대가 섞인 채 나란히 배열되어있는 것을 볼 수 있는데 이를 **바(Bar) 코드(Code)** 라고 부릅니다!

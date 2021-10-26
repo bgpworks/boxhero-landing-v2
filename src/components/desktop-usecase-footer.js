@@ -1,6 +1,11 @@
 import React from "react";
 import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
-import { DesktopBaseContainer, Padding, StartNowButton } from "./common";
+import {
+  DesktopBaseContainer,
+  Padding,
+  StartNowButton,
+  genCategoryStyleMap,
+} from "./common";
 import * as styles from "./desktop-usecase-footer.module.css";
 import svgPerson from "../images/icon-person.svg";
 import svgBox from "../images/icon-box.svg";
@@ -105,30 +110,10 @@ const PostCard = ({
   </li>
 );
 
-const RelatedContents = ({ t }) => {
-  const postCardsData = [
-    {
-      title: "재고 관리를 위한 3가지 중요한 기술",
-      categoryStyle: { backgroundColor: "#55adfd", color: "white" },
-      category: "인사이트",
-      description: "글로벌 기업이 사용하는 세 가지 재고 관리 기술에 대해 알아봅시다!",
-      slug: "재고-관리를-위한-3가지-중요한-기술",
-    },
-    {
-      title: "재고자산이란?",
-      categoryStyle: { backgroundColor: "#55adfd", color: "white" },
-      category: "인사이트",
-      description: "재고자산을 어떻게 사용해야 효율적인 재고관리가 가능할까요?",
-      slug: "재고자산이란",
-    },
-    {
-      title: "카페 재고를 관리하는 5가지 효과적인 방법!",
-      categoryStyle: { backgroundColor: "#55adfd", color: "white" },
-      category: "인사이트",
-      description: "카페를 운영하면서 제일 철저하게 관리해야 할 부분은 무엇일까요?",
-      slug: "카페-재고를-관리하는-5가지-효과적인-방법",
-    },
-  ];
+const RelatedContents = ({ data, t }) => {
+  const postCardsData = data.relatedContents.nodes;
+  const categoryStyleMap = genCategoryStyleMap(postCardsData);
+
   return (
     <div className={styles.relatedContentsContainer}>
       <DesktopBaseContainer>
@@ -137,14 +122,14 @@ const RelatedContents = ({ t }) => {
         </div>
         <Padding y={50} />
         <ul className={styles.postCards}>
-          {postCardsData.map((postCard, index) => (
+          {postCardsData.slice(0, 3).map((postCard, index) => (
             <PostCard
               key={index}
-              title={postCard.title}
-              categoryStyle={postCard.categoryStyle}
-              category={postCard.category}
-              description={postCard.description}
-              path={`/blog/posts/${postCard.slug}`}
+              title={postCard.frontmatter.title}
+              categoryStyle={categoryStyleMap[postCard.frontmatter.category]}
+              category={postCard.frontmatter.category}
+              description={postCard.frontmatter.description}
+              path={`/blog/posts/${postCard.fields.slug}`}
             />
           ))}
         </ul>
@@ -153,12 +138,15 @@ const RelatedContents = ({ t }) => {
   );
 };
 
-const DesktopUseCaseFooter = () => {
+const DesktopUseCaseFooter = ({ data }) => {
   const { t } = useI18next();
   return (
     <>
       <StartNow t={t} />
-      <RelatedContents t={t} />
+      <RelatedContents
+        data={data}
+        t={t}
+      />
     </>
   );
 };

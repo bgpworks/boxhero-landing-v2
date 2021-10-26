@@ -6,6 +6,9 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
 description: Buat dan cetak
+relPage:
+  - usecase-sales
+  - usecase-assets
 ---
 
 Dikutip dari wikipedia, kode bar atau *barcode* adalah suatu kumpulan data optik yang dibaca mesin. Kumpulan data ini berbentuk garis paralel hitam dengan spasi diantaranya. Biasanya, kode bar ditempelkan pada produk atau barang untuk keperluan pengecekan hingga penjualan. Untuk mengetahui fungsi dan pengertian kode bar lebih jauh, Anda dapat membacanya [di sini](/id/blog/posts/mengenal-fungsi-dan-cara-kerja-barcode).

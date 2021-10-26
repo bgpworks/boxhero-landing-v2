@@ -6,6 +6,8 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Solusi untuk memenuhi permintaan konsumen dan menjaga produksi tetap lancar.
+relPage:
+  - usecase-material
 ---
 
 Stok pengaman atau *safety stock* adalah stok ekstra yang sengaja disimpan oleh perusahaan, untuk menghindari kehabisan stok. Stok pengaman dapat berbentuk produk jadi atau bahan baku. Stok ini berperan sebagai penyangga atau *buffer* ketika permintaan produk lebih dari perkiraan, atau ketika *supplier* terlambat mengirimkan barang pada waktu yang telah ditentukan. Selain itu, stok pengaman dapat menjaga alur produksi dan penjualan perusahaan tetap lancar.
