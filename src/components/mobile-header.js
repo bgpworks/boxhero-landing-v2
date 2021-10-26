@@ -79,9 +79,9 @@ const MobileMenu = ({ onChangeIsShow }) => {
   const { t } = useI18next();
 
   useEffect(() => {
-    document.querySelector("html").style.overflow = "hidden";
+    document.querySelector("html").classList.add(styles.disableScrolling);
     return () => {
-      document.querySelector("html").style = "";
+      document.querySelector("html").classList.remove(styles.disableScrolling);
     };
   }, []);
 

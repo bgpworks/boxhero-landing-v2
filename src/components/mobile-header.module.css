@@ -77,6 +77,11 @@
   transform: translate(0px, -3px) rotate(-45deg);
 }
 
+.disableScrolling {
+  overflow: hidden;
+  position: relative;
+}
+
 .menuContainer {
   position: fixed;
   top: 0;
