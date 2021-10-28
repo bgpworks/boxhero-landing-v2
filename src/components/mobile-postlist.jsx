@@ -79,13 +79,13 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
 const PostCardThumbnail = ({ thumbnail, alt }) => (
   <section className={thumbnailWrapper}>
     {thumbnail && (
-    <GatsbyImage
-      image={thumbnail}
-      alt={alt}
-      className={thumbnailImage}
-      // Safari에서 부모의 border-radius를 탈출하는 문제 수정
-      imgStyle={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
-    />
+      <GatsbyImage
+        image={thumbnail}
+        alt={alt}
+        className={thumbnailImage}
+        // Safari에서 부모의 border-radius를 탈출하는 문제 수정
+        imgStyle={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+      />
     )}
   </section>
 );
@@ -126,7 +126,6 @@ export default function PostListMobile({
   edges,
   pageIndex,
   lastPageIndex,
-  categoryStyleMap,
 }) {
   return (
     <MobileLayout
@@ -141,6 +140,7 @@ export default function PostListMobile({
       <section className={postList}>
         {edges.map(({ node }) => {
           const { category } = node.frontmatter;
+          const categoryStyle = JSON.parse(node.fields.categoryStyle);
 
           return (
             <PostCard
@@ -152,7 +152,7 @@ export default function PostListMobile({
               category={category}
               description={node.frontmatter.description}
               path={`/blog/posts/${node.fields.slug}`}
-              categoryStyle={categoryStyleMap[category]}
+              categoryStyle={categoryStyle}
             />
           );
         })}

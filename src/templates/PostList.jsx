@@ -9,8 +9,7 @@ import PostListDesktop from "../components/desktop-postlist";
 import PostListMobile from "../components/mobile-postlist";
 
 export default function PostList({ pageContext, location, data }) {
-  const { pageIndex, lastPageIndex, categoryStyleMapSerialized } = pageContext;
-  const categoryStyleMap = JSON.parse(categoryStyleMapSerialized);
+  const { pageIndex, lastPageIndex } = pageContext;
   const { language, t } = useI18next();
   const {
     allMarkdownRemark: { edges },
@@ -33,7 +32,6 @@ export default function PostList({ pageContext, location, data }) {
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
           pagePathPrefix="/blog/pages"
-          categoryStyleMap={categoryStyleMap}
         />
       </Media>
 
@@ -45,7 +43,6 @@ export default function PostList({ pageContext, location, data }) {
           pageIndex={pageIndex}
           lastPageIndex={lastPageIndex}
           pagePathPrefix="/blog/pages"
-          categoryStyleMap={categoryStyleMap}
         />
       </Media>
     </>
@@ -69,6 +66,7 @@ export const query = graphql`
           fields {
             slug
             date
+            categoryStyle
           }
           frontmatter {
             title

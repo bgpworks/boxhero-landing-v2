@@ -96,7 +96,7 @@ const DesktopUsecaseMaterial = ({ data, t }) => (
       t={t}
     />
 
-    <DesktopUseCaseFooter />
+    <DesktopUseCaseFooter data={data} />
   </DesktopLayout>
 );
 

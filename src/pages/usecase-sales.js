@@ -44,6 +44,25 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
+    relatedContents: allMarkdownRemark(
+      filter: {
+        fields: { locale: { eq: $language } },
+        frontmatter: { relPage: { eq: "usecase-sales" } }
+      }
+      sort: { fields: frontmatter___date }
+    ) {
+      nodes {
+        frontmatter {
+          title
+          category
+          description
+        }
+        fields {
+          slug
+          categoryStyle
+        }
+      }
+    }
     finger: file(relativePath: { eq: "emoji-finger.png" }) {
       childImageSharp {
         gatsbyImageData(

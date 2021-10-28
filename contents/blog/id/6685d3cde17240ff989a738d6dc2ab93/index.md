@@ -6,6 +6,8 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
 description: Genapkan transaksi jual & beli Anda dengan mencetak bukti transaksi di BoxHero.
+relPage:
+  - usecase-sales
 ---
 
 Mencatat semua bukti transaksi sangatlah penting untuk pengelolaan bisnis yang baik. Hasil transaksi pembelian dan penjualan, dapat memberikan informasi tentang kegiatan transaksi yang dilakukan, misalnya informasi rincian produk dan bukti pembayaran. Oleh karena itu, untuk mempermudah pekerjaan Anda, pilihlah program yang lengkap agar semuanya dapat dilakukan dengan mudah dan cepat.
