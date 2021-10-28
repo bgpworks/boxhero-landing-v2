@@ -50,7 +50,7 @@ const StartNow = ({
   <div className={styles.startNowContainer}>
     <GatsbyImage
       image={emoji.childImageSharp.gatsbyImageData}
-      alt={message}
+      alt={t("footer:startNowButton")}
     />
     <Padding y={20} />
     <div className={styles.startNowDescription}>{message}</div>

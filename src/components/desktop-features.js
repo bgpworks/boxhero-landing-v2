@@ -108,6 +108,7 @@ const DemoTemplate = ({
       <GatsbyImage
         image={icon}
         className={styles.demoLogo}
+        alt="demo logo"
       />
       <span className={styles.demoTitle}>
         -
@@ -152,7 +153,7 @@ function FeatureTemplate({
           </div>
           <GatsbyImage
             image={figure}
-            alt={title}
+            alt="features"
           />
         </div>
         <Padding y={70} />
