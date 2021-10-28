@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
@@ -14,7 +14,9 @@ import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 import svgArrowGray from "../images/icon-dropdown-arrow-gray.svg";
 
-const DropDown = ({ className, title, children }) => {
+const DropDown = ({
+  className, title, children,
+}) => {
   const [isShowDropDown, onChangeIsShowDropDown] = useState(false);
 
   const containerRef = useRef();
@@ -72,44 +74,77 @@ const LangOption = ({ lang }) => {
   );
 };
 
-const MobileMenu = () => {
+const MobileMenu = ({ onChangeIsShow }) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useI18next();
+
+  useEffect(() => {
+    document.querySelector("html").classList.add(styles.disableScrolling);
+    return () => {
+      document.querySelector("html").classList.remove(styles.disableScrolling);
+    };
+  }, []);
+
+  const closeMobileMenu = () => onChangeIsShow(false);
 
   return (
     <nav className={styles.menuContainer}>
       <DropDown title={t("header:menuService")}>
-        <Link to="/about/">
+        <Link
+          to="/about/"
+          onClick={closeMobileMenu}
+        >
           {t("header:menuServiceAbout")}
         </Link>
-        <Link to="/features/">
+        <Link
+          to="/features/"
+          onClick={closeMobileMenu}
+        >
           {t("header:menuServiceFeatures")}
         </Link>
       </DropDown>
 
       <DropDown title={t("header:menuUseCases")}>
-        <Link to="/usecase-sales/">
+        <Link
+          to="/usecase-sales/"
+          onClick={closeMobileMenu}
+        >
           {t("header:menuUseCaseSales")}
         </Link>
-        <Link to="/usecase-material/">
+        <Link
+          to="/usecase-material/"
+          onClick={closeMobileMenu}
+        >
           {t("header:menuUseCaseMaterial")}
         </Link>
-        <Link to="/usecase-assets/">
+        <Link
+          to="/usecase-assets/"
+          onClick={closeMobileMenu}
+        >
           {t("header:menuUseCaseAssets")}
         </Link>
       </DropDown>
 
       <div className={styles.singleMenu}>
-        <Link to="/pricing/">
+        <Link
+          to="/pricing/"
+          onClick={closeMobileMenu}
+        >
           {t("header:menuPricing")}
         </Link>
       </div>
 
       <DropDown title={t("header:menuResource")}>
-        <Link to="/blog/">
+        <Link
+          to="/blog/"
+          onClick={closeMobileMenu}
+        >
           {t("header:menuCompanyBlog")}
         </Link>
-        <a href={t("url:doc")}>
+        <a
+          href={t("url:doc")}
+          onClick={closeMobileMenu}
+        >
           {t("header:menuDoc")}
         </a>
       </DropDown>
@@ -170,7 +205,7 @@ const MobileHeader = ({ isFloatMenu }) => {
         </button>
       </header>
 
-      {isShow && <MobileMenu />}
+      {isShow && <MobileMenu onChangeIsShow={onChangeIsShow} />}
 
       {!isFloatMenu && <div className={styles.headerPlaceholder} />}
     </>

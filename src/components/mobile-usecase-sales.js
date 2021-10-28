@@ -125,6 +125,7 @@ const MobileUsecaseSales = ({ data, t }) => (
       description={<Trans i18nKey="usecase:salesTopDesc" />}
       appDownload={t("usecase:appInstall")}
       img={data.mobileAllInOne}
+      alt="all-in-one"
     />
 
     <UseCaseFeatures

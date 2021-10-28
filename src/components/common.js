@@ -161,7 +161,7 @@ export const UseCaseTop = ({
 );
 
 export const MobileUseCaseTop = ({
-  className, title, description, appDownload, img,
+  className, title, description, appDownload, img, alt,
 }) => (
   <section className={className}>
     <MobileBaseContainer
@@ -187,7 +187,7 @@ export const MobileUseCaseTop = ({
       <Padding y={40} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}
-        alt={title}
+        alt={alt}
       />
     </MobileBaseContainer>
   </section>

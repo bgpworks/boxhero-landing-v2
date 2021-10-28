@@ -87,6 +87,7 @@ const MobileUsecaseAssets = ({ data, t }) => (
       description={<Trans i18nKey="usecase:assetsTopDesc" />}
       appDownload={t("usecase:appInstall")}
       img={data.mobileFeatures}
+      alt="features"
     />
 
     <UseCaseFeatures
