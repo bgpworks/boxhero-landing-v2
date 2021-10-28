@@ -21,7 +21,7 @@ BoxHero tidak hanya memudahkan Anda memeriksa semua riwayat transaksi, tapi juga
 <video src="images/img_2.mp4" style="width:100%" muted autoplay loop playsinline></video>
 <invisible>Fitur cetak invoice pesanan pembelian</invisible>
 
-Untuk mencetak faktur, Anda dapat memulai dengan masuk ke menu Beli lalu klik daftar pesanan pembelian Anda. Setelah itu, cetak faktur dengan menekan Cetak PO, kemudian tulis informasi yang berkaitan dengan transaksi Anda.
+Untuk mencetak faktur, Anda dapat memulai dengan masuk ke menu `Beli` lalu klik daftar pesanan pembelian Anda. Setelah itu, cetak faktur dengan menekan `Cetak PO`, kemudian tulis informasi yang berkaitan dengan transaksi Anda.
 
 <tip-box>
 
@@ -34,20 +34,20 @@ Tandai "Termasuk PPN" untuk menampilkan pajak pada bukti transaksi Anda.
 <video src="images/img_3.mp4" style="width:100%" muted autoplay loop playsinline></video>
 <invisible>Fitur cetak invoice pesanan penjualan</invisible>
 
-Jika Anda ingin mencetak faktur penjualan, Anda tinggal masuk ke menu Jual, lalu pilih daftar pesanan penjualan yang ingin Anda cetak fakturnya. Kemudian klik Cetak Invoice untuk mencetak bukti transaksinya.
+Jika Anda ingin mencetak faktur penjualan, Anda tinggal masuk ke menu `Jual`, lalu pilih daftar pesanan penjualan yang ingin Anda cetak fakturnya. Kemudian klik `Cetak Invoice` untuk mencetak bukti transaksinya.
 
 
 
 <video src="images/img_4.mp4" style="width:100%" muted autoplay loop playsinline></video>
 <invisible>Cetak invoice pesanan penjualan</invisible>
 
-Selain melalui menu Jual, Anda juga dapat mencetak faktur di menu Riwayat. Klik Lainnya lalu pilih Invoice untuk mengisi keterangan pada bukti transaksi Anda, seperti kategori dan harga jual. Terakhir, Anda tinggal mencetaknya dengan menekan Cetak di bagian kanan bawah layar.
+Selain melalui menu `Jual`, Anda juga dapat mencetak faktur di menu `Riwayat`. Klik `Lainnya` lalu pilih `Invoice` untuk mengisi keterangan pada bukti transaksi Anda, seperti kategori dan harga jual. Terakhir, Anda tinggal mencetaknya dengan menekan Cetak di bagian kanan bawah layar.
 
 
 
 ![Simpan sebagai PDF](images/img_5.png)
 
-Selain mencetak bukti dan rincian transaksi*, *Anda juga dapat menyimpannya ke dalam file PDF. Pilih Simpan sebagai PDF saat Anda akan mencetak bukti transaksi, kemudian klik simpan.
+Selain mencetak bukti dan rincian transaksi, Anda juga dapat menyimpannya ke dalam file PDF. Pilih `Simpan sebagai PDF` saat Anda akan mencetak bukti transaksi, kemudian klik simpan.
 
 
 

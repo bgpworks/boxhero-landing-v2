@@ -94,7 +94,7 @@ Manfaatkan penggunaan program manajemen inventaris untuk terhindar dari stok mat
 
 Tetaplah kelola inventaris Anda tanpa harus menggunakan PC.
 
-BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone *Anda.
+BoxHero mendukung aplikasi mobile dengan baik, sehingga Anda dapat menggunakan BoxHero di *smartphone* Anda.
 
 </tip-box>
 

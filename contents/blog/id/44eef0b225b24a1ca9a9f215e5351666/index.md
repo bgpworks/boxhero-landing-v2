@@ -20,7 +20,7 @@ Membuat kode bar sendiri untuk bisnis Anda tidaklah sulit. Dengan menggunakan fi
 
 ### 1. Masukkan atau Buat Kode Bar Otomatis
 
-Saat pertama kali mendaftarkan barang di BoxHero, Anda akan diminta untuk memasukkan kode bar. Jika barang yang ingin Anda daftarkan tidak memiliki kode bar, Anda dapat dengan mudah membuatnya secara otomatis dengan mengklik tombol Buat.
+Saat pertama kali mendaftarkan barang di BoxHero, Anda akan diminta untuk memasukkan kode bar. Jika barang yang ingin Anda daftarkan tidak memiliki kode bar, Anda dapat dengan mudah membuatnya secara otomatis dengan mengklik tombol `Buat`.
 
 
 
@@ -34,7 +34,7 @@ Selain di web PC, Anda juga dapat membuat kode bar melalui aplikasi *mobile* Box
 
 ### 2. Desain Label
 
-Setelah Anda mendaftarkan semua barang Anda, pilih menu Cetak Label di sebelah kiri, dan pilih template kode bar atau kode QR yang tersedia. BoxHero menyediakan lebih dari 10 template yang memudahkan Anda dalam membuat label.
+Setelah Anda mendaftarkan semua barang Anda, pilih menu `Cetak Label` di sebelah kiri, dan pilih template kode bar atau kode QR yang tersedia. BoxHero menyediakan lebih dari 10 template yang memudahkan Anda dalam membuat label.
 
 ![](images/img_4.gif)
 
@@ -52,7 +52,7 @@ Pilih template sesuai kebutuhan Anda, lalu tentukan jenis kertas yang Anda gunak
 
 ![Fitur desain label BoxHero](images/img_5.gif)
 
-Berdasarkan label template yang Anda gunakan, Anda dapat menyertakan kategori yang telah Anda buat sebelumnya. Klik kategori yang ingin Anda masukkan, lalu salin ke kotak yang disediakan. Kategori yang Anda salin akan muncul di dalam label kode bar Anda. Di tahap ini, Anda juga dapat mengedit ukuran font pada label Anda. Terakhir, klik Simpan untuk menyimpan desain label yang telah Anda buat.
+Berdasarkan label template yang Anda gunakan, Anda dapat menyertakan kategori yang telah Anda buat sebelumnya. Klik kategori yang ingin Anda masukkan, lalu salin ke kotak yang disediakan. Kategori yang Anda salin akan muncul di dalam label kode bar Anda. Di tahap ini, Anda juga dapat mengedit ukuran font pada label Anda. Terakhir, klik `Simpan` untuk menyimpan desain label yang telah Anda buat.
 
 
 
