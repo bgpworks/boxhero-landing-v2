@@ -286,6 +286,7 @@
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   border: solid 1px var(--color-gray4);
   margin: 10px 0 0 10px;
+  line-height: 24px;
 }
 
 /* Features */

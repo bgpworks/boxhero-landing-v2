@@ -43,10 +43,6 @@ MobileBaseContainer.defaultProps = {
   className: "",
 };
 
-export const ContainerCenter = ({ className, children }) => (
-  <div className={`${styles.containerCenter} ${className}`}>{children}</div>
-);
-
 export const Padding = ({ x, y }) => (
   <div style={{ paddingLeft: x, height: y, minHeight: 1 }} />
 );
@@ -133,15 +129,6 @@ export const SpeechBubbleContainer = ({
     </div>
   );
 };
-
-export const MobileSimpleTop = ({ title, children }) => (
-  <div>
-    <Padding y={50} />
-    <div className={styles.mobileSimpleTopTitle}>{title}</div>
-    <Padding y={20} />
-    <div className={styles.mobileSimpleTopDesc}>{children}</div>
-  </div>
-);
 
 export const StartNowButton = ({ className, children }) => (
   <ExternalLinkWithQuery href={urlStart}>

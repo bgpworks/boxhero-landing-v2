@@ -33,7 +33,10 @@ const Top = ({ data }) => (
       <div className={styles.topLeftContainer}>
         <Trans i18nKey="about:topTitle" />
       </div>
-      <GatsbyImage image={data.topLogo.childImageSharp.gatsbyImageData} />
+      <GatsbyImage
+        image={data.topLogo.childImageSharp.gatsbyImageData}
+        alt="About BoxHero"
+      />
     </DesktopBaseContainer>
   </GradientBG>
 );
@@ -55,7 +58,10 @@ const StrongPointDescription = ({ title, description }) => (
 const StrongPoints = ({ data }) => (
   <>
     <StrongPoint>
-      <GatsbyImage image={data.easy.childImageSharp.gatsbyImageData} />
+      <GatsbyImage
+        image={data.easy.childImageSharp.gatsbyImageData}
+        alt="easy"
+      />
       <StrongPointDescription
         title={<Trans i18nKey="about:strongPoint1Title" />}
         description={<Trans i18nKey="about:strongPoint1Desc" />}
@@ -67,11 +73,17 @@ const StrongPoints = ({ data }) => (
         title={<Trans i18nKey="about:strongPoint2Title" />}
         description={<Trans i18nKey="about:strongPoint2Desc" />}
       />
-      <GatsbyImage image={data.great.childImageSharp.gatsbyImageData} />
+      <GatsbyImage
+        image={data.great.childImageSharp.gatsbyImageData}
+        alt="great"
+      />
     </StrongPoint>
 
     <StrongPoint>
-      <GatsbyImage image={data.mobile.childImageSharp.gatsbyImageData} />
+      <GatsbyImage
+        image={data.mobile.childImageSharp.gatsbyImageData}
+        alt="mobile"
+      />
       <StrongPointDescription
         title={<Trans i18nKey="about:strongPoint3Title" />}
         description={<Trans i18nKey="about:strongPoint3Desc" />}

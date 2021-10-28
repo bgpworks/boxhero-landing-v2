@@ -9,13 +9,6 @@
   max-width: 375px;
 }
 
-.containerCenter {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .consultingButton {
   background: transparent;
   color: white;
@@ -60,24 +53,6 @@
 .speechBubbleContainer {
   display: flex;
   flex-direction: column;
-}
-
-.mobileSimpleTopTitle {
-  height: 38px;
-  font-size: var(--font-size-mobile-big3);
-  font-weight: bold;
-  letter-spacing: -0.54px;
-  text-align: center;
-  color: black;
-}
-
-.mobileSimpleTopDesc {
-  text-align: center;
-  color: black;
-}
-
-html[lang="ko"] .mobileSimpleTopDesc {
-  letter-spacing: -0.16px;
 }
 
 .useCaseTopContentContainer {
