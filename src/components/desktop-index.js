@@ -256,7 +256,9 @@ const Chatting = ({ t, language }) => {
         />
 
         <Padding y={51} />
-        <div className={styles.chattingTitle}>{t("index:chattingTitle")}</div>
+        <div className={styles.chattingTitle}>
+          <Trans i18nKey="index:chattingTitle" />
+        </div>
         <Padding y={16} />
         <div className={styles.chattingDescription}>
           <Trans i18nKey="index:chattingDescription" />
