@@ -61,7 +61,7 @@ Padding.defaultProps = {
   y: 0,
 };
 
-export const ConsultingButton = () => (
+export const ConsultingButtonKR = () => (
   <a href={urlConsulting}>
     <button
       type="button"

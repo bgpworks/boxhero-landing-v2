@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import {
-  ConsultingButton,
+  ConsultingButtonKR,
   DesktopBaseContainer,
   Padding,
   StartNowButton,
@@ -23,6 +23,27 @@ import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 import SocialLinkList from "./social-link-list";
 
+const StartNowButtonByLanguage = ({ t, language }) => (
+  language === "ko" ? (
+    <>
+      <StartNowButton className={styles.startNowButton}>
+        <img
+          className={styles.topButtonIcon}
+          src={svgVolt}
+          alt={t("footer:topStartNowButton")}
+        />
+        {t("footer:topStartNowButton")}
+      </StartNowButton>
+      <Padding y={12} />
+      <ConsultingButtonKR />
+    </>
+  ) : (
+    <StartNowButton className={styles.startNowButton}>
+      {t("footer:startNowButton")}
+    </StartNowButton>
+  )
+);
+
 const StartNow = ({
   emoji, message, t, language,
 }) => (
@@ -34,24 +55,10 @@ const StartNow = ({
     <Padding y={20} />
     <div className={styles.startNowDescription}>{message}</div>
     <Padding y={40} />
-    {language === "ko" ? (
-      <>
-        <StartNowButton className={styles.startNowButton}>
-          <img
-            className={styles.topButtonIcon}
-            src={svgVolt}
-            alt={t("footer:topStartNowButton")}
-          />
-          {t("footer:topStartNowButton")}
-        </StartNowButton>
-        <Padding y={12} />
-        <ConsultingButton />
-      </>
-    ) : (
-      <StartNowButton className={styles.startNowButton}>
-        {t("footer:startNowButton")}
-      </StartNowButton>
-    )}
+    <StartNowButtonByLanguage
+      t={t}
+      language={language}
+    />
   </div>
 );
 

@@ -19,7 +19,7 @@ import {
   StartNowButton,
   GradientBG,
   SpeechBubbleContainer,
-  ConsultingButton,
+  ConsultingButtonKR,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -216,7 +216,7 @@ const TopTitleAndDescription = () => (
   </>
 );
 
-const TopLeftContainerOfKorea = ({ t }) => (
+const TopLeftContainerKR = ({ t }) => (
   <div>
     <TopTitleAndDescription />
     <Padding y={30} />
@@ -229,7 +229,7 @@ const TopLeftContainerOfKorea = ({ t }) => (
       {t("index:topStartNowButton")}
     </StartNowButton>
     <Padding y={12} />
-    <ConsultingButton />
+    <ConsultingButtonKR />
   </div>
 );
 
@@ -250,7 +250,7 @@ const TopLeftContainer = ({ t }) => (
 
 const TopLeftContainerByLanguage = ({ t, language }) => (
   language === "ko" ? (
-    <TopLeftContainerOfKorea t={t} />
+    <TopLeftContainerKR t={t} />
   ) : (
     <TopLeftContainer t={t} />
   )
