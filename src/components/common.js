@@ -4,12 +4,14 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
+import svgConsulting from "../images/icon-consulting.svg";
 import svgEye from "../images/icon-eye.svg";
 import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import svgDownload from "../images/download.svg";
 import {
+  urlConsulting,
   urlStart,
   urlDownloadApp,
   urlDownloadAppSearchAd,
@@ -58,6 +60,22 @@ Padding.defaultProps = {
   x: 0,
   y: 0,
 };
+
+export const ConsultingButtonKR = () => (
+  <a href={urlConsulting}>
+    <button
+      type="button"
+      className={styles.consultingButton}
+    >
+      <img
+        className={styles.topButtonIcon}
+        src={svgConsulting}
+        alt="무료 컨설팅 받기"
+      />
+      무료 컨설팅 받기
+    </button>
+  </a>
+);
 
 const SpeechBubble = ({ text, style }) => (
   <div
@@ -125,13 +143,13 @@ export const MobileSimpleTop = ({ title, children }) => (
   </div>
 );
 
-export const StartNowButton = ({ startNow, className }) => (
+export const StartNowButton = ({ className, children }) => (
   <ExternalLinkWithQuery href={urlStart}>
     <button
       type="button"
       className={className}
     >
-      {startNow}
+      {children}
     </button>
   </ExternalLinkWithQuery>
 );
@@ -147,10 +165,9 @@ export const UseCaseTop = ({
       <Padding y={16} />
       <div className={styles.useCaseTopDesc}>{description}</div>
       <Padding y={30} />
-      <StartNowButton
-        startNow={startNow}
-        className={styles.startNowButton}
-      />
+      <StartNowButton className={styles.startNowButton}>
+        {startNow}
+      </StartNowButton>
       <Padding y={49} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}

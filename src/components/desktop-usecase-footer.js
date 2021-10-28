@@ -34,10 +34,9 @@ const PriceCard = ({
       ))}
     </div>
     <Padding y={40} />
-    <StartNowButton
-      className={styles.startNowButton}
-      startNow={startNowButton}
-    />
+    <StartNowButton className={styles.startNowButton}>
+      {startNowButton}
+    </StartNowButton>
   </div>
 );
 

@@ -16,9 +16,10 @@ import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
-  ExternalLinkWithQuery,
+  StartNowButton,
   GradientBG,
   SpeechBubbleContainer,
+  ConsultingButtonKR,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -203,36 +204,69 @@ function genFeatureData(data, t) {
   ];
 }
 
-const Top = ({ data, t }) => (
+const TopTitleAndDescription = () => (
+  <>
+    <div className={styles.topLeftTitle}>
+      <Trans i18nKey="index:topTitle" />
+    </div>
+    <Padding y={30} />
+    <div className={styles.topLeftDescription}>
+      <Trans i18nKey="index:topDesc" />
+    </div>
+  </>
+);
+
+const TopLeftContainerKR = ({ t }) => (
+  <div>
+    <TopTitleAndDescription />
+    <Padding y={30} />
+    <StartNowButton className={styles.startNowButton}>
+      <img
+        className={styles.topButtonIcon}
+        src={svgVolt}
+        alt={t("index:topIconAlt")}
+      />
+      {t("index:topStartNowButton")}
+    </StartNowButton>
+    <Padding y={12} />
+    <ConsultingButtonKR />
+  </div>
+);
+
+const TopLeftContainer = ({ t }) => (
+  <div className={styles.topLeftContainer}>
+    <img
+      src={svgVolt}
+      alt={t("index:topIconAlt")}
+    />
+    <Padding y={17} />
+    <TopTitleAndDescription />
+    <Padding y={30} />
+    <StartNowButton className={styles.startNowButton}>
+      {t("index:topStartNowButton")}
+    </StartNowButton>
+  </div>
+);
+
+const TopLeftContainerByLanguage = ({ t, language }) => (
+  language === "ko" ? (
+    <TopLeftContainerKR t={t} />
+  ) : (
+    <TopLeftContainer t={t} />
+  )
+);
+
+const Top = ({ data, t, language }) => (
   <GradientBG
     className={styles.topContainer}
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
     backgroundColor="#4260ef"
   >
     <DesktopBaseContainer className={styles.topContentContainer}>
-      <div className={styles.topLeftContainer}>
-        <img
-          src={svgVolt}
-          alt={t("index:topIconAlt")}
-        />
-        <Padding y={17} />
-        <div className={styles.topLeftTitle}>
-          <Trans i18nKey="index:topTitle" />
-        </div>
-        <Padding y={30} />
-        <div className={styles.topLeftDescription}>
-          <Trans i18nKey="index:topDesc" />
-        </div>
-        <Padding y={30} />
-        <ExternalLinkWithQuery href={constants.urlStart}>
-          <button
-            type="button"
-            className={styles.startNowButton}
-          >
-            {t("index:topStartNowButton")}
-          </button>
-        </ExternalLinkWithQuery>
-      </div>
+      <TopLeftContainerByLanguage
+        t={t}
+        language={language}
+      />
       <div className={styles.topRightContainer}>
         <GatsbyImage
           image={data.homeTopRight.childImageSharp.gatsbyImageData}

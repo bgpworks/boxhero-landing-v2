@@ -3,12 +3,18 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { DesktopBaseContainer, ExternalLinkWithQuery, Padding } from "./common";
+import {
+  ConsultingButtonKR,
+  DesktopBaseContainer,
+  Padding,
+  StartNowButton,
+} from "./common";
 import * as constants from "./constants";
 import { LangSelect } from "./language-selector";
 // css
 import * as styles from "./desktop-footer.module.css";
 // images
+import svgVolt from "../images/volt.svg";
 import svgPcWeb from "../images/pcweb.svg";
 import svgWindows from "../images/windows.svg";
 import svgOsx from "../images/osx.svg";
@@ -17,7 +23,30 @@ import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 import SocialLinkList from "./social-link-list";
 
-const StartNow = ({ emoji, message, t }) => (
+const StartNowButtonByLanguage = ({ t, language }) => (
+  language === "ko" ? (
+    <>
+      <StartNowButton className={styles.startNowButton}>
+        <img
+          className={styles.topButtonIcon}
+          src={svgVolt}
+          alt={t("footer:topStartNowButton")}
+        />
+        {t("footer:topStartNowButton")}
+      </StartNowButton>
+      <Padding y={12} />
+      <ConsultingButtonKR />
+    </>
+  ) : (
+    <StartNowButton className={styles.startNowButton}>
+      {t("footer:startNowButton")}
+    </StartNowButton>
+  )
+);
+
+const StartNow = ({
+  emoji, message, t, language,
+}) => (
   <div className={styles.startNowContainer}>
     <GatsbyImage
       image={emoji.childImageSharp.gatsbyImageData}
@@ -26,14 +55,10 @@ const StartNow = ({ emoji, message, t }) => (
     <Padding y={20} />
     <div className={styles.startNowDescription}>{message}</div>
     <Padding y={40} />
-    <ExternalLinkWithQuery href={constants.urlStart}>
-      <button
-        type="button"
-        className={styles.startNowButton}
-      >
-        {t("footer:startNowButton")}
-      </button>
-    </ExternalLinkWithQuery>
+    <StartNowButtonByLanguage
+      t={t}
+      language={language}
+    />
   </div>
 );
 
@@ -289,6 +314,7 @@ const DesktopFooter = ({
           emoji={closingEmoji}
           message={closingMsg}
           t={t}
+          language={language}
         />
       )}
       <DesktopFooterMenusAndInfo
