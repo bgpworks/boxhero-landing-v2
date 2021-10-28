@@ -52,13 +52,13 @@ Jika Anda tidak menemukan peran yang cocok dari tiga pilihan di atas, Anda dapat
 
 ### 4. Menambah Batas Kuota Anggota
 
-Jika Anda melebihi batas 10 anggota yang tersedia di Business Plan, Anda harus menambah kuota dengan membayar $5 per anggota per bulan. Anda dapat menambahkan kuota di menu Pengaturan > Pembayaran. Kuota dapat ditambahkan hingga 100 anggota.
+Jika Anda melebihi batas 10 anggota yang tersedia di Business Plan, Anda harus menambah kuota dengan membayar $5 per anggota per bulan. Anda dapat menambahkan kuota di menu `Pengaturan > Pembayaran`. Kuota dapat ditambahkan hingga 100 anggota.
 
 ![Fitur penambahan dan pengurangan batas penggunaan](images/img_6.gif)
 
 ### 5. Menurunkan Batas Kuota Anggota
 
-Anda dapat menurunkan kuota Anggota kapan saja di menu Pengaturan > Pembayaran.
+Anda dapat menurunkan kuota Anggota kapan saja di menu `Pengaturan > Pembayaran`.
 
 Setelah Anda mengurangi kuota penggunaan, biaya kuota penggunaan sebelumnya akan dihitung hingga pembayaran selanjutnya dan akan diisikan sebagai kredit. Kredit tersebut akan dipakai untuk membayar tagihan setelahnya. Kemudian, pembayaran secara otomatis dijalankan sesuai kuota atau paket yang sudah Anda ganti tadi.
 

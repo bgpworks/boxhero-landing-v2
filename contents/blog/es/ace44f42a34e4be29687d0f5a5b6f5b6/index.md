@@ -92,7 +92,7 @@ Al ajustar el tamaño de fuente / número máximo de líneas, puede incluir toda
 
 Después de revisar el diseño final, guardar completa el diseño de la etiqueta.
 
-¡Puede obtener una vista previa de la etiqueta que se va a imprimir a través de la ** función de vista previa antes de imprimir!
+¡Puede obtener una vista previa de la etiqueta que se va a imprimir a través de la función de vista previa antes de imprimir!
 
 <caution-box>
 
