@@ -145,7 +145,7 @@ const RelatedContents = ({ data, t }) => {
   );
 };
 
-const DesktopUseCaseFooter = ({ data }) => {
+const MobileUseCaseFooter = ({ data }) => {
   const { t } = useI18next();
   return (
     <>
@@ -158,4 +158,4 @@ const DesktopUseCaseFooter = ({ data }) => {
   );
 };
 
-export default DesktopUseCaseFooter;
+export default MobileUseCaseFooter;
