@@ -1,3 +1,65 @@
+.dropDownMenu {
+  position: relative;
+}
+
+.dropDownMenuTitle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 28px;
+}
+
+.dropDownMenuTitle > img {
+  margin-left: 2px;
+}
+
+.floatingMenuContainer {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  position: absolute;
+  right: 0;
+  z-index: 100;
+  padding: 6px 1px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border: solid 1px var(--color-gray4);
+  background-color: white;
+}
+.dropDownMenu:hover .floatingMenuContainer {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.subMenu {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  color: var(--color-font-gray1);
+}
+.subMenu:hover {
+  background-color: var(--color-bg-light);
+}
+
+.subMenuIcon {
+  align-self: flex-start;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.subMenuTitle {
+  min-width: 180px;
+  font-weight: 500;
+}
+
+.subMenuDesc {
+  width: 300px;
+  margin: 4px 4px 0 0;
+}
+
 .headerContainer {
   margin: 0;
   width: 100%;
@@ -12,7 +74,6 @@
 
 .menuContainer {
   height: 100%;
-  padding: 0px 20px;
   color: #fff;
   display: flex;
   flex-direction: row;
@@ -32,10 +93,6 @@
 .padding {
   margin: 0px;
   flex: 1;
-}
-
-.selected {
-  font-weight: bold;
 }
 
 .biLogo {

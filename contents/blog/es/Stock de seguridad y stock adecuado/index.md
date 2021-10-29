@@ -6,6 +6,8 @@ author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Le mostraremos cómo reducir el riesgo de gestión de inventario a través de una gestión de inventario segura y adecuada.
+relPage:
+  - usecase-material
 ---
 
 > ¿Por qué es importante una gestión adecuada del inventario?<br/>

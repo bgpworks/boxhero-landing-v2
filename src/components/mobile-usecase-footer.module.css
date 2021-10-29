@@ -1,0 +1,156 @@
+.startNowContentContainer {
+  padding: 50px 20px;
+  color: var(--color-font-gray1);
+}
+
+.startNowTitle {
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
+}
+
+.startNowDesc {
+  margin: 0;
+  text-align: center;
+}
+
+.priceCard {
+  width: 100%;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.12), 0 2px 12px -4px rgba(0, 0, 0, 0.12);
+  border: solid 1px var(--color-gray4);
+}
+
+.priceCardTitle {
+  margin: 0;
+  height: 36px;
+  text-align: center;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
+}
+
+.priceCardDesc {
+  margin: 0;
+  height: 27px;
+  text-align: center;
+  font-size: var(--font-size-mobile-h4);
+  line-height: 1.37;
+}
+
+.price {
+  margin: 0;
+  height: 114px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-36);
+  font-weight: bold;
+}
+.price small {
+  color: var(--color-font-primary);
+  font-size: var(--font-size-mobile-small);
+  font-weight: normal;
+}
+
+.priceCardFeatures {
+  margin: 0;
+  height: 62px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.priceCardFeature {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.37;
+  margin: 0;
+  list-style: none;
+}
+
+.priceCardFeature img {
+  width: 36px;
+  height: 36px;
+}
+
+.startNowButton {
+  width: 100%;
+  height: 44px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  background-color: var(--color-primary);
+}
+
+.darkBg {
+  background: var(--color-bg-light);
+}
+
+.relatedContentsContainer {
+  padding: 50px 20px;
+  color: var(--color-font-gray1);
+}
+
+.relatedContentsTitle {
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
+}
+
+.postCards {
+  margin: 0;
+}
+
+.postCardWrapper {
+  min-height: 186px;
+  list-style: none;
+  margin: 0;
+}
+.postCardWrapper:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.postCard {
+  width: 100%;
+  min-height: 186px;
+  padding: 20px 20px 32px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
+  border: solid 1px var(--color-gray4);
+}
+
+.postCardCategory {
+  font-size: var(--font-size-b14);
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.postCardTitle,
+.postCardDesc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postCardTitle {
+  color: var(--color-font-gray1);
+  font-size: var(--font-size-b18);
+  font-weight: bold;
+
+  -webkit-line-clamp: 2;
+}
+
+.postCardDescription {
+  font-size: var(--font-size-b14);
+  color: var(--color-gray2);
+
+  -webkit-line-clamp: 3;
+}

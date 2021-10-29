@@ -1,26 +1,17 @@
-.menuOpenBg {
-  position: fixed;
-  display: none;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 199;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.menuOpenBg.isOpen {
-  display: block;
-}
-
 .headerContainer {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   margin: 0;
-  width: 100%;
   z-index: 200;
+  width: 100%;
+  height: var(--height-mobile-top-menu);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
   transition: all 0.1s ease-out;
 }
 
@@ -32,13 +23,18 @@
   background-color: white;
 }
 
+.biLogo {
+  width: 100px;
+  display: block;
+}
+
 /* 메뉴 헴버거 버튼 */
 
 .menuBtn {
   cursor: pointer;
   height: 100%;
-  padding: 8px 17px;
-  margin-right: -15px;
+  padding: 0px 20px;
+  margin-right: -20px;
   background-color: rgba(255, 255, 255, 0);
 }
 
@@ -67,6 +63,11 @@
   transform: rotate(180deg);
 }
 
+.menuBtn.isOpen .menuBtnLine {
+  width: 24px;
+  border-radius: 1px;
+}
+
 /* Styling the three lines to make it an X */
 .menuBtn.isOpen .menuBtnLine:nth-child(1) {
   transform: translate(0px, 3px) rotate(45deg);
@@ -76,69 +77,120 @@
   transform: translate(0px, -3px) rotate(-45deg);
 }
 
-.menuContainer {
-  padding: 0px 20px;
+.disableScrolling {
+  overflow: hidden;
+  position: relative;
 }
 
-.logoAndExpandCotainer {
-  height: var(--height-mobile-top-menu);
+.menuContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: var(--height-mobile-top-menu) 20px 30px 20px;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 199;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.dropDownContainer {
+  width: 100%;
+  border-bottom: solid 1px var(--color-gray4);
+}
+
+.dropDownButton {
+  height: 60px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
 }
 
-.menuContainer a {
-  color: inherit;
+.dropDownTitle {
+  max-width: 295px;
+  color: var(--color-font-gray1);
+  font-weight: 500;
 }
 
-a.selected {
-  color: var(--color-font-blue);
+.dropDownActive .dropDownTitle {
+  color: var(--color-primary);
 }
 
-.biLogo {
-  width: 100px;
+.dropDownIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.dropDownActive .dropDownIcon {
+  transform: rotate(180deg);
+}
+
+.dropDownSubMenus {
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.dropDownItem {
+  margin: 0;
+  list-style: none;
+}
+
+.dropDownItem a {
   display: block;
+  padding: 12px 0;
+  color: var(--color-font-gray1);
 }
 
-.langButtonContainer {
+.singleMenu a {
+  width: 100%;
   height: 60px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  color: var(--color-font-gray1);
+  font-weight: 500;
+  border-bottom: solid 1px var(--color-gray4);
 }
 
 .langButton {
-  background-color: var(--color-light-gray);
-  font-size: var(--font-size-mobile-small);
-  color: black;
-  border-radius: 4px;
-  height: 28px;
-  padding: 0px 10px;
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+  padding: 12px 0;
+  color: var(--color-font-gray1);
+}
+
+.langButton.selected {
+  font-weight: 500;
 }
 
 .startNowContainer {
-  padding: 20px 0px 30px;
+  display: flex;
+  margin-top: auto;
+  font-size: var(--font-size-mobile-small);
+  font-weight: bold;
+}
+
+.startNowContainer > a {
+  width: 100%;
+}
+
+.appDownloadButton {
+  width: 100%;
+  height: 44px;
+  border-radius: 6px;
+  color: var(--color-primary);
+  background-color: transparent;
+  border: solid 1px var(--color-primary);
 }
 
 .startNowButton {
   width: 100%;
-  padding: 13px 0px;
+  height: 44px;
   border-radius: 6px;
-  background-color: var(--color-font-blue);
-  font-size: var(--font-size-mobile-small);
-  font-weight: bold;
+  background-color: var(--color-primary);
   color: white;
-}
-
-.menuItem {
-  padding: 18px 0px;
-  font-weight: bold;
-  text-align: center;
-  color: black;
-}
-
-.splitLine {
-  border-bottom: solid 1px rgba(224, 224, 227, 0.5);
 }

@@ -50,7 +50,8 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 697
+          width: 786
+          quality: 80
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
@@ -80,7 +81,8 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 673
+          width: 582
+          quality: 80
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -96,7 +98,8 @@ export const query = graphql`
     great: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 660
+          width: 582
+          quality: 80
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -112,7 +115,8 @@ export const query = graphql`
     mobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 463
+          width: 582
+          quality: 80
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -131,7 +135,8 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 320
+          width: 450
+          quality: 100
           tracedSVGOptions: {
             turdSize: 1
             color: "#f0f0f31f"
@@ -160,7 +165,8 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -169,14 +175,14 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
     mobileGreat: file(relativePath: { eq: "img-great.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -185,14 +191,14 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }
     mobileMobile: file(relativePath: { eq: "img-mobile.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 300
+          width: 335
+          quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
             turdSize: 1
@@ -201,7 +207,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
         )
       }
     }

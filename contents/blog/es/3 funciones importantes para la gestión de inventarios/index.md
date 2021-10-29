@@ -6,6 +6,10 @@ author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: ¡Vamos a ver las tres técnicas de gestión de inventario que utilizan las empresas globales!
+relPage:
+  - usecase-sales
+  - usecase-material
+  - usecase-assets
 ---
 La gestión de inventario eficaz y eficiente es fundamental para el funcionamiento de su negocio. Existen diferentes tipos de métodos de administración de inventario que pueden ayudarlo a administrar su inventario de manera efectiva y eficiente. En este artículo, aprendamos sobre tres métodos importantes de gestión de inventario que también aplican muchas de las empresas más grandes del mundo.
 

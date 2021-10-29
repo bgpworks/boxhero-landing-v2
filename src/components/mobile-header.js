@@ -1,119 +1,211 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import cn from "classnames";
 // js
-import { Container320, ExternalLinkWithQuery } from "./common";
-import { urlStart } from "./constants";
+import { AppDownloadLink, StartNowButton, Padding } from "./common";
+import { useCheckScrolled } from "../hooks/use-check-scrolled";
+import { useClickOutside } from "../hooks/use-click-outside";
+import { LANG_NAME } from "./language-selector";
 // css
 import * as styles from "./mobile-header.module.css";
 // images
 import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import svgArrowGray from "../images/icon-dropdown-arrow-gray.svg";
 
-const MenuItem = ({ children }) => (
-  <div className={`${styles.splitLine} ${styles.menuItem}`}>{children}</div>
-);
-
-const MobileHeader = ({
-  isFloatMenu,
-  curMenu,
-  onChangeIsShowLangPopup,
+const DropDown = ({
+  className, title, children,
 }) => {
+  const [isShowDropDown, onChangeIsShowDropDown] = useState(false);
+
+  const containerRef = useRef();
+  useClickOutside(containerRef, () => onChangeIsShowDropDown(false));
+
+  return (
+    <div
+      className={cn([styles.dropDownContainer, className])}
+      ref={containerRef}
+    >
+      <button
+        type="button"
+        className={cn(
+          styles.dropDownButton,
+          { [styles.dropDownActive]: isShowDropDown },
+        )}
+        onClick={() => onChangeIsShowDropDown(!isShowDropDown)}
+      >
+        <span className={styles.dropDownTitle}>{title}</span>
+        <img
+          className={styles.dropDownIcon}
+          src={svgArrowGray}
+          alt={title}
+        />
+      </button>
+      {isShowDropDown && (
+        <ul className={styles.dropDownSubMenus}>
+          {children && children.map((dropDownItem, index) => (
+            <li
+              key={index}
+              className={styles.dropDownItem}
+            >
+              {dropDownItem}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+const LangOption = ({ lang }) => {
+  const { language, changeLanguage } = useI18next();
+  return (
+    <button
+      type="button"
+      className={cn(
+        styles.langButton,
+        { [styles.selected]: language === lang },
+      )}
+      onClick={() => changeLanguage(lang)}
+    >
+      {LANG_NAME[lang] || lang}
+    </button>
+  );
+};
+
+const MobileMenu = ({ onChangeIsShow }) => {
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useI18next();
+
+  useEffect(() => {
+    document.querySelector("html").classList.add(styles.disableScrolling);
+    return () => {
+      document.querySelector("html").classList.remove(styles.disableScrolling);
+    };
+  }, []);
+
+  const closeMobileMenu = () => onChangeIsShow(false);
+
+  return (
+    <nav className={styles.menuContainer}>
+      <DropDown title={t("header:menuService")}>
+        <Link
+          to="/about/"
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuServiceAbout")}
+        </Link>
+        <Link
+          to="/features/"
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuServiceFeatures")}
+        </Link>
+      </DropDown>
+
+      <DropDown title={t("header:menuUseCases")}>
+        <Link
+          to="/usecase-sales/"
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuUseCaseSales")}
+        </Link>
+        <Link
+          to="/usecase-material/"
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuUseCaseMaterial")}
+        </Link>
+        <Link
+          to="/usecase-assets/"
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuUseCaseAssets")}
+        </Link>
+      </DropDown>
+
+      <div className={styles.singleMenu}>
+        <Link
+          to="/pricing/"
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuPricing")}
+        </Link>
+      </div>
+
+      <DropDown title={t("header:menuResource")}>
+        <Link
+          to="/blog/"
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuCompanyBlog")}
+        </Link>
+        <a
+          href={t("url:doc")}
+          onClick={closeMobileMenu}
+        >
+          {t("header:menuDoc")}
+        </a>
+      </DropDown>
+
+      <DropDown title={t("header:menuLanguage")}>
+        <LangOption lang="en" />
+        <LangOption lang="ko" />
+        <LangOption lang="es" />
+        <LangOption lang="id" />
+      </DropDown>
+
+      <div className={styles.startNowContainer}>
+        <AppDownloadLink>
+          <button
+            type="button"
+            className={styles.appDownloadButton}
+          >
+            {t("header:appInstall")}
+          </button>
+        </AppDownloadLink>
+        <Padding x={20} />
+        <StartNowButton className={styles.startNowButton}>
+          {t("header:menuLoginButton")}
+        </StartNowButton>
+      </div>
+    </nav>
+  );
+};
+
+const MobileHeader = ({ isFloatMenu }) => {
   const [isShow, onChangeIsShow] = useState(false);
   const { isScrolled } = useCheckScrolled();
 
-  const isWhite = !isFloatMenu || isScrolled || isShow;
+  const isBackgroundWhite = !isFloatMenu || isScrolled || isShow;
   return (
     <>
-      <div
-        className={`${styles.menuOpenBg} ${isShow ? styles.isOpen : ""}`}
-      />
       <header
-        className={`${styles.headerContainer} ${
-          isWhite ? styles.whiteContainer : ""
-        }`}
+        className={cn(
+          styles.headerContainer,
+          { [styles.whiteContainer]: isBackgroundWhite },
+        )}
       >
-        <div className={styles.logoAndExpandCotainer}>
-          <Link to="/">
-            <img
-              src={isWhite ? svgBiBlue : svgBiWhite}
-              className={styles.biLogo}
-              alt="Home"
-            />
-          </Link>
-          <button
-            type="button"
-            className={`${styles.menuBtn} ${isShow ? styles.isOpen : ""}`}
-            onClick={() => onChangeIsShow(!isShow)}
-          >
-            <div className={styles.menuBtnLine} />
-            <div className={styles.menuBtnLine} />
-          </button>
-        </div>
-        <Container320 className={styles.menuContainer}>
-          {isShow && (
-            <>
-              <MenuItem>
-                <Link
-                  to="/about/"
-                  className={curMenu === "about" ? styles.selected : ""}
-                >
-                  {t("header:menuAbout")}
-                </Link>
-              </MenuItem>
-
-              <MenuItem>
-                <Link
-                  to="/features/"
-                  className={curMenu === "features" ? styles.selected : ""}
-                >
-                  {t("header:menuFeatures")}
-                </Link>
-              </MenuItem>
-
-              <MenuItem>
-                <Link
-                  to="/pricing/"
-                  className={curMenu === "pricing" ? styles.selected : ""}
-                >
-                  {t("header:menuPricing")}
-                </Link>
-              </MenuItem>
-
-              <MenuItem>
-                <a href={t("url:doc")}>{t("header:menuDoc")}</a>
-              </MenuItem>
-
-              <div className={styles.langButtonContainer}>
-                <button
-                  type="button"
-                  className={styles.langButton}
-                  onClick={() => {
-                    onChangeIsShowLangPopup(true);
-                    onChangeIsShow(false);
-                  }}
-                >
-                  {t("header:menuLanguage")}
-                </button>
-              </div>
-
-              <div className={styles.startNowContainer}>
-                <ExternalLinkWithQuery href={urlStart}>
-                  <button
-                    type="button"
-                    className={styles.startNowButton}
-                  >
-                    {t("header:menuLoginButton")}
-                  </button>
-                </ExternalLinkWithQuery>
-              </div>
-            </>
-          )}
-        </Container320>
+        <Link to="/">
+          <img
+            src={isBackgroundWhite ? svgBiBlue : svgBiWhite}
+            className={styles.biLogo}
+            alt="Home"
+          />
+        </Link>
+        <button
+          type="button"
+          className={cn(styles.menuBtn, { [styles.isOpen]: isShow })}
+          onClick={() => onChangeIsShow(!isShow)}
+        >
+          <div className={styles.menuBtnLine} />
+          <div className={styles.menuBtnLine} />
+        </button>
       </header>
+
+      {isShow && <MobileMenu onChangeIsShow={onChangeIsShow} />}
+
       {!isFloatMenu && <div className={styles.headerPlaceholder} />}
     </>
   );

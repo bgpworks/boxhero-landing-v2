@@ -1,44 +1,47 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { CarouselContext } from "pure-react-carousel";
+import { GatsbyImage } from "gatsby-plugin-image";
+import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
+import svgConsulting from "../images/icon-consulting.svg";
+import svgEye from "../images/icon-eye.svg";
+import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
+import svgDownload from "../images/download.svg";
 import {
+  urlConsulting,
+  urlStart,
   urlDownloadApp,
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
 } from "./constants";
 
-export const Container1024 = ({ className, children }) => (
-  <div className={`${styles.container1024} ${className}`}>{children}</div>
+export const DesktopBaseContainer = ({ className, children }) => (
+  <div className={`${styles.desktopBaseContainer} ${className}`}>{children}</div>
 );
 
-Container1024.propTypes = {
+DesktopBaseContainer.propTypes = {
   className: PropTypes.string,
 };
 
-Container1024.defaultProps = {
+DesktopBaseContainer.defaultProps = {
   className: "",
 };
 
-export const Container320 = ({ className, children }) => (
-  <div className={`${styles.container320} ${className}`}>{children}</div>
+export const MobileBaseContainer = ({ className, children }) => (
+  <div className={`${styles.mobileBaseContainer} ${className}`}>{children}</div>
 );
 
-Container320.propTypes = {
+MobileBaseContainer.propTypes = {
   className: PropTypes.string,
 };
 
-Container320.defaultProps = {
+MobileBaseContainer.defaultProps = {
   className: "",
 };
-
-export const ContainerCenter = ({ className, children }) => (
-  <div className={`${styles.containerCenter} ${className}`}>{children}</div>
-);
 
 export const Padding = ({ x, y }) => (
   <div style={{ paddingLeft: x, height: y, minHeight: 1 }} />
@@ -54,22 +57,272 @@ Padding.defaultProps = {
   y: 0,
 };
 
-export const SimpleTop = ({ title, children }) => (
-  <div>
-    <Padding y={100} />
-    <div className={styles.simpleTopTitle}>{title}</div>
-    <Padding y={30} />
-    <div className={styles.simpleTopDesc}>{children}</div>
+export const ConsultingButtonKR = () => (
+  <a href={urlConsulting}>
+    <button
+      type="button"
+      className={styles.consultingButton}
+    >
+      <img
+        className={styles.topButtonIcon}
+        src={svgConsulting}
+        alt="무료 컨설팅 받기"
+      />
+      무료 컨설팅 받기
+    </button>
+  </a>
+);
+
+const SpeechBubble = ({ text, style }) => (
+  <div
+    className={styles.speechBubble}
+    style={style}
+  >
+    {text}
   </div>
 );
 
-export const MobileSimpleTop = ({ title, children }) => (
-  <div>
-    <Padding y={50} />
-    <div className={styles.mobileSimpleTopTitle}>{title}</div>
-    <Padding y={20} />
-    <div className={styles.mobileSimpleTopDesc}>{children}</div>
+const DEFAULT_CHATTING_COLOR_SEQUENCE = [
+  { text: "#292a2f", background: "#fbc200" },
+  { text: "white", background: "#50a4fa" },
+  { text: "#292a2f", background: "#e0e0e3" },
+  { text: "white", background: "rgba(79, 103, 255, 0.9)" },
+  { text: "white", background: "rgba(60, 185, 160, 0.8)" },
+  { text: "white", background: "rgba(126, 187, 64, 0.6)" },
+  { text: "white", background: "rgba(251, 97, 100, 0.6)" },
+];
+const COLUMN_WIDTH = 72;
+const GUTTER_WIDTH = 30;
+
+export const SpeechBubbleContainer = ({
+  containerGridColumns,
+  speechBubbles,
+  colorSequence = DEFAULT_CHATTING_COLOR_SEQUENCE,
+}) => {
+  const containerWidth = COLUMN_WIDTH * containerGridColumns
+  + GUTTER_WIDTH * (containerGridColumns - 1);
+  const colorSeqquenceIterator = (idx) => {
+    const derivedIdx = idx % colorSequence.length;
+    return colorSequence[derivedIdx];
+  };
+
+  return (
+    <div
+      className={styles.speechBubbleContainer}
+      style={containerGridColumns && { width: containerWidth }}
+    >
+      {speechBubbles.map((bubble, index) => {
+        const { text, background } = colorSeqquenceIterator(index);
+        return (
+          <SpeechBubble
+            key={index}
+            text={bubble.text}
+            style={{
+              color: text,
+              backgroundColor: background,
+              marginRight: bubble.marginRight,
+              marginLeft: bubble.marginLeft,
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+export const StartNowButton = ({ className, children }) => (
+  <ExternalLinkWithQuery href={urlStart}>
+    <button
+      type="button"
+      className={className}
+    >
+      {children}
+    </button>
+  </ExternalLinkWithQuery>
+);
+
+export const UseCaseTop = ({
+  className, title, description, startNow, img,
+}) => (
+  <div className={className}>
+    <DesktopBaseContainer
+      className={styles.useCaseTopContentContainer}
+    >
+      <div className={styles.useCaseTopTitle}>{title}</div>
+      <Padding y={16} />
+      <div className={styles.useCaseTopDesc}>{description}</div>
+      <Padding y={30} />
+      <StartNowButton className={styles.startNowButton}>
+        {startNow}
+      </StartNowButton>
+      <Padding y={49} />
+      <GatsbyImage
+        image={img.childImageSharp.gatsbyImageData}
+        alt={startNow}
+      />
+    </DesktopBaseContainer>
   </div>
+);
+
+export const MobileUseCaseTop = ({
+  className, title, description, appDownload, img, alt,
+}) => (
+  <section className={className}>
+    <MobileBaseContainer
+      className={styles.mobileUseCaseTopContentContainer}
+    >
+      <h2 className={styles.mobileUseCaseTopTitle}>{title}</h2>
+      <Padding y={16} />
+      <p className={styles.mobileUseCaseTopDesc}>{description}</p>
+      <Padding y={40} />
+      <AppDownloadLink>
+        <button
+          type="button"
+          className={styles.appDownloadButton}
+        >
+          <img
+            className={styles.appDownloadIcon}
+            src={svgDownload}
+            alt={appDownload}
+          />
+          {appDownload}
+        </button>
+      </AppDownloadLink>
+      <Padding y={40} />
+      <GatsbyImage
+        image={img.childImageSharp.gatsbyImageData}
+        alt={alt}
+      />
+    </MobileBaseContainer>
+  </section>
+);
+
+const UseCaseFeatureRightDesc = ({ icon, text }) => (
+  <div className={styles.useCaseFeatureRightDesc}>
+    <img
+      src={icon}
+      alt={text}
+    />
+    <Padding x={8} />
+    {text}
+  </div>
+);
+
+export const UseCaseFeature = ({
+  title,
+  speechBubbles,
+  bubleColorSequence,
+  img,
+  leftDescription,
+  rightDescriptions,
+  children,
+}) => (
+  <DesktopBaseContainer
+    className={styles.useCaseFeatureContentContainer}
+  >
+    <div className={styles.useCaseFeatureTitle}>{title}</div>
+    <Padding y={50} />
+    <SpeechBubbleContainer
+      containerGridColumns={6}
+      colorSequence={bubleColorSequence}
+      speechBubbles={speechBubbles}
+    />
+    <Padding y={50} />
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      alt={title}
+    />
+    <Padding y={50} />
+    <div className={styles.useCaseFeatureDescContainer}>
+      <div className={styles.useCaseFeatureLeftDesc}>
+        <span className={styles.textUnderline}>
+          {leftDescription}
+        </span>
+      </div>
+      <Padding x={30} />
+      <div className={styles.useCaseFeatureRightDescContainer}>
+        {rightDescriptions.map((rightDescription, index) => {
+          const isLastChild = () => index === rightDescriptions.length - 1;
+          return (
+            <UseCaseFeatureRightDesc
+              key={index}
+              icon={isLastChild() ? svgEye : svgCircleCheck}
+              text={rightDescription}
+            />
+          );
+        })}
+      </div>
+    </div>
+    {children}
+  </DesktopBaseContainer>
+);
+
+const MobileUseCaseFeatureDesc = ({ icon, text }) => (
+  <li className={styles.mobileUseCaseFeatureDesc}>
+    <img
+      src={icon}
+      alt={text}
+    />
+    <Padding x={8} />
+    {text}
+  </li>
+);
+
+export const MobileUseCaseFeature = ({
+  title,
+  speechBubbles,
+  bubleColorSequence,
+  img,
+  descriptions,
+  children,
+}) => (
+  <>
+    <MobileBaseContainer
+      className={styles.mobileUseCaseFeatureTopContainer}
+    >
+      <h2 className={styles.mobileUseCaseFeatureTitle}>{title}</h2>
+      <Padding y={40} />
+      <article className={styles.mobileSpeechBubbleContainer}>
+        <SpeechBubbleContainer
+          colorSequence={bubleColorSequence}
+          speechBubbles={speechBubbles}
+        />
+      </article>
+    </MobileBaseContainer>
+
+    <Padding y={40} />
+    <ScrollContainer
+      vertical={false}
+      horizontal
+      hideScrollbars
+      className={styles.mobileUseCaseFeatureImageContainer}
+    >
+      <GatsbyImage
+        className={styles.mobileUseCaseFeatureImage}
+        image={img.childImageSharp.gatsbyImageData}
+        alt={title}
+      />
+    </ScrollContainer>
+    <Padding y={16} />
+
+    <MobileBaseContainer
+      className={styles.mobileUseCaseFeatureBottomContainer}
+    >
+      <ul className={styles.mobileUseCaseFeatureDescContainer}>
+        {descriptions.map((description, index) => {
+          const isLastChild = index === descriptions.length - 1;
+          return (
+            <MobileUseCaseFeatureDesc
+              key={index}
+              icon={isLastChild ? svgEye : svgCircleCheck}
+              text={description}
+            />
+          );
+        })}
+      </ul>
+      {children}
+    </MobileBaseContainer>
+  </>
 );
 
 export const DropDownQNA = ({
@@ -146,24 +399,6 @@ export const Ribbon = ({ className, children }) => (
     <span>{children}</span>
   </div>
 );
-
-export const WithCurrentSlide = ({ children }) => {
-  const carouselContext = useContext(CarouselContext);
-  const [currentSlide, setCurrentSlide] = useState(
-    carouselContext.state.currentSlide,
-  );
-  useEffect(() => {
-    function onChange() {
-      setCurrentSlide(carouselContext.state.currentSlide);
-    }
-    carouselContext.subscribe(onChange);
-    return () => carouselContext.unsubscribe(onChange);
-  }, [carouselContext]);
-  if (children && children instanceof Function) {
-    return children(currentSlide);
-  }
-  return "";
-};
 
 // query param을 유지하면서 a href를 사용한다.
 // 광고 트래킹을 위해 사용되며, 첫 진입시 query param을 붙여서 나간다.

@@ -6,6 +6,8 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
 description: Kelola semua informasi data inventaris Anda secara mudah dengan fitur pusat data BoxHero.
+relPage:
+  - usecase-assets
 ---
 
 Saat mengelola inventaris yang berjumlah sangat banyak, Anda memerlukan fitur yang mampu memudahkan Anda dalam mengatur barang-barang tersebut dalam satu tempat. Oleh karena itu, BoxHero menyediakan fitur Pusat Data untuk memudahkan Anda dari mulai pengelolaan barang, hingga pengelolaan partner kerja Anda.

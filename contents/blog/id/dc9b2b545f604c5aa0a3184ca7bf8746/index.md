@@ -6,6 +6,8 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: "./images/img_1.png"
 description: Kelola anggota tim Anda untuk manajemen inventaris yang optimal.
+relPage:
+  - usecase-material
 ---
 
 Menjalankan bisnis seorang diri bukanlah hal yang mudah, terutama jika Anda harus mengelola seluruh aspek. Memikirkan semua bagian seperti proses produksi, penjualan, pemasaran, persediaan, dan lainnya akan membuat Anda sulit untuk fokus. Di sinilah peran anggota dibutuhkan. Dengan membagi tugas dengan anggota, Anda dan anggota dapat fokus di bidang masing-masing sehingga pekerjaan pun akan lebih terkendali.

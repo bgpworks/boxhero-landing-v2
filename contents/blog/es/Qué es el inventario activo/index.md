@@ -6,6 +6,8 @@ author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: ¿Cómo podríamos utilizar mi inventario para una gestión eficiente del inventario?
+relPage:
+  - usecase-assets
 ---
 ## 1. ¿Qué es el inventario activo?
 

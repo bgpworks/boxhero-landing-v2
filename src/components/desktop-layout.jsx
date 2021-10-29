@@ -7,32 +7,32 @@ import * as styles from "./desktop-layout.module.css";
 
 const DesktopLayout = ({
   isFloatMenu,
-  curMenu,
   closingEmoji,
   closingMsg,
-  showEssential,
+  showPlatforms,
+  showStartNow,
   mainClassName,
   children,
 }) => (
   <div className={styles.desktopLayout}>
     <DesktopHeader
       isFloatMenu={isFloatMenu}
-      curMenu={curMenu}
     />
     <main className={mainClassName}>{children}</main>
     <DesktopFooter
       closingEmoji={closingEmoji}
       closingMsg={closingMsg}
-      showEssential={showEssential}
+      showPlatforms={showPlatforms}
+      showStartNow={showStartNow}
     />
   </div>
 );
 
 DesktopLayout.propTypes = {
   mainClassName: PropTypes.string,
-  showEssential: PropTypes.bool,
+  showPlatforms: PropTypes.bool,
+  showStartNow: PropTypes.bool,
   isFloatMenu: PropTypes.bool,
-  curMenu: PropTypes.string,
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   children: PropTypes.node.isRequired,

@@ -1,8 +1,20 @@
 {
-  "menuAbout": "About BoxHero",
+  "appInstall": "App download",
+  "menuCompanyBlog": "Blog",
   "menuDoc": "Customer Service",
-  "menuFeatures": "Features",
   "menuLanguage": "Language",
   "menuLoginButton": "LOG IN",
-  "menuPricing": "Pricing"
+  "menuPricing": "Pricing",
+  "menuResource": "Resource",
+  "menuService": "Service",
+  "menuServiceAbout": "About BoxHero",
+  "menuServiceFeatures": "Features",
+  "menuUseCaseAssets": "Asset Management",
+  "menuUseCaseAssetsDesc": "Solution to manage supplies and consumables in offices, hospitals, restaurants, and others.",
+  "menuUseCaseMaterial": "Material Management",
+  "menuUseCaseMaterialDesc": "Solution to manage cars, interiors, equipment, and other types of materials and parts.",
+  "menuUseCaseSales": "Sales",
+  "menuUseCaseSalesDesc": "Solution for online sales, instore, and other types of sales.",
+  "menuUseCases": "Use Cases",
+  "startNowButton": "Start Now"
 }

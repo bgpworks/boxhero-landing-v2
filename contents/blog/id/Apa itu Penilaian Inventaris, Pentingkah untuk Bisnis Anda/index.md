@@ -6,6 +6,8 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.png
 description: Temukan jenis dan kegunaan penilaian inventaris yang cocok untuk bisnis Anda.
+relPage:
+  - usecase-assets
 ---
 
 Manajemen inventaris bukanlah hal yang rumit jika Anda mengerti langkah-langkah efektif dalam mengelola dan mengontrol inventaris Anda. Berbicara tentang mengelola dan mengontrol inventaris, satu hal yang tidak boleh dilewatkan adalah penilaian inventaris atau *inventory valuation*. Apakah Anda pernah mendengar istilah FIFO atau LIFO? Keduanya adalah metode penilaian inventaris paling umum, yang digunakan untuk menilai HPP dan inventaris. Karena itu, pemilihan metode penilaian inventaris secara tepat adalah faktor penting yang dapat berpengaruh besar terhadap usaha yang sedang Anda jalankan.
