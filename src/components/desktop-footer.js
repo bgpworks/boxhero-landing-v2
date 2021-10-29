@@ -83,18 +83,13 @@ const Platforms = ({ t }) => (
     <div className={styles.platformGroups}>
       <div className={styles.platformGroup}>
         <div className={styles.platformGroupButtons}>
-          <a href={constants.urlStart}>
-            <button
-              type="button"
-              className={styles.platformButton}
-            >
-              <img
-                src={svgPcWeb}
-                alt="PC"
-              />
-              {t("footer:platformsPC")}
-            </button>
-          </a>
+          <StartNowButton className={styles.platformButton}>
+            <img
+              src={svgPcWeb}
+              alt="PC"
+            />
+            {t("footer:platformsPC")}
+          </StartNowButton>
         </div>
         <div className={styles.platformGroupTitle}>
           {t("footer:platformGroupWeb")}
