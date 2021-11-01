@@ -1,9 +1,9 @@
 /* Platforms */
 
 .platformsContainer {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
   padding: 50px 20px 40px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@
   composes: verticalCenter;
 
   padding: 50px 20px;
-  background-color: var(--color-font-gray1);
+  background-color: var(--color-black);
 }
 
 .startNowDescription {
@@ -51,7 +51,7 @@
 @value install-button-height: 54px;
 
 .footerMenusAndInfoContainer {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
   font-size: var(--font-size-mobile-small);
   padding: 50px 20px calc(install-button-height + 50px);
 }
@@ -69,7 +69,7 @@
 
 .footerMenuLabel {
   font-weight: bold;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .footerSubMenu {
@@ -85,7 +85,7 @@
 .langButton {
   background-color: var(--color-gray4);
   font-size: var(--font-size-mobile-small);
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   border-radius: 4px;
   height: 28px;
   padding: 0px 10px;

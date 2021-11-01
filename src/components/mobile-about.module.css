@@ -28,7 +28,7 @@
 
 .strongPoint {
   padding: 50px 20px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   text-align: center;
 }
 
@@ -96,7 +96,7 @@
   border-radius: 8px;
   box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
   background-color: white;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .featureIcon {

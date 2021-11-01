@@ -47,7 +47,7 @@
 /* Chatting */
 
 .chattingContentContainer {
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   padding: 50px 20px;
 }
 
@@ -68,7 +68,7 @@
 /* keyFeature */
 
 .darkBg {
-  background: var(--color-bg-light);
+  background: var(--color-gray5);
 }
 
 .keyFeatureContainer {
@@ -77,7 +77,7 @@
 
 .keyFeatureContentContainer {
   padding: 50px 20px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .keyFeatureTitle {
@@ -138,7 +138,7 @@
 .keyFeatureSlideTitle {
   margin: 0;
   list-style: none;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   font-weight: 500;
   padding: 12px 0;
   display: flex;
@@ -176,7 +176,7 @@
 /* sales management */
 
 .salesManagementContentContainer {
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   padding: 50px 0px;
   display: flex;
   flex-direction: column;
@@ -212,7 +212,7 @@
   padding: 6px 0;
   padding-left: 50%;
   overflow-x: hidden;
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
 }
 
 .salesManagementSelector {
@@ -277,7 +277,7 @@
 
 .customersContainer {
   padding: 50px 20px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 
   display: flex;
   flex-direction: column;
@@ -354,7 +354,7 @@
 }
 
 .featuresTitle strong {
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .sliderWrapper {
@@ -371,7 +371,7 @@
   font-weight: bold;
   line-height: 1.71;
   letter-spacing: -0.14px;
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .slideDetailLinkContainer {
@@ -380,7 +380,7 @@
 
 .slideDetailLink img {
   vertical-align: bottom;
-  filter: color(--color-font-blue);
+  filter: color(--color-primary);
 }
 
 .rightArrow {
@@ -411,7 +411,7 @@
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0);
-  color: var(--color-font-darker);
+  color: var(--color-black);
   transition: color 0.3s;
   flex: 0 0 auto;
 }
@@ -425,8 +425,8 @@
   border-radius: 22px;
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
-  background-color: var(--color-carousel-dot);
-  color: var(--color-carousel-dot);
+  background-color: var(--color-light-blue);
+  color: var(--color-light-blue);
   position: absolute;
   transform: translateX(-50%);
   transition: min-width 0.3s;
@@ -437,7 +437,7 @@
 .startNowContainer {
   padding: 50px 20px;
   text-align: center;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .startNowTitle {
@@ -458,10 +458,10 @@
 .startNowDetailLink {
   font-weight: bold;
   letter-spacing: -0.16px;
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .startNowDetailLink img {
   vertical-align: bottom;
-  filter: color(--color-font-blue);
+  filter: color(--color-primary);
 }

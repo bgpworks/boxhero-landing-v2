@@ -2,7 +2,7 @@
 
 .topContentContainer {
   padding: 100px 0;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .topTitle {
@@ -33,12 +33,12 @@
 
 .topDescDesc {
   font-size: var(--font-size-b16);
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
   line-height: 1.5;
 }
 
 .planDescription {
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   font-weight: bold;
   font-size: var(--font-size-h5);
   line-height: 1.37;
@@ -69,7 +69,7 @@
 }
 
 .billingCycleButton.active {
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 .yearlyPlanSaveLabel {
@@ -91,7 +91,7 @@
   margin: 0px auto;
   border-spacing: var(--each-h-border-spacing) 0px;
   border-collapse: separate;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   line-height: normal;
 
   font-size: var(--font-size-b18);
@@ -165,7 +165,7 @@
 .pricingTable tfoot td {
   padding-top: 30px;
   font-size: var(--font-size-b14);
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
   text-align: center;
   line-height: 1.45;
 }
@@ -214,7 +214,7 @@
 /* faq */
 
 .faqContainer {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
   padding: 100px 0px;
 
   display: flex;
@@ -233,7 +233,7 @@
   font-weight: bold;
   line-height: 1.35;
   text-align: center;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .buttonShowMore {
@@ -269,7 +269,7 @@
   font-style: normal;
   line-height: 1.6;
   text-align: center;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .directContactButton {
@@ -293,7 +293,7 @@
 }
 
 .faqContentContainer a {
-  color: var(--color-font-blue);
+  color: var(--color-primary);
   text-decoration: underline;
 }
 

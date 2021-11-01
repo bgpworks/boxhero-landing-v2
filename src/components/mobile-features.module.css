@@ -2,7 +2,7 @@
 
 .topContainer {
   padding: 50px 20px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   text-align: center;
 }
 
@@ -19,7 +19,7 @@
 
 .featureTemplate {
   padding: 50px 20px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .featureTemplateTitle {
@@ -48,7 +48,7 @@
 
 .demoTitle {
   font-size: var(--font-size-mobile-small);
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 .demoDesc {
@@ -61,13 +61,13 @@
 }
 
 .bgOrange {
-  background-color: var(--color-feature-bg-orange);
+  background-color: var(--color-orange-10);
 }
 
 .bgGreen {
-  background-color: var(--color-feature-bg-green);
+  background-color: var(--color-green-10);
 }
 
 .bgBlue {
-  background-color: var(--color-feature-bg-blue);
+  background-color: var(--color-light-blue-10);
 }
