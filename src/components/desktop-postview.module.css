@@ -21,7 +21,7 @@
 
 .linkToListLabel {
   margin-left: 10px;
-  color: var(--color-font-darker);
+  color: var(--color-black);
 }
 
 .postHeader {
@@ -31,7 +31,7 @@
 .postCategory {
   padding: 1.5px 8px;
   color: white;
-  background-color: var(--color-font-darker);
+  background-color: var(--color-black);
   border-radius: 4px;
 }
 
@@ -40,7 +40,7 @@
   font-size: 40px;
   font-weight: bold;
 
-  color: var(--color-font-darker);
+  color: var(--color-black);
 }
 
 .postThumbnail {
@@ -50,7 +50,7 @@
 .postFooterSection {
   margin-top: 64px;
   padding-top: 50px;
-  border-top: 1px solid var(--color-feature-bar-gray);
+  border-top: 1px solid var(--color-gray3);
 
   display: flex;
   justify-content: space-between;
@@ -67,7 +67,7 @@
 
   padding: 20px;
 
-  border: solid 1px var(--color-light-gray);
+  border: solid 1px var(--color-gray4);
   border-radius: 8px;
   box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
   background-color: white;
@@ -78,7 +78,7 @@
   color: white;
   font-size: 12px;
   border-radius: 4px;
-  background-color: var(--color-font-darker);
+  background-color: var(--color-black);
 }
 
 .titleInRelatedPost {
@@ -91,7 +91,7 @@
 
 .labelInRelatedPost {
   margin-top: 12px;
-  color: var(--color-font-header);
+  color: var(--color-gray2);
   font-size: 14px;
 }
 
@@ -122,12 +122,12 @@
   justify-content: center;
 
   font-size: 14px;
-  color: var(--color-font-darker);
+  color: var(--color-black);
 }
 
 .createdTime {
   margin-top: 2px;
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 .postFooter {
@@ -149,7 +149,7 @@
 
   overflow: hidden;
 
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
   background-image: var(--bg-left), var(--bg-right);
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -158,14 +158,14 @@
 
 .startNowTitle {
   font-size: 24px;
-  color: var(--color-font-darker);
+  color: var(--color-black);
   font-weight: 500;
 }
 
 .startNowDesc {
   margin-top: 4px;
   font-size: 16px;
-  color: var(--color-font-header);
+  color: var(--color-gray2);
 }
 
 .startNowButton {
@@ -173,7 +173,7 @@
   padding: 10px 24px;
 
   border-radius: 6px;
-  background-color: var(--color-font-blue);
+  background-color: var(--color-primary);
   appearance: none;
 
   color: white;

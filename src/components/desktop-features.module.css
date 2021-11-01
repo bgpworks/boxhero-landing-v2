@@ -1,6 +1,6 @@
 .topContentContainer {
   padding: 100px 0;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .topTitle {
@@ -27,12 +27,12 @@
   line-height: 1.5;
   letter-spacing: -0.16px;
   text-align: center;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .menuItem:hover {
   border-radius: 8px;
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
 }
 
 .menuContainer {
@@ -47,7 +47,7 @@
 
 .featureTemplateContentContainer {
   padding: 70px 0 100px 102px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .featureTemplateDescFigContainer {
@@ -126,7 +126,7 @@ html[lang="ko"] .featureTemplateDesc {
   font-size: var(--font-size-b16);
   line-height: 1.9;
   letter-spacing: -0.16px;
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 .demoDesc {
@@ -134,7 +134,7 @@ html[lang="ko"] .featureTemplateDesc {
   font-size: var(--font-size-b16);
   line-height: 1.5;
   letter-spacing: -0.18px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .bgWhite {
@@ -142,29 +142,29 @@ html[lang="ko"] .featureTemplateDesc {
 }
 
 .bgOrange {
-  background-color: var(--color-feature-bg-orange);
+  background-color: var(--color-orange-10);
 }
 
 .bgGreen {
-  background-color: var(--color-feature-bg-green);
+  background-color: var(--color-green-10);
 }
 
 .bgBlue {
-  background-color: var(--color-feature-bg-blue);
+  background-color: var(--color-light-blue-10);
 }
 
 .barGreen {
-  border-left-color: var(--color-feature-bar-green);
+  border-left-color: var(--color-green);
 }
 
 .barOrange {
-  border-left-color: var(--color-feature-bar-orange);
+  border-left-color: var(--color-orange);
 }
 
 .barGray {
-  border-left-color: var(--color-feature-bar-gray);
+  border-left-color: var(--color-gray3);
 }
 
 .barBlue {
-  border-left-color: var(--color-feature-bar-blue);
+  border-left-color: var(--color-light-blue);
 }

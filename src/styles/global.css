@@ -1,34 +1,11 @@
 :root {
-  --color-font-primary: #585a6c;
-  --color-font-darker: #292a2f;
-  --color-font-header: #8f91a0;
-  --color-light-gray: #e0e0e3;
-  --color-bg-dark-black: #292a2f;
-  --color-bg-light: #f7f9fc;
-  --color-font-blue: #4f67ff;
-  --color-ribbon-green: #3cb9a0;
   --height-top-menu: 79px;
-  --color-carousel-dot: #50a4fa;
   --height-mobile-top-menu: 56px;
-  --color-free-plan: rgba(245, 166, 35, 0.2);
-  --color-biz-plan: rgba(80, 164, 250, 0.2);
-  --color-feature-bg-orange: rgba(245, 166, 35, 0.1);
-  --color-feature-bar-orange: #f5a623;
-  --color-feature-bg-green: rgba(74, 208, 81, 0.1);
-  --color-feature-bar-green: #3cb9a0;
-  --color-feature-bg-blue: rgba(80, 164, 250, 0.1);
-  --color-feature-bar-blue: #50a4fa;
-  --color-feature-bar-gray: #cbccd3;
-  --font-size-mobile-small: 14px;
-  --font-size-mobile-big1: 18px;
-  --font-size-mobile-big2: 20px;
-  --font-size-mobile-big3: 26px;
-  --font-size-mobile-big4: 46px;
 
-  /* new color, size */
   --color-primary: #4f67ff;
   --color-light-blue: #50a4fa;
   --color-light-blue-20: rgba(80, 164, 250, 0.2);
+  --color-light-blue-10: rgba(80, 164, 250, 0.1);
   --color-light-blue-5: rgba(80, 164, 250, 0.05);
   --color-orange: #f5a623;
   --color-orange-20: rgba(245, 166, 35, 0.2);
@@ -36,10 +13,13 @@
   --color-green: #3cb9a0;
   --color-green-20: rgba(60, 185, 160, 0.2);
   --color-green-10: rgba(60, 185, 160, 0.1);
-  --color-font-gray1: #292a2f;
+  --color-black: #292a2f;
+  --color-gray1: #585a6c;
   --color-gray2: #8f91a0;
   --color-gray3: #cbccd3;
   --color-gray4: #e0e0e3;
+  --color-gray5: #f7f9fc;
+
   --font-size-46: 46px;
   --font-size-h1: 42px;
   --font-size-40: 40px;
@@ -58,6 +38,7 @@
   --font-size-mobile-h3: 20px;
   --font-size-mobile-h4: 18px;
   --font-size-mobile-normal: 16px;
+  --font-size-mobile-small: 14px;
 }
 
 html {
@@ -137,7 +118,7 @@ html[lang="ko"] {
   box-sizing: inherit;
 }
 body {
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
   font-family: "Roboto", "Noto Sans KR", georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -270,7 +251,7 @@ button {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
   cursor: pointer;
   text-align: center;
   /* transition: background 250ms ease-in-out, */

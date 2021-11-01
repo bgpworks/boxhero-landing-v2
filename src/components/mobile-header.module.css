@@ -112,7 +112,7 @@
 
 .dropDownTitle {
   max-width: 295px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   font-weight: 500;
 }
 
@@ -142,7 +142,7 @@
 .dropDownItem a {
   display: block;
   padding: 12px 0;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .singleMenu a {
@@ -150,7 +150,7 @@
   height: 60px;
   display: flex;
   align-items: center;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   font-weight: 500;
   border-bottom: solid 1px var(--color-gray4);
 }
@@ -160,7 +160,7 @@
   text-align: left;
   background-color: transparent;
   padding: 12px 0;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .langButton.selected {

@@ -1,6 +1,6 @@
 .startNowContentContainer {
   padding: 100px 0;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .startNowTitle {
@@ -52,7 +52,7 @@
   font-weight: bold;
 }
 .price small {
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
   font-size: var(--font-size-b14);
   font-weight: normal;
 }
@@ -88,9 +88,9 @@
 }
 
 .relatedContentsContainer {
-  background: var(--color-bg-light);
+  background: var(--color-gray5);
   padding: 100px 0;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .relatedContentsTitle {
@@ -140,7 +140,7 @@
 }
 
 .postCardTitle {
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   font-size: var(--font-size-b18);
   font-weight: bold;
 

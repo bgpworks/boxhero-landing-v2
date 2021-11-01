@@ -2,7 +2,7 @@
 
 .topContentContainer {
   padding: 50px 20px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   text-align: center;
 }
 
@@ -26,14 +26,14 @@
 .topDescDesc {
   margin: 0;
   font-size: var(--font-size-mobile-normal);
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 /* PriceTable */
 
 .priceTableContentContainer {
   padding: 0px 20px 50px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
   text-align: center;
 }
 
@@ -109,13 +109,13 @@
 .planLimitExtensionDesc {
   margin: 0;
   font-size: var(--font-size-mobile-small);
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
   line-height: normal;
 }
 
 .bizPlanContainer {
   composes: planContainer;
-  background-color: var(--color-biz-plan);
+  background-color: var(--color-light-blue-20);
   position: relative;
 
   margin-top: 40px;
@@ -139,7 +139,7 @@
 }
 
 .billingCycleButton.active {
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 .yearlyPlanSaveLabel {
@@ -171,12 +171,12 @@
 /* faq */
 
 .faqContainer {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
 }
 
 .faqContentContainer {
   padding: 50px 20px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .faqTitle {
@@ -218,7 +218,7 @@
 }
 
 .faqContainer a {
-  color: var(--color-font-blue);
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
@@ -239,7 +239,7 @@
 .directContactDesc {
   margin: 0;
   letter-spacing: -0.16px;
-  color: var(--color-font-gray1);
+  color: var(--color-black);
 }
 
 .directContactButton {
