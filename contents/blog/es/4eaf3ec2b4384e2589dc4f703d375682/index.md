@@ -1,7 +1,7 @@
 ---
 title: ¡Verificación de inventario con BoxHero!
 date: 2021-11-02 09:00
-category: 기능
+category: Función
 author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: "./images/img_1.jpg"
@@ -9,8 +9,6 @@ description: ¡Un programa de gestión de inventario más perfecto, BoxHero!
 ---
 
 No importa cuán minuciosa sea la gestión del producto, puede producirse un producto con una rama de producto reducida, es decir, un mal inventario. Para prepararse para tal situación de antemano, es necesario inspeccionar dicho inventario malicioso al menos dos veces al año.
-
-<br/>
 
 ## ¿Por qué necesitamos hacer una encuesta de inventario que tiene que pasar por un proceso tan complicado?
 
@@ -42,8 +40,6 @@ Debido a la naturaleza de la investigación de inventario, es imposible trabajar
 <br/>
 
 ![Gestión de inventario regular y fluida, BoxHero](images/img_3.jpg)
-
-<br/>
 
 ## ¿Cómo puedo asegurar un inventario regular y fluido? ¡La respuesta es <mark>BoxHero</mark>!
 

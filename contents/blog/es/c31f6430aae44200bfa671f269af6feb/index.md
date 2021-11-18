@@ -1,7 +1,7 @@
 ---
 title: ¡Comparta el estado de su gestión de inventario en tiempo real con sus miembros con BoxHero!
 date: 2021-10-06 09:00
-category: 기능
+category: Función
 author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: "./images/img_1.jpg"

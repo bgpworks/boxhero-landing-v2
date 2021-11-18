@@ -1,7 +1,7 @@
 ---
 title: ¡Un análisis de inventario meticuloso con BoxHero!
 date: 2021-10-11 16:20
-category: 기능
+category: Función
 author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: "./images/img_1.jpg"
