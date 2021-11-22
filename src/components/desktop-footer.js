@@ -184,12 +184,16 @@ const DesktopFooterMenus = ({ t, language }) => (
       <div>
         <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
       </div>
-      <div>
-        <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
-      </div>
-      <div>
-        <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
-      </div>
+      {language !== "ko" && (
+        <>
+          <div>
+            <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
+          </div>
+          <div>
+            <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+          </div>
+        </>
+      )}
       <div>
         <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
       </div>
@@ -238,7 +242,7 @@ const DesktopFooterMenus = ({ t, language }) => (
             <div>
               {t("footer:footerMenuContactKakao")}
               {" "}
-              <a href={constants.urlKakaoTalk}>@boxhero</a>
+              <a href={constants.urlKakaoTalk}>@박스히어로</a>
             </div>
           )
           : (
