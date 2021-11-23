@@ -92,8 +92,8 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
     <FooterMenu title={t("footer:footerMenuResource")}>
       <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
       <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
-      <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
-      <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+      {language !== "ko" && <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>}
+      {language !== "ko" && <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>}
     </FooterMenu>
 
     <FooterMenu title={t("footer:footerMenuCompany")}>
@@ -137,8 +137,8 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
         ? (
           <span>
             {t("footer:footerMenuContactKakao")}
-            { " "}
-            <a href={constants.urlKakaoTalk}>@boxhero</a>
+            {" "}
+            <a href={constants.urlKakaoTalk}>@박스히어로</a>
           </span>
         )
         : (
