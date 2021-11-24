@@ -1,6 +1,6 @@
 ---
 title: 박스히어로와 함께 여러 위치에 나눠져있는 재고들을 쉽고 편리하게 관리하세요!
-date: 2021-10-15 09:00
+date: 2021-11-15 09:00
 category: 기능
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
