@@ -7,9 +7,9 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
+import WithAlternateLangs from "./WithAlternateLangsHelmet";
 
 function SEOHelmet({
   description, meta, title,
@@ -29,18 +29,6 @@ function SEOHelmet({
             fbAppId
           }
         }
-        allSitePage:
-          allSitePage(filter: {context: {i18n: {routed: {eq: true}}}}) {
-            group(field: context___i18n___originalPath) {
-              fieldValue
-              totalCount
-              nodes {
-                context {
-                  language
-                }
-              }
-            }
-          }
         ogImg: file(relativePath: { eq: "og_image.png" }) {
           publicURL
         }
@@ -48,32 +36,17 @@ function SEOHelmet({
     `,
   );
 
-  const { site, allSitePage: { group: groupByOriginalPath } } = data;
+  const { site } = data;
   const metaDescription = description || site.siteMetadata.description;
   const { siteUrl } = site.siteMetadata;
 
-  const curPathGroup = groupByOriginalPath.find(({ fieldValue }) => fieldValue === originalPath);
-  const allAlternativeLangs = curPathGroup.nodes.map(({ context }) => context.language);
-  const linkProps = allAlternativeLangs.length > 1 && [{
-    rel: "alternate",
-    hrefLang: "x-default",
-    href: `${siteUrl}${originalPath}`,
-  },
-  ...allAlternativeLangs
-    .map(((langCode) => ({
-      rel: "alternate",
-      hrefLang: langCode,
-      href: `${siteUrl}/${langCode}${originalPath}`,
-    })))];
-
   return (
-    <Helmet
+    <WithAlternateLangs
       htmlAttributes={{
         lang: language,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={linkProps}
       meta={[
         {
           name: "description",
