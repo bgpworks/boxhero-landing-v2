@@ -9,16 +9,14 @@ import DesktopMarketingEn from "../components/desktop-marketing-en";
 import MobileMarketing from "../components/mobile-marketing";
 import { useHelpscout } from "../components/helpscout";
 
-const MarketingPage = ({ data, location }) => {
+const MarketingPage = ({ data }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
-        path={location.pathname}
       />
 
       <Media at="xs">

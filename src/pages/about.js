@@ -8,16 +8,14 @@ import DesktopAbout from "../components/desktop-about";
 import MobileAbout from "../components/mobile-about";
 import { useHelpscout } from "../components/helpscout";
 
-const AboutPage = ({ data, location }) => {
+const AboutPage = ({ data }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("about:pageTitle")}
         description={t("about:pageDescription")}
-        path={location.pathname}
       />
       <Media at="xs">
         <MobileAbout

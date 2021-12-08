@@ -8,16 +8,14 @@ import MobileLayout from "../components/mobile-layout";
 import { Media } from "../media";
 import SEOHelmet from "../components/SEOHelmet";
 
-const NotFoundPage = ({ data, location }) => {
-  const { language, t } = useI18next();
+const NotFoundPage = ({ data }) => {
+  const { t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title="NOT FOUND"
         description="NOT FOUND"
-        path={location.pathname}
       />
 
       <Media at="xs">

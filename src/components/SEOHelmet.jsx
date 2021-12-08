@@ -9,10 +9,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 function SEOHelmet({
-  description, lang, meta, title, path,
+  description, meta, title,
 }) {
+  const {
+    originalPath, language,
+  } = useI18next();
   const data = useStaticQuery(
     graphql`
       query {
@@ -25,24 +29,51 @@ function SEOHelmet({
             fbAppId
           }
         }
+        allSitePage:
+          allSitePage(filter: {context: {i18n: {routed: {eq: true}}}}) {
+            group(field: context___i18n___originalPath) {
+              fieldValue
+              totalCount
+              nodes {
+                context {
+                  language
+                }
+              }
+            }
+          }
         ogImg: file(relativePath: { eq: "og_image.png" }) {
           publicURL
         }
       }
     `,
   );
-  const { site } = data;
 
+  const { site, allSitePage: { group: groupByOriginalPath } } = data;
   const metaDescription = description || site.siteMetadata.description;
   const { siteUrl } = site.siteMetadata;
+
+  const curPathGroup = groupByOriginalPath.find(({ fieldValue }) => fieldValue === originalPath);
+  const allAlternativeLangs = curPathGroup.nodes.map(({ context }) => context.language);
+  const linkProps = allAlternativeLangs.length > 1 && [{
+    rel: "alternate",
+    hrefLang: "x-default",
+    href: `${siteUrl}${originalPath}`,
+  },
+  ...allAlternativeLangs
+    .map(((langCode) => ({
+      rel: "alternate",
+      hrefLang: langCode,
+      href: `${siteUrl}/${langCode}${originalPath}`,
+    })))];
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: language,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={linkProps}
       meta={[
         {
           name: "description",
@@ -86,7 +117,7 @@ function SEOHelmet({
         },
         {
           property: "og:url",
-          content: `${siteUrl}${path}`,
+          content: `${siteUrl}/${language}${originalPath}`,
         },
         {
           property: "og:name",
@@ -102,18 +133,14 @@ function SEOHelmet({
 }
 
 SEOHelmet.defaultProps = {
-  lang: "ko",
   meta: [],
   description: "",
-  path: "/",
 };
 
 SEOHelmet.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  path: PropTypes.string,
 };
 
 export default SEOHelmet;

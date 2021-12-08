@@ -8,16 +8,14 @@ import { ExternalLinkWithQuery } from "../components/common";
 import { useHelpscout } from "../components/helpscout";
 import { urlStart } from "../components/constants";
 
-const MarketingPage = ({ data, location }) => {
-  const { language, t } = useI18next();
+const MarketingPage = ({ data }) => {
+  const { t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
-        path={location.pathname}
       />
       <div style={{ maxWidth: 960, margin: "0 auto" }}>
         <GatsbyImage image={data.mobile1.childImageSharp.gatsbyImageData} />

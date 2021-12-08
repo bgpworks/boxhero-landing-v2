@@ -8,16 +8,14 @@ import DesktopUsecaseAssets from "../components/desktop-usecase-assets";
 import MobileUsecaseAssets from "../components/mobile-usecase-assets";
 import { useHelpscout } from "../components/helpscout";
 
-export default function UsecaseAssetsPage({ data, location }) {
+export default function UsecaseAssetsPage({ data }) {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("usecase:pageTitle")}
         description={t("usecase:pageDescription")}
-        path={location.pathname}
       />
 
       <Media at="xs">

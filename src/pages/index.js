@@ -8,16 +8,14 @@ import DesktopIndex from "../components/desktop-index";
 import MobileIndex from "../components/mobile-index";
 import { useHelpscout } from "../components/helpscout";
 
-const IndexPage = ({ data, location }) => {
+const IndexPage = ({ data }) => {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
-        path={location.pathname}
       />
 
       <Media at="xs">

@@ -8,16 +8,14 @@ import DesktopPricing from "../components/desktop-pricing";
 import MobilePricing from "../components/mobile-pricing";
 import { useHelpscout } from "../components/helpscout";
 
-export default function PricingPage({ data, location }) {
+export default function PricingPage({ data }) {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("pricing:pageTitle")}
         description={t("pricing:pageDescription")}
-        path={location.pathname}
       />
 
       <Media at="xs">

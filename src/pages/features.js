@@ -8,16 +8,16 @@ import DesktopFeatures from "../components/desktop-features";
 import MobileFeatures from "../components/mobile-features";
 import { useHelpscout } from "../components/helpscout";
 
-export default function FeaturesPage({ data, location }) {
-  const { language, t } = useI18next();
+export default function FeaturesPage({ data }) {
+  const {
+    language, t,
+  } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("features:pageTitle")}
         description={t("features:pageDescription")}
-        path={location.pathname}
       />
 
       <Media at="xs">

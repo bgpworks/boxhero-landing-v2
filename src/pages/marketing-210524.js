@@ -6,16 +6,14 @@ import SEOHelmet from "../components/SEOHelmet";
 import MobileMarketing from "../components/mobile-marketing-210524";
 import { useHelpscout } from "../components/helpscout";
 
-const MarketingPage = ({ data, location }) => {
-  const { language, t } = useI18next();
+const MarketingPage = ({ data }) => {
+  const { t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("index:pageTitle")}
         description={t("index:pageDescription")}
-        path={location.pathname}
       />
       <MobileMarketing data={data} />
     </>

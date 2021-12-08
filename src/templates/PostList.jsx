@@ -8,9 +8,9 @@ import SEOHelmet from "../components/SEOHelmet";
 import PostListDesktop from "../components/desktop-postlist";
 import PostListMobile from "../components/mobile-postlist";
 
-export default function PostList({ pageContext, location, data }) {
+export default function PostList({ pageContext, data }) {
   const { pageIndex, lastPageIndex } = pageContext;
-  const { language, t } = useI18next();
+  const { t } = useI18next();
   const {
     allMarkdownRemark: { edges },
   } = data;
@@ -18,10 +18,8 @@ export default function PostList({ pageContext, location, data }) {
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("blog:pageTitle")}
         description={t("blog:pageDescription")}
-        path={location.pathname}
       />
 
       <Media at="xs">

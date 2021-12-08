@@ -8,16 +8,14 @@ import DesktopUsecaseSales from "../components/desktop-usecase-sales";
 import MobileUsecaseSales from "../components/mobile-usecase-sales";
 import { useHelpscout } from "../components/helpscout";
 
-export default function UsecaseSalesPage({ data, location }) {
+export default function UsecaseSalesPage({ data }) {
   const { language, t } = useI18next();
   useHelpscout();
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("usecase:pageTitle")}
         description={t("usecase:pageDescription")}
-        path={location.pathname}
       />
 
       <Media at="xs">

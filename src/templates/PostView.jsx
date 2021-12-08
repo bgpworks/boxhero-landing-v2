@@ -7,8 +7,8 @@ import SEOHelmet from "../components/SEOHelmet";
 import PostViewDesktop from "../components/desktop-postview";
 import PostViewMobile from "../components/mobile-postview";
 
-export default function PostView({ data, location }) {
-  const { t, language } = useI18next();
+export default function PostView({ data }) {
+  const { t } = useI18next();
   const { currentPostData, prevPostData, nextPostData } = data;
   const {
     frontmatter: { title, description },
@@ -17,12 +17,10 @@ export default function PostView({ data, location }) {
   return (
     <>
       <SEOHelmet
-        lang={language}
         title={t("blog:postviewTitle", {
           title,
         })}
         description={description}
-        path={location.pathname}
       />
 
       <Media at="xs">
