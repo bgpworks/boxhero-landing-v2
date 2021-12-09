@@ -2,8 +2,8 @@
 title: How to Optimize Your Inventory
 date: 2021-08-18 16:18
 category: Insight
-author: HyungJee Kim
-authorPhoto: "../../images/authors/HyungJee Kim.jpg"
+author: Junie
+authorPhoto: "../../images/authors/Junie.jpg"
 thumbnail: ./images/1.jpg
 description: Are you looking for a better way to manage your inventory?
 relPage:
