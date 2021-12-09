@@ -35,7 +35,7 @@
   --line-height-gray-text: 1.375em;
   --line-heihgt-li: 2.25em;
 
-  color: var(--color-font-darker);
+  color: var(--color-black);
 }
 
 /* 하위 요소 스타일 초기화 */

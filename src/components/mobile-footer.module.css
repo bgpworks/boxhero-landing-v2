@@ -1,3 +1,29 @@
+/* Platforms */
+
+.platformsContainer {
+  background-color: var(--color-gray5);
+  padding: 50px 20px 40px;
+  color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.platformsTitle {
+  margin: 0;
+  font-size: var(--font-size-mobile-h2);
+  font-weight: bold;
+  text-align: center;
+}
+
+.platformsDesc {
+  margin: 0;
+  font-size: var(--font-size-mobile-normal);
+  text-align: center;
+}
+
+/* StartNow */
+
 .verticalCenter {
   display: flex;
   flex-direction: column;
@@ -8,29 +34,26 @@
 .startNowContainer {
   composes: verticalCenter;
 
-  height: 170px;
-  background-color: var(--color-bg-dark-black);
+  padding: 50px 20px;
+  background-color: var(--color-black);
 }
 
 .startNowDescription {
-  font-size: var(--font-size-mobile-big1);
+  font-size: var(--font-size-mobile-h4);
   font-weight: bold;
-  letter-spacing: -0.38px;
   color: white;
-  margin-top: 10px;
+  margin: 0;
   text-align: center;
 }
 
 /* Footer Menus + Company info */
 
+@value install-button-height: 54px;
+
 .footerMenusAndInfoContainer {
-
-  background-color: #f7f9fc;
+  background-color: var(--color-gray5);
   font-size: var(--font-size-mobile-small);
-}
-
-.footerMenusAndInfoContentContainer {
-  padding: 50px 20px 80px;
+  padding: 50px 20px calc(install-button-height + 50px);
 }
 
 /* Footer Menus */
@@ -40,17 +63,32 @@
   color: inherit;
 }
 
-.footerMenusColumn:not(:first-child) {
-  margin-top: 30px;
-}
-
-.footerMenusColumn > div:not(:nth-child(1)) {
-  margin-top: 15px;
+.footerMenu:not(:first-child) {
+  margin-top: 40px;
 }
 
 .footerMenuLabel {
   font-weight: bold;
-  color: var(--color-font-darker);
+  color: var(--color-black);
+}
+
+.footerSubMenu {
+  margin: 0;
+}
+
+.footerSubMenu > li {
+  list-style: none;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.langButton {
+  background-color: var(--color-gray4);
+  font-size: var(--font-size-mobile-small);
+  color: var(--color-black);
+  border-radius: 4px;
+  height: 28px;
+  padding: 0px 10px;
 }
 
 /* Company info */
@@ -64,19 +102,14 @@
 }
 
 .companyInfoDetail {
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
-.companyInfoDetail a.tosPrivacyLink,
-.companyInfoDetail a.tosPrivacyLink:visited {
-  color: var(--color-font-blue);
+.policyLink {
+  color: var(--color-gray3);
 }
 
-.langButton {
-  background-color: var(--color-light-gray);
-  font-size: var(--font-size-mobile-small);
-  color: black;
-  border-radius: 4px;
-  height: 28px;
-  padding: 0px 10px;
+a.tosPrivacyLink,
+a.tosPrivacyLink:visited {
+  color: var(--color-primary);
 }

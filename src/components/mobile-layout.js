@@ -8,7 +8,7 @@ import { AppDownloadLink } from "./common";
 import { LangPopup } from "./language-selector";
 // css
 import * as styles from "./mobile-layout.module.css";
-import { useCheckScrolled } from "../hooks/useCheckScrolled";
+import { useCheckScrolled } from "../hooks/use-check-scrolled";
 // images
 import svgDownload from "../images/download.svg";
 
@@ -34,25 +34,22 @@ const InstallButton = () => {
 const MobileLayout = ({
   isFloatMenu,
   hideFloatAppInstallButton,
-  curMenu,
   closingEmoji,
   closingMsg,
   mainClassName,
-  showEssentialOnly,
+  showPlatforms,
+  showStartNow,
   children,
 }) => {
   const [isShowLangPopup, onChangeIsShowLangPopup] = useState(false);
   return (
     <div className={styles.mobileLayout}>
-      <MobileHeader
-        isFloatMenu={isFloatMenu}
-        curMenu={curMenu}
-        onChangeIsShowLangPopup={onChangeIsShowLangPopup}
-      />
+      <MobileHeader isFloatMenu={isFloatMenu} />
       <main className={mainClassName}>{children}</main>
       {!hideFloatAppInstallButton && <InstallButton />}
       <MobileFooter
-        showEssentialOnly={showEssentialOnly}
+        showPlatforms={showPlatforms}
+        showStartNow={showStartNow}
         closingEmoji={closingEmoji}
         closingMsg={closingMsg}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
@@ -68,11 +65,11 @@ const MobileLayout = ({
 MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
   hideFloatAppInstallButton: PropTypes.bool,
-  curMenu: PropTypes.string,
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.any,
   mainClassName: PropTypes.string,
-  showEssentialOnly: PropTypes.bool,
+  showPlatforms: PropTypes.bool,
+  showStartNow: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 

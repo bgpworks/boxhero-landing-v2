@@ -1,21 +1,124 @@
+/* Top */
+
+.topContentContainer {
+  padding: 50px 20px;
+  color: var(--color-black);
+  text-align: center;
+}
+
+.topTitle {
+  margin: 0;
+  font-size: var(--font-size-mobile-h2);
+}
+
+.topDescIcon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+}
+
 .topDescTitle {
-  margin-top: 8px;
-  font-size: 16px;
-  color: black;
+  margin: 0;
+  font-size: var(--font-size-mobile-h4);
+  font-weight: normal;
 }
 
 .topDescDesc {
+  margin: 0;
+  font-size: var(--font-size-mobile-normal);
+  color: var(--color-gray1);
+}
+
+/* PriceTable */
+
+.priceTableContentContainer {
+  padding: 0px 20px 50px;
+  color: var(--color-black);
+  text-align: center;
+}
+
+.planContainer {
+  border-radius: 8px;
+  padding: 30px 20px;
+}
+
+.freePlanContainer {
+  composes: planContainer;
+  background-color: var(--color-orange-20);
+}
+
+.planTitle {
+  margin: 0;
+  height: 29px;
+  font-size: var(--font-size-mobile-h3);
+  font-weight: bold;
+}
+
+.planSubtitle {
+  margin: 0;
+  height: 20px;
   font-size: var(--font-size-mobile-small);
-  color: var(--color-font-primary);
 }
 
-.plainLink {
-  color: inherit;
-  text-decoration: underline;
+.planPrice {
+  margin: 0;
+  height: 68px;
+  font-size: var(--font-size-46);
+  font-weight: bold;
 }
 
-.px20 {
-  padding: 0px 20px;
+.planDesc {
+  margin: 0;
+  font-size: var(--font-size-mobile-h3);
+  font-weight: bold;
+  line-height: normal;
+}
+
+.startButton {
+  width: 100%;
+  height: 44px;
+  border-radius: 6px;
+  background-color: var(--color-primary);
+  font-size: var(--font-size-mobile-small);
+  font-weight: bold;
+  color: white;
+}
+
+.planDetailHeader {
+  height: 24px;
+  font-weight: bold;
+  color: var(--color-gray2);
+}
+
+.planDetailItems {
+  margin: 0;
+}
+
+.planDetailItem {
+  list-style: none;
+  margin: 14px 0 0 0;
+  text-align: center;
+  line-height: normal;
+}
+
+.planDetailItem small {
+  font-size: var(--font-size-mobile-small);
+  font-weight: normal;
+}
+
+.planLimitExtensionDesc {
+  margin: 0;
+  font-size: var(--font-size-mobile-small);
+  color: var(--color-gray1);
+  line-height: normal;
+}
+
+.bizPlanContainer {
+  composes: planContainer;
+  background-color: var(--color-light-blue-20);
+  position: relative;
+
+  margin-top: 40px;
 }
 
 .switchContainer {
@@ -29,147 +132,66 @@
   background-color: transparent;
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
-  color: var(--color-font-header);
+  color: var(--color-gray2);
   line-height: 24px;
 
   position: relative;
 }
 
 .billingCycleButton.active {
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 .yearlyPlanSaveLabel {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 100%;
   white-space: nowrap;
 
-  font-size: 12px;
-  color: var(--color-font-blue);
+  font-size: var(--font-size-b12);
+  color: var(--color-primary);
   font-weight: normal;
 
-  width: 100%;
   text-align: center;
   line-height: 18px;
 }
 
-.planContainer {
-  border-radius: 8px;
-  padding: 30px 18px;
-}
-
-.freePlanContainer {
-  composes: planContainer;
-  background-color: var(--color-free-plan);
-}
-
-.bizPlanContainer {
-  composes: planContainer;
-  background-color: var(--color-biz-plan);
-  position: relative;
-
-  margin-top: 40px;
-}
-
-.planTitle {
-  height: 29px;
-  font-size: var(--font-size-mobile-big2);
-  font-weight: bold;
-  text-align: center;
-  color: black;
-}
-
-.planSubtitle {
-  height: 24px;
-  text-align: center;
-  color: black;
-}
-
-.planPrice {
-  margin-top: 20px;
-  height: 68px;
-  font-size: var(--font-size-mobile-big4);
-  font-weight: bold;
-  text-align: center;
-  color: black;
-}
-
 .planPriceUnit {
   font-size: var(--font-size-mobile-small);
-  text-align: center;
-  color: black;
-}
-
-.planDesc {
-  margin-top: 20px;
-  font-size: var(--font-size-mobile-big2);
-  font-weight: bold;
-  text-align: center;
-  color: black;
-}
-
-.startButton {
-  margin-top: 29px;
-  width: 100%;
-  height: 44px;
-  border-radius: 6px;
-  background-color: var(--color-font-blue);
-  font-size: var(--font-size-mobile-small);
-  font-weight: bold;
-  color: white;
-}
-
-.planDetailHeader {
-  margin-top: 40px;
-  height: 24px;
-  font-weight: bold;
-  text-align: center;
-  color: var(--color-font-header);
-}
-
-.planDetailItem {
-  margin-top: 14px;
-  text-align: center;
-  color: black;
-}
-
-.planDetailItem small {
-  font-size: var(--font-size-mobile-small);
-  font-weight: normal;
-}
-
-.planDetailItem img {
-  vertical-align: bottom;
-  margin-right: 10px;
 }
 
 .planPostscript {
-  margin: 20px 0px 48px;
+  max-width: 300px;
+  margin: 0 auto;
   font-size: var(--font-size-mobile-small);
   text-align: center;
+  line-height: 1.37;
 }
 
 /* faq */
 
 .faqContainer {
-  background-color: var(--color-bg-light);
-  padding: 45px 20px 50px;
+  background-color: var(--color-gray5);
+}
+
+.faqContentContainer {
+  padding: 50px 20px;
+  color: var(--color-black);
 }
 
 .faqTitle {
+  margin: 0;
   height: 36px;
-  font-size: var(--font-size-mobile-big3);
+  font-size: var(--font-size-mobile-h2);
   font-weight: bold;
   text-align: center;
-  color: black;
 }
 
 .buttonShowMore {
   width: 100%;
   height: 44px;
   border-radius: 6px;
-  background-color: var(--color-font-blue);
+  background-color: var(--color-primary);
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: white;
@@ -178,58 +200,17 @@
 
 .faqItemTitle {
   padding: 19px 0;
-  line-height: normal;
-  color: black;
+  line-height: 1.37;
+}
+
+.faqItemTitle > span {
+  margin-right: 8px;
 }
 
 .faqItemBody {
   padding: 19px 0px;
   line-height: normal;
-  color: black;
   text-align: left;
-}
-
-/* direct contact */
-
-.directContactContainer {
-  padding: 50px 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.directContactTitle {
-  height: 29px;
-  font-size: var(--font-size-mobile-big2);
-  font-weight: bold;
-  text-align: center;
-  color: var(--color-font-blue);
-}
-
-.directContactDesc {
-  text-align: center;
-  letter-spacing: -0.16px;
-  color: var(--color-font-darker);
-}
-
-.directContactButton {
-  background: transparent;
-  width: 100%;
-  height: 44px;
-  border-radius: 6px;
-  border: solid 1px var(--color-font-blue);
-  font-weight: bold;
-  text-align: center;
-  color: var(--color-font-blue);
-}
-
-.planLimitExtensionDesc {
-  margin-top: 20px;
-  color: var(--color-font-primary);
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
 }
 
 .faqContainer li {
@@ -237,6 +218,37 @@
 }
 
 .faqContainer a {
-  color: var(--color-font-blue);
+  color: var(--color-primary);
   text-decoration: underline;
+}
+
+/* direct contact */
+
+.directContactContainer {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.directContactTitle {
+  margin: 0;
+  font-size: var(--font-size-mobile-h3);
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.directContactDesc {
+  margin: 0;
+  letter-spacing: -0.16px;
+  color: var(--color-black);
+}
+
+.directContactButton {
+  background: transparent;
+  width: 100%;
+  height: 44px;
+  border-radius: 6px;
+  border: solid 1px var(--color-primary);
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-primary);
 }

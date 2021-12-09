@@ -5,9 +5,8 @@ import scrollTo from "gatsby-plugin-smoothscroll";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
-  Container1024,
+  DesktopBaseContainer,
   Padding,
-  SimpleTop,
   ExternalLinkWithQuery,
 } from "./common";
 import * as constants from "./constants";
@@ -31,6 +30,18 @@ const {
   barBlue,
 } = styles;
 
+const Top = ({ t }) => (
+  <DesktopBaseContainer className={styles.topContentContainer}>
+    <div className={styles.topTitle}>{t("features:topTitle")}</div>
+    <Padding y={16} />
+    <div className={styles.topDesc}>
+      <Trans i18nKey="features:topDesc" />
+    </div>
+    <Padding y={50} />
+    <Menu t={t} />
+  </DesktopBaseContainer>
+);
+
 const MenuItem = ({
   to, icon, label, title,
 }) => (
@@ -49,13 +60,13 @@ const MenuItem = ({
         alt={label}
       />
     </div>
-    <Padding y={13} />
+    <Padding y={9} />
     <div className={styles.menuItemLabel}>{label}</div>
   </Link>
 );
 
 const Menu = ({ t }) => (
-  <Container1024 className={styles.menuContainer}>
+  <DesktopBaseContainer className={styles.menuContainer}>
     <MenuItem
       to={`#${constants.idFeatureLowstock}`}
       icon={iconMenuEmpty}
@@ -86,7 +97,7 @@ const Menu = ({ t }) => (
       label={<Trans i18nKey="features:menuLocation" />}
       title={t("features:menuLocationLinkTitle")}
     />
-  </Container1024>
+  </DesktopBaseContainer>
 );
 
 const DemoTemplate = ({
@@ -97,6 +108,7 @@ const DemoTemplate = ({
       <GatsbyImage
         image={icon}
         className={styles.demoLogo}
+        alt="demo logo"
       />
       <span className={styles.demoTitle}>
         -
@@ -112,24 +124,24 @@ const DemoTemplate = ({
 );
 
 function FeatureTemplate({
-  id, bgColor, title, desc, figure, figureStyle, barColor, demoData,
+  id, bgColor, title, desc, figure, barColor, demoData,
 }) {
   return (
     <div
       id={id}
       className={[styles.featureTemplate, bgColor].join(" ")}
     >
-      <Container1024>
+      <DesktopBaseContainer className={styles.featureTemplateContentContainer}>
         <div className={styles.featureTemplateDescFigContainer}>
           <div className={styles.featureTemplateTitleDescContainer}>
             <div className={styles.featureTemplateTitle}>
               {title}
             </div>
-            <Padding y={35} />
+            <Padding y={18} />
             <div className={styles.featureTemplateDesc}>
               {desc}
             </div>
-            <Padding y={30} />
+            <Padding y={50} />
             <ExternalLinkWithQuery href={constants.urlStart}>
               <button
                 type="button"
@@ -139,14 +151,12 @@ function FeatureTemplate({
               </button>
             </ExternalLinkWithQuery>
           </div>
-          <div className={styles.featureTemplateFigureContainer}>
-            <GatsbyImage
-              image={figure}
-              style={figureStyle}
-            />
-          </div>
+          <GatsbyImage
+            image={figure}
+            alt="features"
+          />
         </div>
-        <Padding y={150} />
+        <Padding y={70} />
         <div className={styles.halfContainer}>
           {demoData
             .slice(0, 2)
@@ -160,7 +170,7 @@ function FeatureTemplate({
               />
             ))}
         </div>
-      </Container1024>
+      </DesktopBaseContainer>
     </div>
   );
 }
@@ -283,19 +293,10 @@ const FeatureLocation = ({ data }) => (
 const DesktopFeatures = ({ data, t }) => (
   <DesktopLayout
     isFloatMenu={false}
-    curMenu="features"
     closingEmoji={data.dinosaur}
     closingMsg={<Trans i18nKey="features:closingMsg" />}
   >
-    <SimpleTop title={t("features:topTitle")}>
-      <Trans i18nKey="features:topDesc" />
-    </SimpleTop>
-
-    <Padding y={62} />
-
-    <Menu t={t} />
-
-    <Padding y={100} />
+    <Top t={t} />
 
     <FeatureLowstock data={data} />
     <FeatureBarcodelabel data={data} />

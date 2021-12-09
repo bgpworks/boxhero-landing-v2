@@ -6,6 +6,8 @@ author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Vamos a ver 5 consejos para hacer que su negocio de centro comercial sea un éxito mientras aumenta las ventas.
+relPage:
+  - usecase-sales
 ---
 
 Estos días es común ver los centros comerciales en línea funcionando. <mark>Cualquier persona puede iniciar un negocio fácilmente, pero también es un negocio difícil de tener éxito</mark>. En general, hay algunos lugares que no aseguran el inventario al comienzo del negocio y entregan el producto inmediatamente después de recibir un pedido de un cliente. Llegará un momento en el que comenzará a sentir los límites de la operación del centro comercial a través del método de compra inmediata.

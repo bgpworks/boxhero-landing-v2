@@ -1,8 +1,19 @@
 /* top */
 
+.topContentContainer {
+  padding: 100px 0;
+  color: var(--color-black);
+}
+
+.topTitle {
+  font-size: var(--font-size-40);
+  font-weight: bold;
+  text-align: center;
+}
+
 .vl {
-  border-left: 2px solid var(--color-light-gray);
-  margin: 46px 120px 0px;
+  border-left: 2px solid var(--color-gray4);
+  margin: 46px 14px 0;
 }
 
 .topDescContainer {
@@ -12,23 +23,25 @@
 }
 
 .topDescColumn {
-  width: 300px;
+  width: 480px;
+  text-align: center;
 }
 
 .topDescTitle {
-  font-size: 20px;
-  color: var(--color-font-darker);
+  font-size: var(--font-size-h5);
 }
 
 .topDescDesc {
-  font-size: 16px;
-  color: var(--color-font-primary);
+  font-size: var(--font-size-b16);
+  color: var(--color-gray1);
+  line-height: 1.5;
 }
 
 .planDescription {
-  color: black;
+  color: var(--color-black);
   font-weight: bold;
-  font-size: 20px;
+  font-size: var(--font-size-h5);
+  line-height: 1.37;
 }
 
 .plainLink {
@@ -38,17 +51,50 @@
 
 /* pricing table */
 
+.switchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.billingCycleButton {
+  background-color: transparent;
+  font-size: var(--font-size-b16);
+  font-weight: bold;
+  line-height: 1;
+  color: var(--color-gray2);
+
+  position: relative;
+}
+
+.billingCycleButton.active {
+  color: var(--color-gray1);
+}
+
+.yearlyPlanSaveLabel {
+  font-size: var(--font-size-b14);
+  color: var(--color-primary);
+  white-space: nowrap;
+  font-weight: normal;
+
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 26px);
+  transform: translate(0, -50%);
+}
+
 .pricingTable {
-  --each-h-border-spacing: 20px;
-  --inner-content-width: 321px;
+  --each-h-border-spacing: 30px;
+  --inner-content-width: 378px;
 
   margin: 0px auto;
   border-spacing: var(--each-h-border-spacing) 0px;
   border-collapse: separate;
-  color: black;
+  color: var(--color-black);
   line-height: normal;
 
-  font-size: 18px;
+  font-size: var(--font-size-b18);
 
   width: calc(
     (var(--inner-content-width) * 2) + (var(--each-h-border-spacing) * 3)
@@ -56,18 +102,18 @@
 }
 
 .pricingTable small {
-  font-size: 14px;
+  font-size: var(--font-size-b14);
   font-weight: normal;
 }
 
 .pricingTable thead strong {
-  font-size: 24px;
+  font-size: var(--font-size-h4);
 }
 
 .pricingTable td,
 .pricingTable th {
   border: none;
-  padding: 10px 0px;
+  padding: 0 26px;
   text-align: center;
 }
 
@@ -77,14 +123,16 @@
 
 .pricingTable td.verticalAlignBottom {
   vertical-align: bottom;
+  letter-spacing: -0.2px;
 }
 
 .pricingTable tbody tr:first-child td {
   padding-top: 30px;
+  padding-bottom: 14px;
 }
 
 .pricingTable tbody tr:last-child td {
-  padding-bottom: 48px;
+  padding-bottom: 30px;
 }
 
 .pricingTable thead th {
@@ -93,21 +141,21 @@
 }
 
 .pricingTable tbody td:nth-child(1) {
-  background-color: var(--color-free-plan);
+  background-color: var(--color-orange-20);
 }
 
 .pricingTable tbody td:nth-child(2) {
-  background-color: var(--color-biz-plan);
+  background-color: var(--color-light-blue-20);
 }
 
 .pricingTable tbody tr:first-child td {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .pricingTable tbody tr:last-child td {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .pricingTable tfoot {
@@ -116,47 +164,44 @@
 
 .pricingTable tfoot td {
   padding-top: 30px;
-  font-size: 14px;
-  color: var(--color-font-primary);
+  font-size: var(--font-size-b14);
+  color: var(--color-gray1);
   text-align: center;
+  line-height: 1.45;
 }
 
 .startButtonRow > td {
-  padding: 20px 0 8px;
+  padding: 30px 0;
 }
 
 .startButton {
-  width: calc(100% - 80px);
+  width: calc(100% - 100px);
   height: 44px;
   border-radius: 6px;
-  background-color: var(--color-font-blue);
-  font-size: 16px;
+  background-color: var(--color-primary);
+  font-size: var(--font-size-b16);
   font-weight: bold;
   color: white;
 }
 
-.sectionTitleRow ~ tr:not(.sectionTitleRow) td {
-  padding: 8px 0;
+.sectionTitleRow td,
+.sectionTitleRow ~ tr:not(.paddingBottom40) td {
+  padding-bottom: 16px;
+}
+
+.paddingBottom40 td {
+  padding-bottom: 40px;
 }
 
 .sectionTitleRow > td {
-  color: var(--color-font-header);
-  font-size: 16px;
-  padding: 32px 0 8px;
+  color: var(--color-gray2);
+  font-size: var(--font-size-b16);
   font-weight: bold;
-}
-
-.extraSmall {
-  display: inline-block;
-  font-weight: normal;
-  font-size: 12px;
 }
 
 .price {
-  height: 77px;
   font-size: 52px;
   font-weight: bold;
-  color: black;
   line-height: normal;
 }
 
@@ -166,55 +211,10 @@
   position: relative;
 }
 
-.switchContainer {
-  width: 500px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  margin: 0 auto 40px;
-}
-
-.switchContainer > button:nth-child(1) {
-  margin-right: 35px;
-}
-
-.switchContainer > button:nth-child(3) {
-  margin-left: 35px;
-}
-
-.billingCycleButton {
-  background-color: transparent;
-  height: 16px;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1;
-  color: var(--color-font-header);
-
-  position: relative;
-}
-
-.billingCycleButton.active {
-  color: var(--color-font-primary);
-}
-
-.yearlyPlanSaveLabel {
-  font-size: 14px;
-  color: var(--color-font-blue);
-  white-space: nowrap;
-  font-weight: normal;
-
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 12px);
-  transform: translate(0, -50%);
-}
-
 /* faq */
 
 .faqContainer {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
   padding: 100px 0px;
 
   display: flex;
@@ -225,25 +225,23 @@
 
 .faqContentContainer {
   margin: 0 auto;
-  width: 743px;
+  width: 786px;
 }
 
 .faqTitle {
-  height: 70px;
-  font-size: 52px;
+  font-size: var(--font-size-36);
   font-weight: bold;
   line-height: 1.35;
-  letter-spacing: -1px;
   text-align: center;
-  color: black;
+  color: var(--color-black);
 }
 
 .buttonShowMore {
-  width: 160px;
+  width: 176px;
   height: 44px;
   border-radius: 6px;
-  background-color: var(--color-font-blue);
-  font-size: 16px;
+  background-color: var(--color-primary);
+  font-size: var(--font-size-b16);
   font-weight: bold;
   color: white;
   text-align: center;
@@ -258,36 +256,32 @@
 }
 
 .directContactTitle {
-  height: 50px;
-  font-size: 36px;
+  height: 54px;
+  font-size: var(--font-size-36);
   font-weight: bold;
-  line-height: 1.39;
-  letter-spacing: -1px;
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .directContactDesc {
-  height: 32px;
-  font-size: 20px;
+  font-size: var(--font-size-b18);
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.6;
-  letter-spacing: -0.2px;
   text-align: center;
-  color: var(--color-font-darker);
+  color: var(--color-black);
 }
 
 .directContactButton {
   background: transparent;
-  width: 160px;
+  width: 176px;
   height: 44px;
   border-radius: 6px;
-  border: solid 1px var(--color-font-blue);
-  font-size: 16px;
+  border: solid 1px var(--color-primary);
+  font-size: var(--font-size-b16);
   font-weight: bold;
   text-align: center;
-  color: var(--color-font-blue);
+  color: var(--color-primary);
 }
 
 .faqContentContainer ul {
@@ -299,7 +293,7 @@
 }
 
 .faqContentContainer a {
-  color: var(--color-font-blue);
+  color: var(--color-primary);
   text-decoration: underline;
 }
 

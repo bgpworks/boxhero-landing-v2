@@ -7,10 +7,8 @@ import SEOHelmet from "../components/SEOHelmet";
 import PostViewDesktop from "../components/desktop-postview";
 import PostViewMobile from "../components/mobile-postview";
 
-export default function PostView({ data, location, pageContext }) {
+export default function PostView({ data, location }) {
   const { t, language } = useI18next();
-  const { categoryStyleMapSerialized } = pageContext;
-  const categoryStyleMap = JSON.parse(categoryStyleMapSerialized);
   const { currentPostData, prevPostData, nextPostData } = data;
   const {
     frontmatter: { title, description },
@@ -29,7 +27,6 @@ export default function PostView({ data, location, pageContext }) {
 
       <Media at="xs">
         <PostViewMobile
-          categoryStyleMap={categoryStyleMap}
           currentPostData={currentPostData}
           prevPostData={prevPostData}
           nextPostData={nextPostData}
@@ -38,7 +35,6 @@ export default function PostView({ data, location, pageContext }) {
 
       <Media greaterThan="xs">
         <PostViewDesktop
-          categoryStyleMap={categoryStyleMap}
           currentPostData={currentPostData}
           prevPostData={prevPostData}
           nextPostData={nextPostData}
@@ -62,6 +58,7 @@ export const query = graphql`
       fields {
         slug
         date
+        categoryStyle
       }
       frontmatter {
         title
@@ -104,6 +101,7 @@ export const query = graphql`
     prevPostData: markdownRemark(id: { eq: $prevPostId }) {
       fields {
         slug
+        categoryStyle
       }
       frontmatter {
         title
@@ -113,6 +111,7 @@ export const query = graphql`
     nextPostData: markdownRemark(id: { eq: $nextPostId }) {
       fields {
         slug
+        categoryStyle
       }
       frontmatter {
         title

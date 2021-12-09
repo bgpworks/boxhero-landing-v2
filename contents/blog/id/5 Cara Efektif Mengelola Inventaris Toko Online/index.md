@@ -6,6 +6,8 @@ author: Roh Inda Devanho
 authorPhoto: "../../images/authors/Roh Inda Devanho.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: Tips efektif dalam mengelola inventaris, untuk Anda yang sedang menjalankan toko online.
+relPage:
+  - usecase-sales
 ---
 
 Menjalankan toko online adalah bisnis yang sangat populer terutama di era digital seperti sekarang ini. Siapa pun dapat memulai usaha ini dengan mudah, namun bukan berarti tanpa tantangan. Kita harus pandai memantau produk, mengetahui produk yang dibutuhkan pasar, dan produk mana yang dapat kita putar perlahan.

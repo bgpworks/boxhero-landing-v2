@@ -52,11 +52,11 @@ const LinkToListSection = () => {
 const AuthorAndDateSection = ({ author, authorPhoto, date }) => (
   <div className={authorSection}>
     {authorPhoto && (
-    <GatsbyImage
-      image={authorPhoto}
-      className={authorPhotoWrapper}
-      alt={author}
-    />
+      <GatsbyImage
+        image={authorPhoto}
+        className={authorPhotoWrapper}
+        alt={author}
+      />
     )}
     <div className={nameAndDate}>
       <address>{author}</address>
@@ -145,8 +145,10 @@ const StartNow = () => {
   );
 };
 
-const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
+const PostFooter = ({ prevPostData, nextPostData }) => {
   const { t } = useI18next();
+  const prevPostDataStyle = prevPostData && JSON.parse(prevPostData.fields.categoryStyle);
+  const nextPostDataStyle = nextPostData && JSON.parse(nextPostData.fields.categoryStyle);
 
   return (
     <>
@@ -158,9 +160,7 @@ const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
               slug={prevPostData.fields.slug}
               title={prevPostData.frontmatter.title}
               category={prevPostData.frontmatter.category}
-              categoryStyle={
-                categoryStyleMap[prevPostData.frontmatter.category]
-              }
+              categoryStyle={prevPostDataStyle}
               label={t("blog:prevPost")}
             />
           )}
@@ -172,9 +172,7 @@ const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
               slug={nextPostData.fields.slug}
               title={nextPostData.frontmatter.title}
               category={nextPostData.frontmatter.category}
-              categoryStyle={
-                categoryStyleMap[nextPostData.frontmatter.category]
-              }
+              categoryStyle={nextPostDataStyle}
               label={t("blog:nextPost")}
             />
           )}
@@ -185,21 +183,27 @@ const PostFooter = ({ categoryStyleMap, prevPostData, nextPostData }) => {
 };
 
 export default function DesktopPostView({
-  categoryStyleMap,
   currentPostData,
   prevPostData,
   nextPostData,
 }) {
-  const { frontmatter, htmlAst, fields: { date } } = currentPostData;
+  const {
+    frontmatter, htmlAst, fields: {
+      date,
+      categoryStyle: categoryStyleSerialized,
+    },
+  } = currentPostData;
   const {
     title, category, thumbnail, author, authorPhoto,
   } = frontmatter;
+  const categoryStyle = JSON.parse(categoryStyleSerialized);
 
   return (
     <DesktopLayout
       mainClassName={pageContainer}
       isFloatMenu={false}
-      showEssential
+      showPlatforms={false}
+      showStartNow={false}
     >
       <LinkToListSection />
       <article className={postContainer}>
@@ -209,20 +213,19 @@ export default function DesktopPostView({
           author={author}
           authorPhoto={authorPhoto?.childImageSharp?.gatsbyImageData}
           date={date}
-          categoryStyle={categoryStyleMap[category]}
+          categoryStyle={categoryStyle}
         />
         {thumbnail && (
-        <PostThumbnail
-          thumbnail={thumbnail?.childImageSharp?.gatsbyImageData}
-          alt={title}
-        />
+          <PostThumbnail
+            thumbnail={thumbnail?.childImageSharp?.gatsbyImageData}
+            alt={title}
+          />
         )}
         <PostBody postContentHTMLAst={htmlAst} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (
             <PostFooter
-              categoryStyleMap={categoryStyleMap}
               prevPostData={prevPostData}
               nextPostData={nextPostData}
             />

@@ -3,12 +3,18 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import { Container1024, ExternalLinkWithQuery } from "./common";
+import {
+  ConsultingButtonKR,
+  DesktopBaseContainer,
+  Padding,
+  StartNowButton,
+} from "./common";
 import * as constants from "./constants";
 import { LangSelect } from "./language-selector";
 // css
 import * as styles from "./desktop-footer.module.css";
 // images
+import svgVolt from "../images/volt.svg";
 import svgPcWeb from "../images/pcweb.svg";
 import svgWindows from "../images/windows.svg";
 import svgOsx from "../images/osx.svg";
@@ -17,18 +23,42 @@ import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 import SocialLinkList from "./social-link-list";
 
-const StartNow = ({ emoji, message, t }) => (
+const StartNowButtonByLanguage = ({ t, language }) => (
+  language === "ko" ? (
+    <>
+      <StartNowButton className={styles.startNowButton}>
+        <img
+          className={styles.topButtonIcon}
+          src={svgVolt}
+          alt={t("footer:topStartNowButton")}
+        />
+        {t("footer:topStartNowButton")}
+      </StartNowButton>
+      <Padding y={12} />
+      <ConsultingButtonKR />
+    </>
+  ) : (
+    <StartNowButton className={styles.startNowButton}>
+      {t("footer:startNowButton")}
+    </StartNowButton>
+  )
+);
+
+const StartNow = ({
+  emoji, message, t, language,
+}) => (
   <div className={styles.startNowContainer}>
-    <GatsbyImage image={emoji.childImageSharp.gatsbyImageData} />
+    <GatsbyImage
+      image={emoji.childImageSharp.gatsbyImageData}
+      alt={t("footer:startNowButton")}
+    />
+    <Padding y={20} />
     <div className={styles.startNowDescription}>{message}</div>
-    <ExternalLinkWithQuery href={constants.urlStart}>
-      <button
-        type="button"
-        className={styles.startNowButton}
-      >
-        {t("footer:startNowButton")}
-      </button>
-    </ExternalLinkWithQuery>
+    <Padding y={40} />
+    <StartNowButtonByLanguage
+      t={t}
+      language={language}
+    />
   </div>
 );
 
@@ -40,31 +70,33 @@ StartNow.propTypes = {
 
 const Platforms = ({ t }) => (
   <div className={styles.platformContainer}>
+    <div className={styles.platformTitle}>
+      {t("footer:platformsTitle")}
+    </div>
+    <Padding y={16} />
+    <div className={styles.platformFooterMsg}>
+      {t("footer:platformsMessage")}
+    </div>
+
+    <Padding y={50} />
+
     <div className={styles.platformGroups}>
       <div className={styles.platformGroup}>
+        <div className={styles.platformGroupButtons}>
+          <StartNowButton className={styles.platformButton}>
+            <img
+              src={svgPcWeb}
+              alt="PC"
+            />
+            {t("footer:platformsPC")}
+          </StartNowButton>
+        </div>
         <div className={styles.platformGroupTitle}>
           {t("footer:platformGroupWeb")}
-        </div>
-        <div className={styles.platformGroupButtons}>
-          <a href={constants.urlStart}>
-            <button
-              type="button"
-              className={styles.platformButton}
-            >
-              <img
-                src={svgPcWeb}
-                alt="PC"
-              />
-              {t("footer:platformsPC")}
-            </button>
-          </a>
         </div>
       </div>
 
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupDesktop")}
-        </div>
         <div className={styles.platformGroupButtons}>
           <a href={constants.urlDownloadWindows}>
             <button
@@ -91,20 +123,13 @@ const Platforms = ({ t }) => (
             </button>
           </a>
         </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupDesktop")}
+        </div>
       </div>
 
       <div className={styles.platformGroup}>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupMobile")}
-        </div>
         <div className={styles.platformGroupButtons}>
-          <a href="https://itunes.apple.com/app/id1325512157">
-            <img
-              src={svgAppstore}
-              className={styles.platformImgButton}
-              alt="iOS"
-            />
-          </a>
           <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
             <img
               src={svgPlaystore}
@@ -112,12 +137,18 @@ const Platforms = ({ t }) => (
               alt="Android"
             />
           </a>
+          <a href="https://itunes.apple.com/app/id1325512157">
+            <img
+              src={svgAppstore}
+              className={styles.platformImgButton}
+              alt="iOS"
+            />
+          </a>
+        </div>
+        <div className={styles.platformGroupTitle}>
+          {t("footer:platformGroupMobile")}
         </div>
       </div>
-    </div>
-
-    <div className={styles.platformFooterMsg}>
-      {t("footer:platformsLastMessage")}
     </div>
   </div>
 );
@@ -125,7 +156,7 @@ const Platforms = ({ t }) => (
 const DesktopFooterMenus = ({ t, language }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Service</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuService")}</div>
       <div>
         <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
       </div>
@@ -137,22 +168,38 @@ const DesktopFooterMenus = ({ t, language }) => (
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Resource</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuUseCases")}</div>
       <div>
-        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
+        <Link to="/usecase-sales">{t("footer:footerMenuUseCaseSales")}</Link>
       </div>
       <div>
-        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+        <Link to="/usecase-material">{t("footer:footerMenuUseCaseMaterial")}</Link>
       </div>
       <div>
-        <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
-      </div>
-      <div>
-        <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+        <Link to="/usecase-assets">{t("footer:footerMenuUseCaseAssets")}</Link>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
-      <div className={styles.footerMenuLabel}>Company</div>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuResource")}</div>
+      <div>
+        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
+      </div>
+      {language !== "ko" && (
+        <>
+          <div>
+            <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
+          </div>
+          <div>
+            <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+          </div>
+        </>
+      )}
+      <div>
+        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+      </div>
+    </div>
+    <div className={styles.footerMenusColumn}>
+      <div className={styles.footerMenuLabel}>{t("footer:footerMenuCompany")}</div>
       <div>
         <a href="https://www.bgpworks.com">
           {t("footer:footerMenuCompanyHome")}
@@ -168,40 +215,43 @@ const DesktopFooterMenus = ({ t, language }) => (
         </a>
       </div>
     </div>
-    <div className={styles.wideFooterMenusColumn}>
-      <div className={styles.footerMenuLabel}>Contact</div>
-      <div>{t("footer:footerMenuContactTel")}</div>
-      <div>
-        {t("footer:footerMenuContactEmail")}
-        {" "}
-        <a href="mailto:support+boxhero@bgpworks.com">
-          support+boxhero@bgpworks.com
-        </a>
-      </div>
-      <div>
-        {t("footer:footerMenuContactBusiness")}
-        {" "}
-        <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
-      </div>
-      {language === "ko"
-        ? (
-          <div>
-            {t("footer:footerMenuContactKakao")}
-            {" "}
-            <a href={constants.urlKakaoTalk}>@boxhero</a>
-          </div>
-        )
-        : (
-          <div>
-            {t("footer:footerMenuContactWhatsApp")}
-            {" "}
-            <a href={constants.urlWhatsApp}>@boxhero</a>
-          </div>
-        )}
-    </div>
     <div>
-      <div className={styles.footerMenuLabel}>
+      <div>
         <LangSelect className={styles.footerLangSelector} />
+      </div>
+
+      <Padding y={36} />
+
+      <div className={styles.wideFooterMenusColumn}>
+        <div className={styles.footerMenuLabel}>{t("footer:footerMenuContact")}</div>
+        <div>{t("footer:footerMenuContactTel")}</div>
+        <div>
+          {t("footer:footerMenuContactEmail")}
+          {" "}
+          <a href="mailto:support+boxhero@bgpworks.com">
+            support+boxhero@bgpworks.com
+          </a>
+        </div>
+        <div>
+          {t("footer:footerMenuContactBusiness")}
+          {" "}
+          <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
+        </div>
+        {language === "ko"
+          ? (
+            <div>
+              {t("footer:footerMenuContactKakao")}
+              {" "}
+              <a href={constants.urlKakaoTalk}>@박스히어로</a>
+            </div>
+          )
+          : (
+            <div>
+              {t("footer:footerMenuContactWhatsApp")}
+              {" "}
+              <a href={constants.urlWhatsApp}>@boxhero</a>
+            </div>
+          )}
       </div>
     </div>
   </div>
@@ -231,7 +281,7 @@ const CompanyInfo = ({ t }) => (
         />
       </div>
       <div className={styles.copyRight}>
-        {`© ${new Date().getFullYear()}, BGPworks. All rights reserved.`}
+        {`© ${new Date().getFullYear()}, BGPworks. ${t("footer:copyRight")}`}
       </div>
     </div>
     <SocialLinkList />
@@ -240,29 +290,31 @@ const CompanyInfo = ({ t }) => (
 
 const DesktopFooterMenusAndInfo = ({ t, language }) => (
   <div className={styles.footerMenusAndInfoContainer}>
-    <Container1024 className={styles.px10}>
+    <DesktopBaseContainer className={styles.px10}>
       <DesktopFooterMenus
         t={t}
         language={language}
       />
+      <Padding y={72} />
       <CompanyInfo t={t} />
-    </Container1024>
+    </DesktopBaseContainer>
   </div>
 );
 
-const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
+const DesktopFooter = ({
+  showPlatforms, showStartNow, closingEmoji, closingMsg,
+}) => {
   const { t, language } = useI18next();
   return (
     <div>
-      {!showEssential && (
-        <>
-          <StartNow
-            emoji={closingEmoji}
-            message={closingMsg}
-            t={t}
-          />
-          <Platforms t={t} />
-        </>
+      {showPlatforms && <Platforms t={t} />}
+      {showStartNow && (
+        <StartNow
+          emoji={closingEmoji}
+          message={closingMsg}
+          t={t}
+          language={language}
+        />
       )}
       <DesktopFooterMenusAndInfo
         t={t}
@@ -273,9 +325,15 @@ const DesktopFooter = ({ showEssential, closingEmoji, closingMsg }) => {
 };
 
 DesktopFooter.propTypes = {
-  showEssential: PropTypes.bool,
+  showPlatforms: PropTypes.bool,
+  showStartNow: PropTypes.bool,
   closingEmoji: PropTypes.object,
   closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+};
+
+DesktopFooter.defaultProps = {
+  showPlatforms: true,
+  showStartNow: true,
 };
 
 export default DesktopFooter;

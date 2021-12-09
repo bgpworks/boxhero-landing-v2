@@ -6,6 +6,10 @@ author: Lili
 authorPhoto: "../../images/authors/Lili.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Creación e impresión de códigos de barras que parecen difíciles y fáciles de entender.
+relPage:
+  - usecase-sales
+  - usecase-material
+  - usecase-assets
 ---
 
 Si miras la parte inferior de la parte trasera del producto cuando normalmente compras algo, debes haber visto no pocas escenas donde se emite una luz roja al código de barras para calcularlo automáticamente. Un código de barras es una franja negra que es como una contraseña. Si observa detenidamente el código de barras, verá una mezcla de barras blancas y negras de diferentes espesores una al lado de la otra, llamadas códigos de barras.
@@ -92,7 +96,7 @@ Al ajustar el tamaño de fuente / número máximo de líneas, puede incluir toda
 
 Después de revisar el diseño final, guardar completa el diseño de la etiqueta.
 
-¡Puede obtener una vista previa de la etiqueta que se va a imprimir a través de la ** función de vista previa antes de imprimir!
+¡Puede obtener una vista previa de la etiqueta que se va a imprimir a través de la función de vista previa antes de imprimir!
 
 <caution-box>
 

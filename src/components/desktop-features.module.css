@@ -1,3 +1,20 @@
+.topContentContainer {
+  padding: 100px 0;
+  color: var(--color-black);
+}
+
+.topTitle {
+  font-size: var(--font-size-40);
+  font-weight: bold;
+  text-align: center;
+}
+
+.topDesc {
+  font-size: var(--font-size-b18);
+  text-align: center;
+  line-height: 1.5;
+}
+
 .menuItem {
   width: 140px;
   display: block;
@@ -10,58 +27,27 @@
   line-height: 1.5;
   letter-spacing: -0.16px;
   text-align: center;
-  color: var(--color-font-darker);
+  color: var(--color-black);
 }
 
 .menuItem:hover {
   border-radius: 8px;
-  background-color: var(--color-bg-light);
+  background-color: var(--color-gray5);
 }
 
 .menuContainer {
+  padding: 0 174px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
 }
 
 .featureTemplate {
-  padding: 120px 0px 120px 20px;
   overflow: hidden;
 }
 
-.featureTemplateTitle {
-  font-size: 52px;
-  font-weight: bold;
-  line-height: 1.35;
-  letter-spacing: -1px;
-  color: black;
-}
-
-.featureTemplateDesc {
-  font-size: 20px;
-  line-height: 1.8;
-  color: black;
-}
-
-html[lang="ko"] .featureTemplateDesc {
-  letter-spacing: -0.22px;
-}
-
-.featureTemplateStartNow {
-  min-width: 180px;
-  border-radius: 6px;
-  background-color: var(--color-font-blue);
-  padding: 9px 30px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  color: white;
-}
-
-.featureTemplateFigureContainer {
-  position: relative;
-  overflow: visible;
+.featureTemplateContentContainer {
+  padding: 70px 0 100px 102px;
+  color: var(--color-black);
 }
 
 .featureTemplateDescFigContainer {
@@ -72,8 +58,34 @@ html[lang="ko"] .featureTemplateDesc {
 }
 
 .featureTemplateTitleDescContainer {
-  width: 497px;
+  padding-top: 30px;
+  width: 480px;
   flex-shrink: 0;
+}
+
+.featureTemplateTitle {
+  font-size: var(--font-size-36);
+  font-weight: bold;
+}
+
+.featureTemplateDesc {
+  font-size: var(--font-size-b18);
+  line-height: 1.5;
+}
+
+html[lang="ko"] .featureTemplateDesc {
+  letter-spacing: -0.22px;
+}
+
+.featureTemplateStartNow {
+  min-width: 180px;
+  border-radius: 6px;
+  background-color: var(--color-primary);
+  padding: 9px 30px;
+  font-size: var(--font-size-b16);
+  font-weight: bold;
+  text-align: center;
+  color: white;
 }
 
 .halfContainer {
@@ -88,13 +100,16 @@ html[lang="ko"] .featureTemplateDesc {
 }
 
 .demoTemplate {
-  border-left: 2px solid #f5a623;
-  padding: 0px 28px;
-  min-height: 184px;
+  width: 478px;
+  border-left: 2px solid var(--color-orange);
+  padding: 0 0 10px 28px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+.demoTemplate:first-child {
+  margin-right: 30px;
 }
 
 .demoUserProfile {
@@ -108,18 +123,18 @@ html[lang="ko"] .featureTemplateDesc {
 
 .demoTitle {
   margin-left: 14px;
-  font-size: 14px;
-  line-height: 2;
+  font-size: var(--font-size-b16);
+  line-height: 1.9;
   letter-spacing: -0.16px;
-  color: var(--color-font-primary);
+  color: var(--color-gray1);
 }
 
 .demoDesc {
   width: 100%;
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: var(--font-size-b16);
+  line-height: 1.5;
   letter-spacing: -0.18px;
-  color: var(--color-font-darker);
+  color: var(--color-black);
 }
 
 .bgWhite {
@@ -127,29 +142,29 @@ html[lang="ko"] .featureTemplateDesc {
 }
 
 .bgOrange {
-  background-color: var(--color-feature-bg-orange);
+  background-color: var(--color-orange-10);
 }
 
 .bgGreen {
-  background-color: var(--color-feature-bg-green);
+  background-color: var(--color-green-10);
 }
 
 .bgBlue {
-  background-color: var(--color-feature-bg-blue);
+  background-color: var(--color-light-blue-10);
 }
 
 .barGreen {
-  border-left-color: var(--color-feature-bar-green);
+  border-left-color: var(--color-green);
 }
 
 .barOrange {
-  border-left-color: var(--color-feature-bar-orange);
+  border-left-color: var(--color-orange);
 }
 
 .barGray {
-  border-left-color: var(--color-feature-bar-gray);
+  border-left-color: var(--color-gray3);
 }
 
 .barBlue {
-  border-left-color: var(--color-feature-bar-blue);
+  border-left-color: var(--color-light-blue);
 }

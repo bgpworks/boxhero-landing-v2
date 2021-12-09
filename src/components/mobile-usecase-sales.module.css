@@ -1,0 +1,29 @@
+.useCaseTopContainer {
+  background: var(--color-light-blue-20);
+}
+
+.lightBlueBackground {
+  background: var(--color-light-blue-5);
+}
+
+.bottomContent {
+  width: 100%;
+  border-radius: 16px;
+  padding: 24px 16px;
+  background-color: var(--color-green-10);
+  margin-top: 40px;
+}
+
+.bottomContentImage {
+  margin: 0 auto;
+}
+
+.bottomContentTitle {
+  margin: 0;
+}
+
+.bottomContentDesc {
+  margin: 0;
+  font-size: var(--font-size-b16);
+  font-weight: normal;
+}

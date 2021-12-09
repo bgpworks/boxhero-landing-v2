@@ -20,17 +20,17 @@ Sebagai pemilik bisnis yang harus mengetahui inventaris dengan akurat, Anda meme
 
 ## Mengunggah File Excel
 
-Jika sebelumnya Anda mengelola inventaris menggunakan Excel, Anda tetap dapat menggunakan data Excel tersebut di BoxHero. Berapa pun jumlah data yang Anda miliki, Anda dapat memindahkannya langsung dengan sekaligus. Mari kita lihat bagaimana cara memindahkan data inventaris Excel Anda, menggunakan fitur Import dan Export Excel dari BoxHero.
+Jika sebelumnya Anda mengelola inventaris menggunakan Excel, Anda tetap dapat menggunakan data Excel tersebut di BoxHero. Berapa pun jumlah data yang Anda miliki, Anda dapat memindahkannya langsung dengan sekaligus. Mari kita lihat bagaimana cara memindahkan data inventaris Excel Anda, menggunakan fitur `Import dan Export Excel` dari BoxHero.
 
 ### 1. Mendaftarkan Barang via Excel
 
 ![ ](images/img_2.gif)
 
-Masuk ke menu Daftar Barang, dan pilih Import dari file Excel. Setelah diunggah, data inventaris Excel yang Anda miliki mungkin saja tidak langsung terbaca. Ini terjadi jika Anda tidak memiliki kode bar produk di dalam file Excel Anda. Pilih Buat Otomatis pada kolom kode bar, dan semua data Anda akan langsung muncul. Klik Selesai dan data Excel Anda telah berhasil dipindahkan.
+Masuk ke menu `Daftar Barang`, dan pilih `Import` dari file Excel. Setelah diunggah, data inventaris Excel yang Anda miliki mungkin saja tidak langsung terbaca. Ini terjadi jika Anda tidak memiliki kode bar produk di dalam file Excel Anda. Pilih Buat Otomatis pada kolom kode bar, dan semua data Anda akan langsung muncul. Klik `Selesai` dan data Excel Anda telah berhasil dipindahkan.
 
 <tip-box>
 
-Sebelum memindahkan file, buatlah kategori berdasarkan file Excel Anda di BoxHero. Caranya adalah melalui menu Pusat Data >Kategori.
+Sebelum memindahkan file, buatlah kategori berdasarkan file Excel Anda di BoxHero. Caranya adalah melalui menu `Pusat Data` > `Kategori`.
 
 </tip-box>
 
@@ -40,13 +40,13 @@ Atau, klik Simpan Format Excel untuk mengunduh format kategori yang Anda buat di
 
 ![Fitur stok keluar/masuk via excel](images/img_3.gif)
 
-Tidak hanya dapat mendaftarkan barang via Excel, BoxHero juga menyediakan Stok Keluar/Masuk via File Excel. Bagi Anda yang sebelumnya menggunakan Excel untuk mencatat stok keluar/masuk, Anda dapat langsung mengunggahnya dengan cepat dan mudah.
+Tidak hanya dapat mendaftarkan barang via Excel, BoxHero juga menyediakan `Stok Keluar/Masuk via File Excel`. Bagi Anda yang sebelumnya menggunakan Excel untuk mencatat stok keluar/masuk, Anda dapat langsung mengunggahnya dengan cepat dan mudah.
 
 ### 3. Audit via Excel
 
 ![Fitur audit via excel](images/img_4.gif)
 
-Untuk berjaga-jaga barang kali ada data yang tidak cocok, Anda juga dapat mengauditnya dengan mudah di BoxHero. Karena sebelumnya Anda terbiasa mengelola inventaris di Excel, Anda bisa saja lupa untuk memperbarui data di BoxHero. Untuk mengantisipasi kasus seperti ini, Anda dapat menggunakan fitur Audit via File Excel.
+Untuk berjaga-jaga barang kali ada data yang tidak cocok, Anda juga dapat mengauditnya dengan mudah di BoxHero. Karena sebelumnya Anda terbiasa mengelola inventaris di Excel, Anda bisa saja lupa untuk memperbarui data di BoxHero. Untuk mengantisipasi kasus seperti ini, Anda dapat menggunakan fitur `Audit via File Excel`.
 
 
 
@@ -58,13 +58,13 @@ Ada kalanya Anda membutuhkan data Excel untuk keperluan laporan fisik dan semaca
 
 ![Fitur export riwayat transaksi](images/img_5.gif)
 
-Anda dapat mengunduh file Excel melalui Export Excel di menu Riwayat. Anda juga dapat mengatur tanggal riwayat transaksi sesuai kebutuhan Anda.
+Anda dapat mengunduh file Excel melalui `Export Excel` di menu `Riwayat`. Anda juga dapat mengatur tanggal riwayat transaksi sesuai kebutuhan Anda.
 
 ### 2. Unduh Data Analisis Inventaris
 
 ![Fitur export analisis BoxHero](images/img_6.gif)
 
-Fitur pintar Analisis BoxHero dapat membantu Anda memeriksa inventaris Anda dengan akurat. Terdapat berbagai macam formula analisis yang sangat bermanfaat dalam mengelola inventaris maupun penjualan Anda. Tentunya, data dari analisis ini juga dapat Anda unduh ke file Excel.
+Fitur pintar `Analisis` BoxHero dapat membantu Anda memeriksa inventaris Anda dengan akurat. Terdapat berbagai macam formula analisis yang sangat bermanfaat dalam mengelola inventaris maupun penjualan Anda. Tentunya, data dari analisis ini juga dapat Anda unduh ke file Excel.
 
 
 
@@ -76,7 +76,7 @@ Fitur pintar Analisis BoxHero dapat membantu Anda memeriksa inventaris Anda deng
 
 ![Fitur export data excel BoxHero](images/img_8.gif)
 
-Seperti halnya mendaftarkan barang dengan mengunggah file Excel, Anda juga dapat mengunduh semua inventaris Anda ke dalam file Excel. Masuk ke menu Pusat Data > Barang, dan klik Export Excel. Seluruh inventaris yang Anda miliki saat ini akan langsung terunduh dalam bentuk file Excel.
+Seperti halnya mendaftarkan barang dengan mengunggah file Excel, Anda juga dapat mengunduh semua inventaris Anda ke dalam file Excel. Masuk ke menu `Pusat Data` > `Barang`, dan klik `Export Excel`. Seluruh inventaris yang Anda miliki saat ini akan langsung terunduh dalam bentuk file Excel.
 
 
 
