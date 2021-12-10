@@ -8,8 +8,8 @@ thumbnail: "./images/img_1.jpg"
 description: Manage your inventories well to build customer trust and increase customer loyalty.
 ---
 
-> I'm having a hard time managing inventory in my drug store.
-> It's hard to manage products without barcodes.
+> I'm having a hard time managing inventory in my drug store.<br/>
+> It's hard to manage products without barcodes.<br/>
 > How can I efficiently manage my inventory?
 
 ## Why is Inventory Management Important in Pharmacies?
