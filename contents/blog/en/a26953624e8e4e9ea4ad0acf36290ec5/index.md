@@ -10,9 +10,7 @@ description: Count inventory to properly manage your stocks by having accurate i
 
 One of the proper inventory management methods is conducting an inventory count regularly. Nowadays, some people still process inventory counts manually (handwriting) rather than utilizing an inventory management system. This might be a challenge for any business because there is a high possibility of occurring errors and, it can lead to restocking an inaccurate quantity.
 
-So why is inventory count crucial? Think of a situation where you are running a fast-food restaurant. You will have no time to record every transaction when your goods come in or out. So how can you process stock in/out every time someone orders food or delivers goods in your restaurant? Recording how many ingredients you've used in the process of every order will be your worst nightmare. Therefore, conducting an inventory count routinely will allow you to compensate for the times you couldn't record what went out, but also help you check what must be reordered. 
-
-<br/>
+So why is inventory count crucial? Think of a situation where you are running a fast-food restaurant. You will have no time to record every transaction when your goods come in or out. So how can you process stock in/out every time someone orders food or delivers goods in your restaurant? Recording how many ingredients you've used in the process of every order will be your worst nightmare. Therefore, conducting an inventory count routinely will allow you to compensate for the times you couldn't record what went out, but also help you check what must be reordered.
 
 ## Challenges of Inventory Counts
 
@@ -26,12 +24,12 @@ The biggest problem for companies is that it takes up a lot of time and effort. 
 <br/>
 
 **2. No Barcodes**<br/>
-If your items don't have barcodes attached, it's likely that inventory control will be harder. Barcodes are not only a unique identifier for each product, but it is the link between your item and a database for item information. For example, when you check out a product in the supermarket, the price shows up when the barcode is scanned. If it didn't have one, someone would have had to go through a list of items and its price. 
+If your items don't have barcodes attached, it's likely that inventory control will be harder. Barcodes are not only a unique identifier for each product, but it is the link between your item and a database for item information. For example, when you check out a product in the supermarket, the price shows up when the barcode is scanned. If it didn't have one, someone would have had to go through a list of items and its price.
 
 <br/>
 
 **3. Inaccurate Data**<br/>
-Even if your team has conducted a massive inventory count, it's difficult to check and prove if the counting is right. Especially if the counting was done on a paper with pencil, the probability of the error goes up. Writings can be mixed up as well as calculations being incorrect during the procedure. 
+Even if your team has conducted a massive inventory count, it's difficult to check and prove if the counting is right. Especially if the counting was done on a paper with pencil, the probability of the error goes up. Writings can be mixed up as well as calculations being incorrect during the procedure.
 
 <br/>
 
@@ -44,7 +42,7 @@ It's not always practical to take the time to count every single stock regularly
 <br/>
 
 **1. Set a Perfect Schedule**<br/>
-Select a designated date to conduct the inventory count. It can be once a day(at closing time) or once a month depending on the size of your store or warehouse. Since performing a count during the operating hours is difficult stocks will be constantly coming in and out, it's recommended to do it after the store closes. 
+Select a designated date to conduct the inventory count. It can be once a day(at closing time) or once a month depending on the size of your store or warehouse. Since performing a count during the operating hours is difficult stocks will be constantly coming in and out, it's recommended to do it after the store closes.
 
 <br/>
 
@@ -59,7 +57,7 @@ Another reason barcodes are important for inventory count is that act of scannin
 <br/>
 
 **4. Use Inventory Count System**<br/>
-Use the right tool to save time and prevent errors. An inventory count system that provides a mobile app with barcode scanner support is best recommended. 
+Use the right tool to save time and prevent errors. An inventory count system that provides a mobile app with barcode scanner support is best recommended.
 
 ## Overcome the Challenges With BoxHero App
 
@@ -80,9 +78,9 @@ BoxHero supports features that are ideal for inventory count in a busy industry,
 
 - Generating, printing, and scanning barcodes are all available at once.
 
-- Checking inventory forecast and financial status with 'Analysis'. 
+- Checking inventory forecast and financial status with 'Analysis'.
 
-- Receive notifications for items' low stock and prevent stockout. 
+- Receive notifications for items' low stock and prevent stockout.
 
 - BoxHero's cloud-based system allows creating and sharing transactions with your team anywhere, anytime.
 

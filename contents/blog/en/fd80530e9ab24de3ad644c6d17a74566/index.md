@@ -16,9 +16,9 @@ description: Manage your inventories well to build customer trust and increase c
 
 ![Efficient pharmaceutical supplies management](images/img_2.jpg)
 
-If a customer cannot find the drug they are looking for, there's a high chance that the customer will go to the next drugstore they can find. There's an even higher chance that they may never come back the next time they need their medicines. If you think about it, no one writes their name down on a waiting list for a medicine. It's a matter of emergency. So what can we do to avoid these situations? For pharmacies, it's crucial to keep a steady amount of quantity as well as to conduct an inventory count routinely. 
+If a customer cannot find the drug they are looking for, there's a high chance that the customer will go to the next drugstore they can find. There's an even higher chance that they may never come back the next time they need their medicines. If you think about it, no one writes their name down on a waiting list for a medicine. It's a matter of emergency. So what can we do to avoid these situations? For pharmacies, it's crucial to keep a steady amount of quantity as well as to conduct an inventory count routinely.
 
-Inventory management not only allows you to save time by keeping track of what items are in stock but also allows you to know what items need to be reordered in advance. Building this system helps you to grow a great customer relationship in two ways: having stock and knowing when stocks will come in. Customers aren't always mad about stockout, they get mad when it's never in stock. If you can manage a great inventory system and even get to keep track of your item's lead time, you can provide when items will be available again and this can allow you to build a strong customer relationship based on trust. 
+Inventory management not only allows you to save time by keeping track of what items are in stock but also allows you to know what items need to be reordered in advance. Building this system helps you to grow a great customer relationship in two ways: having stock and knowing when stocks will come in. Customers aren't always mad about stockout, they get mad when it's never in stock. If you can manage a great inventory system and even get to keep track of your item's lead time, you can provide when items will be available again and this can allow you to build a strong customer relationship based on trust.
 
 ## 3 Tips on Efficiently Managing Pharmaceutical Supplies
 
@@ -27,7 +27,7 @@ So, let's get into where we can start to build that strong customer relationship
 <br/>
 
 **1. Make it Automated**<br/>
-An automated system allows increasing the credibility of your inventory data. It's like a calculator. Even it's adding and subtracting simple numbers, repetition done by humans can cause errors. Rather than counting and writing your inventory on paper, scan all barcodes and let machines do the counting for you. 
+An automated system allows increasing the credibility of your inventory data. It's like a calculator. Even it's adding and subtracting simple numbers, repetition done by humans can cause errors. Rather than counting and writing your inventory on paper, scan all barcodes and let machines do the counting for you.
 
 <br/>
 
@@ -41,13 +41,13 @@ For example, if you categorize and sort your inventory by brand, you can immedia
 **3. Use a Cloud-Based System**<br/>
 Have difficulties in managing and sharing inventory data on paper or spreadsheet? Better your inventory management and have efficient teamwork by using a cloud-based system. Checking and tracking all items and transactions is possible in one solution.
 
-Moreover, with a cloud-based inventory management system, all information and transaction are updated in real-time. All inventory status is available in real-time and everyone can access the solution together from both PC or mobile. Avoid inventory errors. miscommunication and better your stock control today. 
+Moreover, with a cloud-based inventory management system, all information and transaction are updated in real-time. All inventory status is available in real-time and everyone can access the solution together from both PC or mobile. Avoid inventory errors. miscommunication and better your stock control today.
 
 ## So why not try using an Inventory Management System?
 
 ![Scan barcodes to manage and track your inventory](images/img_3.png)
 
-Time is also gold to customers. Do not let them wait for too much to buy your goods. Keep track of the quantity and location of your products by using an inventory control system. It's much easier to manage stocks by using BoxHero's powerful features that can suit your business like a custom solution. Simply register your item and transactions, all analyses including turnover rate, profit, inventory asset and so much more are all done by BoxHero. 
+Time is also gold to customers. Do not let them wait for too much to buy your goods. Keep track of the quantity and location of your products by using an inventory control system. It's much easier to manage stocks by using BoxHero's powerful features that can suit your business like a custom solution. Simply register your item and transactions, all analyses including turnover rate, profit, inventory asset and so much more are all done by BoxHero.
 
 ## Start Efficient Pharmaceutical Supply Management with BoxHero
 
@@ -57,9 +57,9 @@ BoxHero supports features that are ideal for managing inventory in pharmacy, suc
 
 1. Check your inventory status with Analysis feature.
 
-2. Keep track of stock status to maintain a steady inventory rate. 
+2. Keep track of stock status to maintain a steady inventory rate.
 
-3. Generate, scan, and print barcodes from both mobile app and desktop web. 
+3. Generate, scan, and print barcodes from both mobile app and desktop web.
 
 4. Easily create purchase and sales orders, invoice statements, and more.
 
@@ -69,7 +69,7 @@ BoxHero supports features that are ideal for managing inventory in pharmacy, suc
 
 [Start Now - It's Free.](https://www.boxhero-app.com/en/)
 
-# Conclusion
+### Conclusion
 
 A strong pharmaceutical supply management system is critical to operating efficacy in medical institutions. This may be accomplished by understanding the inventory challenges. Avoid inventory data errors and stockouts by using a cloud-based inventory system. Implement the provided three tips to improve your inventory management.
 

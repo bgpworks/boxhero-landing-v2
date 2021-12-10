@@ -14,15 +14,17 @@ Effective inventory management is a critical aspect of success in a business. Th
 
 Inventory management includes all activities related to keeping and managing your stock. Tracking, managing, and controlling inventory are all part of the process. The reason inventory management is so highly emphasized is that poor inventory management can result in wasting storage costs, employee salaries, and most importantly, your time. Let's not forget that all of these can lead to lower sales and customer dissatisfaction as well.
 
-Read more about [Inventory Management](/aedfc00624d3499cab211d627fc09e82?v=ea94dbd881fc4e3aa7a9337a32a60db5&p=478bb698132d41a9b1c14051167e3c1f).
+Read more about [Inventory Management](https://www.boxhero-app.com/en/blog/posts/what-is-inventory-management).
 
 ## 1. ABC Analysis
 
 ![ABC Analysis](images/img_2.png)
 
-Fun fact: ABC analysis stands for Always Better Control. 
+Fun fact: ABC analysis stands for Always Better Control.
 
 How? You can do so by classifying your inventory items into three categories namely: A, B, and C, based on their values.
+
+<br/>
 
 <gray-box title="ABC Analysis">
 
@@ -59,21 +61,21 @@ First, a customer contacts the manufacturer to make an order. When the manufactu
 
 ## 3. VED Analysis
 
-VED Analysis (Vital, Essential, and Desirable Analysis) is an inventory management method that classifies products according to their importance. This may seem similar to the ABC analysis, but with VED analysis, you divide items into three categories based on their importance in the production process.  
+VED Analysis (Vital, Essential, and Desirable Analysis) is an inventory management method that classifies products according to their importance. This may seem similar to the ABC analysis, but with VED analysis, you divide items into three categories based on their importance in the production process.
 
 <gray-box title="VED Analysis">
 
 **Vital Category**Inventory necessary for production or operation falls under this category. A lack of stock in this category may affect a negative impact heavily in its production process. Management must check properly to ensure the availability of the items in the Vital category at all times.
 
-**Essential Category**For the essential category, it may be as critical as a vital category as stock shortage stop or disrupt other processes. However, the absence of items in this category may be not as critical as items in the vital category. Still, the management should maintain the optimal stock level for items in the essential category as well. 
+**Essential Category**For the essential category, it may be as critical as a vital category as stock shortage stop or disrupt other processes. However, the absence of items in this category may be not as critical as items in the vital category. Still, the management should maintain the optimal stock level for items in the essential category as well.
 
-**Desirable Category**The items in the desirable category will cause minor disruptions in the production or other processes when if they are unavailable. The impact is the least critical among the three categories. The time that it takes to restock the items in this category is relatively shorter as well. 
+**Desirable Category**The items in the desirable category will cause minor disruptions in the production or other processes when if they are unavailable. The impact is the least critical among the three categories. The time that it takes to restock the items in this category is relatively shorter as well.
 
 </gray-box>
 
 ## 4. Two-Bin System
 
-The two-bin system, or the twin-bin system, is an inventory control system keeping two bins where if the first bin has been exhausted, the second bin is then used until the order for the first bin arrives. Then the same would apply once the second bin is depleted as well. Because the method itself is very simple and does not require as much time and effort as other methods, the tactic is primarily used for controlling low-cost items. 
+The two-bin system, or the twin-bin system, is an inventory control system keeping two bins where if the first bin has been exhausted, the second bin is then used until the order for the first bin arrives. Then the same would apply once the second bin is depleted as well. Because the method itself is very simple and does not require as much time and effort as other methods, the tactic is primarily used for controlling low-cost items.
 
 <br/>
 
