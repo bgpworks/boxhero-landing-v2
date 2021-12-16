@@ -36,4 +36,4 @@ jobs:
           name: Lint
           conclusion: ${{ job.status }}
           output: |
-            {"summary":${{ steps.test.outputs.summary }}}
+            {"summary":"${{ steps.test.outputs.summary }}"}
