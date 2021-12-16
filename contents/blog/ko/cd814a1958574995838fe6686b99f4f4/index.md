@@ -1,6 +1,6 @@
 ---
 title: 악세사리 재고관리, 한 번에 뚝딱!
-date: 2021-11-01 09:00
+date: 2021-12-01 09:00
 category: 기능
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"

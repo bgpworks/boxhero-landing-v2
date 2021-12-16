@@ -1,6 +1,6 @@
 ---
 title: 박스히어로와 함께 재고조사하기
-date: 2021-10-27 09:00
+date: 2021-11-27 09:00
 category: 기능
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"

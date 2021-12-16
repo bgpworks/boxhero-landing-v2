@@ -1,6 +1,6 @@
 ---
 title: 박스히어로 한 달 무료 플랜 똑똑하게 활용하기
-date: 2021-10-20 09:00
+date: 2021-11-21 09:00
 category: 인사이트
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
