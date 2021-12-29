@@ -1,4 +1,5 @@
 import React from "react";
+import cn from "classnames";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import MobileLayout from "./mobile-layout";
@@ -9,6 +10,7 @@ import {
   pageTitle,
   pageDescription,
   postList,
+  postCardWrapper,
   postCard,
   thumbnailWrapper,
   thumbnailImage,
@@ -21,6 +23,8 @@ import {
   navButton,
   prevButtonLabel,
   nextButtonLabel,
+  aspectRatioBox,
+  innerContentWrapper,
 } from "./mobile-postlist.module.css";
 
 const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
@@ -90,6 +94,24 @@ const PostCardThumbnail = ({ thumbnail, alt }) => (
   </section>
 );
 
+const AspectRatioBox = ({
+  className, widthRatio, heightRatio, children,
+}) => {
+  const calculatedPaddingTop = `${Math.round((heightRatio / widthRatio) * 100)}%`;
+  return (
+    <div
+      className={cn(aspectRatioBox, className)}
+      style={{
+        paddingTop: calculatedPaddingTop,
+      }}
+    >
+      <div className={innerContentWrapper}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
 const PostCard = ({
   title,
   categoryStyle,
@@ -98,25 +120,31 @@ const PostCard = ({
   path,
   thumbnail,
 }) => (
-  <Link
-    to={path}
-    className={postCard}
+  <AspectRatioBox
+    className={postCardWrapper}
+    widthRatio={4}
+    heightRatio={5}
   >
-    <PostCardThumbnail
-      thumbnail={thumbnail}
-      alt={description}
-    />
-    <section className={postCardDetail}>
-      <span
-        className={postCategory}
-        style={categoryStyle}
-      >
-        {category}
-      </span>
-      <h3 className={postTitle}>{title}</h3>
-      <span className={postDescription}>{description}</span>
-    </section>
-  </Link>
+    <Link
+      to={path}
+      className={postCard}
+    >
+      <PostCardThumbnail
+        thumbnail={thumbnail}
+        alt={description}
+      />
+      <section className={postCardDetail}>
+        <span
+          className={postCategory}
+          style={categoryStyle}
+        >
+          {category}
+        </span>
+        <h3 className={postTitle}>{title}</h3>
+        <span className={postDescription}>{description}</span>
+      </section>
+    </Link>
+  </AspectRatioBox>
 );
 
 export default function PostListMobile({
