@@ -36,7 +36,7 @@ Let's now check out how you can adopt safety stock to your business.
 
 ![](images/img_2.jpg)
 
-Safety stock reduces the risk of running out of stock
+<gray-text>Safety stock reduces the risk of running out of stock</gray-text>
 
 ## Importance of Safety Stock
 
@@ -75,12 +75,12 @@ Company A is running an accessory store. It takes on an average lead time of 4 d
 
 ![](images/img_3.png)
 
-Example of safety stock formula
+<gray-text>Example of safety stock formula</gray-text>
 
 If we put the above values to the safety stock equation of the above, (30 x 7) – (20 x 4) = 130.<br/>
 As a result, company A will need a safety stock of 130 units.
 
-# Low Stock Reminder
+## Low Stock Reminder
 
 Low stock reminder helps you to protect your business from stock fluctuation. The feature sends a stock alert notification to help you with reordering and prevent stockouts.
 
@@ -90,7 +90,7 @@ Start your inventory management with BoxHero and set a low stock reminder to bet
 
 ![](images/img_4.png)
 
-Receive a low stock reminder in BoxHero App
+<gray-text>Receive a low stock reminder in BoxHero App</gray-text>
 
 ## Optimize your Safety Stock with BoxHero
 

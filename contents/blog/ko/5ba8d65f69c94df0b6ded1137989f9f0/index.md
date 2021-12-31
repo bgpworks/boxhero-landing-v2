@@ -1,7 +1,7 @@
 ---
 title: 바코드 스캐너, 어떤 제품을 골라야 할까? (1)
 date: 2021-12-15 09:00
-category: Insight
+category: 인사이트
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: "./images/img_1.jpg"
