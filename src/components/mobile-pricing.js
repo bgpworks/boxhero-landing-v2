@@ -117,8 +117,7 @@ const BusinessPlan = ({ t }) => {
       <div className={styles.switchContainer}>
         <button
           type="button"
-          className={`${styles.billingCycleButton} ${
-            isYearly ? "" : styles.active
+          className={`${styles.billingCycleButton} ${isYearly ? "" : styles.active
           }`}
           onClick={() => setIsYearly(false)}
         >
@@ -130,8 +129,7 @@ const BusinessPlan = ({ t }) => {
         />
         <button
           type="button"
-          className={`${styles.billingCycleButton} ${
-            isYearly ? styles.active : ""
+          className={`${styles.billingCycleButton} ${isYearly ? styles.active : ""
           }`}
           onClick={() => setIsYearly(true)}
         >
@@ -217,7 +215,7 @@ const Faq = ({ t }) => {
           ul: <ul />,
           li: <li />,
           // eslint-disable-next-line
-          faqModeLink: <a href={t("pricing:modeFaqUrl")} target="_blank" />,
+          faqModeLink: <a href="/help/faq/about-mode" target="_blank" />,
         },
       },
     },
@@ -293,7 +291,7 @@ const Faq = ({ t }) => {
 
         <Padding y={30} />
 
-        <a href={t("url:pricing")}>
+        <a href="/help/start/pricing">
           <button
             type="button"
             className={styles.buttonShowMore}

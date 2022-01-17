@@ -187,10 +187,10 @@ const DesktopFooterMenus = ({ t, language }) => (
       {language !== "ko" && (
         <>
           <div>
-            <a href={t("url:faq")}>{t("footer:footerMenuSupportFaq")}</a>
+            <a href="/help">{t("footer:footerMenuSupportFaq")}</a>
           </div>
           <div>
-            <a href={t("url:manual")}>{t("footer:footerMenuSupportManual")}</a>
+            <a href="/help/start">{t("footer:footerMenuSupportManual")}</a>
           </div>
         </>
       )}
