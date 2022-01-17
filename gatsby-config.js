@@ -4,12 +4,12 @@ const path = require("path");
 // https://github.com/gatsbyjs/gatsby/tree/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/
 // gatsby/src/utils/eslint-rules
 const gatsbyRequiredRules = path.join(
- process.cwd(),
- "node_modules",
- "gatsby",
- "dist",
- "utils",
- "eslint-rules"
+  process.cwd(),
+  "node_modules",
+  "gatsby",
+  "dist",
+  "utils",
+  "eslint-rules"
 );
 
 module.exports = {
@@ -227,6 +227,7 @@ module.exports = {
             options: {
               showCaptions: true,
               maxWidth: 800,
+              quality: 80,
             },
           },
           {
