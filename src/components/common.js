@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
 import * as styles from "./common.module.css";
@@ -11,7 +12,8 @@ import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import svgDownload from "../images/download.svg";
 import {
-  urlConsulting,
+  urlConsultingKo,
+  urlConsultingEn,
   urlStart,
   urlDownloadApp,
   urlDownloadAppSearchAd,
@@ -57,21 +59,28 @@ Padding.defaultProps = {
   y: 0,
 };
 
-export const ConsultingButtonKR = () => (
-  <a href={urlConsulting}>
-    <button
-      type="button"
-      className={styles.consultingButton}
+export const ConsultingButton = () => {
+  const { t, language } = useI18next();
+  return (
+    <a
+      href={language === "ko" ? urlConsultingKo : urlConsultingEn}
+      target="_blank"
+      rel="noreferrer"
     >
-      <img
-        className={styles.topButtonIcon}
-        src={svgConsulting}
-        alt="무료 컨설팅 받기"
-      />
-      무료 컨설팅 받기
-    </button>
-  </a>
-);
+      <button
+        type="button"
+        className={styles.consultingButton}
+      >
+        <img
+          className={styles.topButtonIcon}
+          src={svgConsulting}
+          alt={t("index:consultingButton")}
+        />
+        {t("index:consultingButton")}
+      </button>
+    </a>
+  );
+};
 
 const SpeechBubble = ({ text, style }) => (
   <div
