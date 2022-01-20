@@ -19,7 +19,7 @@ import {
   StartNowButton,
   GradientBG,
   SpeechBubbleContainer,
-  ConsultingButtonKR,
+  ConsultingButton,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -204,8 +204,8 @@ function genFeatureData(data, t) {
   ];
 }
 
-const TopTitleAndDescription = () => (
-  <>
+const TopLeftContainer = ({ t }) => (
+  <div>
     <div className={styles.topLeftTitle}>
       <Trans i18nKey="index:topTitle" />
     </div>
@@ -213,12 +213,6 @@ const TopTitleAndDescription = () => (
     <div className={styles.topLeftDescription}>
       <Trans i18nKey="index:topDesc" />
     </div>
-  </>
-);
-
-const TopLeftContainerKR = ({ t }) => (
-  <div>
-    <TopTitleAndDescription />
     <Padding y={30} />
     <StartNowButton className={styles.startNowButton}>
       <img
@@ -229,44 +223,19 @@ const TopLeftContainerKR = ({ t }) => (
       {t("index:topStartNowButton")}
     </StartNowButton>
     <Padding y={12} />
-    <ConsultingButtonKR />
+    <ConsultingButton />
   </div>
 );
 
-const TopLeftContainer = ({ t }) => (
-  <div className={styles.topLeftContainer}>
-    <img
-      src={svgVolt}
-      alt={t("index:topIconAlt")}
-    />
-    <Padding y={17} />
-    <TopTitleAndDescription />
-    <Padding y={30} />
-    <StartNowButton className={styles.startNowButton}>
-      {t("index:topStartNowButton")}
-    </StartNowButton>
-  </div>
-);
-
-const TopLeftContainerByLanguage = ({ t, language }) => (
-  language === "ko" ? (
-    <TopLeftContainerKR t={t} />
-  ) : (
-    <TopLeftContainer t={t} />
-  )
-);
-
-const Top = ({ data, t, language }) => (
+const Top = ({ data, t }) => (
   <GradientBG
     className={styles.topContainer}
     colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
     backgroundColor="#4260ef"
   >
     <DesktopBaseContainer className={styles.topContentContainer}>
-      <TopLeftContainerByLanguage
-        t={t}
-        language={language}
-      />
+      <TopLeftContainer t={t} />
+
       <div className={styles.topRightContainer}>
         <GatsbyImage
           image={data.homeTopRight.childImageSharp.gatsbyImageData}
