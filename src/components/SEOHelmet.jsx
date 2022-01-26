@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 function SEOHelmet({
-  description, lang, meta, title, path,
+  description, lang, meta, title, path, ogImageUrl,
 }) {
   const data = useStaticQuery(
     graphql`
@@ -35,6 +35,7 @@ function SEOHelmet({
 
   const metaDescription = description || site.siteMetadata.description;
   const { siteUrl } = site.siteMetadata;
+  const derivedOgImage = ogImageUrl ? `${siteUrl}${ogImageUrl}` : `${siteUrl}${data.ogImg.publicURL}`;
 
   return (
     <Helmet
@@ -82,7 +83,7 @@ function SEOHelmet({
         },
         {
           property: "og:image",
-          content: `${siteUrl}${data.ogImg.publicURL}`,
+          content: derivedOgImage,
         },
         {
           property: "og:url",
@@ -114,6 +115,7 @@ SEOHelmet.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   path: PropTypes.string,
+  ogImageUrl: PropTypes.string,
 };
 
 export default SEOHelmet;
