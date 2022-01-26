@@ -11,7 +11,11 @@ export default function PostView({ data, location }) {
   const { t, language } = useI18next();
   const { currentPostData, prevPostData, nextPostData } = data;
   const {
-    frontmatter: { title, description },
+    frontmatter: {
+      title, description, thumbnail: {
+        publicURL: thumbnailURL,
+      },
+    },
   } = currentPostData;
 
   return (
@@ -23,6 +27,7 @@ export default function PostView({ data, location }) {
         })}
         description={description}
         path={location.pathname}
+        ogImageUrl={thumbnailURL}
       />
 
       <Media at="xs">
@@ -94,6 +99,7 @@ export const query = graphql`
               placeholder: TRACED_SVG
             )
           }
+          publicURL
         }
       }
       htmlAst
