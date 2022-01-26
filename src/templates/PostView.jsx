@@ -12,11 +12,11 @@ export default function PostView({ data, location }) {
   const { currentPostData, prevPostData, nextPostData } = data;
   const {
     frontmatter: {
-      title, description, thumbnail: {
-        publicURL: thumbnailURL,
-      },
+      title, description, thumbnail,
     },
   } = currentPostData;
+
+  const thumbnailURL = thumbnail && thumbnail.publicURL;
 
   return (
     <>
