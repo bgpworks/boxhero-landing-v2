@@ -1,5 +1,8 @@
 const { format } = require("date-fns");
 const path = require("path");
+require("dotenv").config({
+  path: ".env",
+})
 // Get paths of Gatsby's required rules, which as of writing is located at:
 // https://github.com/gatsbyjs/gatsby/tree/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/
 // gatsby/src/utils/eslint-rules
@@ -248,6 +251,20 @@ module.exports = {
         stages: ["develop"],
         extensions: ["js", "jsx", "ts", "tsx"],
         exclude: ["node_modules", "bower_components", ".cache", "public"],
+      },
+    },
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: "https://strapi.bgp.works",
+        collectionTypes: [
+          "posts"
+        ],
+        loginData: {
+          identifier: process.env.STRAPI_ID,
+          password: process.env.STRAPI_PASSWORD,
+        },
+        queryLimit: 1000,
       },
     },
   ],

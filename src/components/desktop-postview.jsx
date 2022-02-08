@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { format } from "date-fns";
 import * as constants from "./constants";
 import { ExternalLinkWithQuery } from "./common";
@@ -52,8 +51,8 @@ const LinkToListSection = () => {
 const AuthorAndDateSection = ({ author, authorPhoto, date }) => (
   <div className={authorSection}>
     {authorPhoto && (
-      <GatsbyImage
-        image={authorPhoto}
+      <img
+        src={authorPhoto}
         className={authorPhotoWrapper}
         alt={author}
       />
@@ -95,9 +94,9 @@ const PostHeader = ({
 );
 
 const PostThumbnail = ({ thumbnail, alt }) => (
-  <GatsbyImage
+  <img
     className={postThumbnail}
-    image={thumbnail}
+    src={thumbnail}
     alt={alt}
   />
 );
@@ -145,10 +144,14 @@ const StartNow = () => {
   );
 };
 
+const genCategoryStyle = (category) => (
+  { backgroundColor: category.bgColor, color: category.textColor }
+);
+
 const PostFooter = ({ prevPostData, nextPostData }) => {
   const { t } = useI18next();
-  const prevPostDataStyle = prevPostData && JSON.parse(prevPostData.fields.categoryStyle);
-  const nextPostDataStyle = nextPostData && JSON.parse(nextPostData.fields.categoryStyle);
+  const prevPostDataStyle = prevPostData && genCategoryStyle(prevPostData.category);
+  const nextPostDataStyle = nextPostData && genCategoryStyle(nextPostData.category);
 
   return (
     <>
@@ -157,9 +160,9 @@ const PostFooter = ({ prevPostData, nextPostData }) => {
           {prevPostData && (
             <RelatedPostCard
               rel="prev"
-              slug={prevPostData.fields.slug}
-              title={prevPostData.frontmatter.title}
-              category={prevPostData.frontmatter.category}
+              slug={prevPostData.slug}
+              title={prevPostData.title}
+              category={prevPostData.category.name}
               categoryStyle={prevPostDataStyle}
               label={t("blog:prevPost")}
             />
@@ -169,9 +172,9 @@ const PostFooter = ({ prevPostData, nextPostData }) => {
           {nextPostData && (
             <RelatedPostCard
               rel="next"
-              slug={nextPostData.fields.slug}
-              title={nextPostData.frontmatter.title}
-              category={nextPostData.frontmatter.category}
+              slug={nextPostData.slug}
+              title={nextPostData.title}
+              category={nextPostData.category.name}
               categoryStyle={nextPostDataStyle}
               label={t("blog:nextPost")}
             />
@@ -188,15 +191,9 @@ export default function DesktopPostView({
   nextPostData,
 }) {
   const {
-    frontmatter, htmlAst, fields: {
-      date,
-      categoryStyle: categoryStyleSerialized,
-    },
+    title, category, thumbnail, author, date, content,
   } = currentPostData;
-  const {
-    title, category, thumbnail, author, authorPhoto,
-  } = frontmatter;
-  const categoryStyle = JSON.parse(categoryStyleSerialized);
+  const categoryStyle = genCategoryStyle(category);
 
   return (
     <DesktopLayout
@@ -209,19 +206,19 @@ export default function DesktopPostView({
       <article className={postContainer}>
         <PostHeader
           title={title}
-          category={category}
-          author={author}
-          authorPhoto={authorPhoto?.childImageSharp?.gatsbyImageData}
+          category={category.name}
+          author={author.name}
+          authorPhoto={author.photo?.url}
           date={date}
           categoryStyle={categoryStyle}
         />
         {thumbnail && (
           <PostThumbnail
-            thumbnail={thumbnail?.childImageSharp?.gatsbyImageData}
+            thumbnail={thumbnail.url}
             alt={title}
           />
         )}
-        <PostBody postContentHTMLAst={htmlAst} />
+        <PostBody postMarkdownContent={content} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (

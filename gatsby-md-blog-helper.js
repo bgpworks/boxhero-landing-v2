@@ -24,35 +24,6 @@ const CATEGORY_STYLES = [
   { backgroundColor: "#d38457", color: "white" },
 ];
 
-function* categoryStyleGenerator() {
-  let idx = 0;
-  while (true) {
-    yield CATEGORY_STYLES[idx % CATEGORY_STYLES.length];
-    idx++;
-  }
-}
-
-const identical = v => v;
-const genSafeStore = (keyGenerator = identical, valueGenerator = identical) => {
-  const store = new Map();
-
-  return (...args) => {
-    const newKey = keyGenerator(...args);
-
-    if (store.has(newKey)) {
-      return store.get(newKey);
-    }
-
-    const newValue = valueGenerator(...args);
-    store.set(newKey, newValue);
-
-    return newValue;
-  }
-}
-
-const getCategoryStyleIterator = genSafeStore(identical, categoryStyleGenerator)
-const getCategoryStyle = genSafeStore((localeCode, category) => localeCode + category, (localeCode) => getCategoryStyleIterator(localeCode).next().value)
-
 // Regexes
 
 const REGEX_SPACES = /\s+/g;
@@ -171,17 +142,6 @@ const createDateField = (node, actions) => {
   }
 };
 
-const createCategoryStyleField = (node, actions, getNode) => {
-  const { createNodeField } = actions;
-  const localeCode = getLocaleCode(getNode, node);
-
-  createNodeField({
-    node,
-    name: "categoryStyle",
-    value: JSON.stringify(getCategoryStyle(localeCode, node.frontmatter.category)),
-  });
-};
-
 const createCustomFields = (node, actions, getNode) => {
   const { createNodeField } = actions;
 
@@ -194,7 +154,6 @@ const createCustomFields = (node, actions, getNode) => {
     createDateField(node, actions);
 
     createNodeField({ node, name: "title", value: node.frontmatter.title });
-    createCategoryStyleField(node, actions, getNode)
     createNodeField({
       node,
       name: "category",
@@ -215,7 +174,7 @@ const createPostPages = (actions, locale, postsEdges) => {
     const prevEdge = postsEdges[prevID];
 
     createPage({
-      path: genPostPath(locale, edge.node.fields.slug),
+      path: genPostPath(locale, edge.node.slug),
       component: PostPage,
       context: {
         locale,
@@ -259,16 +218,16 @@ const createPostListPage = (actions, locale, postsEdges) => {
   }
 };
 
-const getFieldValues = (postsEdges, fieldName) => {
+const getLocaleCodes = (postsEdges) => {
   const valueSet = new Set();
-  postsEdges.forEach((edge) => valueSet.add(edge.node.fields[fieldName]));
+  postsEdges.forEach((edge) => valueSet.add(edge.node.locale.code));
 
   return [...valueSet];
 };
 
 const createPagesByLocale = (actions, locale, postsEdges) => {
   const filteredEdges = postsEdges.filter(
-    (edge) => edge.node.fields.locale === locale
+    (edge) => edge.node.locale.code === locale
   );
 
   createPostPages(actions, locale, filteredEdges);
@@ -296,21 +255,27 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
   const markdownQueryResult = await graphql(
     `
       {
-        allMarkdownRemark(
+        allStrapiPosts(
           sort: {
-            fields: [frontmatter___date, frontmatter___title]
+            fields: [date, title],
             order: [DESC, DESC]
           }
         ) {
           edges {
             node {
               id
-              fields {
-                title
-                category
-                slug
-                locale
-                date
+              title
+              category {
+                name
+              }
+              slug
+              locale {
+                code
+              }
+              date
+              description
+              thumbnail {
+                url
               }
             }
           }
@@ -323,9 +288,9 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
     throw markdownQueryResult.errors;
   }
 
-  const edges = markdownQueryResult.data.allMarkdownRemark.edges;
-  const postsEdges = edges.filter((edge) => edge.node.fields);
-  const locales = getFieldValues(postsEdges, "locale");
+  const edges = markdownQueryResult.data.allStrapiPosts.edges;
+  const postsEdges = edges.filter((edge) => edge.node);
+  const locales = getLocaleCodes(postsEdges);
 
   for (const locale of locales) {
     createPagesByLocale(actions, locale, postsEdges);

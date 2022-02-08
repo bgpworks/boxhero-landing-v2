@@ -10,9 +10,7 @@ import PostViewMobile from "../components/mobile-postview";
 export default function PostView({ data, location }) {
   const { t, language } = useI18next();
   const { currentPostData, prevPostData, nextPostData } = data;
-  const {
-    frontmatter: { title, description },
-  } = currentPostData;
+  const { title, description } = currentPostData;
 
   return (
     <>
@@ -54,68 +52,43 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    currentPostData: markdownRemark(id: { eq: $currentPostId }) {
-      fields {
-        slug
-        date
-        categoryStyle
+    currentPostData: strapiPosts(id: { eq: $currentPostId }) {
+      title
+      description
+      content
+      category {
+        name
+        bgColor
+        textColor
       }
-      frontmatter {
-        title
-        description
-        category
-        author
-        authorPhoto {
-          childImageSharp {
-            gatsbyImageData(
-              width: 40
-              tracedSVGOptions: {
-                turnPolicy: TURNPOLICY_MAJORITY
-                turdSize: 1
-                alphaMax: 1
-                color: "#f0f0f3"
-                threshold: 160
-              }
-              placeholder: TRACED_SVG
-            )
-          }
-        }
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(
-              width: 800
-              tracedSVGOptions: {
-                turnPolicy: TURNPOLICY_MAJORITY
-                turdSize: 1
-                alphaMax: 1
-                color: "#f0f0f3"
-                threshold: 160
-              }
-              placeholder: TRACED_SVG
-            )
-          }
+      author {
+        name
+        photo {
+          url
         }
       }
-      htmlAst
-    }
-    prevPostData: markdownRemark(id: { eq: $prevPostId }) {
-      fields {
-        slug
-        categoryStyle
-      }
-      frontmatter {
-        title
-        category
+      slug
+      date
+      thumbnail {
+        url
       }
     }
-    nextPostData: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-        categoryStyle
+    prevPostData: strapiPosts(id: { eq: $prevPostId }) {
+      slug
+      title
+      category {
+        name
+        bgColor
+        textColor
       }
-      frontmatter {
-        title
-        category
+    }
+    nextPostData: strapiPosts(id: { eq: $nextPostId }) {
+      slug
+      title
+      category {
+        name
+        bgColor
+        textColor
       }
     }
   }

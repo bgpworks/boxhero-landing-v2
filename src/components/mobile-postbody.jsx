@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
-import RehypeReact from "rehype-react";
+import Markdown from "markdown-to-jsx";
 import pngTipIcon from "../images/tip-icon.png";
 import pngCautionIcon from "../images/caution-icon.png";
 import pngNoticeIcon from "../images/notice-icon.png";
@@ -79,22 +79,36 @@ const GhostElement = ({ children }) => (
 
 const InternalLink = ({ to, children }) => <Link to={to}>{children}</Link>;
 
-const renderAST = new RehypeReact({
-  createElement: React.createElement,
-  Fragment: React.Fragment,
-  components: {
-    "tip-box": TipBox,
-    "notice-box": NoticeBox,
-    "caution-box": CautionBox,
-    "gray-text": GrayText,
-    "gray-box": GrayBox,
-    "internal-link": InternalLink,
-    invisible: GhostElement,
-  },
-}).Compiler;
+const ImageWrapper = ({ src, alt }) => (
+  <figure>
+    <img
+      src={src}
+      alt={alt}
+    />
+    <figcaption>{alt}</figcaption>
+  </figure>
+);
 
-const PostBody = ({ postContentHTMLAst }) => (
-  <section className={postBodyView}>{renderAST(postContentHTMLAst)}</section>
+const PostBody = ({ postMarkdownContent }) => (
+  <section className={postBodyView}>
+    <Markdown
+      options={{
+        wrapper: React.Fragment,
+        overrides: {
+          "tip-box": TipBox,
+          "notice-box": NoticeBox,
+          "caution-box": CautionBox,
+          "gray-text": GrayText,
+          "gray-box": GrayBox,
+          "internal-link": InternalLink,
+          invisible: GhostElement,
+          img: ImageWrapper,
+        },
+      }}
+    >
+      {postMarkdownContent}
+    </Markdown>
+  </section>
 );
 
 export default PostBody;

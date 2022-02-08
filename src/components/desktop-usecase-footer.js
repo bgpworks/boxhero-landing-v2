@@ -120,16 +120,19 @@ const RelatedContents = ({ data, t }) => {
         <Padding y={50} />
         <ul className={styles.postCards}>
           {postCardsData.slice(0, 3).map((postCard, index) => {
-            const catgegoryStyle = JSON.parse(postCard.fields.categoryStyle);
+            const categoryStyle = {
+              backgroundColor: postCard.category.bgColor,
+              color: postCard.category.textColor,
+            };
 
             return (
               <PostCard
                 key={index}
-                title={postCard.frontmatter.title}
-                categoryStyle={catgegoryStyle}
-                category={postCard.frontmatter.category}
-                description={postCard.frontmatter.description}
-                path={`/blog/posts/${postCard.fields.slug}`}
+                title={postCard.title}
+                categoryStyle={categoryStyle}
+                category={postCard.category.name}
+                description={postCard.description}
+                path={`/blog/posts/${postCard.slug}`}
               />
             );
           })}

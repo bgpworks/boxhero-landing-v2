@@ -1,7 +1,6 @@
 import React from "react";
 import cn from "classnames";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
-import { GatsbyImage } from "gatsby-plugin-image";
 import MobileLayout from "./mobile-layout";
 import svgArrowPrev from "../images/arrow-prev.svg";
 import svgArrowNext from "../images/arrow-next.svg";
@@ -83,12 +82,12 @@ const Pagination = ({ pathPrefix, pageIndex, lastPageIndex }) => {
 const PostCardThumbnail = ({ thumbnail, alt }) => (
   <section className={thumbnailWrapper}>
     {thumbnail && (
-      <GatsbyImage
-        image={thumbnail}
+      <img
+        src={thumbnail}
         alt={alt}
         className={thumbnailImage}
         // Safari에서 부모의 border-radius를 탈출하는 문제 수정
-        imgStyle={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
+        style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
       />
     )}
   </section>
@@ -167,19 +166,19 @@ export default function PostListMobile({
       <p className={pageDescription}>{description}</p>
       <section className={postList}>
         {edges.map(({ node }) => {
-          const { category } = node.frontmatter;
-          const categoryStyle = JSON.parse(node.fields.categoryStyle);
+          const { category } = node;
+          const categoryStyle = { backgroundColor: category.bgColor, color: category.textColor };
 
           return (
             <PostCard
-              key={node.fields.slug}
+              key={node.slug}
               thumbnail={
-                node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData
+                node.thumbnail?.url
               }
-              title={node.frontmatter.title}
-              category={category}
-              description={node.frontmatter.description}
-              path={`/blog/posts/${node.fields.slug}`}
+              title={node.title}
+              category={category.name}
+              description={node.description}
+              path={`/blog/posts/${node.slug}`}
               categoryStyle={categoryStyle}
             />
           );

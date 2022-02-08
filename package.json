@@ -9,6 +9,7 @@
     "accept-language-parser": "^1.5.0",
     "classnames": "^2.3.1",
     "date-fns": "^2.23.0",
+    "dotenv": "^16.0.0",
     "gatsby": "^3.10.2",
     "gatsby-plugin-anchor-links": "1.2.1",
     "gatsby-plugin-image": "^1.10.1",
@@ -22,10 +23,12 @@
     "gatsby-remark-copy-relative-linked-files": "^1.4.0",
     "gatsby-remark-images": "^5.8.0",
     "gatsby-source-filesystem": "^3.10.0",
+    "gatsby-source-strapi": "^1.0.2",
     "gatsby-transformer-remark": "^4.8.0",
     "gatsby-transformer-sharp": "^3.10.0",
     "i18next": "20.3.5",
     "intersection-observer": "0.12.0",
+    "markdown-to-jsx": "^7.1.6",
     "prop-types": "^15.7.2",
     "pure-react-carousel": "1.27.6",
     "react": "^17.0.2",
@@ -33,7 +36,6 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "11.11.4",
     "react-indiana-drag-scroll": "2.0.1",
-    "rehype-react": "^7.0.0",
     "slugify": "^1.6.0"
   },
   "devDependencies": {
