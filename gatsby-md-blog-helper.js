@@ -1,45 +1,13 @@
 const path = require("path");
-const { parse, isValid } = require("date-fns");
-const slugify = require("slugify");
 
 // Constants
 
 const PER_PAGE = 9;
-const DATE_FORMAT = "yyyy-MM-dd HH:mm";
-const SLUGIFY_COMMON_OPTION = { lower: true, trim: true };
-const REQUIRED_FRONTMATTER_FIELD_NAMES = [
-  "title",
-  "date",
-  "category",
-  "author",
-  "description",
-];
-const CATEGORY_STYLES = [
-  { backgroundColor: "#599fe0", color: "white" },
-  { backgroundColor: "#51baa5", color: "white" },
-  { backgroundColor: "#e57678", color: "white" },
-  { backgroundColor: "#ea9b18", color: "white" },
-  { backgroundColor: "#6e7fe8", color: "white" },
-  { backgroundColor: "#75b534", color: "white" },
-  { backgroundColor: "#d38457", color: "white" },
-];
-
-// Regexes
-
-const REGEX_SPACES = /\s+/g;
-const REGEX_NOT_ALLOWED_IN_KOREAN_SLUG = /[^가-힣a-z\d\s]/gi;
 
 // Components
 
 const PostPage = path.resolve("src/templates/PostView.jsx");
 const PostListPage = path.resolve("src/templates/PostList.jsx");
-
-// Helper Functions for Node
-
-const checkHasField = (node, fieldName) =>
-  Object.prototype.hasOwnProperty.call(node, fieldName);
-
-const checkIsMarkdownNode = (node) => node.internal.type === "MarkdownRemark";
 
 // Path generators
 
@@ -47,120 +15,6 @@ const genBlogHomePath = (localeCode) => `/${localeCode}/blog`;
 const genPostListPath = (localeCode, pageIndex) =>
   `/${localeCode}/blog/pages/${pageIndex}`;
 const genPostPath = (localeCode, slug) => `/${localeCode}/blog/posts/${slug}`;
-
-// Slugify
-
-const genKoreanSlug = (baseName, delimeter = "-") => {
-  const result = baseName
-    .normalize()
-    .replace(REGEX_NOT_ALLOWED_IN_KOREAN_SLUG, "")
-    .trim()
-    .toLowerCase()
-    .replace(REGEX_SPACES, delimeter);
-
-  if (!result)
-    throw new Error(
-      `The name cannot be slugified by the slugify module. ${baseName}`
-    );
-
-  return result;
-};
-
-const genSlug = (baseName, locale) => {
-  switch (locale) {
-    case "ko":
-      return genKoreanSlug(baseName);
-
-    case "es":
-      return slugify(baseName, { ...SLUGIFY_COMMON_OPTION, locale: "es" });
-
-    default:
-      return slugify(baseName, SLUGIFY_COMMON_OPTION);
-  }
-};
-
-const validateFrontMatter = (frontmatter) => {
-  REQUIRED_FRONTMATTER_FIELD_NAMES.forEach((fieldName) => {
-    if (!checkHasField(frontmatter, fieldName)) {
-      throw new Error(`${fieldName} field is required.`);
-    }
-  });
-
-  return true;
-};
-
-const getLocaleCode = (getNode, node) => {
-  const fileNode = getNode(node.parent);
-  const parsedFilePath = path.parse(fileNode.relativeDirectory);
-  const dirs = parsedFilePath.dir;
-
-  return dirs.split(path.sep)[0];
-};
-
-const createLocaleField = (node, actions, getNode) => {
-  const { createNodeField } = actions;
-
-  createNodeField({
-    node,
-    name: "locale",
-    value: getLocaleCode(getNode, node),
-  });
-};
-
-const createSlugField = (node, actions, getNode) => {
-  const { createNodeField } = actions;
-
-  if (checkHasField(node.frontmatter, "slug")) {
-    createNodeField({ node, name: "slug", value: node.frontmatter.slug });
-  } else {
-    const localeCode = getLocaleCode(getNode, node);
-
-    createNodeField({
-      node,
-      name: "slug",
-      value: genSlug(node.frontmatter.title, localeCode),
-    });
-  }
-};
-
-const createDateField = (node, actions) => {
-  const { createNodeField } = actions;
-
-  if (checkHasField(node.frontmatter, "date")) {
-    const date = parse(node.frontmatter.date, DATE_FORMAT, new Date());
-
-    if (!isValid(date))
-      throw new Error(
-        `Invalid Date. Please check the date field in frontmatter : ${node.frontmatter.date}`
-      );
-
-    createNodeField({
-      node,
-      name: "date",
-      value: date.toISOString(),
-    });
-  }
-};
-
-const createCustomFields = (node, actions, getNode) => {
-  const { createNodeField } = actions;
-
-  if (
-    checkHasField(node, "frontmatter") &&
-    validateFrontMatter(node.frontmatter)
-  ) {
-    createLocaleField(node, actions, getNode);
-    createSlugField(node, actions, getNode);
-    createDateField(node, actions);
-
-    createNodeField({ node, name: "title", value: node.frontmatter.title });
-    createNodeField({
-      node,
-      name: "category",
-      value: node.frontmatter.category,
-    });
-  }
-};
 
 // createPages
 
@@ -232,21 +86,6 @@ const createPagesByLocale = (actions, locale, postsEdges) => {
 
   createPostPages(actions, locale, filteredEdges);
   createPostListPage(actions, locale, filteredEdges);
-};
-
-// onCreateNode
-
-exports.onCreateNodeForBlog = ({ node, actions, getNode }) => {
-  if (checkIsMarkdownNode(node)) {
-    try {
-      createCustomFields(node, actions, getNode);
-    } catch (err) {
-      const fileNode = getNode(node.parent);
-      err.message = `${err.message}\nFile: ${fileNode.relativePath}`;
-
-      throw err;
-    }
-  }
 };
 
 // createPages
