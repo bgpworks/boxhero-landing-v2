@@ -61,7 +61,7 @@ const GrayText = ({ children }) => <span className={grayText}>{children}</span>;
 const GrayBox = ({ title, children }) => (
   <div className={grayBox}>
     {title && <span className={boxTitle}>{title}</span>}
-    {children}
+    <p>{children}</p>
   </div>
 );
 
