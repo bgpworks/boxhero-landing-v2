@@ -10,7 +10,9 @@ import PostViewMobile from "../components/mobile-postview";
 export default function PostView({ data, location }) {
   const { t, language } = useI18next();
   const { currentPostData, prevPostData, nextPostData } = data;
-  const { title, description } = currentPostData;
+  const { title, description, thumbnail } = currentPostData;
+
+  const thumbnailURL = thumbnail && thumbnail.url;
 
   return (
     <>
@@ -21,6 +23,7 @@ export default function PostView({ data, location }) {
         })}
         description={description}
         path={location.pathname}
+        ogImageUrl={thumbnailURL}
       />
 
       <Media at="xs">
