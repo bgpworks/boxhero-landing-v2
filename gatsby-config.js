@@ -215,36 +215,6 @@ module.exports = {
     },
     `gatsby-plugin-smoothscroll`,
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "posts",
-        path: `${__dirname}/contents/blog/`,
-      },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              showCaptions: true,
-              maxWidth: 800,
-              quality: 80,
-            },
-          },
-          {
-            resolve: `gatsby-remark-copy-relative-linked-files`,
-            options: {
-              filename: ({ hash, name, extension }) =>
-                `${name}-${hash}.${extension}`,
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: "gatsby-plugin-eslint",
       options: {
         rulePaths: [gatsbyRequiredRules],
