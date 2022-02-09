@@ -89,6 +89,14 @@ const ImageWrapper = ({ src, alt }) => (
   </figure>
 );
 
+const SubTitle = ({ children }) => (
+  <p>
+    <span className={grayText}>
+      <strong>{children}</strong>
+    </span>
+  </p>
+);
+
 const PostBody = ({ postMarkdownContent }) => (
   <section className={postBodyView}>
     <Markdown
@@ -103,6 +111,7 @@ const PostBody = ({ postMarkdownContent }) => (
           "internal-link": InternalLink,
           invisible: GhostElement,
           img: ImageWrapper,
+          "sub-title": SubTitle,
         },
       }}
     >
