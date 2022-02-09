@@ -47,7 +47,7 @@ export const query = graphql`
     relatedContents: allStrapiPosts(
       filter: {
         locale: { code: { eq: $language } },
-        Tags: {elemMatch: {name: {eq: "usecase-assets"}}}
+        tags: {elemMatch: {name: {eq: "usecase-assets"}}}
       }
       sort: {
         fields: [date, title],
