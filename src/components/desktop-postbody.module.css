@@ -33,6 +33,7 @@
   --line-heihgt-li: 1.8em;
 
   color: var(--color-black);
+  font-size: var(--font-size-normal);
 }
 
 /* 하위 요소 스타일 초기화 */
