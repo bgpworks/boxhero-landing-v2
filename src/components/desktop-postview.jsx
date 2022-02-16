@@ -144,6 +144,14 @@ const StartNow = () => {
   );
 };
 
+const parseBlocks = (blocks) => {
+  try {
+    return JSON.parse(blocks);
+  } catch (error) {
+    return {};
+  }
+};
+
 const genCategoryStyle = (category) => (
   { backgroundColor: category.bgColor, color: category.textColor }
 );
@@ -194,6 +202,7 @@ export default function DesktopPostView({
     title, category, thumbnail, author, date, content,
   } = currentPostData;
   const categoryStyle = genCategoryStyle(category);
+  const parsedBlocks = parseBlocks(content);
 
   return (
     <DesktopLayout
@@ -218,7 +227,7 @@ export default function DesktopPostView({
             alt={title}
           />
         )}
-        <PostBody postMarkdownContent={content} />
+        <PostBody postBlocksContent={parsedBlocks} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (

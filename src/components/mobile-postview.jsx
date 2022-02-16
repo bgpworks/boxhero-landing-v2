@@ -139,6 +139,14 @@ const StartNow = () => {
   );
 };
 
+const parseBlocks = (blocks) => {
+  try {
+    return JSON.parse(blocks);
+  } catch (error) {
+    return {};
+  }
+};
+
 const genCategoryStyle = (category) => (
   { backgroundColor: category.bgColor, color: category.textColor }
 );
@@ -185,6 +193,7 @@ export default function PostViewMobile({
     title, category, author, thumbnail, date, content,
   } = currentPostData;
   const categoryStyle = genCategoryStyle(category);
+  const parsedBlocks = parseBlocks(content);
 
   return (
     <MobileLayout
@@ -212,7 +221,7 @@ export default function PostViewMobile({
             alt={title}
           />
         )}
-        <PostBody postMarkdownContent={content} />
+        <PostBody postBlocksContent={parsedBlocks} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (
