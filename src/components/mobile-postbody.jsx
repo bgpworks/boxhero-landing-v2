@@ -16,6 +16,10 @@ import {
   grayText,
   grayBox,
   boxTitle,
+  innerFigureWrapper,
+  backgroundFilled,
+  isStretched,
+  bordered,
 } from "./mobile-postbody.module.css";
 
 const Box = ({ className, icon, children }) => (
@@ -95,24 +99,84 @@ const SubTitle = ({ data: { text } }) => (
   </p>
 );
 
+const InnerFigureWrapper = ({
+  withBackground, stretched, withBorder, children,
+}) => (
+  <div className={cn(innerFigureWrapper, {
+    [isStretched]: stretched,
+    [backgroundFilled]: withBackground,
+    [bordered]: withBorder,
+  })}
+  >
+    {children}
+  </div>
+);
+
+const FigureWrapper = ({
+  caption,
+  withBackground,
+  stretched,
+  withBorder,
+  children,
+}) => (
+  <figure>
+    <InnerFigureWrapper
+      withBackground={withBackground}
+      stretched={stretched}
+      withBorder={withBorder}
+    >
+      {children}
+    </InnerFigureWrapper>
+    {caption && caption.length > 0 && <figcaption>{caption}</figcaption>}
+  </figure>
+);
+
 const VideoRenderer = ({ data }) => {
   const videoUrl = data && data.file && data.file.url;
-  const caption = data && data.caption;
+  const {
+    caption, withBackground, stretched, withBorder,
+  } = data;
 
   if (!videoUrl) return null;
 
   return (
-    <figure>
+    <FigureWrapper
+      withBorder={withBorder}
+      withBackground={withBackground}
+      stretched={stretched}
+      caption={caption}
+    >
       <video
         src={videoUrl}
-        style={{ width: "100%" }}
         muted
         autoPlay
         loop
         playsinline
       />
-      {caption && caption.length > 0 && <figcaption>{caption}</figcaption>}
-    </figure>
+    </FigureWrapper>
+  );
+};
+
+const ImageRenderer = ({ data }) => {
+  const imageUrl = data && data.file && data.file.url;
+  const {
+    caption, withBackground, stretched, withBorder,
+  } = data;
+
+  if (!imageUrl) return null;
+
+  return (
+    <FigureWrapper
+      caption={caption}
+      withBackground={withBackground}
+      stretched={stretched}
+      withBorder={withBorder}
+    >
+      <img
+        src={imageUrl}
+        alt={caption || imageUrl}
+      />
+    </FigureWrapper>
   );
 };
 
@@ -129,6 +193,7 @@ const PostBody = ({ postBlocksContent }) => (
         internalLink: InternalLink,
         invisible: GhostElement,
         video: VideoRenderer,
+        image: ImageRenderer,
         subTitle: SubTitle,
       }}
     />

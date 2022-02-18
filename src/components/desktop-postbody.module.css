@@ -7,12 +7,14 @@
   --color-anchor: #4f67ff;
   --color-box-border: #e0e0e3;
   --color-text-code: white;
+  --color-border-figure: #e8e8eb;
 
   --color-bg-tip-box: rgba(80, 164, 250, 0.1);
   --color-bg-caution-box: rgba(245, 166, 35, 0.1);
   --color-bg-notice-box: rgba(60, 185, 160, 0.1);
   --color-bg-gray-box: #f7f9fc;
   --color-bg-code: #808080;
+  --color-bg-figure: #F1F1F3;
 
   --font-size-caption: 0.875rem;
   --font-size-small: 1rem;
@@ -251,4 +253,30 @@
 .postBodyView > p > img,
 .postBodyView > img {
   display: block;
+}
+
+.innerFigureWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.innerFigureWrapper > img,
+.innerFigureWrapper > video {
+  max-width: 100%;
+}
+
+.innerFigureWrapper.backgroundFilled {
+  padding: var(--padding-box-vertical) var(--padding-box-horizontal);
+  background-color: var(--color-bg-figure);
+}
+
+.innerFigureWrapper.bordered > img,
+.innerFigureWrapper.bordered > video {
+  border: 1px solid var(--color-border-figure);
+}
+
+.innerFigureWrapper.isStretched > img,
+.innerFigureWrapper.isStretched > video {
+  width: 100%;
 }
