@@ -21,6 +21,7 @@
     "react/no-array-index-key": 0,
     "import/prefer-default-export": 0,
     "no-console": 0,
+    "react/no-danger": 0,
     "quotes": [
       "error",
       "double"

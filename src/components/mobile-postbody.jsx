@@ -87,16 +87,6 @@ const GhostElement = ({ data: { text } }) => (
 
 const InternalLink = ({ to, text }) => <Link to={to}>{text}</Link>;
 
-const ImageWrapper = ({ src, alt }) => (
-  <figure>
-    <img
-      src={src}
-      alt={alt}
-    />
-    <figcaption>{alt}</figcaption>
-  </figure>
-);
-
 const SubTitle = ({ data: { text } }) => (
   <p>
     <span className={grayText}>
@@ -104,6 +94,27 @@ const SubTitle = ({ data: { text } }) => (
     </span>
   </p>
 );
+
+const VideoRenderer = ({ data }) => {
+  const videoUrl = data && data.file && data.file.url;
+  const caption = data && data.caption;
+
+  if (!videoUrl) return null;
+
+  return (
+    <figure>
+      <video
+        src={videoUrl}
+        style={{ width: "100%" }}
+        muted
+        autoPlay
+        loop
+        playsinline
+      />
+      {caption && caption.length > 0 && <figcaption>{caption}</figcaption>}
+    </figure>
+  );
+};
 
 const PostBody = ({ postBlocksContent }) => (
   <section className={postBodyView}>
@@ -117,7 +128,7 @@ const PostBody = ({ postBlocksContent }) => (
         grayBox: GrayBox,
         internalLink: InternalLink,
         invisible: GhostElement,
-        img: ImageWrapper,
+        video: VideoRenderer,
         subTitle: SubTitle,
       }}
     />
