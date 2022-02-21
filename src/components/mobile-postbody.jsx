@@ -13,7 +13,6 @@ import {
   cautionBox,
   noticeBox,
   boxBody,
-  grayText,
   grayBox,
   boxTitle,
   innerFigureWrapper,
@@ -63,8 +62,6 @@ const CautionBox = ({ data: { text } }) => (
   </Box>
 );
 
-const GrayText = ({ data: { text } }) => <span className={grayText}>{text}</span>;
-
 const GrayBox = ({ data: { title, text } }) => (
   <div className={grayBox}>
     {title && (
@@ -93,7 +90,7 @@ const InternalLink = ({ to, text }) => <Link to={to}>{text}</Link>;
 
 const SubTitle = ({ data: { text } }) => (
   <p>
-    <span className={grayText}>
+    <span className="grayText">
       <strong>{text}</strong>
     </span>
   </p>
@@ -188,7 +185,6 @@ const PostBody = ({ postBlocksContent }) => (
         tipBox: TipBox,
         noticeBox: NoticeBox,
         cautionBox: CautionBox,
-        grayText: GrayText,
         grayBox: GrayBox,
         internalLink: InternalLink,
         invisible: GhostElement,
