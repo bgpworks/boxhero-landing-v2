@@ -151,7 +151,7 @@ const VideoRenderer = ({ data }) => {
         muted
         autoPlay
         loop
-        playsinline
+        playsInline
       />
     </FigureWrapper>
   );

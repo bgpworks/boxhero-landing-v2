@@ -236,7 +236,8 @@
   background-color: var(--color-bg-notice-box);
 }
 
-.grayText {
+/* strapi에서 <span class="grayText">로 넘어오기 때문에 :global 붙혀줌 */
+:global .grayText {
   color: var(--color-caption);
 }
 
