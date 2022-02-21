@@ -73,7 +73,7 @@ const GrayBox = ({ data: { title, text } }) => (
         dangerouslySetInnerHTML={{ __html: title }}
       />
     )}
-    <p dangerouslySetInnerHTML={{ __html: text }} />
+    <div dangerouslySetInnerHTML={{ __html: text }} />
   </div>
 );
 
@@ -195,6 +195,8 @@ const PostBody = ({ postBlocksContent }) => (
         video: VideoRenderer,
         image: ImageRenderer,
         subTitle: SubTitle,
+        hr: () => <hr />,
+        br: () => <br />,
       }}
     />
   </section>
