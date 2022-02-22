@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
-import RehypeReact from "rehype-react";
+import Blocks from "editorjs-blocks-react-renderer";
 import pngTipIcon from "../images/tip-icon.png";
 import pngCautionIcon from "../images/caution-icon.png";
 import pngNoticeIcon from "../images/notice-icon.png";
@@ -13,9 +13,12 @@ import {
   cautionBox,
   noticeBox,
   boxBody,
-  grayText,
   grayBox,
   boxTitle,
+  innerFigureWrapper,
+  backgroundFilled,
+  isStretched,
+  bordered,
 } from "./desktop-postbody.module.css";
 
 const Box = ({ className, icon, children }) => (
@@ -25,47 +28,53 @@ const Box = ({ className, icon, children }) => (
       src={icon}
       alt="box-decorator"
     />
-    <div className={boxBody}>{children}</div>
+    <div
+      className={boxBody}
+      dangerouslySetInnerHTML={{ __html: children }}
+    />
   </div>
 );
 
-const TipBox = ({ children }) => (
+const TipBox = ({ data: { text } }) => (
   <Box
     className={tipBox}
     icon={pngTipIcon}
   >
-    {children}
+    {text}
   </Box>
 );
 
-const NoticeBox = ({ children }) => (
+const NoticeBox = ({ data: { text } }) => (
   <Box
     className={noticeBox}
     icon={pngNoticeIcon}
   >
-    {children}
+    {text}
   </Box>
 );
 
-const CautionBox = ({ children }) => (
+const CautionBox = ({ data: { text } }) => (
   <Box
     className={cautionBox}
     icon={pngCautionIcon}
   >
-    {children}
+    {text}
   </Box>
 );
 
-const GrayText = ({ children }) => <span className={grayText}>{children}</span>;
-
-const GrayBox = ({ title, children }) => (
+const GrayBox = ({ data: { title, text } }) => (
   <div className={grayBox}>
-    {title && <span className={boxTitle}>{title}</span>}
-    {children}
+    {title && (
+      <span
+        className={boxTitle}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+    )}
+    <div dangerouslySetInnerHTML={{ __html: text }} />
   </div>
 );
 
-const GhostElement = ({ children }) => (
+const GhostElement = ({ data: { text } }) => (
   <div
     style={{
       top: "-100vh",
@@ -73,28 +82,120 @@ const GhostElement = ({ children }) => (
       zIndex: -999999,
     }}
   >
+    {text}
+  </div>
+);
+
+const InternalLink = ({ to, text }) => <Link to={to}>{text}</Link>;
+
+const SubTitle = ({ data: { text } }) => (
+  <p>
+    <span className="grayText">
+      <strong>{text}</strong>
+    </span>
+  </p>
+);
+
+const InnerFigureWrapper = ({
+  withBackground, stretched, withBorder, children,
+}) => (
+  <div className={cn(innerFigureWrapper, {
+    [isStretched]: stretched,
+    [backgroundFilled]: withBackground,
+    [bordered]: withBorder,
+  })}
+  >
     {children}
   </div>
 );
 
-const InternalLink = ({ to, children }) => <Link to={to}>{children}</Link>;
+const FigureWrapper = ({
+  caption,
+  withBackground,
+  stretched,
+  withBorder,
+  children,
+}) => (
+  <figure>
+    <InnerFigureWrapper
+      withBackground={withBackground}
+      stretched={stretched}
+      withBorder={withBorder}
+    >
+      {children}
+    </InnerFigureWrapper>
+    {caption && caption.length > 0 && <figcaption>{caption}</figcaption>}
+  </figure>
+);
 
-const renderAST = new RehypeReact({
-  createElement: React.createElement,
-  Fragment: React.Fragment,
-  components: {
-    "tip-box": TipBox,
-    "notice-box": NoticeBox,
-    "caution-box": CautionBox,
-    "gray-text": GrayText,
-    "gray-box": GrayBox,
-    "internal-link": InternalLink,
-    invisible: GhostElement,
-  },
-}).Compiler;
+const VideoRenderer = ({ data }) => {
+  const videoUrl = data && data.file && data.file.url;
+  const {
+    caption, withBackground, stretched, withBorder,
+  } = data;
 
-const PostBody = ({ postContentHTMLAst }) => (
-  <section className={postBodyView}>{renderAST(postContentHTMLAst)}</section>
+  if (!videoUrl) return null;
+
+  return (
+    <FigureWrapper
+      withBorder={withBorder}
+      withBackground={withBackground}
+      stretched={stretched}
+      caption={caption}
+    >
+      <video
+        src={videoUrl}
+        muted
+        autoPlay
+        loop
+        playsInline
+      />
+    </FigureWrapper>
+  );
+};
+
+const ImageRenderer = ({ data }) => {
+  const imageUrl = data && data.file && data.file.url;
+  const {
+    caption, withBackground, stretched, withBorder,
+  } = data;
+
+  if (!imageUrl) return null;
+
+  return (
+    <FigureWrapper
+      caption={caption}
+      withBackground={withBackground}
+      stretched={stretched}
+      withBorder={withBorder}
+    >
+      <img
+        src={imageUrl}
+        alt={caption || imageUrl}
+      />
+    </FigureWrapper>
+  );
+};
+
+const PostBody = ({ postBlocksContent }) => (
+  <section className={postBodyView}>
+    <Blocks
+      data={postBlocksContent}
+      renderers={{
+        tipBox: TipBox,
+        noticeBox: NoticeBox,
+        cautionBox: CautionBox,
+        grayBox: GrayBox,
+        internalLink: InternalLink,
+        invisible: GhostElement,
+        subTitle: SubTitle,
+        video: VideoRenderer,
+        image: ImageRenderer,
+        hr: () => <hr />,
+        br: () => <br />,
+      }}
+    />
+  </section>
 );
 
 export default PostBody;
