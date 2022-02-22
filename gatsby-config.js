@@ -228,7 +228,23 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: ['post'],
+        collectionTypes: [
+          {
+            singularName: 'post',
+            queryParams: {
+              populate: {
+                category: "*",
+                thumbnail: "*",
+                tags: "*",
+                author: {
+                  populate: {
+                    photo: "*"
+                  }
+                },
+              },
+            },
+          }
+        ],
         singleTypes: [],
       },
     },
