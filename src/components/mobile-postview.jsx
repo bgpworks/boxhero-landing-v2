@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { format } from "date-fns";
 import { AppDownloadLink } from "./common";
 import MobileLayout from "./mobile-layout";
@@ -50,8 +49,8 @@ const LinkToListSection = () => {
 const AuthorAndDateSection = ({ author, authorPhoto, date }) => (
   <div className={authorSection}>
     {authorPhoto && (
-      <GatsbyImage
-        image={authorPhoto}
+      <img
+        src={authorPhoto}
         className={authorPhotoWrapper}
         alt={author}
       />
@@ -90,9 +89,9 @@ const PostHeader = ({
 );
 
 const PostThumbnail = ({ thumbnail, alt }) => (
-  <GatsbyImage
+  <img
     className={postThumbnail}
-    image={thumbnail}
+    src={thumbnail}
     alt={alt}
   />
 );
@@ -140,10 +139,22 @@ const StartNow = () => {
   );
 };
 
+const parseBlocks = (blocks) => {
+  try {
+    return JSON.parse(blocks);
+  } catch (error) {
+    return {};
+  }
+};
+
+const genCategoryStyle = (category) => (
+  { backgroundColor: category.bgColor, color: category.textColor }
+);
+
 const RelatedPosts = ({ prevPostData, nextPostData }) => {
   const { t } = useI18next();
-  const prevPostDataStyle = prevPostData && JSON.parse(prevPostData.fields.categoryStyle);
-  const nextPostDataStyle = nextPostData && JSON.parse(nextPostData.fields.categoryStyle);
+  const prevPostDataStyle = prevPostData && genCategoryStyle(prevPostData.category);
+  const nextPostDataStyle = nextPostData && genCategoryStyle(nextPostData.category);
 
   return (
     <>
@@ -151,9 +162,9 @@ const RelatedPosts = ({ prevPostData, nextPostData }) => {
         {prevPostData && (
           <RelatedPostCard
             rel="prev"
-            slug={prevPostData.fields.slug}
-            title={prevPostData.frontmatter.title}
-            category={prevPostData.frontmatter.category}
+            slug={prevPostData.slug}
+            title={prevPostData.title}
+            category={prevPostData.category.name}
             categoryStyle={prevPostDataStyle}
             label={t("blog:prevPost")}
           />
@@ -161,9 +172,9 @@ const RelatedPosts = ({ prevPostData, nextPostData }) => {
         {nextPostData && (
           <RelatedPostCard
             rel="next"
-            slug={nextPostData.fields.slug}
-            title={nextPostData.frontmatter.title}
-            category={nextPostData.frontmatter.category}
+            slug={nextPostData.slug}
+            title={nextPostData.title}
+            category={nextPostData.category.name}
             categoryStyle={nextPostDataStyle}
             label={t("blog:nextPost")}
           />
@@ -178,10 +189,11 @@ export default function PostViewMobile({
   prevPostData,
   nextPostData,
 }) {
-  const { title } = currentPostData.frontmatter;
-  const { category } = currentPostData.frontmatter;
-  const categoryStyle = JSON.parse(currentPostData.fields.categoryStyle);
-  const thumbnail = currentPostData.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData;
+  const {
+    title, category, author, thumbnail, date, content,
+  } = currentPostData;
+  const categoryStyle = genCategoryStyle(category);
+  const parsedBlocks = parseBlocks(content.data.content);
 
   return (
     <MobileLayout
@@ -195,22 +207,21 @@ export default function PostViewMobile({
       <article className={postContainer}>
         <PostHeader
           title={title}
-          category={category}
-          author={currentPostData.frontmatter.author}
+          category={category.name}
+          author={author.name}
           authorPhoto={
-            currentPostData.frontmatter?.authorPhoto?.childImageSharp
-              ?.gatsbyImageData
+            author.photo?.url
           }
-          date={currentPostData.fields.date}
+          date={date}
           categoryStyle={categoryStyle}
         />
         {thumbnail && (
           <PostThumbnail
-            thumbnail={thumbnail}
+            thumbnail={thumbnail.url}
             alt={title}
           />
         )}
-        <PostBody postContentHTMLAst={currentPostData.htmlAst} />
+        <PostBody postBlocksContent={parsedBlocks} />
         <footer className={postFooter}>
           <StartNow />
           {(prevPostData || nextPostData) && (
