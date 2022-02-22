@@ -10,13 +10,9 @@ import PostViewMobile from "../components/mobile-postview";
 export default function PostView({ data, location }) {
   const { t, language } = useI18next();
   const { currentPostData, prevPostData, nextPostData } = data;
-  const {
-    frontmatter: {
-      title, description, thumbnail,
-    },
-  } = currentPostData;
+  const { title, description, thumbnail } = currentPostData;
 
-  const thumbnailURL = thumbnail && thumbnail.publicURL;
+  const thumbnailURL = thumbnail && thumbnail.url;
 
   return (
     <>
@@ -59,71 +55,47 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    currentPostData: strapiPosts(id: { eq: $currentPostId }) {
-      data {
-        attributes {
-          title
-          description
+    currentPostData: strapiPost(id: { eq: $currentPostId }) {
+      title
+      description
+      content {
+        data {
           content
-          category {
-            data {
-              attributes {
-                name
-                bgColor
-                textColor
-              }
-            }
-          }
-          author {
-            data {
-              attributes {
-                name
-                photo {
-                  url
-                }
-              }
-            }
-          }
-          slug
-          date
-          thumbnail {
-            url
-          }
         }
       }
-    }
-    prevPostData: strapiPosts(id: { eq: $prevPostId }) {
-      data {
-        attributes {
-          slug
-          title
-          category {
-            data {
-              attributes {
-                name
-                bgColor
-                textColor
-              }
-            }
-          }
+      category {
+        name
+        bgColor
+        textColor
+      }
+      author {
+        name
+        photo {
+          url
         }
       }
+      slug
+      date
+      thumbnail {
+        url
+      }
     }
-    nextPostData: strapiPosts(id: { eq: $nextPostId }) {
-      data {
-        attributes {
-          slug
-          title
-          category {
-            data {
-              attributes {
-                name
-                bgColor
-                textColor
-              }
-            }
-          }
-        }
+    prevPostData: strapiPost(id: { eq: $prevPostId }) {
+      slug
+      title
+      category {
+        name
+        bgColor
+        textColor
+      }
+    }
+    nextPostData: strapiPost(id: { eq: $nextPostId }) {
+      slug
+      title
+      category {
+        name
+        bgColor
+        textColor
       }
     }
   }

@@ -46,7 +46,7 @@ export const query = graphql`
     }
     relatedContents: allStrapiPost(
       filter: {
-        locale: { code: { eq: $language } },
+        locale: { eq: $language }
         tags: { elemMatch: { name: { eq: "usecase-sales" } } }
       }
       sort: {
@@ -55,22 +55,14 @@ export const query = graphql`
       }
     ) {
       nodes {
-        data {
-          attributes {
-            title
-            category {
-              data {
-                attributes {
-                  name
-                  bgColor
-                  textColor
-                }
-              }
-            }
-            description
-            slug
-          }
+        title
+        category {
+          name
+          bgColor
+          textColor
         }
+        description
+        slug
       }
     }
     finger: file(relativePath: { eq: "emoji-finger.png" }) {

@@ -94,7 +94,7 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
   const queryResult = await graphql(
     `
       {
-        allStrapiPosts(
+        allStrapiPost(
           sort: {
             fields: [date, title],
             order: [DESC, DESC]
@@ -108,9 +108,7 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
                 name
               }
               slug
-              locale {
-                code
-              }
+              locale
               date
               description
               thumbnail {
@@ -127,7 +125,7 @@ exports.createPagesForBlog = async ({ graphql, actions }) => {
     throw queryResult.errors;
   }
 
-  const edges = queryResult.data.allStrapiPosts.edges;
+  const edges = queryResult.data.allStrapiPost.edges;
   const postsEdges = edges.filter((edge) => edge.node);
   const locales = getLocaleCodes(postsEdges);
 

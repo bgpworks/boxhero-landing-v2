@@ -63,24 +63,16 @@ export const query = graphql`
     ) {
       edges {
         node {
-          data {
-            attributes {
-              slug
-              title
-              category {
-                data {
-                  attributes {
-                    name
-                    bgColor
-                    textColor
-                  }
-                }
-              }
-              description
-              thumbnail {
-                url
-              }
-            }
+          slug
+          title
+          category {
+            name
+            bgColor
+            textColor
+          }
+          description
+          thumbnail {
+            url
           }
         }
       }

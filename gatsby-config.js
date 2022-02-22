@@ -226,15 +226,10 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: "https://strapi.bgp.works",
-        collectionTypes: [
-          "posts"
-        ],
-        loginData: {
-          identifier: process.env.STRAPI_ID,
-          password: process.env.STRAPI_PASSWORD,
-        },
-        queryLimit: 1000,
+        apiURL: process.env.STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: ['post'],
+        singleTypes: [],
       },
     },
   ],
