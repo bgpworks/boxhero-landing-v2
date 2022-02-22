@@ -74,14 +74,14 @@ const createPostListPage = (actions, locale, postsEdges) => {
 
 const getLocaleCodes = (postsEdges) => {
   const valueSet = new Set();
-  postsEdges.forEach((edge) => valueSet.add(edge.node.locale.code));
+  postsEdges.forEach((edge) => valueSet.add(edge.node.locale));
 
   return [...valueSet];
 };
 
 const createPagesByLocale = (actions, locale, postsEdges) => {
   const filteredEdges = postsEdges.filter(
-    (edge) => edge.node.locale.code === locale
+    (edge) => edge.node.locale === locale
   );
 
   createPostPages(actions, locale, filteredEdges);
