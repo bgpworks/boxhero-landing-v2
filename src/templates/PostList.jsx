@@ -12,7 +12,7 @@ export default function PostList({ pageContext, location, data }) {
   const { pageIndex, lastPageIndex } = pageContext;
   const { language, t } = useI18next();
   const {
-    allMarkdownRemark: { edges },
+    allStrapiPost: { edges },
   } = data;
 
   return (
@@ -54,37 +54,31 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    allMarkdownRemark(
+    allStrapiPost(
       filter: { id: { in: $ids } }
       sort: {
-        fields: [frontmatter___date, frontmatter___title]
+        fields: [date, title],
         order: [DESC, DESC]
       }
     ) {
       edges {
         node {
-          fields {
-            slug
-            date
-            categoryStyle
-          }
-          frontmatter {
-            title
-            category
-            description
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 320
-                  tracedSVGOptions: {
-                    turnPolicy: TURNPOLICY_MAJORITY
-                    turdSize: 1
-                    alphaMax: 1
-                    color: "#f0f0f3"
-                    threshold: 160
+          data {
+            attributes {
+              slug
+              title
+              category {
+                data {
+                  attributes {
+                    name
+                    bgColor
+                    textColor
                   }
-                  placeholder: TRACED_SVG
-                )
+                }
+              }
+              description
+              thumbnail {
+                url
               }
             }
           }

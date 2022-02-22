@@ -44,22 +44,32 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    relatedContents: allMarkdownRemark(
+    relatedContents: allStrapiPost(
       filter: {
-        fields: { locale: { eq: $language } },
-        frontmatter: { relPage: { eq: "usecase-material" } }
+        locale: { code: { eq: $language } },
+        tags: { elemMatch: { name: { eq: "usecase-material" } } }
       }
-      sort: { fields: frontmatter___date }
+      sort: {
+        fields: [date, title],
+        order: [DESC, DESC]
+      }
     ) {
       nodes {
-        frontmatter {
-          title
-          category
-          description
-        }
-        fields {
-          slug
-          categoryStyle
+        data {
+          attributes {
+            title
+            category {
+              data {
+                attributes {
+                  name
+                  bgColor
+                  textColor
+                }
+              }
+            }
+            description
+            slug
+          }
         }
       }
     }

@@ -59,69 +59,71 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    currentPostData: markdownRemark(id: { eq: $currentPostId }) {
-      fields {
-        slug
-        date
-        categoryStyle
-      }
-      frontmatter {
-        title
-        description
-        category
-        author
-        authorPhoto {
-          childImageSharp {
-            gatsbyImageData(
-              width: 40
-              tracedSVGOptions: {
-                turnPolicy: TURNPOLICY_MAJORITY
-                turdSize: 1
-                alphaMax: 1
-                color: "#f0f0f3"
-                threshold: 160
+    currentPostData: strapiPosts(id: { eq: $currentPostId }) {
+      data {
+        attributes {
+          title
+          description
+          content
+          category {
+            data {
+              attributes {
+                name
+                bgColor
+                textColor
               }
-              placeholder: TRACED_SVG
-            )
+            }
+          }
+          author {
+            data {
+              attributes {
+                name
+                photo {
+                  url
+                }
+              }
+            }
+          }
+          slug
+          date
+          thumbnail {
+            url
           }
         }
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(
-              width: 800
-              tracedSVGOptions: {
-                turnPolicy: TURNPOLICY_MAJORITY
-                turdSize: 1
-                alphaMax: 1
-                color: "#f0f0f3"
-                threshold: 160
+      }
+    }
+    prevPostData: strapiPosts(id: { eq: $prevPostId }) {
+      data {
+        attributes {
+          slug
+          title
+          category {
+            data {
+              attributes {
+                name
+                bgColor
+                textColor
               }
-              placeholder: TRACED_SVG
-            )
+            }
           }
-          publicURL
         }
       }
-      htmlAst
     }
-    prevPostData: markdownRemark(id: { eq: $prevPostId }) {
-      fields {
-        slug
-        categoryStyle
-      }
-      frontmatter {
-        title
-        category
-      }
-    }
-    nextPostData: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-        categoryStyle
-      }
-      frontmatter {
-        title
-        category
+    nextPostData: strapiPosts(id: { eq: $nextPostId }) {
+      data {
+        attributes {
+          slug
+          title
+          category {
+            data {
+              attributes {
+                name
+                bgColor
+                textColor
+              }
+            }
+          }
+        }
       }
     }
   }
