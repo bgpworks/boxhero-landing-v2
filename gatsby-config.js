@@ -1,5 +1,8 @@
 const { format } = require("date-fns");
 const path = require("path");
+require("dotenv").config({
+  path: ".env",
+})
 // Get paths of Gatsby's required rules, which as of writing is located at:
 // https://github.com/gatsbyjs/gatsby/tree/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/
 // gatsby/src/utils/eslint-rules
@@ -212,42 +215,26 @@ module.exports = {
     },
     `gatsby-plugin-smoothscroll`,
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "posts",
-        path: `${__dirname}/contents/blog/`,
-      },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              showCaptions: true,
-              maxWidth: 800,
-              quality: 80,
-            },
-          },
-          {
-            resolve: `gatsby-remark-copy-relative-linked-files`,
-            options: {
-              filename: ({ hash, name, extension }) =>
-                `${name}-${hash}.${extension}`,
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: "gatsby-plugin-eslint",
       options: {
         rulePaths: [gatsbyRequiredRules],
         stages: ["develop"],
         extensions: ["js", "jsx", "ts", "tsx"],
         exclude: ["node_modules", "bower_components", ".cache", "public"],
+      },
+    },
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: "https://strapi.bgp.works",
+        collectionTypes: [
+          "posts"
+        ],
+        loginData: {
+          identifier: process.env.STRAPI_ID,
+          password: process.env.STRAPI_PASSWORD,
+        },
+        queryLimit: 1000,
       },
     },
   ],
