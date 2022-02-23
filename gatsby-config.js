@@ -138,22 +138,15 @@ module.exports = {
             }
             buildTime
           }
-          allSitePage(filter: {context: {i18n: {routed: {eq: true}}}}) {
-            group(field: context___i18n___originalPath) {
-              fieldValue
-              nodes {
-                context {
-                  i18n {
-                    language
-                  }
-                }
-              }
+          allSitePage {
+            nodes {
+              pageContext
             }
           }
         }
         `,
         resolvePages: ({
-          allSitePage: { group },
+          allSitePage: { nodes },
           site: {
             siteMetadata: { siteUrl },
             buildTime,
@@ -161,18 +154,24 @@ module.exports = {
         }) => {
           const lastmod = format(new Date(buildTime), "yyyy-MM-dd");
 
-          return group.map(({ fieldValue: originalPath, nodes }) => {
-            const langs = nodes.map((node) => node.context.i18n.language);
+          const filteredNodes = nodes.filter(({pageContext}) => pageContext.i18n.routed);
+          const group = filteredNodes.reduce((prev, cur) => {
+            const { originalPath, language } = cur.pageContext.i18n;
+            prev[originalPath] = prev[originalPath] || []
+            prev[originalPath].push(language);
+            return prev;
+          }, {});
 
-            return {
+          return Object.entries(group).map(([originalPath, langs]) => (
+            {
               path: originalPath,
               langs: langs,
               context: {
                 siteUrl,
                 lastmod,
               },
-            };
-          });
+            }
+          ));
         },
         serialize: (page, _tools) => {
           const {
