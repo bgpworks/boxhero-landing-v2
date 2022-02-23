@@ -142,12 +142,7 @@ exports.onCreateWebpackConfig = function onCreateWebpackConfig({
 
 ### 주요 경로
 
-`/contents/blog` - 블로그 컨텐츠에 관련된 파일들이 위치한다.
-`/gatsby-md-blog-helper.js` - `gatsby-transformer-remark`로 생성된 마크다운 노드에 커스텀 필드를 추가해주고, 각종 관련된 페이지를 생성하는 역할을 한다.
-
-### 유의사항
-
-- `gatsby-transformer-remark` 플러그인은 파싱된 html을 생성하는 과정에서 내부적으로 캐싱을 활용한다. 이 때 htmlCacheKey로 마크다운 File Node(node.internal.contentDigest 가 변화함)를 사용하는데 이 때문에 첨부된 이미지 파일을 교체하더라도, <mark>마크다운 내용물에 변화가 없으면 교체된 이미지로 빌드가 되지 않는다.</mark> / **참고 -** https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-remark/src/extend-node-type.js#L382
+`/gatsby-blog-helper.js` - `allStrapiPost`를 통해 각종 블로그 관련 페이지들을 생성하는 역할을 한다.
 
 ## 🎓 Learning Gatsby
 
@@ -159,7 +154,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-** [AWS Amplify](https://aws.amazon.com/amplify) **
+**[AWS Amplify](https://aws.amazon.com/amplify)**
 
 여기 써보고 있음. redirect에 lambda function을 넣기가 쉽진 않다.
 
