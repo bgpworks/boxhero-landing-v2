@@ -21,20 +21,13 @@ const genPostPath = (localeCode, slug) => `/${localeCode}/blog/posts/${slug}`;
 const createPostPages = (actions, locale, postsEdges) => {
   const { createPage } = actions;
 
-  postsEdges.forEach((edge, index) => {
-    const nextID = index + 1 < postsEdges.length && index + 1;
-    const prevID = index - 1 >= 0 && index - 1;
-    const nextEdge = postsEdges[nextID];
-    const prevEdge = postsEdges[prevID];
-
+  postsEdges.forEach((edge) => {
     createPage({
       path: genPostPath(locale, edge.node.slug),
       component: PostPage,
       context: {
         locale,
         currentPostId: edge.node.id,
-        prevPostId: prevEdge && prevEdge.node.id,
-        nextPostId: nextEdge && nextEdge.node.id,
       },
     });
   });

@@ -7,10 +7,15 @@ import SEOHelmet from "../components/SEOHelmet";
 import PostViewDesktop from "../components/desktop-postview";
 import PostViewMobile from "../components/mobile-postview";
 
-export default function PostView({ data, location }) {
+export default function PostView({ data, location, pageContext }) {
   const { t, language } = useI18next();
-  const { currentPostData, prevPostData, nextPostData } = data;
-  const { title, description, thumbnail } = currentPostData;
+
+  const [currentPostData] = data.allStrapiPost.edges.filter(
+    ({ node }) => node.id === pageContext.currentPostId,
+  );
+
+  const { node, previous, next } = currentPostData;
+  const { title, description, thumbnail } = node;
 
   const thumbnailURL = thumbnail && thumbnail.url;
 
@@ -28,17 +33,17 @@ export default function PostView({ data, location }) {
 
       <Media at="xs">
         <PostViewMobile
-          currentPostData={currentPostData}
-          prevPostData={prevPostData}
-          nextPostData={nextPostData}
+          currentPostData={node}
+          prevPostData={previous}
+          nextPostData={next}
         />
       </Media>
 
       <Media greaterThan="xs">
         <PostViewDesktop
-          currentPostData={currentPostData}
-          prevPostData={prevPostData}
-          nextPostData={nextPostData}
+          currentPostData={node}
+          prevPostData={previous}
+          nextPostData={next}
         />
       </Media>
     </>
@@ -48,54 +53,62 @@ export default function PostView({ data, location }) {
 export const query = graphql`
   query (
     $language: String!
-    $currentPostId: String!
-    $nextPostId: String
-    $prevPostId: String
   ) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    currentPostData: strapiPost(id: { eq: $currentPostId }) {
-      title
-      description
-      content {
-        data {
-          content
+    allStrapiPost(
+      filter: { locale: { eq: $language } }
+      sort: {
+        fields: [date, title],
+        order: [DESC, DESC]
+      }
+    ) {
+      edges {
+        node {
+          id
+          title
+          description
+          content {
+            data {
+              content
+            }
+          }
+          category {
+            name
+            bgColor
+            textColor
+          }
+          author {
+            name
+            photo {
+              url
+            }
+          }
+          slug
+          date
+          thumbnail {
+            url
+          }
         }
-      }
-      category {
-        name
-        bgColor
-        textColor
-      }
-      author {
-        name
-        photo {
-          url
+        previous {
+          slug
+          title
+          category {
+            name
+            bgColor
+            textColor
+          }
         }
-      }
-      slug
-      date
-      thumbnail {
-        url
-      }
-    }
-    prevPostData: strapiPost(id: { eq: $prevPostId }) {
-      slug
-      title
-      category {
-        name
-        bgColor
-        textColor
-      }
-    }
-    nextPostData: strapiPost(id: { eq: $nextPostId }) {
-      slug
-      title
-      category {
-        name
-        bgColor
-        textColor
+        next {
+          slug
+          title
+          category {
+            name
+            bgColor
+            textColor
+          }
+        }
       }
     }
   }
