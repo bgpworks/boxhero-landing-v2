@@ -152,8 +152,6 @@ const MobileMenu = ({ onChangeIsShow }) => {
       <DropDown title={t("header:menuLanguage")}>
         <LangOption lang="en" />
         <LangOption lang="ko" />
-        <LangOption lang="es" />
-        <LangOption lang="id" />
       </DropDown>
 
       <div className={styles.startNowContainer}>

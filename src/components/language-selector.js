@@ -89,8 +89,6 @@ export const LangPopup = ({ isShow, onClickClose }) => {
 
         <LangOption lang="en" />
         <LangOption lang="ko" />
-        <LangOption lang="es" />
-        <LangOption lang="id" />
       </div>
     </div>
   );
