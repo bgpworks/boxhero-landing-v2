@@ -6,6 +6,8 @@ author: Junie
 authorPhoto: "../../images/authors/Junie.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Manage assets efficiently to reduce unnecessary spending and improve the decision-making process.
+relPage:
+  - usecase-assets
 ---
 
 Our company encountered difficulties in tracking business assets as it required lots of effort to find them. We knew that the only solution for this problem was to manage them properly to protect our business’s profit. However, our company decided not to process manual asset management since it can bring us inconvenience and gives wrong information and data.
