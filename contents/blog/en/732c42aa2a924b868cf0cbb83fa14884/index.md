@@ -7,7 +7,7 @@ authorPhoto: "../../images/authors/Yuni.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Follow these tips to improve your inventory management and be one step closer to a successful business.
 relPage:
- - usecase-sales
+  - usecase-sales
 ---
 
 Online businesses these days are convenient, popular, and easy to use for both consumers and sellers, and this is one of the reasons why anyone can start an online store easily. However, it is also a challenging business to succeed in, especially when there are so many competitors. Nevertheless, even in the same industry, they all have different ways of managing inventory, so it is necessary to find a way to manage inventory efficiently for each workplace. Usually, when a customer orders from a start-up business, they purchase and deliver goods immediately. This method does not put a strain on inventory, however, as the number of orders or sales increases, there will come a moment where you can no longer operate an online shop by reordering, and you might wonder if there is another way to do this.

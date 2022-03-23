@@ -6,8 +6,6 @@ author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: ./images/thumbnail.jpg
 description: 재고자산을 어떻게 사용해야 효율적인 재고관리가 가능할까요?
-relPage:
-  - usecase-assets
 ---
 
 ## 1. 재고자산이란?

@@ -1,13 +1,11 @@
 ---
-title: 박스히어로 추가기능들에 대해 알아보기! 
+title: 박스히어로 추가기능들에 대해 알아보기!
 date: 2021-09-23 11:00
 category: 기능
 author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: "./images/img_1.jpg"
 description: 박스히어로의 추가기능인 입출고 요약, 과거 수량 조회, 대시보드 기능에 대해 살펴봐요!
-relPage:
-  - usecase-assets
 ---
 
 이번 게시물에서는 박스히어로의 숨겨진 추가 기능들에 대해서 알아보겠습니다!

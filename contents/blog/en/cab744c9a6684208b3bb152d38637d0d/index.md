@@ -6,6 +6,8 @@ author: Junie
 authorPhoto: "../../images/authors/Junie.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Read about the four inventory management techniques for efficient stock control.
+relPage:
+  - usecase-material
 ---
 
 Effective inventory management is a critical aspect of success in a business. That's why several inventory tactics are existing to help you become better at inventorying. In this article, let's learn about four key methods of inventory management that can be applied to most inventory management!

@@ -6,6 +6,8 @@ author: Junie
 authorPhoto: "../../images/authors/Junie.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Satisfy your customers by applying safety stock for good inventory management.
+relPage:
+  - usecase-material
 ---
 
 <gray-box>

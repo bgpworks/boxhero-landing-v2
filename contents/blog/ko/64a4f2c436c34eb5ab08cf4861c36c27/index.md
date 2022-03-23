@@ -6,8 +6,7 @@ author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: "./images/img_1.jpg"
 description: 어렵게만 느껴지는 바코드 생성과 출력, 이해하기 쉽게 알려드려요!
-relPage: 
-  - usecase-sales
+relPage:
   - usecase-assets
 ---
 

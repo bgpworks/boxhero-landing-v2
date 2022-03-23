@@ -49,7 +49,7 @@ export const query = graphql`
         fields: { locale: { eq: $language } },
         frontmatter: { relPage: { eq: "usecase-assets" } }
       }
-      sort: { fields: frontmatter___date }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {
         frontmatter {

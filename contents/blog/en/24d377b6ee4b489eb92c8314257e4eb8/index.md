@@ -6,9 +6,11 @@ author: Junie
 authorPhoto: "../../images/authors/Junie.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Read about how to overcome the challenges of asset management in a small business.
+relPage:
+  - usecase-assets
 ---
 
-Every company needs to keep track of its tools and equipment regularly since it allows you to increase profits and reduce the risk of loss. To do this, you need to manage your assets efficiently with a proper management plan. However, if your company decides to manage and monitor assets manually, it will take lots of time and effort. In addition, it also has a high chance of making mistakes that results in prone to errors, especially when there are too many disorganized assets. Despite everything, good asset management will help you control expenses, meet business goals and production targets. 
+Every company needs to keep track of its tools and equipment regularly since it allows you to increase profits and reduce the risk of loss. To do this, you need to manage your assets efficiently with a proper management plan. However, if your company decides to manage and monitor assets manually, it will take lots of time and effort. In addition, it also has a high chance of making mistakes that results in prone to errors, especially when there are too many disorganized assets. Despite everything, good asset management will help you control expenses, meet business goals and production targets.
 
 So ask yourself first if you have developed a good asset management plan. Aren't you having a hard time managing it? Don't worry. This article will help you process an effective asset management plan to better your decision-making.
 
