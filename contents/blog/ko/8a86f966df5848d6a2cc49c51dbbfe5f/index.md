@@ -6,6 +6,8 @@ author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: "./images/img_1.jpg"
 description: 쇼핑몰 재고들도 박스히어로와 함께 쉽고 완벽하게 재고관리하세요!
+relPage:
+  - usecase-sales
 ---
 
 <gray-box>

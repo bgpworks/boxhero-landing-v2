@@ -6,6 +6,8 @@ author: 김형지
 authorPhoto: "../../images/authors/김형지.jpg"
 thumbnail: "./images/img_1.png"
 description: "[박스히어로 인터뷰 Vol. 02] (주)베르띠 안재환 담당자님"
+relPage:
+  - usecase-sales
 ---
 
 <gray-box title="[박스히어로 인터뷰 vol.02] (주)베르띠">
