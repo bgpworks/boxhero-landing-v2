@@ -6,10 +6,6 @@ author: Yuni
 authorPhoto: "../../images/authors/Yuni.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Learn about the importance and benefits of inventory management.
-relPage:
-  - usecase-sales
-  - usecase-material
-  - usecase-assets
 ---
 
 Inventory management helps small to large businesses to keep track of the number of products they have. Therefore, it is to ensure that there is always enough stock to satisfy customer orders, proper warning of running low stock and restock items to keep selling in order to maintain and handle your inventory properly.

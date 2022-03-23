@@ -6,6 +6,8 @@ author: Junie
 authorPhoto: "../../images/authors/Junie.jpg"
 thumbnail: "./images/img_1.jpg"
 description: Inventory management is the start to business streamlining.
+relPage:
+  - usecase-sales
 ---
 
 ## What’s Important in Ecommerce Inventory Management
