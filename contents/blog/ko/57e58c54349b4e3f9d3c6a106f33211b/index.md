@@ -6,6 +6,8 @@ author: 김형지
 authorPhoto: "../../images/authors/김형지.jpg"
 thumbnail: "./images/img_1.png"
 description: "[박스히어로 인터뷰 Vol. 03] (주)유알오 이철우 담당자님"
+relPage:
+  - usecase-material
 ---
 
 <gray-box title="[박스히어로 인터뷰 vol.03] (주)유알오">

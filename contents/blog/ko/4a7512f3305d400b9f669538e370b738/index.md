@@ -6,6 +6,8 @@ author: 박채림
 authorPhoto: "../../images/authors/박채림.jpg"
 thumbnail: "./images/img_1.jpg"
 description: 효과적인 재고관리를 위해서는 관리하고 있는 재고에 대해 명확하게 파악하는 것이 매우 중요해요!
+relPage:
+  - usecase-material
 ---
 
 효과적인 재고관리를 위해서는 관리하고 있는 재고에 대해 명확하게 파악하는 것이 매우 중요해요! 재고에 대해 알아야 그 재고에 맞게 관리가 가능하겠죠? 그러므로 **'재고분석'** 기능이 꼭 필요합니다.
