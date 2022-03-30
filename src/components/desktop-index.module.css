@@ -425,3 +425,48 @@
 .startNowDetailLink img {
   vertical-align: middle;
 }
+
+.introVideoBtn {
+  appearance: none;
+  background: none;
+
+  width: 243px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.introVideoLabel {
+  color: white;
+  font-size: var(--font-size-b16);
+  font-weight: bold;
+}
+
+.playSymbol {
+  width: 24px;
+  height: 24px;
+
+  margin-right: 8px;
+}
+
+.introVideoSection {
+  padding: 20px 0;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.introVideo {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

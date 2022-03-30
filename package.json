@@ -33,6 +33,7 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "11.11.4",
     "react-indiana-drag-scroll": "2.0.1",
+    "react-youtube": "^7.14.0",
     "rehype-react": "^7.0.0",
     "slugify": "^1.6.0"
   },

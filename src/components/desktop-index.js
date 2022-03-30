@@ -3,6 +3,7 @@
 
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
+import YouTube from "react-youtube";
 import {
   CarouselProvider,
   Slider,
@@ -223,7 +224,7 @@ const TopLeftContainer = ({ t }) => (
       {t("index:topStartNowButton")}
     </StartNowButton>
     <Padding y={12} />
-    <ConsultingButton />
+    <ConsultingButton transparent={false} />
   </div>
 );
 
@@ -584,6 +585,24 @@ const StartNow = ({ data, t }) => (
   </div>
 );
 
+const IntroVideo = () => (
+  <DesktopBaseContainer className={styles.introVideoSection}>
+    <div className={styles.videoWrapper}>
+      <YouTube
+        containerClassName={styles.introVideo}
+        videoId="ILKGTPjZWZM"
+        opts={{
+          width: "100%",
+          height: "100%",
+          playerVars: {
+            autoplay: 1, loop: 1, playlist: "ILKGTPjZWZM",
+          },
+        }}
+      />
+    </div>
+  </DesktopBaseContainer>
+);
+
 const DesktopIndex = ({ data, language, t }) => (
   <DesktopLayout
     isFloatMenu
@@ -595,6 +614,8 @@ const DesktopIndex = ({ data, language, t }) => (
       t={t}
       language={language}
     />
+
+    <IntroVideo />
 
     <Chatting
       t={t}

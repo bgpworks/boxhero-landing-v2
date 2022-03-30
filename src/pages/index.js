@@ -7,12 +7,14 @@ import { Media } from "../media";
 import DesktopIndex from "../components/desktop-index";
 import MobileIndex from "../components/mobile-index";
 import { useHelpscout } from "../components/helpscout";
+import YoutubePopup, { YoutubePopupProvider } from "../components/YoutubePopup";
 
 const IndexPage = ({ data, location }) => {
   const { language, t } = useI18next();
   useHelpscout();
+
   return (
-    <>
+    <YoutubePopupProvider>
       <SEOHelmet
         lang={language}
         title={t("index:pageTitle")}
@@ -35,7 +37,8 @@ const IndexPage = ({ data, location }) => {
           t={t}
         />
       </Media>
-    </>
+      <YoutubePopup />
+    </YoutubePopupProvider>
   );
 };
 

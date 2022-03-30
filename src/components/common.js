@@ -4,8 +4,10 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
+import cn from "classnames";
 import * as styles from "./common.module.css";
 import svgConsulting from "../images/icon-consulting.svg";
+import svgConsultingDark from "../images/icon-consulting-dark.svg";
 import svgEye from "../images/icon-eye.svg";
 import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
@@ -59,8 +61,10 @@ Padding.defaultProps = {
   y: 0,
 };
 
-export const ConsultingButton = () => {
+export const ConsultingButton = ({ transparent = true }) => {
   const { t, language } = useI18next();
+  const consultingIcon = transparent ? svgConsulting : svgConsultingDark;
+
   return (
     <a
       href={language === "ko" ? urlConsultingKo : urlConsultingEn}
@@ -69,11 +73,11 @@ export const ConsultingButton = () => {
     >
       <button
         type="button"
-        className={styles.consultingButton}
+        className={cn(styles.consultingButton, { [styles.transparent]: transparent })}
       >
         <img
           className={styles.topButtonIcon}
-          src={svgConsulting}
+          src={consultingIcon}
           alt={t("index:consultingButton")}
         />
         {t("index:consultingButton")}
@@ -109,7 +113,7 @@ export const SpeechBubbleContainer = ({
   colorSequence = DEFAULT_CHATTING_COLOR_SEQUENCE,
 }) => {
   const containerWidth = COLUMN_WIDTH * containerGridColumns
-  + GUTTER_WIDTH * (containerGridColumns - 1);
+    + GUTTER_WIDTH * (containerGridColumns - 1);
   const colorSeqquenceIterator = (idx) => {
     const derivedIdx = idx % colorSequence.length;
     return colorSequence[derivedIdx];
