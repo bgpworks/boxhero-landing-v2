@@ -595,7 +595,7 @@ const IntroVideo = () => (
           width: "100%",
           height: "100%",
           playerVars: {
-            autoplay: 1, loop: 1, playlist: "ILKGTPjZWZM",
+            autoplay: 1, loop: 1, playlist: "ILKGTPjZWZM", mute: 1,
           },
         }}
       />
