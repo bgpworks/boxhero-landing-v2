@@ -4,6 +4,7 @@ import React, {
 } from "react";
 import YouTube from "react-youtube";
 import RootMounted from "./RootMounted";
+import svgClose from "../images/icon-close.svg";
 import * as styles from "./YoutubePopup.module.css";
 
 export const YoutubePopupContext = React.createContext({
@@ -33,8 +34,21 @@ export const YoutubePopupProvider = ({ children }) => {
   );
 };
 
+const CloseButton = ({ onClick }) => (
+  <button
+    type="button"
+    onClick={onClick}
+  >
+    <img
+      src={svgClose}
+      className={styles.closeButton}
+      alt="close-btn"
+    />
+  </button>
+);
+
 export default () => {
-  const { videoId, opts } = useContext(YoutubePopupContext);
+  const { videoId, opts, closeYoutube } = useContext(YoutubePopupContext);
   const [playerSize, setPlayerSize] = useState(null);
   const [wrapperElm, setWrapperElm] = useState(null);
 
@@ -80,6 +94,7 @@ export default () => {
             />
           )}
         </div>
+        <CloseButton onClick={closeYoutube} />
       </div>
     </RootMounted>
   );

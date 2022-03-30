@@ -1,9 +1,8 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React from "react";
+import React, { useContext } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import YouTube from "react-youtube";
 import {
   CarouselProvider,
   Slider,
@@ -11,7 +10,7 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
-import { Link, Trans } from "gatsby-plugin-react-i18next";
+import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
@@ -43,7 +42,9 @@ import svgDashboard from "../images/icon-dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
+import svgPlay from "../images/icon-play.svg";
 import CustomDotGroup from "./custom-dot-group";
+import { YoutubePopupContext } from "./YoutubePopup";
 
 const CHATTING_COLOR_SEQUENCE = [
   { text: "#292a2f", background: "#fbc200" },
@@ -205,28 +206,62 @@ function genFeatureData(data, t) {
   ];
 }
 
-const TopLeftContainer = ({ t }) => (
-  <div>
-    <div className={styles.topLeftTitle}>
-      <Trans i18nKey="index:topTitle" />
-    </div>
-    <Padding y={30} />
-    <div className={styles.topLeftDescription}>
-      <Trans i18nKey="index:topDesc" />
-    </div>
-    <Padding y={30} />
-    <StartNowButton className={styles.startNowButton}>
+const IntroVideoBtn = () => {
+  const { openYoutube } = useContext(YoutubePopupContext);
+
+  return (
+    <button
+      type="button"
+      className={styles.introVideoBtn}
+      onClick={() => {
+        openYoutube("8Qr4q2qUlzs", { playerVars: { autoplay: 1, loop: 1, playlist: "8Qr4q2qUlzs" } });
+      }}
+    >
       <img
-        className={styles.topButtonIcon}
-        src={svgVolt}
-        alt={t("index:topIconAlt")}
+        className={styles.playSymbol}
+        src={svgPlay}
+        alt="play icon"
       />
-      {t("index:topStartNowButton")}
-    </StartNowButton>
-    <Padding y={12} />
-    <ConsultingButton transparent={false} />
-  </div>
-);
+      <span className={styles.introVideoLabel}>
+        소개 영상 보기
+      </span>
+    </button>
+  );
+};
+
+const TopLeftContainer = () => {
+  const { t, language } = useI18next();
+
+  return (
+    <div>
+      <div className={styles.topLeftTitle}>
+        <Trans i18nKey="index:topTitle" />
+      </div>
+      <Padding y={30} />
+      <div className={styles.topLeftDescription}>
+        <Trans i18nKey="index:topDesc" />
+      </div>
+      <Padding y={30} />
+      <StartNowButton className={styles.startNowButton}>
+        <img
+          className={styles.topButtonIcon}
+          src={svgVolt}
+          alt={t("index:topIconAlt")}
+        />
+        {t("index:topStartNowButton")}
+      </StartNowButton>
+      <Padding y={12} />
+      <ConsultingButton transparent={false} />
+      {language === "ko"
+        && (
+          <>
+            <Padding y={22} />
+            <IntroVideoBtn />
+          </>
+        )}
+    </div>
+  );
+};
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -585,24 +620,6 @@ const StartNow = ({ data, t }) => (
   </div>
 );
 
-const IntroVideo = () => (
-  <DesktopBaseContainer className={styles.introVideoSection}>
-    <div className={styles.videoWrapper}>
-      <YouTube
-        containerClassName={styles.introVideo}
-        videoId="ILKGTPjZWZM"
-        opts={{
-          width: "100%",
-          height: "100%",
-          playerVars: {
-            autoplay: 1, loop: 1, playlist: "ILKGTPjZWZM", mute: 1,
-          },
-        }}
-      />
-    </div>
-  </DesktopBaseContainer>
-);
-
 const DesktopIndex = ({ data, language, t }) => (
   <DesktopLayout
     isFloatMenu
@@ -614,8 +631,6 @@ const DesktopIndex = ({ data, language, t }) => (
       t={t}
       language={language}
     />
-
-    <IntroVideo />
 
     <Chatting
       t={t}
