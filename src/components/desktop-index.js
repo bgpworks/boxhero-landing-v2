@@ -623,7 +623,6 @@ const StartNow = ({ data, t }) => (
 const Customers = ({ data }) => {
   const { language } = useI18next();
   const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
-  console.log(customerList);
 
   return (
     <div className={styles.customersSection}>

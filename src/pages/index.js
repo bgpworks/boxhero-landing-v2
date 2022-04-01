@@ -1280,7 +1280,10 @@ export const query = graphql`
         )
       }
     }
-    koCustomers: allFile(filter: {relativeDirectory: {eq: "ko/customers"}}) {
+    koCustomers: allFile(
+      filter: {relativeDirectory: {eq: "ko/customers"}}
+      sort: {fields: name, order: ASC}
+      ) {
       nodes {
         name
         childImageSharp {
@@ -1292,7 +1295,10 @@ export const query = graphql`
           }
         }
       }
-      enCustomers: allFile(filter: {relativeDirectory: {eq: "en/customers"}}) {
+      enCustomers: allFile(
+        filter: {relativeDirectory: {eq: "en/customers"}}
+        sort: {fields: name, order: ASC}
+        ) {
       nodes {
         name
         childImageSharp {
