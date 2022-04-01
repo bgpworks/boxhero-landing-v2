@@ -1286,6 +1286,7 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(
             layout: CONSTRAINED,
+            placeholder: BLURRED
             transformOptions: {fit: COVER}
             )
           }
@@ -1297,6 +1298,7 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(
             layout: CONSTRAINED,
+            placeholder: BLURRED
             transformOptions: {fit: COVER}
             )
           }
