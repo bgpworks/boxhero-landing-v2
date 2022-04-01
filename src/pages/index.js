@@ -1280,5 +1280,27 @@ export const query = graphql`
         )
       }
     }
+    koCustomers: allFile(filter: {relativeDirectory: {eq: "ko/customers"}}) {
+      nodes {
+        name
+        childImageSharp {
+          gatsbyImageData(
+            layout: CONSTRAINED,
+            transformOptions: {fit: COVER}
+            )
+          }
+        }
+      }
+      enCustomers: allFile(filter: {relativeDirectory: {eq: "en/customers"}}) {
+      nodes {
+        name
+        childImageSharp {
+          gatsbyImageData(
+            layout: CONSTRAINED,
+            transformOptions: {fit: COVER}
+            )
+          }
+        }
+      }
   }
 `;

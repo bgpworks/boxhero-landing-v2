@@ -478,7 +478,7 @@ const CustomerCard = ({
   </div>
 );
 
-const Customers = ({ data, t }) => {
+const Sectors = ({ data, t }) => {
   const customerData = genCustomerData(data);
 
   return (
@@ -620,6 +620,36 @@ const StartNow = ({ data, t }) => (
   </div>
 );
 
+const Customers = ({ data }) => {
+  const { language } = useI18next();
+  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
+  console.log(customerList);
+
+  return (
+    <div className={styles.customersSection}>
+      <DesktopBaseContainer className={styles.customersContentContainer}>
+        <h2 className={styles.customersTitle}>
+          성공하는 비즈니스의 재고 관리 공식
+        </h2>
+        <p className={styles.customersDesc}>
+          이미 전세계에서 박스히어로를 사용하고 있습니다.
+        </p>
+        <div className={styles.customerList}>
+          {customerList.map(({ name, childImageSharp }) => (
+            <div className={styles.customerBlock}>
+              <GatsbyImage
+                image={childImageSharp.gatsbyImageData}
+                alt={name}
+              />
+            </div>
+          ))}
+        </div>
+
+      </DesktopBaseContainer>
+    </div>
+  );
+};
+
 const DesktopIndex = ({ data, language, t }) => (
   <DesktopLayout
     isFloatMenu
@@ -631,6 +661,8 @@ const DesktopIndex = ({ data, language, t }) => (
       t={t}
       language={language}
     />
+
+    <Customers data={data} />
 
     <Chatting
       t={t}
@@ -652,7 +684,7 @@ const DesktopIndex = ({ data, language, t }) => (
       t={t}
     />
 
-    <Customers
+    <Sectors
       data={data}
       t={t}
     />
