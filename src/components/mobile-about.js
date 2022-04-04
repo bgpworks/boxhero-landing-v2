@@ -273,7 +273,6 @@ const MobileAbout = ({ data, t }) => (
     isFloatMenu
     closingEmoji={data.mobileLight}
     closingMsg={t("about:closingMsg")}
-    hideFloatAppInstallButton
   >
     <Top
       data={data}

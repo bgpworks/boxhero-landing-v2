@@ -710,7 +710,6 @@ const MobileIndex = ({ data, language, t }) => (
     isFloatMenu
     closingEmoji={data.mobileCoffee}
     closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
-    hideFloatAppInstallButton
   >
     <Top
       data={data}
