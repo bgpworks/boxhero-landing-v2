@@ -24,6 +24,7 @@ import {
   GradientBG,
   PhotoWall,
   DarkAppInstallButton,
+  IntroVideoBtn,
   FlatIntroVideoBtn,
   OnlyKorean,
 } from "./common";
@@ -36,6 +37,7 @@ import svgVolt from "../images/volt.svg";
 import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
+import svgPlayPrimary from "../images/icon-play-primary.svg";
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -90,6 +92,28 @@ const CHATTING_COLOR_SEQUENCE = [
   { text: "white", background: "rgba(251, 97, 100, 0.6)" },
 ];
 
+const IntroVideoBtnInChatting = () => {
+  const { t } = useI18next();
+
+  return (
+    <IntroVideoBtn className={styles.introVideoBtnInChatting}>
+      <img
+        className={styles.introVideoBtnInChattingPlaySymbol}
+        src={svgPlayPrimary}
+        alt="icon play"
+      />
+      <span className={styles.introVideoBtnInChattingLabel}>
+        {t("index:chattingIntroVideoBtnLabel")}
+      </span>
+      <img
+        className={styles.introVideoBtnInChattingArrowSymbol}
+        src={svgRightArrow}
+        alt="icon arrow"
+      />
+    </IntroVideoBtn>
+  );
+};
+
 const Chatting = () => {
   const speechBubbles = [
     { text: <Trans i18nKey="index:chattingBubble1Mobile" /> },
@@ -115,6 +139,7 @@ const Chatting = () => {
       <p className={styles.chattingDescription}>
         <Trans i18nKey="index:chattingDescription" />
       </p>
+      <IntroVideoBtnInChatting />
     </MobileBaseContainer>
   );
 };

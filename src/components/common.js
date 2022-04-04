@@ -180,7 +180,7 @@ export const IntroVideoBtn = ({ className, children }) => {
   return (
     <button
       type="button"
-      className={className}
+      className={cn(styles.introVideoBtn, className)}
       onClick={() => {
         openYoutube(INTRO_VIDEO_YOUTUBE_ID,
           {
@@ -203,7 +203,7 @@ export const FlatIntroVideoBtn = ({ className }) => {
   return (
     <IntroVideoBtn
       type="button"
-      className={cn(styles.introVideoBtn, className)}
+      className={className}
     >
       <img
         className={styles.playSymbol}

@@ -478,10 +478,6 @@
 }
 
 .introVideoBtnInChatting {
-  appearance: none;
-
-  display: flex;
-  align-items: center;
   min-height: 60px;
   border-radius: 30px;
 

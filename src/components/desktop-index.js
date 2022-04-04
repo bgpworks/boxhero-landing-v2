@@ -1,7 +1,7 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React, { useContext } from "react";
+import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import {
   CarouselProvider,
@@ -23,6 +23,7 @@ import {
   PhotoWall,
   OnlyKorean,
   FlatIntroVideoBtn,
+  IntroVideoBtn,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -48,9 +49,6 @@ import svgSwipeRight from "../images/swiperight.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import CustomDotGroup from "./custom-dot-group";
-import { YoutubePopupContext } from "./YoutubePopup";
-
-const INTRO_VIDEO_YOUTUBE_ID = "8Qr4q2qUlzs";
 
 const CHATTING_COLOR_SEQUENCE = [
   { text: "#292a2f", background: "#fbc200" },
@@ -260,23 +258,9 @@ const Top = ({ data, t }) => (
 
 const IntroVideoBtnInChatting = () => {
   const { t } = useI18next();
-  const { openYoutube } = useContext(YoutubePopupContext);
 
   return (
-    <button
-      type="button"
-      className={styles.introVideoBtnInChatting}
-      onClick={() => {
-        openYoutube(INTRO_VIDEO_YOUTUBE_ID,
-          {
-            playerVars: {
-              autoplay: 1,
-              loop: 1,
-              playlist: INTRO_VIDEO_YOUTUBE_ID,
-            },
-          });
-      }}
-    >
+    <IntroVideoBtn className={styles.introVideoBtnInChatting}>
       <img
         className={styles.introVideoBtnInChattingPlaySymbol}
         src={svgPlayPrimary}
@@ -290,7 +274,7 @@ const IntroVideoBtnInChatting = () => {
         src={svgRightArrow}
         alt="icon arrow"
       />
-    </button>
+    </IntroVideoBtn>
   );
 };
 

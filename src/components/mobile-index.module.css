@@ -491,10 +491,25 @@
   padding: 50px 0;
 }
 
-.appDownloadButton {
-  color: white;
-  background-color: black;
-  border-radius: 6px;
-  min-height: 44px;
+.introVideoBtnInChatting {
+  margin: 15px auto 0;
+}
 
+.introVideoBtnInChattingPlaySymbol {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.introVideoBtnInChattingArrowSymbol {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.introVideoBtnInChattingLabel {
+  color: var(--color-primary);
+  font-size: var(--font-size-b16);
+  font-weight: bold;
+  line-height: 1.5em;
 }
