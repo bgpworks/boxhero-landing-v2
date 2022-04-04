@@ -203,7 +203,7 @@
 .appDownloadButtonInHeader {
   display: flex;
   min-height: 29px;
-  padding: 5px 12px;
+  padding: 4px 12px 6px;
   border-radius: 15px;
   background-color: var(--color-primary);
 
