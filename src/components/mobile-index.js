@@ -450,10 +450,6 @@ const Sectors = ({ data, t }) => {
       <h1 className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
       </h1>
-      <Padding y={16} />
-      <p className={styles.customersDesc}>
-        <Trans i18nKey="index:customerDesc" />
-      </p>
 
       <Padding y={40} />
 
