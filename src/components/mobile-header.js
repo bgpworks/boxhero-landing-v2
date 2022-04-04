@@ -194,6 +194,7 @@ const MobileHeader = ({ isFloatMenu }) => {
   const { isScrolled } = useCheckScrolled();
 
   const isBackgroundWhite = !isFloatMenu || isScrolled || isShow;
+
   return (
     <>
       <header
@@ -210,7 +211,7 @@ const MobileHeader = ({ isFloatMenu }) => {
           />
         </Link>
         <div className={styles.controls}>
-          {isBackgroundWhite && <AppDownloadLinkInHeader />}
+          {(isBackgroundWhite && !isShow) && <AppDownloadLinkInHeader />}
           <button
             type="button"
             className={cn(styles.menuBtn, { [styles.isOpen]: isShow })}
