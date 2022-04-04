@@ -21,6 +21,7 @@ import {
   SpeechBubbleContainer,
   ConsultingButton,
   PhotoWall,
+  OnlyKorean,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -44,8 +45,12 @@ import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 import svgPlay from "../images/icon-play.svg";
+import svgPlayPrimary from "../images/icon-play-primary.svg";
+import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import CustomDotGroup from "./custom-dot-group";
 import { YoutubePopupContext } from "./YoutubePopup";
+
+const INTRO_VIDEO_YOUTUBE_ID = "8Qr4q2qUlzs";
 
 const CHATTING_COLOR_SEQUENCE = [
   { text: "#292a2f", background: "#fbc200" },
@@ -208,6 +213,7 @@ function genFeatureData(data, t) {
 }
 
 const IntroVideoBtn = () => {
+  const { t } = useI18next();
   const { openYoutube } = useContext(YoutubePopupContext);
 
   return (
@@ -215,7 +221,14 @@ const IntroVideoBtn = () => {
       type="button"
       className={styles.introVideoBtn}
       onClick={() => {
-        openYoutube("8Qr4q2qUlzs", { playerVars: { autoplay: 1, loop: 1, playlist: "8Qr4q2qUlzs" } });
+        openYoutube(INTRO_VIDEO_YOUTUBE_ID,
+          {
+            playerVars: {
+              autoplay: 1,
+              loop: 1,
+              playlist: INTRO_VIDEO_YOUTUBE_ID,
+            },
+          });
       }}
     >
       <img
@@ -224,45 +237,38 @@ const IntroVideoBtn = () => {
         alt="play icon"
       />
       <span className={styles.introVideoLabel}>
-        소개 영상 보기
+        {t("index:introVideoBtnLabel")}
       </span>
     </button>
   );
 };
 
-const TopLeftContainer = () => {
-  const { t, language } = useI18next();
-
-  return (
-    <div>
-      <div className={styles.topLeftTitle}>
-        <Trans i18nKey="index:topTitle" />
-      </div>
-      <Padding y={30} />
-      <div className={styles.topLeftDescription}>
-        <Trans i18nKey="index:topDesc" />
-      </div>
-      <Padding y={30} />
-      <StartNowButton className={styles.startNowButton}>
-        <img
-          className={styles.topButtonIcon}
-          src={svgVolt}
-          alt={t("index:topIconAlt")}
-        />
-        {t("index:topStartNowButton")}
-      </StartNowButton>
-      <Padding y={12} />
-      <ConsultingButton transparent={false} />
-      {language === "ko"
-        && (
-          <>
-            <Padding y={22} />
-            <IntroVideoBtn />
-          </>
-        )}
+const TopLeftContainer = ({ t }) => (
+  <div>
+    <div className={styles.topLeftTitle}>
+      <Trans i18nKey="index:topTitle" />
     </div>
-  );
-};
+    <Padding y={30} />
+    <div className={styles.topLeftDescription}>
+      <Trans i18nKey="index:topDesc" />
+    </div>
+    <Padding y={30} />
+    <StartNowButton className={styles.startNowButton}>
+      <img
+        className={styles.topButtonIcon}
+        src={svgVolt}
+        alt={t("index:topIconAlt")}
+      />
+      {t("index:topStartNowButton")}
+    </StartNowButton>
+    <Padding y={12} />
+    <ConsultingButton transparent={false} />
+    <OnlyKorean>
+      <Padding y={22} />
+      <IntroVideoBtn />
+    </OnlyKorean>
+  </div>
+);
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -282,6 +288,42 @@ const Top = ({ data, t }) => (
     </DesktopBaseContainer>
   </GradientBG>
 );
+
+const IntroVideoBtnInChatting = () => {
+  const { t } = useI18next();
+  const { openYoutube } = useContext(YoutubePopupContext);
+
+  return (
+    <button
+      type="button"
+      className={styles.introVideoBtnInChatting}
+      onClick={() => {
+        openYoutube(INTRO_VIDEO_YOUTUBE_ID,
+          {
+            playerVars: {
+              autoplay: 1,
+              loop: 1,
+              playlist: INTRO_VIDEO_YOUTUBE_ID,
+            },
+          });
+      }}
+    >
+      <img
+        className={styles.introVideoBtnInChattingPlaySymbol}
+        src={svgPlayPrimary}
+        alt="icon play"
+      />
+      <span className={styles.introVideoBtnInChattingLabel}>
+        {t("index:chattingIntroVideoBtnLabel")}
+      </span>
+      <img
+        className={styles.introVideoBtnInChattingArrowSymbol}
+        src={svgRightArrow}
+        alt="icon arrow"
+      />
+    </button>
+  );
+};
 
 const Chatting = ({ t, language }) => {
   const speechBubblesByLanguageMap = genBubblesMap(t);
@@ -303,6 +345,10 @@ const Chatting = ({ t, language }) => {
         <div className={styles.chattingDescription}>
           <Trans i18nKey="index:chattingDescription" />
         </div>
+        <OnlyKorean>
+          <Padding y={30} />
+          <IntroVideoBtnInChatting />
+        </OnlyKorean>
       </DesktopBaseContainer>
     </div>
   );
@@ -487,10 +533,6 @@ const Sectors = ({ data, t }) => {
       <div className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
       </div>
-      <Padding y={16} />
-      <div className={styles.customersDesc}>
-        <Trans i18nKey="index:customerDesc" />
-      </div>
 
       <Padding y={50} />
 
@@ -633,7 +675,7 @@ const Customer = ({ data }) => {
 };
 
 const Customers = ({ data }) => {
-  const { language } = useI18next();
+  const { language, t } = useI18next();
   const columnCount = language === "ko" ? 6 : 5;
   const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
 
@@ -641,10 +683,10 @@ const Customers = ({ data }) => {
     <div className={styles.customersSection}>
       <DesktopBaseContainer className={styles.customersContentContainer}>
         <h2 className={styles.customersTitle}>
-          성공하는 비즈니스의 재고 관리 공식
+          {t("index:customerSectionTitle")}
         </h2>
         <p className={styles.customersDesc}>
-          이미 전세계에서 박스히어로를 사용하고 있습니다.
+          {t("index:customerSectionDesc")}
         </p>
         <PhotoWall
           items={customerList}

@@ -501,6 +501,14 @@ export const GradientBG = ({
   </div>
 );
 
+export const OnlyKorean = ({ children }) => {
+  const { language } = useI18next();
+
+  if (language !== "ko") return null;
+
+  return children;
+};
+
 const normalizeUnit = (num) => `${num}px`;
 
 export const PhotoWall = ({
