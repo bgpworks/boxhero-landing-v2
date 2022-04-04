@@ -49,8 +49,7 @@ const CloseButton = ({ onClick }) => (
 
 export default () => {
   const { videoId, opts, closeYoutube } = useContext(YoutubePopupContext);
-  const [playerWidth, setPlayerWidth] = useState(null);
-  const [playerHeight, setPlayerHeight] = useState(null);
+  const [playerSize, setPlayerSize] = useState(null);
   const [wrapperElm, setWrapperElm] = useState(null);
 
   const playerSizeUpdater = useCallback(() => {
@@ -59,8 +58,10 @@ export default () => {
     const { width, height } = wrapperElm.getBoundingClientRect();
     const derivedHeight = Math.min(width * 0.5625, height);
 
-    setPlayerHeight(derivedHeight);
-    setPlayerWidth(derivedHeight * 1.77);
+    setPlayerSize({
+      width: derivedHeight * 1.77,
+      height: derivedHeight,
+    });
   }, [wrapperElm]);
 
   useEffect(() => {
@@ -74,7 +75,7 @@ export default () => {
 
   if (!videoId) return null;
 
-  const derivedOpts = { ...opts, ...{ width: playerWidth, height: playerHeight } };
+  const derivedOpts = { ...opts, ...playerSize };
 
   return (
     <RootMounted>
@@ -83,7 +84,7 @@ export default () => {
           ref={(elm) => setWrapperElm(elm)}
           className={styles.playerWrapper}
         >
-          {(playerWidth && playerHeight) && (
+          {playerSize && (
             <YouTube
               videoId={videoId}
               opts={derivedOpts}
