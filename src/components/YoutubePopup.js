@@ -73,7 +73,6 @@ export default () => {
   if (!videoId) return null;
 
   const derivedOpts = { ...opts, ...playerSize };
-  const { autoPlay } = derivedOpts?.playerVars ?? {};
 
   return (
     <RootMounted>
@@ -86,11 +85,6 @@ export default () => {
             <YouTube
               videoId={videoId}
               opts={derivedOpts}
-              onReady={(evt) => {
-                if (autoPlay === 1) {
-                  evt.target.playVideo();
-                }
-              }}
             />
           )}
         </div>

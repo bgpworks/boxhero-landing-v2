@@ -185,9 +185,14 @@ export const IntroVideoBtn = ({ className, children }) => {
         openYoutube(INTRO_VIDEO_YOUTUBE_ID,
           {
             playerVars: {
+              origin: "https://www.boxhero-app.com",
               autoplay: 1,
-              loop: 1,
               mute: 1,
+              controls: 1,
+              playsinline: 1,
+              rel: 0,
+              modestbranding: 1,
+              loop: 1,
               playlist: INTRO_VIDEO_YOUTUBE_ID,
             },
           });
