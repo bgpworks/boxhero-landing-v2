@@ -395,3 +395,25 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.introVideoBtn {
+  appearance: none;
+  background: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.introVideoLabel {
+  color: white;
+  font-size: var(--font-size-b16);
+  font-weight: bold;
+}
+
+.playSymbol {
+  width: 24px;
+  height: 24px;
+
+  margin-right: 8px;
+}

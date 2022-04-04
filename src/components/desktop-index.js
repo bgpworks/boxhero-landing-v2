@@ -22,6 +22,7 @@ import {
   ConsultingButton,
   PhotoWall,
   OnlyKorean,
+  FlatIntroVideoBtn,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -44,7 +45,6 @@ import svgDashboard from "../images/icon-dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
-import svgPlay from "../images/icon-play.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import CustomDotGroup from "./custom-dot-group";
@@ -212,37 +212,6 @@ function genFeatureData(data, t) {
   ];
 }
 
-const IntroVideoBtn = () => {
-  const { t } = useI18next();
-  const { openYoutube } = useContext(YoutubePopupContext);
-
-  return (
-    <button
-      type="button"
-      className={styles.introVideoBtn}
-      onClick={() => {
-        openYoutube(INTRO_VIDEO_YOUTUBE_ID,
-          {
-            playerVars: {
-              autoplay: 1,
-              loop: 1,
-              playlist: INTRO_VIDEO_YOUTUBE_ID,
-            },
-          });
-      }}
-    >
-      <img
-        className={styles.playSymbol}
-        src={svgPlay}
-        alt="play icon"
-      />
-      <span className={styles.introVideoLabel}>
-        {t("index:introVideoBtnLabel")}
-      </span>
-    </button>
-  );
-};
-
 const TopLeftContainer = ({ t }) => (
   <div>
     <div className={styles.topLeftTitle}>
@@ -265,7 +234,7 @@ const TopLeftContainer = ({ t }) => (
     <ConsultingButton transparent={false} />
     <OnlyKorean>
       <Padding y={22} />
-      <IntroVideoBtn />
+      <FlatIntroVideoBtn className={styles.introVideoBtn} />
     </OnlyKorean>
   </div>
 );

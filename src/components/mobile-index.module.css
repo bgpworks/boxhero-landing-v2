@@ -490,3 +490,11 @@
 .customersContentContainer {
   padding: 50px 0;
 }
+
+.appDownloadButton {
+  color: white;
+  background-color: black;
+  border-radius: 6px;
+  min-height: 44px;
+
+}

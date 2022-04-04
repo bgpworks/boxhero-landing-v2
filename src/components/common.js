@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
 import cn from "classnames";
+import { YoutubePopupContext } from "./YoutubePopup";
 import * as styles from "./common.module.css";
 import svgConsulting from "../images/icon-consulting.svg";
 import svgConsultingDark from "../images/icon-consulting-dark.svg";
@@ -13,6 +14,7 @@ import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import svgDownload from "../images/download.svg";
+import svgPlay from "../images/icon-play.svg";
 import {
   urlConsultingKo,
   urlConsultingEn,
@@ -154,6 +156,67 @@ export const StartNowButton = ({ className, children }) => (
   </ExternalLinkWithQuery>
 );
 
+export const DarkAppInstallButton = ({ label }) => (
+  <AppDownloadLink>
+    <button
+      type="button"
+      className={styles.appDownloadButton}
+    >
+      <img
+        className={styles.appDownloadIcon}
+        src={svgDownload}
+        alt={label}
+      />
+      {label}
+    </button>
+  </AppDownloadLink>
+);
+
+const INTRO_VIDEO_YOUTUBE_ID = "8Qr4q2qUlzs";
+
+export const IntroVideoBtn = ({ className, children }) => {
+  const { openYoutube } = useContext(YoutubePopupContext);
+
+  return (
+    <button
+      type="button"
+      className={className}
+      onClick={() => {
+        openYoutube(INTRO_VIDEO_YOUTUBE_ID,
+          {
+            playerVars: {
+              autoplay: 1,
+              loop: 1,
+              playlist: INTRO_VIDEO_YOUTUBE_ID,
+            },
+          });
+      }}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const FlatIntroVideoBtn = ({ className }) => {
+  const { t } = useI18next();
+
+  return (
+    <IntroVideoBtn
+      type="button"
+      className={cn(styles.introVideoBtn, className)}
+    >
+      <img
+        className={styles.playSymbol}
+        src={svgPlay}
+        alt="play icon"
+      />
+      <span className={styles.introVideoLabel}>
+        {t("index:introVideoBtnLabel")}
+      </span>
+    </IntroVideoBtn>
+  );
+};
+
 export const UseCaseTop = ({
   className, title, description, startNow, img,
 }) => (
@@ -188,19 +251,7 @@ export const MobileUseCaseTop = ({
       <Padding y={16} />
       <p className={styles.mobileUseCaseTopDesc}>{description}</p>
       <Padding y={40} />
-      <AppDownloadLink>
-        <button
-          type="button"
-          className={styles.appDownloadButton}
-        >
-          <img
-            className={styles.appDownloadIcon}
-            src={svgDownload}
-            alt={appDownload}
-          />
-          {appDownload}
-        </button>
-      </AppDownloadLink>
+      <DarkAppInstallButton label={appDownload} />
       <Padding y={40} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}

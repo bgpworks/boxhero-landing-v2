@@ -48,6 +48,10 @@
   border-radius: 6px;
 }
 
+.introVideoBtn {
+  width: 243px;
+}
+
 .topButtonIcon {
   width: 24px;
   height: 24px;
@@ -449,29 +453,6 @@
 
 .startNowDetailLink img {
   vertical-align: middle;
-}
-
-.introVideoBtn {
-  appearance: none;
-  background: none;
-
-  width: 243px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.introVideoLabel {
-  color: white;
-  font-size: var(--font-size-b16);
-  font-weight: bold;
-}
-
-.playSymbol {
-  width: 24px;
-  height: 24px;
-
-  margin-right: 8px;
 }
 
 .introVideoSection {

@@ -23,6 +23,9 @@ import {
   SpeechBubbleContainer,
   GradientBG,
   PhotoWall,
+  DarkAppInstallButton,
+  FlatIntroVideoBtn,
+  OnlyKorean,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -54,6 +57,12 @@ const Top = ({ data, t }) => (
       <p className={styles.topDescription}>
         <Trans i18nKey="index:topDescMobile" />
       </p>
+      <Padding y={60} />
+      <DarkAppInstallButton label={t("usecase:appInstall")} />
+      <OnlyKorean>
+        <Padding y={16} />
+        <FlatIntroVideoBtn />
+      </OnlyKorean>
     </MobileBaseContainer>
     <ScrollContainer
       vertical={false}
@@ -677,6 +686,7 @@ const MobileIndex = ({ data, language, t }) => (
     isFloatMenu
     closingEmoji={data.mobileCoffee}
     closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
+    hideFloatAppInstallButton
   >
     <Top
       data={data}
