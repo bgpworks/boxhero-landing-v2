@@ -86,13 +86,14 @@
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  margin-left: calc(var(--gap) * -1);
   margin-top: calc(var(--gap) * -1);
 }
 
 .customerBlock {
   margin-top: var(--gap);
-  width: calc(100% / var(--col-count) - var(--gap) * var(--gap-ratio));
+  margin-left: var(--gap);
+  width: calc(100% / var(--col-count) - var(--gap));
 }
 
 /* Chatting */

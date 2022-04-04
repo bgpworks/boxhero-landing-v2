@@ -20,6 +20,7 @@ import {
   GradientBG,
   SpeechBubbleContainer,
   ConsultingButton,
+  PhotoWall,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -620,8 +621,20 @@ const StartNow = ({ data, t }) => (
   </div>
 );
 
+const Customer = ({ data }) => {
+  const { name, childImageSharp } = data;
+
+  return (
+    <GatsbyImage
+      image={childImageSharp.gatsbyImageData}
+      alt={name}
+    />
+  );
+};
+
 const Customers = ({ data }) => {
   const { language } = useI18next();
+  const columnCount = language === "ko" ? 6 : 5;
   const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
 
   return (
@@ -633,17 +646,12 @@ const Customers = ({ data }) => {
         <p className={styles.customersDesc}>
           이미 전세계에서 박스히어로를 사용하고 있습니다.
         </p>
-        <div className={styles.customerList}>
-          {customerList.map(({ name, childImageSharp }) => (
-            <div className={styles.customerBlock}>
-              <GatsbyImage
-                image={childImageSharp.gatsbyImageData}
-                alt={name}
-              />
-            </div>
-          ))}
-        </div>
-
+        <PhotoWall
+          items={customerList}
+          columnCount={columnCount}
+          gap={30}
+          ItemRenderer={Customer}
+        />
       </DesktopBaseContainer>
     </div>
   );

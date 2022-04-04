@@ -500,3 +500,37 @@ export const GradientBG = ({
     {children}
   </div>
 );
+
+const normalizeUnit = (num) => `${num}px`;
+
+export const PhotoWall = ({
+  className, items, columnCount, gap, ItemRenderer,
+}) => {
+  const minusGap = normalizeUnit(gap * -1);
+  const unitNormalizedGap = normalizeUnit(gap);
+  const itemWidth = `calc(100% / ${columnCount} - ${unitNormalizedGap})`;
+
+  return (
+    <div
+      className={cn(styles.photoWall, className)}
+      style={{
+        marginLeft: minusGap,
+        marginTop: minusGap,
+      }}
+    >
+      {items.map((item, idx) => (
+        <div style={{
+          width: itemWidth,
+          marginLeft: unitNormalizedGap,
+          marginTop: unitNormalizedGap,
+        }}
+        >
+          <ItemRenderer
+            key={idx}
+            data={item}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
