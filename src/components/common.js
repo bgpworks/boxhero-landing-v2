@@ -527,14 +527,15 @@ export const PhotoWall = ({
       }}
     >
       {items.map((item, idx) => (
-        <div style={{
-          width: itemWidth,
-          marginLeft: unitNormalizedGap,
-          marginTop: unitNormalizedGap,
-        }}
+        <div
+          key={idx}
+          style={{
+            width: itemWidth,
+            marginLeft: unitNormalizedGap,
+            marginTop: unitNormalizedGap,
+          }}
         >
           <ItemRenderer
-            key={idx}
             data={item}
           />
         </div>

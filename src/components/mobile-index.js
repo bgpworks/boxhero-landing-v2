@@ -5,6 +5,7 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
+import cn from "classnames";
 import {
   CarouselProvider,
   Slider,
@@ -21,6 +22,7 @@ import {
   Padding,
   SpeechBubbleContainer,
   GradientBG,
+  PhotoWall,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -343,6 +345,41 @@ const TeamPlay = ({ data, t }) => (
   </GradientBG>
 );
 
+const Customer = ({ data }) => {
+  const { name, childImageSharp } = data;
+
+  return (
+    <GatsbyImage
+      image={childImageSharp.gatsbyImageData}
+      alt={name}
+    />
+  );
+};
+
+const Customers = ({ data }) => {
+  const { language, t } = useI18next();
+  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
+
+  return (
+    <div className={styles.customersSection}>
+      <MobileBaseContainer className={styles.customersContentContainer}>
+        <h2 className={styles.customersTitle}>
+          {t("index:customerSectionTitle")}
+        </h2>
+        <p className={styles.customersDesc}>
+          {t("index:customerSectionDesc")}
+        </p>
+        <PhotoWall
+          items={customerList}
+          columnCount={3}
+          gap={10}
+          ItemRenderer={Customer}
+        />
+      </MobileBaseContainer>
+    </div>
+  );
+};
+
 function genCustomerData(data) {
   return [
     { i18nKey: "index:customerTypeBookstore", emoji: data.book },
@@ -383,7 +420,7 @@ function genCustomerData(data) {
   ];
 }
 
-const CustomerCard = ({
+const SectorCard = ({
   img, title,
 }) => (
   <div className={styles.customerCard}>
@@ -396,7 +433,7 @@ const CustomerCard = ({
   </div>
 );
 
-const Customers = ({ data, t }) => {
+const Sectors = ({ data, t }) => {
   const customerData = genCustomerData(data);
 
   return (
@@ -413,7 +450,7 @@ const Customers = ({ data, t }) => {
 
       <div className={styles.customersCardContainer}>
         {customerData.map((customer, index) => (
-          <CustomerCard
+          <SectorCard
             key={index}
             img={customer.emoji}
             title={t(customer.i18nKey)}
@@ -471,9 +508,7 @@ function renderDots(
         key={i}
         slide={slide}
         selected={selected}
-        className={`${styles.slideDetailDot} ${
-          selected ? styles.slideDetailDotSelected : ""
-        }`}
+        className={cn(styles.slideDetailDot, { [styles.slideDetailDotSelected]: selected })}
         onClick={(evt) => {
           const dom = evt.target;
           const left = dom.offsetLeft + dom.clientWidth / 2;
@@ -648,6 +683,8 @@ const MobileIndex = ({ data, language, t }) => (
       t={t}
     />
 
+    <Customers data={data} />
+
     <Chatting />
 
     <KeyFeatures
@@ -666,7 +703,7 @@ const MobileIndex = ({ data, language, t }) => (
       t={t}
     />
 
-    <Customers
+    <Sectors
       data={data}
       t={t}
     />

@@ -79,23 +79,6 @@
   padding: 100px 0;
 }
 
-.customerList {
-  --gap: 30px;
-  --col-count: 6;
-  --gap-ratio: (var(--col-count) - 1) / var(--col-count);
-
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(var(--gap) * -1);
-  margin-top: calc(var(--gap) * -1);
-}
-
-.customerBlock {
-  margin-top: var(--gap);
-  margin-left: var(--gap);
-  width: calc(100% / var(--col-count) - var(--gap));
-}
-
 /* Chatting */
 
 .chattingContainer {
