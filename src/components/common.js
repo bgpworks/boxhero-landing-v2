@@ -187,6 +187,7 @@ export const IntroVideoBtn = ({ className, children }) => {
             playerVars: {
               autoplay: 1,
               loop: 1,
+              mute: 1,
               playlist: INTRO_VIDEO_YOUTUBE_ID,
             },
           });

@@ -139,7 +139,10 @@ const Chatting = () => {
       <p className={styles.chattingDescription}>
         <Trans i18nKey="index:chattingDescription" />
       </p>
-      <IntroVideoBtnInChatting />
+      <OnlyKorean>
+        <Padding y={16} />
+        <IntroVideoBtnInChatting />
+      </OnlyKorean>
     </MobileBaseContainer>
   );
 };

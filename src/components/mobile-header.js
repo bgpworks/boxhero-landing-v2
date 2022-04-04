@@ -174,6 +174,21 @@ const MobileMenu = ({ onChangeIsShow }) => {
   );
 };
 
+const AppDownloadLinkInHeader = () => {
+  const { t } = useI18next();
+
+  return (
+    <AppDownloadLink>
+      <button
+        type="button"
+        className={styles.appDownloadButtonInHeader}
+      >
+        {t("header:appInstall")}
+      </button>
+    </AppDownloadLink>
+  );
+};
+
 const MobileHeader = ({ isFloatMenu }) => {
   const [isShow, onChangeIsShow] = useState(false);
   const { isScrolled } = useCheckScrolled();
@@ -194,14 +209,17 @@ const MobileHeader = ({ isFloatMenu }) => {
             alt="Home"
           />
         </Link>
-        <button
-          type="button"
-          className={cn(styles.menuBtn, { [styles.isOpen]: isShow })}
-          onClick={() => onChangeIsShow(!isShow)}
-        >
-          <div className={styles.menuBtnLine} />
-          <div className={styles.menuBtnLine} />
-        </button>
+        <div className={styles.controls}>
+          {isBackgroundWhite && <AppDownloadLinkInHeader />}
+          <button
+            type="button"
+            className={cn(styles.menuBtn, { [styles.isOpen]: isShow })}
+            onClick={() => onChangeIsShow(!isShow)}
+          >
+            <div className={styles.menuBtnLine} />
+            <div className={styles.menuBtnLine} />
+          </button>
+        </div>
       </header>
 
       {isShow && <MobileMenu onChangeIsShow={onChangeIsShow} />}

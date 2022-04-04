@@ -202,6 +202,7 @@ const MobileFeatures = ({ data, t }) => (
     isFloatMenu={false}
     closingEmoji={data.mobileDinosaur}
     closingMsg={t("features:closingMsg")}
+    hideFloatAppInstallButton
   >
     <Top t={t} />
 
