@@ -209,7 +209,6 @@ const DesktopFooterMenus = ({ t, language }) => (
 
       <div className={styles.wideFooterMenusColumn}>
         <div className={styles.footerMenuLabel}>{t("footer:footerMenuContact")}</div>
-        <div>{t("footer:footerMenuContactTel")}</div>
         <div>
           {t("footer:footerMenuContactEmail")}
           {" "}
