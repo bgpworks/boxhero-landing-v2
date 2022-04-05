@@ -18,7 +18,7 @@ export const useConstrainedSize = (wRatio, hRatio) => {
   const [size, setSize] = useState(null);
   const containerRef = useRef(null);
 
-  const playerSizeUpdater = useCallback(() => {
+  const updateSize = useCallback(() => {
     if (!containerRef.current) return;
 
     const { width, height } = containerRef.current.getBoundingClientRect();
@@ -28,13 +28,13 @@ export const useConstrainedSize = (wRatio, hRatio) => {
   }, [hRatio, wRatio]);
 
   useEffect(() => {
-    playerSizeUpdater();
-    window.addEventListener("resize", playerSizeUpdater);
+    updateSize();
+    window.addEventListener("resize", updateSize);
 
     return () => {
-      window.removeEventListener("resize", playerSizeUpdater);
+      window.removeEventListener("resize", updateSize);
     };
-  }, [playerSizeUpdater]);
+  }, [updateSize]);
 
   return {
     constrainedSize: size,
