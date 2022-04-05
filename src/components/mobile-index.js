@@ -38,6 +38,7 @@ import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
+import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -198,47 +199,56 @@ const KeyFeatureSelector = ({ carouselData }) => {
 
 const KeyFeature = ({
   title, description, carouselData,
-}) => (
-  <section className={styles.keyFeatureContainer}>
-    <MobileBaseContainer className={styles.keyFeatureContentContainer}>
-      <h2 className={styles.keyFeatureTitle}>{title}</h2>
-      <Padding y={16} />
-      <p className={styles.keyFeatureDescription}>{description}</p>
-      <Padding y={40} />
+}) => {
+  const { nodeRef, isVisible } = useIntersectionObserver();
 
-      <CarouselProvider
-        className={styles.keyFeatureCarousel}
-        naturalSlideWidth={375}
-        naturalSlideHeight={0}
-        totalSlides={carouselData.length}
-        touchEnabled={false}
-        isIntrinsicHeight
-      >
-        <KeyFeatureSelector carouselData={carouselData} />
+  return (
+    <section
+      ref={nodeRef}
+      className={styles.keyFeatureContainer}
+    >
+      <MobileBaseContainer className={styles.keyFeatureContentContainer}>
+        <h2 className={styles.keyFeatureTitle}>{title}</h2>
+        <Padding y={16} />
+        <p className={styles.keyFeatureDescription}>{description}</p>
+        <Padding y={40} />
 
-        <Padding y={30} />
+        <CarouselProvider
+          className={styles.keyFeatureCarousel}
+          naturalSlideWidth={375}
+          naturalSlideHeight={0}
+          totalSlides={carouselData.length}
+          touchEnabled={false}
+          interval={3000}
+          isPlaying={isVisible}
+          isIntrinsicHeight
+        >
+          <KeyFeatureSelector carouselData={carouselData} />
 
-        <Slider className={styles.keyFeatureSlider}>
-          {carouselData.map((slide, index) => (
-            <Slide
-              key={index}
-              index={index}
-            >
-              <GatsbyImage
-                image={slide.img.childImageSharp.gatsbyImageData}
-                alt={slide.title}
-              />
-            </Slide>
-          ))}
-        </Slider>
+          <Padding y={30} />
 
-        <Padding y={10} />
+          <Slider className={styles.keyFeatureSlider}>
+            {carouselData.map((slide, index) => (
+              <Slide
+                key={index}
+                index={index}
+              >
+                <GatsbyImage
+                  image={slide.img.childImageSharp.gatsbyImageData}
+                  alt={slide.title}
+                />
+              </Slide>
+            ))}
+          </Slider>
 
-        <DotGroup className={styles.keyFeatureDotGroup} />
-      </CarouselProvider>
-    </MobileBaseContainer>
-  </section>
-);
+          <Padding y={10} />
+
+          <DotGroup className={styles.keyFeatureDotGroup} />
+        </CarouselProvider>
+      </MobileBaseContainer>
+    </section>
+  );
+};
 
 const KeyFeatures = ({ data, t }) => (
   <>
@@ -706,52 +716,54 @@ const StartNow = ({ data, t }) => (
 );
 
 const MobileIndex = ({ data, language, t }) => (
-  <MobileLayout
-    isFloatMenu
-    closingEmoji={data.mobileCoffee}
-    closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
-  >
-    <Top
-      data={data}
-      t={t}
-    />
+  <IntersectionObserverProvider>
+    <MobileLayout
+      isFloatMenu
+      closingEmoji={data.mobileCoffee}
+      closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
+    >
+      <Top
+        data={data}
+        t={t}
+      />
 
-    <Customers data={data} />
+      <Customers data={data} />
 
-    <Chatting />
+      <Chatting />
 
-    <KeyFeatures
-      data={data}
-      t={t}
-    />
+      <KeyFeatures
+        data={data}
+        t={t}
+      />
 
-    <SalesManagement
-      data={data}
-      t={t}
-      language={language}
-    />
+      <SalesManagement
+        data={data}
+        t={t}
+        language={language}
+      />
 
-    <TeamPlay
-      data={data}
-      t={t}
-    />
+      <TeamPlay
+        data={data}
+        t={t}
+      />
 
-    <Sectors
-      data={data}
-      t={t}
-    />
+      <Sectors
+        data={data}
+        t={t}
+      />
 
-    <Features
-      data={data}
-      t={t}
-      language={language}
-    />
+      <Features
+        data={data}
+        t={t}
+        language={language}
+      />
 
-    <StartNow
-      data={data}
-      t={t}
-    />
-  </MobileLayout>
+      <StartNow
+        data={data}
+        t={t}
+      />
+    </MobileLayout>
+  </IntersectionObserverProvider>
 );
 
 export default MobileIndex;
