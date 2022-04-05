@@ -182,7 +182,8 @@ export const IntroVideoBtn = ({ className, children }) => {
       type="button"
       className={cn(styles.introVideoBtn, className)}
       onClick={() => {
-        openYoutube(INTRO_VIDEO_YOUTUBE_ID,
+        openYoutube(
+          INTRO_VIDEO_YOUTUBE_ID,
           {
             playerVars: {
               origin: "https://www.boxhero-app.com",
@@ -195,7 +196,9 @@ export const IntroVideoBtn = ({ className, children }) => {
               loop: 1,
               playlist: INTRO_VIDEO_YOUTUBE_ID,
             },
-          });
+          },
+          "16:9",
+        );
       }}
     >
       {children}

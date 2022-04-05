@@ -1,19 +1,35 @@
 import React, {
-  useCallback,
   useContext,
-  useEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 import YouTube from "react-youtube";
 import RootMounted from "./RootMounted";
 import svgClose from "../images/icon-close.svg";
 import * as styles from "./YoutubePopup.module.css";
+import { useConstrainedSize } from "../hooks/use-constrained-size";
+
+const DEFAULT_RATIO = "16:9";
+const RATIO_REGEX = /(\d*\.?\d*):(\d*\.?\d*)/;
+
+const isValidRatio = (maybeRatio) => RATIO_REGEX.test(maybeRatio);
+const parseRatio = (ratio) => {
+  const matched = RATIO_REGEX.exec(ratio);
+  if (!matched) return null;
+
+  return {
+    w: matched[1],
+    h: matched[2],
+  };
+};
 
 export const YoutubePopupContext = React.createContext({
   videoId: null,
   opts: null,
+  ratio: {
+    w: 16,
+    h: 9,
+  },
   openYoutube: () => null,
   closeYoutube: () => null,
 });
@@ -23,8 +39,9 @@ export const YoutubePopupProvider = ({ children }) => {
 
   const ctxValue = useMemo(() => ({
     ...youtubeParams,
-    openYoutube: (videoId, opts = {}) => {
-      setYoutubeParams({ videoId, opts });
+    openYoutube: (videoId, opts = {}, ratio = DEFAULT_RATIO) => {
+      const derivedRatio = isValidRatio(ratio) ? ratio : DEFAULT_RATIO;
+      setYoutubeParams({ videoId, opts, ratio: parseRatio(derivedRatio) });
     },
     closeYoutube: () => {
       setYoutubeParams(null);
@@ -52,40 +69,27 @@ const CloseButton = ({ onClick }) => (
 );
 
 const Popup = () => {
-  const { videoId, opts, closeYoutube } = useContext(YoutubePopupContext);
-  const [playerSize, setPlayerSize] = useState(null);
-  const wrapperRef = useRef(null);
+  const {
+    videoId,
+    ratio,
+    opts,
+    closeYoutube,
+  } = useContext(YoutubePopupContext);
 
-  const playerSizeUpdater = useCallback(() => {
-    if (!wrapperRef.current) return;
+  const {
+    constrainedSize,
+    containerRef,
+  } = useConstrainedSize(ratio.w, ratio.h);
 
-    const { width, height } = wrapperRef.current.getBoundingClientRect();
-    const derivedHeight = Math.min(width * 0.5625, height);
-
-    setPlayerSize({
-      width: derivedHeight * 1.77,
-      height: derivedHeight,
-    });
-  }, []);
-
-  useEffect(() => {
-    playerSizeUpdater();
-    window.addEventListener("resize", playerSizeUpdater);
-
-    return () => {
-      window.removeEventListener("resize", playerSizeUpdater);
-    };
-  }, [playerSizeUpdater]);
-
-  const derivedOpts = { ...opts, ...playerSize };
+  const derivedOpts = { ...opts, ...constrainedSize };
 
   return (
     <div className={styles.container}>
       <div
-        ref={wrapperRef}
+        ref={containerRef}
         className={styles.playerWrapper}
       >
-        {playerSize && (
+        {constrainedSize && (
           <YouTube
             videoId={videoId}
             opts={derivedOpts}
