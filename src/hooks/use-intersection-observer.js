@@ -78,29 +78,33 @@ export const IntersectionObserverProvider = ({
   );
 };
 
+const observerStateReducer = (state, action) => {
+  switch (action.type) {
+    case "setVisible":
+      return {
+        isVisible: true,
+        everVisible: true,
+      };
+    case "setInvisible":
+      return {
+        ...state,
+        isVisible: false,
+      };
+    default:
+      break;
+  }
+};
+
 export const useIntersectionObserver = () => {
   const nodeRef = useRef(null);
   const { observe, unobserve } = useContext(IntersectionObserverContext);
-  const [observerState, dispatch] = useReducer((state, action) => {
-    const { type } = action;
-    switch (type) {
-      case "setVisible":
-        return {
-          isVisible: true,
-          everVisible: true,
-        };
-      case "setInvisible":
-        return {
-          ...state,
-          isVisible: false,
-        };
-      default:
-        break;
-    }
-  }, {
-    isVisible: false,
-    everVisible: false,
-  });
+  const [observerState, dispatch] = useReducer(
+    observerStateReducer,
+    {
+      isVisible: false,
+      everVisible: false,
+    },
+  );
 
   useEffect(() => {
     const targetElm = nodeRef.current;
@@ -108,22 +112,19 @@ export const useIntersectionObserver = () => {
     if (!targetElm) return;
 
     observe(targetElm, (entry) => {
-      const { isIntersecting } = entry;
-
-      if (isIntersecting) {
+      if (entry.isIntersecting) {
         dispatch({ type: "setVisible" });
         return;
       }
 
       dispatch({ type: "setInvisible" });
-    }, []);
+    });
 
     return () => unobserve(targetElm);
   }, [observe, unobserve]);
 
   return {
     nodeRef,
-    isVisible: observerState.isVisible,
-    everVisible: observerState.everVisible,
+    ...observerState,
   };
 };
