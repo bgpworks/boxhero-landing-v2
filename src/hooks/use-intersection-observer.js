@@ -13,7 +13,12 @@ const IntersectionObserverContext = React.createContext({
   unobserve(_elm) { return null; },
 });
 
-export const IntersectionObserverProvider = ({ children }) => {
+export const IntersectionObserverProvider = ({
+  root = null,
+  rootMargin = "0px",
+  threshold = 0.8,
+  children,
+}) => {
   const observerRef = useRef(null);
   const callbackByElmMapRef = useRef(new WeakMap());
 
@@ -34,15 +39,15 @@ export const IntersectionObserverProvider = ({ children }) => {
     if (!IntersectionObserver) return;
 
     const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.8,
+      root,
+      rootMargin,
+      threshold,
     };
     const observer = new IntersectionObserver(observerCallback, options);
     observerRef.current = observer;
 
     return () => observer.disconnect();
-  }, [observerCallback]);
+  }, [observerCallback, root, rootMargin, threshold]);
 
   const observe = useCallback((elm, callback) => {
     const observer = observerRef.current;
