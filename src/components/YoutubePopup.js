@@ -1,6 +1,10 @@
 import React, {
   useCallback,
-  useContext, useEffect, useMemo, useState,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from "react";
 import YouTube from "react-youtube";
 import RootMounted from "./RootMounted";
@@ -47,22 +51,22 @@ const CloseButton = ({ onClick }) => (
   </button>
 );
 
-export default () => {
+const Popup = () => {
   const { videoId, opts, closeYoutube } = useContext(YoutubePopupContext);
   const [playerSize, setPlayerSize] = useState(null);
-  const [wrapperElm, setWrapperElm] = useState(null);
+  const wrapperRef = useRef(null);
 
   const playerSizeUpdater = useCallback(() => {
-    if (!wrapperElm) return;
+    if (!wrapperRef.current) return;
 
-    const { width, height } = wrapperElm.getBoundingClientRect();
+    const { width, height } = wrapperRef.current.getBoundingClientRect();
     const derivedHeight = Math.min(width * 0.5625, height);
 
     setPlayerSize({
       width: derivedHeight * 1.77,
       height: derivedHeight,
     });
-  }, [wrapperElm]);
+  }, []);
 
   useEffect(() => {
     playerSizeUpdater();
@@ -73,30 +77,38 @@ export default () => {
     };
   }, [playerSizeUpdater]);
 
-  if (!videoId) return null;
-
   const derivedOpts = { ...opts, ...playerSize };
 
   return (
-    <RootMounted>
-      <div className={styles.container}>
-        <div
-          ref={(elm) => setWrapperElm(elm)}
-          className={styles.playerWrapper}
-        >
-          {playerSize && (
-            <YouTube
-              videoId={videoId}
-              opts={derivedOpts}
-              onReady={(evt) => {
-                evt.target.mute();
-                evt.target.playVideo();
-              }}
-            />
-          )}
-        </div>
-        <CloseButton onClick={closeYoutube} />
+    <div className={styles.container}>
+      <div
+        ref={wrapperRef}
+        className={styles.playerWrapper}
+      >
+        {playerSize && (
+          <YouTube
+            videoId={videoId}
+            opts={derivedOpts}
+            onReady={(evt) => {
+              evt.target.mute();
+              evt.target.playVideo();
+            }}
+          />
+        )}
       </div>
+      <CloseButton onClick={closeYoutube} />
+    </div>
+  );
+};
+
+export default () => {
+  const { videoId } = useContext(YoutubePopupContext);
+
+  if (!videoId) return null;
+
+  return (
+    <RootMounted>
+      <Popup />
     </RootMounted>
   );
 };
