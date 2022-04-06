@@ -15,6 +15,7 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
+import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 // js
 import MobileLayout from "./mobile-layout";
 import {
@@ -38,7 +39,8 @@ import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
-import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
+
+const CAROUSEL_INTERVAL = 3000;
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -204,7 +206,6 @@ const KeyFeature = ({
 
   return (
     <section
-      ref={nodeRef}
       className={styles.keyFeatureContainer}
     >
       <MobileBaseContainer className={styles.keyFeatureContentContainer}>
@@ -219,7 +220,7 @@ const KeyFeature = ({
           naturalSlideHeight={0}
           totalSlides={carouselData.length}
           touchEnabled={false}
-          interval={3000}
+          interval={CAROUSEL_INTERVAL}
           isPlaying={isVisible}
           isIntrinsicHeight
         >
@@ -227,19 +228,21 @@ const KeyFeature = ({
 
           <Padding y={30} />
 
-          <Slider className={styles.keyFeatureSlider}>
-            {carouselData.map((slide, index) => (
-              <Slide
-                key={index}
-                index={index}
-              >
-                <GatsbyImage
-                  image={slide.img.childImageSharp.gatsbyImageData}
-                  alt={slide.title}
-                />
-              </Slide>
-            ))}
-          </Slider>
+          <div ref={nodeRef}>
+            <Slider className={styles.keyFeatureSlider}>
+              {carouselData.map((slide, index) => (
+                <Slide
+                  key={index}
+                  index={index}
+                >
+                  <GatsbyImage
+                    image={slide.img.childImageSharp.gatsbyImageData}
+                    alt={slide.title}
+                  />
+                </Slide>
+              ))}
+            </Slider>
+          </div>
 
           <Padding y={10} />
 
@@ -321,6 +324,7 @@ const SalesManagementSelector = ({
 };
 
 const SalesManagement = ({ data, t }) => {
+  const { nodeRef, isVisible } = useIntersectionObserver();
   const salesManagementData = [
     { title: t("index:salesManagementMenu1"), img: data.mobileFeatureTransaction },
     { title: t("index:salesManagementMenu2"), img: data.mobileFeatureOut },
@@ -332,10 +336,10 @@ const SalesManagement = ({ data, t }) => {
       className={styles.salesManagementContentContainer}
       naturalSlideWidth={335}
       naturalSlideHeight={276}
-      interval={3000}
-      isPlaying
       totalSlides={salesManagementData.length}
       touchEnabled={false}
+      interval={CAROUSEL_INTERVAL}
+      isPlaying={isVisible}
     >
       <h2 className={styles.salesManagementTitle}>
         <Trans i18nKey="index:salesManagementTitle" />
@@ -353,19 +357,21 @@ const SalesManagement = ({ data, t }) => {
 
       <Padding y={30} />
 
-      <Slider className={styles.salesManagementSlider}>
-        {salesManagementData.map(({ img, title }, index) => (
-          <Slide
-            key={index}
-            index={index}
-          >
-            <GatsbyImage
-              image={img.childImageSharp.gatsbyImageData}
-              alt={title}
-            />
-          </Slide>
-        ))}
-      </Slider>
+      <div ref={nodeRef}>
+        <Slider className={styles.salesManagementSlider}>
+          {salesManagementData.map(({ img, title }, index) => (
+            <Slide
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={img.childImageSharp.gatsbyImageData}
+                alt={title}
+              />
+            </Slide>
+          ))}
+        </Slider>
+      </div>
     </CarouselProvider>
   );
 };
@@ -716,7 +722,7 @@ const StartNow = ({ data, t }) => (
 );
 
 const MobileIndex = ({ data, language, t }) => (
-  <IntersectionObserverProvider>
+  <IntersectionObserverProvider threshold={1}>
     <MobileLayout
       isFloatMenu
       closingEmoji={data.mobileCoffee}

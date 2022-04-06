@@ -16,7 +16,7 @@ const IntersectionObserverContext = React.createContext({
 export const IntersectionObserverProvider = ({
   root = null,
   rootMargin = "0px",
-  threshold = 0.8,
+  threshold = 1.0,
   children,
 }) => {
   const observerRef = useRef(null);
