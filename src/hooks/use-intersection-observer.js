@@ -78,16 +78,16 @@ export const IntersectionObserverProvider = ({
   );
 };
 
-const observerStateReducer = (state, action) => {
+const observerStateReducer = (prevState, action) => {
   switch (action.type) {
     case "setVisible":
       return {
         isVisible: true,
-        everVisible: true,
+        everVisible: prevState.isVisible,
       };
     case "setInvisible":
       return {
-        ...state,
+        ...prevState,
         isVisible: false,
       };
     default:
