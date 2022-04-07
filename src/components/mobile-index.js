@@ -1,7 +1,7 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React from "react";
+import React, { useEffect } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
@@ -39,6 +39,8 @@ import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
+import { usePreviousValue } from "../hooks/use-previous-value";
+import { useCarouselHandler } from "../hooks/use-carousel-handler";
 
 const CAROUSEL_INTERVAL = 3000;
 
@@ -199,10 +201,37 @@ const KeyFeatureSelector = ({ carouselData }) => {
   );
 };
 
+const KeyFeatureSlider = ({ isFirstVisible, carouselData }) => {
+  const prevIsFirstVisible = usePreviousValue(isFirstVisible);
+  const { goToNextSlide } = useCarouselHandler();
+
+  useEffect(() => {
+    if (isFirstVisible && prevIsFirstVisible !== isFirstVisible) {
+      goToNextSlide();
+    }
+  });
+
+  return (
+    <Slider className={styles.keyFeatureSlider}>
+      {carouselData.map((slide, index) => (
+        <Slide
+          key={index}
+          index={index}
+        >
+          <GatsbyImage
+            image={slide.img.childImageSharp.gatsbyImageData}
+            alt={slide.title}
+          />
+        </Slide>
+      ))}
+    </Slider>
+  );
+};
+
 const KeyFeature = ({
   title, description, carouselData,
 }) => {
-  const { nodeRef, isVisible } = useIntersectionObserver();
+  const { nodeRef, isVisible, everVisible } = useIntersectionObserver();
 
   return (
     <section
@@ -229,19 +258,10 @@ const KeyFeature = ({
           <Padding y={30} />
 
           <div ref={nodeRef}>
-            <Slider className={styles.keyFeatureSlider}>
-              {carouselData.map((slide, index) => (
-                <Slide
-                  key={index}
-                  index={index}
-                >
-                  <GatsbyImage
-                    image={slide.img.childImageSharp.gatsbyImageData}
-                    alt={slide.title}
-                  />
-                </Slide>
-              ))}
-            </Slider>
+            <KeyFeatureSlider
+              isFirstVisible={isVisible && !everVisible}
+              carouselData={carouselData}
+            />
           </div>
 
           <Padding y={10} />
