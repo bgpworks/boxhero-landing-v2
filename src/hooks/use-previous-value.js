@@ -1,11 +1,15 @@
 import { useEffect, useRef } from "react";
 
 export const usePreviousValue = (value) => {
-  const valueRef = useRef(value);
+  const valueRef = useRef();
 
   useEffect(() => {
     valueRef.current = value;
-  }, [value]);
+
+    return () => {
+      valueRef.current = undefined;
+    };
+  });
 
   return valueRef.current;
 };
