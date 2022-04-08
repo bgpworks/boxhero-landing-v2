@@ -189,7 +189,6 @@ export default function PostViewMobile({
       isFloatMenu={false}
       showPlatforms={false}
       showStartNow={false}
-      hideFloatAppInstallButton
     >
       <LinkToListSection />
       <article className={postContainer}>

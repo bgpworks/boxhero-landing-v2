@@ -10,7 +10,7 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
-import { Link, Trans } from "gatsby-plugin-react-i18next";
+import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
@@ -20,6 +20,10 @@ import {
   GradientBG,
   SpeechBubbleContainer,
   ConsultingButton,
+  PhotoWall,
+  OnlyKorean,
+  FlatIntroVideoBtn,
+  IntroVideoBtn,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -42,6 +46,8 @@ import svgDashboard from "../images/icon-dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
+import svgPlayPrimary from "../images/icon-play-primary.svg";
+import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import CustomDotGroup from "./custom-dot-group";
 
 const CHATTING_COLOR_SEQUENCE = [
@@ -223,7 +229,11 @@ const TopLeftContainer = ({ t }) => (
       {t("index:topStartNowButton")}
     </StartNowButton>
     <Padding y={12} />
-    <ConsultingButton />
+    <ConsultingButton transparent={false} />
+    <OnlyKorean>
+      <Padding y={22} />
+      <FlatIntroVideoBtn className={styles.introVideoBtn} />
+    </OnlyKorean>
   </div>
 );
 
@@ -246,6 +256,28 @@ const Top = ({ data, t }) => (
   </GradientBG>
 );
 
+const IntroVideoBtnInChatting = () => {
+  const { t } = useI18next();
+
+  return (
+    <IntroVideoBtn className={styles.introVideoBtnInChatting}>
+      <img
+        className={styles.introVideoBtnInChattingPlaySymbol}
+        src={svgPlayPrimary}
+        alt="Play"
+      />
+      <span className={styles.introVideoBtnInChattingLabel}>
+        {t("index:chattingIntroVideoBtnLabel")}
+      </span>
+      <img
+        className={styles.introVideoBtnInChattingArrowSymbol}
+        src={svgRightArrow}
+        alt="icon arrow"
+      />
+    </IntroVideoBtn>
+  );
+};
+
 const Chatting = ({ t, language }) => {
   const speechBubblesByLanguageMap = genBubblesMap(t);
 
@@ -266,6 +298,10 @@ const Chatting = ({ t, language }) => {
         <div className={styles.chattingDescription}>
           <Trans i18nKey="index:chattingDescription" />
         </div>
+        <OnlyKorean>
+          <Padding y={30} />
+          <IntroVideoBtnInChatting />
+        </OnlyKorean>
       </DesktopBaseContainer>
     </div>
   );
@@ -442,17 +478,13 @@ const CustomerCard = ({
   </div>
 );
 
-const Customers = ({ data, t }) => {
+const Sectors = ({ data, t }) => {
   const customerData = genCustomerData(data);
 
   return (
     <div className={styles.customersContainer}>
       <div className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
-      </div>
-      <Padding y={16} />
-      <div className={styles.customersDesc}>
-        <Trans i18nKey="index:customerDesc" />
       </div>
 
       <Padding y={50} />
@@ -584,6 +616,42 @@ const StartNow = ({ data, t }) => (
   </div>
 );
 
+const Customer = ({ data }) => {
+  const { name, childImageSharp } = data;
+
+  return (
+    <GatsbyImage
+      image={childImageSharp.gatsbyImageData}
+      alt={name}
+    />
+  );
+};
+
+const Customers = ({ data }) => {
+  const { language, t } = useI18next();
+  const columnCount = language === "ko" ? 6 : 5;
+  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
+
+  return (
+    <div className={styles.customersSection}>
+      <DesktopBaseContainer className={styles.customersContentContainer}>
+        <h2 className={styles.customersTitle}>
+          {t("index:customerSectionTitle")}
+        </h2>
+        <p className={styles.customersDesc}>
+          {t("index:customerSectionDesc")}
+        </p>
+        <PhotoWall
+          items={customerList}
+          columnCount={columnCount}
+          gap={30}
+          ItemRenderer={Customer}
+        />
+      </DesktopBaseContainer>
+    </div>
+  );
+};
+
 const DesktopIndex = ({ data, language, t }) => (
   <DesktopLayout
     isFloatMenu
@@ -595,6 +663,8 @@ const DesktopIndex = ({ data, language, t }) => (
       t={t}
       language={language}
     />
+
+    <Customers data={data} />
 
     <Chatting
       t={t}
@@ -616,7 +686,7 @@ const DesktopIndex = ({ data, language, t }) => (
       t={t}
     />
 
-    <Customers
+    <Sectors
       data={data}
       t={t}
     />

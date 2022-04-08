@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
+import cn from "classnames";
 // js
 import MobileLayout from "./mobile-layout";
 import {
@@ -117,8 +118,7 @@ const BusinessPlan = ({ t }) => {
       <div className={styles.switchContainer}>
         <button
           type="button"
-          className={`${styles.billingCycleButton} ${isYearly ? "" : styles.active
-          }`}
+          className={cn(styles.billingCycleButton, { [styles.active]: !isYearly })}
           onClick={() => setIsYearly(false)}
         >
           {t("pricing:switchLabelMonthly")}
@@ -129,8 +129,7 @@ const BusinessPlan = ({ t }) => {
         />
         <button
           type="button"
-          className={`${styles.billingCycleButton} ${isYearly ? styles.active : ""
-          }`}
+          className={cn(styles.billingCycleButton, { [styles.active]: isYearly })}
           onClick={() => setIsYearly(true)}
         >
           {t("pricing:switchLabelYearly")}
@@ -335,7 +334,6 @@ const DirectContact = ({ t }) => (
 const MobilePricing = ({ data, language, t }) => (
   <MobileLayout
     isFloatMenu={false}
-    hideFloatAppInstallButton
     closingEmoji={data.mobileBox}
     closingMsg={t("pricing:closingMsg")}
   >

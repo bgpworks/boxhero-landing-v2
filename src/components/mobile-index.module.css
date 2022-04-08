@@ -465,3 +465,51 @@
   vertical-align: bottom;
   filter: color(--color-primary);
 }
+
+/* Customers */
+
+.customersSection{
+  background-color: var(--color-gray5);
+  color: var(--color-black);
+}
+
+.customersTitle {
+  margin: 0;
+  font-size: var(--font-size-h4);
+  font-weight: bold;
+}
+
+.customersDesc {
+  font-size: var(--font-size-b16);
+  text-align: center;
+  line-height: 1.5;
+
+  margin: 16px 0 40px;
+}
+
+.customersContentContainer {
+  padding: 50px 0;
+}
+
+.introVideoBtnInChatting {
+  margin: 0 auto;
+}
+
+.introVideoBtnInChattingPlaySymbol {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.introVideoBtnInChattingArrowSymbol {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.introVideoBtnInChattingLabel {
+  color: var(--color-primary);
+  font-size: var(--font-size-b16);
+  font-weight: bold;
+  line-height: 1.5em;
+}

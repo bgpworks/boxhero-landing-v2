@@ -122,7 +122,6 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
     />
 
     <FooterMenu title={t("footer:footerMenuContact")}>
-      <span>{t("footer:footerMenuContactTel")}</span>
       <span>
         {t("footer:footerMenuContactEmail")}
         {" "}

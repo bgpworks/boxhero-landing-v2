@@ -48,10 +48,39 @@
   border-radius: 6px;
 }
 
+.introVideoBtn {
+  width: 243px;
+}
+
 .topButtonIcon {
   width: 24px;
   height: 24px;
   margin-right: 8px;
+}
+
+/* Customers */
+
+.customersSection{
+  background-color: var(--color-gray5);
+  color: var(--color-black);
+}
+
+.customersTitle {
+  margin: 0;
+  font-size: var(--font-size-36);
+  font-weight: bold;
+}
+
+.customersDesc {
+  font-size: var(--font-size-b16);
+  text-align: center;
+  line-height: 1.5;
+
+  margin: 16px 0 50px;
+}
+
+.customersContentContainer {
+  padding: 100px 0;
 }
 
 /* Chatting */
@@ -424,4 +453,54 @@
 
 .startNowDetailLink img {
   vertical-align: middle;
+}
+
+.introVideoSection {
+  padding: 20px 0;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.introVideo {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.introVideoBtnInChatting {
+  min-height: 60px;
+  border-radius: 30px;
+
+  padding: 15px 30px;
+  background-color: var(--color-gray5);
+}
+
+.introVideoBtnInChattingPlaySymbol {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.introVideoBtnInChattingArrowSymbol {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+}
+
+.introVideoBtnInChattingLabel {
+  color: var(--color-primary);
+  font-size: var(--font-size-h5);
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  line-height: 1.45em;
 }

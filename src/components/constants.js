@@ -19,4 +19,5 @@ module.exports = {
   urlKakaoTalk: "http://pf.kakao.com/_rHxgpxl/chat",
   urlStart: "https://web.boxhero-app.com/team",
   urlWhatsApp: "https://api.whatsapp.com/send?phone=827086704320",
+  introVideoYoutubeIdKo: "8Qr4q2qUlzs",
 };

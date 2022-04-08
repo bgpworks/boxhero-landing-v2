@@ -75,7 +75,6 @@ const UseCaseFeatures = ({ data, t }) => {
 const MobileUsecaseMaterial = ({ data, t }) => (
   <MobileLayout
     isFloatMenu={false}
-    hideFloatAppInstallButton
     showPlatforms={false}
     closingEmoji={data.mobileFinger}
     closingMsg={t("usecase:closingMsg")}

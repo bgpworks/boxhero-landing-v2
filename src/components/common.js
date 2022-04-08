@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
+import cn from "classnames";
+import { YoutubePopupContext } from "./YoutubePopup";
 import * as styles from "./common.module.css";
 import svgConsulting from "../images/icon-consulting.svg";
+import svgConsultingDark from "../images/icon-consulting-dark.svg";
 import svgEye from "../images/icon-eye.svg";
 import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import svgDownload from "../images/download.svg";
+import svgPlay from "../images/icon-play.svg";
 import {
   urlConsultingKo,
   urlConsultingEn,
@@ -19,6 +23,7 @@ import {
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
+  introVideoYoutubeIdKo,
 } from "./constants";
 
 export const DesktopBaseContainer = ({ className, children }) => (
@@ -59,8 +64,10 @@ Padding.defaultProps = {
   y: 0,
 };
 
-export const ConsultingButton = () => {
+export const ConsultingButton = ({ transparent = true }) => {
   const { t, language } = useI18next();
+  const consultingIcon = transparent ? svgConsulting : svgConsultingDark;
+
   return (
     <a
       href={language === "ko" ? urlConsultingKo : urlConsultingEn}
@@ -69,11 +76,11 @@ export const ConsultingButton = () => {
     >
       <button
         type="button"
-        className={styles.consultingButton}
+        className={cn(styles.consultingButton, { [styles.transparent]: transparent })}
       >
         <img
           className={styles.topButtonIcon}
-          src={svgConsulting}
+          src={consultingIcon}
           alt={t("index:consultingButton")}
         />
         {t("index:consultingButton")}
@@ -109,7 +116,7 @@ export const SpeechBubbleContainer = ({
   colorSequence = DEFAULT_CHATTING_COLOR_SEQUENCE,
 }) => {
   const containerWidth = COLUMN_WIDTH * containerGridColumns
-  + GUTTER_WIDTH * (containerGridColumns - 1);
+    + GUTTER_WIDTH * (containerGridColumns - 1);
   const colorSeqquenceIterator = (idx) => {
     const derivedIdx = idx % colorSequence.length;
     return colorSequence[derivedIdx];
@@ -150,6 +157,74 @@ export const StartNowButton = ({ className, children }) => (
   </ExternalLinkWithQuery>
 );
 
+export const DarkAppInstallButton = ({ label }) => (
+  <AppDownloadLink>
+    <button
+      type="button"
+      className={styles.appDownloadButton}
+    >
+      <img
+        className={styles.appDownloadIcon}
+        src={svgDownload}
+        alt={label}
+      />
+      {label}
+    </button>
+  </AppDownloadLink>
+);
+
+export const IntroVideoBtn = ({ className, children }) => {
+  const { openYoutube } = useContext(YoutubePopupContext);
+
+  return (
+    <button
+      type="button"
+      className={cn(styles.introVideoBtn, className)}
+      onClick={() => {
+        openYoutube(
+          introVideoYoutubeIdKo,
+          {
+            playerVars: {
+              origin: window.location.origin,
+              autoplay: 1,
+              mute: 1,
+              controls: 1,
+              playsinline: 1,
+              rel: 0,
+              modestbranding: 1,
+              loop: 1,
+              playlist: introVideoYoutubeIdKo,
+            },
+          },
+          "16:9",
+        );
+      }}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const FlatIntroVideoBtn = ({ className }) => {
+  const { t } = useI18next();
+
+  return (
+    <IntroVideoBtn
+      type="button"
+      className={className}
+    >
+      <img
+        className={styles.playSymbol}
+        src={svgPlay}
+        alt="Play"
+      />
+      <span className={styles.introVideoLabel}>
+        {t("index:introVideoBtnLabel")}
+      </span>
+    </IntroVideoBtn>
+  );
+};
+
 export const UseCaseTop = ({
   className, title, description, startNow, img,
 }) => (
@@ -184,19 +259,7 @@ export const MobileUseCaseTop = ({
       <Padding y={16} />
       <p className={styles.mobileUseCaseTopDesc}>{description}</p>
       <Padding y={40} />
-      <AppDownloadLink>
-        <button
-          type="button"
-          className={styles.appDownloadButton}
-        >
-          <img
-            className={styles.appDownloadIcon}
-            src={svgDownload}
-            alt={appDownload}
-          />
-          {appDownload}
-        </button>
-      </AppDownloadLink>
+      <DarkAppInstallButton label={appDownload} />
       <Padding y={40} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}
@@ -496,3 +559,46 @@ export const GradientBG = ({
     {children}
   </div>
 );
+
+export const OnlyKorean = ({ children }) => {
+  const { language } = useI18next();
+
+  if (language !== "ko") return null;
+
+  return children;
+};
+
+const normalizeUnit = (num) => `${num}px`;
+
+export const PhotoWall = ({
+  className, items, columnCount, gap, ItemRenderer,
+}) => {
+  const minusGap = normalizeUnit(gap * -1);
+  const unitNormalizedGap = normalizeUnit(gap);
+  const itemWidth = `calc(100% / ${columnCount} - ${unitNormalizedGap})`;
+
+  return (
+    <div
+      className={cn(styles.photoWall, className)}
+      style={{
+        marginLeft: minusGap,
+        marginTop: minusGap,
+      }}
+    >
+      {items.map((item, idx) => (
+        <div
+          key={idx}
+          style={{
+            width: itemWidth,
+            marginLeft: unitNormalizedGap,
+            marginTop: unitNormalizedGap,
+          }}
+        >
+          <ItemRenderer
+            data={item}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};

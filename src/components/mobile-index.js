@@ -1,10 +1,11 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React from "react";
+import React, { useEffect } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
+import cn from "classnames";
 import {
   CarouselProvider,
   Slider,
@@ -14,6 +15,7 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
+import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 // js
 import MobileLayout from "./mobile-layout";
 import {
@@ -21,6 +23,11 @@ import {
   Padding,
   SpeechBubbleContainer,
   GradientBG,
+  PhotoWall,
+  DarkAppInstallButton,
+  IntroVideoBtn,
+  FlatIntroVideoBtn,
+  OnlyKorean,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
@@ -31,6 +38,11 @@ import svgVolt from "../images/volt.svg";
 import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
+import svgPlayPrimary from "../images/icon-play-primary.svg";
+import { usePreviousValue } from "../hooks/use-previous-value";
+import { useCarouselHandler } from "../hooks/use-carousel-handler";
+
+const CAROUSEL_INTERVAL = 3000;
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -52,6 +64,12 @@ const Top = ({ data, t }) => (
       <p className={styles.topDescription}>
         <Trans i18nKey="index:topDescMobile" />
       </p>
+      <Padding y={60} />
+      <DarkAppInstallButton label={t("usecase:appInstall")} />
+      <OnlyKorean>
+        <Padding y={16} />
+        <FlatIntroVideoBtn />
+      </OnlyKorean>
     </MobileBaseContainer>
     <ScrollContainer
       vertical={false}
@@ -79,6 +97,28 @@ const CHATTING_COLOR_SEQUENCE = [
   { text: "white", background: "rgba(251, 97, 100, 0.6)" },
 ];
 
+const IntroVideoBtnInChatting = () => {
+  const { t } = useI18next();
+
+  return (
+    <IntroVideoBtn className={styles.introVideoBtnInChatting}>
+      <img
+        className={styles.introVideoBtnInChattingPlaySymbol}
+        src={svgPlayPrimary}
+        alt="Play"
+      />
+      <span className={styles.introVideoBtnInChattingLabel}>
+        {t("index:chattingIntroVideoBtnLabel")}
+      </span>
+      <img
+        className={styles.introVideoBtnInChattingArrowSymbol}
+        src={svgRightArrow}
+        alt="icon arrow"
+      />
+    </IntroVideoBtn>
+  );
+};
+
 const Chatting = () => {
   const speechBubbles = [
     { text: <Trans i18nKey="index:chattingBubble1Mobile" /> },
@@ -104,6 +144,10 @@ const Chatting = () => {
       <p className={styles.chattingDescription}>
         <Trans i18nKey="index:chattingDescription" />
       </p>
+      <OnlyKorean>
+        <Padding y={16} />
+        <IntroVideoBtnInChatting />
+      </OnlyKorean>
     </MobileBaseContainer>
   );
 };
@@ -157,49 +201,77 @@ const KeyFeatureSelector = ({ carouselData }) => {
   );
 };
 
+const KeyFeatureSlider = ({ isFirstVisible, carouselData }) => {
+  const prevIsFirstVisible = usePreviousValue(isFirstVisible);
+  const { goToNextSlide } = useCarouselHandler();
+
+  useEffect(() => {
+    if (isFirstVisible && prevIsFirstVisible !== isFirstVisible) {
+      goToNextSlide();
+    }
+  });
+
+  return (
+    <Slider className={styles.keyFeatureSlider}>
+      {carouselData.map((slide, index) => (
+        <Slide
+          key={index}
+          index={index}
+        >
+          <GatsbyImage
+            image={slide.img.childImageSharp.gatsbyImageData}
+            alt={slide.title}
+          />
+        </Slide>
+      ))}
+    </Slider>
+  );
+};
+
 const KeyFeature = ({
   title, description, carouselData,
-}) => (
-  <section className={styles.keyFeatureContainer}>
-    <MobileBaseContainer className={styles.keyFeatureContentContainer}>
-      <h2 className={styles.keyFeatureTitle}>{title}</h2>
-      <Padding y={16} />
-      <p className={styles.keyFeatureDescription}>{description}</p>
-      <Padding y={40} />
+}) => {
+  const { nodeRef, isVisible, everVisible } = useIntersectionObserver();
 
-      <CarouselProvider
-        className={styles.keyFeatureCarousel}
-        naturalSlideWidth={375}
-        naturalSlideHeight={0}
-        totalSlides={carouselData.length}
-        touchEnabled={false}
-        isIntrinsicHeight
-      >
-        <KeyFeatureSelector carouselData={carouselData} />
+  return (
+    <section
+      className={styles.keyFeatureContainer}
+    >
+      <MobileBaseContainer className={styles.keyFeatureContentContainer}>
+        <h2 className={styles.keyFeatureTitle}>{title}</h2>
+        <Padding y={16} />
+        <p className={styles.keyFeatureDescription}>{description}</p>
+        <Padding y={40} />
 
-        <Padding y={30} />
+        <CarouselProvider
+          className={styles.keyFeatureCarousel}
+          naturalSlideWidth={375}
+          naturalSlideHeight={0}
+          totalSlides={carouselData.length}
+          touchEnabled={false}
+          interval={CAROUSEL_INTERVAL}
+          isPlaying={isVisible}
+          isIntrinsicHeight
+        >
+          <KeyFeatureSelector carouselData={carouselData} />
 
-        <Slider className={styles.keyFeatureSlider}>
-          {carouselData.map((slide, index) => (
-            <Slide
-              key={index}
-              index={index}
-            >
-              <GatsbyImage
-                image={slide.img.childImageSharp.gatsbyImageData}
-                alt={slide.title}
-              />
-            </Slide>
-          ))}
-        </Slider>
+          <Padding y={30} />
 
-        <Padding y={10} />
+          <div ref={nodeRef}>
+            <KeyFeatureSlider
+              isFirstVisible={isVisible && !everVisible}
+              carouselData={carouselData}
+            />
+          </div>
 
-        <DotGroup className={styles.keyFeatureDotGroup} />
-      </CarouselProvider>
-    </MobileBaseContainer>
-  </section>
-);
+          <Padding y={10} />
+
+          <DotGroup className={styles.keyFeatureDotGroup} />
+        </CarouselProvider>
+      </MobileBaseContainer>
+    </section>
+  );
+};
 
 const KeyFeatures = ({ data, t }) => (
   <>
@@ -272,6 +344,7 @@ const SalesManagementSelector = ({
 };
 
 const SalesManagement = ({ data, t }) => {
+  const { nodeRef, isVisible } = useIntersectionObserver();
   const salesManagementData = [
     { title: t("index:salesManagementMenu1"), img: data.mobileFeatureTransaction },
     { title: t("index:salesManagementMenu2"), img: data.mobileFeatureOut },
@@ -283,10 +356,10 @@ const SalesManagement = ({ data, t }) => {
       className={styles.salesManagementContentContainer}
       naturalSlideWidth={335}
       naturalSlideHeight={276}
-      interval={3000}
-      isPlaying
       totalSlides={salesManagementData.length}
       touchEnabled={false}
+      interval={CAROUSEL_INTERVAL}
+      isPlaying={isVisible}
     >
       <h2 className={styles.salesManagementTitle}>
         <Trans i18nKey="index:salesManagementTitle" />
@@ -304,19 +377,21 @@ const SalesManagement = ({ data, t }) => {
 
       <Padding y={30} />
 
-      <Slider className={styles.salesManagementSlider}>
-        {salesManagementData.map(({ img, title }, index) => (
-          <Slide
-            key={index}
-            index={index}
-          >
-            <GatsbyImage
-              image={img.childImageSharp.gatsbyImageData}
-              alt={title}
-            />
-          </Slide>
-        ))}
-      </Slider>
+      <div ref={nodeRef}>
+        <Slider className={styles.salesManagementSlider}>
+          {salesManagementData.map(({ img, title }, index) => (
+            <Slide
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={img.childImageSharp.gatsbyImageData}
+                alt={title}
+              />
+            </Slide>
+          ))}
+        </Slider>
+      </div>
     </CarouselProvider>
   );
 };
@@ -342,6 +417,41 @@ const TeamPlay = ({ data, t }) => (
     </MobileBaseContainer>
   </GradientBG>
 );
+
+const Customer = ({ data }) => {
+  const { name, childImageSharp } = data;
+
+  return (
+    <GatsbyImage
+      image={childImageSharp.gatsbyImageData}
+      alt={name}
+    />
+  );
+};
+
+const Customers = ({ data }) => {
+  const { language, t } = useI18next();
+  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
+
+  return (
+    <div className={styles.customersSection}>
+      <MobileBaseContainer className={styles.customersContentContainer}>
+        <h2 className={styles.customersTitle}>
+          {t("index:customerSectionTitle")}
+        </h2>
+        <p className={styles.customersDesc}>
+          {t("index:customerSectionDesc")}
+        </p>
+        <PhotoWall
+          items={customerList}
+          columnCount={3}
+          gap={10}
+          ItemRenderer={Customer}
+        />
+      </MobileBaseContainer>
+    </div>
+  );
+};
 
 function genCustomerData(data) {
   return [
@@ -383,7 +493,7 @@ function genCustomerData(data) {
   ];
 }
 
-const CustomerCard = ({
+const SectorCard = ({
   img, title,
 }) => (
   <div className={styles.customerCard}>
@@ -396,7 +506,7 @@ const CustomerCard = ({
   </div>
 );
 
-const Customers = ({ data, t }) => {
+const Sectors = ({ data, t }) => {
   const customerData = genCustomerData(data);
 
   return (
@@ -404,16 +514,12 @@ const Customers = ({ data, t }) => {
       <h1 className={styles.customersTitle}>
         <Trans i18nKey="index:customerTitle" />
       </h1>
-      <Padding y={16} />
-      <p className={styles.customersDesc}>
-        <Trans i18nKey="index:customerDesc" />
-      </p>
 
       <Padding y={40} />
 
       <div className={styles.customersCardContainer}>
         {customerData.map((customer, index) => (
-          <CustomerCard
+          <SectorCard
             key={index}
             img={customer.emoji}
             title={t(customer.i18nKey)}
@@ -471,9 +577,7 @@ function renderDots(
         key={i}
         slide={slide}
         selected={selected}
-        className={`${styles.slideDetailDot} ${
-          selected ? styles.slideDetailDotSelected : ""
-        }`}
+        className={cn(styles.slideDetailDot, { [styles.slideDetailDotSelected]: selected })}
         onClick={(evt) => {
           const dom = evt.target;
           const left = dom.offsetLeft + dom.clientWidth / 2;
@@ -638,50 +742,54 @@ const StartNow = ({ data, t }) => (
 );
 
 const MobileIndex = ({ data, language, t }) => (
-  <MobileLayout
-    isFloatMenu
-    closingEmoji={data.mobileCoffee}
-    closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
-  >
-    <Top
-      data={data}
-      t={t}
-    />
+  <IntersectionObserverProvider threshold={1}>
+    <MobileLayout
+      isFloatMenu
+      closingEmoji={data.mobileCoffee}
+      closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
+    >
+      <Top
+        data={data}
+        t={t}
+      />
 
-    <Chatting />
+      <Customers data={data} />
 
-    <KeyFeatures
-      data={data}
-      t={t}
-    />
+      <Chatting />
 
-    <SalesManagement
-      data={data}
-      t={t}
-      language={language}
-    />
+      <KeyFeatures
+        data={data}
+        t={t}
+      />
 
-    <TeamPlay
-      data={data}
-      t={t}
-    />
+      <SalesManagement
+        data={data}
+        t={t}
+        language={language}
+      />
 
-    <Customers
-      data={data}
-      t={t}
-    />
+      <TeamPlay
+        data={data}
+        t={t}
+      />
 
-    <Features
-      data={data}
-      t={t}
-      language={language}
-    />
+      <Sectors
+        data={data}
+        t={t}
+      />
 
-    <StartNow
-      data={data}
-      t={t}
-    />
-  </MobileLayout>
+      <Features
+        data={data}
+        t={t}
+        language={language}
+      />
+
+      <StartNow
+        data={data}
+        t={t}
+      />
+    </MobileLayout>
+  </IntersectionObserverProvider>
 );
 
 export default MobileIndex;
