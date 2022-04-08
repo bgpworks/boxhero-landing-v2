@@ -105,7 +105,7 @@ const IntroVideoBtnInChatting = () => {
       <img
         className={styles.introVideoBtnInChattingPlaySymbol}
         src={svgPlayPrimary}
-        alt="icon play"
+        alt="Play"
       />
       <span className={styles.introVideoBtnInChattingLabel}>
         {t("index:chattingIntroVideoBtnLabel")}

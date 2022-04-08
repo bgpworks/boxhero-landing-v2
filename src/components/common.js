@@ -23,6 +23,7 @@ import {
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
+  introVideoYoutubeIdKo,
 } from "./constants";
 
 export const DesktopBaseContainer = ({ className, children }) => (
@@ -172,8 +173,6 @@ export const DarkAppInstallButton = ({ label }) => (
   </AppDownloadLink>
 );
 
-const INTRO_VIDEO_YOUTUBE_ID = "8Qr4q2qUlzs";
-
 export const IntroVideoBtn = ({ className, children }) => {
   const { openYoutube } = useContext(YoutubePopupContext);
 
@@ -183,10 +182,10 @@ export const IntroVideoBtn = ({ className, children }) => {
       className={cn(styles.introVideoBtn, className)}
       onClick={() => {
         openYoutube(
-          INTRO_VIDEO_YOUTUBE_ID,
+          introVideoYoutubeIdKo,
           {
             playerVars: {
-              origin: "https://www.boxhero-app.com",
+              origin: window.location.origin,
               autoplay: 1,
               mute: 1,
               controls: 1,
@@ -194,7 +193,7 @@ export const IntroVideoBtn = ({ className, children }) => {
               rel: 0,
               modestbranding: 1,
               loop: 1,
-              playlist: INTRO_VIDEO_YOUTUBE_ID,
+              playlist: introVideoYoutubeIdKo,
             },
           },
           "16:9",
@@ -217,7 +216,7 @@ export const FlatIntroVideoBtn = ({ className }) => {
       <img
         className={styles.playSymbol}
         src={svgPlay}
-        alt="play icon"
+        alt="Play"
       />
       <span className={styles.introVideoLabel}>
         {t("index:introVideoBtnLabel")}
