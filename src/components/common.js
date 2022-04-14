@@ -187,7 +187,6 @@ export const IntroVideoBtn = ({ className, children }) => {
             playerVars: {
               origin: window.location.origin,
               autoplay: 1,
-              mute: 1,
               controls: 1,
               playsinline: 1,
               rel: 0,
