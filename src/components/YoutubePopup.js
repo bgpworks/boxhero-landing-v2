@@ -93,10 +93,6 @@ const Popup = () => {
           <YouTube
             videoId={videoId}
             opts={derivedOpts}
-            onReady={(evt) => {
-              evt.target.mute();
-              evt.target.playVideo();
-            }}
           />
         )}
       </div>
