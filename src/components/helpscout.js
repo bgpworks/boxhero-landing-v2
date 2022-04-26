@@ -24,9 +24,6 @@ export const useHelpscout = () => {
     if ("Beacon" in window) {
       const beaconId = getBeaconId(language);
       window.Beacon("init", beaconId);
-      window.Beacon("config", {
-        hideFABOnMobile: true,
-      });
     }
     // unmount시 destroy. helpscout 새로운 init을 하기 위해서는 반드시 destroy를 먼저 해야 한다.
     // destroy / init이 semaphore처럼 동작해서, 무조건 destroy를 미리 불러도 안되고, 짝을 맞춰서 불러야 한다.
