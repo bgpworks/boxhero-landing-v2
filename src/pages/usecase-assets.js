@@ -7,10 +7,69 @@ import { Media } from "../media";
 import DesktopUsecaseAssets from "../components/desktop-usecase-assets";
 import MobileUsecaseAssets from "../components/mobile-usecase-assets";
 import { useHelpscout } from "../components/helpscout";
+import {
+  genRelatedContent, CATEGORY_BG_BLUE, CATEGORY_BG_GREEN, CATEGORY_BG_RED,
+} from "../components/usecase-common";
+
+const getRelatedContents = (language) => {
+  switch (language) {
+    case "ko":
+      return [
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "인사이트",
+          "수기로 하는 재고관리 VS 박스히어로",
+          "나에게 맞는 재고관리 솔루션은 무엇일까요?",
+          CATEGORY_BG_GREEN,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/4ceon-gaeyi-jasan-pummog-gwanrido-bagseuhieoroeseon-honja-ganeunghaessjyo/",
+          "성공사례",
+          "4천 개의 자산 품목 관리도 박스히어로에선 혼자 가능했죠.",
+          "[박스히어로 인터뷰 Vol. 01] (주)두산 큐벡스 김세권 담당자님",
+          CATEGORY_BG_RED,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "기능",
+          "바코드 생성부터 출력까지 박스히어로와 함께 시작하세요!",
+          "어렵게만 느껴지는 바코드 생성과 출력, 이해하기 쉽게 알려드려요!",
+          CATEGORY_BG_BLUE,
+        ),
+      ];
+    default:
+      return [
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "Insight",
+          "How Our Company Manages Business Assets with BoxHero",
+          "Manage assets efficiently to reduce unnecessary spending and improve the decision-making process.",
+          CATEGORY_BG_BLUE,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "Insight",
+          "How to Make Barcodes",
+          "Making barcodes, it's finally easy.",
+          CATEGORY_BG_BLUE,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "Insight",
+          "Wisely Manage Assets in a Small Business",
+          "Read about how to overcome the challenges of asset management in a small business.",
+          CATEGORY_BG_BLUE,
+        ),
+      ];
+  }
+};
 
 export default function UsecaseAssetsPage({ data, location }) {
   const { language, t } = useI18next();
+  const relatedContents = getRelatedContents(language);
+
   useHelpscout();
+
   return (
     <>
       <SEOHelmet
@@ -23,16 +82,14 @@ export default function UsecaseAssetsPage({ data, location }) {
       <Media at="xs">
         <MobileUsecaseAssets
           data={data}
-          language={language}
-          t={t}
+          relatedContents={relatedContents}
         />
       </Media>
 
       <Media greaterThan="xs">
         <DesktopUsecaseAssets
           data={data}
-          language={language}
-          t={t}
+          relatedContents={relatedContents}
         />
       </Media>
     </>
@@ -43,25 +100,6 @@ export const query = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
-    }
-    relatedContents: allMarkdownRemark(
-      filter: {
-        fields: { locale: { eq: $language } },
-        frontmatter: { relPage: { eq: "usecase-assets" } }
-      }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        frontmatter {
-          title
-          category
-          description
-        }
-        fields {
-          slug
-          categoryStyle
-        }
-      }
     }
     finger: file(relativePath: { eq: "emoji-finger.png" }) {
       childImageSharp {

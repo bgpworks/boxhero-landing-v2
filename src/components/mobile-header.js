@@ -135,12 +135,14 @@ const MobileMenu = ({ onChangeIsShow }) => {
       </div>
 
       <DropDown title={t("header:menuResource")}>
-        <Link
-          to="/blog/"
+        <a
+          href={t("url:ghostblog")}
+          target="_blank"
+          rel="noreferrer"
           onClick={closeMobileMenu}
         >
           {t("header:menuCompanyBlog")}
-        </Link>
+        </a>
         <a
           href={t("url:doc")}
           onClick={closeMobileMenu}

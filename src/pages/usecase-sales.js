@@ -7,10 +7,69 @@ import { Media } from "../media";
 import DesktopUsecaseSales from "../components/desktop-usecase-sales";
 import MobileUsecaseSales from "../components/mobile-usecase-sales";
 import { useHelpscout } from "../components/helpscout";
+import {
+  genRelatedContent, CATEGORY_BG_BLUE, CATEGORY_BG_GREEN, CATEGORY_BG_RED,
+} from "../components/usecase-common";
+
+const getRelatedContents = (language) => {
+  switch (language) {
+    case "ko":
+      return [
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "성공사례",
+          "오프라인과 온라인 재고관리, 박스히어로 하나로 끝냈어요.",
+          "[박스히어로 인터뷰 Vol. 02] (주)베르띠 안재환 담당자님",
+          CATEGORY_BG_RED,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/4ceon-gaeyi-jasan-pummog-gwanrido-bagseuhieoroeseon-honja-ganeunghaessjyo/",
+          "기능",
+          "쇼핑몰 재고관리도 박스히어로와 쉽게!",
+          "쇼핑몰 재고들도 박스히어로와 함께 쉽고 완벽하게 재고관리하세요!",
+          CATEGORY_BG_BLUE,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "인사이트",
+          "온라인 쇼핑몰 재고관리의 5가지 팁!",
+          "매출 증가와 함께 쇼핑몰 비즈니스를 성공시키기 위한 5가지 팁에 대해 알아볼까요?",
+          CATEGORY_BG_GREEN,
+        ),
+      ];
+    default:
+      return [
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "Insight",
+          "What’s Important in Ecommerce Inventory Management",
+          "Inventory management is the start to business streamlining.",
+          CATEGORY_BG_BLUE,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "Insight",
+          "5 Effective Ways to Manage Online Store Inventory",
+          "Follow these tips to improve your inventory management and be one step closer to a successful business.",
+          CATEGORY_BG_BLUE,
+        ),
+        genRelatedContent(
+          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "Insight",
+          "How to Optimize Your Inventory",
+          "Are you looking for a better way to manage your inventory?",
+          CATEGORY_BG_BLUE,
+        ),
+      ];
+  }
+};
 
 export default function UsecaseSalesPage({ data, location }) {
   const { language, t } = useI18next();
+  const relatedContents = getRelatedContents(language);
+
   useHelpscout();
+
   return (
     <>
       <SEOHelmet
@@ -23,16 +82,14 @@ export default function UsecaseSalesPage({ data, location }) {
       <Media at="xs">
         <MobileUsecaseSales
           data={data}
-          language={language}
-          t={t}
+          relatedContents={relatedContents}
         />
       </Media>
 
       <Media greaterThan="xs">
         <DesktopUsecaseSales
           data={data}
-          language={language}
-          t={t}
+          relatedContents={relatedContents}
         />
       </Media>
     </>
@@ -43,25 +100,6 @@ export const query = graphql`
   query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
-    }
-    relatedContents: allMarkdownRemark(
-      filter: {
-        fields: { locale: { eq: $language } },
-        frontmatter: { relPage: { eq: "usecase-sales" } }
-      }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        frontmatter {
-          title
-          category
-          description
-        }
-        fields {
-          slug
-          categoryStyle
-        }
-      }
     }
     finger: file(relativePath: { eq: "emoji-finger.png" }) {
       childImageSharp {

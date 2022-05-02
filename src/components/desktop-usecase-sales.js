@@ -1,5 +1,5 @@
 import React from "react";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { UseCaseFeature, Padding, UseCaseTop } from "./common";
 // js
@@ -117,28 +117,32 @@ const UseCaseFeatures = ({ data, t }) => {
   );
 };
 
-const DesktopUsecaseSales = ({ data, t }) => (
-  <DesktopLayout
-    isFloatMenu={false}
-    showPlatforms={false}
-    closingEmoji={data.finger}
-    closingMsg={t("usecase:closingMsg")}
-  >
-    <UseCaseTop
-      className={styles.useCaseTopContainer}
-      title={<Trans i18nKey="usecase:salesTopTitle" />}
-      description={<Trans i18nKey="usecase:salesTopDesc" />}
-      startNow={t("usecase:startNowButton")}
-      img={data.allInOne}
-    />
+const DesktopUsecaseSales = ({ data, relatedContents }) => {
+  const { t } = useI18next();
 
-    <UseCaseFeatures
-      data={data}
-      t={t}
-    />
+  return (
+    <DesktopLayout
+      isFloatMenu={false}
+      showPlatforms={false}
+      closingEmoji={data.finger}
+      closingMsg={t("usecase:closingMsg")}
+    >
+      <UseCaseTop
+        className={styles.useCaseTopContainer}
+        title={<Trans i18nKey="usecase:salesTopTitle" />}
+        description={<Trans i18nKey="usecase:salesTopDesc" />}
+        startNow={t("usecase:startNowButton")}
+        img={data.allInOne}
+      />
 
-    <DesktopUseCaseFooter data={data} />
-  </DesktopLayout>
-);
+      <UseCaseFeatures
+        data={data}
+        t={t}
+      />
+
+      <DesktopUseCaseFooter relatedContents={relatedContents} />
+    </DesktopLayout>
+  );
+};
 
 export default DesktopUsecaseSales;

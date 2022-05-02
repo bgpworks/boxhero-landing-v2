@@ -1,5 +1,5 @@
 import React from "react";
-import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import {
   DesktopBaseContainer,
   Padding,
@@ -91,7 +91,11 @@ const PostCard = ({
   path,
 }) => (
   <li className={styles.postCardWrapper}>
-    <Link to={path}>
+    <a
+      href={path}
+      target="_blank"
+      rel="noreferrer"
+    >
       <article className={styles.postCard}>
         <span
           className={styles.postCardCategory}
@@ -104,12 +108,12 @@ const PostCard = ({
         <Padding y={8} />
         <div className={styles.postCardDescription}>{description}</div>
       </article>
-    </Link>
+    </a>
   </li>
 );
 
-const RelatedContents = ({ data, t }) => {
-  const postCardsData = data.relatedContents.nodes;
+const RelatedContents = ({ contents }) => {
+  const { t } = useI18next();
 
   return (
     <div className={styles.relatedContentsContainer}>
@@ -119,34 +123,31 @@ const RelatedContents = ({ data, t }) => {
         </div>
         <Padding y={50} />
         <ul className={styles.postCards}>
-          {postCardsData.slice(0, 3).map((postCard, index) => {
-            const catgegoryStyle = JSON.parse(postCard.fields.categoryStyle);
-
-            return (
-              <PostCard
-                key={index}
-                title={postCard.frontmatter.title}
-                categoryStyle={catgegoryStyle}
-                category={postCard.frontmatter.category}
-                description={postCard.frontmatter.description}
-                path={`/blog/posts/${postCard.fields.slug}`}
-              />
-            );
-          })}
+          {contents.slice(0, 3).map((content, index) => (
+            <PostCard
+              key={index}
+              title={content.title}
+              categoryStyle={{
+                backgroundColor: content.bgColor,
+              }}
+              category={content.category}
+              description={content.frontmatter}
+              path={content.src}
+            />
+          ))}
         </ul>
       </DesktopBaseContainer>
     </div>
   );
 };
 
-const DesktopUseCaseFooter = ({ data }) => {
+const DesktopUseCaseFooter = ({ relatedContents }) => {
   const { t } = useI18next();
   return (
     <>
       <StartNow t={t} />
       <RelatedContents
-        data={data}
-        t={t}
+        contents={relatedContents}
       />
     </>
   );

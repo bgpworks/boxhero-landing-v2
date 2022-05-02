@@ -103,11 +103,6 @@ module.exports = {
             languages: [],
           },
           {
-            matchPath: "/:lang?/blog(.*)",
-            getLanguageFromPath: true,
-            languages: [`en`, `ko`, `es`, `id`],
-          },
-          {
             matchPath: "/marketing-210524",
             languages: ["ko"],
           },
@@ -151,7 +146,7 @@ module.exports = {
         }) => {
           const lastmod = format(new Date(buildTime), "yyyy-MM-dd");
 
-          const filteredNodes = nodes.filter(({pageContext}) => pageContext.i18n.routed);
+          const filteredNodes = nodes.filter(({ pageContext }) => pageContext.i18n.routed);
           const group = filteredNodes.reduce((prev, cur) => {
             const { originalPath, language } = cur.pageContext.i18n;
             prev[originalPath] = prev[originalPath] || []
@@ -210,36 +205,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-smoothscroll`,
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "posts",
-        path: `${__dirname}/contents/blog/`,
-      },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              showCaptions: true,
-              maxWidth: 800,
-              quality: 80,
-            },
-          },
-          {
-            resolve: `gatsby-remark-copy-relative-linked-files`,
-            options: {
-              filename: ({ hash, name, extension }) =>
-                `${name}-${hash}.${extension}`,
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
-            },
-          },
-        ],
-      },
-    },
     {
       resolve: "gatsby-plugin-eslint",
       options: {

@@ -167,7 +167,13 @@ const DesktopFooterMenus = ({ t, language }) => (
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>{t("footer:footerMenuResource")}</div>
       <div>
-        <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
+        <a
+          href={t("url:ghostblog")}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("footer:footerMenuCompanyBlog")}
+        </a>
       </div>
       {language !== "ko" && (
         <>
