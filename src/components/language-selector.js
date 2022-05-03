@@ -1,5 +1,6 @@
 import React from "react";
 import { useI18next } from "gatsby-plugin-react-i18next";
+import cn from "classnames";
 import { Padding } from "./common";
 // css
 import * as styles from "./language-selector.module.css";
@@ -42,9 +43,7 @@ const LangOption = ({ lang }) => {
   return (
     <button
       type="button"
-      className={`${styles.languageOption} ${
-        language === lang ? styles.selected : ""
-      }`}
+      className={cn(styles.languageOption, { [styles.selected]: language === lang })}
       onClick={() => changeLanguage(lang)}
     >
       {LANG_NAME[lang] || lang}
@@ -89,8 +88,6 @@ export const LangPopup = ({ isShow, onClickClose }) => {
 
         <LangOption lang="en" />
         <LangOption lang="ko" />
-        <LangOption lang="es" />
-        <LangOption lang="id" />
       </div>
     </div>
   );

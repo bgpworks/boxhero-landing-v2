@@ -1,5 +1,5 @@
 import React from "react";
-import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import {
   MobileBaseContainer,
@@ -78,7 +78,7 @@ const StartNow = ({ t }) => (
           i18nKey="usecase-footer:businessPlanPrice"
           components={{ small: <small /> }}
         />
-        )}
+      )}
       features={[
         { icon: svgPerson, text: <Trans i18nKey="usecase-footer:businessPlanFeature1" /> },
         { icon: svgBox, text: <Trans i18nKey="usecase-footer:businessPlanFeature2" /> },
@@ -97,7 +97,11 @@ const PostCard = ({
   path,
 }) => (
   <li className={styles.postCardWrapper}>
-    <Link to={path}>
+    <a
+      href={path}
+      target="_blank"
+      rel="noreferrer"
+    >
       <article className={styles.postCard}>
         <span
           className={styles.postCardCategory}
@@ -110,12 +114,12 @@ const PostCard = ({
         <Padding y={8} />
         <div className={styles.postCardDescription}>{description}</div>
       </article>
-    </Link>
+    </a>
   </li>
 );
 
-const RelatedContents = ({ data, t }) => {
-  const postCardsData = data.relatedContents.nodes;
+const RelatedContents = ({ contents }) => {
+  const { t } = useI18next();
 
   return (
     <section className={styles.darkBg}>
@@ -125,34 +129,31 @@ const RelatedContents = ({ data, t }) => {
         </h2>
         <Padding y={40} />
         <ul className={styles.postCards}>
-          {postCardsData.slice(0, 3).map((postCard, index) => {
-            const categoryStyle = JSON.parse(postCard.fields.categoryStyle);
-
-            return (
-              <PostCard
-                key={index}
-                title={postCard.frontmatter.title}
-                categoryStyle={categoryStyle}
-                category={postCard.frontmatter.category}
-                description={postCard.frontmatter.description}
-                path={`/blog/posts/${postCard.fields.slug}`}
-              />
-            );
-          })}
+          {contents.slice(0, 3).map((content, index) => (
+            <PostCard
+              key={index}
+              title={content.title}
+              categoryStyle={{
+                backgroundColor: content.bgColor,
+              }}
+              category={content.category}
+              description={content.frontmatter}
+              path={content.src}
+            />
+          ))}
         </ul>
       </MobileBaseContainer>
     </section>
   );
 };
 
-const MobileUseCaseFooter = ({ data }) => {
+const MobileUseCaseFooter = ({ relatedContents }) => {
   const { t } = useI18next();
   return (
     <>
       <StartNow t={t} />
       <RelatedContents
-        data={data}
-        t={t}
+        contents={relatedContents}
       />
     </>
   );

@@ -90,7 +90,13 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
     </FooterMenu>
 
     <FooterMenu title={t("footer:footerMenuResource")}>
-      <Link to="/blog">{t("footer:footerMenuCompanyBlog")}</Link>
+      <a
+        href={t("url:ghostblog")}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {t("footer:footerMenuCompanyBlog")}
+      </a>
       <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
       {language !== "ko" && <a href="/help">{t("footer:footerMenuSupportFaq")}</a>}
       {language !== "ko" && <a href="/help/start">{t("footer:footerMenuSupportManual")}</a>}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { MobileUseCaseFeature, Padding, MobileUseCaseTop } from "./common";
 // js
@@ -111,29 +111,33 @@ const UseCaseFeatures = ({ data, t }) => {
   );
 };
 
-const MobileUsecaseSales = ({ data, t }) => (
-  <MobileLayout
-    isFloatMenu={false}
-    showPlatforms={false}
-    closingEmoji={data.mobileFinger}
-    closingMsg={t("usecase:closingMsg")}
-  >
-    <MobileUseCaseTop
-      className={styles.useCaseTopContainer}
-      title={<Trans i18nKey="usecase:salesTopTitleMobile" />}
-      description={<Trans i18nKey="usecase:salesTopDesc" />}
-      appDownload={t("usecase:appInstall")}
-      img={data.mobileAllInOne}
-      alt="all-in-one"
-    />
+const MobileUsecaseSales = ({ data, relatedContents }) => {
+  const { t } = useI18next();
 
-    <UseCaseFeatures
-      data={data}
-      t={t}
-    />
+  return (
+    <MobileLayout
+      isFloatMenu={false}
+      showPlatforms={false}
+      closingEmoji={data.mobileFinger}
+      closingMsg={t("usecase:closingMsg")}
+    >
+      <MobileUseCaseTop
+        className={styles.useCaseTopContainer}
+        title={<Trans i18nKey="usecase:salesTopTitleMobile" />}
+        description={<Trans i18nKey="usecase:salesTopDesc" />}
+        appDownload={t("usecase:appInstall")}
+        img={data.mobileAllInOne}
+        alt="all-in-one"
+      />
 
-    <MobileUseCaseFooter data={data} />
-  </MobileLayout>
-);
+      <UseCaseFeatures
+        data={data}
+        t={t}
+      />
+
+      <MobileUseCaseFooter relatedContents={relatedContents} />
+    </MobileLayout>
+  );
+};
 
 export default MobileUsecaseSales;

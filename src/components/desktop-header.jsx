@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useTranslation } from "gatsby-plugin-react-i18next";
+import { Link, useTranslation, useI18next } from "gatsby-plugin-react-i18next";
+import cn from "classnames";
 // js
 import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
@@ -63,6 +64,18 @@ const DropDownMenu = ({
   </div>
 );
 
+const SingleMenu = ({ to }) => {
+  const { t } = useI18next();
+  return (
+    <Link
+      className={styles.singleMenu}
+      to={to}
+    >
+      {t("header:menuPricing")}
+    </Link>
+  );
+};
+
 const DesktopHeader = ({ isFloatMenu }) => {
   const { isScrolled } = useCheckScrolled();
   const isBackgroundWhite = !isFloatMenu || isScrolled;
@@ -71,9 +84,7 @@ const DesktopHeader = ({ isFloatMenu }) => {
   return (
     <>
       <header
-        className={`${styles.headerContainer} ${
-          isBackgroundWhite ? styles.whiteContainer : ""
-        }`}
+        className={cn(styles.headerContainer, { [styles.whiteContainer]: isBackgroundWhite })}
       >
         <DesktopBaseContainer className={styles.menuContainer}>
           <Link to="/">
@@ -131,18 +142,22 @@ const DesktopHeader = ({ isFloatMenu }) => {
             </Link>
           </DropDownMenu>
 
-          <Link to="/pricing/">{t("header:menuPricing")}</Link>
+          <SingleMenu to="/pricing/">{t("header:menuPricing")}</SingleMenu>
 
           <DropDownMenu
             title={t("header:menuResource")}
             isBackgroundWhite={isBackgroundWhite}
           >
-            <Link to="/blog">
+            <a
+              href={t("url:ghostblog")}
+              target="_blank"
+              rel="noreferrer"
+            >
               <DropDownSubMenu
                 title={t("header:menuCompanyBlog")}
                 icon={svgBlog}
               />
-            </Link>
+            </a>
             <a href={t("url:doc")}>
               <DropDownSubMenu
                 title={t("header:menuDoc")}

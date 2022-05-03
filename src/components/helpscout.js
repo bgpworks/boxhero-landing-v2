@@ -5,10 +5,6 @@ function getBeaconId(language) {
   switch (language) {
     case "ko":
       return "ca3bc2e0-de9e-4680-bb05-ceb9ea2535a4";
-    case "es":
-      return "4bed36b5-5fd8-4b10-95fe-a3cecb2b30f7";
-    case "id":
-      return "365effbd-c552-4e43-a2ed-63537c91e417";
     default:
       return "870b4827-57f0-437b-9e0b-5077cd29f127";
   }
