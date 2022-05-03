@@ -27,6 +27,7 @@ import {
   DarkAppInstallButton,
   IntroVideoBtn,
   FlatIntroVideoBtn,
+  ConsultingButton,
   OnlyKorean,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
@@ -66,6 +67,8 @@ const Top = ({ data, t }) => (
       </p>
       <Padding y={60} />
       <DarkAppInstallButton label={t("usecase:appInstall")} />
+      <Padding y={16} />
+      <ConsultingButton transparent={false} />
       <OnlyKorean>
         <Padding y={16} />
         <FlatIntroVideoBtn />
