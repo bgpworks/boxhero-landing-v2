@@ -97,7 +97,11 @@ const PostCard = ({
   path,
 }) => (
   <li className={styles.postCardWrapper}>
-    <Link to={path}>
+    <a
+      href={path}
+      target="_blank"
+      rel="noreferrer"
+    >
       <article className={styles.postCard}>
         <span
           className={styles.postCardCategory}
@@ -110,7 +114,7 @@ const PostCard = ({
         <Padding y={8} />
         <div className={styles.postCardDescription}>{description}</div>
       </article>
-    </Link>
+    </a>
   </li>
 );
 
