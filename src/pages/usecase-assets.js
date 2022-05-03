@@ -74,8 +74,8 @@ export default function UsecaseAssetsPage({ data, location }) {
     <>
       <SEOHelmet
         lang={language}
-        title={t("usecase:pageTitle")}
-        description={t("usecase:pageDescription")}
+        title={t("usecase:pageTitleAssets")}
+        description={t("usecase:pageDescriptionAssets")}
         path={location.pathname}
       />
 

@@ -9,6 +9,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 function SEOHelmet({
   description, lang, meta, title, path, ogImageUrl,
@@ -32,18 +33,19 @@ function SEOHelmet({
     `,
   );
   const { site } = data;
+  const { t } = useI18next();
 
   const metaDescription = description || site.siteMetadata.description;
   const { siteUrl } = site.siteMetadata;
   const derivedOgImage = ogImageUrl ? `${siteUrl}${ogImageUrl}` : `${siteUrl}${data.ogImg.publicURL}`;
+  const siteName = t("index:siteName");
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={`${title} | ${siteName}`}
       meta={[
         {
           name: "description",
@@ -51,7 +53,7 @@ function SEOHelmet({
         },
         {
           property: "og:site_name",
-          content: `${site.siteMetadata.title}`,
+          content: siteName,
         },
         {
           property: "og:title",
