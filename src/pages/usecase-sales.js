@@ -74,8 +74,8 @@ export default function UsecaseSalesPage({ data, location }) {
     <>
       <SEOHelmet
         lang={language}
-        title={t("usecase:pageTitle")}
-        description={t("usecase:pageDescription")}
+        title={t("usecase:pageTitleSales")}
+        description={t("usecase:pageDescriptionSales")}
         path={location.pathname}
       />
 
