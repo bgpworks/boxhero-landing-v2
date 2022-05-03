@@ -1,5 +1,5 @@
 import React from "react";
-import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import {
   MobileBaseContainer,
