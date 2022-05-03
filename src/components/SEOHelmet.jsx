@@ -38,13 +38,14 @@ function SEOHelmet({
   const metaDescription = description || site.siteMetadata.description;
   const { siteUrl } = site.siteMetadata;
   const derivedOgImage = ogImageUrl ? `${siteUrl}${ogImageUrl}` : `${siteUrl}${data.ogImg.publicURL}`;
+  const siteName = t("index:siteName");
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={`${title} | ${t("index:siteName")}`}
+      title={`${title} | ${siteName}`}
       meta={[
         {
           name: "description",
@@ -52,7 +53,7 @@ function SEOHelmet({
         },
         {
           property: "og:site_name",
-          content: `${site.siteMetadata.title}`,
+          content: siteName,
         },
         {
           property: "og:title",
