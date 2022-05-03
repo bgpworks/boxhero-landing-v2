@@ -48,14 +48,14 @@
   border-radius: 6px;
 }
 
-.introVideoBtn {
-  width: 243px;
-}
-
 .topButtonIcon {
   width: 24px;
   height: 24px;
   margin-right: 8px;
+}
+
+.introVideoBtn {
+  width: 243px;
 }
 
 /* Customers */

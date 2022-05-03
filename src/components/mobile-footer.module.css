@@ -113,3 +113,21 @@ a.tosPrivacyLink,
 a.tosPrivacyLink:visited {
   color: var(--color-primary);
 }
+
+.startNowButton {
+  background: var(--color-primary);
+  color: white;
+  width: 243px;
+  height: 44px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.topButtonIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}

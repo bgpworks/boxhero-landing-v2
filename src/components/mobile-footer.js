@@ -5,11 +5,14 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import * as constants from "./constants";
-import { Padding, SupportEmail } from "./common";
+import {
+  Padding, SupportEmail, ConsultingButton, AppDownloadLink,
+} from "./common";
 import SocialLinkList from "./social-link-list";
 // css
 import * as styles from "./mobile-footer.module.css";
 // images
+import svgDownload from "../images/download.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 
 const Platforms = ({ t }) => {
@@ -55,6 +58,22 @@ const StartNow = ({ t, emoji, message }) => (
     />
     <Padding y={10} />
     <p className={styles.startNowDescription}>{message}</p>
+    <Padding y={36} />
+    <AppDownloadLink>
+      <button
+        type="button"
+        className={styles.startNowButton}
+      >
+        <img
+          className={styles.topButtonIcon}
+          src={svgDownload}
+          alt={t("footer:appInstall")}
+        />
+        {t("footer:appInstall")}
+      </button>
+    </AppDownloadLink>
+    <Padding y={10} />
+    <ConsultingButton />
   </section>
 );
 
