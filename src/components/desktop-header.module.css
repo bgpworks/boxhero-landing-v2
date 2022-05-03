@@ -86,8 +86,8 @@
   margin-left: 50px;
 }
 
-.menuContainer a {
-  color: inherit;
+.singleMenu {
+  color: #fff;
 }
 
 .padding {
@@ -103,7 +103,7 @@
 .loginButton {
   border: solid 1px #fff;
   background: transparent;
-  color: inherit;
+  color: #fff;
 
   padding: 10px 25px;
 }
@@ -115,7 +115,9 @@
   background-color: #fff;
 }
 
-.whiteContainer .menuContainer {
+.whiteContainer .menuContainer,
+.whiteContainer .singleMenu,
+.whiteContainer .loginButton {
   color: var(--color-black);
 }
 

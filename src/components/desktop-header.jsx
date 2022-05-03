@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useTranslation } from "gatsby-plugin-react-i18next";
+import { Link, useTranslation, useI18next } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
 // js
 import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
@@ -63,6 +63,18 @@ const DropDownMenu = ({
     </div>
   </div>
 );
+
+const SingleMenu = ({ to }) => {
+  const { t } = useI18next();
+  return (
+    <Link
+      className={styles.singleMenu}
+      to={to}
+    >
+      {t("header:menuPricing")}
+    </Link>
+  );
+};
 
 const DesktopHeader = ({ isFloatMenu }) => {
   const { isScrolled } = useCheckScrolled();
@@ -130,7 +142,7 @@ const DesktopHeader = ({ isFloatMenu }) => {
             </Link>
           </DropDownMenu>
 
-          <Link to="/pricing/">{t("header:menuPricing")}</Link>
+          <SingleMenu to="/pricing/">{t("header:menuPricing")}</SingleMenu>
 
           <DropDownMenu
             title={t("header:menuResource")}
