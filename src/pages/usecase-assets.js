@@ -30,7 +30,7 @@ const getRelatedContents = (language) => {
           CATEGORY_BG_RED,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-ko.boxhero-app.com/bakodeu-saengseongbuteo-culryeogggaji-bagseuhieorowa-hamgge-sijaghaseyo/",
           "기능",
           "바코드 생성부터 출력까지 박스히어로와 함께 시작하세요!",
           "어렵게만 느껴지는 바코드 생성과 출력, 이해하기 쉽게 알려드려요!",
@@ -40,21 +40,21 @@ const getRelatedContents = (language) => {
     default:
       return [
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/how-our-company-manages-business-assets-with-boxhero/",
           "Insight",
           "How Our Company Manages Business Assets with BoxHero",
           "Manage assets efficiently to reduce unnecessary spending and improve the decision-making process.",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/how-to-make-barcodes/",
           "Insight",
           "How to Make Barcodes",
           "Making barcodes, it's finally easy.",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/wisely-manage-assets-in-a-small-business/",
           "Insight",
           "Wisely Manage Assets in a Small Business",
           "Read about how to overcome the challenges of asset management in a small business.",

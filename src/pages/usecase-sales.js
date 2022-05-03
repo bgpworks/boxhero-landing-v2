@@ -16,21 +16,21 @@ const getRelatedContents = (language) => {
     case "ko":
       return [
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-ko.boxhero-app.com/opeuraingwa-onrain-jaegogwanri-bagseuhieoro-hanaro-ggeutnaesseoyo/",
           "성공사례",
           "오프라인과 온라인 재고관리, 박스히어로 하나로 끝냈어요.",
           "[박스히어로 인터뷰 Vol. 02] (주)베르띠 안재환 담당자님",
           CATEGORY_BG_RED,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/4ceon-gaeyi-jasan-pummog-gwanrido-bagseuhieoroeseon-honja-ganeunghaessjyo/",
+          "https://blog-ko.boxhero-app.com/syopingmol-jaegogwanrido-bagseuhieorowa-swibge/",
           "기능",
           "쇼핑몰 재고관리도 박스히어로와 쉽게!",
           "쇼핑몰 재고들도 박스히어로와 함께 쉽고 완벽하게 재고관리하세요!",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-ko.boxhero-app.com/onrain-syopingmol-jaegogwanriyi-5gaji-tib/",
           "인사이트",
           "온라인 쇼핑몰 재고관리의 5가지 팁!",
           "매출 증가와 함께 쇼핑몰 비즈니스를 성공시키기 위한 5가지 팁에 대해 알아볼까요?",
@@ -40,21 +40,21 @@ const getRelatedContents = (language) => {
     default:
       return [
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/whats-important-in-e-commerce-inventory-management/",
           "Insight",
-          "What’s Important in Ecommerce Inventory Management",
+          "What is the Importance of Inventory Management in E-Commerce",
           "Inventory management is the start to business streamlining.",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/5-effective-ways-to-manage-online-store-inventory/",
           "Insight",
           "5 Effective Ways to Manage Online Store Inventory",
           "Follow these tips to improve your inventory management and be one step closer to a successful business.",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/how-to-optimize-your-inventory/",
           "Insight",
           "How to Optimize Your Inventory",
           "Are you looking for a better way to manage your inventory?",

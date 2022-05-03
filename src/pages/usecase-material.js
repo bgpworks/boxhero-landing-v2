@@ -16,21 +16,21 @@ const getRelatedContents = (language) => {
     case "ko":
       return [
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-ko.boxhero-app.com/bagseuhieoro-doib-ihu-jeonhwa-eungdaega-95-juleodeuleosseoyo/",
           "성공사례",
           "박스히어로 도입 이후 전화 응대가 95% 줄어들었어요.",
           "[박스히어로 인터뷰 Vol. 03] (주)유알오 이철우 담당자님",
           CATEGORY_BG_RED,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/4ceon-gaeyi-jasan-pummog-gwanrido-bagseuhieoroeseon-honja-ganeunghaessjyo/",
+          "https://blog-ko.boxhero-app.com/bagseuhieorowa-ggomggomhage-jaegobunseog-hagi/",
           "기능",
           "박스히어로와 꼼꼼하게 재고분석 하기!",
           "효과적인 재고관리를 위해서는 관리하고 있는 재고에 대해 명확하게 파악하는 것이 매우 중요해요!",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-ko.boxhero-app.com/anjeonjaegowa-jeogjeongjaego/",
           "인사이트",
           "안전재고와 적정재고",
           "안전재고와 적정재고 관리를 통해 재고관리 리스크를 줄이는 방법을 알려드려요.",
@@ -40,21 +40,21 @@ const getRelatedContents = (language) => {
     default:
       return [
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/what-is-safety-stock/",
           "Insight",
           "What is Safety Stock?",
           "Satisfy your customers by applying safety stock for good inventory management.",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/4-most-effective-inventory-management-techniques/",
           "Insight",
           "4 Most Effective Inventory Management Techniques",
           "Read about the four inventory management techniques for efficient stock control.",
           CATEGORY_BG_BLUE,
         ),
         genRelatedContent(
-          "https://blog-ko.boxhero-app.com/sugiro-haneun-jaegogwanri-vs-bagseuhieoro/",
+          "https://blog-en.boxhero-app.com/how-to-optimize-your-inventory/",
           "Insight",
           "How to Optimize Your Inventory",
           "Are you looking for a better way to manage your inventory?",
