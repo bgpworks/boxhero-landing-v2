@@ -117,11 +117,12 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
         {t("footer:footerMenuCompanyBlog")}
       </a>
       <a
-        href="/help"
+        href={t("url:doc")}
         target="_blank"
         rel="noreferrer"
       >
         {t("footer:footerMenuSupportManual")}
+
       </a>
       <a
         href={t("url:support")}

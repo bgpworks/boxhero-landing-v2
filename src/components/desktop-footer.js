@@ -177,11 +177,12 @@ const DesktopFooterMenus = ({ t, language }) => (
       </div>
       <div>
         <a
-          href="/help"
+          href={t("url:doc")}
           target="_blank"
           rel="noreferrer"
         >
           {t("footer:footerMenuSupportManual")}
+
         </a>
       </div>
       <div>

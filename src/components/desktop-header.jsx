@@ -160,7 +160,7 @@ const DesktopHeader = ({ isFloatMenu }) => {
               />
             </a>
             <a
-              href="/help"
+              href={t("url:doc")}
               target="_blank"
               rel="noreferrer"
             >
