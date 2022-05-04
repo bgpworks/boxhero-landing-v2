@@ -114,7 +114,7 @@ const genBubblesMap = (t) => ({
   ],
 });
 
-function genKeyFeatureData(data, t) {
+function genKeyFeaturesData(data, t) {
   return [
     [
       { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
@@ -312,91 +312,98 @@ const Chatting = ({ t, language }) => {
   );
 };
 
-const KeyFeatureDescription = ({ title, description, carouselData }) => (
-  <div className={styles.KeyFeatureDescriptionContainer}>
-    <div className={styles.keyFeatureTitle}>{title}</div>
-    <Padding y={16} />
-    <div className={styles.KeyFeatureDescription}>{description}</div>
-    <Padding y={40} />
-    <CustomDotGroup
-      className={styles.keyFeatureMenuContainer}
-      data={carouselData}
-      dotClassName={styles.keyFeatureMenu}
-      dotSelectedClassName={styles.selectedKeyFeatureMenu}
+const KeyFeatureButton = ({
+  title, icon, isActive, onClick,
+}) => (
+  <button
+    type="button"
+    className={cn(
+      styles.keyFeatureMenu,
+      { [styles.selectedKeyFeatureMenu]: isActive },
+    )}
+    onClick={onClick}
+  >
+    <img
+      src={icon}
+      alt={title}
     />
-  </div>
+    {title}
+  </button>
 );
 
-const KeyFeatureSlider = ({ carouselData }) => (
-  <Slider className={styles.keyFeatureSlider}>
-    {carouselData.map(({ img, title }, index) => (
-      <Slide
-        innerClassName={styles.keyFeatureSlide}
-        key={index}
-        index={index}
-      >
-        <GatsbyImage
-          image={img}
-          alt={title}
-        />
-      </Slide>
-    ))}
-  </Slider>
-);
+const KeyFeature = ({ title, description, carouselData }) => {
+  const { onSwiper, slideTo, activeIndex } = useSwiper();
 
-const KeyFeature = ({ totalSlides, children }) => (
-  <div className={styles.keyFeatureContainer}>
-    <DesktopBaseContainer>
-      <CarouselProvider
-        className={styles.keyFeatureContentContainer}
-        orientation="vertical"
-        naturalSlideWidth={581}
-        naturalSlideHeight={714}
-        totalSlides={totalSlides}
-      >
-        {children}
-      </CarouselProvider>
-    </DesktopBaseContainer>
-  </div>
-);
+  return (
+    <div className={styles.keyFeatureContainer}>
+      <DesktopBaseContainer>
+        <div className={styles.keyFeatureContentContainer}>
+          <div className={styles.KeyFeatureDescriptionContainer}>
+            <div className={styles.keyFeatureTitle}>{title}</div>
+            <Padding y={16} />
+            <div className={styles.KeyFeatureDescription}>{description}</div>
+            <Padding y={40} />
+            <div className={styles.keyFeatureMenuContainer}>
+              {carouselData.map((data, index) => {
+                const isActive = activeIndex === index;
+                return (
+                  <KeyFeatureButton
+                    key={data.title}
+                    title={data.title}
+                    icon={data.icon}
+                    isActive={isActive}
+                    onClick={() => slideTo(index)}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          <Swiper
+            className={styles.keyFeatureSlider}
+            onSwiper={onSwiper}
+            direction="vertical"
+          >
+            {carouselData.map((data, index) => (
+              <SwiperSlide
+                className={styles.keyFeatureSlide}
+                key={index}
+                index={index}
+              >
+                <GatsbyImage
+                  image={data.img}
+                  alt={data.title}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </DesktopBaseContainer>
+    </div>
+  );
+};
 
 const KeyFeatures = ({ data, t }) => {
-  const keyFeatureData = genKeyFeatureData(data, t);
+  const keyFeaturesData = genKeyFeaturesData(data, t);
 
   return (
     <>
-      <KeyFeature totalSlides={keyFeatureData[0].length}>
-        <KeyFeatureDescription
-          title={<Trans i18nKey="index:keyFeature1Title" />}
-          description={<Trans i18nKey="index:keyFeature1Desc" />}
-          carouselData={keyFeatureData[0]}
-        />
-        <KeyFeatureSlider
-          carouselData={keyFeatureData[0]}
-        />
-      </KeyFeature>
+      <KeyFeature
+        title={<Trans i18nKey="index:keyFeature1Title" />}
+        description={<Trans i18nKey="index:keyFeature1Desc" />}
+        carouselData={keyFeaturesData[0]}
+      />
 
-      <KeyFeature totalSlides={keyFeatureData[1].length}>
-        <KeyFeatureSlider
-          carouselData={keyFeatureData[1]}
-        />
-        <KeyFeatureDescription
-          title={<Trans i18nKey="index:keyFeature2Title" />}
-          description={<Trans i18nKey="index:keyFeature2Desc" />}
-          carouselData={keyFeatureData[1]}
-        />
-      </KeyFeature>
+      <KeyFeature
+        title={<Trans i18nKey="index:keyFeature2Title" />}
+        description={<Trans i18nKey="index:keyFeature2Desc" />}
+        carouselData={keyFeaturesData[1]}
+      />
 
-      <KeyFeature totalSlides={keyFeatureData[2].length}>
-        <KeyFeatureDescription
-          title={<Trans i18nKey="index:keyFeature3Title" />}
-          description={<Trans i18nKey="index:keyFeature3Desc" />}
-          carouselData={keyFeatureData[2]}
-        />
-        <KeyFeatureSlider
-          carouselData={keyFeatureData[2]}
-        />
-      </KeyFeature>
+      <KeyFeature
+        title={<Trans i18nKey="index:keyFeature3Title" />}
+        description={<Trans i18nKey="index:keyFeature3Desc" />}
+        carouselData={keyFeaturesData[2]}
+      />
     </>
   );
 };
