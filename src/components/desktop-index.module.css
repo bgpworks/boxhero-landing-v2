@@ -365,6 +365,7 @@
 
 .slideNavButton:disabled {
   filter: opacity(0.3);
+  cursor: default;
 }
 
 .slideDetailLink {

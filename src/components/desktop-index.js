@@ -1,16 +1,10 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
+
 /* eslint-disable import/no-unresolved */
 
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-} from "pure-react-carousel";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
@@ -28,7 +22,6 @@ import {
   FlatIntroVideoBtn,
   IntroVideoBtn,
 } from "./common";
-import { useCurrentSlide } from "../hooks/use-current-slide";
 import { useSwiper } from "../hooks/use-swiper";
 import * as constants from "./constants";
 // css
@@ -53,7 +46,6 @@ import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
-import CustomDotGroup from "./custom-dot-group";
 
 const CHATTING_COLOR_SEQUENCE = [
   { text: "#292a2f", background: "#fbc200" },
@@ -525,84 +517,104 @@ const Sectors = ({ data, t }) => {
   );
 };
 
-const FeatureDetailLink = ({ t, featureData }) => {
-  const { currentSlide } = useCurrentSlide();
-  return (
-    <div className={styles.slideDetailLinkContainer}>
-      <Link
-        to={featureData[currentSlide].link}
-        title={featureData[currentSlide].title}
-        className={styles.slideDetailLink}
-      >
-        {t("index:featuresDetailLink")}
-        <img
-          src={svgSmallRightBlue}
-          className={styles.rightArrow}
-          alt={t("index:featuresDetailLink")}
-        />
-      </Link>
-    </div>
-  );
-};
+const FeatureDetailLink = ({ t, featureData, activeIndex }) => (
+  <div className={styles.slideDetailLinkContainer}>
+    <Link
+      to={featureData[activeIndex].link}
+      title={featureData[activeIndex].title}
+      className={styles.slideDetailLink}
+    >
+      {t("index:featuresDetailLink")}
+      <img
+        src={svgSmallRightBlue}
+        className={styles.rightArrow}
+        alt={t("index:featuresDetailLink")}
+      />
+    </Link>
+  </div>
+);
 
 const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);
+  const {
+    onSwiper, slideTo, slidePrev, slideNext, activeIndex,
+  } = useSwiper();
+
   return (
     <div className={styles.featuresContainer}>
       <div className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitle" />
       </div>
       <Padding y={50} />
+      <div className={styles.slideDetailDotGroup}>
+        {featureData.map(({ title }, index) => {
+          const isActive = activeIndex === index;
+          return (
+            <button
+              key={title}
+              type="button"
+              className={cn(
+                styles.slideDetailDot,
+                { [styles.slideDetailDotSelected]: isActive },
+              )}
+              onClick={() => slideTo(index)}
+            >
+              {title}
+            </button>
+          );
+        })}
+      </div>
 
-      <CarouselProvider
-        naturalSlideWidth={495}
-        naturalSlideHeight={360}
-        totalSlides={featureData.length}
-      >
-        <CustomDotGroup
-          className={styles.slideDetailDotGroup}
-          data={featureData}
-          dotClassName={styles.slideDetailDot}
-          dotSelectedClassName={styles.slideDetailDotSelected}
-        />
+      <Padding y={42} />
 
-        <Padding y={42} />
+      <div className={styles.slideAndNavButtons}>
+        <button
+          type="button"
+          className={styles.slideNavButton}
+          disabled={activeIndex === 0}
+          onClick={() => slidePrev()}
+        >
+          <img
+            src={svgSwipeLeft}
+            alt={t("index:featuresNavBack")}
+          />
+        </button>
+        <Swiper
+          className={styles.sliderWrapper}
+          onSwiper={onSwiper}
+        >
+          {featureData.map(({ img, title }, index) => (
+            <SwiperSlide
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={img}
+                alt={title}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <button
+          type="button"
+          className={styles.slideNavButton}
+          disabled={activeIndex === featureData.length - 1}
+          onClick={() => slideNext()}
+        >
+          <img
+            src={svgSwipeRight}
+            alt={t("index:featuresNavNext")}
+          />
+        </button>
+      </div>
 
-        <div className={styles.slideAndNavButtons}>
-          <ButtonBack className={styles.slideNavButton}>
-            <img
-              src={svgSwipeLeft}
-              alt={t("index:featuresNavBack")}
-            />
-          </ButtonBack>
-          <Slider className={styles.sliderWrapper}>
-            {featureData.map(({ img, title }, index) => (
-              <Slide
-                key={index}
-                index={index}
-              >
-                <GatsbyImage
-                  image={img}
-                  alt={title}
-                />
-              </Slide>
-            ))}
-          </Slider>
-          <ButtonNext className={styles.slideNavButton}>
-            <img
-              src={svgSwipeRight}
-              alt={t("index:featuresNavNext")}
-            />
-          </ButtonNext>
-        </div>
+      <Padding y={40} />
 
-        <Padding y={40} />
-
-        <FeatureDetailLink
-          t={t}
-          featureData={featureData}
-        />
-      </CarouselProvider>
+      <FeatureDetailLink
+        t={t}
+        featureData={featureData}
+        activeIndex={activeIndex}
+      />
     </div>
   );
 };
