@@ -144,7 +144,7 @@ const MobileMenu = ({ onChangeIsShow }) => {
           {t("header:menuCompanyBlog")}
         </a>
         <a
-          href={t("url:doc")}
+          href="/help"
           target="_blank"
           rel="noreferrer"
           onClick={closeMobileMenu}
