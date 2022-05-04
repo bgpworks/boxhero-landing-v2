@@ -1,7 +1,7 @@
 {
   "appInstall": "App download",
   "menuCompanyBlog": "Blog",
-  "menuDoc": "Customer Service",
+  "menuDoc": "User Guide",
   "menuLanguage": "Language",
   "menuLoginButton": "LOG IN",
   "menuPricing": "Pricing",
@@ -9,6 +9,7 @@
   "menuService": "Service",
   "menuServiceAbout": "About BoxHero",
   "menuServiceFeatures": "Features",
+  "menuSupport": "Customer Service",
   "menuUseCaseAssets": "Asset Management",
   "menuUseCaseAssetsDesc": "Solution to manage supplies and consumables in offices, hospitals, restaurants, and others.",
   "menuUseCaseMaterial": "Material Management",
