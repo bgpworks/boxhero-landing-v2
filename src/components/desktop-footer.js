@@ -175,18 +175,24 @@ const DesktopFooterMenus = ({ t, language }) => (
           {t("footer:footerMenuCompanyBlog")}
         </a>
       </div>
-      {language !== "ko" && (
-        <>
-          <div>
-            <a href="/help">{t("footer:footerMenuSupportFaq")}</a>
-          </div>
-          <div>
-            <a href="/help/start">{t("footer:footerMenuSupportManual")}</a>
-          </div>
-        </>
-      )}
       <div>
-        <a href={t("url:doc")}>{t("footer:footerMenuSupportDocs")}</a>
+        <a
+          href={t("url:doc")}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("footer:footerMenuSupportManual")}
+
+        </a>
+      </div>
+      <div>
+        <a
+          href={t("url:support")}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("footer:footerMenuSupportDocs")}
+        </a>
       </div>
     </div>
     <div className={styles.footerMenusColumn}>
