@@ -1,5 +1,6 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
+/* eslint-disable import/no-unresolved */
 
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -10,7 +11,9 @@ import {
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
+import cn from "classnames";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
@@ -26,8 +29,10 @@ import {
   IntroVideoBtn,
 } from "./common";
 import { useCurrentSlide } from "../hooks/use-current-slide";
+import { useSwiper } from "../hooks/use-swiper";
 import * as constants from "./constants";
 // css
+import "swiper/css";
 import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
@@ -398,15 +403,11 @@ const KeyFeatures = ({ data, t }) => {
 
 const SalesManagement = ({ data, t }) => {
   const salesManagementData = genSalesManagementData(data, t);
+  const { onSwiper, slideTo, activeIndex } = useSwiper();
 
   return (
     <DesktopBaseContainer>
-      <CarouselProvider
-        className={styles.salesManagementContentContainer}
-        naturalSlideWidth={828}
-        naturalSlideHeight={682}
-        totalSlides={salesManagementData.length}
-      >
+      <div className={styles.salesManagementContentContainer}>
         <div className={styles.salesManagementTitle}>
           <Trans i18nKey="index:salesManagementTitle" />
         </div>
@@ -417,29 +418,41 @@ const SalesManagement = ({ data, t }) => {
 
         <Padding y={50} />
 
-        <CustomDotGroup
-          className={styles.salesManagementMenuContainer}
-          data={salesManagementData}
-          dotClassName={styles.salesManagementMenu}
-          dotSelectedClassName={styles.selectedSalesManagementMenu}
-        />
+        <div className={styles.salesManagementMenuContainer}>
+          {salesManagementData.map(({ title }, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <button
+                key={title}
+                type="button"
+                className={cn(
+                  styles.salesManagementMenu,
+                  { [styles.selectedSalesManagementMenu]: isActive },
+                )}
+                onClick={() => slideTo(index)}
+              >
+                {title}
+              </button>
+            );
+          })}
+        </div>
 
         <Padding y={25} />
 
-        <Slider className={styles.salesManagementImageContainer}>
-          {salesManagementData.map(({ img, title }, index) => (
-            <Slide
-              key={index}
-              index={index}
-            >
+        <Swiper
+          className={styles.salesManagementImageContainer}
+          onSwiper={onSwiper}
+        >
+          {salesManagementData.map(({ img, title }) => (
+            <SwiperSlide key={title}>
               <GatsbyImage
                 image={img}
                 alt={title}
               />
-            </Slide>
+            </SwiperSlide>
           ))}
-        </Slider>
-      </CarouselProvider>
+        </Swiper>
+      </div>
     </DesktopBaseContainer>
   );
 };

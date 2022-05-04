@@ -32,7 +32,8 @@
     "react-indiana-drag-scroll": "2.0.1",
     "react-youtube": "^7.14.0",
     "rehype-react": "^7.0.0",
-    "slugify": "^1.6.0"
+    "slugify": "^1.6.0",
+    "swiper": "^8.1.4"
   },
   "devDependencies": {
     "eslint": "^7.2.0",
