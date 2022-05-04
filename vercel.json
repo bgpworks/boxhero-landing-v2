@@ -68,9 +68,19 @@
     { "src": "/ko/tos\\/?", "dest": "tos_ko.pdf" },
     { "src": "/sitemap.xml", "dest": "sitemap-index.xml" },
     {
+      "src": "/(ko|en)/blog",
+      "status": 301,
+      "headers": { "Location": "https://blog-$1.boxhero-app.com" }
+    },
+    {
       "src": "/(ko|en)/blog/.*",
       "status": 301,
       "headers": { "Location": "https://blog-$1.boxhero-app.com" }
+    },
+    {
+      "src": "/(id|es)/blog",
+      "status": 301,
+      "headers": { "Location": "https://blog-en.boxhero-app.com" }
     },
     {
       "src": "/(id|es)/blog/.*",
