@@ -59,7 +59,7 @@
   "customerTypeUsedItems": "Used Items",
   "customerTypeWarehouse": "Warehouse",
   "featureLocationManagement": "Location Management",
-  "featurePrintLabel": "Barcode Print",
+  "featurePrintLabel": "Print Barcodes",
   "featureSafetyStock": "Safety Stock",
   "featureTransactionStats": "Transaction Stats",
   "featureViewPastQuantity": "Past Quantity Check",
