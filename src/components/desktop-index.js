@@ -207,6 +207,13 @@ function genFeatureData(data, t) {
   ];
 }
 
+const genElementString = (tagName, props, children) => {
+  const propsStr = Object.entries(props).map(([key, value]) => `${key}="${value}"`).join("");
+  return (
+    `<${tagName} ${propsStr}>${children}</${tagName}>`
+  );
+};
+
 const TopLeftContainer = ({ t }) => (
   <div>
     <div className={styles.topLeftTitle}>
@@ -323,18 +330,9 @@ const KeyFeatureSlider = ({ keyFeatureIndex, keyFeatureData }) => {
     clickable: true,
     renderBullet: (index, className) => {
       const currentData = keyFeatureData[index];
-      return `
-        <button
-          type="button"
-          class="${className}"
-        >
-          <img
-            src="${currentData.icon}"
-            alt="${currentData.title}"
-          />
-          ${currentData.title}
-        </button>
-      `;
+      const iconElement = genElementString("img", { src: currentData.icon, alt: currentData.title }, "");
+      const element = genElementString("button", { class: className }, iconElement + currentData.title);
+      return element;
     },
   };
 
@@ -425,14 +423,8 @@ const SalesManagement = ({ data, t }) => {
     clickable: true,
     renderBullet: (index, className) => {
       const currentData = salesManagementData[index];
-      return `
-        <button
-          type="button"
-          class="${className}"
-        >
-          ${currentData.title}
-        </button>
-      `;
+      const element = genElementString("button", { class: className }, currentData.title);
+      return element;
     },
   };
 
@@ -563,14 +555,8 @@ const Features = ({ data, t }) => {
     clickable: true,
     renderBullet: (index, className) => {
       const currentData = featureData[index];
-      return `
-        <button
-          type="button"
-          class="${className}"
-        >
-          ${currentData.title}
-        </button>
-      `;
+      const element = genElementString("button", { class: className }, currentData.title);
+      return element;
     },
   };
   const navigation = {
