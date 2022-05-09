@@ -20,6 +20,7 @@ import svgParts from "../images/icon-parts.svg";
 import svgAsset from "../images/icon-asset.svg";
 import svgBlog from "../images/icon-blog.svg";
 import svgCS from "../images/icon-cs.svg";
+import svgBook from "../images/icon-book.svg";
 
 const DropDownSubMenu = ({
   title,
@@ -158,9 +159,23 @@ const DesktopHeader = ({ isFloatMenu }) => {
                 icon={svgBlog}
               />
             </a>
-            <a href={t("url:doc")}>
+            <a
+              href={t("url:doc")}
+              target="_blank"
+              rel="noreferrer"
+            >
               <DropDownSubMenu
                 title={t("header:menuDoc")}
+                icon={svgBook}
+              />
+            </a>
+            <a
+              href={t("url:support")}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <DropDownSubMenu
+                title={t("header:menuSupport")}
                 icon={svgCS}
               />
             </a>
