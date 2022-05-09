@@ -359,11 +359,15 @@
   background-color: #ffffff;
 }
 
-.slideNavButton {
+.slideNavButtonPrev {
   background-color: transparent;
 }
 
-.slideNavButton:disabled {
+.slideNavButtonNext {
+  background-color: transparent;
+}
+
+.slideNavButtonDisabled {
   filter: opacity(0.3);
   cursor: default;
 }
@@ -395,7 +399,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0px 20px;
 }
 

@@ -3,11 +3,11 @@
 
 /* eslint-disable import/no-unresolved */
 
-import React from "react";
+import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
 import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
-import cn from "classnames";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
@@ -22,10 +22,10 @@ import {
   FlatIntroVideoBtn,
   IntroVideoBtn,
 } from "./common";
-import { useSwiper } from "../hooks/use-swiper";
 import * as constants from "./constants";
 // css
 import "swiper/css";
+import "swiper/css/pagination";
 import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
@@ -304,27 +304,31 @@ const Chatting = ({ t, language }) => {
   );
 };
 
-const KeyFeatureButton = ({
-  title, icon, isActive, onClick,
-}) => (
-  <button
-    type="button"
-    className={cn(
-      styles.keyFeatureMenu,
-      { [styles.selectedKeyFeatureMenu]: isActive },
-    )}
-    onClick={onClick}
-  >
-    <img
-      src={icon}
-      alt={title}
-    />
-    {title}
-  </button>
-);
-
-const KeyFeature = ({ title, description, carouselData }) => {
-  const { onSwiper, slideTo, activeIndex } = useSwiper();
+const KeyFeature = ({
+  keyFeatureIndex, title, description, carouselData,
+}) => {
+  const pagination = {
+    el: `.${styles.keyFeatureMenuContainer + keyFeatureIndex}`,
+    bulletClass: styles.keyFeatureMenu,
+    bulletActiveClass: styles.selectedKeyFeatureMenu,
+    verticalClass: styles.keyFeatureMenuContainer,
+    clickable: true,
+    renderBullet: (index, className) => {
+      const currentData = carouselData[index];
+      return `
+        <button
+          type="button"
+          class="${className}"
+        >
+          <img
+            src="${currentData.icon}"
+            alt="${currentData.title}"
+          />
+          ${currentData.title}
+        </button>
+      `;
+    },
+  };
 
   return (
     <div className={styles.keyFeatureContainer}>
@@ -335,24 +339,12 @@ const KeyFeature = ({ title, description, carouselData }) => {
             <Padding y={16} />
             <div className={styles.KeyFeatureDescription}>{description}</div>
             <Padding y={40} />
-            <div className={styles.keyFeatureMenuContainer}>
-              {carouselData.map((data, index) => {
-                const isActive = activeIndex === index;
-                return (
-                  <KeyFeatureButton
-                    key={data.title}
-                    title={data.title}
-                    icon={data.icon}
-                    isActive={isActive}
-                    onClick={() => slideTo(index)}
-                  />
-                );
-              })}
-            </div>
+            <div className={styles.keyFeatureMenuContainer + keyFeatureIndex} />
           </div>
           <Swiper
             className={styles.keyFeatureSlider}
-            onSwiper={onSwiper}
+            pagination={pagination}
+            modules={[Pagination]}
             direction="vertical"
           >
             {carouselData.map((data, index) => (
@@ -380,18 +372,21 @@ const KeyFeatures = ({ data, t }) => {
   return (
     <>
       <KeyFeature
+        keyFeatureIndex={0}
         title={<Trans i18nKey="index:keyFeature1Title" />}
         description={<Trans i18nKey="index:keyFeature1Desc" />}
         carouselData={keyFeaturesData[0]}
       />
 
       <KeyFeature
+        keyFeatureIndex={1}
         title={<Trans i18nKey="index:keyFeature2Title" />}
         description={<Trans i18nKey="index:keyFeature2Desc" />}
         carouselData={keyFeaturesData[1]}
       />
 
       <KeyFeature
+        keyFeatureIndex={2}
         title={<Trans i18nKey="index:keyFeature3Title" />}
         description={<Trans i18nKey="index:keyFeature3Desc" />}
         carouselData={keyFeaturesData[2]}
@@ -402,7 +397,24 @@ const KeyFeatures = ({ data, t }) => {
 
 const SalesManagement = ({ data, t }) => {
   const salesManagementData = genSalesManagementData(data, t);
-  const { onSwiper, slideTo, activeIndex } = useSwiper();
+
+  const pagination = {
+    el: `.${styles.salesManagementMenuContainer}`,
+    bulletClass: styles.salesManagementMenu,
+    bulletActiveClass: styles.selectedSalesManagementMenu,
+    clickable: true,
+    renderBullet: (index, className) => {
+      const currentData = salesManagementData[index];
+      return `
+        <button
+          type="button"
+          class="${className}"
+        >
+          ${currentData.title}
+        </button>
+      `;
+    },
+  };
 
   return (
     <DesktopBaseContainer>
@@ -417,30 +429,16 @@ const SalesManagement = ({ data, t }) => {
 
         <Padding y={50} />
 
-        <div className={styles.salesManagementMenuContainer}>
-          {salesManagementData.map(({ title }, index) => {
-            const isActive = activeIndex === index;
-            return (
-              <button
-                key={title}
-                type="button"
-                className={cn(
-                  styles.salesManagementMenu,
-                  { [styles.selectedSalesManagementMenu]: isActive },
-                )}
-                onClick={() => slideTo(index)}
-              >
-                {title}
-              </button>
-            );
-          })}
+        <div>
+          <div className={styles.salesManagementMenuContainer} />
         </div>
 
         <Padding y={25} />
 
         <Swiper
           className={styles.salesManagementImageContainer}
-          onSwiper={onSwiper}
+          pagination={pagination}
+          modules={[Pagination]}
         >
           {salesManagementData.map(({ img, title }) => (
             <SwiperSlide key={title}>
@@ -536,85 +534,90 @@ const FeatureDetailLink = ({ t, featureData, activeIndex }) => (
 
 const Features = ({ data, t }) => {
   const featureData = genFeatureData(data, t);
-  const {
-    onSwiper, slideTo, slidePrev, slideNext, activeIndex,
-  } = useSwiper();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const pagination = {
+    el: `.${styles.slideDetailDotGroup}`,
+    bulletClass: styles.slideDetailDot,
+    bulletActiveClass: styles.slideDetailDotSelected,
+    clickable: true,
+    renderBullet: (index, className) => {
+      const currentData = featureData[index];
+      return `
+        <button
+          type="button"
+          class="${className}"
+        >
+          ${currentData.title}
+        </button>
+      `;
+    },
+  };
+  const navigation = {
+    prevEl: `.${styles.slideNavButtonPrev}`,
+    nextEl: `.${styles.slideNavButtonNext}`,
+    disabledClass: styles.slideNavButtonDisabled,
+  };
 
   return (
     <div className={styles.featuresContainer}>
-      <div className={styles.featuresTitle}>
-        <Trans i18nKey="index:featuresTitle" />
-      </div>
-      <Padding y={50} />
-      <div className={styles.slideDetailDotGroup}>
-        {featureData.map(({ title }, index) => {
-          const isActive = activeIndex === index;
-          return (
-            <button
-              key={title}
-              type="button"
-              className={cn(
-                styles.slideDetailDot,
-                { [styles.slideDetailDotSelected]: isActive },
-              )}
-              onClick={() => slideTo(index)}
-            >
-              {title}
-            </button>
-          );
-        })}
-      </div>
+      <DesktopBaseContainer>
+        <div className={styles.featuresTitle}>
+          <Trans i18nKey="index:featuresTitle" />
+        </div>
+        <Padding y={50} />
+        <div className={styles.slideDetailDotGroup} />
 
-      <Padding y={42} />
+        <Padding y={42} />
 
-      <div className={styles.slideAndNavButtons}>
-        <button
-          type="button"
-          className={styles.slideNavButton}
-          disabled={activeIndex === 0}
-          onClick={() => slidePrev()}
-        >
-          <img
-            src={svgSwipeLeft}
-            alt={t("index:featuresNavBack")}
-          />
-        </button>
-        <Swiper
-          className={styles.sliderWrapper}
-          onSwiper={onSwiper}
-        >
-          {featureData.map(({ img, title }, index) => (
-            <SwiperSlide
-              key={index}
-              index={index}
-            >
-              <GatsbyImage
-                image={img}
-                alt={title}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <button
-          type="button"
-          className={styles.slideNavButton}
-          disabled={activeIndex === featureData.length - 1}
-          onClick={() => slideNext()}
-        >
-          <img
-            src={svgSwipeRight}
-            alt={t("index:featuresNavNext")}
-          />
-        </button>
-      </div>
+        <div className={styles.slideAndNavButtons}>
+          <button
+            type="button"
+            className={styles.slideNavButtonPrev}
+          >
+            <img
+              src={svgSwipeLeft}
+              alt={t("index:featuresNavBack")}
+            />
+          </button>
+          <Swiper
+            className={styles.sliderWrapper}
+            pagination={pagination}
+            navigation={navigation}
+            modules={[Pagination, Navigation]}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          >
+            {featureData.map(({ img, title }, index) => (
+              <SwiperSlide
+                key={index}
+                index={index}
+              >
+                <GatsbyImage
+                  image={img}
+                  alt={title}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <button
+            type="button"
+            className={styles.slideNavButtonNext}
+          >
+            <img
+              src={svgSwipeRight}
+              alt={t("index:featuresNavNext")}
+            />
+          </button>
+        </div>
 
-      <Padding y={40} />
+        <Padding y={40} />
 
-      <FeatureDetailLink
-        t={t}
-        featureData={featureData}
-        activeIndex={activeIndex}
-      />
+        <FeatureDetailLink
+          t={t}
+          featureData={featureData}
+          activeIndex={activeIndex}
+        />
+      </DesktopBaseContainer>
     </div>
   );
 };
