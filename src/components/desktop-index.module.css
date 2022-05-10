@@ -359,12 +359,11 @@
   background-color: #ffffff;
 }
 
-.slideNavButtonPrev,
-.slideNavButtonNext {
+.slideNavButton {
   background-color: transparent;
 }
 
-.slideNavButtonDisabled {
+.slideNavButton:disabled {
   filter: opacity(0.3);
   cursor: default;
 }
