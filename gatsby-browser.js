@@ -5,7 +5,6 @@
  */
 
 import './src/styles/global.css';
-import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Boot } from './src/boot';
 
 export const onClientEntry = () => {
