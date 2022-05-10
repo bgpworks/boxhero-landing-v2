@@ -697,11 +697,14 @@ const FeatureDetailLink = ({ activeIndex, featureData }) => {
 };
 
 const Features = ({ data, t }) => {
-  const [swiperRef, setSwiperRef] = useState(null);
+  const swiperRef = useRef(null);
+  const setSwiperRef = (swiper) => {
+    swiperRef.current = swiper;
+  };
   const [activeIndex, setActiveIndex] = useState(0);
   const featureData = genFeatureData(data, t);
 
-  const slideTo = (index) => swiperRef.slideTo(index);
+  const slideTo = (index) => swiperRef.current.slideTo(index);
 
   return (
     <div className={styles.featuresContainer}>
