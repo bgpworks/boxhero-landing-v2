@@ -633,11 +633,7 @@ const FeatureSelector = ({
     DEFAULT_SELECT_WIDTH[language] || 144,
   );
 
-  const calOffset = (dom) => {
-    const left = dom.offsetLeft + dom.clientWidth / 2;
-    setOffsetToSelected(-left);
-    setSelectedWidth(dom.clientWidth + 1);
-  };
+  const calcLeftOffset = (dom) => (dom.offsetLeft + dom.clientWidth / 2) * -1;
 
   return (
     <div className={styles.slideDetailDotGroupContainer}>
@@ -664,7 +660,10 @@ const FeatureSelector = ({
               )}
               onClick={(evt) => {
                 slideTo(index);
-                calOffset(evt.target);
+                const dom = evt.target;
+                const left = calcLeftOffset(dom);
+                setOffsetToSelected(left);
+                setSelectedWidth(dom.clientWidth + 1);
               }}
             >
               {title}
