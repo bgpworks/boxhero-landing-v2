@@ -248,7 +248,9 @@ const KeyFeature = ({
 
   useEffect(() => {
     if (isFirstVisible && prevIsFirstVisible !== isFirstVisible) {
-      swiperRef.current.slideNext();
+      setTimeout(() => {
+        swiperRef.current.slideNext();
+      }, 500);
     }
   });
 
