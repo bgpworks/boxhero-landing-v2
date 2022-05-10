@@ -104,7 +104,7 @@
   align-items: center;
 }
 
-.KeyFeatureSelector {
+.keyFeatureSelector {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -124,6 +124,19 @@
   opacity: 0;
 }
 
+.slideNavButtonPrev,
+.slideNavButtonNext {
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.slideNavButtonDisabled {
+  opacity: 0;
+}
+
 .keyFeatureDisplaySlide {
   overflow: hidden;
 }
@@ -131,8 +144,7 @@
 .keyFeatureSlideTitleContainer {
   margin: 0;
   display: flex;
-  /* carousel default animation */
-  transition: margin-left 0.5s cubic-bezier(.645,.045,.355,1);
+  transition: margin-left 0.3s ease;
 }
 
 .keyFeatureSlideTitle {
@@ -157,19 +169,18 @@
   justify-content: center;
 }
 
-/* carousel__dot */
-.keyFeatureDotGroup button {
+.keyFeatureDot {
   width: 8px;
   height: 8px;
   border-radius: 4px;
   background-color: var(--color-gray3);
 }
 
-.keyFeatureDotGroup button:not(:last-child) {
+.keyFeatureDot:not(:last-child) {
   margin-right: 8px;
 }
 
-.keyFeatureDotGroup button:disabled {
+.selectedKeyFeatureDot {
   background-color: var(--color-primary);
 }
 

@@ -359,10 +359,7 @@
   background-color: #ffffff;
 }
 
-.slideNavButtonPrev {
-  background-color: transparent;
-}
-
+.slideNavButtonPrev,
 .slideNavButtonNext {
   background-color: transparent;
 }

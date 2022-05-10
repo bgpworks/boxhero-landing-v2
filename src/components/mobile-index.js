@@ -1,10 +1,14 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React, { useEffect } from "react";
+/* eslint-disable import/no-unresolved */
+
+import React, { useEffect, useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import cn from "classnames";
 import {
   CarouselProvider,
@@ -12,8 +16,6 @@ import {
   Slide,
   DotGroup,
   Dot,
-  ButtonBack,
-  ButtonNext,
 } from "pure-react-carousel";
 import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 // js
@@ -33,6 +35,7 @@ import {
 import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
 // css
+import "swiper/css";
 import * as styles from "./mobile-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
@@ -40,8 +43,8 @@ import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
-import { usePreviousValue } from "../hooks/use-previous-value";
-import { useCarouselHandler } from "../hooks/use-carousel-handler";
+// import { usePreviousValue } from "../hooks/use-previous-value";
+// import { useCarouselHandler } from "../hooks/use-carousel-handler";
 
 const CAROUSEL_INTERVAL = 3000;
 
@@ -155,21 +158,23 @@ const Chatting = () => {
   );
 };
 
-const KeyFeatureSelector = ({ carouselData }) => {
+const KeyFeatureSelector = ({ currentSlide, carouselData }) => {
   const { t } = useI18next();
-  const { currentSlide } = useCurrentSlide();
 
   const SLIDE_TITLE_WIDTH = 188;
   const additionalOffset = currentSlide * SLIDE_TITLE_WIDTH * -1;
 
   return (
-    <div className={styles.KeyFeatureSelector}>
-      <ButtonBack className={styles.slideNavButton}>
+    <div className={styles.keyFeatureSelector}>
+      <button
+        type="button"
+        className={styles.slideNavButtonPrev}
+      >
         <img
           src={svgLeftArrow}
           alt={t("index:featuresNavBack")}
         />
-      </ButtonBack>
+      </button>
 
       <div
         className={styles.keyFeatureDisplaySlide}
@@ -194,51 +199,88 @@ const KeyFeatureSelector = ({ carouselData }) => {
         </ul>
       </div>
 
-      <ButtonNext className={styles.slideNavButton}>
+      <button
+        type="button"
+        className={styles.slideNavButtonNext}
+      >
         <img
           src={svgRightArrow}
           alt={t("index:featuresNavNext")}
         />
-      </ButtonNext>
+      </button>
     </div>
   );
 };
 
-const KeyFeatureSlider = ({ isFirstVisible, carouselData }) => {
-  const prevIsFirstVisible = usePreviousValue(isFirstVisible);
-  const { goToNextSlide } = useCarouselHandler();
+const KeyFeatureSlider = ({
+  keyFeatureIndex, setActiveIndex, carouselData,
+}) => {
+  const { nodeRef, isVisible } = useIntersectionObserver();
+  const [swiperRef, setSwiperRef] = useState(null);
+
+  const pagination = {
+    el: `.keyFeature${keyFeatureIndex} .${styles.keyFeatureDotGroup}`,
+    horizontalClass: styles.keyFeatureDotGroup,
+    bulletClass: styles.keyFeatureDot,
+    bulletActiveClass: styles.selectedKeyFeatureDot,
+    clickable: true,
+  };
+  const navigation = {
+    prevEl: `.keyFeature${keyFeatureIndex} .${styles.slideNavButtonPrev}`,
+    nextEl: `.keyFeature${keyFeatureIndex} .${styles.slideNavButtonNext}`,
+    disabledClass: styles.slideNavButtonDisabled,
+  };
+  const autoplay = {
+    delay: CAROUSEL_INTERVAL,
+  };
 
   useEffect(() => {
-    if (isFirstVisible && prevIsFirstVisible !== isFirstVisible) {
-      goToNextSlide();
+    // TODO: 최선인가
+    if (swiperRef) {
+      if (isVisible) {
+        swiperRef.autoplay.start();
+      } else {
+        swiperRef.autoplay.stop();
+      }
     }
   });
 
   return (
-    <Slider className={styles.keyFeatureSlider}>
-      {carouselData.map((slide, index) => (
-        <Slide
-          key={index}
-          index={index}
-        >
-          <GatsbyImage
-            image={slide.img.childImageSharp.gatsbyImageData}
-            alt={slide.title}
-          />
-        </Slide>
-      ))}
-    </Slider>
+    <div ref={nodeRef}>
+      <Swiper
+        className={styles.keyFeatureSlider}
+        onSwiper={setSwiperRef}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        pagination={pagination}
+        navigation={navigation}
+        autoplay={autoplay}
+        modules={[Pagination, Navigation, Autoplay]}
+      >
+        {carouselData.map((slide, index) => (
+          <SwiperSlide
+            key={index}
+            index={index}
+          >
+            <GatsbyImage
+              image={slide.img.childImageSharp.gatsbyImageData}
+              alt={slide.title}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+    </div>
   );
 };
 
 const KeyFeature = ({
-  title, description, carouselData,
+  keyFeatureIndex, title, description, carouselData,
 }) => {
-  const { nodeRef, isVisible, everVisible } = useIntersectionObserver();
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section
-      className={styles.keyFeatureContainer}
+      className={cn(styles.keyFeatureContainer, `keyFeature${keyFeatureIndex}`)}
     >
       <MobileBaseContainer className={styles.keyFeatureContentContainer}>
         <h2 className={styles.keyFeatureTitle}>{title}</h2>
@@ -246,31 +288,24 @@ const KeyFeature = ({
         <p className={styles.keyFeatureDescription}>{description}</p>
         <Padding y={40} />
 
-        <CarouselProvider
-          className={styles.keyFeatureCarousel}
-          naturalSlideWidth={375}
-          naturalSlideHeight={0}
-          totalSlides={carouselData.length}
-          touchEnabled={false}
-          interval={CAROUSEL_INTERVAL}
-          isPlaying={isVisible}
-          isIntrinsicHeight
-        >
-          <KeyFeatureSelector carouselData={carouselData} />
+        <div className={styles.keyFeatureCarousel}>
+          <KeyFeatureSelector
+            currentSlide={activeIndex}
+            carouselData={carouselData}
+          />
 
           <Padding y={30} />
 
-          <div ref={nodeRef}>
-            <KeyFeatureSlider
-              isFirstVisible={isVisible && !everVisible}
-              carouselData={carouselData}
-            />
-          </div>
+          <KeyFeatureSlider
+            keyFeatureIndex={keyFeatureIndex}
+            setActiveIndex={setActiveIndex}
+            carouselData={carouselData}
+          />
 
           <Padding y={10} />
 
-          <DotGroup className={styles.keyFeatureDotGroup} />
-        </CarouselProvider>
+          <div className={styles.keyFeatureDotGroup} />
+        </div>
       </MobileBaseContainer>
     </section>
   );
@@ -279,6 +314,7 @@ const KeyFeature = ({
 const KeyFeatures = ({ data, t }) => (
   <>
     <KeyFeature
+      keyFeatureIndex={0}
       title={<Trans i18nKey="index:keyFeature1Title" />}
       description={<Trans i18nKey="index:keyFeature1Desc" />}
       carouselData={[
@@ -290,6 +326,7 @@ const KeyFeatures = ({ data, t }) => (
     />
 
     <KeyFeature
+      keyFeatureIndex={1}
       title={<Trans i18nKey="index:keyFeature2Title" />}
       description={<Trans i18nKey="index:keyFeature2Desc" />}
       carouselData={[
@@ -301,6 +338,7 @@ const KeyFeatures = ({ data, t }) => (
     />
 
     <KeyFeature
+      keyFeatureIndex={2}
       title={<Trans i18nKey="index:keyFeature3Title" />}
       description={<Trans i18nKey="index:keyFeature3Desc" />}
       carouselData={[

@@ -5,9 +5,9 @@
 
 import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
-import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
@@ -25,7 +25,6 @@ import {
 import * as constants from "./constants";
 // css
 import "swiper/css";
-import "swiper/css/pagination";
 import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
