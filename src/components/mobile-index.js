@@ -401,7 +401,6 @@ const SalesManagement = ({ data, t }) => {
           {salesManagementData.map(({ title }, index) => {
             const isActive = activeIndex === index;
             return (
-              // eslint-disable-next-line jsx-a11y/control-has-associated-label
               <button
                 key={title}
                 type="button"
@@ -409,7 +408,9 @@ const SalesManagement = ({ data, t }) => {
                 disabled={isActive}
                 style={{ width: DOT_WIDTH }}
                 onClick={() => swiperRef.current.slideTo(index)}
-              />
+              >
+                {title}
+              </button>
             );
           })}
         </div>

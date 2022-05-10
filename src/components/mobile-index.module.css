@@ -242,7 +242,7 @@
   flex: 0 0 auto;
 }
 
-.selectedSalesManagementDot {
+.salesManagementDot:disabled {
   color: var(--color-primary);
   padding: 14px 20px;
   border-radius: 8px;
