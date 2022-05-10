@@ -8,7 +8,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay } from "swiper";
 import cn from "classnames";
 import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 // js
@@ -38,13 +38,6 @@ import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
 
 const CAROUSEL_INTERVAL = 3000;
-
-const genElementString = (tagName, props, children) => {
-  const propsStr = Object.entries(props).map(([key, value]) => `${key}="${value}"`).join("");
-  return (
-    `<${tagName} ${propsStr}>${children}</${tagName}>`
-  );
-};
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -244,7 +237,7 @@ const KeyFeature = ({
   const isFirstVisible = isVisible && !everVisible;
   const prevIsFirstVisible = usePreviousValue(isFirstVisible);
 
-  const swiperRef = useRef();
+  const swiperRef = useRef(null);
   const setSwiperRef = (swiper) => {
     swiperRef.current = swiper;
   };
@@ -260,7 +253,7 @@ const KeyFeature = ({
   });
 
   useEffect(() => {
-    if (swiperRef.current) {
+    if (swiperRef && swiperRef.current) {
       if (isVisible) {
         swiperRef.current.autoplay.start();
       } else {
@@ -360,19 +353,6 @@ const DEFAULT_OFFSET = -95.5;
 const DOT_WIDTH = 200;
 const OFFSET_PER_DOT = DOT_WIDTH;
 
-const SalesManagementSelector = ({ activeIndex }) => {
-  const additionalOffset = activeIndex * OFFSET_PER_DOT * -1;
-
-  return (
-    <div className={styles.salesManagementSelectorContainer}>
-      <div
-        className={styles.salesManagementSelector}
-        style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
-      />
-    </div>
-  );
-};
-
 const SalesManagement = ({ data, t }) => {
   const { nodeRef, isVisible } = useIntersectionObserver();
   const salesManagementData = [
@@ -381,29 +361,22 @@ const SalesManagement = ({ data, t }) => {
     { title: t("index:salesManagementMenu3"), img: data.mobileFeatureSalesAnalysis },
   ];
 
-  const [swiperRef, setSwiperRef] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const pagination = {
-    el: `.${styles.salesManagementSelector}`,
-    bulletClass: styles.salesManagementDot,
-    bulletActiveClass: styles.selectedSalesManagementDot,
-    clickable: true,
-    renderBullet: (index, className) => {
-      const currentData = salesManagementData[index];
-      const element = genElementString("button", { class: className, style: `width: ${DOT_WIDTH}px` }, currentData.title);
-      return element;
-    },
+  const swiperRef = useRef(null);
+  const setSwiperRef = (swiper) => {
+    swiperRef.current = swiper;
   };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const additionalOffset = activeIndex * OFFSET_PER_DOT * -1;
   const autoplay = {
     delay: CAROUSEL_INTERVAL,
   };
 
   useEffect(() => {
-    if (swiperRef) {
+    if (swiperRef && swiperRef.current) {
       if (isVisible) {
-        swiperRef.autoplay.start();
+        swiperRef.current.autoplay.start();
       } else {
-        swiperRef.autoplay.stop();
+        swiperRef.current.autoplay.stop();
       }
     }
   });
@@ -420,10 +393,27 @@ const SalesManagement = ({ data, t }) => {
 
       <Padding y={40} />
 
-      <SalesManagementSelector
-        salesManagementData={salesManagementData}
-        activeIndex={activeIndex}
-      />
+      <div className={styles.salesManagementSelectorContainer}>
+        <div
+          className={styles.salesManagementSelector}
+          style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
+        >
+          {salesManagementData.map(({ title }, index) => {
+            const isActive = activeIndex === index;
+            return (
+              // eslint-disable-next-line jsx-a11y/control-has-associated-label
+              <button
+                key={title}
+                type="button"
+                className={styles.salesManagementDot}
+                disabled={isActive}
+                style={{ width: DOT_WIDTH }}
+                onClick={() => swiperRef.current.slideTo(index)}
+              />
+            );
+          })}
+        </div>
+      </div>
 
       <Padding y={30} />
 
@@ -432,9 +422,8 @@ const SalesManagement = ({ data, t }) => {
           className={styles.salesManagementSlider}
           onSwiper={setSwiperRef}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-          pagination={pagination}
           autoplay={autoplay}
-          modules={[Pagination, Autoplay]}
+          modules={[Autoplay]}
         >
           {salesManagementData.map(({ img, title }, index) => (
             <SwiperSlide
