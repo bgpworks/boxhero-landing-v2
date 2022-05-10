@@ -38,6 +38,7 @@ import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
 
 const CAROUSEL_INTERVAL = 3000;
+const genLeftOffsetTransform = (offset) => `translate3d(${offset}px, 0, 0)`;
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -155,7 +156,7 @@ const KeyFeatureDotGroup = ({ keyFeatureData, activeIndex }) => {
   return (
     <div className={styles.keyFeatureDotGroup}>
       {keyFeatureData.map(({ title }, index) => (
-      // eslint-disable-next-line jsx-a11y/control-has-associated-label
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
         <button
           key={title}
           type="button"
@@ -200,7 +201,7 @@ const KeyFeatureSelector = ({ keyFeatureData, activeIndex }) => {
           className={styles.keyFeatureSlideTitleContainer}
           style={{
             width: SLIDE_TITLE_WIDTH * keyFeatureData.length,
-            marginLeft: additionalOffset,
+            transform: genLeftOffsetTransform(additionalOffset),
           }}
         >
           {keyFeatureData.map(({ title }, index) => (
@@ -398,7 +399,7 @@ const SalesManagement = ({ data, t }) => {
       <div className={styles.salesManagementSelectorContainer}>
         <div
           className={styles.salesManagementSelector}
-          style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
+          style={{ transform: genLeftOffsetTransform(DEFAULT_OFFSET + additionalOffset) }}
         >
           {salesManagementData.map(({ title }, index) => {
             const isActive = activeIndex === index;
@@ -648,7 +649,7 @@ const FeatureSelector = ({
       </div>
       <div
         className={styles.slideDetailDotGroup}
-        style={{ marginLeft: offsetToSelected }}
+        style={{ transform: genLeftOffsetTransform(offsetToSelected) }}
       >
         {featureData.map(({ title }, index) => {
           const isActive = activeIndex === index;
