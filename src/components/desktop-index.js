@@ -322,7 +322,9 @@ const KeyFeatureButton = ({
   </button>
 );
 
-const KeyFeature = ({ title, description, carouselData }) => {
+const KeyFeature = ({
+  title, description, carouselData, direction,
+}) => {
   const swiperRef = useRef(null);
   const setSwiperRef = (swiper) => {
     swiperRef.current = swiper;
@@ -331,50 +333,55 @@ const KeyFeature = ({ title, description, carouselData }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const slideTo = (index) => swiperRef.current.slideTo(index);
 
+  const isReverse = direction === "reverse";
+
   return (
     <div className={styles.keyFeatureContainer}>
       <DesktopBaseContainer>
-        <div className={styles.keyFeatureContentContainer}>
-          <div className={styles.KeyFeatureDescriptionContainer}>
-            <div className={styles.keyFeatureTitle}>{title}</div>
-            <Padding y={16} />
-            <div className={styles.KeyFeatureDescription}>{description}</div>
-            <Padding y={40} />
-            <div className={styles.keyFeatureMenuContainer}>
-              {carouselData.map((data, index) => {
-                const isActive = activeIndex === index;
-                return (
-                  <KeyFeatureButton
-                    key={data.title}
-                    title={data.title}
-                    icon={data.icon}
-                    isActive={isActive}
-                    onClick={() => slideTo(index)}
-                  />
-                );
-              })}
+        <Swiper
+          className={styles.keyFeatureContentContainer}
+          onSwiper={setSwiperRef}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          direction="vertical"
+        >
+          <div slot={isReverse ? "container-end" : "container-start"}>
+            <div className={styles.KeyFeatureDescriptionContainer}>
+              <div className={styles.keyFeatureTitle}>{title}</div>
+              <Padding y={16} />
+              <div className={styles.KeyFeatureDescription}>{description}</div>
+              <Padding y={40} />
+              <div className={styles.keyFeatureMenuContainer}>
+                {carouselData.map((data, index) => {
+                  const isActive = activeIndex === index;
+                  return (
+                    <KeyFeatureButton
+                      key={data.title}
+                      title={data.title}
+                      icon={data.icon}
+                      isActive={isActive}
+                      onClick={() => slideTo(index)}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
-          <Swiper
-            className={styles.keyFeatureSlider}
-            onSwiper={setSwiperRef}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            direction="vertical"
-          >
-            {carouselData.map((data, index) => (
-              <SwiperSlide
-                className={styles.keyFeatureSlide}
-                key={index}
-                index={index}
-              >
-                <GatsbyImage
-                  image={data.img}
-                  alt={data.title}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+          {carouselData.map((data, index) => (
+            <SwiperSlide
+              className={cn(
+                styles.keyFeatureSlide,
+                { [styles.keyFeatureSlideLeft]: isReverse },
+              )}
+              key={index}
+              index={index}
+            >
+              <GatsbyImage
+                image={data.img}
+                alt={data.title}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </DesktopBaseContainer>
     </div>
   );
@@ -395,6 +402,7 @@ const KeyFeatures = ({ data, t }) => {
         title={<Trans i18nKey="index:keyFeature2Title" />}
         description={<Trans i18nKey="index:keyFeature2Desc" />}
         carouselData={keyFeaturesData[1]}
+        direction="reverse"
       />
 
       <KeyFeature

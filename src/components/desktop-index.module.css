@@ -118,6 +118,7 @@
 }
 
 .keyFeatureContentContainer {
+  width: 100%;
   height: 714px;
   color: var(--color-black);
   display: flex;
@@ -180,6 +181,10 @@
 .keyFeatureSlide {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+}
+.keyFeatureSlideLeft {
+  justify-content: flex-start;
 }
 
 /* sales management */
