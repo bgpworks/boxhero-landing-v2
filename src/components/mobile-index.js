@@ -10,13 +10,6 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import cn from "classnames";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  DotGroup,
-  Dot,
-} from "pure-react-carousel";
 import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 // js
 import MobileLayout from "./mobile-layout";
@@ -32,7 +25,7 @@ import {
   ConsultingButton,
   OnlyKorean,
 } from "./common";
-import { useCurrentSlide } from "../hooks/use-current-slide";
+// import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
 // css
 import "swiper/css";
@@ -621,65 +614,28 @@ function genFeatureData(data, t) {
   ];
 }
 
-function renderDots(
-  allData,
-  setOffsetToSelected,
-  setSelectedWidth,
-  { currentSlide, totalSlides, visibleSlides },
-) {
-  const dots = [];
-  for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
-    const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
-    dots.push(
-      <Dot
-        key={i}
-        slide={slide}
-        selected={selected}
-        className={cn(styles.slideDetailDot, { [styles.slideDetailDotSelected]: selected })}
-        onClick={(evt) => {
-          const dom = evt.target;
-          const left = dom.offsetLeft + dom.clientWidth / 2;
-          setOffsetToSelected(-left);
-          setSelectedWidth(dom.clientWidth + 1);
-        }}
-      >
-        {allData[slide].title}
-      </Dot>,
-    );
-  }
-  return dots;
-}
-
-// div.carousel__dot-group mobile-index-module--slideDetailDotGroup--15TiY 의 margin-left
+// div.mobile-index-module--slideDetailDotGroup--15TiY 의 margin-left
 const DEFAULT_OFFSET_TO_SELECTED = {
   ko: -46,
   en: -60,
-  es: -71.5,
-  id: -69.5,
 };
 
 // div.mobile-index-module--slideDetailDotBackground--13c-D
 const DEFAULT_SELECT_WIDTH = {
   ko: 93,
   en: 121,
-  es: 144,
-  id: 140,
 };
 
 const FeatureSelector = ({
-  language, featureData,
+  language, featureData, activeIndex, slideTo,
 }) => {
   // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
-  const [offsetToSelected, setOffsetToSelected] = React.useState(
+  const [offsetToSelected, setOffsetToSelected] = useState(
     DEFAULT_OFFSET_TO_SELECTED[language] || -71.5,
   );
-  const [selectedWidth, setSelectedWidth] = React.useState(
+  const [selectedWidth, setSelectedWidth] = useState(
     DEFAULT_SELECT_WIDTH[language] || 144,
-  );
-
-  return (
+  ); return (
     <div className={styles.slideDetailDotGroupContainer}>
       <div
         key="background"
@@ -688,22 +644,36 @@ const FeatureSelector = ({
       >
         0
       </div>
-      <DotGroup
+      <div
         className={styles.slideDetailDotGroup}
         style={{ marginLeft: offsetToSelected }}
-        renderDots={(props) => renderDots(
-          featureData,
-          setOffsetToSelected,
-          setSelectedWidth,
-          props,
-        )}
-      />
+      >
+        {featureData.map(({ title }, index) => (
+          <button
+            type="button"
+            className={cn(
+              styles.slideDetailDot,
+              { [styles.slideDetailDotSelected]: activeIndex === index },
+            )}
+            key={title}
+            onClick={(evt) => {
+              slideTo(index);
+              const dom = evt.target;
+              const left = dom.offsetLeft + dom.clientWidth / 2;
+              setOffsetToSelected(-left);
+              setSelectedWidth(dom.clientWidth + 1);
+            }}
+          >
+            {title}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
 
-const FeatureDetailLink = ({ t, featureData }) => {
-  const { currentSlide } = useCurrentSlide();
+const FeatureDetailLink = ({ currentSlide, featureData }) => {
+  const { t } = useI18next();
   return (
     <div className={styles.slideDetailLinkContainer}>
       <Link
@@ -723,33 +693,36 @@ const FeatureDetailLink = ({ t, featureData }) => {
 };
 
 const Features = ({ data, t, language }) => {
+  const [swiperRef, setSwiperRef] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const featureData = genFeatureData(data, t);
+
+  const slideTo = (index) => swiperRef.slideTo(index);
+
   return (
-    <CarouselProvider
-      className={styles.featuresContainer}
-      naturalSlideWidth={280}
-      naturalSlideHeight={204}
-      touchEnabled={false}
-      dragEnabled={false}
-      totalSlides={featureData.length}
-    >
+    <div className={styles.featuresContainer}>
       <h2 className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitleMobile" />
       </h2>
       <Padding y={40} />
 
       <FeatureSelector
-        data={data}
-        t={t}
         language={language}
         featureData={featureData}
+        activeIndex={activeIndex}
+        slideTo={slideTo}
       />
 
       <Padding y={25} />
 
-      <Slider className={styles.sliderWrapper}>
+      <Swiper
+        className={styles.sliderWrapper}
+        allowTouchMove={false}
+        onSwiper={setSwiperRef}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+      >
         {featureData.map(({ img, title }, index) => (
-          <Slide
+          <SwiperSlide
             key={index}
             index={index}
           >
@@ -757,17 +730,17 @@ const Features = ({ data, t, language }) => {
               image={img}
               alt={title}
             />
-          </Slide>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
 
       <Padding y={30} />
 
       <FeatureDetailLink
-        t={t}
+        currentSlide={activeIndex}
         featureData={featureData}
       />
-    </CarouselProvider>
+    </div>
   );
 };
 
