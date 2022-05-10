@@ -231,8 +231,7 @@
   flex-direction: row;
   justify-content: flex-start;
   position: relative;
-  /* carousel default animation */
-  transition: margin-left 0.5s cubic-bezier(.645,.045,.355,1);
+  transition: margin-left 0.3s ease;
 }
 
 .salesManagementDot {
@@ -244,7 +243,7 @@
   flex: 0 0 auto;
 }
 
-.salesManagementDot:disabled {
+.selectedSalesManagementDot {
   color: var(--color-primary);
   padding: 14px 20px;
   border-radius: 8px;

@@ -48,6 +48,13 @@ import svgPlayPrimary from "../images/icon-play-primary.svg";
 
 const CAROUSEL_INTERVAL = 3000;
 
+const genElementString = (tagName, props, children) => {
+  const propsStr = Object.entries(props).map(([key, value]) => `${key}="${value}"`).join("");
+  return (
+    `<${tagName} ${propsStr}>${children}</${tagName}>`
+  );
+};
+
 const Top = ({ data, t }) => (
   <GradientBG
     className={styles.topContainer}
@@ -355,36 +362,22 @@ const DEFAULT_OFFSET = -95.5;
 const DOT_WIDTH = 200;
 const OFFSET_PER_DOT = DOT_WIDTH;
 
-const SalesManagementSelector = ({
-  salesManagementData,
-}) => {
-  const { currentSlide } = useCurrentSlide();
+const SalesManagementSelector = ({ currentSlide }) => {
   const additionalOffset = currentSlide * OFFSET_PER_DOT * -1;
 
   return (
     <div className={styles.salesManagementSelectorContainer}>
-      <DotGroup
+      <div
         className={styles.salesManagementSelector}
         style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
-      >
-        {salesManagementData.map(({ title }, index) => (
-          <Dot
-            key={index}
-            slide={index}
-            className={styles.salesManagementDot}
-            style={{
-              width: DOT_WIDTH,
-            }}
-          >
-            {title}
-          </Dot>
-        ))}
-      </DotGroup>
+      />
     </div>
   );
 };
 
 const SalesManagement = ({ data, t }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [swiperRef, setSwiperRef] = useState(0);
   const { nodeRef, isVisible } = useIntersectionObserver();
   const salesManagementData = [
     { title: t("index:salesManagementMenu1"), img: data.mobileFeatureTransaction },
@@ -392,16 +385,34 @@ const SalesManagement = ({ data, t }) => {
     { title: t("index:salesManagementMenu3"), img: data.mobileFeatureSalesAnalysis },
   ];
 
+  const pagination = {
+    el: `.${styles.salesManagementSelector}`,
+    bulletClass: styles.salesManagementDot,
+    bulletActiveClass: styles.selectedSalesManagementDot,
+    clickable: true,
+    renderBullet: (index, className) => {
+      const currentData = salesManagementData[index];
+      const element = genElementString("button", { class: className, style: `width: ${DOT_WIDTH}px` }, currentData.title);
+      return element;
+    },
+  };
+  const autoplay = {
+    delay: CAROUSEL_INTERVAL,
+  };
+
+  useEffect(() => {
+    // TODO: 최선인가
+    if (swiperRef) {
+      if (isVisible) {
+        swiperRef.autoplay.start();
+      } else {
+        swiperRef.autoplay.stop();
+      }
+    }
+  });
+
   return (
-    <CarouselProvider
-      className={styles.salesManagementContentContainer}
-      naturalSlideWidth={335}
-      naturalSlideHeight={276}
-      totalSlides={salesManagementData.length}
-      touchEnabled={false}
-      interval={CAROUSEL_INTERVAL}
-      isPlaying={isVisible}
-    >
+    <div className={styles.salesManagementContentContainer}>
       <h2 className={styles.salesManagementTitle}>
         <Trans i18nKey="index:salesManagementTitle" />
       </h2>
@@ -414,14 +425,22 @@ const SalesManagement = ({ data, t }) => {
 
       <SalesManagementSelector
         salesManagementData={salesManagementData}
+        currentSlide={activeIndex}
       />
 
       <Padding y={30} />
 
       <div ref={nodeRef}>
-        <Slider className={styles.salesManagementSlider}>
+        <Swiper
+          className={styles.salesManagementSlider}
+          onSwiper={setSwiperRef}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          pagination={pagination}
+          autoplay={autoplay}
+          modules={[Pagination, Autoplay]}
+        >
           {salesManagementData.map(({ img, title }, index) => (
-            <Slide
+            <SwiperSlide
               key={index}
               index={index}
             >
@@ -429,11 +448,11 @@ const SalesManagement = ({ data, t }) => {
                 image={img.childImageSharp.gatsbyImageData}
                 alt={title}
               />
-            </Slide>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
-    </CarouselProvider>
+    </div>
   );
 };
 
