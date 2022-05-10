@@ -36,7 +36,7 @@ import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
-// import { usePreviousValue } from "../hooks/use-previous-value";
+import { usePreviousValue } from "../hooks/use-previous-value";
 // import { useCarouselHandler } from "../hooks/use-carousel-handler";
 
 const CAROUSEL_INTERVAL = 3000;
@@ -215,7 +215,9 @@ const KeyFeatureSelector = ({ currentSlide, carouselData }) => {
 const KeyFeatureSlider = ({
   keyFeatureIndex, setActiveIndex, carouselData,
 }) => {
-  const { nodeRef, isVisible } = useIntersectionObserver();
+  const { nodeRef, isVisible, everVisible } = useIntersectionObserver();
+  const isFirstVisible = isVisible && !everVisible;
+  const prevIsFirstVisible = usePreviousValue(isFirstVisible);
   const [swiperRef, setSwiperRef] = useState(null);
 
   const pagination = {
@@ -233,6 +235,12 @@ const KeyFeatureSlider = ({
   const autoplay = {
     delay: CAROUSEL_INTERVAL,
   };
+
+  useEffect(() => {
+    if (isFirstVisible && prevIsFirstVisible !== isFirstVisible) {
+      swiperRef.slideNext();
+    }
+  });
 
   useEffect(() => {
     // TODO: 최선인가
