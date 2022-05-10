@@ -105,7 +105,7 @@
 }
 
 .keyFeatureSelector {
-  width: 100%;
+  margin: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,8 +124,7 @@
   opacity: 0;
 }
 
-.slideNavButtonPrev,
-.slideNavButtonNext {
+.slideNavButton  {
   width: 36px;
   height: 36px;
   padding: 6px;
@@ -133,7 +132,7 @@
   background-color: transparent;
 }
 
-.slideNavButtonDisabled {
+.slideNavButton:disabled {
   opacity: 0;
 }
 
@@ -180,7 +179,7 @@
   margin-right: 8px;
 }
 
-.selectedKeyFeatureDot {
+.keyFeatureDot:disabled {
   background-color: var(--color-primary);
 }
 
