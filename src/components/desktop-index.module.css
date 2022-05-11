@@ -124,6 +124,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  --box-shadow-blur: 20px;
+  padding: 0 var(--box-shadow-blur);
+  width: calc(100% + (var(--boxhero-shadow-blur) * 2));
+  margin-left: -1 * var(--box-shadow-blur);
 }
 
 .KeyFeatureDescriptionContainer {
@@ -174,12 +179,16 @@
 }
 
 .keyFeatureSlider {
-  width: 581px;
+  height: 100%;
 }
 
 .keyFeatureSlide {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+}
+.keyFeatureSlideLeft {
+  justify-content: flex-start;
 }
 
 /* sales management */
@@ -365,6 +374,7 @@
 
 .slideNavButton:disabled {
   filter: opacity(0.3);
+  cursor: default;
 }
 
 .slideDetailLink {
@@ -394,7 +404,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0px 20px;
 }
 

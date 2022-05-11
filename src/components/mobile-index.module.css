@@ -104,8 +104,8 @@
   align-items: center;
 }
 
-.KeyFeatureSelector {
-  width: 100%;
+.keyFeatureSelector {
+  margin: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,6 +124,18 @@
   opacity: 0;
 }
 
+.slideNavButton  {
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.slideNavButton:disabled {
+  opacity: 0;
+}
+
 .keyFeatureDisplaySlide {
   overflow: hidden;
 }
@@ -131,8 +143,7 @@
 .keyFeatureSlideTitleContainer {
   margin: 0;
   display: flex;
-  /* carousel default animation */
-  transition: margin-left 0.5s cubic-bezier(.645,.045,.355,1);
+  transition: transform 0.3s ease;
 }
 
 .keyFeatureSlideTitle {
@@ -157,19 +168,18 @@
   justify-content: center;
 }
 
-/* carousel__dot */
-.keyFeatureDotGroup button {
+.keyFeatureDot {
   width: 8px;
   height: 8px;
   border-radius: 4px;
   background-color: var(--color-gray3);
 }
 
-.keyFeatureDotGroup button:not(:last-child) {
+.keyFeatureDot:not(:last-child) {
   margin-right: 8px;
 }
 
-.keyFeatureDotGroup button:disabled {
+.keyFeatureDot:disabled {
   background-color: var(--color-primary);
 }
 
@@ -220,8 +230,7 @@
   flex-direction: row;
   justify-content: flex-start;
   position: relative;
-  /* carousel default animation */
-  transition: margin-left 0.5s cubic-bezier(.645,.045,.355,1);
+  transition: transform 0.3s ease;
 }
 
 .salesManagementDot {
@@ -402,7 +411,7 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  transition: margin-left 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .slideDetailDot {
@@ -412,7 +421,7 @@
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0);
   color: var(--color-black);
-  transition: color 0.3s;
+  transition: color 0.3s ease;
   flex: 0 0 auto;
 }
 

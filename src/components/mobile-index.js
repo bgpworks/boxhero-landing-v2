@@ -1,20 +1,15 @@
 /* eslint react/jsx-no-target-blank: 0 */
 // 분석을 위해 referrer 정보는 남겨두고 싶음.
 
-import React, { useEffect } from "react";
+/* eslint-disable import/no-unresolved */
+
+import React, { useEffect, useRef, useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Autoplay } from "swiper";
 import cn from "classnames";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  DotGroup,
-  Dot,
-  ButtonBack,
-  ButtonNext,
-} from "pure-react-carousel";
 import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 // js
 import MobileLayout from "./mobile-layout";
@@ -30,9 +25,10 @@ import {
   ConsultingButton,
   OnlyKorean,
 } from "./common";
-import { useCurrentSlide } from "../hooks/use-current-slide";
 import * as constants from "./constants";
+import { usePreviousValue } from "../hooks/use-previous-value";
 // css
+import "swiper/css";
 import * as styles from "./mobile-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
@@ -40,10 +36,9 @@ import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgPlayPrimary from "../images/icon-play-primary.svg";
-import { usePreviousValue } from "../hooks/use-previous-value";
-import { useCarouselHandler } from "../hooks/use-carousel-handler";
 
 const CAROUSEL_INTERVAL = 3000;
+const genLeftOffsetTransform = (offset) => `translate3d(${offset}px, 0, 0)`;
 
 const Top = ({ data, t }) => (
   <GradientBG
@@ -155,21 +150,48 @@ const Chatting = () => {
   );
 };
 
-const KeyFeatureSelector = ({ carouselData }) => {
-  const { t } = useI18next();
-  const { currentSlide } = useCurrentSlide();
-
-  const SLIDE_TITLE_WIDTH = 188;
-  const additionalOffset = currentSlide * SLIDE_TITLE_WIDTH * -1;
+const KeyFeatureDotGroup = ({ keyFeatureData, activeIndex }) => {
+  const swiper = useSwiper();
 
   return (
-    <div className={styles.KeyFeatureSelector}>
-      <ButtonBack className={styles.slideNavButton}>
+    <div className={styles.keyFeatureDotGroup}>
+      {keyFeatureData.map(({ title }, index) => (
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
+        <button
+          key={title}
+          type="button"
+          className={styles.keyFeatureDot}
+          disabled={activeIndex === index}
+          onClick={() => swiper.slideTo(index)}
+        />
+      ))}
+    </div>
+  );
+};
+
+const KeyFeatureSelector = ({ keyFeatureData, activeIndex }) => {
+  const { t } = useI18next();
+  const swiper = useSwiper();
+
+  const SLIDE_TITLE_WIDTH = 188;
+  const additionalOffset = activeIndex * SLIDE_TITLE_WIDTH * -1;
+
+  const isFirstIndex = activeIndex === 0;
+  const isLastIndex = activeIndex === keyFeatureData.length - 1;
+
+  return (
+    <div className={styles.keyFeatureSelector}>
+      <button
+        type="button"
+        className={styles.slideNavButton}
+        disabled={isFirstIndex}
+        onClick={() => swiper.slidePrev()}
+      >
         <img
           src={svgLeftArrow}
           alt={t("index:featuresNavBack")}
         />
-      </ButtonBack>
+      </button>
 
       <div
         className={styles.keyFeatureDisplaySlide}
@@ -178,11 +200,11 @@ const KeyFeatureSelector = ({ carouselData }) => {
         <ul
           className={styles.keyFeatureSlideTitleContainer}
           style={{
-            width: SLIDE_TITLE_WIDTH * carouselData.length,
-            marginLeft: additionalOffset,
+            width: SLIDE_TITLE_WIDTH * keyFeatureData.length,
+            transform: genLeftOffsetTransform(additionalOffset),
           }}
         >
-          {carouselData.map(({ title }, index) => (
+          {keyFeatureData.map(({ title }, index) => (
             <li
               key={index}
               className={styles.keyFeatureSlideTitle}
@@ -194,83 +216,100 @@ const KeyFeatureSelector = ({ carouselData }) => {
         </ul>
       </div>
 
-      <ButtonNext className={styles.slideNavButton}>
+      <button
+        type="button"
+        className={styles.slideNavButton}
+        disabled={isLastIndex}
+        onClick={() => swiper.slideNext()}
+      >
         <img
           src={svgRightArrow}
           alt={t("index:featuresNavNext")}
         />
-      </ButtonNext>
+      </button>
     </div>
   );
 };
 
-const KeyFeatureSlider = ({ isFirstVisible, carouselData }) => {
+const KeyFeature = ({
+  title, description, keyFeatureData,
+}) => {
+  const { nodeRef, isVisible, everVisible } = useIntersectionObserver();
+  const isFirstVisible = isVisible && !everVisible;
   const prevIsFirstVisible = usePreviousValue(isFirstVisible);
-  const { goToNextSlide } = useCarouselHandler();
+
+  const swiperRef = useRef(null);
+  const setSwiperRef = (swiper) => {
+    swiperRef.current = swiper;
+  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const autoplay = {
+    delay: CAROUSEL_INTERVAL,
+  };
 
   useEffect(() => {
     if (isFirstVisible && prevIsFirstVisible !== isFirstVisible) {
-      goToNextSlide();
+      setTimeout(() => {
+        swiperRef.current.slideNext();
+      }, 500);
+    }
+  });
+
+  useEffect(() => {
+    if (swiperRef && swiperRef.current) {
+      if (isVisible) {
+        swiperRef.current.autoplay.start();
+      } else {
+        swiperRef.current.autoplay.stop();
+      }
     }
   });
 
   return (
-    <Slider className={styles.keyFeatureSlider}>
-      {carouselData.map((slide, index) => (
-        <Slide
-          key={index}
-          index={index}
-        >
-          <GatsbyImage
-            image={slide.img.childImageSharp.gatsbyImageData}
-            alt={slide.title}
-          />
-        </Slide>
-      ))}
-    </Slider>
-  );
-};
-
-const KeyFeature = ({
-  title, description, carouselData,
-}) => {
-  const { nodeRef, isVisible, everVisible } = useIntersectionObserver();
-
-  return (
-    <section
-      className={styles.keyFeatureContainer}
-    >
+    <section className={styles.keyFeatureContainer}>
       <MobileBaseContainer className={styles.keyFeatureContentContainer}>
         <h2 className={styles.keyFeatureTitle}>{title}</h2>
         <Padding y={16} />
         <p className={styles.keyFeatureDescription}>{description}</p>
         <Padding y={40} />
 
-        <CarouselProvider
-          className={styles.keyFeatureCarousel}
-          naturalSlideWidth={375}
-          naturalSlideHeight={0}
-          totalSlides={carouselData.length}
-          touchEnabled={false}
-          interval={CAROUSEL_INTERVAL}
-          isPlaying={isVisible}
-          isIntrinsicHeight
-        >
-          <KeyFeatureSelector carouselData={carouselData} />
-
-          <Padding y={30} />
-
+        <div className={styles.keyFeatureCarousel}>
           <div ref={nodeRef}>
-            <KeyFeatureSlider
-              isFirstVisible={isVisible && !everVisible}
-              carouselData={carouselData}
-            />
+            <Swiper
+              className={styles.keyFeatureSlider}
+              onSwiper={setSwiperRef}
+              onSlideChange={(changedSwiper) => setActiveIndex(changedSwiper.activeIndex)}
+              autoplay={autoplay}
+              modules={[Autoplay]}
+            >
+              <div slot="container-start">
+                <KeyFeatureSelector
+                  keyFeatureData={keyFeatureData}
+                  activeIndex={activeIndex}
+                />
+                <Padding y={30} />
+              </div>
+              {keyFeatureData.map((slide, index) => (
+                <SwiperSlide
+                  key={index}
+                  index={index}
+                >
+                  <GatsbyImage
+                    image={slide.img.childImageSharp.gatsbyImageData}
+                    alt={slide.title}
+                  />
+                </SwiperSlide>
+              ))}
+              <div slot="container-end">
+                <Padding y={10} />
+                <KeyFeatureDotGroup
+                  keyFeatureData={keyFeatureData}
+                  activeIndex={activeIndex}
+                />
+              </div>
+            </Swiper>
           </div>
-
-          <Padding y={10} />
-
-          <DotGroup className={styles.keyFeatureDotGroup} />
-        </CarouselProvider>
+        </div>
       </MobileBaseContainer>
     </section>
   );
@@ -281,7 +320,7 @@ const KeyFeatures = ({ data, t }) => (
     <KeyFeature
       title={<Trans i18nKey="index:keyFeature1Title" />}
       description={<Trans i18nKey="index:keyFeature1Desc" />}
-      carouselData={[
+      keyFeatureData={[
         { title: t("index:keyFeature1Menu1"), img: data.mobileFeature1CustomProducts },
         { title: t("index:keyFeature1Menu2"), img: data.mobileFeature1PrintLabel },
         { title: t("index:keyFeature1Menu3"), img: data.mobileFeature1ProductList },
@@ -292,7 +331,7 @@ const KeyFeatures = ({ data, t }) => (
     <KeyFeature
       title={<Trans i18nKey="index:keyFeature2Title" />}
       description={<Trans i18nKey="index:keyFeature2Desc" />}
-      carouselData={[
+      keyFeatureData={[
         { title: t("index:keyFeature2Menu1"), img: data.mobileFeature2SelectProduct },
         { title: t("index:keyFeature2Menu2"), img: data.mobileFeature2ScanBarcode },
         { title: t("index:keyFeature2Menu3"), img: data.mobileFeature2History },
@@ -303,7 +342,7 @@ const KeyFeatures = ({ data, t }) => (
     <KeyFeature
       title={<Trans i18nKey="index:keyFeature3Title" />}
       description={<Trans i18nKey="index:keyFeature3Desc" />}
-      carouselData={[
+      keyFeatureData={[
         { title: t("index:keyFeature3Menu1"), img: data.mobileFeature3Analysis },
         { title: t("index:keyFeature3Menu2"), img: data.mobileFeature3GroupList },
         { title: t("index:keyFeature3Menu3"), img: data.mobileFeature3EmailReport },
@@ -317,35 +356,6 @@ const DEFAULT_OFFSET = -95.5;
 const DOT_WIDTH = 200;
 const OFFSET_PER_DOT = DOT_WIDTH;
 
-const SalesManagementSelector = ({
-  salesManagementData,
-}) => {
-  const { currentSlide } = useCurrentSlide();
-  const additionalOffset = currentSlide * OFFSET_PER_DOT * -1;
-
-  return (
-    <div className={styles.salesManagementSelectorContainer}>
-      <DotGroup
-        className={styles.salesManagementSelector}
-        style={{ marginLeft: DEFAULT_OFFSET + additionalOffset }}
-      >
-        {salesManagementData.map(({ title }, index) => (
-          <Dot
-            key={index}
-            slide={index}
-            className={styles.salesManagementDot}
-            style={{
-              width: DOT_WIDTH,
-            }}
-          >
-            {title}
-          </Dot>
-        ))}
-      </DotGroup>
-    </div>
-  );
-};
-
 const SalesManagement = ({ data, t }) => {
   const { nodeRef, isVisible } = useIntersectionObserver();
   const salesManagementData = [
@@ -354,16 +364,28 @@ const SalesManagement = ({ data, t }) => {
     { title: t("index:salesManagementMenu3"), img: data.mobileFeatureSalesAnalysis },
   ];
 
+  const swiperRef = useRef(null);
+  const setSwiperRef = (swiper) => {
+    swiperRef.current = swiper;
+  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const additionalOffset = activeIndex * OFFSET_PER_DOT * -1;
+  const autoplay = {
+    delay: CAROUSEL_INTERVAL,
+  };
+
+  useEffect(() => {
+    if (swiperRef && swiperRef.current) {
+      if (isVisible) {
+        swiperRef.current.autoplay.start();
+      } else {
+        swiperRef.current.autoplay.stop();
+      }
+    }
+  });
+
   return (
-    <CarouselProvider
-      className={styles.salesManagementContentContainer}
-      naturalSlideWidth={335}
-      naturalSlideHeight={276}
-      totalSlides={salesManagementData.length}
-      touchEnabled={false}
-      interval={CAROUSEL_INTERVAL}
-      isPlaying={isVisible}
-    >
+    <div className={styles.salesManagementContentContainer}>
       <h2 className={styles.salesManagementTitle}>
         <Trans i18nKey="index:salesManagementTitle" />
       </h2>
@@ -374,16 +396,41 @@ const SalesManagement = ({ data, t }) => {
 
       <Padding y={40} />
 
-      <SalesManagementSelector
-        salesManagementData={salesManagementData}
-      />
+      <div className={styles.salesManagementSelectorContainer}>
+        <div
+          className={styles.salesManagementSelector}
+          style={{ transform: genLeftOffsetTransform(DEFAULT_OFFSET + additionalOffset) }}
+        >
+          {salesManagementData.map(({ title }, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <button
+                key={title}
+                type="button"
+                className={styles.salesManagementDot}
+                disabled={isActive}
+                style={{ width: DOT_WIDTH }}
+                onClick={() => swiperRef.current.slideTo(index)}
+              >
+                {title}
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       <Padding y={30} />
 
       <div ref={nodeRef}>
-        <Slider className={styles.salesManagementSlider}>
+        <Swiper
+          className={styles.salesManagementSlider}
+          onSwiper={setSwiperRef}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          autoplay={autoplay}
+          modules={[Autoplay]}
+        >
           {salesManagementData.map(({ img, title }, index) => (
-            <Slide
+            <SwiperSlide
               key={index}
               index={index}
             >
@@ -391,11 +438,11 @@ const SalesManagement = ({ data, t }) => {
                 image={img.childImageSharp.gatsbyImageData}
                 alt={title}
               />
-            </Slide>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
-    </CarouselProvider>
+    </div>
   );
 };
 
@@ -564,63 +611,32 @@ function genFeatureData(data, t) {
   ];
 }
 
-function renderDots(
-  allData,
-  setOffsetToSelected,
-  setSelectedWidth,
-  { currentSlide, totalSlides, visibleSlides },
-) {
-  const dots = [];
-  for (let i = 0; i < totalSlides; i += 1) {
-    const multipleSelected = i >= currentSlide && i < currentSlide + visibleSlides;
-    const selected = multipleSelected;
-    const slide = i >= totalSlides - visibleSlides ? totalSlides - visibleSlides : i;
-    dots.push(
-      <Dot
-        key={i}
-        slide={slide}
-        selected={selected}
-        className={cn(styles.slideDetailDot, { [styles.slideDetailDotSelected]: selected })}
-        onClick={(evt) => {
-          const dom = evt.target;
-          const left = dom.offsetLeft + dom.clientWidth / 2;
-          setOffsetToSelected(-left);
-          setSelectedWidth(dom.clientWidth + 1);
-        }}
-      >
-        {allData[slide].title}
-      </Dot>,
-    );
-  }
-  return dots;
-}
-
-// div.carousel__dot-group mobile-index-module--slideDetailDotGroup--15TiY 의 margin-left
+// div.mobile-index-module--slideDetailDotGroup--15TiY 의 margin-left
 const DEFAULT_OFFSET_TO_SELECTED = {
   ko: -46,
   en: -60,
-  es: -71.5,
-  id: -69.5,
 };
 
 // div.mobile-index-module--slideDetailDotBackground--13c-D
 const DEFAULT_SELECT_WIDTH = {
   ko: 93,
   en: 121,
-  es: 144,
-  id: 140,
 };
 
 const FeatureSelector = ({
-  language, featureData,
+  featureData, activeIndex, slideTo,
 }) => {
+  const { language } = useI18next();
+
   // HACK: dom의 offset을 읽어와서 left, width css 조정해서 설정함.
-  const [offsetToSelected, setOffsetToSelected] = React.useState(
+  const [offsetToSelected, setOffsetToSelected] = useState(
     DEFAULT_OFFSET_TO_SELECTED[language] || -71.5,
   );
-  const [selectedWidth, setSelectedWidth] = React.useState(
+  const [selectedWidth, setSelectedWidth] = useState(
     DEFAULT_SELECT_WIDTH[language] || 144,
   );
+
+  const calcLeftOffset = (dom) => (dom.offsetLeft + dom.clientWidth / 2) * -1;
 
   return (
     <div className={styles.slideDetailDotGroupContainer}>
@@ -631,27 +647,44 @@ const FeatureSelector = ({
       >
         0
       </div>
-      <DotGroup
+      <div
         className={styles.slideDetailDotGroup}
-        style={{ marginLeft: offsetToSelected }}
-        renderDots={(props) => renderDots(
-          featureData,
-          setOffsetToSelected,
-          setSelectedWidth,
-          props,
-        )}
-      />
+        style={{ transform: genLeftOffsetTransform(offsetToSelected) }}
+      >
+        {featureData.map(({ title }, index) => {
+          const isActive = activeIndex === index;
+          return (
+            <button
+              key={title}
+              type="button"
+              className={cn(
+                styles.slideDetailDot,
+                { [styles.slideDetailDotSelected]: isActive },
+              )}
+              onClick={(evt) => {
+                slideTo(index);
+                const dom = evt.target;
+                const left = calcLeftOffset(dom);
+                setOffsetToSelected(left);
+                setSelectedWidth(dom.clientWidth + 1);
+              }}
+            >
+              {title}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-const FeatureDetailLink = ({ t, featureData }) => {
-  const { currentSlide } = useCurrentSlide();
+const FeatureDetailLink = ({ activeIndex, featureData }) => {
+  const { t } = useI18next();
   return (
     <div className={styles.slideDetailLinkContainer}>
       <Link
-        to={featureData[currentSlide].link}
-        title={featureData[currentSlide].title}
+        to={featureData[activeIndex].link}
+        title={featureData[activeIndex].title}
         className={styles.slideDetailLink}
       >
         {t("index:featuresDetailLink")}
@@ -665,34 +698,39 @@ const FeatureDetailLink = ({ t, featureData }) => {
   );
 };
 
-const Features = ({ data, t, language }) => {
+const Features = ({ data, t }) => {
+  const swiperRef = useRef(null);
+  const setSwiperRef = (swiper) => {
+    swiperRef.current = swiper;
+  };
+  const [activeIndex, setActiveIndex] = useState(0);
   const featureData = genFeatureData(data, t);
+
+  const slideTo = (index) => swiperRef.current.slideTo(index);
+
   return (
-    <CarouselProvider
-      className={styles.featuresContainer}
-      naturalSlideWidth={280}
-      naturalSlideHeight={204}
-      touchEnabled={false}
-      dragEnabled={false}
-      totalSlides={featureData.length}
-    >
+    <div className={styles.featuresContainer}>
       <h2 className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitleMobile" />
       </h2>
       <Padding y={40} />
 
       <FeatureSelector
-        data={data}
-        t={t}
-        language={language}
         featureData={featureData}
+        activeIndex={activeIndex}
+        slideTo={slideTo}
       />
 
       <Padding y={25} />
 
-      <Slider className={styles.sliderWrapper}>
+      <Swiper
+        className={styles.sliderWrapper}
+        allowTouchMove={false}
+        onSwiper={setSwiperRef}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+      >
         {featureData.map(({ img, title }, index) => (
-          <Slide
+          <SwiperSlide
             key={index}
             index={index}
           >
@@ -700,17 +738,17 @@ const Features = ({ data, t, language }) => {
               image={img}
               alt={title}
             />
-          </Slide>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
 
       <Padding y={30} />
 
       <FeatureDetailLink
-        t={t}
+        activeIndex={activeIndex}
         featureData={featureData}
       />
-    </CarouselProvider>
+    </div>
   );
 };
 
