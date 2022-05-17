@@ -45,12 +45,10 @@ export default function SocialLinkList() {
           link={t("url:naverblog")}
         />
       )}
-      {language !== "ko" && (
-        <SocialLink
-          icon={svgIconTwitter}
-          link={t("url:twitter")}
-        />
-      )}
+      <SocialLink
+        icon={svgIconTwitter}
+        link={t("url:twitter")}
+      />
       <SocialLink
         icon={svgIconFacebook}
         link={t("url:facebook")}
