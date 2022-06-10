@@ -169,21 +169,13 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
         {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </span>
-      {language === "ko"
-        ? (
-          <span>
-            {t("footer:footerMenuContactKakao")}
-            {" "}
-            <a href={constants.urlKakaoTalk}>@박스히어로</a>
-          </span>
-        )
-        : (
-          <span>
-            {t("footer:footerMenuContactWhatsApp")}
-            {" "}
-            <a href={constants.urlWhatsApp}>@boxhero</a>
-          </span>
-        )}
+      {language === "ko" && (
+        <span>
+          {t("footer:footerMenuContactKakao")}
+          {" "}
+          <a href={constants.urlKakaoTalk}>@박스히어로</a>
+        </span>
+      )}
     </FooterMenu>
   </article>
 );

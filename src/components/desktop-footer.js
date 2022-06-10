@@ -233,21 +233,13 @@ const DesktopFooterMenus = ({ t, language }) => (
           {" "}
           <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
         </div>
-        {language === "ko"
-          ? (
-            <div>
-              {t("footer:footerMenuContactKakao")}
-              {" "}
-              <a href={constants.urlKakaoTalk}>@박스히어로</a>
-            </div>
-          )
-          : (
-            <div>
-              {t("footer:footerMenuContactWhatsApp")}
-              {" "}
-              <a href={constants.urlWhatsApp}>@boxhero</a>
-            </div>
-          )}
+        {language === "ko" && (
+          <div>
+            {t("footer:footerMenuContactKakao")}
+            {" "}
+            <a href={constants.urlKakaoTalk}>@박스히어로</a>
+          </div>
+        )}
       </div>
     </div>
   </div>
