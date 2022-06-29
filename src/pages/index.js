@@ -268,6 +268,66 @@ export const query = graphql`
         )
       }
     }
+    featureAllInOne: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-all-in-one.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 582
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featureQuantity: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "history-card.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 582
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featureIntegration: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "order-log.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 582
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
     teamPlay: file(
       relativeDirectory: { eq: $language }
       base: { eq: "img-team.png" }

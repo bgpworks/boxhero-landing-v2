@@ -25,36 +25,43 @@ import * as constants from "./constants";
 import "swiper/css";
 import * as styles from "./desktop-index.module.css";
 // img
-import svgVolt from "../images/volt.svg";
-import svgMobileScan from "../images/icon-mobile-scan.svg";
-import svgSummary from "../images/icon-summary.svg";
-import svgMemberRole from "../images/icon-member-role.svg";
-import svgMove from "../images/icon-move.svg";
-import svgInOut from "../images/icon-inout.svg";
-import svgTransaction from "../images/icon-transaction.svg";
-import svgScanning from "../images/icon-scanning.svg";
-import svgAddItem from "../images/feature-additem.svg";
-import svgSync from "../images/icon-sync.svg";
-import svgSmallRightBlue from "../images/smallright-blue.svg";
-import svgSwipeLeft from "../images/swipeleft.svg";
-import svgSwipeRight from "../images/swiperight.svg";
+import iconVolt from "../images/volt.svg";
+import iconMobileScan from "../images/icon-mobile-scan.svg";
+import iconSummary from "../images/icon-summary.svg";
+import iconMemberRole from "../images/icon-member-role.svg";
+import iconMove from "../images/icon-move.svg";
+import iconInOut from "../images/icon-inout.svg";
+import iconTransaction from "../images/icon-transaction.svg";
+import iconScanning from "../images/icon-scanning.svg";
+import iconAddItem from "../images/feature-additem.svg";
+import iconSync from "../images/icon-sync.svg";
+import iconEye from "../images/icon-viewer.svg";
+import iconLink from "../images/icon-link.svg";
+import iconSmallRightBlue from "../images/smallright-blue.svg";
+import iconSwipeLeft from "../images/swipeleft.svg";
+import iconSwipeRight from "../images/swiperight.svg";
 
 function genKeyFeaturesData(data, t) {
   return [
     [
-      { icon: svgMobileScan, title: t("index:keyFeature1Menu1"), img: data.featureSelectProduct.childImageSharp.gatsbyImageData },
-      { icon: svgSummary, title: t("index:keyFeature1Menu2"), img: data.featureHistory.childImageSharp.gatsbyImageData },
-      { icon: svgMemberRole, title: t("index:keyFeature1Menu3"), img: data.featureSettingRole.childImageSharp.gatsbyImageData },
+      { icon: iconMobileScan, title: t("index:keyFeature1Menu1"), img: data.featureSelectProduct.childImageSharp.gatsbyImageData },
+      { icon: iconSummary, title: t("index:keyFeature1Menu2"), img: data.featureHistory.childImageSharp.gatsbyImageData },
+      { icon: iconMemberRole, title: t("index:keyFeature1Menu3"), img: data.featureSettingRole.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgMove, title: t("index:keyFeature2Menu1"), img: data.featureMove.childImageSharp.gatsbyImageData },
-      { icon: svgInOut, title: t("index:keyFeature2Menu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
-      { icon: svgTransaction, title: t("index:keyFeature2Menu3"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
+      { icon: iconMove, title: t("index:keyFeature2Menu1"), img: data.featureMove.childImageSharp.gatsbyImageData },
+      { icon: iconInOut, title: t("index:keyFeature2Menu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
+      { icon: iconTransaction, title: t("index:keyFeature2Menu3"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgScanning, title: t("index:keyFeature3Menu1"), img: data.featureScanBarcode.childImageSharp.gatsbyImageData },
-      { icon: svgAddItem, title: t("index:keyFeature3Menu2"), img: data.featurePrintLabel.childImageSharp.gatsbyImageData },
-      { icon: svgSync, title: t("index:keyFeature3Menu3"), img: data.featureOutDetail.childImageSharp.gatsbyImageData },
+      { icon: iconScanning, title: t("index:keyFeature3Menu1"), img: data.featureScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: iconAddItem, title: t("index:keyFeature3Menu2"), img: data.featurePrintLabel.childImageSharp.gatsbyImageData },
+      { icon: iconSync, title: t("index:keyFeature3Menu3"), img: data.featureOutDetail.childImageSharp.gatsbyImageData },
+    ],
+    [
+      { icon: iconEye, title: t("index:keyFeature4Menu1"), img: data.featureAllInOne.childImageSharp.gatsbyImageData },
+      { icon: iconVolt, title: t("index:keyFeature4Menu2"), img: data.featureQuantity.childImageSharp.gatsbyImageData },
+      { icon: iconLink, title: t("index:keyFeature4Menu3"), img: data.featureIntegration.childImageSharp.gatsbyImageData },
     ],
   ];
 }
@@ -154,7 +161,7 @@ const Top = () => {
           <StartNowButton className={styles.startNowButton}>
             <img
               className={styles.topButtonIcon}
-              src={svgVolt}
+              src={iconVolt}
               alt={t("index:topIconAlt")}
             />
             {t("index:topStartNowButton")}
@@ -283,15 +290,19 @@ const KeyFeatures = ({ data }) => {
 
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature2Title" />}
-        description={<Trans i18nKey="index:keyFeature2Desc" />}
         carouselData={keyFeaturesData[1]}
         direction="reverse"
       />
 
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature3Title" />}
-        description={<Trans i18nKey="index:keyFeature3Desc" />}
         carouselData={keyFeaturesData[2]}
+      />
+
+      <KeyFeature
+        title={<Trans i18nKey="index:keyFeature4Title" />}
+        carouselData={keyFeaturesData[3]}
+        direction="reverse"
       />
     </>
   );
@@ -431,7 +442,7 @@ const FeatureDetailLink = ({ t, featureData, activeIndex }) => (
     >
       {t("index:featuresDetailLink")}
       <img
-        src={svgSmallRightBlue}
+        src={iconSmallRightBlue}
         className={styles.rightArrow}
         alt={t("index:featuresDetailLink")}
       />
@@ -488,7 +499,7 @@ const Features = ({ data, t }) => {
           onClick={() => swiperRef.current.slidePrev()}
         >
           <img
-            src={svgSwipeLeft}
+            src={iconSwipeLeft}
             alt={t("index:featuresNavBack")}
           />
         </button>
@@ -516,7 +527,7 @@ const Features = ({ data, t }) => {
           onClick={() => swiperRef.current.slideNext()}
         >
           <img
-            src={svgSwipeRight}
+            src={iconSwipeRight}
             alt={t("index:featuresNavNext")}
           />
         </button>
@@ -554,7 +565,7 @@ const StartNow = ({ data, t }) => (
     >
       {t("index:startNowDetailLink")}
       <img
-        src={svgSmallRightBlue}
+        src={iconSmallRightBlue}
         className={styles.rightArrow}
         alt={t("index:startNowDetailLink")}
       />
