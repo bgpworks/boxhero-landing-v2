@@ -248,26 +248,6 @@ export const query = graphql`
         )
       }
     }
-    featureSalesAnalysis: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-sales-analysis.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 826
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
     featureAllInOne: file(
       relativeDirectory: { eq: $language }
       base: { eq: "feature-all-in-one.png" }
@@ -324,28 +304,6 @@ export const query = graphql`
             threshold: 160
           }
           placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    teamPlay: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "img-team.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 786
-          height: 612
-          quality: 80
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-          }
-          placeholder: TRACED_SVG
-          transformOptions: { cropFocus: NORTH }
           layout: FIXED
         )
       }

@@ -15,7 +15,6 @@ import {
   DesktopBaseContainer,
   Padding,
   StartNowButton,
-  GradientBG,
   ConsultingButton,
   PhotoWall,
   OnlyKorean,
@@ -63,14 +62,6 @@ function genKeyFeaturesData(data, t) {
       { icon: iconVolt, title: t("index:keyFeature4Menu2"), img: data.featureQuantity.childImageSharp.gatsbyImageData },
       { icon: iconLink, title: t("index:keyFeature4Menu3"), img: data.featureIntegration.childImageSharp.gatsbyImageData },
     ],
-  ];
-}
-
-function genSalesManagementData(data, t) {
-  return [
-    { title: t("index:salesManagementMenu1"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
-    { title: t("index:salesManagementMenu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
-    { title: t("index:salesManagementMenu3"), img: data.featureSalesAnalysis.childImageSharp.gatsbyImageData },
   ];
 }
 
@@ -308,90 +299,30 @@ const KeyFeatures = ({ data }) => {
   );
 };
 
-const SalesManagement = ({ data, t }) => {
-  const salesManagementData = genSalesManagementData(data, t);
-
-  const swiperRef = useRef(null);
-  const setSwiperRef = (swiper) => {
-    swiperRef.current = swiper;
-  };
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const slideTo = (index) => swiperRef.current.slideTo(index);
+const StartButtons = () => {
+  const { t } = useI18next();
 
   return (
-    <DesktopBaseContainer>
-      <div className={styles.salesManagementContentContainer}>
-        <div className={styles.salesManagementTitle}>
-          <Trans i18nKey="index:salesManagementTitle" />
-        </div>
-        <Padding y={16} />
-        <div className={styles.salesManagementDesc}>
-          <Trans i18nKey="index:salesManagementDesc" />
-        </div>
-
-        <Padding y={50} />
-
-        <div className={styles.salesManagementMenuContainer}>
-          {salesManagementData.map(({ title }, index) => {
-            const isActive = activeIndex === index;
-            return (
-              <button
-                key={title}
-                type="button"
-                className={cn(
-                  styles.salesManagementMenu,
-                  { [styles.selectedSalesManagementMenu]: isActive },
-                )}
-                onClick={() => slideTo(index)}
-              >
-                {title}
-              </button>
-            );
-          })}
-        </div>
-
-        <Padding y={25} />
-
-        <Swiper
-          className={styles.salesManagementImageContainer}
-          onSwiper={setSwiperRef}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-        >
-          {salesManagementData.map(({ img, title }) => (
-            <SwiperSlide key={title}>
-              <GatsbyImage
-                image={img}
-                alt={title}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <DesktopBaseContainer className={styles.startButtons}>
+      <p className={styles.startButtonsDesc}>{t("index:topDesc")}</p>
+      <Padding y={12} />
+      <h2 className={styles.startButtonsTitle}>{t("index:startButtonsTitle")}</h2>
+      <Padding y={48} />
+      <div className={styles.buttons}>
+        <StartNowButton className={styles.startNowButton}>
+          <img
+            className={styles.topButtonIcon}
+            src={iconVolt}
+            alt={t("index:topIconAlt")}
+          />
+          {t("index:topStartNowButton")}
+        </StartNowButton>
+        <Padding x={16} />
+        <ConsultingButton transparent={false} />
       </div>
     </DesktopBaseContainer>
   );
 };
-
-const TeamPlay = ({ data, t }) => (
-  <GradientBG
-    className={styles.teamPlayContainer}
-    colorSet={["#7D24FF", "#276EFE", "#7F50FE", "#0C92FE"]}
-    backgroundColor="#6159F5"
-  >
-    <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
-    <Padding y={16} />
-    <div className={styles.teamPlayDesc}>
-      <Trans i18nKey="index:teamPlayDesc" />
-    </div>
-    <Padding y={22} />
-    <div className={styles.teamImageFlex}>
-      <GatsbyImage
-        image={data.teamPlay.childImageSharp.gatsbyImageData}
-        alt={t("index:teamPlayTitle")}
-      />
-    </div>
-  </GradientBG>
-);
 
 const CustomerCard = ({
   img, title,
@@ -621,15 +552,7 @@ const DesktopIndex = ({ data, t }) => (
 
     <KeyFeatures data={data} />
 
-    <SalesManagement
-      data={data}
-      t={t}
-    />
-
-    <TeamPlay
-      data={data}
-      t={t}
-    />
+    <StartButtons />
 
     <Sectors
       data={data}

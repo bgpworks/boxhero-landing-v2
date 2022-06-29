@@ -161,89 +161,27 @@
   justify-content: flex-start;
 }
 
-/* sales management */
+/* StartButtons */
 
-.salesManagementContentContainer {
+.startButtons {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startButtonsDesc {
+  margin: 0;
+  color: var(--color-gray-1);
+  font-size: var(--font-size-h5);
+}
+
+.startButtonsTitle {
+  margin: 0;
   color: var(--color-black);
-  height: 1120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.salesManagementTitle {
   font-size: var(--font-size-36);
   font-weight: bold;
-}
-.salesManagementTitle strong {
-  color: var(--color-primary);
-}
-
-.salesManagementDesc {
-  text-align: center;
-  font-size: var(--font-size-b18);
-  line-height: 1.5;
-}
-.salesManagementDesc strong {
-  background-color: var(--color-light-blue-20);
-}
-
-.salesManagementMenuContainer {
-  display: flex;
-  background-color: var(--color-gray5);
-  border-radius: 8px;
-}
-
-.salesManagementImageContainer {
-  width: 828px;
-}
-
-.salesManagementMenu {
-  color: var(--color-gray2);
-  width: 254px;
-  height: 48px;
-  margin: 6px;
-  background-color: transparent;
-  font-weight: 500;
-}
-.salesManagementMenu:not(:last-child) {
-  margin-right: 0;
-}
-
-.selectedSalesManagementMenu {
-  color: var(--color-primary);
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
-  border: solid 1px var(--color-gray4);
-}
-
-/* team play */
-
-.teamPlayContainer {
-  height: 856px;
-  color: white;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.teamPlayTitle {
-  font-size: var(--font-size-36);
-  font-weight: bold;
-}
-
-.teamPlayDesc {
-  font-size: var(--font-size-b18);
-  text-align: center;
-  line-height: 1.5;
-}
-
-.teamImageFlex {
-  display: flex;
+  line-height: 1.33;
 }
 
 /* Customers  */
