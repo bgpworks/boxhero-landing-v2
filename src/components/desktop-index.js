@@ -327,7 +327,7 @@ const StartButtons = () => {
 const CustomerCard = ({
   img, title,
 }) => (
-  <div className={styles.customerCard}>
+  <div className={styles.sectorCard}>
     <GatsbyImage
       image={img.childImageSharp.gatsbyImageData}
       alt={title}
@@ -337,29 +337,30 @@ const CustomerCard = ({
   </div>
 );
 
-const Sectors = ({ data, t }) => {
+const Sectors = ({ data }) => {
+  const { t } = useI18next();
   const customerData = genCustomerData(data);
 
   return (
-    <div className={styles.customersContainer}>
-      <div className={styles.customersTitle}>
-        <Trans i18nKey="index:customerTitle" />
-      </div>
+    <div className={styles.sectorsContainer}>
+      <DesktopBaseContainer className={styles.sectorsContentContainer}>
+        <div className={styles.sectorsTitle}>{t("index:customerTitle")}</div>
 
-      <Padding y={50} />
+        <Padding y={50} />
 
-      <div className={styles.customersCardContainer}>
-        {customerData.map((customer, index) => (
-          <CustomerCard
-            key={index}
-            img={customer.emoji}
-            title={t(customer.i18nKey)}
-          />
-        ))}
-        <div className={[styles.customerCard, styles.darkBg].join(" ")}>
-          {t("index:customerMore")}
+        <div className={styles.sectorsCardContainer}>
+          {customerData.map((customer, index) => (
+            <CustomerCard
+              key={index}
+              img={customer.emoji}
+              title={t(customer.i18nKey)}
+            />
+          ))}
+          <div className={styles.moreCard}>
+            {t("index:customerMore")}
+          </div>
         </div>
-      </div>
+      </DesktopBaseContainer>
     </div>
   );
 };

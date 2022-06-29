@@ -186,35 +186,38 @@
 
 /* Customers  */
 
-.customersContainer {
+.sectorsContainer {
+  composes: darkBg;
   padding: 100px 0;
   color: var(--color-black);
+}
 
+.sectorsContentContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.customersTitle {
+.sectorsTitle {
   font-size: var(--font-size-36);
   font-weight: bold;
   text-align: center;
 }
 
-.customersTitle strong {
+.sectorsTitle strong {
   font-size: 48px;
   letter-spacing: normal;
   color: var(--color-primary);
 }
 
-.customersDesc {
+.sectorsDesc {
   font-size: var(--font-size-b18);
   text-align: center;
   line-height: 1.5;
 }
 
-.customersCardContainer {
+.sectorsCardContainer {
   width: 990px;
   display: flex;
   flex-wrap: wrap;
@@ -223,7 +226,7 @@
   margin: -10px 0 0 -10px;
 }
 
-.customerCard {
+.sectorCard {
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -233,6 +236,12 @@
   border: solid 1px var(--color-gray4);
   margin: 10px 0 0 10px;
   line-height: 24px;
+  background-color: white;
+}
+
+.moreCard {
+  composes: sectorCard;
+  background-color: var(--color-gray5);
 }
 
 /* Features */
