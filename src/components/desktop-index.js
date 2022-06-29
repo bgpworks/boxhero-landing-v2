@@ -7,6 +7,7 @@ import React, { useRef, useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
+import YouTube from "react-youtube";
 import cn from "classnames";
 // js
 import DesktopLayout from "./desktop-layout";
@@ -19,7 +20,6 @@ import {
   ConsultingButton,
   PhotoWall,
   OnlyKorean,
-  FlatIntroVideoBtn,
   IntroVideoBtn,
 } from "./common";
 import * as constants from "./constants";
@@ -206,51 +206,56 @@ function genFeatureData(data, t) {
   ];
 }
 
-const TopLeftContainer = ({ t }) => (
-  <div>
-    <div className={styles.topLeftTitle}>
-      <Trans i18nKey="index:topTitle" />
+const Top = () => {
+  const { t } = useI18next();
+  return (
+    <div className={styles.topContainer}>
+      <DesktopBaseContainer className={styles.topContentContainer}>
+        <div className={styles.topDescription}>
+          <Trans i18nKey="index:topDesc" />
+        </div>
+        <Padding y={12} />
+        <div className={styles.topTitle}>
+          <Trans i18nKey="index:topTitle" />
+        </div>
+        <Padding y={48} />
+        <div className={styles.buttons}>
+          <StartNowButton className={styles.startNowButton}>
+            <img
+              className={styles.topButtonIcon}
+              src={svgVolt}
+              alt={t("index:topIconAlt")}
+            />
+            {t("index:topStartNowButton")}
+          </StartNowButton>
+          <Padding x={16} />
+          <ConsultingButton transparent={false} />
+        </div>
+        <OnlyKorean>
+          <Padding y={72} />
+          <YouTube
+            className={styles.video}
+            videoId={constants.introVideoYoutubeIdKo}
+            opts={{
+              width: "990",
+              height: "556.875",
+              playerVars: {
+                origin: window.location.origin,
+                autoplay: 1,
+                controls: 1,
+                playsinline: 1,
+                rel: 0,
+                modestbranding: 1,
+                loop: 1,
+                playlist: constants.introVideoYoutubeIdKo,
+              },
+            }}
+          />
+        </OnlyKorean>
+      </DesktopBaseContainer>
     </div>
-    <Padding y={30} />
-    <div className={styles.topLeftDescription}>
-      <Trans i18nKey="index:topDesc" />
-    </div>
-    <Padding y={30} />
-    <StartNowButton className={styles.startNowButton}>
-      <img
-        className={styles.topButtonIcon}
-        src={svgVolt}
-        alt={t("index:topIconAlt")}
-      />
-      {t("index:topStartNowButton")}
-    </StartNowButton>
-    <Padding y={12} />
-    <ConsultingButton transparent={false} />
-    <OnlyKorean>
-      <Padding y={22} />
-      <FlatIntroVideoBtn className={styles.introVideoBtn} />
-    </OnlyKorean>
-  </div>
-);
-
-const Top = ({ data, t }) => (
-  <GradientBG
-    className={styles.topContainer}
-    colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
-    backgroundColor="#4260ef"
-  >
-    <DesktopBaseContainer className={styles.topContentContainer}>
-      <TopLeftContainer t={t} />
-
-      <div className={styles.topRightContainer}>
-        <GatsbyImage
-          image={data.homeTopRight.childImageSharp.gatsbyImageData}
-          alt={t("index:topIconAlt")}
-        />
-      </div>
-    </DesktopBaseContainer>
-  </GradientBG>
-);
+  );
+};
 
 const IntroVideoBtnInChatting = () => {
   const { t } = useI18next();
@@ -721,11 +726,7 @@ const DesktopIndex = ({ data, language, t }) => (
     closingEmoji={data.coffee}
     closingMsg={t("index:closingMsg")}
   >
-    <Top
-      data={data}
-      t={t}
-      language={language}
-    />
+    <Top />
 
     <Customers data={data} />
 

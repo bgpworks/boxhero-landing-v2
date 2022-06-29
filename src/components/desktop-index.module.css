@@ -2,17 +2,14 @@
 
 .topContainer {
   padding-top: var(--height-top-menu);
-  height: 800px;
-  color: white;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
 }
 
 .topContentContainer {
+  padding: 50px 0 100px 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .topLeftContainer {
@@ -24,23 +21,27 @@
   overflow: visible;
 }
 
-.topLeftTitle {
-  font-size: var(--font-size-40);
-  font-weight: bold;
-  line-height: 1.45;
+.topDescription {
+  color: var(--color-gray-1);
+  font-size: var(--font-size-h5);
 }
 
-.topLeftDescription {
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: -0.2px;
+.topTitle {
+  color: var(--color-black);
+  font-size: var(--font-size-36);
+  font-weight: bold;
+  line-height: 1.33;
+}
+
+.buttons {
+  display: flex;
 }
 
 .startNowButton {
-  background: black;
+  background: var(--color-primary);
   color: white;
-  width: 243px;
-  height: 44px;
+  width: 212px;
+  height: 50px;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -51,7 +52,11 @@
 .topButtonIcon {
   width: 24px;
   height: 24px;
-  margin-right: 8px;
+  margin-right: 14px;
+}
+
+.video {
+  border-radius: 32px;
 }
 
 .introVideoBtn {
