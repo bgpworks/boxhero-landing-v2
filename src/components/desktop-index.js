@@ -26,18 +26,15 @@ import "swiper/css";
 import * as styles from "./desktop-index.module.css";
 // img
 import svgVolt from "../images/volt.svg";
-import svgCategory from "../images/icon-category.svg";
-import svgScanning from "../images/icon-scanning.svg";
-import svgImage from "../images/icon-image.svg";
-import svgExcel from "../images/icon-excel.svg";
-import svgFinger from "../images/icon-finger.svg";
 import svgMobileScan from "../images/icon-mobile-scan.svg";
-import svgHistory from "../images/icon-history.svg";
-import svgConnectExcel from "../images/icon-connect-excel.svg";
-import svgGraph from "../images/icon-graph.svg";
-import svgList from "../images/icon-list.svg";
 import svgSummary from "../images/icon-summary.svg";
-import svgDashboard from "../images/icon-dashboard.svg";
+import svgMemberRole from "../images/icon-member-role.svg";
+import svgMove from "../images/icon-move.svg";
+import svgInOut from "../images/icon-inout.svg";
+import svgTransaction from "../images/icon-transaction.svg";
+import svgScanning from "../images/icon-scanning.svg";
+import svgAddItem from "../images/feature-additem.svg";
+import svgSync from "../images/icon-sync.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
@@ -45,22 +42,19 @@ import svgSwipeRight from "../images/swiperight.svg";
 function genKeyFeaturesData(data, t) {
   return [
     [
-      { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
-      { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
-      { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
-      { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
+      { icon: svgMobileScan, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
+      { icon: svgSummary, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
+      { icon: svgMemberRole, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
-      { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
-      { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
-      { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
+      { icon: svgMove, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
+      { icon: svgInOut, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: svgTransaction, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
-      { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
-      { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
-      { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
+      { icon: svgScanning, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
+      { icon: svgAddItem, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
+      { icon: svgSync, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
     ],
   ];
 }
@@ -214,7 +208,7 @@ const KeyFeatureButton = ({
 );
 
 const KeyFeature = ({
-  title, description, carouselData, direction,
+  title, carouselData, direction,
 }) => {
   const swiperRef = useRef(null);
   const setSwiperRef = (swiper) => {
@@ -238,9 +232,7 @@ const KeyFeature = ({
           <div slot={isReverse ? "container-end" : "container-start"}>
             <div className={styles.KeyFeatureDescriptionContainer}>
               <div className={styles.keyFeatureTitle}>{title}</div>
-              <Padding y={16} />
-              <div className={styles.KeyFeatureDescription}>{description}</div>
-              <Padding y={40} />
+              <Padding y={60} />
               <div className={styles.keyFeatureMenuContainer}>
                 {carouselData.map((data, index) => {
                   const isActive = activeIndex === index;
@@ -278,14 +270,14 @@ const KeyFeature = ({
   );
 };
 
-const KeyFeatures = ({ data, t }) => {
+const KeyFeatures = ({ data }) => {
+  const { t } = useI18next();
   const keyFeaturesData = genKeyFeaturesData(data, t);
 
   return (
     <>
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature1Title" />}
-        description={<Trans i18nKey="index:keyFeature1Desc" />}
         carouselData={keyFeaturesData[0]}
       />
 
@@ -616,10 +608,7 @@ const DesktopIndex = ({ data, t }) => (
 
     <Customers data={data} />
 
-    <KeyFeatures
-      data={data}
-      t={t}
-    />
+    <KeyFeatures data={data} />
 
     <SalesManagement
       data={data}
