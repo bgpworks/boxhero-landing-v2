@@ -16,11 +16,9 @@ import {
   Padding,
   StartNowButton,
   GradientBG,
-  SpeechBubbleContainer,
   ConsultingButton,
   PhotoWall,
   OnlyKorean,
-  IntroVideoBtn,
 } from "./common";
 import * as constants from "./constants";
 // css
@@ -43,67 +41,6 @@ import svgDashboard from "../images/icon-dashboard.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
 import svgSwipeLeft from "../images/swipeleft.svg";
 import svgSwipeRight from "../images/swiperight.svg";
-import svgPlayPrimary from "../images/icon-play-primary.svg";
-import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
-
-const CHATTING_COLOR_SEQUENCE = [
-  { text: "#292a2f", background: "#fbc200" },
-  { text: "white", background: "#50a4fa" },
-  { text: "#292a2f", background: "#e0e0e3" },
-  { text: "white", background: "rgba(79, 103, 255, 0.9)" },
-  { text: "white", background: "rgba(60, 185, 160, 0.8)" },
-  { text: "white", background: "rgba(126, 187, 64, 0.6)" },
-  { text: "white", background: "rgba(251, 97, 100, 0.6)" },
-];
-
-const CHATTING_GRID_COLUMN_COUNT_BY_LANGUAGE = {
-  ko: 6,
-  en: 8,
-  es: 7,
-  id: 7,
-};
-
-const MARGIN_BIG = 102;
-const MARGIN_SMALL = 72;
-
-const genBubblesMap = (t) => ({
-  ko: [
-    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3") },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
-  ],
-  en: [
-    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3") },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
-  ],
-  es: [
-    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3") },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6") },
-    { text: t("index:chattingBubble7") },
-  ],
-  id: [
-    { text: t("index:chattingBubble1") },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
-  ],
-});
 
 function genKeyFeaturesData(data, t) {
   return [
@@ -251,57 +188,6 @@ const Top = () => {
               },
             }}
           />
-        </OnlyKorean>
-      </DesktopBaseContainer>
-    </div>
-  );
-};
-
-const IntroVideoBtnInChatting = () => {
-  const { t } = useI18next();
-
-  return (
-    <IntroVideoBtn className={styles.introVideoBtnInChatting}>
-      <img
-        className={styles.introVideoBtnInChattingPlaySymbol}
-        src={svgPlayPrimary}
-        alt="Play"
-      />
-      <span className={styles.introVideoBtnInChattingLabel}>
-        {t("index:chattingIntroVideoBtnLabel")}
-      </span>
-      <img
-        className={styles.introVideoBtnInChattingArrowSymbol}
-        src={svgRightArrow}
-        alt="icon arrow"
-      />
-    </IntroVideoBtn>
-  );
-};
-
-const Chatting = ({ t, language }) => {
-  const speechBubblesByLanguageMap = genBubblesMap(t);
-
-  return (
-    <div className={styles.chattingContainer}>
-      <DesktopBaseContainer className={styles.chattingContentContainer}>
-        <SpeechBubbleContainer
-          containerGridColumns={CHATTING_GRID_COLUMN_COUNT_BY_LANGUAGE[language]}
-          speechBubbles={speechBubblesByLanguageMap[language]}
-          colorSequence={CHATTING_COLOR_SEQUENCE}
-        />
-
-        <Padding y={51} />
-        <div className={styles.chattingTitle}>
-          <Trans i18nKey="index:chattingTitle" />
-        </div>
-        <Padding y={16} />
-        <div className={styles.chattingDescription}>
-          <Trans i18nKey="index:chattingDescription" />
-        </div>
-        <OnlyKorean>
-          <Padding y={30} />
-          <IntroVideoBtnInChatting />
         </OnlyKorean>
       </DesktopBaseContainer>
     </div>
@@ -720,7 +606,7 @@ const Customers = ({ data }) => {
   );
 };
 
-const DesktopIndex = ({ data, language, t }) => (
+const DesktopIndex = ({ data, t }) => (
   <DesktopLayout
     isFloatMenu
     closingEmoji={data.coffee}
@@ -729,11 +615,6 @@ const DesktopIndex = ({ data, language, t }) => (
     <Top />
 
     <Customers data={data} />
-
-    <Chatting
-      t={t}
-      language={language}
-    />
 
     <KeyFeatures
       data={data}

@@ -33,7 +33,6 @@ const IndexPage = ({ data, location }) => {
       <Media greaterThan="xs">
         <DesktopIndex
           data={data}
-          language={language}
           t={t}
         />
       </Media>

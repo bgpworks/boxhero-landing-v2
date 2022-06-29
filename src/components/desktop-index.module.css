@@ -78,34 +78,6 @@
   line-height: 1.5;
 }
 
-/* Chatting */
-
-.chattingContainer {
-  color: var(--color-black);
-}
-
-.chattingContentContainer {
-  padding: 100px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: var(--font-size-b18);
-}
-
-.chattingTitle {
-  font-size: var(--font-size-36);
-  font-weight: bold;
-}
-
-.chattingDescription {
-  text-align: center;
-  line-height: 1.5;
-}
-
-.introVideoBtn {
-  width: 243px;
-}
-
 /* keyFeature */
 
 .darkBg {
