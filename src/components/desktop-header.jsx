@@ -1,18 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, useTranslation, useI18next } from "gatsby-plugin-react-i18next";
-import cn from "classnames";
 // js
 import { DesktopBaseContainer, ExternalLinkWithQuery } from "./common";
 import { urlStart } from "./constants";
-import { useCheckScrolled } from "../hooks/use-check-scrolled";
 // css
 import * as styles from "./desktop-header.module.css";
 // images
-import svgBiWhite from "../images/bi-white.svg";
 import svgBiBlue from "../images/bi-blue.svg";
 import svgDropDownArrowGray from "../images/icon-dropdown-arrow-gray.svg";
-import svgDropDownArrowWhite from "../images/icon-dropdown-arrow-white.svg";
 import svgSymbol from "../images/icon-symbol.svg";
 import svgFeature from "../images/icon-feature.svg";
 import svgTransaction from "../images/icon-transaction.svg";
@@ -43,11 +39,7 @@ const DropDownSubMenu = ({
   </div>
 );
 
-const DropDownMenu = ({
-  title,
-  isBackgroundWhite,
-  children,
-}) => (
+const DropDownMenu = ({ title, children }) => (
   <div className={styles.dropDownMenu}>
     <div
       role="presentation"
@@ -55,7 +47,7 @@ const DropDownMenu = ({
     >
       <span>{title}</span>
       <img
-        src={isBackgroundWhite ? svgDropDownArrowGray : svgDropDownArrowWhite}
+        src={svgDropDownArrowGray}
         alt={title}
       />
     </div>
@@ -78,19 +70,15 @@ const SingleMenu = ({ to }) => {
 };
 
 const DesktopHeader = ({ isFloatMenu }) => {
-  const { isScrolled } = useCheckScrolled();
-  const isBackgroundWhite = !isFloatMenu || isScrolled;
   // 여기서 이상한 워닝 뜨는건 gatsby-plugin-react-i18next의 이슈. 기능상 문제는 없는 듯. https://github.com/microapps/gatsby-plugin-react-i18next/issues/5
   const { t } = useTranslation();
   return (
     <>
-      <header
-        className={cn(styles.headerContainer, { [styles.whiteContainer]: isBackgroundWhite })}
-      >
+      <header className={styles.headerContainer}>
         <DesktopBaseContainer className={styles.menuContainer}>
           <Link to="/">
             <img
-              src={isBackgroundWhite ? svgBiBlue : svgBiWhite}
+              src={svgBiBlue}
               className={styles.biLogo}
               alt="Home"
             />
@@ -98,10 +86,7 @@ const DesktopHeader = ({ isFloatMenu }) => {
 
           <div className={styles.padding} />
 
-          <DropDownMenu
-            title={t("header:menuService")}
-            isBackgroundWhite={isBackgroundWhite}
-          >
+          <DropDownMenu title={t("header:menuService")}>
             <Link to="/about/">
               <DropDownSubMenu
                 title={t("header:menuServiceAbout")}
@@ -116,10 +101,7 @@ const DesktopHeader = ({ isFloatMenu }) => {
             </Link>
           </DropDownMenu>
 
-          <DropDownMenu
-            title={t("header:menuUseCases")}
-            isBackgroundWhite={isBackgroundWhite}
-          >
+          <DropDownMenu title={t("header:menuUseCases")}>
             <Link to="/usecase-sales">
               <DropDownSubMenu
                 title={t("header:menuUseCaseSales")}
@@ -145,10 +127,7 @@ const DesktopHeader = ({ isFloatMenu }) => {
 
           <SingleMenu to="/pricing/">{t("header:menuPricing")}</SingleMenu>
 
-          <DropDownMenu
-            title={t("header:menuResource")}
-            isBackgroundWhite={isBackgroundWhite}
-          >
+          <DropDownMenu title={t("header:menuResource")}>
             <a
               href={t("url:ghostblog")}
               target="_blank"
