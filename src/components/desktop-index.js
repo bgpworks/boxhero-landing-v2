@@ -701,22 +701,22 @@ const Customers = ({ data }) => {
   const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
 
   return (
-    <div className={styles.customersSection}>
-      <DesktopBaseContainer className={styles.customersContentContainer}>
-        <h2 className={styles.customersTitle}>
-          {t("index:customerSectionTitle")}
-        </h2>
-        <p className={styles.customersDesc}>
-          {t("index:customerSectionDesc")}
-        </p>
-        <PhotoWall
-          items={customerList}
-          columnCount={columnCount}
-          gap={30}
-          ItemRenderer={Customer}
-        />
-      </DesktopBaseContainer>
-    </div>
+    <DesktopBaseContainer className={styles.customersContentContainer}>
+      <h2 className={styles.customersTitle}>
+        <Trans i18nKey="index:customerSectionTitle" />
+      </h2>
+      <Padding y={30} />
+      <p className={styles.customersDesc}>
+        {t("index:customerSectionDesc")}
+      </p>
+      <Padding y={94} />
+      <PhotoWall
+        items={customerList}
+        columnCount={columnCount}
+        gap={30}
+        ItemRenderer={Customer}
+      />
+    </DesktopBaseContainer>
   );
 };
 

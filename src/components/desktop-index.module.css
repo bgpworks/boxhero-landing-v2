@@ -59,14 +59,10 @@
   border-radius: 32px;
 }
 
-.introVideoBtn {
-  width: 243px;
-}
-
 /* Customers */
 
-.customersSection{
-  background-color: var(--color-gray5);
+.customersContentContainer {
+  padding: 100px 0;
   color: var(--color-black);
 }
 
@@ -74,18 +70,12 @@
   margin: 0;
   font-size: var(--font-size-36);
   font-weight: bold;
+  text-align: center;
 }
 
 .customersDesc {
-  font-size: var(--font-size-b16);
-  text-align: center;
+  font-size: var(--font-size-b18);
   line-height: 1.5;
-
-  margin: 16px 0 50px;
-}
-
-.customersContentContainer {
-  padding: 100px 0;
 }
 
 /* Chatting */
@@ -110,6 +100,10 @@
 .chattingDescription {
   text-align: center;
   line-height: 1.5;
+}
+
+.introVideoBtn {
+  width: 243px;
 }
 
 /* keyFeature */
