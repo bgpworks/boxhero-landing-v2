@@ -42,19 +42,19 @@ import svgSwipeRight from "../images/swiperight.svg";
 function genKeyFeaturesData(data, t) {
   return [
     [
-      { icon: svgMobileScan, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
-      { icon: svgSummary, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
-      { icon: svgMemberRole, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
+      { icon: svgMobileScan, title: t("index:keyFeature1Menu1"), img: data.featureSelectProduct.childImageSharp.gatsbyImageData },
+      { icon: svgSummary, title: t("index:keyFeature1Menu2"), img: data.featureHistory.childImageSharp.gatsbyImageData },
+      { icon: svgMemberRole, title: t("index:keyFeature1Menu3"), img: data.featureSettingRole.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgMove, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
-      { icon: svgInOut, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
-      { icon: svgTransaction, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
+      { icon: svgMove, title: t("index:keyFeature2Menu1"), img: data.featureMove.childImageSharp.gatsbyImageData },
+      { icon: svgInOut, title: t("index:keyFeature2Menu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
+      { icon: svgTransaction, title: t("index:keyFeature2Menu3"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgScanning, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
-      { icon: svgAddItem, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
-      { icon: svgSync, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
+      { icon: svgScanning, title: t("index:keyFeature3Menu1"), img: data.featureScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: svgAddItem, title: t("index:keyFeature3Menu2"), img: data.featurePrintLabel.childImageSharp.gatsbyImageData },
+      { icon: svgSync, title: t("index:keyFeature3Menu3"), img: data.featureOutDetail.childImageSharp.gatsbyImageData },
     ],
   ];
 }

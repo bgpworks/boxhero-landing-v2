@@ -68,87 +68,7 @@ export const query = graphql`
         )
       }
     }
-    feature1CustomProducts: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-custom-products.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature1PrintLabel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-print-label.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature1ProductList: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-product-list.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature1ImportExcel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-import-excel.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature2SelectProduct: file(
+    featureSelectProduct: file(
       relativeDirectory: { eq: $language }
       base: { eq: "feature-select-product.png" }
     ) {
@@ -168,27 +88,7 @@ export const query = graphql`
         )
       }
     }
-    feature2ScanBarcode: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-scan-barcode.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature2History: file(
+    featureHistory: file(
       relativeDirectory: { eq: $language }
       base: { eq: "feature-history.png" }
     ) {
@@ -208,13 +108,13 @@ export const query = graphql`
         )
       }
     }
-    feature2ConnectExcel: file(
+    featureSettingRole: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-connect-excel.png" }
+      base: { eq: "feature-setting-role.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
+          width: 582
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -228,93 +128,13 @@ export const query = graphql`
         )
       }
     }
-    feature3Analysis: file(
+    featureMove: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-analysis.png" }
+      base: { eq: "feature-move.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature3GroupList: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-group-list.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature3EmailReport: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-email-report.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature3Dashboard: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-dashboard.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    featureTransaction: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-transaction.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 828
+          width: 582
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
@@ -334,7 +154,87 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 826
+          width: 582
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featureTransaction: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-transaction.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 582
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featureScanBarcode: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-scan-barcode.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 581
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featurePrintLabel: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-print-label.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 581
+          quality: 100
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            turdSize: 1
+            alphaMax: 1
+            color: "#f0f0f3"
+            threshold: 160
+          }
+          placeholder: TRACED_SVG
+          layout: FIXED
+        )
+      }
+    }
+    featureOutDetail: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "out-detail.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 581
           quality: 100
           tracedSVGOptions: {
             turnPolicy: TURNPOLICY_MAJORITY
