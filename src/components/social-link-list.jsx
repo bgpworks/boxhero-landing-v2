@@ -41,16 +41,6 @@ export default function SocialLinkList() {
           icon={svgIconNaverBlog}
           link={t("url:naverblog")}
         />
-      </OnlyKorean>
-      <SocialLink
-        icon={svgIconTwitter}
-        link={t("url:twitter")}
-      />
-      <SocialLink
-        icon={svgIconFacebook}
-        link={t("url:facebook")}
-      />
-      <OnlyKorean>
         <SocialLink
           icon={svgIconInstagram}
           link={constants.urlInstagram}
@@ -59,6 +49,14 @@ export default function SocialLinkList() {
       <SocialLink
         icon={svgIconYoutube}
         link={t("url:youtube")}
+      />
+      <SocialLink
+        icon={svgIconFacebook}
+        link={t("url:facebook")}
+      />
+      <SocialLink
+        icon={svgIconTwitter}
+        link={t("url:twitter")}
       />
     </ul>
   );
