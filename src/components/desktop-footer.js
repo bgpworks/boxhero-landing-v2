@@ -20,87 +20,84 @@ import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 import SocialLinkList from "./social-link-list";
 
+const PlatformGroup = ({ title, children }) => (
+  <div className={styles.platformGroup}>
+    <div className={styles.platformGroupButtons}>
+      {children}
+    </div>
+    <Padding y={8} />
+    <div className={styles.platformGroupTitle}>
+      {title}
+    </div>
+  </div>
+);
+
 const Platforms = ({ t }) => (
   <div className={styles.platformContainer}>
     <div className={styles.platformTitle}>
       {t("footer:platformsTitle")}
     </div>
-    <Padding y={16} />
+    <Padding y={12} />
     <div className={styles.platformFooterMsg}>
       {t("footer:platformsMessage")}
     </div>
 
-    <Padding y={50} />
+    <Padding y={56} />
 
     <div className={styles.platformGroups}>
-      <div className={styles.platformGroup}>
-        <div className={styles.platformGroupButtons}>
-          <StartNowButton className={styles.platformButton}>
-            <img
-              src={svgPcWeb}
-              alt="PC"
-            />
-            {t("footer:platformsPC")}
-          </StartNowButton>
-        </div>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupWeb")}
-        </div>
-      </div>
+      <PlatformGroup title={t("footer:platformGroupWeb")}>
+        <StartNowButton className={styles.platformButton}>
+          <img
+            src={svgPcWeb}
+            alt="PC"
+          />
+          {t("footer:platformsPC")}
+        </StartNowButton>
+      </PlatformGroup>
 
-      <div className={styles.platformGroup}>
-        <div className={styles.platformGroupButtons}>
-          <a href={constants.urlDownloadWindows}>
-            <button
-              type="button"
-              className={styles.platformButton}
-            >
-              <img
-                src={svgWindows}
-                alt="Windows"
-              />
-              {t("footer:platformsWindows")}
-            </button>
-          </a>
-          <a href={constants.urlDownloadOsx}>
-            <button
-              type="button"
-              className={styles.platformButton}
-            >
-              <img
-                src={svgOsx}
-                alt="macOS"
-              />
-              {t("footer:platformsOsx")}
-            </button>
-          </a>
-        </div>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupDesktop")}
-        </div>
-      </div>
+      <PlatformGroup title={t("footer:platformGroupDesktop")}>
+        <a href={constants.urlDownloadWindows}>
+          <button
+            type="button"
+            className={styles.platformButton}
+          >
+            <img
+              src={svgWindows}
+              alt="Windows"
+            />
+            {t("footer:platformsWindows")}
+          </button>
+        </a>
+        <a href={constants.urlDownloadOsx}>
+          <button
+            type="button"
+            className={styles.platformButton}
+          >
+            <img
+              src={svgOsx}
+              alt="macOS"
+            />
+            {t("footer:platformsOsx")}
+          </button>
+        </a>
+      </PlatformGroup>
 
-      <div className={styles.platformGroup}>
-        <div className={styles.platformGroupButtons}>
-          <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
-            <img
-              src={svgPlaystore}
-              className={styles.platformImgButton}
-              alt="Android"
-            />
-          </a>
-          <a href="https://itunes.apple.com/app/id1325512157">
-            <img
-              src={svgAppstore}
-              className={styles.platformImgButton}
-              alt="iOS"
-            />
-          </a>
-        </div>
-        <div className={styles.platformGroupTitle}>
-          {t("footer:platformGroupMobile")}
-        </div>
-      </div>
+      <PlatformGroup title={t("footer:platformGroupMobile")}>
+        <a href="https://play.google.com/store/apps/details?id=com.bgpworks.boxhero">
+          <img
+            src={svgPlaystore}
+            className={styles.platformImgButton}
+            alt="Android"
+          />
+        </a>
+        <a href="https://itunes.apple.com/app/id1325512157">
+          <img
+            src={svgAppstore}
+            className={styles.platformImgButton}
+            alt="iOS"
+          />
+        </a>
+      </PlatformGroup>
     </div>
   </div>
 );

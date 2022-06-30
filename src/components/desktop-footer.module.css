@@ -5,55 +5,24 @@
   align-items: center;
 }
 
-.startNowContainer {
-  composes: verticalCenter;
-
-  padding: 100px 0;
-  background-color: var(--color-black);
-}
-
-.startNowDescription {
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  color: white;
-}
-
-.startNowButton {
-  background: var(--color-primary);
-  color: white;
-  width: 243px;
-  height: 44px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-}
-
-.topButtonIcon {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
 /* Platforms */
 
 .platformContainer {
   composes: verticalCenter;
   padding: 80px 0px;
   text-align: center;
-  background-color: var(--color-gray5);
+  background-color: var(--color-black);
 }
 
 .platformTitle {
-  color: var(--color-black);
+  color: white;
   font-weight: bold;
   font-size: var(--font-size-h4);
 }
 
 .platformFooterMsg {
   font-size: var(--font-size-b18);
+  color: var(--color-gray3)
 }
 
 .platformGroups {
@@ -63,16 +32,13 @@
   align-items: center;
 }
 
-.platformGroup {
-}
-
-.platformGroup:not(:nth-child(1)) {
+.platformGroup + .platformGroup {
   margin-left: 60px;
 }
 
 .platformGroupTitle {
-  padding-top: 12px;
-  font-weight: bold;
+  font-size: var(--font-size-b16);
+  color: var(--color-gray2)
 }
 
 .platformGroupButtons {
@@ -82,7 +48,7 @@
   align-items: flex-start;
 }
 
-.platformGroupButtons > *:not(:nth-child(1)) {
+.platformGroupButtons > a + a {
   margin-left: 10px;
 }
 
