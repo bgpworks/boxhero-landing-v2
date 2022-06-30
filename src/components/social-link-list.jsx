@@ -5,11 +5,13 @@ import svgIconFacebook from "../images/icon-facebook.svg";
 import svgIconNaverBlog from "../images/icon-naverblog.svg";
 import svgIconYoutube from "../images/icon-youtube.svg";
 import svgIconTwitter from "../images/icon-twitter.svg";
+import svgIconInstagram from "../images/icon-instagram.svg";
 import {
   socialLinkListContainer,
   socialLinkWrapper,
   socialLink,
 } from "./social-link-list.module.css";
+import constants from "./constants";
 
 const SocialLink = ({ link, icon }) => (
   <li className={socialLinkWrapper}>
@@ -48,6 +50,12 @@ export default function SocialLinkList() {
         icon={svgIconFacebook}
         link={t("url:facebook")}
       />
+      <OnlyKorean>
+        <SocialLink
+          icon={svgIconInstagram}
+          link={constants.urlInstagram}
+        />
+      </OnlyKorean>
       <SocialLink
         icon={svgIconYoutube}
         link={t("url:youtube")}
