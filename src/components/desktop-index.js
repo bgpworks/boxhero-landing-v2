@@ -17,7 +17,6 @@ import {
   StartNowButton,
   ConsultingButton,
   PhotoWall,
-  OnlyKorean,
 } from "./common";
 import * as constants from "./constants";
 // css
@@ -135,8 +134,8 @@ function genFeatureData(data, t) {
   ];
 }
 
-const Top = () => {
-  const { t } = useI18next();
+const Top = ({ data }) => {
+  const { t, language } = useI18next();
   const isBrowser = typeof window !== "undefined";
 
   return (
@@ -162,29 +161,39 @@ const Top = () => {
           <Padding x={16} />
           <ConsultingButton transparent={false} />
         </div>
-        <OnlyKorean>
-          <Padding y={72} />
-          {isBrowser && (
-            <YouTube
-              className={styles.video}
-              videoId={constants.introVideoYoutubeIdKo}
-              opts={{
-                width: "990",
-                height: "556.875",
-                playerVars: {
-                  origin: window.location.origin,
-                  autoplay: 1,
-                  controls: 1,
-                  playsinline: 1,
-                  rel: 0,
-                  modestbranding: 1,
-                  loop: 1,
-                  playlist: constants.introVideoYoutubeIdKo,
-                },
-              }}
+        {language === "ko" ? (
+          <>
+            <Padding y={72} />
+            {isBrowser && (
+              <YouTube
+                className={styles.video}
+                videoId={constants.introVideoYoutubeIdKo}
+                opts={{
+                  width: "990",
+                  height: "556.875",
+                  playerVars: {
+                    origin: window.location.origin,
+                    autoplay: 1,
+                    controls: 1,
+                    playsinline: 1,
+                    rel: 0,
+                    modestbranding: 1,
+                    loop: 1,
+                    playlist: constants.introVideoYoutubeIdKo,
+                  },
+                }}
+              />
+            )}
+          </>
+        ) : (
+          <>
+            <Padding y={24} />
+            <GatsbyImage
+              image={data.main.childImageSharp.gatsbyImageData}
+              alt="BoxHero"
             />
-          )}
-        </OnlyKorean>
+          </>
+        )}
       </DesktopBaseContainer>
     </div>
   );
@@ -534,7 +543,7 @@ const Partners = ({ data }) => {
 
 const DesktopIndex = ({ data }) => (
   <DesktopLayout>
-    <Top />
+    <Top data={data} />
 
     <Customers data={data} />
 

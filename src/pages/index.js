@@ -45,13 +45,13 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    homeTopRight: file(
+    main: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "home-top-right.png" }
+      base: { eq: "main.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 685
+          width: 883
           quality: 100
           tracedSVGOptions: {
             turdSize: 1
