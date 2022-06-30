@@ -528,12 +528,8 @@ const Partners = ({ data }) => {
   );
 };
 
-const DesktopIndex = ({ data, t }) => (
-  <DesktopLayout
-    isFloatMenu
-    closingEmoji={data.coffee}
-    closingMsg={t("index:closingMsg")}
-  >
+const DesktopIndex = ({ data }) => (
+  <DesktopLayout>
     <Top />
 
     <Customers data={data} />

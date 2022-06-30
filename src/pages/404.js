@@ -34,11 +34,7 @@ const NotFoundPage = ({ data, location }) => {
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopLayout
-          isFloatMenu={false}
-          closingEmoji={data.dinosaur}
-          closingMsg={t("features:closingMsg")}
-        >
+        <DesktopLayout>
           <h1 style={{ margin: 50, textAlign: "center" }}>NOT FOUND</h1>
           <p style={{ margin: 50, textAlign: "center" }}>
             You just hit a route that doesn&#39;t exist... the sadness.

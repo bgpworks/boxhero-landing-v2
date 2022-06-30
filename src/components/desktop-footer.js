@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import {
-  ConsultingButton,
   DesktopBaseContainer,
   Padding,
   StartNowButton,
@@ -14,7 +12,6 @@ import { LangSelect } from "./language-selector";
 // css
 import * as styles from "./desktop-footer.module.css";
 // images
-import svgVolt from "../images/volt.svg";
 import svgPcWeb from "../images/pcweb.svg";
 import svgWindows from "../images/windows.svg";
 import svgOsx from "../images/osx.svg";
@@ -22,36 +19,6 @@ import svgAppstore from "../images/appstore.svg";
 import svgPlaystore from "../images/playstore.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 import SocialLinkList from "./social-link-list";
-
-const StartNow = ({
-  emoji, message, t,
-}) => (
-  <div className={styles.startNowContainer}>
-    <GatsbyImage
-      image={emoji.childImageSharp.gatsbyImageData}
-      alt={t("footer:startNowButton")}
-    />
-    <Padding y={20} />
-    <div className={styles.startNowDescription}>{message}</div>
-    <Padding y={40} />
-    <StartNowButton className={styles.startNowButton}>
-      <img
-        className={styles.topButtonIcon}
-        src={svgVolt}
-        alt={t("footer:topStartNowButton")}
-      />
-      {t("footer:topStartNowButton")}
-    </StartNowButton>
-    <Padding y={12} />
-    <ConsultingButton />
-  </div>
-);
-
-StartNow.propTypes = {
-  emoji: PropTypes.object.isRequired,
-  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
-};
 
 const Platforms = ({ t }) => (
   <div className={styles.platformContainer}>
@@ -289,21 +256,11 @@ const DesktopFooterMenusAndInfo = ({ t, language }) => (
   </div>
 );
 
-const DesktopFooter = ({
-  showPlatforms, showStartNow, closingEmoji, closingMsg,
-}) => {
+const DesktopFooter = ({ showPlatforms }) => {
   const { t, language } = useI18next();
   return (
     <div>
       {showPlatforms && <Platforms t={t} />}
-      {showStartNow && (
-        <StartNow
-          emoji={closingEmoji}
-          message={closingMsg}
-          t={t}
-          language={language}
-        />
-      )}
       <DesktopFooterMenusAndInfo
         t={t}
         language={language}
@@ -314,14 +271,10 @@ const DesktopFooter = ({
 
 DesktopFooter.propTypes = {
   showPlatforms: PropTypes.bool,
-  showStartNow: PropTypes.bool,
-  closingEmoji: PropTypes.object,
-  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 DesktopFooter.defaultProps = {
   showPlatforms: true,
-  showStartNow: true,
 };
 
 export default DesktopFooter;

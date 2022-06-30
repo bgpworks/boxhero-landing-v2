@@ -31,10 +31,7 @@ const IndexPage = ({ data, location }) => {
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopIndex
-          data={data}
-          t={t}
-        />
+        <DesktopIndex data={data} />
       </Media>
       <YoutubePopup />
     </YoutubePopupProvider>

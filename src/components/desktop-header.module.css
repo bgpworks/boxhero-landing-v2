@@ -66,8 +66,6 @@
   height: var(--height-top-menu);
   z-index: 100;
   position: fixed;
-  color: var(--color-black);
-  background-color: white;
 }
 
 .headerPlaceholder {
@@ -76,6 +74,7 @@
 
 .menuContainer {
   height: 100%;
+  color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -88,7 +87,7 @@
 }
 
 .singleMenu {
-  color: var(--color-black);
+  color: #fff;
 }
 
 .padding {
@@ -102,9 +101,26 @@
 }
 
 .loginButton {
-  border: solid 1px var(--color-black);
+  border: solid 1px #fff;
   background: transparent;
-  color: var(--color-black);
+  color: #fff;
 
   padding: 10px 25px;
+}
+
+/* float container */
+
+
+.whiteContainer {
+  background-color: #fff;
+}
+
+.whiteContainer .menuContainer,
+.whiteContainer .singleMenu,
+.whiteContainer .loginButton {
+  color: var(--color-black);
+}
+
+.whiteContainer .loginButton {
+  border-color: var(--color-black);
 }

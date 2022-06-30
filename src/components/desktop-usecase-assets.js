@@ -83,8 +83,6 @@ const DesktopUsecaseAssets = ({ data, relatedContents }) => {
     <DesktopLayout
       isFloatMenu={false}
       showPlatforms={false}
-      closingEmoji={data.finger}
-      closingMsg={t("usecase:closingMsg")}
     >
       <UseCaseTop
         className={styles.useCaseTopContainer}

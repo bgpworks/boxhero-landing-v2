@@ -275,11 +275,7 @@ const OtherFeatures = ({ t }) => {
 };
 
 const DesktopAbout = ({ data, t }) => (
-  <DesktopLayout
-    isFloatMenu
-    closingEmoji={data.light}
-    closingMsg={t("about:closingMsg")}
-  >
+  <DesktopLayout isFloatMenu>
     <Top data={data} />
 
     <StrongPoints data={data} />

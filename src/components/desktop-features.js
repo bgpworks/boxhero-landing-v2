@@ -291,11 +291,7 @@ const FeatureLocation = ({ data }) => (
 );
 
 const DesktopFeatures = ({ data, t }) => (
-  <DesktopLayout
-    isFloatMenu={false}
-    closingEmoji={data.dinosaur}
-    closingMsg={<Trans i18nKey="features:closingMsg" />}
-  >
+  <DesktopLayout isFloatMenu={false}>
     <Top t={t} />
 
     <FeatureLowstock data={data} />

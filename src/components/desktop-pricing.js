@@ -350,11 +350,7 @@ const DirectContact = ({ t }) => (
 );
 
 const DesktopPricing = ({ data, language, t }) => (
-  <DesktopLayout
-    isFloatMenu={false}
-    closingEmoji={data.box}
-    closingMsg={t("pricing:closingMsg")}
-  >
+  <DesktopLayout>
     <Top title={t("pricing:topTitle")}>
       <TopDesc
         data={data}
