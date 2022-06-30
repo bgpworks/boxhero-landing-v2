@@ -1,8 +1,7 @@
 import React from "react";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import { ExternalLinkWithQuery } from "./common";
+import { ExternalLinkWithQuery, OnlyKorean } from "./common";
 import svgIconFacebook from "../images/icon-facebook.svg";
-import svgIconMedium from "../images/icon-medium.svg";
 import svgIconNaverBlog from "../images/icon-naverblog.svg";
 import svgIconYoutube from "../images/icon-youtube.svg";
 import svgIconTwitter from "../images/icon-twitter.svg";
@@ -31,20 +30,16 @@ const SocialLink = ({ link, icon }) => (
 );
 
 export default function SocialLinkList() {
-  const { t, language } = useI18next();
+  const { t } = useI18next();
 
   return (
     <ul className={socialLinkListContainer}>
-      <SocialLink
-        icon={svgIconMedium}
-        link={t("url:medium")}
-      />
-      {language === "ko" && (
+      <OnlyKorean>
         <SocialLink
           icon={svgIconNaverBlog}
           link={t("url:naverblog")}
         />
-      )}
+      </OnlyKorean>
       <SocialLink
         icon={svgIconTwitter}
         link={t("url:twitter")}
