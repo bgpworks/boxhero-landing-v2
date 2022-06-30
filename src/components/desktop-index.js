@@ -139,7 +139,7 @@ const Top = ({ data }) => {
   const isBrowser = typeof window !== "undefined";
 
   return (
-    <div className={styles.topContainer}>
+    <div className={cn({ [styles.darkBg]: language === "en" })}>
       <DesktopBaseContainer className={styles.topContentContainer}>
         <div className={styles.topDescription}>
           <Trans i18nKey="index:topDesc" />
@@ -521,25 +521,23 @@ const Features = ({ data }) => {
   );
 };
 
-const Partners = ({ data }) => {
-  const { t } = useI18next();
-
-  return (
-    <div className={styles.partnersContainer}>
-      <DesktopBaseContainer className={styles.partnersContentContainer}>
-        <h3 className={styles.partnersTitle}>{t("index:partnersTitle")}</h3>
-        <GatsbyImage
-          image={data.kakaoventures.childImageSharp.gatsbyImageData}
-          alt="kakaoventures"
-        />
-        <GatsbyImage
-          image={data.tips.childImageSharp.gatsbyImageData}
-          alt="tips"
-        />
-      </DesktopBaseContainer>
-    </div>
-  );
-};
+const Partners = ({ data }) => (
+  <div className={styles.partnersContainer}>
+    <DesktopBaseContainer className={styles.partnersContentContainer}>
+      <h3 className={styles.partnersTitle}>
+        <Trans i18nKey="index:partnersTitle" />
+      </h3>
+      <GatsbyImage
+        image={data.kakaoventures.childImageSharp.gatsbyImageData}
+        alt="kakaoventures"
+      />
+      <GatsbyImage
+        image={data.tips.childImageSharp.gatsbyImageData}
+        alt="tips"
+      />
+    </DesktopBaseContainer>
+  </div>
+);
 
 const DesktopIndex = ({ data }) => (
   <DesktopLayout>
