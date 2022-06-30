@@ -508,6 +508,26 @@ const Features = ({ data }) => {
   );
 };
 
+const Partners = ({ data }) => {
+  const { t } = useI18next();
+
+  return (
+    <div className={styles.partnersContainer}>
+      <DesktopBaseContainer className={styles.partnersContentContainer}>
+        <h3 className={styles.partnersTitle}>{t("index:partnersTitle")}</h3>
+        <GatsbyImage
+          image={data.kakaoventures.childImageSharp.gatsbyImageData}
+          alt="kakaoventures"
+        />
+        <GatsbyImage
+          image={data.tips.childImageSharp.gatsbyImageData}
+          alt="tips"
+        />
+      </DesktopBaseContainer>
+    </div>
+  );
+};
+
 const DesktopIndex = ({ data, t }) => (
   <DesktopLayout
     isFloatMenu
@@ -525,6 +545,8 @@ const DesktopIndex = ({ data, t }) => (
     <Sectors data={data} />
 
     <Features data={data} />
+
+    <Partners data={data} />
   </DesktopLayout>
 );
 

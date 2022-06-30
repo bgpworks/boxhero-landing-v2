@@ -774,6 +774,26 @@ export const query = graphql`
         )
       }
     }
+    kakaoventures: file(relativePath: { eq: "kakaoventures.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 212
+          placeholder: TRACED_SVG
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
+      }
+    }
+    tips: file(relativePath: { eq: "tips.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 212
+          placeholder: TRACED_SVG
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
+      }
+    }
     mobileHomeTopRight: file(
       relativeDirectory: { eq: $language }
       base: { eq: "home-top-right.png" }
@@ -1158,25 +1178,6 @@ export const query = graphql`
           height: 204
           placeholder: TRACED_SVG
           transformOptions: { fit: FILL }
-        )
-      }
-    }
-    homeStartNow: file(relativePath: { eq: "home-start-now.png" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 307
-          height: 200
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-          }
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
         )
       }
     }

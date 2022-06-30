@@ -22,7 +22,7 @@
 }
 
 .topDescription {
-  color: var(--color-gray-1);
+  color: var(--color-gray1);
   font-size: var(--font-size-h5);
 }
 
@@ -173,7 +173,7 @@
 
 .startButtonsDesc {
   margin: 0;
-  color: var(--color-gray-1);
+  color: var(--color-gray1);
   font-size: var(--font-size-h5);
 }
 
@@ -332,7 +332,7 @@
 }
 
 .slideDetailDot {
-  padding: 7px 25px 8px;
+  padding: 7px 23px 9px;
   border-radius: 21px;
   font-size: 18px;
   font-weight: bold;
@@ -342,7 +342,7 @@
 }
 
 .slideDetailDot:not(:first-child) {
-  margin-left: 10px;
+  margin-left: 32px;
 }
 
 .slideDetailDotSelected {
@@ -350,90 +350,20 @@
   color: white;
 }
 
-/* 지금 바로 박스히어로를 시작하세요 */
+/* Partners */
 
-.startNowContainer {
+.partnersContainer {
+  background-color: var(--color-gray1);
+  color: var(--color-partners);
+}
+
+.partnersContentContainer {
+  height: 180px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 100px 0px;
-  color: var(--color-black);
 }
 
-.startNowTitle {
-  font-size: var(--font-size-36);
-  font-weight: bold;
-  text-align: center;
-}
-
-.startNowDescription {
-  font-size: var(--font-size-b18);
-  text-align: center;
-  line-height: 1.5;
-}
-
-.startNowDescription strong {
-  font-weight: bold;
-}
-
-.startNowDetailLink {
+.partnersTitle {
   font-size: var(--font-size-h5);
-  font-weight: bold;
-  letter-spacing: -0.2px;
-  color: var(--color-primary);
-}
-
-.startNowDetailLink img {
-  vertical-align: middle;
-}
-
-.introVideoSection {
-  padding: 20px 0;
-}
-
-.videoWrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-}
-
-.introVideo {
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.introVideoBtnInChatting {
-  min-height: 60px;
-  border-radius: 30px;
-
-  padding: 15px 30px;
-  background-color: var(--color-gray5);
-}
-
-.introVideoBtnInChattingPlaySymbol {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
-
-.introVideoBtnInChattingArrowSymbol {
-  width: 24px;
-  height: 24px;
-  margin-left: 8px;
-}
-
-.introVideoBtnInChattingLabel {
-  color: var(--color-primary);
-  font-size: var(--font-size-h5);
-  font-weight: bold;
-  letter-spacing: -0.2px;
-  line-height: 1.45em;
 }
