@@ -137,6 +137,8 @@ function genFeatureData(data, t) {
 
 const Top = () => {
   const { t } = useI18next();
+  const isBrowser = typeof window !== "undefined";
+
   return (
     <div className={styles.topContainer}>
       <DesktopBaseContainer className={styles.topContentContainer}>
@@ -162,24 +164,26 @@ const Top = () => {
         </div>
         <OnlyKorean>
           <Padding y={72} />
-          <YouTube
-            className={styles.video}
-            videoId={constants.introVideoYoutubeIdKo}
-            opts={{
-              width: "990",
-              height: "556.875",
-              playerVars: {
-                origin: window.location.origin,
-                autoplay: 1,
-                controls: 1,
-                playsinline: 1,
-                rel: 0,
-                modestbranding: 1,
-                loop: 1,
-                playlist: constants.introVideoYoutubeIdKo,
-              },
-            }}
-          />
+          {isBrowser && (
+            <YouTube
+              className={styles.video}
+              videoId={constants.introVideoYoutubeIdKo}
+              opts={{
+                width: "990",
+                height: "556.875",
+                playerVars: {
+                  origin: window.location.origin,
+                  autoplay: 1,
+                  controls: 1,
+                  playsinline: 1,
+                  rel: 0,
+                  modestbranding: 1,
+                  loop: 1,
+                  playlist: constants.introVideoYoutubeIdKo,
+                },
+              }}
+            />
+          )}
         </OnlyKorean>
       </DesktopBaseContainer>
     </div>
