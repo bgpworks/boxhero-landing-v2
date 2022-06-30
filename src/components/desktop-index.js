@@ -186,6 +186,42 @@ const Top = () => {
   );
 };
 
+const Customer = ({ data }) => {
+  const { name, childImageSharp } = data;
+
+  return (
+    <GatsbyImage
+      image={childImageSharp.gatsbyImageData}
+      alt={name}
+    />
+  );
+};
+
+const Customers = ({ data }) => {
+  const { language, t } = useI18next();
+  const columnCount = language === "ko" ? 6 : 5;
+  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
+
+  return (
+    <DesktopBaseContainer className={styles.customersContentContainer}>
+      <h2 className={styles.customersTitle}>
+        <Trans i18nKey="index:customerSectionTitle" />
+      </h2>
+      <Padding y={30} />
+      <p className={styles.customersDesc}>
+        {t("index:customerSectionDesc")}
+      </p>
+      <Padding y={94} />
+      <PhotoWall
+        items={customerList}
+        columnCount={columnCount}
+        gap={30}
+        ItemRenderer={Customer}
+      />
+    </DesktopBaseContainer>
+  );
+};
+
 const KeyFeatureButton = ({
   title, icon, isActive, onClick,
 }) => (
@@ -472,71 +508,6 @@ const Features = ({ data }) => {
   );
 };
 
-const StartNow = ({ data, t }) => (
-  <div className={styles.startNowContainer}>
-    <div className={styles.startNowTitle}>
-      <Trans i18nKey="index:startNowTitle" />
-    </div>
-    <Padding y={50} />
-    <GatsbyImage
-      image={data.homeStartNow.childImageSharp.gatsbyImageData}
-      alt={t("index:startNowTitle")}
-    />
-    <Padding y={40} />
-    <div className={styles.startNowDescription}>
-      <Trans i18nKey="index:startNowDescription" />
-    </div>
-    <Padding y={40} />
-    <Link
-      to="/pricing/"
-      className={styles.startNowDetailLink}
-    >
-      {t("index:startNowDetailLink")}
-      <img
-        src={iconSmallRightBlue}
-        className={styles.rightArrow}
-        alt={t("index:startNowDetailLink")}
-      />
-    </Link>
-  </div>
-);
-
-const Customer = ({ data }) => {
-  const { name, childImageSharp } = data;
-
-  return (
-    <GatsbyImage
-      image={childImageSharp.gatsbyImageData}
-      alt={name}
-    />
-  );
-};
-
-const Customers = ({ data }) => {
-  const { language, t } = useI18next();
-  const columnCount = language === "ko" ? 6 : 5;
-  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
-
-  return (
-    <DesktopBaseContainer className={styles.customersContentContainer}>
-      <h2 className={styles.customersTitle}>
-        <Trans i18nKey="index:customerSectionTitle" />
-      </h2>
-      <Padding y={30} />
-      <p className={styles.customersDesc}>
-        {t("index:customerSectionDesc")}
-      </p>
-      <Padding y={94} />
-      <PhotoWall
-        items={customerList}
-        columnCount={columnCount}
-        gap={30}
-        ItemRenderer={Customer}
-      />
-    </DesktopBaseContainer>
-  );
-};
-
 const DesktopIndex = ({ data, t }) => (
   <DesktopLayout
     isFloatMenu
@@ -554,11 +525,6 @@ const DesktopIndex = ({ data, t }) => (
     <Sectors data={data} />
 
     <Features data={data} />
-
-    <StartNow
-      data={data}
-      t={t}
-    />
   </DesktopLayout>
 );
 
