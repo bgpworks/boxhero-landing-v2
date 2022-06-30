@@ -704,23 +704,9 @@ export const query = graphql`
         )
       }
     }
-    featureLowstock: file(
+    featureLocation: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-lowstock.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
-        )
-      }
-    }
-    featureBarcodeLabel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-barcode-label.png" }
+      base: { eq: "index-feature-location.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
@@ -760,9 +746,23 @@ export const query = graphql`
         )
       }
     }
-    featureLocation: file(
+    featureSettingMembers: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-location.png" }
+      base: { eq: "members.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 495
+          height: 360
+          placeholder: TRACED_SVG
+          transformOptions: { fit: FILL }
+          layout: FIXED
+        )
+      }
+    }
+    featureAnalysis: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-analysis.png" }
     ) {
       childImageSharp {
         gatsbyImageData(

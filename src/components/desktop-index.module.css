@@ -76,6 +76,7 @@
 .customersDesc {
   font-size: var(--font-size-b18);
   line-height: 1.5;
+  text-align: center;
 }
 
 /* keyFeature */
@@ -226,7 +227,8 @@
   margin: -10px 0 0 -10px;
 }
 
-.sectorCard {
+.sectorCard,
+.moreCard {
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -240,15 +242,12 @@
 }
 
 .moreCard {
-  composes: sectorCard;
   background-color: var(--color-gray5);
 }
 
 /* Features */
 
 .featuresContainer {
-  composes: darkBg;
-
   padding: 100px 0;
   color: var(--color-black);
 
@@ -259,14 +258,21 @@
 }
 
 .featuresTitle {
+  margin: 0;
   height: 100px;
   font-size: var(--font-size-36);
   font-weight: bold;
   text-align: center;
+  letter-spacing: -1.0px;
 }
 
-.featuresTitle strong {
-  color: var(--color-primary);
+.featureSubTitle {
+  margin: 0;
+  font-size: var(--font-size-h3);
+  line-height: 50px;
+  letter-spacing: -0.78px;
+  text-align: center;
+  color: var(--color-light-blue);
 }
 
 .slideAndNavButtons {
@@ -290,7 +296,7 @@
 }
 
 .slideNavButton:disabled {
-  filter: opacity(0.3);
+  filter: opacity(0);
   cursor: default;
 }
 

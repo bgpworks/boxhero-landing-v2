@@ -108,29 +108,29 @@ function genCustomerData(data) {
 function genFeatureData(data, t) {
   return [
     {
-      title: t("index:featureSafetyStock"),
-      link: `/features/#${constants.idFeatureLowstock}`,
-      img: data.featureLowstock.childImageSharp.gatsbyImageData,
-    },
-    {
-      title: t("index:featurePrintLabel"),
-      link: `/features/#${constants.idFeatureBarcodelabel}`,
-      img: data.featureBarcodeLabel.childImageSharp.gatsbyImageData,
+      title: t("index:featureLocationManagement"),
+      subTitle: t("index:featureDescLocationManagement"),
+      img: data.featureLocation.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featureTransactionStats"),
-      link: `/features/#${constants.idFeatureSummary}`,
+      subTitle: t("index:featureDescTransactionStats"),
       img: data.featureSummary.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featureViewPastQuantity"),
-      link: `/features/#${constants.idFeatureViewPastQuantity}`,
+      subTitle: t("index:featureDescViewPastQuantity"),
       img: data.featureViewPastQuantity.childImageSharp.gatsbyImageData,
     },
     {
-      title: t("index:featureLocationManagement"),
-      link: `/features/#${constants.idFeatureLocation}`,
-      img: data.featureLocation.childImageSharp.gatsbyImageData,
+      title: t("index:featureSettingRole"),
+      subTitle: t("index:featureDescSettingRole"),
+      img: data.featureSettingMembers.childImageSharp.gatsbyImageData,
+    },
+    {
+      title: t("index:featureAnalysis"),
+      subTitle: t("index:featureDescAnalysis"),
+      img: data.featureAnalysis.childImageSharp.gatsbyImageData,
     },
   ];
 }
@@ -365,24 +365,8 @@ const Sectors = ({ data }) => {
   );
 };
 
-const FeatureDetailLink = ({ t, featureData, activeIndex }) => (
-  <div className={styles.slideDetailLinkContainer}>
-    <Link
-      to={featureData[activeIndex].link}
-      title={featureData[activeIndex].title}
-      className={styles.slideDetailLink}
-    >
-      {t("index:featuresDetailLink")}
-      <img
-        src={iconSmallRightBlue}
-        className={styles.rightArrow}
-        alt={t("index:featuresDetailLink")}
-      />
-    </Link>
-  </div>
-);
-
-const Features = ({ data, t }) => {
+const Features = ({ data }) => {
+  const { t } = useI18next();
   const featureData = genFeatureData(data, t);
 
   const swiperRef = useRef(null);
@@ -397,11 +381,11 @@ const Features = ({ data, t }) => {
   const isLastIndex = activeIndex === featureData.length - 1;
 
   return (
-    <div className={styles.featuresContainer}>
-      <div className={styles.featuresTitle}>
+    <DesktopBaseContainer className={styles.featuresContainer}>
+      <h2 className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitle" />
-      </div>
-      <Padding y={50} />
+      </h2>
+      <Padding y={80} />
       <div className={styles.slideDetailDotGroup}>
         {featureData.map(({ title }, index) => {
           const isActive = activeIndex === index;
@@ -421,7 +405,11 @@ const Features = ({ data, t }) => {
         })}
       </div>
 
-      <Padding y={42} />
+      <Padding y={60} />
+
+      <h3 className={styles.featureSubTitle}>{featureData[activeIndex].subTitle}</h3>
+
+      <Padding y={24} />
 
       <div className={styles.slideAndNavButtons}>
         <button
@@ -467,12 +455,20 @@ const Features = ({ data, t }) => {
 
       <Padding y={40} />
 
-      <FeatureDetailLink
-        t={t}
-        featureData={featureData}
-        activeIndex={activeIndex}
-      />
-    </div>
+      <div className={styles.slideDetailLinkContainer}>
+        <Link
+          to="/features"
+          className={styles.slideDetailLink}
+        >
+          {t("index:featuresDetailLink")}
+          <img
+            src={iconSmallRightBlue}
+            className={styles.rightArrow}
+            alt={t("index:featuresDetailLink")}
+          />
+        </Link>
+      </div>
+    </DesktopBaseContainer>
   );
 };
 
@@ -555,15 +551,9 @@ const DesktopIndex = ({ data, t }) => (
 
     <StartButtons />
 
-    <Sectors
-      data={data}
-      t={t}
-    />
+    <Sectors data={data} />
 
-    <Features
-      data={data}
-      t={t}
-    />
+    <Features data={data} />
 
     <StartNow
       data={data}
