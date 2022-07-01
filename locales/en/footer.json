@@ -29,9 +29,11 @@
   "platformGroupMobile": "Mobile App",
   "platformGroupWeb": "Web App",
   "platformsMessage": "Inventory Management Anytime, Anywhere",
+  "platformsMessageMobile": "Control your stocks anytime, anywhere.",
   "platformsOsx": "Mac",
   "platformsPC": "Web",
   "platformsTitle": "Try BoxHero Today!",
+  "platformsTitleMobile": "BoxHero Supports both PC<br/>and Mobile",
   "platformsWindows": "Windows",
   "policyLinkMobile": "<tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>",
   "startNowButton": "Get Started - It's Free"

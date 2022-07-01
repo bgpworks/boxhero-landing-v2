@@ -47,17 +47,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 883
-          quality: 100
-          tracedSVGOptions: {
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-            turnPolicy: TURNPOLICY_MAJORITY
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }

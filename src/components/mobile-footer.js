@@ -38,7 +38,9 @@ const Platforms = ({ t }) => {
   `);
   return (
     <section className={styles.platformsContainer}>
-      <h2 className={styles.platformsTitle}>{t("footer:platformsTitleMobile")}</h2>
+      <h2 className={styles.platformsTitle}>
+        <Trans i18nKey="footer:platformsTitleMobile" />
+      </h2>
       <Padding y={16} />
       <p className={styles.platformsDesc}>{t("footer:platformsMessageMobile")}</p>
       <Padding y={40} />

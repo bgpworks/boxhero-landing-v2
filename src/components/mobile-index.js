@@ -93,18 +93,19 @@ const Top = ({ data }) => {
           className={styles.consultingButton}
           transparent={false}
         />
+        <OnlyEnglish>
+          <Padding y={40} />
+          <GatsbyImage
+            image={data.main.childImageSharp.gatsbyImageData}
+            alt="BoxHero"
+          />
+          <Padding y={40} />
+        </OnlyEnglish>
       </MobileBaseContainer>
       <OnlyKorean>
         <Padding y={50} />
         <Youtube />
       </OnlyKorean>
-      <OnlyEnglish>
-        <Padding y={40} />
-        <GatsbyImage
-          image={data.main.childImageSharp.gatsbyImageData}
-          alt="BoxHero"
-        />
-      </OnlyEnglish>
     </div>
   );
 };
@@ -355,7 +356,9 @@ const StartButtons = () => {
 
   return (
     <MobileBaseContainer className={styles.startButtons}>
-      <p className={styles.startButtonsDesc}>{t("index:topDesc")}</p>
+      <p className={styles.startButtonsDesc}>
+        <Trans i18nKey="index:topDescMobile" />
+      </p>
       <Padding y={16} />
       <h2 className={styles.startButtonsTitle}>
         <Trans i18nKey="index:startButtonsTitleMobile" />
@@ -486,14 +489,14 @@ function genFeatureData(data, t) {
 
 // div.mobile-index-module--slideDetailDotGroup--15TiY 의 margin-left
 const DEFAULT_OFFSET_TO_SELECTED = {
-  ko: -46,
-  en: -60,
+  ko: -47.5,
+  en: -78,
 };
 
 // div.mobile-index-module--slideDetailDotBackground--13c-D
 const DEFAULT_SELECT_WIDTH = {
   ko: 95,
-  en: 121,
+  en: 156,
 };
 
 const FeatureSelector = ({
@@ -621,26 +624,27 @@ const Features = ({ data }) => {
   );
 };
 
-const Partners = ({ data }) => (
-  <div className={styles.partnersContainer}>
-    <MobileBaseContainer className={styles.partnersContentContainer}>
-      <h3 className={styles.partnersTitle}>
-        <Trans i18nKey="index:partnersTitle" />
-      </h3>
-      <Padding y={20} />
-      <div className={styles.partners}>
-        <GatsbyImage
-          image={data.kakaoventures.childImageSharp.gatsbyImageData}
-          alt="kakaoventures"
-        />
-        <GatsbyImage
-          image={data.tips.childImageSharp.gatsbyImageData}
-          alt="tips"
-        />
-      </div>
-    </MobileBaseContainer>
-  </div>
-);
+const Partners = ({ data }) => {
+  const { t } = useI18next();
+  return (
+    <div className={styles.partnersContainer}>
+      <MobileBaseContainer className={styles.partnersContentContainer}>
+        <h3 className={styles.partnersTitle}>{t("index:partnersTitleMobile")}</h3>
+        <Padding y={20} />
+        <div className={styles.partners}>
+          <GatsbyImage
+            image={data.kakaoventures.childImageSharp.gatsbyImageData}
+            alt="kakaoventures"
+          />
+          <GatsbyImage
+            image={data.tips.childImageSharp.gatsbyImageData}
+            alt="tips"
+          />
+        </div>
+      </MobileBaseContainer>
+    </div>
+  );
+};
 
 const MobileIndex = ({ data }) => (
   <IntersectionObserverProvider threshold={1}>

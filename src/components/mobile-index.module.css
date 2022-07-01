@@ -47,7 +47,7 @@
 /* Customers */
 
 .customersContentContainer {
-  padding: 50px 0;
+  padding: 50px 20px;
   color: var(--color-black);
   display: flex;
   flex-direction: column;
@@ -63,32 +63,10 @@
 }
 
 .customersDesc {
+  margin: 0;
   font-size: var(--font-size-mobile-normal);
   text-align: center;
   line-height: 1.5;
-}
-
-.introVideoBtnInChatting {
-  margin: 0 auto;
-}
-
-.introVideoBtnInChattingPlaySymbol {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
-.introVideoBtnInChattingArrowSymbol {
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
-}
-
-.introVideoBtnInChattingLabel {
-  color: var(--color-primary);
-  font-size: var(--font-size-b16);
-  font-weight: bold;
-  line-height: 1.5em;
 }
 
 /* keyFeature */
@@ -197,6 +175,7 @@
   margin: 0;
   color: var(--color-gray1);
   font-size: var(--font-size-mobile-normal);
+  text-align: center;
 }
 
 .startButtonsTitle {
@@ -337,8 +316,10 @@
 
 .featureSubTitle {
   margin: 0;
+  padding: 0 20px;
   font-size: var(--font-size-mobile-h4);
   color: var(--color-light-blue);
+  text-align: center;
 }
 
 .featureSwiperWrapper {
