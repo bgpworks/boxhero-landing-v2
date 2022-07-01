@@ -40,7 +40,7 @@ const Platforms = ({ t }) => {
     <section className={styles.platformsContainer}>
       <h2 className={styles.platformsTitle}>{t("footer:platformsTitleMobile")}</h2>
       <Padding y={16} />
-      <p className={styles.platformsDesc}>{t("footer:platformsMessage")}</p>
+      <p className={styles.platformsDesc}>{t("footer:platformsMessageMobile")}</p>
       <Padding y={40} />
       <GatsbyImage
         image={data.mobileFooterPlatforms.childImageSharp.gatsbyImageData}
