@@ -64,7 +64,7 @@ Padding.defaultProps = {
   y: 0,
 };
 
-export const ConsultingButton = ({ transparent = true }) => {
+export const ConsultingButton = ({ className, transparent = true }) => {
   const { t, language } = useI18next();
   const consultingIcon = transparent ? svgConsulting : svgConsultingDark;
 
@@ -76,7 +76,7 @@ export const ConsultingButton = ({ transparent = true }) => {
     >
       <button
         type="button"
-        className={cn(styles.consultingButton, { [styles.transparent]: transparent })}
+        className={cn(className, styles.consultingButton, { [styles.transparent]: transparent })}
       >
         <img
           className={styles.topButtonIcon}
@@ -157,7 +157,7 @@ export const StartNowButton = ({ className, children }) => (
   </ExternalLinkWithQuery>
 );
 
-export const DarkAppInstallButton = ({ label }) => (
+export const AppInstallButton = ({ label }) => (
   <AppDownloadLink>
     <button
       type="button"
@@ -258,7 +258,7 @@ export const MobileUseCaseTop = ({
       <Padding y={16} />
       <p className={styles.mobileUseCaseTopDesc}>{description}</p>
       <Padding y={40} />
-      <DarkAppInstallButton label={appDownload} />
+      <AppInstallButton label={appDownload} />
       <Padding y={40} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}
@@ -563,6 +563,14 @@ export const OnlyKorean = ({ children }) => {
   const { language } = useI18next();
 
   if (language !== "ko") return null;
+
+  return children;
+};
+
+export const OnlyEnglish = ({ children }) => {
+  const { language } = useI18next();
+
+  if (language !== "en") return null;
 
   return children;
 };

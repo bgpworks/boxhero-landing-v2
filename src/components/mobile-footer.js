@@ -50,15 +50,8 @@ const Platforms = ({ t }) => {
   );
 };
 
-const StartNow = ({ t, emoji, message }) => (
+const StartNow = ({ t }) => (
   <section className={styles.startNowContainer}>
-    <GatsbyImage
-      image={emoji.childImageSharp.gatsbyImageData}
-      alt={t("footer:startNowButton")}
-    />
-    <Padding y={10} />
-    <p className={styles.startNowDescription}>{message}</p>
-    <Padding y={36} />
     <AppDownloadLink>
       <button
         type="button"
@@ -76,12 +69,6 @@ const StartNow = ({ t, emoji, message }) => (
     <ConsultingButton />
   </section>
 );
-
-StartNow.propTypes = {
-  emoji: PropTypes.object.isRequired,
-  // string or object
-  message: PropTypes.any.isRequired,
-};
 
 const FooterMenu = ({ title, children }) => (
   <div className={styles.footerMenu}>
@@ -233,8 +220,6 @@ const MobileFooterMenusAndInfo = ({ t, language, onChangeIsShowLangPopup }) => (
 );
 
 const MobileFooter = ({
-  closingEmoji,
-  closingMsg,
   onChangeIsShowLangPopup,
   showPlatforms,
   showStartNow,
@@ -246,8 +231,6 @@ const MobileFooter = ({
       {showStartNow && (
         <StartNow
           t={t}
-          emoji={closingEmoji}
-          message={closingMsg}
         />
       )}
       <MobileFooterMenusAndInfo
@@ -260,9 +243,6 @@ const MobileFooter = ({
 };
 
 MobileFooter.propTypes = {
-  closingEmoji: PropTypes.object,
-  // string or object
-  closingMsg: PropTypes.any,
   showPlatforms: PropTypes.bool,
   showStartNow: PropTypes.bool,
 };

@@ -6,9 +6,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
-import ScrollContainer from "react-indiana-drag-scroll";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Autoplay } from "swiper";
+import YouTube from "react-youtube";
 import cn from "classnames";
 import { IntersectionObserverProvider, useIntersectionObserver } from "../hooks/use-intersection-observer";
 // js
@@ -19,19 +19,19 @@ import {
   SpeechBubbleContainer,
   GradientBG,
   PhotoWall,
-  DarkAppInstallButton,
+  AppInstallButton,
   IntroVideoBtn,
-  FlatIntroVideoBtn,
   ConsultingButton,
   OnlyKorean,
+  OnlyEnglish,
 } from "./common";
 import * as constants from "./constants";
 import { usePreviousValue } from "../hooks/use-previous-value";
+import { useConstrainedSize } from "../hooks/use-constrained-size";
 // css
 import "swiper/css";
 import * as styles from "./mobile-index.module.css";
 // img
-import svgVolt from "../images/volt.svg";
 import svgLeftArrow from "../images/icon-mobile-left-arrow.svg";
 import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
 import svgSmallRightBlue from "../images/smallright-blue.svg";
@@ -40,50 +40,78 @@ import svgPlayPrimary from "../images/icon-play-primary.svg";
 const CAROUSEL_INTERVAL = 3000;
 const genLeftOffsetTransform = (offset) => `translate3d(${offset}px, 0, 0)`;
 
-const Top = ({ data, t }) => (
-  <GradientBG
-    className={styles.topContainer}
-    colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
-    backgroundColor="#6159F5"
-  >
-    <MobileBaseContainer className={styles.topContentContainer}>
-      <img
-        className={styles.topIcon}
-        src={svgVolt}
-        alt={t("index:topIconAlt")}
-      />
-      <Padding y={10} />
-      <h2 className={styles.topTitle}>
-        <Trans i18nKey="index:topTitleMobile" />
-      </h2>
-      <Padding y={20} />
-      <p className={styles.topDescription}>
-        <Trans i18nKey="index:topDescMobile" />
-      </p>
-      <Padding y={60} />
-      <DarkAppInstallButton label={t("usecase:appInstall")} />
-      <Padding y={16} />
-      <ConsultingButton transparent={false} />
-      <OnlyKorean>
-        <Padding y={16} />
-        <FlatIntroVideoBtn />
-      </OnlyKorean>
-    </MobileBaseContainer>
-    <ScrollContainer
-      vertical={false}
-      horizontal
-      hideScrollbars
-      className={styles.topImageScrollContainer}
+const RATIO = { W: 16, H: 9 };
+
+const Youtube = () => {
+  const {
+    constrainedSize,
+    containerRef,
+  } = useConstrainedSize(RATIO.W, RATIO.H);
+  const youtubeOpts = {
+    playerVars: {
+      origin: window.location.origin,
+      autoplay: 1,
+      controls: 0,
+      playsinline: 1,
+      rel: 0,
+      modestbranding: 1,
+      loop: 1,
+      playlist: constants.introVideoYoutubeIdKo,
+    },
+    ...constrainedSize,
+  };
+  const isBrowser = typeof window !== "undefined";
+
+  return (
+    <div
+      ref={containerRef}
+      className={styles.playerWrapper}
     >
-      <GatsbyImage
-        className={styles.topImage}
-        image={data.mobileHomeTopRight.childImageSharp.gatsbyImageData}
-        alt={t("index:topIconAlt")}
-      />
-    </ScrollContainer>
-    <Padding y={50} />
-  </GradientBG>
-);
+      {constrainedSize && isBrowser && (
+        <YouTube
+          videoId={constants.introVideoYoutubeIdKo}
+          opts={youtubeOpts}
+        />
+      )}
+    </div>
+  );
+};
+
+const Top = ({ data }) => {
+  const { t, language } = useI18next();
+
+  return (
+    <div className={cn({ [styles.darkBg]: language === "en" })}>
+      <MobileBaseContainer className={styles.topContentContainer}>
+        <p className={styles.topDescription}>
+          <Trans i18nKey="index:topDescMobile" />
+        </p>
+        <Padding y={16} />
+        <h2 className={styles.topTitle}>
+          <Trans i18nKey="index:topTitleMobile" />
+        </h2>
+        <Padding y={40} />
+        <AppInstallButton label={t("usecase:appInstall")} />
+        <Padding y={10} />
+        <ConsultingButton
+          className={styles.consultingButton}
+          transparent={false}
+        />
+      </MobileBaseContainer>
+      <OnlyKorean>
+        <Padding y={50} />
+        <Youtube />
+      </OnlyKorean>
+      <OnlyEnglish>
+        <Padding y={40} />
+        <GatsbyImage
+          image={data.main.childImageSharp.gatsbyImageData}
+          alt="BoxHero"
+        />
+      </OnlyEnglish>
+    </div>
+  );
+};
 
 const CHATTING_COLOR_SEQUENCE = [
   { text: "#292a2f", background: "#fbc200" },
@@ -784,15 +812,8 @@ const StartNow = ({ data, t }) => (
 
 const MobileIndex = ({ data, language, t }) => (
   <IntersectionObserverProvider threshold={1}>
-    <MobileLayout
-      isFloatMenu
-      closingEmoji={data.mobileCoffee}
-      closingMsg={<Trans i18nKey="index:closingMsgMobile" />}
-    >
-      <Top
-        data={data}
-        t={t}
-      />
+    <MobileLayout>
+      <Top data={data} />
 
       <Customers data={data} />
 
