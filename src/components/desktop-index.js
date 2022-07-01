@@ -196,10 +196,12 @@ const Top = ({ data }) => {
         <OnlyKorean>
           <Padding y={72} />
           <Youtube />
+          <Padding y={100} />
         </OnlyKorean>
         <OnlyEnglish>
           <Padding y={24} />
           <GatsbyImage
+            className={styles.mainImage}
             image={data.main.childImageSharp.gatsbyImageData}
             alt="BoxHero"
           />

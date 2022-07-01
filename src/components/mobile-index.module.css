@@ -76,12 +76,13 @@
 }
 
 .keyFeatureContentContainer {
-  padding: 50px 20px;
+  padding: 50px 14px;
   color: var(--color-black);
 }
 
 .keyFeatureTitle {
   margin: 0;
+  padding: 0 4px;
   text-align: center;
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
@@ -100,6 +101,7 @@
 
 .keyFeatureSelector {
   margin: 4px;
+  padding: 0 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,9 +112,8 @@
 }
 
 .slideNavButton {
-  width: 30px;
-  height: 30px;
-  padding: 3px;
+  width: 24px;
+  height: 24px;
   border-radius: 8px;
   background-color: transparent;
 }
@@ -324,7 +325,7 @@
 
 .featureSwiperWrapper {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 .featureSwiper {

@@ -168,7 +168,7 @@ const KeyFeatureSelector = ({ keyFeatureData, activeIndex }) => {
   const { t } = useI18next();
   const swiper = useSwiper();
 
-  const SLIDE_TITLE_WIDTH = 212;
+  const SLIDE_TITLE_WIDTH = 220;
   const additionalOffset = activeIndex * SLIDE_TITLE_WIDTH * -1;
 
   const isFirstIndex = activeIndex === 0;

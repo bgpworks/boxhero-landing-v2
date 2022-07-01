@@ -1,7 +1,7 @@
 /* top */
 
 .topContentContainer {
-  padding: 50px 0 100px 0;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +44,10 @@
 
 .video {
   border-radius: 32px;
+}
+
+.mainmImage {
+  width: 883px;
 }
 
 /* Customers */
