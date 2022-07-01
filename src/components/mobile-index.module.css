@@ -40,6 +40,10 @@
   align-items: center;
 }
 
+.player {
+  display: flex;
+}
+
 /* Chatting */
 
 .chattingContentContainer {

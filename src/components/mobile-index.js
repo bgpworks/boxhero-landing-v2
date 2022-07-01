@@ -47,19 +47,6 @@ const Youtube = () => {
     constrainedSize,
     containerRef,
   } = useConstrainedSize(RATIO.W, RATIO.H);
-  const youtubeOpts = {
-    playerVars: {
-      origin: window.location.origin,
-      autoplay: 1,
-      controls: 0,
-      playsinline: 1,
-      rel: 0,
-      modestbranding: 1,
-      loop: 1,
-      playlist: constants.introVideoYoutubeIdKo,
-    },
-    ...constrainedSize,
-  };
   const isBrowser = typeof window !== "undefined";
 
   return (
@@ -69,8 +56,21 @@ const Youtube = () => {
     >
       {constrainedSize && isBrowser && (
         <YouTube
+          className={styles.player}
           videoId={constants.introVideoYoutubeIdKo}
-          opts={youtubeOpts}
+          opts={{
+            playerVars: {
+              origin: window.location.origin,
+              autoplay: 1,
+              controls: 0,
+              playsinline: 1,
+              rel: 0,
+              modestbranding: 1,
+              loop: 1,
+              playlist: constants.introVideoYoutubeIdKo,
+            },
+            ...constrainedSize,
+          }}
         />
       )}
     </div>
