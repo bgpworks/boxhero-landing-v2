@@ -38,7 +38,7 @@
   background-color: var(--color-black);
 }
 
-.startNowDescription {
+.startNowTitle {
   font-size: var(--font-size-mobile-h4);
   font-weight: bold;
   color: white;

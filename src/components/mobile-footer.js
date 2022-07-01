@@ -6,7 +6,7 @@ import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import * as constants from "./constants";
 import {
-  Padding, SupportEmail, ConsultingButton, AppDownloadLink,
+  Padding, SupportEmail, AppDownloadLink,
 } from "./common";
 import SocialLinkList from "./social-link-list";
 // css
@@ -38,7 +38,7 @@ const Platforms = ({ t }) => {
   `);
   return (
     <section className={styles.platformsContainer}>
-      <h2 className={styles.platformsTitle}>{t("footer:platformsTitle")}</h2>
+      <h2 className={styles.platformsTitle}>{t("footer:platformsTitleMobile")}</h2>
       <Padding y={16} />
       <p className={styles.platformsDesc}>{t("footer:platformsMessage")}</p>
       <Padding y={40} />
@@ -52,6 +52,8 @@ const Platforms = ({ t }) => {
 
 const StartNow = ({ t }) => (
   <section className={styles.startNowContainer}>
+    <h2 className={styles.startNowTitle}>{t("index:platformsTitle")}</h2>
+    <Padding y={20} />
     <AppDownloadLink>
       <button
         type="button"
@@ -65,8 +67,6 @@ const StartNow = ({ t }) => (
         {t("footer:appInstall")}
       </button>
     </AppDownloadLink>
-    <Padding y={10} />
-    <ConsultingButton />
   </section>
 );
 

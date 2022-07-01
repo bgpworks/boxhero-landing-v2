@@ -23,11 +23,7 @@ const IndexPage = ({ data, location }) => {
       />
 
       <Media at="xs">
-        <MobileIndex
-          data={data}
-          language={language}
-          t={t}
-        />
+        <MobileIndex data={data} />
       </Media>
 
       <Media greaterThan="xs">
@@ -71,17 +67,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -91,17 +79,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -111,17 +91,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 582
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -131,17 +103,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 582
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -151,17 +115,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 582
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -171,17 +127,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 582
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -191,17 +139,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -211,17 +151,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -231,17 +163,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -251,17 +175,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 582
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -271,17 +187,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 582
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -291,17 +199,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 582
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -707,11 +607,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -721,11 +619,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -735,11 +631,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -749,11 +643,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -763,31 +655,27 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
     kakaoventures: file(relativePath: { eq: "kakaoventures.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 212
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
     tips: file(relativePath: { eq: "tips.png" }) {
       childImageSharp {
         gatsbyImageData(
-          width: 212
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }

@@ -140,17 +140,16 @@
   outline: solid 4px var(--color-primary-25);
 }
 
-.keyFeatureSlider {
-  height: 100%;
-}
-
 .keyFeatureSlide {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 582px;
+  margin-left: auto;
 }
 .keyFeatureSlideLeft {
   justify-content: flex-start;
+  margin-left: 0;
 }
 
 /* StartButtons */
@@ -360,4 +359,8 @@
   font-size: var(--font-size-h5);
   line-height: 1.45;
   font-weight: 500;
+}
+
+.partner {
+  width: 212px;
 }

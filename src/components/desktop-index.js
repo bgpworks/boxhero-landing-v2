@@ -538,10 +538,12 @@ const Partners = ({ data }) => (
         <Trans i18nKey="index:partnersTitle" />
       </h3>
       <GatsbyImage
+        className={styles.partner}
         image={data.kakaoventures.childImageSharp.gatsbyImageData}
         alt="kakaoventures"
       />
       <GatsbyImage
+        className={styles.partner}
         image={data.tips.childImageSharp.gatsbyImageData}
         alt="tips"
       />

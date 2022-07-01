@@ -44,26 +44,52 @@
   display: flex;
 }
 
-/* Chatting */
+/* Customers */
 
-.chattingContentContainer {
+.customersContentContainer {
+  padding: 50px 0;
   color: var(--color-black);
-  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.chattingTitle {
+.customersTitle {
   margin: 0;
-  text-align: center;
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
-}
-
-.chattingDescription {
-  margin: 0;
   text-align: center;
   line-height: 1.5;
 }
 
+.customersDesc {
+  font-size: var(--font-size-mobile-normal);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.introVideoBtnInChatting {
+  margin: 0 auto;
+}
+
+.introVideoBtnInChattingPlaySymbol {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.introVideoBtnInChattingArrowSymbol {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.introVideoBtnInChattingLabel {
+  color: var(--color-primary);
+  font-size: var(--font-size-b16);
+  font-weight: bold;
+  line-height: 1.5em;
+}
 
 /* keyFeature */
 
@@ -82,16 +108,6 @@
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
 }
-.keyFeatureTitle strong {
-  color: var(--color-primary);
-}
-
-.keyFeatureDescription {
-  margin: 0;
-  text-align: center;
-  font-size: var(--font-size-mobile-normal);
-  line-height: 1.5;
-}
 
 .keyFeatureCarousel {
   width: 100%;
@@ -100,34 +116,28 @@
   align-items: center;
 }
 
+.keyFeatureSlider {
+  width: 100%;
+}
+
 .keyFeatureSelector {
-  margin: 0 20px;
+  margin: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
   border-radius: 8px;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  outline: 4px solid var(--color-primary-25);
 }
 
 .slideNavButton {
-  width: 36px;
-  height: 36px;
-  padding: 6px;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
   border-radius: 8px;
   background-color: transparent;
 }
-.slideNavButton:disabled {
-  opacity: 0;
-}
-
-.slideNavButton  {
-  width: 36px;
-  height: 36px;
-  padding: 6px;
-  border-radius: 8px;
-  background-color: transparent;
-}
-
 .slideNavButton:disabled {
   opacity: 0;
 }
@@ -154,11 +164,6 @@
   text-align: center;
 }
 
-.keyFeatureSlider {
-  width: 100vw;
-  max-width: 375px;
-}
-
 .keyFeatureDotGroup {
   display: flex;
   justify-content: center;
@@ -179,108 +184,37 @@
   background-color: var(--color-primary);
 }
 
-/* sales management */
+/* StartButtons */
 
-.salesManagementContentContainer {
-  color: var(--color-black);
-  padding: 50px 0px;
+.startButtons {
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.salesManagementTitle {
+.startButtonsDesc {
   margin: 0;
-  padding: 0 20px;
-  text-align: center;
-  max-width: 375px;
-  font-size: var(--font-size-mobile-h2);
-  font-weight: bold;
-}
-.salesManagementTitle strong {
-  color: var(--color-primary);
-}
-
-.salesManagementDesc {
-  margin: 0;
-  padding: 0 20px;
-  text-align: center;
-  max-width: 375px;
+  color: var(--color-gray1);
   font-size: var(--font-size-mobile-normal);
-  line-height: 1.5;
-}
-.salesManagementDesc strong {
-  background-color: var(--color-light-blue-20);
 }
 
-.salesManagementSelectorContainer {
-  width: 100%;
-  padding: 6px 0;
-  padding-left: 50%;
-  overflow-x: hidden;
-  background-color: var(--color-gray5);
-}
-
-.salesManagementSelector {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.salesManagementDot {
-  padding: 14px 20px;
-  border-radius: 8px;
-  font-weight: 500;
-  background-color: transparent;
-  color: var(--color-gray2);
-  flex: 0 0 auto;
-}
-
-.salesManagementDot:disabled {
-  color: var(--color-primary);
-  padding: 14px 20px;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.2);
-  border: solid 1px var(--color-gray4);
-  background-color: white;
-}
-
-.salesManagementSlider {
-  width: 100vw;
-  max-width: 335px;
-  height: 276px;
-}
-
-/* team play */
-
-.teamPlayContainer {
-  overflow: hidden;
-}
-
-.teamPlayContentContainer {
-  padding: 0 20px;
-  color: white;
-}
-
-.teamPlayTitle {
+.startButtonsTitle {
   margin: 0;
-  font-size: var(--font-size-mobile-h2);
+  color: var(--color-black);
+  font-size: var(--font-size-mobile-h1);
+  text-align: center;
   font-weight: bold;
-  text-align: center;
+  line-height: 1.33;
 }
-
-.teamPlayDesc {
-  margin: 0;
-  line-height: 1.5;
-  text-align: center;
-}
-
 
 /* Customers  */
 
-.customersContainer {
+.sectorsContainer {
+  composes: darkBg;
+}
+
+.sectorsContentContainer {
   padding: 50px 20px;
   color: var(--color-black);
 
@@ -290,20 +224,20 @@
   align-items: center;
 }
 
-.customersTitle {
+.sectorsTitle {
   margin: 0;
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
   text-align: center;
 }
 
-.customersDesc {
+.sectorsDesc {
   margin: 0;
   text-align: center;
   line-height: 1.5;
 }
 
-.customersCardContainer {
+.sectorsCardContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -313,19 +247,19 @@
   position: relative;
 }
 
-.customersFadeOut {
+.sectorsFadeOut {
   position: absolute;
   z-index: 1;
   bottom: -6px;
   left: 0;
   pointer-events: none;
   background-image: linear-gradient(to bottom, rgba(255,255,255, 0),
-                  rgba(255,255,255, 1) 90%);
+                  var(--color-gray5) 90%);
   width: 100%;
   height: 150px;
 }
 
-.customerCard {
+.sectorCard {
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -334,15 +268,15 @@
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   border: solid 1px var(--color-gray4);
   margin: 8px 0 0 8px;
+  background-color: white;
 }
 
 /* Features */
 
 .featuresContainer {
-  composes: darkBg;
   padding: 50px 0px;
 
-  color: black;
+  color: var(--color-black);
 
   display: flex;
   flex-direction: column;
@@ -358,46 +292,10 @@
   text-align: center;
 }
 
-.featuresTitle strong {
-  color: var(--color-primary);
-}
-
-.sliderWrapper {
-  width: 280px;
-  height: 204px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;
-}
-
-.slideDetailLink {
-  width: 92px;
-  height: 24px;
-  font-weight: bold;
-  line-height: 1.71;
-  letter-spacing: -0.14px;
-  color: var(--color-primary);
-}
-
-.slideDetailLinkContainer {
-  text-align: center;
-}
-
-.slideDetailLink img {
-  vertical-align: bottom;
-  filter: color(--color-primary);
-}
-
-.rightArrow {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
 .slideDetailDotGroupContainer {
-  width: 100%;
+  width: 100vw;
   position: relative;
-  padding-left: 50%;
+  padding-left: 50vw;
   overflow-x: hidden;
 }
 
@@ -437,84 +335,66 @@
   transition: min-width 0.3s;
 }
 
-/* StartNow */
-
-.startNowContainer {
-  padding: 50px 20px;
-  text-align: center;
-  color: var(--color-black);
-}
-
-.startNowTitle {
-  margin: 0;
-  font-size: var(--font-size-mobile-h2);
-  font-weight: bold;
-  text-align: center;
-}
-
-.startNowDescription {
+.featureSubTitle {
   margin: 0;
   font-size: var(--font-size-mobile-h4);
-  letter-spacing: -0.16px;
-  text-align: center;
-  line-height: 1.5;
+  color: var(--color-light-blue);
 }
 
-.startNowDetailLink {
+.featureSwiperWrapper {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.featureSwiper {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+}
+
+.slideDetailLink {
   font-weight: bold;
-  letter-spacing: -0.16px;
+  line-height: 1.71;
+  letter-spacing: -0.14px;
   color: var(--color-primary);
 }
 
-.startNowDetailLink img {
+.slideDetailLinkContainer {
+  text-align: center;
+}
+
+.slideDetailLink img {
   vertical-align: bottom;
   filter: color(--color-primary);
 }
 
-/* Customers */
-
-.customersSection{
-  background-color: var(--color-gray5);
-  color: var(--color-black);
-}
-
-.customersTitle {
-  margin: 0;
-  font-size: var(--font-size-h4);
-  font-weight: bold;
-}
-
-.customersDesc {
-  font-size: var(--font-size-b16);
-  text-align: center;
-  line-height: 1.5;
-
-  margin: 16px 0 40px;
-}
-
-.customersContentContainer {
-  padding: 50px 0;
-}
-
-.introVideoBtnInChatting {
-  margin: 0 auto;
-}
-
-.introVideoBtnInChattingPlaySymbol {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
-.introVideoBtnInChattingArrowSymbol {
+.rightArrow {
   width: 24px;
   height: 24px;
-  margin-left: 10px;
+  object-fit: contain;
 }
 
-.introVideoBtnInChattingLabel {
-  color: var(--color-primary);
-  font-size: var(--font-size-b16);
-  font-weight: bold;
-  line-height: 1.5em;
+/* Partners */
+
+.partnersContainer {
+  background-color: var(--color-gray1);
+  color: var(--color-partners);
+}
+
+.partnersContentContainer {
+  padding: 40px 30px;
+}
+
+.partnersTitle {
+  margin: 0;
+  font-size: var(--font-size-mobile-h4);
+  line-height: 1.45;
+  font-weight: 500;
+  text-align: center;
+}
+
+.partners {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
