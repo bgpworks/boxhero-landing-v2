@@ -8,15 +8,6 @@
   text-align: center;
 }
 
-.topLeftContainer {
-  --volt-symbol-height: 48px;
-  margin-top: calc(-1 * var(--volt-symbol-height));
-}
-
-.topRightContainer {
-  overflow: visible;
-}
-
 .topDescription {
   color: var(--color-gray1);
   font-size: var(--font-size-h5);
@@ -331,7 +322,7 @@
 }
 
 .slideDetailDot {
-  padding: 7px 23px 9px;
+  padding: 10px 20px;
   border-radius: 21px;
   font-size: 18px;
   font-weight: bold;

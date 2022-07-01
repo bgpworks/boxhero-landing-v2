@@ -17,6 +17,8 @@ import {
   StartNowButton,
   ConsultingButton,
   PhotoWall,
+  OnlyKorean,
+  OnlyEnglish,
 } from "./common";
 import * as constants from "./constants";
 // css
@@ -134,9 +136,39 @@ function genFeatureData(data, t) {
   ];
 }
 
+const RATIO = { W: 16, H: 9 };
+const VIDEO_WIDTH = 990;
+const VIDEO_HEIGHT = VIDEO_WIDTH * (RATIO.H / RATIO.W);
+
+const Youtube = () => {
+  const isBrowser = typeof window !== "undefined";
+
+  return (
+    isBrowser && (
+      <YouTube
+        className={styles.video}
+        videoId={constants.introVideoYoutubeIdKo}
+        opts={{
+          width: VIDEO_WIDTH,
+          height: VIDEO_HEIGHT,
+          playerVars: {
+            origin: window.location.origin,
+            autoplay: 1,
+            controls: 0,
+            playsinline: 1,
+            rel: 0,
+            modestbranding: 1,
+            loop: 1,
+            playlist: constants.introVideoYoutubeIdKo,
+          },
+        }}
+      />
+    )
+  );
+};
+
 const Top = ({ data }) => {
   const { t, language } = useI18next();
-  const isBrowser = typeof window !== "undefined";
 
   return (
     <div className={cn({ [styles.darkBg]: language === "en" })}>
@@ -161,39 +193,17 @@ const Top = ({ data }) => {
           <Padding x={16} />
           <ConsultingButton transparent={false} />
         </div>
-        {language === "ko" ? (
-          <>
-            <Padding y={72} />
-            {isBrowser && (
-              <YouTube
-                className={styles.video}
-                videoId={constants.introVideoYoutubeIdKo}
-                opts={{
-                  width: "990",
-                  height: "556.875",
-                  playerVars: {
-                    origin: window.location.origin,
-                    autoplay: 1,
-                    controls: 1,
-                    playsinline: 1,
-                    rel: 0,
-                    modestbranding: 1,
-                    loop: 1,
-                    playlist: constants.introVideoYoutubeIdKo,
-                  },
-                }}
-              />
-            )}
-          </>
-        ) : (
-          <>
-            <Padding y={24} />
-            <GatsbyImage
-              image={data.main.childImageSharp.gatsbyImageData}
-              alt="BoxHero"
-            />
-          </>
-        )}
+        <OnlyKorean>
+          <Padding y={72} />
+          <Youtube />
+        </OnlyKorean>
+        <OnlyEnglish>
+          <Padding y={24} />
+          <GatsbyImage
+            image={data.main.childImageSharp.gatsbyImageData}
+            alt="BoxHero"
+          />
+        </OnlyEnglish>
       </DesktopBaseContainer>
     </div>
   );
