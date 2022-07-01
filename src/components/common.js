@@ -14,7 +14,6 @@ import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import svgDownload from "../images/download.svg";
-import svgPlay from "../images/icon-play.svg";
 import {
   urlConsultingKo,
   urlConsultingEn,
@@ -201,26 +200,6 @@ export const IntroVideoBtn = ({ className, children }) => {
     >
       {children}
     </button>
-  );
-};
-
-export const FlatIntroVideoBtn = ({ className }) => {
-  const { t } = useI18next();
-
-  return (
-    <IntroVideoBtn
-      type="button"
-      className={className}
-    >
-      <img
-        className={styles.playSymbol}
-        src={svgPlay}
-        alt="Play"
-      />
-      <span className={styles.introVideoLabel}>
-        {t("index:introVideoBtnLabel")}
-      </span>
-    </IntroVideoBtn>
   );
 };
 
