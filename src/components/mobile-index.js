@@ -87,7 +87,7 @@ const Top = ({ data }) => {
           <Trans i18nKey="index:topTitleMobile" />
         </h2>
         <Padding y={40} />
-        <AppInstallButton label={t("usecase:appInstall")} />
+        <AppInstallButton label={t("index:appDownloadButton")} />
         <Padding y={10} />
         <ConsultingButton
           className={styles.consultingButton}
@@ -317,7 +317,7 @@ const KeyFeatures = ({ data }) => {
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature1Title" />}
         keyFeatureData={[
-          { title: t("index:keyFeature1Menu1"), img: data.featureSelectProduct },
+          { title: t("index:keyFeature1Menu1"), img: data.featureDevices },
           { title: t("index:keyFeature1Menu2"), img: data.featureHistory },
           { title: t("index:keyFeature1Menu3"), img: data.featureSettingRole },
         ]}
@@ -367,7 +367,7 @@ const StartButtons = () => {
       </h2>
       <Padding y={40} />
       <div className={styles.buttons}>
-        <AppInstallButton label={t("usecase:appInstall")} />
+        <AppInstallButton label={t("index:appDownloadButton")} />
         <Padding y={10} />
         <ConsultingButton
           className={styles.consultingButton}

@@ -125,6 +125,12 @@
   color: white;
 }
 
+.usecaseAppDownloadButton {
+  width: 243px;
+  height: 44px;
+  background-color: black;
+}
+
 .appDownloadIcon {
   width: 24px;
   height: 24px;

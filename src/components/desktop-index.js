@@ -44,7 +44,7 @@ import iconSwipeRight from "../images/swiperight.svg";
 function genKeyFeaturesData(data, t) {
   return [
     [
-      { icon: iconMobileScan, title: t("index:keyFeature1Menu1"), img: data.featureSelectProduct.childImageSharp.gatsbyImageData },
+      { icon: iconMobileScan, title: t("index:keyFeature1Menu1"), img: data.featureDevices.childImageSharp.gatsbyImageData },
       { icon: iconSummary, title: t("index:keyFeature1Menu2"), img: data.featureHistory.childImageSharp.gatsbyImageData },
       { icon: iconMemberRole, title: t("index:keyFeature1Menu3"), img: data.featureSettingRole.childImageSharp.gatsbyImageData },
     ],

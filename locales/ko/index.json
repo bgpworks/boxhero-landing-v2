@@ -1,4 +1,5 @@
 {
+  "appDownloadButton": "한달 무료 체험하기",
   "consultingButton": "무료 컨설팅 신청하기",
   "customerMore": "more...",
   "customerSectionDesc": "50개국에서 15만 유저가 사용하고 있어요.",
@@ -42,7 +43,7 @@
   "customerTypeWarehouse": "물류창고",
   "featureAnalysis": "재고 분석",
   "featureDescAnalysis": "회전율 자동계산!",
-  "featureDescLocationManagement": "여러 위치에서!",
+  "featureDescLocationManagement": "여러 위치에 나누어 관리 가능!",
   "featureDescSettingRole": "필요한 만큼만 권한 부여!",
   "featureDescTransactionStats": "품목별, 기간별, 거래처별!",
   "featureDescViewPastQuantity": "히스토리는 정확하게!",
@@ -55,7 +56,7 @@
   "featuresNavNext": "다음",
   "featuresTitle": "이 뿐만이 아니에요.<br/>박스히어로는 꼭 필요한 엣지 기능이 있어요.",
   "featuresTitleMobile": "이 뿐만이 아니에요.<br/>박스히어로는 꼭 필요한<br/>엣지 기능이 있어요.",
-  "keyFeature1Menu1": "핸드폰으로, PC로 간편한 입출고",
+  "keyFeature1Menu1": "모든 디바이스에서 간편한 입출고",
   "keyFeature1Menu2": "재고 현황 조회는 언제, 어디서나",
   "keyFeature1Menu3": "팀원별 권한 세팅으로 효율적인 팀플레이",
   "keyFeature1Title": "모든 업무는 핸드폰으로<br/>정보는 실시간으로",

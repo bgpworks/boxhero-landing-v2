@@ -53,9 +53,9 @@ export const query = graphql`
         )
       }
     }
-    featureSelectProduct: file(
+    featureDevices: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-select-product.png" }
+      base: { eq: "feature-devices.png" }
     ) {
       childImageSharp {
         gatsbyImageData(

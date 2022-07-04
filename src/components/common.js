@@ -237,7 +237,22 @@ export const MobileUseCaseTop = ({
       <Padding y={16} />
       <p className={styles.mobileUseCaseTopDesc}>{description}</p>
       <Padding y={40} />
-      <AppInstallButton label={appDownload} />
+      <AppDownloadLink>
+        <button
+          type="button"
+          className={cn(
+            styles.appDownloadButton,
+            styles.usecaseAppDownloadButton,
+          )}
+        >
+          <img
+            className={styles.appDownloadIcon}
+            src={svgDownload}
+            alt={appDownload}
+          />
+          {appDownload}
+        </button>
+      </AppDownloadLink>
       <Padding y={40} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}
