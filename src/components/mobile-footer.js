@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import * as constants from "./constants";
 import {
   Padding, SupportEmail, AppInstallButton,
 } from "./common";
@@ -70,7 +69,7 @@ const FooterMenu = ({ title, children }) => (
   </div>
 );
 
-const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
+const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
   <article>
     <FooterMenu title={t("footer:footerMenuService")}>
       <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
@@ -145,13 +144,6 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
         {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </span>
-      {language === "ko" && (
-        <span>
-          {t("footer:footerMenuContactKakao")}
-          {" "}
-          <a href={constants.urlKakaoTalk}>@박스히어로</a>
-        </span>
-      )}
     </FooterMenu>
   </article>
 );
@@ -196,11 +188,10 @@ const CompanyInfo = ({ t }) => (
   </article>
 );
 
-const MobileFooterMenusAndInfo = ({ t, language, onChangeIsShowLangPopup }) => (
+const MobileFooterMenusAndInfo = ({ t, onChangeIsShowLangPopup }) => (
   <section className={styles.footerMenusAndInfoContainer}>
     <MobileFooterMenus
       t={t}
-      language={language}
       onChangeIsShowLangPopup={onChangeIsShowLangPopup}
     />
     <Padding y={50} />
@@ -213,7 +204,7 @@ const MobileFooter = ({
   showPlatforms,
   showStartNow,
 }) => {
-  const { t, language } = useI18next();
+  const { t } = useI18next();
   return (
     <footer>
       {showPlatforms && <Platforms t={t} />}
@@ -224,7 +215,6 @@ const MobileFooter = ({
       )}
       <MobileFooterMenusAndInfo
         t={t}
-        language={language}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
     </footer>

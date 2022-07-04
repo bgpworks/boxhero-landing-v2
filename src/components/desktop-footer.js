@@ -102,7 +102,7 @@ const Platforms = ({ t }) => (
   </div>
 );
 
-const DesktopFooterMenus = ({ t, language }) => (
+const DesktopFooterMenus = ({ t }) => (
   <div className={styles.footerMenusContainer}>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>{t("footer:footerMenuService")}</div>
@@ -197,13 +197,6 @@ const DesktopFooterMenus = ({ t, language }) => (
           {" "}
           <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
         </div>
-        {language === "ko" && (
-          <div>
-            {t("footer:footerMenuContactKakao")}
-            {" "}
-            <a href={constants.urlKakaoTalk}>@박스히어로</a>
-          </div>
-        )}
       </div>
     </div>
   </div>
@@ -240,13 +233,10 @@ const CompanyInfo = ({ t }) => (
   </div>
 );
 
-const DesktopFooterMenusAndInfo = ({ t, language }) => (
+const DesktopFooterMenusAndInfo = ({ t }) => (
   <div className={styles.footerMenusAndInfoContainer}>
     <DesktopBaseContainer className={styles.px10}>
-      <DesktopFooterMenus
-        t={t}
-        language={language}
-      />
+      <DesktopFooterMenus t={t} />
       <Padding y={72} />
       <CompanyInfo t={t} />
     </DesktopBaseContainer>
@@ -254,14 +244,11 @@ const DesktopFooterMenusAndInfo = ({ t, language }) => (
 );
 
 const DesktopFooter = ({ showPlatforms }) => {
-  const { t, language } = useI18next();
+  const { t } = useI18next();
   return (
     <div>
       {showPlatforms && <Platforms t={t} />}
-      <DesktopFooterMenusAndInfo
-        t={t}
-        language={language}
-      />
+      <DesktopFooterMenusAndInfo t={t} />
     </div>
   );
 };
