@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
 import cn from "classnames";
-import { YoutubePopupContext } from "./YoutubePopup";
 import * as styles from "./common.module.css";
 import svgConsulting from "../images/icon-consulting.svg";
 import svgConsultingDark from "../images/icon-consulting-dark.svg";
@@ -22,7 +21,6 @@ import {
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
-  introVideoYoutubeIdKo,
 } from "./constants";
 
 export const DesktopBaseContainer = ({ className, children }) => (
@@ -171,37 +169,6 @@ export const AppInstallButton = ({ label }) => (
     </button>
   </AppDownloadLink>
 );
-
-export const IntroVideoBtn = ({ className, children }) => {
-  const { openYoutube } = useContext(YoutubePopupContext);
-
-  return (
-    <button
-      type="button"
-      className={cn(styles.introVideoBtn, className)}
-      onClick={() => {
-        openYoutube(
-          introVideoYoutubeIdKo,
-          {
-            playerVars: {
-              origin: window.location.origin,
-              autoplay: 1,
-              controls: 1,
-              playsinline: 1,
-              rel: 0,
-              modestbranding: 1,
-              loop: 1,
-              playlist: introVideoYoutubeIdKo,
-            },
-          },
-          "16:9",
-        );
-      }}
-    >
-      {children}
-    </button>
-  );
-};
 
 export const UseCaseTop = ({
   className, title, description, startNow, img,
