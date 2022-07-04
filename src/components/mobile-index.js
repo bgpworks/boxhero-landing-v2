@@ -366,14 +366,12 @@ const StartButtons = () => {
         <Trans i18nKey="index:startButtonsTitleMobile" />
       </h2>
       <Padding y={40} />
-      <div className={styles.buttons}>
-        <AppInstallButton label={t("index:appDownloadButton")} />
-        <Padding y={10} />
-        <ConsultingButton
-          className={styles.consultingButton}
-          transparent={false}
-        />
-      </div>
+      <AppInstallButton label={t("index:appDownloadButton")} />
+      <Padding y={10} />
+      <ConsultingButton
+        className={styles.consultingButton}
+        transparent={false}
+      />
     </MobileBaseContainer>
   );
 };
