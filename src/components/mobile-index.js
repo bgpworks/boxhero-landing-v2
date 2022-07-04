@@ -175,53 +175,55 @@ const KeyFeatureSelector = ({ keyFeatureData, activeIndex }) => {
   const isLastIndex = activeIndex === keyFeatureData.length - 1;
 
   return (
-    <div className={styles.keyFeatureSelector}>
-      <button
-        type="button"
-        className={styles.slideNavButton}
-        disabled={isFirstIndex}
-        onClick={() => swiper.slidePrev()}
-      >
-        <img
-          src={svgLeftArrow}
-          alt={t("index:featuresNavBack")}
-        />
-      </button>
-
-      <div
-        className={styles.keyFeatureDisplaySlide}
-        style={{ width: SLIDE_TITLE_WIDTH }}
-      >
-        <ul
-          className={styles.keyFeatureSlideTitleContainer}
-          style={{
-            width: SLIDE_TITLE_WIDTH * keyFeatureData.length,
-            transform: genLeftOffsetTransform(additionalOffset),
-          }}
+    <div className={styles.keyFeatureSelectorWrapper}>
+      <div className={styles.keyFeatureSelector}>
+        <button
+          type="button"
+          className={styles.slideNavButton}
+          disabled={isFirstIndex}
+          onClick={() => swiper.slidePrev()}
         >
-          {keyFeatureData.map(({ title }, index) => (
-            <li
-              key={index}
-              className={styles.keyFeatureSlideTitle}
-              style={{ width: SLIDE_TITLE_WIDTH }}
-            >
-              {title}
-            </li>
-          ))}
-        </ul>
-      </div>
+          <img
+            src={svgLeftArrow}
+            alt={t("index:featuresNavBack")}
+          />
+        </button>
 
-      <button
-        type="button"
-        className={styles.slideNavButton}
-        disabled={isLastIndex}
-        onClick={() => swiper.slideNext()}
-      >
-        <img
-          src={svgRightArrow}
-          alt={t("index:featuresNavNext")}
-        />
-      </button>
+        <div
+          className={styles.keyFeatureDisplaySlide}
+          style={{ width: SLIDE_TITLE_WIDTH }}
+        >
+          <ul
+            className={styles.keyFeatureSlideTitleContainer}
+            style={{
+              width: SLIDE_TITLE_WIDTH * keyFeatureData.length,
+              transform: genLeftOffsetTransform(additionalOffset),
+            }}
+          >
+            {keyFeatureData.map(({ title }, index) => (
+              <li
+                key={index}
+                className={styles.keyFeatureSlideTitle}
+                style={{ width: SLIDE_TITLE_WIDTH }}
+              >
+                {title}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <button
+          type="button"
+          className={styles.slideNavButton}
+          disabled={isLastIndex}
+          onClick={() => swiper.slideNext()}
+        >
+          <img
+            src={svgRightArrow}
+            alt={t("index:featuresNavNext")}
+          />
+        </button>
+      </div>
     </div>
   );
 };
