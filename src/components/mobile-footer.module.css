@@ -14,6 +14,7 @@
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
   text-align: center;
+  line-height: 1.5;
 }
 
 .platformsDesc {
@@ -34,7 +35,7 @@
 .startNowContainer {
   composes: verticalCenter;
 
-  padding: 50px 20px;
+  padding: 40px 20px;
   background-color: var(--color-black);
 }
 
