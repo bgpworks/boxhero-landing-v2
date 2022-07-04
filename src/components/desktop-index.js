@@ -188,7 +188,7 @@ const Top = ({ data }) => {
               src={iconVolt}
               alt={t("index:topIconAlt")}
             />
-            {t("index:topStartNowButton")}
+            {t("index:appDownloadButton")}
           </StartNowButton>
           <Padding x={16} />
           <ConsultingButton transparent={false} />
@@ -377,7 +377,7 @@ const StartButtons = () => {
             src={iconVolt}
             alt={t("index:topIconAlt")}
           />
-          {t("index:topStartNowButton")}
+          {t("index:appDownloadButton")}
         </StartNowButton>
         <Padding x={16} />
         <ConsultingButton transparent={false} />

@@ -13,6 +13,7 @@ import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import svgDownload from "../images/download.svg";
+import iconVolt from "../images/volt.svg";
 import {
   urlConsultingKo,
   urlConsultingEn,
@@ -162,7 +163,7 @@ export const AppInstallButton = ({ label }) => (
     >
       <img
         className={styles.appDownloadIcon}
-        src={svgDownload}
+        src={iconVolt}
         alt={label}
       />
       {label}
