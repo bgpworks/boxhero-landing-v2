@@ -76,12 +76,13 @@
 }
 
 .keyFeatureContentContainer {
-  padding: 50px 20px;
+  padding: 50px 16px;
   color: var(--color-black);
 }
 
 .keyFeatureTitle {
   margin: 0;
+  padding: 0 4px;
   text-align: center;
   font-size: var(--font-size-mobile-h2);
   font-weight: bold;
@@ -104,6 +105,7 @@
 }
 
 .keyFeatureSelector {
+  padding: 0 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
