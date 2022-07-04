@@ -54,8 +54,8 @@ function genKeyFeaturesData(data, t) {
       { icon: iconTransaction, title: t("index:keyFeature2Menu3"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: iconScanning, title: t("index:keyFeature3Menu1"), img: data.featureScanBarcode.childImageSharp.gatsbyImageData },
-      { icon: iconAddItem, title: t("index:keyFeature3Menu2"), img: data.featurePrintLabel.childImageSharp.gatsbyImageData },
+      { icon: iconScanning, title: <Trans i18nKey="index:keyFeature3Menu1" />, img: data.featureScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: iconAddItem, title: <Trans i18nKey="index:keyFeature3Menu2" />, img: data.featurePrintLabel.childImageSharp.gatsbyImageData },
       { icon: iconSync, title: t("index:keyFeature3Menu3"), img: data.featureOutDetail.childImageSharp.gatsbyImageData },
     ],
     [
@@ -289,7 +289,9 @@ const KeyFeature = ({
         >
           <div slot={isReverse ? "container-end" : "container-start"}>
             <div className={styles.KeyFeatureDescriptionContainer}>
-              <div className={styles.keyFeatureTitle}>{title}</div>
+              <div className={styles.keyFeatureTitle}>
+                {title}
+              </div>
               <Padding y={60} />
               <div className={styles.keyFeatureMenuContainer}>
                 {carouselData.map((data, index) => {

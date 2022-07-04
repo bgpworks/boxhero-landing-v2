@@ -128,7 +128,7 @@ const Customers = ({ data }) => {
   return (
     <MobileBaseContainer className={styles.customersContentContainer}>
       <h2 className={styles.customersTitle}>
-        <Trans i18nKey="index:customerSectionTitle" />
+        <Trans i18nKey="index:customerSectionTitleMobile" />
       </h2>
       <Padding y={16} />
       <p className={styles.customersDesc}>
@@ -317,9 +317,9 @@ const KeyFeatures = ({ data }) => {
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature1Title" />}
         keyFeatureData={[
-          { title: t("index:keyFeature1Menu1"), img: data.featureDevices },
+          { title: <Trans i18nKey="index:keyFeature1Menu1Mobile" />, img: data.featureDevices },
           { title: t("index:keyFeature1Menu2"), img: data.featureHistory },
-          { title: t("index:keyFeature1Menu3"), img: data.featureSettingRole },
+          { title: <Trans i18nKey="index:keyFeature1Menu3Mobile" />, img: data.featureSettingRole },
         ]}
       />
 
@@ -327,16 +327,16 @@ const KeyFeatures = ({ data }) => {
         title={<Trans i18nKey="index:keyFeature2Title" />}
         keyFeatureData={[
           { title: t("index:keyFeature2Menu1"), img: data.featureMove },
-          { title: t("index:keyFeature2Menu2"), img: data.featureOut },
-          { title: t("index:keyFeature2Menu3"), img: data.featureTransaction },
+          { title: <Trans i18nKey="index:keyFeature2Menu2Mobile" />, img: data.featureOut },
+          { title: <Trans i18nKey="index:keyFeature2Menu3Mobile" />, img: data.featureTransaction },
         ]}
       />
 
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature3Title" />}
         keyFeatureData={[
-          { title: t("index:keyFeature3Menu1"), img: data.featureScanBarcode },
-          { title: t("index:keyFeature3Menu2"), img: data.featurePrintLabel },
+          { title: <Trans i18nKey="index:keyFeature3Menu1Mobile" />, img: data.featureScanBarcode },
+          { title: t("index:keyFeature3Menu2Mobile"), img: data.featurePrintLabel },
           { title: t("index:keyFeature3Menu3"), img: data.featureOutDetail },
         ]}
       />
@@ -344,9 +344,9 @@ const KeyFeatures = ({ data }) => {
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature4Title" />}
         keyFeatureData={[
-          { title: t("index:keyFeature4Menu1"), img: data.featureAllInOne },
+          { title: <Trans i18nKey="index:keyFeature4Menu1Mobile" />, img: data.featureAllInOne },
           { title: t("index:keyFeature4Menu2"), img: data.featureQuantity },
-          { title: t("index:keyFeature4Menu3"), img: data.featureIntegration },
+          { title: <Trans i18nKey="index:keyFeature4Menu3Mobile" />, img: data.featureIntegration },
         ]}
       />
     </>
