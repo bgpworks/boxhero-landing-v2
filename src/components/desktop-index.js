@@ -7,6 +7,7 @@ import React, { useRef, useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useI18next, Link, Trans } from "gatsby-plugin-react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
+import YouTube from "react-youtube";
 import cn from "classnames";
 // js
 import DesktopLayout from "./desktop-layout";
@@ -14,125 +15,54 @@ import {
   DesktopBaseContainer,
   Padding,
   StartNowButton,
-  GradientBG,
-  SpeechBubbleContainer,
   ConsultingButton,
   PhotoWall,
   OnlyKorean,
-  FlatIntroVideoBtn,
-  IntroVideoBtn,
+  OnlyEnglish,
 } from "./common";
 import * as constants from "./constants";
 // css
 import "swiper/css";
 import * as styles from "./desktop-index.module.css";
 // img
-import svgVolt from "../images/volt.svg";
-import svgCategory from "../images/icon-category.svg";
-import svgScanning from "../images/icon-scanning.svg";
-import svgImage from "../images/icon-image.svg";
-import svgExcel from "../images/icon-excel.svg";
-import svgFinger from "../images/icon-finger.svg";
-import svgMobileScan from "../images/icon-mobile-scan.svg";
-import svgHistory from "../images/icon-history.svg";
-import svgConnectExcel from "../images/icon-connect-excel.svg";
-import svgGraph from "../images/icon-graph.svg";
-import svgList from "../images/icon-list.svg";
-import svgSummary from "../images/icon-summary.svg";
-import svgDashboard from "../images/icon-dashboard.svg";
-import svgSmallRightBlue from "../images/smallright-blue.svg";
-import svgSwipeLeft from "../images/swipeleft.svg";
-import svgSwipeRight from "../images/swiperight.svg";
-import svgPlayPrimary from "../images/icon-play-primary.svg";
-import svgRightArrow from "../images/icon-mobile-right-arrow.svg";
-
-const CHATTING_COLOR_SEQUENCE = [
-  { text: "#292a2f", background: "#fbc200" },
-  { text: "white", background: "#50a4fa" },
-  { text: "#292a2f", background: "#e0e0e3" },
-  { text: "white", background: "rgba(79, 103, 255, 0.9)" },
-  { text: "white", background: "rgba(60, 185, 160, 0.8)" },
-  { text: "white", background: "rgba(126, 187, 64, 0.6)" },
-  { text: "white", background: "rgba(251, 97, 100, 0.6)" },
-];
-
-const CHATTING_GRID_COLUMN_COUNT_BY_LANGUAGE = {
-  ko: 6,
-  en: 8,
-  es: 7,
-  id: 7,
-};
-
-const MARGIN_BIG = 102;
-const MARGIN_SMALL = 72;
-
-const genBubblesMap = (t) => ({
-  ko: [
-    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3") },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
-  ],
-  en: [
-    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3") },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
-  ],
-  es: [
-    { text: t("index:chattingBubble1"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3") },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6") },
-    { text: t("index:chattingBubble7") },
-  ],
-  id: [
-    { text: t("index:chattingBubble1") },
-    { text: t("index:chattingBubble2") },
-    { text: t("index:chattingBubble3"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble4"), marginRight: MARGIN_BIG },
-    { text: t("index:chattingBubble5"), marginLeft: MARGIN_BIG },
-    { text: t("index:chattingBubble6"), marginRight: MARGIN_SMALL },
-    { text: t("index:chattingBubble7"), marginLeft: MARGIN_SMALL },
-  ],
-});
+import iconVolt from "../images/volt.svg";
+import iconMobileScan from "../images/icon-mobile-scan.svg";
+import iconSummary from "../images/icon-summary.svg";
+import iconMemberRole from "../images/icon-member-role.svg";
+import iconMove from "../images/icon-move.svg";
+import iconInOut from "../images/icon-inout.svg";
+import iconTransaction from "../images/icon-transaction.svg";
+import iconScanning from "../images/icon-scanning.svg";
+import iconAddItem from "../images/feature-additem.svg";
+import iconSync from "../images/icon-sync.svg";
+import iconEye from "../images/icon-viewer.svg";
+import iconLink from "../images/icon-link.svg";
+import iconSmallRightBlue from "../images/smallright-blue.svg";
+import iconSwipeLeft from "../images/swipeleft.svg";
+import iconSwipeRight from "../images/swiperight.svg";
 
 function genKeyFeaturesData(data, t) {
   return [
     [
-      { icon: svgCategory, title: t("index:keyFeature1Menu1"), img: data.feature1CustomProducts.childImageSharp.gatsbyImageData },
-      { icon: svgScanning, title: t("index:keyFeature1Menu2"), img: data.feature1PrintLabel.childImageSharp.gatsbyImageData },
-      { icon: svgImage, title: t("index:keyFeature1Menu3"), img: data.feature1ProductList.childImageSharp.gatsbyImageData },
-      { icon: svgExcel, title: t("index:keyFeature1Menu4"), img: data.feature1ImportExcel.childImageSharp.gatsbyImageData },
+      { icon: iconMobileScan, title: t("index:keyFeature1Menu1"), img: data.featureDevices.childImageSharp.gatsbyImageData },
+      { icon: iconSummary, title: t("index:keyFeature1Menu2"), img: data.featureHistory.childImageSharp.gatsbyImageData },
+      { icon: iconMemberRole, title: t("index:keyFeature1Menu3"), img: data.featureSettingRole.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgFinger, title: t("index:keyFeature2Menu1"), img: data.feature2SelectProduct.childImageSharp.gatsbyImageData },
-      { icon: svgMobileScan, title: t("index:keyFeature2Menu2"), img: data.feature2ScanBarcode.childImageSharp.gatsbyImageData },
-      { icon: svgHistory, title: t("index:keyFeature2Menu3"), img: data.feature2History.childImageSharp.gatsbyImageData },
-      { icon: svgConnectExcel, title: t("index:keyFeature2Menu4"), img: data.feature2ConnectExcel.childImageSharp.gatsbyImageData },
+      { icon: iconMove, title: t("index:keyFeature2Menu1"), img: data.featureMove.childImageSharp.gatsbyImageData },
+      { icon: iconInOut, title: t("index:keyFeature2Menu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
+      { icon: iconTransaction, title: t("index:keyFeature2Menu3"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
     ],
     [
-      { icon: svgGraph, title: t("index:keyFeature3Menu1"), img: data.feature3Analysis.childImageSharp.gatsbyImageData },
-      { icon: svgList, title: t("index:keyFeature3Menu2"), img: data.feature3GroupList.childImageSharp.gatsbyImageData },
-      { icon: svgSummary, title: t("index:keyFeature3Menu3"), img: data.feature3EmailReport.childImageSharp.gatsbyImageData },
-      { icon: svgDashboard, title: t("index:keyFeature3Menu4"), img: data.feature3Dashboard.childImageSharp.gatsbyImageData },
+      { icon: iconScanning, title: <Trans i18nKey="index:keyFeature3Menu1" />, img: data.featureScanBarcode.childImageSharp.gatsbyImageData },
+      { icon: iconAddItem, title: <Trans i18nKey="index:keyFeature3Menu2" />, img: data.featurePrintLabel.childImageSharp.gatsbyImageData },
+      { icon: iconSync, title: t("index:keyFeature3Menu3"), img: data.featureOutDetail.childImageSharp.gatsbyImageData },
     ],
-  ];
-}
-
-function genSalesManagementData(data, t) {
-  return [
-    { title: t("index:salesManagementMenu1"), img: data.featureTransaction.childImageSharp.gatsbyImageData },
-    { title: t("index:salesManagementMenu2"), img: data.featureOut.childImageSharp.gatsbyImageData },
-    { title: t("index:salesManagementMenu3"), img: data.featureSalesAnalysis.childImageSharp.gatsbyImageData },
+    [
+      { icon: iconEye, title: t("index:keyFeature4Menu1"), img: data.featureAllInOne.childImageSharp.gatsbyImageData },
+      { icon: iconVolt, title: t("index:keyFeature4Menu2"), img: data.featureQuantity.childImageSharp.gatsbyImageData },
+      { icon: iconLink, title: t("index:keyFeature4Menu3"), img: data.featureIntegration.childImageSharp.gatsbyImageData },
+    ],
   ];
 }
 
@@ -179,127 +109,140 @@ function genCustomerData(data) {
 function genFeatureData(data, t) {
   return [
     {
-      title: t("index:featureSafetyStock"),
-      link: `/features/#${constants.idFeatureLowstock}`,
-      img: data.featureLowstock.childImageSharp.gatsbyImageData,
-    },
-    {
-      title: t("index:featurePrintLabel"),
-      link: `/features/#${constants.idFeatureBarcodelabel}`,
-      img: data.featureBarcodeLabel.childImageSharp.gatsbyImageData,
+      title: t("index:featureLocationManagement"),
+      subTitle: t("index:featureDescLocationManagement"),
+      img: data.featureLocation.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featureTransactionStats"),
-      link: `/features/#${constants.idFeatureSummary}`,
+      subTitle: t("index:featureDescTransactionStats"),
       img: data.featureSummary.childImageSharp.gatsbyImageData,
     },
     {
       title: t("index:featureViewPastQuantity"),
-      link: `/features/#${constants.idFeatureViewPastQuantity}`,
+      subTitle: t("index:featureDescViewPastQuantity"),
       img: data.featureViewPastQuantity.childImageSharp.gatsbyImageData,
     },
     {
-      title: t("index:featureLocationManagement"),
-      link: `/features/#${constants.idFeatureLocation}`,
-      img: data.featureLocation.childImageSharp.gatsbyImageData,
+      title: t("index:featureSettingRole"),
+      subTitle: t("index:featureDescSettingRole"),
+      img: data.featureSettingMembers.childImageSharp.gatsbyImageData,
+    },
+    {
+      title: t("index:featureAnalysis"),
+      subTitle: t("index:featureDescAnalysis"),
+      img: data.featureAnalysis.childImageSharp.gatsbyImageData,
     },
   ];
 }
 
-const TopLeftContainer = ({ t }) => (
-  <div>
-    <div className={styles.topLeftTitle}>
-      <Trans i18nKey="index:topTitle" />
-    </div>
-    <Padding y={30} />
-    <div className={styles.topLeftDescription}>
-      <Trans i18nKey="index:topDesc" />
-    </div>
-    <Padding y={30} />
-    <StartNowButton className={styles.startNowButton}>
-      <img
-        className={styles.topButtonIcon}
-        src={svgVolt}
-        alt={t("index:topIconAlt")}
-      />
-      {t("index:topStartNowButton")}
-    </StartNowButton>
-    <Padding y={12} />
-    <ConsultingButton transparent={false} />
-    <OnlyKorean>
-      <Padding y={22} />
-      <FlatIntroVideoBtn className={styles.introVideoBtn} />
-    </OnlyKorean>
-  </div>
-);
+const RATIO = { W: 16, H: 9 };
+const VIDEO_WIDTH = 990;
+const VIDEO_HEIGHT = VIDEO_WIDTH * (RATIO.H / RATIO.W);
 
-const Top = ({ data, t }) => (
-  <GradientBG
-    className={styles.topContainer}
-    colorSet={["#8122ff", "#854afe", "#4260ef", "#00b0f8"]}
-    backgroundColor="#4260ef"
-  >
-    <DesktopBaseContainer className={styles.topContentContainer}>
-      <TopLeftContainer t={t} />
-
-      <div className={styles.topRightContainer}>
-        <GatsbyImage
-          image={data.homeTopRight.childImageSharp.gatsbyImageData}
-          alt={t("index:topIconAlt")}
-        />
-      </div>
-    </DesktopBaseContainer>
-  </GradientBG>
-);
-
-const IntroVideoBtnInChatting = () => {
-  const { t } = useI18next();
+const Youtube = () => {
+  const isBrowser = typeof window !== "undefined";
 
   return (
-    <IntroVideoBtn className={styles.introVideoBtnInChatting}>
-      <img
-        className={styles.introVideoBtnInChattingPlaySymbol}
-        src={svgPlayPrimary}
-        alt="Play"
+    isBrowser && (
+      <YouTube
+        className={styles.video}
+        videoId={constants.introVideoYoutubeIdKo}
+        opts={{
+          width: VIDEO_WIDTH,
+          height: VIDEO_HEIGHT,
+          playerVars: {
+            origin: window.location.origin,
+            autoplay: 1,
+            controls: 0,
+            playsinline: 1,
+            rel: 0,
+            modestbranding: 1,
+            loop: 1,
+            playlist: constants.introVideoYoutubeIdKo,
+          },
+        }}
       />
-      <span className={styles.introVideoBtnInChattingLabel}>
-        {t("index:chattingIntroVideoBtnLabel")}
-      </span>
-      <img
-        className={styles.introVideoBtnInChattingArrowSymbol}
-        src={svgRightArrow}
-        alt="icon arrow"
-      />
-    </IntroVideoBtn>
+    )
   );
 };
 
-const Chatting = ({ t, language }) => {
-  const speechBubblesByLanguageMap = genBubblesMap(t);
+const Top = ({ data }) => {
+  const { t, language } = useI18next();
 
   return (
-    <div className={styles.chattingContainer}>
-      <DesktopBaseContainer className={styles.chattingContentContainer}>
-        <SpeechBubbleContainer
-          containerGridColumns={CHATTING_GRID_COLUMN_COUNT_BY_LANGUAGE[language]}
-          speechBubbles={speechBubblesByLanguageMap[language]}
-          colorSequence={CHATTING_COLOR_SEQUENCE}
-        />
-
-        <Padding y={51} />
-        <div className={styles.chattingTitle}>
-          <Trans i18nKey="index:chattingTitle" />
+    <div className={cn({ [styles.darkBg]: language === "en" })}>
+      <DesktopBaseContainer className={styles.topContentContainer}>
+        <div className={styles.topDescription}>
+          <Trans i18nKey="index:topDesc" />
         </div>
-        <Padding y={16} />
-        <div className={styles.chattingDescription}>
-          <Trans i18nKey="index:chattingDescription" />
+        <Padding y={12} />
+        <div className={styles.topTitle}>
+          <Trans i18nKey="index:topTitle" />
+        </div>
+        <Padding y={48} />
+        <div className={styles.buttons}>
+          <StartNowButton className={styles.startNowButton}>
+            <img
+              className={styles.topButtonIcon}
+              src={iconVolt}
+              alt={t("index:topIconAlt")}
+            />
+            {t("index:appDownloadButton")}
+          </StartNowButton>
+          <Padding x={16} />
+          <ConsultingButton transparent={false} />
         </div>
         <OnlyKorean>
-          <Padding y={30} />
-          <IntroVideoBtnInChatting />
+          <Padding y={72} />
+          <Youtube />
         </OnlyKorean>
+        <OnlyEnglish>
+          <Padding y={24} />
+          <GatsbyImage
+            className={styles.mainImage}
+            image={data.main.childImageSharp.gatsbyImageData}
+            alt="BoxHero"
+          />
+        </OnlyEnglish>
       </DesktopBaseContainer>
     </div>
+  );
+};
+
+const Customer = ({ data }) => {
+  const { name, childImageSharp } = data;
+
+  return (
+    <GatsbyImage
+      image={childImageSharp.gatsbyImageData}
+      alt={name}
+    />
+  );
+};
+
+const Customers = ({ data }) => {
+  const { language, t } = useI18next();
+  const columnCount = language === "ko" ? 6 : 5;
+  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
+
+  return (
+    <DesktopBaseContainer className={styles.customersContentContainer}>
+      <h2 className={styles.customersTitle}>
+        <Trans i18nKey="index:customerSectionTitle" />
+      </h2>
+      <Padding y={30} />
+      <p className={styles.customersDesc}>
+        {t("index:customerSectionDesc")}
+      </p>
+      <Padding y={94} />
+      <PhotoWall
+        items={customerList}
+        columnCount={columnCount}
+        gap={30}
+        ItemRenderer={Customer}
+      />
+    </DesktopBaseContainer>
   );
 };
 
@@ -323,7 +266,7 @@ const KeyFeatureButton = ({
 );
 
 const KeyFeature = ({
-  title, description, carouselData, direction,
+  title, carouselData, direction,
 }) => {
   const swiperRef = useRef(null);
   const setSwiperRef = (swiper) => {
@@ -346,10 +289,10 @@ const KeyFeature = ({
         >
           <div slot={isReverse ? "container-end" : "container-start"}>
             <div className={styles.KeyFeatureDescriptionContainer}>
-              <div className={styles.keyFeatureTitle}>{title}</div>
-              <Padding y={16} />
-              <div className={styles.KeyFeatureDescription}>{description}</div>
-              <Padding y={40} />
+              <div className={styles.keyFeatureTitle}>
+                {title}
+              </div>
+              <Padding y={60} />
               <div className={styles.keyFeatureMenuContainer}>
                 {carouselData.map((data, index) => {
                   const isActive = activeIndex === index;
@@ -387,122 +330,66 @@ const KeyFeature = ({
   );
 };
 
-const KeyFeatures = ({ data, t }) => {
+const KeyFeatures = ({ data }) => {
+  const { t } = useI18next();
   const keyFeaturesData = genKeyFeaturesData(data, t);
 
   return (
     <>
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature1Title" />}
-        description={<Trans i18nKey="index:keyFeature1Desc" />}
         carouselData={keyFeaturesData[0]}
       />
 
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature2Title" />}
-        description={<Trans i18nKey="index:keyFeature2Desc" />}
         carouselData={keyFeaturesData[1]}
         direction="reverse"
       />
 
       <KeyFeature
         title={<Trans i18nKey="index:keyFeature3Title" />}
-        description={<Trans i18nKey="index:keyFeature3Desc" />}
         carouselData={keyFeaturesData[2]}
+      />
+
+      <KeyFeature
+        title={<Trans i18nKey="index:keyFeature4Title" />}
+        carouselData={keyFeaturesData[3]}
+        direction="reverse"
       />
     </>
   );
 };
 
-const SalesManagement = ({ data, t }) => {
-  const salesManagementData = genSalesManagementData(data, t);
-
-  const swiperRef = useRef(null);
-  const setSwiperRef = (swiper) => {
-    swiperRef.current = swiper;
-  };
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const slideTo = (index) => swiperRef.current.slideTo(index);
+const StartButtons = () => {
+  const { t } = useI18next();
 
   return (
-    <DesktopBaseContainer>
-      <div className={styles.salesManagementContentContainer}>
-        <div className={styles.salesManagementTitle}>
-          <Trans i18nKey="index:salesManagementTitle" />
-        </div>
-        <Padding y={16} />
-        <div className={styles.salesManagementDesc}>
-          <Trans i18nKey="index:salesManagementDesc" />
-        </div>
-
-        <Padding y={50} />
-
-        <div className={styles.salesManagementMenuContainer}>
-          {salesManagementData.map(({ title }, index) => {
-            const isActive = activeIndex === index;
-            return (
-              <button
-                key={title}
-                type="button"
-                className={cn(
-                  styles.salesManagementMenu,
-                  { [styles.selectedSalesManagementMenu]: isActive },
-                )}
-                onClick={() => slideTo(index)}
-              >
-                {title}
-              </button>
-            );
-          })}
-        </div>
-
-        <Padding y={25} />
-
-        <Swiper
-          className={styles.salesManagementImageContainer}
-          onSwiper={setSwiperRef}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-        >
-          {salesManagementData.map(({ img, title }) => (
-            <SwiperSlide key={title}>
-              <GatsbyImage
-                image={img}
-                alt={title}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <DesktopBaseContainer className={styles.startButtons}>
+      <p className={styles.startButtonsDesc}>{t("index:topDesc")}</p>
+      <Padding y={12} />
+      <h2 className={styles.startButtonsTitle}>{t("index:startButtonsTitle")}</h2>
+      <Padding y={48} />
+      <div className={styles.buttons}>
+        <StartNowButton className={styles.startNowButton}>
+          <img
+            className={styles.topButtonIcon}
+            src={iconVolt}
+            alt={t("index:topIconAlt")}
+          />
+          {t("index:appDownloadButton")}
+        </StartNowButton>
+        <Padding x={16} />
+        <ConsultingButton transparent={false} />
       </div>
     </DesktopBaseContainer>
   );
 };
 
-const TeamPlay = ({ data, t }) => (
-  <GradientBG
-    className={styles.teamPlayContainer}
-    colorSet={["#7D24FF", "#276EFE", "#7F50FE", "#0C92FE"]}
-    backgroundColor="#6159F5"
-  >
-    <div className={styles.teamPlayTitle}>{t("index:teamPlayTitle")}</div>
-    <Padding y={16} />
-    <div className={styles.teamPlayDesc}>
-      <Trans i18nKey="index:teamPlayDesc" />
-    </div>
-    <Padding y={22} />
-    <div className={styles.teamImageFlex}>
-      <GatsbyImage
-        image={data.teamPlay.childImageSharp.gatsbyImageData}
-        alt={t("index:teamPlayTitle")}
-      />
-    </div>
-  </GradientBG>
-);
-
 const CustomerCard = ({
   img, title,
 }) => (
-  <div className={styles.customerCard}>
+  <div className={styles.sectorCard}>
     <GatsbyImage
       image={img.childImageSharp.gatsbyImageData}
       alt={title}
@@ -512,51 +399,36 @@ const CustomerCard = ({
   </div>
 );
 
-const Sectors = ({ data, t }) => {
+const Sectors = ({ data }) => {
+  const { t } = useI18next();
   const customerData = genCustomerData(data);
 
   return (
-    <div className={styles.customersContainer}>
-      <div className={styles.customersTitle}>
-        <Trans i18nKey="index:customerTitle" />
-      </div>
+    <div className={styles.sectorsContainer}>
+      <DesktopBaseContainer className={styles.sectorsContentContainer}>
+        <div className={styles.sectorsTitle}>{t("index:customerTitle")}</div>
 
-      <Padding y={50} />
+        <Padding y={50} />
 
-      <div className={styles.customersCardContainer}>
-        {customerData.map((customer, index) => (
-          <CustomerCard
-            key={index}
-            img={customer.emoji}
-            title={t(customer.i18nKey)}
-          />
-        ))}
-        <div className={[styles.customerCard, styles.darkBg].join(" ")}>
-          {t("index:customerMore")}
+        <div className={styles.sectorsCardContainer}>
+          {customerData.map((customer, index) => (
+            <CustomerCard
+              key={index}
+              img={customer.emoji}
+              title={t(customer.i18nKey)}
+            />
+          ))}
+          <div className={styles.moreCard}>
+            {t("index:customerMore")}
+          </div>
         </div>
-      </div>
+      </DesktopBaseContainer>
     </div>
   );
 };
 
-const FeatureDetailLink = ({ t, featureData, activeIndex }) => (
-  <div className={styles.slideDetailLinkContainer}>
-    <Link
-      to={featureData[activeIndex].link}
-      title={featureData[activeIndex].title}
-      className={styles.slideDetailLink}
-    >
-      {t("index:featuresDetailLink")}
-      <img
-        src={svgSmallRightBlue}
-        className={styles.rightArrow}
-        alt={t("index:featuresDetailLink")}
-      />
-    </Link>
-  </div>
-);
-
-const Features = ({ data, t }) => {
+const Features = ({ data }) => {
+  const { t } = useI18next();
   const featureData = genFeatureData(data, t);
 
   const swiperRef = useRef(null);
@@ -571,11 +443,11 @@ const Features = ({ data, t }) => {
   const isLastIndex = activeIndex === featureData.length - 1;
 
   return (
-    <div className={styles.featuresContainer}>
-      <div className={styles.featuresTitle}>
+    <DesktopBaseContainer className={styles.featuresContainer}>
+      <h2 className={styles.featuresTitle}>
         <Trans i18nKey="index:featuresTitle" />
-      </div>
-      <Padding y={50} />
+      </h2>
+      <Padding y={80} />
       <div className={styles.slideDetailDotGroup}>
         {featureData.map(({ title }, index) => {
           const isActive = activeIndex === index;
@@ -595,7 +467,11 @@ const Features = ({ data, t }) => {
         })}
       </div>
 
-      <Padding y={42} />
+      <Padding y={60} />
+
+      <h3 className={styles.featureSubTitle}>{featureData[activeIndex].subTitle}</h3>
+
+      <Padding y={24} />
 
       <div className={styles.slideAndNavButtons}>
         <button
@@ -605,7 +481,7 @@ const Features = ({ data, t }) => {
           onClick={() => swiperRef.current.slidePrev()}
         >
           <img
-            src={svgSwipeLeft}
+            src={iconSwipeLeft}
             alt={t("index:featuresNavBack")}
           />
         </button>
@@ -633,7 +509,7 @@ const Features = ({ data, t }) => {
           onClick={() => swiperRef.current.slideNext()}
         >
           <img
-            src={svgSwipeRight}
+            src={iconSwipeRight}
             alt={t("index:featuresNavNext")}
           />
         </button>
@@ -641,128 +517,58 @@ const Features = ({ data, t }) => {
 
       <Padding y={40} />
 
-      <FeatureDetailLink
-        t={t}
-        featureData={featureData}
-        activeIndex={activeIndex}
-      />
-    </div>
+      <div className={styles.slideDetailLinkContainer}>
+        <Link
+          to="/features"
+          className={styles.slideDetailLink}
+        >
+          {t("index:featuresDetailLink")}
+          <img
+            src={iconSmallRightBlue}
+            className={styles.rightArrow}
+            alt={t("index:featuresDetailLink")}
+          />
+        </Link>
+      </div>
+    </DesktopBaseContainer>
   );
 };
 
-const StartNow = ({ data, t }) => (
-  <div className={styles.startNowContainer}>
-    <div className={styles.startNowTitle}>
-      <Trans i18nKey="index:startNowTitle" />
-    </div>
-    <Padding y={50} />
-    <GatsbyImage
-      image={data.homeStartNow.childImageSharp.gatsbyImageData}
-      alt={t("index:startNowTitle")}
-    />
-    <Padding y={40} />
-    <div className={styles.startNowDescription}>
-      <Trans i18nKey="index:startNowDescription" />
-    </div>
-    <Padding y={40} />
-    <Link
-      to="/pricing/"
-      className={styles.startNowDetailLink}
-    >
-      {t("index:startNowDetailLink")}
-      <img
-        src={svgSmallRightBlue}
-        className={styles.rightArrow}
-        alt={t("index:startNowDetailLink")}
+const Partners = ({ data }) => (
+  <div className={styles.partnersContainer}>
+    <DesktopBaseContainer className={styles.partnersContentContainer}>
+      <h3 className={styles.partnersTitle}>
+        <Trans i18nKey="index:partnersTitle" />
+      </h3>
+      <GatsbyImage
+        className={styles.partner}
+        image={data.kakaoventures.childImageSharp.gatsbyImageData}
+        alt="kakaoventures"
       />
-    </Link>
+      <GatsbyImage
+        className={styles.partner}
+        image={data.tips.childImageSharp.gatsbyImageData}
+        alt="tips"
+      />
+    </DesktopBaseContainer>
   </div>
 );
 
-const Customer = ({ data }) => {
-  const { name, childImageSharp } = data;
-
-  return (
-    <GatsbyImage
-      image={childImageSharp.gatsbyImageData}
-      alt={name}
-    />
-  );
-};
-
-const Customers = ({ data }) => {
-  const { language, t } = useI18next();
-  const columnCount = language === "ko" ? 6 : 5;
-  const customerList = language === "ko" ? data.koCustomers.nodes : data.enCustomers.nodes;
-
-  return (
-    <div className={styles.customersSection}>
-      <DesktopBaseContainer className={styles.customersContentContainer}>
-        <h2 className={styles.customersTitle}>
-          {t("index:customerSectionTitle")}
-        </h2>
-        <p className={styles.customersDesc}>
-          {t("index:customerSectionDesc")}
-        </p>
-        <PhotoWall
-          items={customerList}
-          columnCount={columnCount}
-          gap={30}
-          ItemRenderer={Customer}
-        />
-      </DesktopBaseContainer>
-    </div>
-  );
-};
-
-const DesktopIndex = ({ data, language, t }) => (
-  <DesktopLayout
-    isFloatMenu
-    closingEmoji={data.coffee}
-    closingMsg={t("index:closingMsg")}
-  >
-    <Top
-      data={data}
-      t={t}
-      language={language}
-    />
+const DesktopIndex = ({ data }) => (
+  <DesktopLayout>
+    <Top data={data} />
 
     <Customers data={data} />
 
-    <Chatting
-      t={t}
-      language={language}
-    />
+    <KeyFeatures data={data} />
 
-    <KeyFeatures
-      data={data}
-      t={t}
-    />
+    <StartButtons />
 
-    <SalesManagement
-      data={data}
-      t={t}
-    />
+    <Sectors data={data} />
 
-    <TeamPlay
-      data={data}
-      t={t}
-    />
+    <Features data={data} />
 
-    <Sectors
-      data={data}
-      t={t}
-    />
-
-    <Features
-      data={data}
-      t={t}
-    />
-
-    <StartNow
-      data={data}
-      t={t}
-    />
+    <Partners data={data} />
   </DesktopLayout>
 );
 

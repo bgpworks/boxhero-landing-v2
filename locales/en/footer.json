@@ -1,5 +1,5 @@
 {
-  "appInstall": "App download",
+  "appInstall": "1 Month Free Trial",
   "companyInfoAddress": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea<br/><tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>",
   "companyInfoAddressMobile": "7F 165, Yeoksam-ro, Gangnam-gu, Seoul, South Korea",
   "companyInfoRegisterNo": "<strong>BOXHERO, Inc.</strong>",
@@ -28,11 +28,12 @@
   "platformGroupDesktop": "Desktop App",
   "platformGroupMobile": "Mobile App",
   "platformGroupWeb": "Web App",
-  "platformsMessage": "Control your stocks anytime, anywhere.",
+  "platformsMessage": "Inventory Management Anytime, Anywhere",
+  "platformsMessageMobile": "Control your stocks anytime, anywhere.",
   "platformsOsx": "Mac",
   "platformsPC": "Web",
-  "platformsTitle": "BoxHero Supports both PC and Mobile",
+  "platformsTitle": "Try BoxHero Today!",
+  "platformsTitleMobile": "BoxHero Supports both PC<br/>and Mobile",
   "platformsWindows": "Windows",
-  "policyLinkMobile": "<tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>",
-  "startNowButton": "Get Started - It's Free"
+  "policyLinkMobile": "<tosLink>Terms of Service</tosLink> ㅣ <privacyLink>Privacy Policy</privacyLink>"
 }

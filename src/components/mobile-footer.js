@@ -4,15 +4,13 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
-import * as constants from "./constants";
 import {
-  Padding, SupportEmail, ConsultingButton, AppDownloadLink,
+  Padding, SupportEmail, AppInstallButton,
 } from "./common";
 import SocialLinkList from "./social-link-list";
 // css
 import * as styles from "./mobile-footer.module.css";
 // images
-import svgDownload from "../images/download.svg";
 import svgCompanyLogo from "../images/company-logo.svg";
 
 const Platforms = ({ t }) => {
@@ -38,9 +36,11 @@ const Platforms = ({ t }) => {
   `);
   return (
     <section className={styles.platformsContainer}>
-      <h2 className={styles.platformsTitle}>{t("footer:platformsTitle")}</h2>
+      <h2 className={styles.platformsTitle}>
+        <Trans i18nKey="footer:platformsTitleMobile" />
+      </h2>
       <Padding y={16} />
-      <p className={styles.platformsDesc}>{t("footer:platformsMessage")}</p>
+      <p className={styles.platformsDesc}>{t("footer:platformsMessageMobile")}</p>
       <Padding y={40} />
       <GatsbyImage
         image={data.mobileFooterPlatforms.childImageSharp.gatsbyImageData}
@@ -50,38 +50,13 @@ const Platforms = ({ t }) => {
   );
 };
 
-const StartNow = ({ t, emoji, message }) => (
+const StartNow = ({ t }) => (
   <section className={styles.startNowContainer}>
-    <GatsbyImage
-      image={emoji.childImageSharp.gatsbyImageData}
-      alt={t("footer:startNowButton")}
-    />
-    <Padding y={10} />
-    <p className={styles.startNowDescription}>{message}</p>
-    <Padding y={36} />
-    <AppDownloadLink>
-      <button
-        type="button"
-        className={styles.startNowButton}
-      >
-        <img
-          className={styles.topButtonIcon}
-          src={svgDownload}
-          alt={t("footer:appInstall")}
-        />
-        {t("footer:appInstall")}
-      </button>
-    </AppDownloadLink>
-    <Padding y={10} />
-    <ConsultingButton />
+    <h2 className={styles.startNowTitle}>{t("footer:platformsTitle")}</h2>
+    <Padding y={20} />
+    <AppInstallButton label={t("footer:appInstall")} />
   </section>
 );
-
-StartNow.propTypes = {
-  emoji: PropTypes.object.isRequired,
-  // string or object
-  message: PropTypes.any.isRequired,
-};
 
 const FooterMenu = ({ title, children }) => (
   <div className={styles.footerMenu}>
@@ -94,7 +69,7 @@ const FooterMenu = ({ title, children }) => (
   </div>
 );
 
-const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
+const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
   <article>
     <FooterMenu title={t("footer:footerMenuService")}>
       <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
@@ -169,13 +144,6 @@ const MobileFooterMenus = ({ t, language, onChangeIsShowLangPopup }) => (
         {" "}
         <a href="mailto:corp@bgpworks.com">corp@bgpworks.com</a>
       </span>
-      {language === "ko" && (
-        <span>
-          {t("footer:footerMenuContactKakao")}
-          {" "}
-          <a href={constants.urlKakaoTalk}>@박스히어로</a>
-        </span>
-      )}
     </FooterMenu>
   </article>
 );
@@ -220,11 +188,10 @@ const CompanyInfo = ({ t }) => (
   </article>
 );
 
-const MobileFooterMenusAndInfo = ({ t, language, onChangeIsShowLangPopup }) => (
+const MobileFooterMenusAndInfo = ({ t, onChangeIsShowLangPopup }) => (
   <section className={styles.footerMenusAndInfoContainer}>
     <MobileFooterMenus
       t={t}
-      language={language}
       onChangeIsShowLangPopup={onChangeIsShowLangPopup}
     />
     <Padding y={50} />
@@ -233,26 +200,21 @@ const MobileFooterMenusAndInfo = ({ t, language, onChangeIsShowLangPopup }) => (
 );
 
 const MobileFooter = ({
-  closingEmoji,
-  closingMsg,
   onChangeIsShowLangPopup,
   showPlatforms,
   showStartNow,
 }) => {
-  const { t, language } = useI18next();
+  const { t } = useI18next();
   return (
     <footer>
       {showPlatforms && <Platforms t={t} />}
       {showStartNow && (
         <StartNow
           t={t}
-          emoji={closingEmoji}
-          message={closingMsg}
         />
       )}
       <MobileFooterMenusAndInfo
         t={t}
-        language={language}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
     </footer>
@@ -260,9 +222,6 @@ const MobileFooter = ({
 };
 
 MobileFooter.propTypes = {
-  closingEmoji: PropTypes.object,
-  // string or object
-  closingMsg: PropTypes.any,
   showPlatforms: PropTypes.bool,
   showStartNow: PropTypes.bool,
 };

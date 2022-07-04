@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PropTypes from "prop-types";
 import cn from "classnames";
-import { YoutubePopupContext } from "./YoutubePopup";
 import * as styles from "./common.module.css";
 import svgConsulting from "../images/icon-consulting.svg";
 import svgConsultingDark from "../images/icon-consulting-dark.svg";
@@ -14,7 +13,7 @@ import svgCircleCheck from "../images/icon-circle-check.svg";
 import svgDown from "../images/down.svg";
 import svgUp from "../images/up.svg";
 import svgDownload from "../images/download.svg";
-import svgPlay from "../images/icon-play.svg";
+import iconVolt from "../images/volt.svg";
 import {
   urlConsultingKo,
   urlConsultingEn,
@@ -23,7 +22,6 @@ import {
   urlDownloadAppSearchAd,
   urlDownloadAppDable,
   urlDownloadAppKakao,
-  introVideoYoutubeIdKo,
 } from "./constants";
 
 export const DesktopBaseContainer = ({ className, children }) => (
@@ -64,7 +62,7 @@ Padding.defaultProps = {
   y: 0,
 };
 
-export const ConsultingButton = ({ transparent = true }) => {
+export const ConsultingButton = ({ className, transparent = true }) => {
   const { t, language } = useI18next();
   const consultingIcon = transparent ? svgConsulting : svgConsultingDark;
 
@@ -76,7 +74,7 @@ export const ConsultingButton = ({ transparent = true }) => {
     >
       <button
         type="button"
-        className={cn(styles.consultingButton, { [styles.transparent]: transparent })}
+        className={cn(className, styles.consultingButton, { [styles.transparent]: transparent })}
       >
         <img
           className={styles.topButtonIcon}
@@ -157,7 +155,7 @@ export const StartNowButton = ({ className, children }) => (
   </ExternalLinkWithQuery>
 );
 
-export const DarkAppInstallButton = ({ label }) => (
+export const AppInstallButton = ({ label }) => (
   <AppDownloadLink>
     <button
       type="button"
@@ -165,64 +163,13 @@ export const DarkAppInstallButton = ({ label }) => (
     >
       <img
         className={styles.appDownloadIcon}
-        src={svgDownload}
+        src={iconVolt}
         alt={label}
       />
       {label}
     </button>
   </AppDownloadLink>
 );
-
-export const IntroVideoBtn = ({ className, children }) => {
-  const { openYoutube } = useContext(YoutubePopupContext);
-
-  return (
-    <button
-      type="button"
-      className={cn(styles.introVideoBtn, className)}
-      onClick={() => {
-        openYoutube(
-          introVideoYoutubeIdKo,
-          {
-            playerVars: {
-              origin: window.location.origin,
-              autoplay: 1,
-              controls: 1,
-              playsinline: 1,
-              rel: 0,
-              modestbranding: 1,
-              loop: 1,
-              playlist: introVideoYoutubeIdKo,
-            },
-          },
-          "16:9",
-        );
-      }}
-    >
-      {children}
-    </button>
-  );
-};
-
-export const FlatIntroVideoBtn = ({ className }) => {
-  const { t } = useI18next();
-
-  return (
-    <IntroVideoBtn
-      type="button"
-      className={className}
-    >
-      <img
-        className={styles.playSymbol}
-        src={svgPlay}
-        alt="Play"
-      />
-      <span className={styles.introVideoLabel}>
-        {t("index:introVideoBtnLabel")}
-      </span>
-    </IntroVideoBtn>
-  );
-};
 
 export const UseCaseTop = ({
   className, title, description, startNow, img,
@@ -258,7 +205,22 @@ export const MobileUseCaseTop = ({
       <Padding y={16} />
       <p className={styles.mobileUseCaseTopDesc}>{description}</p>
       <Padding y={40} />
-      <DarkAppInstallButton label={appDownload} />
+      <AppDownloadLink>
+        <button
+          type="button"
+          className={cn(
+            styles.appDownloadButton,
+            styles.usecaseAppDownloadButton,
+          )}
+        >
+          <img
+            className={styles.appDownloadIcon}
+            src={svgDownload}
+            alt={appDownload}
+          />
+          {appDownload}
+        </button>
+      </AppDownloadLink>
       <Padding y={40} />
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}
@@ -563,6 +525,14 @@ export const OnlyKorean = ({ children }) => {
   const { language } = useI18next();
 
   if (language !== "ko") return null;
+
+  return children;
+};
+
+export const OnlyEnglish = ({ children }) => {
+  const { language } = useI18next();
+
+  if (language !== "en") return null;
 
   return children;
 };

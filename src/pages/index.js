@@ -7,14 +7,13 @@ import { Media } from "../media";
 import DesktopIndex from "../components/desktop-index";
 import MobileIndex from "../components/mobile-index";
 import { useHelpscout } from "../components/helpscout";
-import YoutubePopup, { YoutubePopupProvider } from "../components/YoutubePopup";
 
 const IndexPage = ({ data, location }) => {
   const { language, t } = useI18next();
   useHelpscout();
 
   return (
-    <YoutubePopupProvider>
+    <>
       <SEOHelmet
         lang={language}
         title={t("index:pageTitle")}
@@ -23,22 +22,13 @@ const IndexPage = ({ data, location }) => {
       />
 
       <Media at="xs">
-        <MobileIndex
-          data={data}
-          language={language}
-          t={t}
-        />
+        <MobileIndex data={data} />
       </Media>
 
       <Media greaterThan="xs">
-        <DesktopIndex
-          data={data}
-          language={language}
-          t={t}
-        />
+        <DesktopIndex data={data} />
       </Media>
-      <YoutubePopup />
-    </YoutubePopupProvider>
+    </>
   );
 };
 
@@ -49,283 +39,63 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       ...LocaleFragment
     }
-    homeTopRight: file(
+    main: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "home-top-right.png" }
+      base: { eq: "main.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 685
-          quality: 100
-          tracedSVGOptions: {
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-            turnPolicy: TURNPOLICY_MAJORITY
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    feature1CustomProducts: file(
+    featureDevices: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-custom-products.png" }
+      base: { eq: "feature-devices.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    feature1PrintLabel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-print-label.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature1ProductList: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-product-list.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature1ImportExcel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-import-excel.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature2SelectProduct: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-select-product.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature2ScanBarcode: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-scan-barcode.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature2History: file(
+    featureHistory: file(
       relativeDirectory: { eq: $language }
       base: { eq: "feature-history.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    feature2ConnectExcel: file(
+    featureSettingRole: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-connect-excel.png" }
+      base: { eq: "feature-setting-role.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    feature3Analysis: file(
+    featureMove: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-analysis.png" }
+      base: { eq: "feature-move.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature3GroupList: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-group-list.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature3EmailReport: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-email-report.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    feature3Dashboard: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-dashboard.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 581
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
-        )
-      }
-    }
-    featureTransaction: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-transaction.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 828
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -335,59 +105,93 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 826
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    featureSalesAnalysis: file(
+    featureTransaction: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "feature-sales-analysis.png" }
+      base: { eq: "feature-transaction.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 826
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    teamPlay: file(
+    featureScanBarcode: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "img-team.png" }
+      base: { eq: "feature-scan-barcode.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 786
-          height: 612
-          quality: 80
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-          }
-          placeholder: TRACED_SVG
-          transformOptions: { cropFocus: NORTH }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
+        )
+      }
+    }
+    featurePrintLabel: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-print-label.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
+        )
+      }
+    }
+    featureOutDetail: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "out-detail.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
+        )
+      }
+    }
+    featureAllInOne: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "feature-all-in-one.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
+        )
+      }
+    }
+    featureQuantity: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "history-card.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
+        )
+      }
+    }
+    featureIntegration: file(
+      relativeDirectory: { eq: $language }
+      base: { eq: "order-log.png" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -787,31 +591,15 @@ export const query = graphql`
         )
       }
     }
-    featureLowstock: file(
+    featureLocation: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-lowstock.png" }
+      base: { eq: "index-feature-location.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
-        )
-      }
-    }
-    featureBarcodeLabel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-barcode-label.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -821,11 +609,9 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
@@ -835,448 +621,51 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    featureLocation: file(
+    featureSettingMembers: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-location.png" }
+      base: { eq: "members.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 495
-          height: 360
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    mobileHomeTopRight: file(
+    featureAnalysis: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "home-top-right.png" }
+      base: { eq: "feature-analysis.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
-          width: 450
-          quality: 100
-          tracedSVGOptions: {
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-            turnPolicy: TURNPOLICY_MAJORITY
-          }
-          placeholder: TRACED_SVG
-          layout: FIXED
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    mobileFeature1CustomProducts: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-custom-products.png" }
-    ) {
+    kakaoventures: file(relativePath: { eq: "kakaoventures.png" }) {
       childImageSharp {
         gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }
-    mobileFeature1PrintLabel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-print-label.png" }
-    ) {
+    tips: file(relativePath: { eq: "tips.png" }) {
       childImageSharp {
         gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature1ProductList: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-product-list.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature1ImportExcel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-import-excel.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature2SelectProduct: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-select-product.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature2ScanBarcode: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-scan-barcode.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature2History: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-history.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature2ConnectExcel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-connect-excel.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature3Analysis: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-analysis.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature3GroupList: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-group-list.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature3EmailReport: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-email-report.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeature3Dashboard: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-mobile-dashboard.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeatureTransaction: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-transaction.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 335
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeatureOut: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-out.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 335
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileFeatureSalesAnalysis: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "feature-sales-analysis.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 335
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            alphaMax: 1
-            color: "#f0f0f3"
-            threshold: 160
-          }
-          placeholder: TRACED_SVG
-        )
-      }
-    }
-    mobileTeamPlay: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "img-team.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          height: 261
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-          }
-          placeholder: TRACED_SVG
-          transformOptions: { cropFocus: NORTH }
-        )
-      }
-    }
-    mobileCoffee: file(relativePath: { eq: "emoji-coffee.png" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 36
-          height: 36
-          transformOptions: { fit: FILL }
-          layout: FIXED
-        )
-      }
-    }
-    mobileFeatureLowstock: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-lowstock.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 280
-          height: 204
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-        )
-      }
-    }
-    mobileFeatureBarcodeLabel: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-barcode-label.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 280
-          height: 204
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-        )
-      }
-    }
-    mobileFeatureSummary: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-summary.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 280
-          height: 204
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-        )
-      }
-    }
-    mobileFeatureViewPastQuantity: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-view-past-quantity.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 280
-          height: 204
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-        )
-      }
-    }
-    mobileFeatureLocation: file(
-      relativeDirectory: { eq: $language }
-      base: { eq: "index-feature-location.png" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 280
-          height: 204
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-        )
-      }
-    }
-    homeStartNow: file(relativePath: { eq: "home-start-now.png" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 307
-          height: 200
-          quality: 100
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-          }
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
-          layout: FIXED
-        )
-      }
-    }
-    mobileHomeStartNow: file(relativePath: { eq: "home-start-now.png" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 307
-          height: 200
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            turdSize: 1
-            color: "#f0f0f31f"
-            threshold: 160
-            alphaMax: 1
-          }
-          placeholder: TRACED_SVG
-          transformOptions: { fit: FILL }
+          layout: CONSTRAINED,
+          placeholder: BLURRED
+          transformOptions: {fit: COVER}
         )
       }
     }

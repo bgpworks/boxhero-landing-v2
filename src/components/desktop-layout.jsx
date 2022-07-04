@@ -7,9 +7,6 @@ import * as styles from "./desktop-layout.module.css";
 
 const DesktopLayout = ({
   isFloatMenu,
-  closingEmoji,
-  closingMsg,
-  showPlatforms,
   showStartNow,
   mainClassName,
   children,
@@ -19,22 +16,14 @@ const DesktopLayout = ({
       isFloatMenu={isFloatMenu}
     />
     <main className={mainClassName}>{children}</main>
-    <DesktopFooter
-      closingEmoji={closingEmoji}
-      closingMsg={closingMsg}
-      showPlatforms={showPlatforms}
-      showStartNow={showStartNow}
-    />
+    <DesktopFooter showStartNow={showStartNow} />
   </div>
 );
 
 DesktopLayout.propTypes = {
   mainClassName: PropTypes.string,
-  showPlatforms: PropTypes.bool,
   showStartNow: PropTypes.bool,
   isFloatMenu: PropTypes.bool,
-  closingEmoji: PropTypes.object,
-  closingMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   children: PropTypes.node.isRequired,
 };
 

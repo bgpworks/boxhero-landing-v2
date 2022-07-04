@@ -5,8 +5,8 @@ import {
   useCallback,
 } from "react";
 
-const calcConstrainedSize = (containerWidth, containerHeight, wRatio, hRatio) => {
-  const constrainedHeight = Math.min(containerWidth * (hRatio / wRatio), containerHeight);
+const calcConstrainedSize = (containerWidth, wRatio, hRatio) => {
+  const constrainedHeight = containerWidth * (hRatio / wRatio);
 
   return {
     width: constrainedHeight * (wRatio / hRatio),
@@ -21,8 +21,8 @@ export const useConstrainedSize = (wRatio, hRatio) => {
   const updateSize = useCallback(() => {
     if (!containerRef.current) return;
 
-    const { width, height } = containerRef.current.getBoundingClientRect();
-    const constrainedSize = calcConstrainedSize(width, height, wRatio, hRatio);
+    const { width } = containerRef.current.getBoundingClientRect();
+    const constrainedSize = calcConstrainedSize(width, wRatio, hRatio);
 
     setSize(constrainedSize);
   }, [hRatio, wRatio]);
