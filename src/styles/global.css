@@ -5,6 +5,7 @@
   --color-primary: #4f67ff;
   --color-primary-25: rgba(79, 103, 255, 0.25);
   --color-light-blue: #50a4fa;
+  --color-light-blue-60: rgba(80, 164, 250, 0.6);
   --color-light-blue-20: rgba(80, 164, 250, 0.2);
   --color-light-blue-10: rgba(80, 164, 250, 0.1);
   --color-light-blue-5: rgba(80, 164, 250, 0.05);
@@ -178,14 +179,11 @@ p {
   margin-bottom: 1.45rem;
 }
 table {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+  margin: 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
   font-size: 1rem;
   line-height: 1.45rem;
   border-collapse: collapse;
@@ -228,23 +226,10 @@ thead {
 td,
 th {
   text-align: left;
-  border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
   font-feature-settings: "tnum";
   -moz-font-feature-settings: "tnum";
   -ms-font-feature-settings: "tnum";
   -webkit-font-feature-settings: "tnum";
-  padding-left: 0.96667rem;
-  padding-right: 0.96667rem;
-  padding-top: 0.725rem;
-  padding-bottom: calc(0.725rem - 1px);
-}
-th:first-child,
-td:first-child {
-  padding-left: 0;
-}
-th:last-child,
-td:last-child {
-  padding-right: 0;
 }
 button {
   display: inline-block;

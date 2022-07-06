@@ -31,7 +31,6 @@ export default function PricingPage({ data, location }) {
       <Media greaterThan="xs">
         <DesktopPricing
           data={data}
-          language={language}
           t={t}
         />
       </Media>
