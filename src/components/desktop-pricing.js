@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
+import cn from "classnames";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
@@ -16,50 +17,16 @@ import * as styles from "./desktop-pricing.module.css";
 // image
 import iconCheck from "../images/icon-check.svg";
 
-const TopDescColumn = ({ emoji, title, desc }) => (
-  <div className={styles.topDescColumn}>
-    <GatsbyImage
-      image={emoji}
-      alt={title}
-      style={{ margin: "0 auto" }}
-    />
-
-    <Padding y={10} />
-    <div className={styles.topDescTitle}>{title}</div>
-    <Padding y={10} />
-    <div className={styles.topDescDesc}>{desc}</div>
-  </div>
-);
-
-const TopDescSpliter = () => <div className={styles.vl} />;
-
-const TopDesc = ({ data }) => {
-  const { t } = useI18next();
-  return (
-    <div className={styles.topDescContainer}>
-      <TopDescColumn
-        emoji={data.emojiOne.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc1Title")}
-        desc={<Trans i18nKey="pricing:topDesc1Desc" />}
-      />
-      <TopDescSpliter />
-      <TopDescColumn
-        emoji={data.emojiTwo.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc2Title")}
-        desc={<Trans i18nKey="pricing:topDesc2Desc" />}
-      />
-    </div>
-  );
-};
-
 const SwitchContainer = ({ isYearly, setIsYearly }) => {
   const { t } = useI18next();
   return (
     <div className={styles.switchContainer}>
       <button
         type="button"
-        className={`${styles.billingCycleButton} ${isYearly ? "" : styles.active
-        }`}
+        className={cn(
+          styles.billingCycleButton,
+          { [styles.active]: isYearly },
+        )}
         onClick={() => setIsYearly(false)}
       >
         {t("pricing:switchLabelMonthly")}
@@ -72,8 +39,10 @@ const SwitchContainer = ({ isYearly, setIsYearly }) => {
       <Padding x={35} />
       <button
         type="button"
-        className={`${styles.billingCycleButton} ${isYearly ? styles.active : ""
-        }`}
+        className={cn(
+          styles.billingCycleButton,
+          { [styles.active]: isYearly },
+        )}
         onClick={() => setIsYearly(true)}
       >
         {t("pricing:switchLabelYearly")}
@@ -113,6 +82,22 @@ const CheckIcon = () => (
   />
 );
 
+const AvailableRow = ({ headerLabel }) => (
+  <FeatureLimitRow>
+    <th>{headerLabel}</th>
+    <BizCell><CheckIcon /></BizCell>
+    <FreeCell><CheckIcon /></FreeCell>
+  </FeatureLimitRow>
+);
+
+const EmptyRow = () => (
+  <tr>
+    <th>{" "}</th>
+    <BizCell><Padding y={36} /></BizCell>
+    <FreeCell><Padding y={36} /></FreeCell>
+  </tr>
+);
+
 const PriceTable = ({ isYearly }) => {
   const { t } = useI18next();
   return (
@@ -122,14 +107,17 @@ const PriceTable = ({ isYearly }) => {
         <BizCell>{t("pricing:bizPlanTitle")}</BizCell>
         <FreeCell>{t("pricing:freePlanTitle")}</FreeCell>
       </tr>
+
       <tr className={styles.priceRow}>
         <BizCell>{isYearly ? "$18" : "$20"}</BizCell>
         <FreeCell>{t("pricing:freePlanPrice")}</FreeCell>
       </tr>
+
       <tr className={styles.priceUnitRow}>
         <BizCell>{t("pricing:bizPlanPriceUnit")}</BizCell>
         <FreeCell>{t("pricing:freePlanPriceUnit")}</FreeCell>
       </tr>
+
       <tr className={styles.startButtonRow}>
         <BizCell>
           <StartNowButton className={styles.startButton}>
@@ -142,16 +130,19 @@ const PriceTable = ({ isYearly }) => {
           </StartNowButton>
         </FreeCell>
       </tr>
+
       <LimitRow>
         <th>{t("pricing:headerMember")}</th>
         <BizCell>{t("pricing:limitMemberBiz")}</BizCell>
         <FreeCell>{t("pricing:limitMemberFree")}</FreeCell>
       </LimitRow>
+
       <LimitRow>
         <th>{t("pricing:headerProduct")}</th>
         <BizCell>{t("pricing:limitItemBiz")}</BizCell>
         <FreeCell>{t("pricing:limitItemFree")}</FreeCell>
       </LimitRow>
+
       <LimitRow>
         <th>{t("pricing:headerLocation")}</th>
         <BizCell>
@@ -167,6 +158,7 @@ const PriceTable = ({ isYearly }) => {
           />
         </FreeCell>
       </LimitRow>
+
       <LimitRow>
         <th rowSpan={2}>{t("pricing:headerExtension")}</th>
         <BizCell>
@@ -192,67 +184,69 @@ const PriceTable = ({ isYearly }) => {
           />
         </FreeCell>
       </LimitRow>
+
       <tr className={styles.dividerRow}>
         <BizCell><Divider /></BizCell>
         <FreeCell><Divider /></FreeCell>
       </tr>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureProduct")}</th>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureTx")}</th>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureExcel")}</th>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
+
+      <AvailableRow headerLabel={t("pricing:headerFeatureProduct")} />
+      <AvailableRow headerLabel={t("pricing:headerFeatureTx")} />
+      <AvailableRow headerLabel={t("pricing:headerFeatureExcel")} />
       <FeatureLimitRow>
         <th>{t("pricing:headerFeatureHistory")}</th>
         <BizCell>{t("pricing:limitHistoryBiz")}</BizCell>
         <FreeCell>{t("pricing:limitHistoryFree")}</FreeCell>
       </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureMobile")}</th>
-        <BizCell>
-          <CheckIcon />
-          <Padding y={36} />
-        </BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureLabel")}</th>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureAnalysis")}</th>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerLowStock")}</th>
-        <BizCell>
-          <CheckIcon />
-          <Padding y={36} />
-        </BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureSales")}</th>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureIntegration")}</th>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
+      <AvailableRow headerLabel={t("pricing:headerFeatureMobile")} />
+
+      <EmptyRow />
+
+      <AvailableRow headerLabel={t("pricing:headerFeatureLabel")} />
+      <AvailableRow headerLabel={t("pricing:headerFeatureAnalysis")} />
+      <AvailableRow headerLabel={t("pricing:headerLowStock")} />
+
+      <EmptyRow />
+
+      <AvailableRow headerLabel={t("pricing:headerFeatureSales")} />
+      <AvailableRow headerLabel={t("pricing:headerFeatureIntegration")} />
     </table>
+  );
+};
+
+const TopDescColumn = ({ emoji, title, desc }) => (
+  <div className={styles.topDescColumn}>
+    <GatsbyImage
+      image={emoji}
+      alt={title}
+      style={{ margin: "0 auto" }}
+    />
+
+    <Padding y={10} />
+    <div className={styles.topDescTitle}>{title}</div>
+    <Padding y={10} />
+    <div className={styles.topDescDesc}>{desc}</div>
+  </div>
+);
+
+const TopDescSpliter = () => <div className={styles.vl} />;
+
+const TopDesc = ({ data }) => {
+  const { t } = useI18next();
+  return (
+    <div className={styles.topDescContainer}>
+      <TopDescColumn
+        emoji={data.emojiOne.childImageSharp.gatsbyImageData}
+        title={t("pricing:topDesc1Title")}
+        desc={<Trans i18nKey="pricing:topDesc1Desc" />}
+      />
+      <TopDescSpliter />
+      <TopDescColumn
+        emoji={data.emojiTwo.childImageSharp.gatsbyImageData}
+        title={t("pricing:topDesc2Title")}
+        desc={<Trans i18nKey="pricing:topDesc2Desc" />}
+      />
+    </div>
   );
 };
 

@@ -91,12 +91,14 @@
   border-collapse: separate;
   font-size: var(--font-size-b16);
   line-height: 1.1;
+  max-width: 948px;
+  table-layout: fixed;
+  margin: 0 auto;
 }
 
 .priceTable td,
 .priceTable th {
   padding: 0 16px;
-  width: 276px;
   vertical-align: top;
 }
 
