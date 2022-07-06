@@ -44,7 +44,8 @@
 
 .freePlanContainer {
   composes: planContainer;
-  background-color: var(--color-orange-20);
+  border: 1px solid var(--color-gray4);
+  background-color: var(--color-gray5);
 }
 
 .planTitle {
@@ -54,24 +55,11 @@
   font-weight: bold;
 }
 
-.planSubtitle {
-  margin: 0;
-  height: 20px;
-  font-size: var(--font-size-mobile-small);
-}
-
 .planPrice {
   margin: 0;
   height: 68px;
   font-size: var(--font-size-46);
   font-weight: bold;
-}
-
-.planDesc {
-  margin: 0;
-  font-size: var(--font-size-mobile-h3);
-  font-weight: bold;
-  line-height: normal;
 }
 
 .startButton {
@@ -82,6 +70,41 @@
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: white;
+}
+
+.basicLimitContainer {
+  margin: 0;
+  padding: 24px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--color-gray3);
+}
+
+.basicLimit {
+  list-style-type: none;
+}
+
+.basicLimit + .basicLimit {
+  margin-top: 14px;
+}
+
+.supportFeatures {
+  margin: 0;
+  text-align: left;
+}
+
+.supportFeature {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+.supportFeature img {
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+}
+
+.supportFeature + .supportFeature {
+  margin-top: 14px;
 }
 
 .planDetailHeader {
@@ -108,7 +131,7 @@
 
 .planLimitExtensionDesc {
   margin: 0;
-  font-size: var(--font-size-mobile-small);
+  font-size: var(--font-size-b12);
   color: var(--color-gray1);
   line-height: normal;
 }

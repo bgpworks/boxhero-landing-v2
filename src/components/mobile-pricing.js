@@ -15,6 +15,8 @@ import {
 import * as constants from "./constants";
 // css
 import * as styles from "./mobile-pricing.module.css";
+// img
+import iconCheck from "../images/icon-check.svg";
 
 const TopDescColumn = ({ emoji, title, desc }) => (
   <>
@@ -64,20 +66,38 @@ const PlanDetail = ({ header, children }) => (
   </>
 );
 
+const BasicLimitContainer = ({ children }) => (
+  <ul className={styles.basicLimitContainer}>{children}</ul>
+);
+const BasicLimit = ({ header, limit }) => (
+  <li className={styles.basicLimit}>
+    <span>{`${header} `}</span>
+    <strong>{limit}</strong>
+  </li>
+);
+
+const SupportFeatures = ({ features }) => (
+  <ul className={styles.supportFeatures}>
+    {features.map((feature) => (
+      <li className={styles.supportFeature}>
+        <img
+          src={iconCheck}
+          alt={feature}
+        />
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+);
+
 const FreePlan = ({ t }) => (
   <article className={styles.freePlanContainer}>
     <h2 className={styles.planTitle}>{t("pricing:freePlanTitle")}</h2>
-    <p className={styles.planSubtitle}>For Personal</p>
 
-    <Padding y={20} />
+    <Padding y={12} />
     <h3 className={styles.planPrice}>{t("pricing:freePlanPrice")}</h3>
-    <Padding y={20} />
+    <Padding y={24} />
 
-    <p className={styles.planDesc}>
-      <Trans i18nKey="pricing:freePlanDesc" />
-    </p>
-
-    <Padding y={30} />
     <AppDownloadLink>
       <button
         type="button"
@@ -86,13 +106,32 @@ const FreePlan = ({ t }) => (
         {t("pricing:startNowButton")}
       </button>
     </AppDownloadLink>
-    <Padding y={40} />
 
-    <PlanDetail header={t("pricing:headerLimit")}>
-      <Trans i18nKey="pricing:limitMemberFree" />
-      <Trans i18nKey="pricing:limitItemFree" />
-    </PlanDetail>
-    <Padding y={20} />
+    <BasicLimitContainer>
+      <BasicLimit
+        header={t("pricing:headerMember")}
+        limit={t("pricing:limitMemberFree")}
+      />
+      <BasicLimit
+        header={t("pricing:headerProduct")}
+        limit={t("pricing:limitItemFree")}
+      />
+      <BasicLimit
+        header={t("pricing:headerLocation")}
+        limit={t("pricing:limitLocationFreeMobile")}
+      />
+    </BasicLimitContainer>
+
+    <Padding y={24} />
+    <SupportFeatures
+      features={[
+        t("pricing:headerFeatureProduct"),
+        t("pricing:headerFeatureTx"),
+        t("pricing:headerFeatureMobile"),
+        t("pricing:limitHistoryFreeMobile"),
+      ]}
+    />
+    <Padding y={24} />
 
     <p className={styles.planLimitExtensionDesc}>
       <Trans i18nKey="pricing:extensionDescriptionMobile" />
