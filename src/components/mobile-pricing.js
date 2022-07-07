@@ -99,9 +99,9 @@ const FreePlan = () => {
       </AppDownloadLink>
 
       <BasicLimitContainer>
-        <BasicLimit>{t("pricing:limitMemberFreeMobile")}</BasicLimit>
-        <BasicLimit>{t("pricing:limitItemFreeMobile")}</BasicLimit>
-        <BasicLimit>{t("pricing:limitLocationFreeMobile")}</BasicLimit>
+        <BasicLimit><Trans i18nKey="pricing:limitMemberFreeMobile" /></BasicLimit>
+        <BasicLimit><Trans i18nKey="pricing:limitItemFreeMobile" /></BasicLimit>
+        <BasicLimit><Trans i18nKey="pricing:limitLocationFreeMobile" /></BasicLimit>
       </BasicLimitContainer>
 
       <Divider />
@@ -186,9 +186,9 @@ const BusinessPlan = () => {
       />
 
       <BasicLimitContainer>
-        <BasicLimit>{t("pricing:limitMemberBizMobile")}</BasicLimit>
-        <BasicLimit>{t("pricing:limitItemBizMobile")}</BasicLimit>
-        <BasicLimit>{t("pricing:limitLocationBizMobile")}</BasicLimit>
+        <BasicLimit><Trans i18nKey="pricing:limitMemberBizMobile" /></BasicLimit>
+        <BasicLimit><Trans i18nKey="pricing:limitItemBizMobile" /></BasicLimit>
+        <BasicLimit><Trans i18nKey="pricing:limitLocationBizMobile" /></BasicLimit>
       </BasicLimitContainer>
 
       <Divider />
