@@ -105,7 +105,7 @@ const PriceTable = ({ isYearly }) => {
   return (
     <table className={styles.priceTable}>
       <tr className={styles.planTitleRow}>
-        <th rowSpan={4}>플랜 정보</th>
+        <th rowSpan={4}> </th>
         <BizCell>{t("pricing:bizPlanTitle")}</BizCell>
         <FreeCell>{t("pricing:freePlanTitle")}</FreeCell>
       </tr>
