@@ -62,16 +62,22 @@ const FreeCell = ({ children }) => (
   <td className={styles.freeCell}>{children}</td>
 );
 
-const LimitRow = ({ children }) => (
-  <tr className={styles.limitRow}>{children}</tr>
+const LimitRow = ({ headerLabel, children }) => (
+  <tr className={styles.limitRow}>
+    <th>{headerLabel}</th>
+    {children}
+  </tr>
 );
 
 const Divider = () => (
   <div className={styles.divider} />
 );
 
-const FeatureLimitRow = ({ children }) => (
-  <tr className={styles.featureLimitRow}>{children}</tr>
+const FeatureLimitRow = ({ headerLabel, children }) => (
+  <tr className={styles.featureLimitRow}>
+    <th>{headerLabel}</th>
+    {children}
+  </tr>
 );
 
 const CheckIcon = () => (
@@ -82,17 +88,9 @@ const CheckIcon = () => (
   />
 );
 
-const AvailableRow = ({ headerLabel }) => (
-  <FeatureLimitRow>
-    <th>{headerLabel}</th>
-    <BizCell><CheckIcon /></BizCell>
-    <FreeCell><CheckIcon /></FreeCell>
-  </FeatureLimitRow>
-);
-
 const EmptyRow = () => (
   <tr>
-    <th>{" "}</th>
+    <th> </th>
     <BizCell><Padding y={36} /></BizCell>
     <FreeCell><Padding y={36} /></FreeCell>
   </tr>
@@ -131,20 +129,17 @@ const PriceTable = ({ isYearly }) => {
         </FreeCell>
       </tr>
 
-      <LimitRow>
-        <th>{t("pricing:headerMember")}</th>
+      <LimitRow headerLabel={t("pricing:headerMember")}>
         <BizCell>{t("pricing:limitMemberBiz")}</BizCell>
         <FreeCell>{t("pricing:limitMemberFree")}</FreeCell>
       </LimitRow>
 
-      <LimitRow>
-        <th>{t("pricing:headerProduct")}</th>
+      <LimitRow headerLabel={t("pricing:headerProduct")}>
         <BizCell>{t("pricing:limitItemBiz")}</BizCell>
         <FreeCell>{t("pricing:limitItemFree")}</FreeCell>
       </LimitRow>
 
-      <LimitRow>
-        <th>{t("pricing:headerLocation")}</th>
+      <LimitRow headerLabel={t("pricing:headerLocation")}>
         <BizCell>
           <Trans
             i18nKey="pricing:limitLocationBiz"
@@ -159,8 +154,8 @@ const PriceTable = ({ isYearly }) => {
         </FreeCell>
       </LimitRow>
 
-      <LimitRow>
-        <th rowSpan={2}>{t("pricing:headerExtension")}</th>
+      <tr className={styles.extensionRow}>
+        <th>{t("pricing:headerExtension")}</th>
         <BizCell>
           <Trans
             i18nKey="pricing:limitMemberBizExtensible"
@@ -183,33 +178,60 @@ const PriceTable = ({ isYearly }) => {
             components={{ small: <small /> }}
           />
         </FreeCell>
-      </LimitRow>
+      </tr>
 
       <tr className={styles.dividerRow}>
+        <th> </th>
         <BizCell><Divider /></BizCell>
         <FreeCell><Divider /></FreeCell>
       </tr>
 
-      <AvailableRow headerLabel={t("pricing:headerFeatureProduct")} />
-      <AvailableRow headerLabel={t("pricing:headerFeatureTx")} />
-      <AvailableRow headerLabel={t("pricing:headerFeatureExcel")} />
-      <FeatureLimitRow>
-        <th>{t("pricing:headerFeatureHistory")}</th>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureProduct")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell><CheckIcon /></FreeCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureTx")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell><CheckIcon /></FreeCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureExcel")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell><CheckIcon /></FreeCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureHistory")}>
         <BizCell>{t("pricing:limitHistoryBiz")}</BizCell>
         <FreeCell>{t("pricing:limitHistoryFree")}</FreeCell>
       </FeatureLimitRow>
-      <AvailableRow headerLabel={t("pricing:headerFeatureMobile")} />
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureMobile")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell><CheckIcon /></FreeCell>
+      </FeatureLimitRow>
 
       <EmptyRow />
 
-      <AvailableRow headerLabel={t("pricing:headerFeatureLabel")} />
-      <AvailableRow headerLabel={t("pricing:headerFeatureAnalysis")} />
-      <AvailableRow headerLabel={t("pricing:headerLowStock")} />
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureLabel")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell>-</FreeCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureAnalysis")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell>-</FreeCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerLowStock")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell>-</FreeCell>
+      </FeatureLimitRow>
 
       <EmptyRow />
 
-      <AvailableRow headerLabel={t("pricing:headerFeatureSales")} />
-      <AvailableRow headerLabel={t("pricing:headerFeatureIntegration")} />
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureSales")}>
+        <BizCell><CheckIcon /></BizCell>
+        <FreeCell>-</FreeCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureIntegration")}>
+        <BizCell>{t("pricing:limitIntegrationBiz")}</BizCell>
+        <FreeCell>-</FreeCell>
+      </FeatureLimitRow>
     </table>
   );
 };

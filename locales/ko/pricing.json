@@ -1,6 +1,6 @@
 {
   "bizPlanDesc": "팀원들과 함께하는<br/>여유로운 재고관리 플랜!",
-  "bizPlanPriceUnit": "팀 / 1개월",
+  "bizPlanPriceUnit": "팀당 / 1개월",
   "bizPlanTitle": "비즈니스 플랜",
   "closingMsg": "비용절감의 시작은 재고관리부터.",
   "directContactDesc": "박스히어로의 고객센터는 언제나 열려있습니다.",
@@ -51,6 +51,7 @@
   "limitHistoryBiz": "무제한",
   "limitHistoryFree": "최대 30일",
   "limitHistoryFreeMobile": "히스토리 조회 30일",
+  "limitIntegrationBiz": "1개",
   "limitItemBiz": "1000개",
   "limitItemBizExtensible": "최대 제품 품목 50,000개<br/><small>(제품 품목 추가 1,000개당 월 $10)</small>",
   "limitItemBizExtensibleMobile": "최대 <strong>50,000개</strong><br/><small>(추가 제품 1,000개당 월 $10)</small>",
