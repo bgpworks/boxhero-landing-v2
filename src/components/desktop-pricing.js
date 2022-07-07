@@ -16,6 +16,7 @@ import * as constants from "./constants";
 import * as styles from "./desktop-pricing.module.css";
 // image
 import iconCheck from "../images/icon-check.svg";
+import iconVolt from "../images/volt.svg";
 
 const SwitchContainer = ({ isYearly, setIsYearly }) => {
   const { t } = useI18next();
@@ -123,6 +124,11 @@ const PriceTable = ({ isYearly }) => {
       <tr className={styles.startButtonRow}>
         <BizCell>
           <StartNowButton className={styles.startButton}>
+            <img
+              className={styles.voltIcon}
+              src={iconVolt}
+              alt={t("pricing:startTrialButton")}
+            />
             {t("pricing:startTrialButton")}
           </StartNowButton>
         </BizCell>

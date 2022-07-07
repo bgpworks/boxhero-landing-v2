@@ -10,6 +10,7 @@ import {
   DropDownQNA,
   Switch,
   AppDownloadLink,
+  AppInstallButton,
 } from "./common";
 import * as constants from "./constants";
 // css
@@ -52,17 +53,6 @@ const Top = ({ data }) => {
   );
 };
 
-const AppDownloadButton = ({ label }) => (
-  <AppDownloadLink>
-    <button
-      type="button"
-      className={styles.startButton}
-    >
-      {label}
-    </button>
-  </AppDownloadLink>
-);
-
 const BasicLimitContainer = ({ children }) => (
   <ul className={styles.basicLimitContainer}>{children}</ul>
 );
@@ -102,7 +92,14 @@ const FreePlan = () => {
 
       <h3 className={styles.planPrice}>{t("pricing:freePlanPrice")}</h3>
 
-      <AppDownloadButton label={t("pricing:startNowButton")} />
+      <AppDownloadLink>
+        <button
+          type="button"
+          className={styles.startButton}
+        >
+          {t("pricing:startNowButton")}
+        </button>
+      </AppDownloadLink>
 
       <BasicLimitContainer>
         <BasicLimit
@@ -194,7 +191,10 @@ const BusinessPlan = () => {
         {t("pricing:bizPlanPriceUnit")}
       </span>
 
-      <AppDownloadButton label={t("pricing:startTrialButton")} />
+      <AppInstallButton
+        className={styles.startButton}
+        label={t("pricing:startTrialButton")}
+      />
 
       <BasicLimitContainer>
         <BasicLimit
