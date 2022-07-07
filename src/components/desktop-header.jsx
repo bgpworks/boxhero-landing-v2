@@ -19,7 +19,7 @@ import svgTransaction from "../images/icon-transaction.svg";
 import svgParts from "../images/icon-parts.svg";
 import svgAsset from "../images/icon-asset.svg";
 import svgBlog from "../images/icon-blog.svg";
-import svgCS from "../images/icon-cs.svg";
+import svgBook from "../images/icon-book.svg";
 
 const DropDownSubMenu = ({
   title,
@@ -165,7 +165,7 @@ const DesktopHeader = ({ isFloatMenu }) => {
             >
               <DropDownSubMenu
                 title={t("header:menuSupport")}
-                icon={svgCS}
+                icon={svgBook}
               />
             </a>
           </DropDownMenu>
