@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
 // js
 import MobileLayout from "./mobile-layout";
@@ -9,7 +9,6 @@ import {
   Padding,
   DropDownQNA,
   Switch,
-  Ribbon,
   AppDownloadLink,
 } from "./common";
 import * as constants from "./constants";
@@ -32,39 +31,26 @@ const TopDescColumn = ({ emoji, title, desc }) => (
   </>
 );
 
-const Top = ({ data, t }) => (
-  <MobileBaseContainer className={styles.topContentContainer}>
-    <h1 className={styles.topTitle}>{t("pricing:topTitle")}</h1>
-    <Padding y={30} />
-    <TopDescColumn
-      emoji={data.emojiOneSmall.childImageSharp.gatsbyImageData}
-      title={t("pricing:topDesc1Title")}
-      desc={<Trans i18nKey="pricing:topDesc1Desc" />}
-    />
-    <Padding y={30} />
-    <TopDescColumn
-      emoji={data.emojiTwoSmall.childImageSharp.gatsbyImageData}
-      title={t("pricing:topDesc2Title")}
-      desc={<Trans i18nKey="pricing:topDesc2Desc" />}
-    />
-  </MobileBaseContainer>
-);
-
-const PlanDetail = ({ header, children }) => (
-  <>
-    <span className={styles.planDetailHeader}>{header}</span>
-    <ul className={styles.planDetailItems}>
-      {children && children.map((item, index) => (
-        <li
-          key={index}
-          className={styles.planDetailItem}
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
-  </>
-);
+const Top = ({ data }) => {
+  const { t } = useI18next();
+  return (
+    <MobileBaseContainer className={styles.topContentContainer}>
+      <h1 className={styles.topTitle}>{t("pricing:topTitle")}</h1>
+      <Padding y={30} />
+      <TopDescColumn
+        emoji={data.emojiOneSmall.childImageSharp.gatsbyImageData}
+        title={t("pricing:topDesc1Title")}
+        desc={<Trans i18nKey="pricing:topDesc1Desc" />}
+      />
+      <Padding y={30} />
+      <TopDescColumn
+        emoji={data.emojiTwoSmall.childImageSharp.gatsbyImageData}
+        title={t("pricing:topDesc2Title")}
+        desc={<Trans i18nKey="pricing:topDesc2Desc" />}
+      />
+    </MobileBaseContainer>
+  );
+};
 
 const AppDownloadButton = ({ label }) => (
   <AppDownloadLink>
@@ -88,90 +74,97 @@ const BasicLimit = ({ header, limit }) => (
   </li>
 );
 
-const SupportFeatures = ({ features }) => (
-  <ul className={styles.supportFeatures}>
-    {features.map((feature) => (
-      <li
-        key={feature}
-        className={styles.supportFeature}
-      >
-        <img
-          src={iconCheck}
-          alt={feature}
-        />
-        <span>{feature}</span>
-      </li>
-    ))}
-  </ul>
+const SupportFeatures = ({ children }) => (
+  <ul className={styles.supportFeatures}>{children}</ul>
+);
+
+const SupportFeature = ({ children }) => (
+  <li className={styles.supportFeature}>
+    <img
+      src={iconCheck}
+      alt={children}
+    />
+    <span>{children}</span>
+  </li>
 );
 
 const Divider = () => (
   <div className={styles.divider} />
 );
 
-const FreePlan = ({ t }) => (
-  <article className={styles.freePlanContainer}>
-    <h2 className={styles.planTitle}>{t("pricing:freePlanTitle")}</h2>
+const FreePlan = () => {
+  const { t } = useI18next();
+  return (
+    <article className={styles.freePlanContainer}>
+      <h2 className={styles.planTitle}>{t("pricing:freePlanTitle")}</h2>
 
-    <Padding y={12} />
+      <Padding y={12} />
 
-    <h3 className={styles.planPrice}>{t("pricing:freePlanPrice")}</h3>
+      <h3 className={styles.planPrice}>{t("pricing:freePlanPrice")}</h3>
 
-    <AppDownloadButton label={t("pricing:startNowButton")} />
+      <AppDownloadButton label={t("pricing:startNowButton")} />
 
-    <BasicLimitContainer>
-      <BasicLimit
-        header={t("pricing:headerMember")}
-        limit={t("pricing:limitMemberFree")}
-      />
-      <BasicLimit
-        header={t("pricing:headerProduct")}
-        limit={t("pricing:limitItemFree")}
-      />
-      <BasicLimit
-        header={t("pricing:headerLocation")}
-        limit={t("pricing:limitLocationFreeMobile")}
-      />
-    </BasicLimitContainer>
+      <BasicLimitContainer>
+        <BasicLimit
+          header={t("pricing:headerMember")}
+          limit={t("pricing:limitMemberFree")}
+        />
+        <BasicLimit
+          header={t("pricing:headerProduct")}
+          limit={t("pricing:limitItemFree")}
+        />
+        <BasicLimit
+          header={t("pricing:headerLocation")}
+          limit={t("pricing:limitLocationFreeMobile")}
+        />
+      </BasicLimitContainer>
 
-    <Divider />
+      <Divider />
 
-    <SupportFeatures
-      features={[
-        t("pricing:headerFeatureProduct"),
-        t("pricing:headerFeatureTx"),
-        t("pricing:headerFeatureMobile"),
-        t("pricing:limitHistoryFreeMobile"),
-      ]}
-    />
+      <SupportFeatures>
+        <SupportFeature>{t("pricing:headerFeatureProduct")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureTx")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureMobile")}</SupportFeature>
+        <SupportFeature>{t("pricing:limitHistoryFreeMobile")}</SupportFeature>
+      </SupportFeatures>
 
-    <Padding y={24} />
+      <Padding y={24} />
 
-    <p className={styles.planLimitExtensionDesc}>
-      <Trans i18nKey="pricing:extensionDescriptionMobile" />
-    </p>
-  </article>
+      <p className={styles.planLimitExtensionDesc}>
+        <Trans i18nKey="pricing:extensionDescriptionMobile" />
+      </p>
+    </article>
+  );
+};
+
+const Extensions = ({ children }) => (
+  <ul className={styles.extensionsContainer}>{children}</ul>
 );
 
-const BusinessPlan = ({ t }) => {
+const Extension = ({ i18nKey }) => (
+  <li className={styles.extension}>
+    <Trans
+      i18nKey={i18nKey}
+      components={{ small: <small /> }}
+    />
+  </li>
+);
+
+const BusinessPlan = () => {
+  const { t } = useI18next();
   const [isYearly, setIsYearly] = useState(true);
+
   return (
     <article className={styles.bizPlanContainer}>
-      <Ribbon>
-        <Trans
-          i18nKey="pricing:recommandRibbon"
-          components={{ small: <small /> }}
-        />
-      </Ribbon>
       <h2 className={styles.planTitle}>{t("pricing:bizPlanTitle")}</h2>
-      <p className={styles.planSubtitle}>For Teams &amp; Businesses</p>
-
-      <Padding y={30} />
 
       <div className={styles.switchContainer}>
         <button
           type="button"
-          className={cn(styles.billingCycleButton, { [styles.active]: !isYearly })}
+          className={cn(
+            styles.billingCycleButton,
+            { [styles.active]: !isYearly },
+          )}
           onClick={() => setIsYearly(false)}
         >
           {t("pricing:switchLabelMonthly")}
@@ -182,72 +175,76 @@ const BusinessPlan = ({ t }) => {
         />
         <button
           type="button"
-          className={cn(styles.billingCycleButton, { [styles.active]: isYearly })}
+          className={cn(
+            styles.billingCycleButton,
+            { [styles.active]: isYearly },
+          )}
           onClick={() => setIsYearly(true)}
         >
-          {t("pricing:switchLabelYearly")}
-          <span className={styles.yearlyPlanSaveLabel}>
-            {t("pricing:yearlyPlanSaveLabel")}
-          </span>
+          <div className={styles.labelYearly}>
+            {t("pricing:switchLabelYearly")}
+            <span className={styles.yearlyPlanSaveLabel}>
+              {t("pricing:yearlyPlanSaveLabel")}
+            </span>
+          </div>
         </button>
       </div>
 
-      <Padding y={20} />
-      <h3 className={styles.planPrice}>{isYearly ? "$16.6" : "$20"}</h3>
+      <h3 className={styles.planPrice}>{isYearly ? "$18" : "$20"}</h3>
       <span className={styles.planPriceUnit}>
         {t("pricing:bizPlanPriceUnit")}
       </span>
-      <Padding y={20} />
 
-      <p className={styles.planDesc}>
-        <Trans i18nKey="pricing:bizPlanDesc" />
-      </p>
+      <AppDownloadButton label={t("pricing:startTrialButton")} />
 
-      <Padding y={30} />
-      <AppDownloadLink>
-        <button
-          type="button"
-          className={styles.startButton}
-        >
-          {t("pricing:startTrialButton")}
-        </button>
-      </AppDownloadLink>
-      <Padding y={40} />
-
-      <PlanDetail header={t("pricing:headerLimit")}>
-        <Trans i18nKey="pricing:limitMemberBiz" />
-        <Trans i18nKey="pricing:limitItemBizMobile" />
-      </PlanDetail>
-      <Padding y={40} />
-
-      <PlanDetail header={t("pricing:headerExtension")}>
-        <Trans
-          i18nKey="pricing:limitMemberBizExtensible"
-          components={{
-            small: <small />,
-          }}
+      <BasicLimitContainer>
+        <BasicLimit
+          header={t("pricing:headerMember")}
+          limit={t("pricing:limitMemberBiz")}
         />
-        <Trans
-          i18nKey="pricing:limitItemBizExtensibleMobile"
-          components={{
-            small: <small />,
-          }}
+        <BasicLimit
+          header={t("pricing:headerProduct")}
+          limit={t("pricing:limitItemBiz")}
         />
-      </PlanDetail>
+        <BasicLimit
+          header={t("pricing:headerLocation")}
+          limit={t("pricing:limitLocationBizMobile")}
+        />
+      </BasicLimitContainer>
+
+      <Divider />
+
+      <h4 className={styles.extensionsTitle}>{t("pricing:headerExtension")}</h4>
+      <Extensions>
+        <Extension i18nKey="pricing:limitMemberBizExtensible" />
+        <Extension i18nKey="pricing:limitItemBizExtensible" />
+        <Extension i18nKey="pricing:limitLocationBizExtensible" />
+      </Extensions>
+
+      <Divider />
+
+      <SupportFeatures>
+        <li className={cn(styles.supportFeature, styles.fontMedium)}>
+          {t("pricing:supportFeatureBiz")}
+        </li>
+        <SupportFeature>{t("pricing:limitHistoryBizMobile")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureExcel")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureAnalysis")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerLowStock")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureSales")}</SupportFeature>
+        <SupportFeature>{t("pricing:limitIntegrationBizMobile")}</SupportFeature>
+      </SupportFeatures>
     </article>
   );
 };
 
-const PriceTable = ({ t }) => (
+const PriceTable = () => (
   <MobileBaseContainer className={styles.priceTableContentContainer}>
-    <FreePlan t={t} />
-
-    <BusinessPlan t={t} />
+    <FreePlan />
 
     <Padding y={20} />
-    <p className={styles.planPostscript}>
-      <Trans i18nKey="pricing:footerDescription" />
-    </p>
+
+    <BusinessPlan />
   </MobileBaseContainer>
 );
 
@@ -384,22 +381,15 @@ const DirectContact = ({ t }) => (
   </MobileBaseContainer>
 );
 
-const MobilePricing = ({ data, language, t }) => (
+const MobilePricing = ({ data, t }) => (
   <MobileLayout
     isFloatMenu={false}
     closingEmoji={data.mobileBox}
     closingMsg={t("pricing:closingMsg")}
   >
-    <Top
-      data={data}
-      t={t}
-    />
+    <Top data={data} />
 
-    <PriceTable
-      data={data}
-      language={language}
-      t={t}
-    />
+    <PriceTable />
 
     <Faq t={t} />
 

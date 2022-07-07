@@ -25,7 +25,7 @@ const SwitchContainer = ({ isYearly, setIsYearly }) => {
         type="button"
         className={cn(
           styles.billingCycleButton,
-          { [styles.active]: isYearly },
+          { [styles.active]: !isYearly },
         )}
         onClick={() => setIsYearly(false)}
       >

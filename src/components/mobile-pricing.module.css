@@ -73,7 +73,8 @@
   margin: 24px 0;
 }
 
-.basicLimitContainer {
+.basicLimitContainer,
+.extensionsContainer {
   margin: 0;
   text-align: center;
 }
@@ -112,26 +113,8 @@
   margin-top: 14px;
 }
 
-.planDetailHeader {
-  height: 24px;
-  font-weight: bold;
-  color: var(--color-gray2);
-}
-
-.planDetailItems {
-  margin: 0;
-}
-
-.planDetailItem {
-  list-style: none;
-  margin: 14px 0 0 0;
-  text-align: center;
-  line-height: normal;
-}
-
-.planDetailItem small {
-  font-size: var(--font-size-mobile-small);
-  font-weight: normal;
+.fontMedium {
+  font-weight: 500;
 }
 
 .planLimitExtensionDesc {
@@ -145,15 +128,14 @@
   composes: planContainer;
   background-color: var(--color-light-blue-20);
   position: relative;
-
-  margin-top: 40px;
 }
 
 .switchContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
+  margin: 24px 0 29px 0;
 }
 
 .billingCycleButton {
@@ -161,19 +143,21 @@
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: var(--color-gray2);
-  line-height: 24px;
-
-  position: relative;
 }
 
 .billingCycleButton.active {
   color: var(--color-gray1);
 }
 
+.labelYearly {
+  position: relative;
+}
+
 .yearlyPlanSaveLabel {
   position: absolute;
-  right: 0;
-  top: 100%;
+  left: 50%;
+  top: calc(100% + 2px);
+  transform: translateX(-50%);
   white-space: nowrap;
 
   font-size: var(--font-size-b12);
@@ -181,19 +165,33 @@
   font-weight: normal;
 
   text-align: center;
-  line-height: 18px;
+  line-height: 1.37;
 }
 
 .planPriceUnit {
   font-size: var(--font-size-mobile-small);
 }
 
-.planPostscript {
-  max-width: 300px;
-  margin: 0 auto;
-  font-size: var(--font-size-mobile-small);
-  text-align: center;
+.extensionsTitle {
+  font-size: var(--font-size-mobile-normal);
+  color: var(--color-primary);
+  font-weight: 500;
+  margin: 0 0 14px 0;
+}
+
+.extension {
+  list-style-type: none;
+  font-weight: 500;
   line-height: 1.37;
+}
+.extension small {
+  font-size: var(--font-size-b12);
+  font-weight: 500;
+  color: var(--color-gray1);
+}
+
+.extension + .extension {
+  margin-top: 14px;
 }
 
 /* faq */
