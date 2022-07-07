@@ -69,6 +69,10 @@ const LimitRow = ({ headerLabel, children }) => (
   </tr>
 );
 
+const ExtensionRow = ({ children }) => (
+  <tr className={styles.extensionRow}>{children}</tr>
+);
+
 const Divider = () => (
   <div className={styles.divider} />
 );
@@ -154,32 +158,34 @@ const PriceTable = ({ isYearly }) => {
         </FreeCell>
       </LimitRow>
 
-      <tr className={styles.extensionRow}>
-        <th>{t("pricing:headerExtension")}</th>
+      <ExtensionRow>
+        <th rowSpan={3}>{t("pricing:headerExtension")}</th>
         <BizCell>
           <Trans
             i18nKey="pricing:limitMemberBizExtensible"
             components={{ small: <small /> }}
           />
-          <Padding y={16} />
+        </BizCell>
+        <FreeCell>-</FreeCell>
+      </ExtensionRow>
+      <ExtensionRow>
+        <BizCell>
           <Trans
             i18nKey="pricing:limitItemBizExtensible"
             components={{ small: <small /> }}
           />
-          <Padding y={16} />
+        </BizCell>
+        <FreeCell>-</FreeCell>
+      </ExtensionRow>
+      <ExtensionRow>
+        <BizCell>
           <Trans
             i18nKey="pricing:limitLocationBizExtensible"
             components={{ small: <small /> }}
           />
         </BizCell>
-        <FreeCell>
-          -
-          <Padding y={33} />
-          -
-          <Padding y={33} />
-          -
-        </FreeCell>
-      </tr>
+        <FreeCell>-</FreeCell>
+      </ExtensionRow>
 
       <tr className={styles.dividerRow}>
         <th> </th>

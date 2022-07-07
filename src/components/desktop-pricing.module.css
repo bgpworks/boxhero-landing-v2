@@ -194,6 +194,10 @@
   color: var(--color-gray1);
 }
 
+.extensionRow + .extensionRow td {
+  padding-top: 16px;
+}
+
 .checkIcon {
   width: 20px;
   height: 20px;
