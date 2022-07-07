@@ -70,13 +70,12 @@
   font-size: var(--font-size-mobile-small);
   font-weight: bold;
   color: white;
+  margin: 24px 0;
 }
 
 .basicLimitContainer {
   margin: 0;
-  padding: 24px 0;
   text-align: center;
-  border-bottom: 1px solid var(--color-gray3);
 }
 
 .basicLimit {
@@ -85,6 +84,12 @@
 
 .basicLimit + .basicLimit {
   margin-top: 14px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-gray3);
+  margin: 24px 0;
 }
 
 .supportFeatures {

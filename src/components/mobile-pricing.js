@@ -66,9 +66,21 @@ const PlanDetail = ({ header, children }) => (
   </>
 );
 
+const AppDownloadButton = ({ label }) => (
+  <AppDownloadLink>
+    <button
+      type="button"
+      className={styles.startButton}
+    >
+      {label}
+    </button>
+  </AppDownloadLink>
+);
+
 const BasicLimitContainer = ({ children }) => (
   <ul className={styles.basicLimitContainer}>{children}</ul>
 );
+
 const BasicLimit = ({ header, limit }) => (
   <li className={styles.basicLimit}>
     <span>{`${header} `}</span>
@@ -79,7 +91,10 @@ const BasicLimit = ({ header, limit }) => (
 const SupportFeatures = ({ features }) => (
   <ul className={styles.supportFeatures}>
     {features.map((feature) => (
-      <li className={styles.supportFeature}>
+      <li
+        key={feature}
+        className={styles.supportFeature}
+      >
         <img
           src={iconCheck}
           alt={feature}
@@ -90,22 +105,19 @@ const SupportFeatures = ({ features }) => (
   </ul>
 );
 
+const Divider = () => (
+  <div className={styles.divider} />
+);
+
 const FreePlan = ({ t }) => (
   <article className={styles.freePlanContainer}>
     <h2 className={styles.planTitle}>{t("pricing:freePlanTitle")}</h2>
 
     <Padding y={12} />
-    <h3 className={styles.planPrice}>{t("pricing:freePlanPrice")}</h3>
-    <Padding y={24} />
 
-    <AppDownloadLink>
-      <button
-        type="button"
-        className={styles.startButton}
-      >
-        {t("pricing:startNowButton")}
-      </button>
-    </AppDownloadLink>
+    <h3 className={styles.planPrice}>{t("pricing:freePlanPrice")}</h3>
+
+    <AppDownloadButton label={t("pricing:startNowButton")} />
 
     <BasicLimitContainer>
       <BasicLimit
@@ -122,7 +134,8 @@ const FreePlan = ({ t }) => (
       />
     </BasicLimitContainer>
 
-    <Padding y={24} />
+    <Divider />
+
     <SupportFeatures
       features={[
         t("pricing:headerFeatureProduct"),
@@ -131,6 +144,7 @@ const FreePlan = ({ t }) => (
         t("pricing:limitHistoryFreeMobile"),
       ]}
     />
+
     <Padding y={24} />
 
     <p className={styles.planLimitExtensionDesc}>
