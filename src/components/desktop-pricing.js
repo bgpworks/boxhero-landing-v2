@@ -187,10 +187,6 @@ const PriceTable = ({ isYearly }) => {
         <FreeCell><Divider /></FreeCell>
       </tr>
 
-      <FeatureLimitRow headerLabel={t("pricing:headerFeatureProduct")}>
-        <BizCell><CheckIcon /></BizCell>
-        <FreeCell><CheckIcon /></FreeCell>
-      </FeatureLimitRow>
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureTx")}>
         <BizCell><CheckIcon /></BizCell>
         <FreeCell><CheckIcon /></FreeCell>

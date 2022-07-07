@@ -122,7 +122,6 @@ const FreePlan = () => {
       <Divider />
 
       <SupportFeatures>
-        <SupportFeature>{t("pricing:headerFeatureProduct")}</SupportFeature>
         <SupportFeature>{t("pricing:headerFeatureTx")}</SupportFeature>
         <SupportFeature>{t("pricing:headerFeatureMobile")}</SupportFeature>
         <SupportFeature>{t("pricing:limitHistoryFreeMobile")}</SupportFeature>
