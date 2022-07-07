@@ -9,8 +9,6 @@ import * as styles from "./mobile-layout.module.css";
 
 const MobileLayout = ({
   isFloatMenu,
-  closingEmoji,
-  closingMsg,
   mainClassName,
   showPlatforms,
   showStartNow,
@@ -24,8 +22,6 @@ const MobileLayout = ({
       <MobileFooter
         showPlatforms={showPlatforms}
         showStartNow={showStartNow}
-        closingEmoji={closingEmoji}
-        closingMsg={closingMsg}
         onChangeIsShowLangPopup={onChangeIsShowLangPopup}
       />
       <LangPopup
@@ -38,8 +34,6 @@ const MobileLayout = ({
 
 MobileLayout.propTypes = {
   isFloatMenu: PropTypes.bool,
-  closingEmoji: PropTypes.object,
-  closingMsg: PropTypes.any,
   mainClassName: PropTypes.string,
   showPlatforms: PropTypes.bool,
   showStartNow: PropTypes.bool,

@@ -173,10 +173,11 @@ const PriceTable = ({ isYearly }) => {
           />
         </BizCell>
         <FreeCell>
-          <Trans
-            i18nKey="pricing:limitLocationFree"
-            components={{ small: <small /> }}
-          />
+          -
+          <Padding y={33} />
+          -
+          <Padding y={33} />
+          -
         </FreeCell>
       </tr>
 

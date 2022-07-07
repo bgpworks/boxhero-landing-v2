@@ -382,11 +382,7 @@ const DirectContact = ({ t }) => (
 );
 
 const MobilePricing = ({ data, t }) => (
-  <MobileLayout
-    isFloatMenu={false}
-    closingEmoji={data.mobileBox}
-    closingMsg={t("pricing:closingMsg")}
-  >
+  <MobileLayout isFloatMenu={false}>
     <Top data={data} />
 
     <PriceTable />
