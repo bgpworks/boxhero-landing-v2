@@ -57,11 +57,8 @@ const BasicLimitContainer = ({ children }) => (
   <ul className={styles.basicLimitContainer}>{children}</ul>
 );
 
-const BasicLimit = ({ header, limit }) => (
-  <li className={styles.basicLimit}>
-    <span>{`${header} `}</span>
-    <strong>{limit}</strong>
-  </li>
+const BasicLimit = ({ children }) => (
+  <li className={styles.basicLimit}>{children}</li>
 );
 
 const SupportFeatures = ({ children }) => (
@@ -102,26 +99,18 @@ const FreePlan = () => {
       </AppDownloadLink>
 
       <BasicLimitContainer>
-        <BasicLimit
-          header={t("pricing:headerMember")}
-          limit={t("pricing:limitMemberFree")}
-        />
-        <BasicLimit
-          header={t("pricing:headerProduct")}
-          limit={t("pricing:limitItemFree")}
-        />
-        <BasicLimit
-          header={t("pricing:headerLocation")}
-          limit={t("pricing:limitLocationFreeMobile")}
-        />
+        <BasicLimit>{t("pricing:limitMemberFreeMobile")}</BasicLimit>
+        <BasicLimit>{t("pricing:limitItemFreeMobile")}</BasicLimit>
+        <BasicLimit>{t("pricing:limitLocationFreeMobile")}</BasicLimit>
       </BasicLimitContainer>
 
       <Divider />
 
       <SupportFeatures>
         <SupportFeature>{t("pricing:headerFeatureTx")}</SupportFeature>
-        <SupportFeature>{t("pricing:headerFeatureMobile")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureExcel")}</SupportFeature>
         <SupportFeature>{t("pricing:limitHistoryFreeMobile")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureMobile")}</SupportFeature>
       </SupportFeatures>
 
       <Padding y={24} />
@@ -197,18 +186,9 @@ const BusinessPlan = () => {
       />
 
       <BasicLimitContainer>
-        <BasicLimit
-          header={t("pricing:headerMember")}
-          limit={t("pricing:limitMemberBiz")}
-        />
-        <BasicLimit
-          header={t("pricing:headerProduct")}
-          limit={t("pricing:limitItemBiz")}
-        />
-        <BasicLimit
-          header={t("pricing:headerLocation")}
-          limit={t("pricing:limitLocationBizMobile")}
-        />
+        <BasicLimit>{t("pricing:limitMemberBizMobile")}</BasicLimit>
+        <BasicLimit>{t("pricing:limitItemBizMobile")}</BasicLimit>
+        <BasicLimit>{t("pricing:limitLocationBizMobile")}</BasicLimit>
       </BasicLimitContainer>
 
       <Divider />
@@ -227,7 +207,7 @@ const BusinessPlan = () => {
           {t("pricing:supportFeatureBiz")}
         </li>
         <SupportFeature>{t("pricing:limitHistoryBizMobile")}</SupportFeature>
-        <SupportFeature>{t("pricing:headerFeatureExcel")}</SupportFeature>
+        <SupportFeature>{t("pricing:headerFeatureLabel")}</SupportFeature>
         <SupportFeature>{t("pricing:headerFeatureAnalysis")}</SupportFeature>
         <SupportFeature>{t("pricing:headerLowStock")}</SupportFeature>
         <SupportFeature>{t("pricing:headerFeatureSales")}</SupportFeature>
