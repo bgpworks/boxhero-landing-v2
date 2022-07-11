@@ -8,7 +8,7 @@ module.exports = {
   idFeatureSummary: "feature-summary",
   idFeatureViewPastQuantity: "feature-view-past-quantity",
   urlConsultingEn: "https://boxhero-invt.typeform.com/to/BAjooflm",
-  urlConsultingKo: "https://whattime.co.kr/boxhero/demo",
+  urlConsultingKo: "https://boxhero-invt.typeform.com/to/AgYWMNU8",
   urlDownloadApp: "https://redirect.appmetrica.yandex.com/serve/530934382265923250",
   urlDownloadAppDable: "https://redirect.appmetrica.yandex.com/serve/675474761484095974",
   urlDownloadAppKakao: "https://redirect.appmetrica.yandex.com/serve/99014008425711055",
