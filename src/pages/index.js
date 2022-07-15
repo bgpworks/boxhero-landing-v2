@@ -183,9 +183,9 @@ export const query = graphql`
         )
       }
     }
-    featureIntegration: file(
+    featureSalesAnalysis: file(
       relativeDirectory: { eq: $language }
-      base: { eq: "order-log.png" }
+      base: { eq: "sales-analysis.png" }
     ) {
       childImageSharp {
         gatsbyImageData(
