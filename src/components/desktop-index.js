@@ -36,7 +36,7 @@ import iconScanning from "../images/icon-scanning.svg";
 import iconAddItem from "../images/feature-additem.svg";
 import iconSync from "../images/icon-sync.svg";
 import iconEye from "../images/icon-viewer.svg";
-import iconLink from "../images/icon-link.svg";
+import iconAnalysis from "../images/feature-analysis.svg";
 import iconSmallRightBlue from "../images/smallright-blue.svg";
 import iconSwipeLeft from "../images/swipeleft.svg";
 import iconSwipeRight from "../images/swiperight.svg";
@@ -61,7 +61,7 @@ function genKeyFeaturesData(data, t) {
     [
       { icon: iconEye, title: t("index:keyFeature4Menu1"), img: data.featureAllInOne.childImageSharp.gatsbyImageData },
       { icon: iconVolt, title: t("index:keyFeature4Menu2"), img: data.featureQuantity.childImageSharp.gatsbyImageData },
-      { icon: iconLink, title: t("index:keyFeature4Menu3"), img: data.featureIntegration.childImageSharp.gatsbyImageData },
+      { icon: iconAnalysis, title: t("index:keyFeature4Menu3"), img: data.featureSalesAnalysis.childImageSharp.gatsbyImageData },
     ],
   ];
 }
