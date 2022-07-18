@@ -13,15 +13,7 @@
 
 .topDescContainer {
   text-align: center;
-}
-
-.topDescTitle {
   font-size: var(--font-size-h5);
-}
-
-.topDescDesc {
-  font-size: var(--font-size-b16);
-  color: var(--color-gray1);
   line-height: 1.5;
 }
 

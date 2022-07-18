@@ -248,9 +248,9 @@ const TopDesc = () => {
   const { t } = useI18next();
   return (
     <div className={styles.topDescContainer}>
-      <div className={styles.topDescTitle}>{t("pricing:topDesc1Title")}</div>
-      <Padding y={10} />
-      <div className={styles.topDescDesc}>{t("pricing:topDesc1Desc")}</div>
+      <div>{t("pricing:topDesc1Title")}</div>
+      <Padding y={6} />
+      <div>{t("pricing:topDesc1Desc")}</div>
     </div>
   );
 };
@@ -263,11 +263,11 @@ const Top = ({ data }) => {
     <DesktopBaseContainer className={styles.topContentContainer}>
       <div className={styles.topTitle}>{t("pricing:topTitle")}</div>
 
-      <Padding y={40} />
+      <Padding y={25} />
 
       <TopDesc data={data} />
 
-      <Padding y={60} />
+      <Padding y={100} />
 
       <SwitchContainer
         isYearly={isYearly}
