@@ -10,7 +10,6 @@ import {
   Switch,
   StartNowButton,
 } from "./common";
-import * as constants from "./constants";
 // css
 import * as styles from "./desktop-pricing.module.css";
 // image
@@ -293,12 +292,6 @@ const Faq = ({ t }) => {
       question: t("pricing:faq2Question"),
       answer: {
         i18nKey: "pricing:faq2Answer",
-        components: {
-          ul: <ul />,
-          li: <li />,
-          // eslint-disable-next-line
-          faqModeLink: <a href="/help/faq/about-mode" target="_blank" />,
-        },
       },
     },
     {
@@ -317,36 +310,6 @@ const Faq = ({ t }) => {
       question: t("pricing:faq5Question"),
       answer: {
         i18nKey: "pricing:faq5Answer",
-      },
-    },
-    {
-      question: t("pricing:faq6Question"),
-      answer: {
-        i18nKey: "pricing:faq6Answer",
-      },
-    },
-    {
-      question: t("pricing:faq7Question"),
-      answer: {
-        i18nKey: "pricing:faq7Answer",
-      },
-    },
-    {
-      question: t("pricing:faq8Question"),
-      answer: {
-        i18nKey: "pricing:faq8Answer",
-        components: {
-          faqPaymentLink: (
-            // eslint-disable-next-line
-            <a href={constants.urlFaqPaymentDomestic} target="_blank" />
-          ),
-        },
-      },
-    },
-    {
-      question: t("pricing:faq9Question"),
-      answer: {
-        i18nKey: "pricing:faq9Answer",
       },
     },
   ];
@@ -372,7 +335,11 @@ const Faq = ({ t }) => {
 
       <Padding y={60} />
 
-      <a href="/help/start/pricing">
+      <a
+        href={t("url:support")}
+        target="_blank"
+        rel="noreferrer"
+      >
         <button
           type="button"
           className={styles.buttonShowMore}
