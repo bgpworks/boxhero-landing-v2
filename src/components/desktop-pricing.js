@@ -336,7 +336,7 @@ const Faq = ({ t }) => {
       <Padding y={60} />
 
       <a
-        href={t("url:support")}
+        href={t("url:supportPayment")}
         target="_blank"
         rel="noreferrer"
       >
