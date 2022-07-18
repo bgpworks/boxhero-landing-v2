@@ -11,12 +11,6 @@
   font-size: var(--font-size-mobile-h2);
 }
 
-.topDescIcon {
-  width: 24px;
-  height: 24px;
-  margin: 0 auto;
-}
-
 .topDescTitle {
   margin: 0;
   font-size: var(--font-size-mobile-h4);

@@ -11,19 +11,7 @@
   text-align: center;
 }
 
-.vl {
-  border-left: 2px solid var(--color-gray4);
-  margin: 46px 14px 0;
-}
-
 .topDescContainer {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.topDescColumn {
-  width: 480px;
   text-align: center;
 }
 

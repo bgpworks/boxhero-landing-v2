@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
 // js
@@ -245,38 +244,13 @@ const PriceTable = ({ isYearly }) => {
   );
 };
 
-const TopDescColumn = ({ emoji, title, desc }) => (
-  <div className={styles.topDescColumn}>
-    <GatsbyImage
-      image={emoji}
-      alt={title}
-      style={{ margin: "0 auto" }}
-    />
-
-    <Padding y={10} />
-    <div className={styles.topDescTitle}>{title}</div>
-    <Padding y={10} />
-    <div className={styles.topDescDesc}>{desc}</div>
-  </div>
-);
-
-const TopDescSpliter = () => <div className={styles.vl} />;
-
-const TopDesc = ({ data }) => {
+const TopDesc = () => {
   const { t } = useI18next();
   return (
     <div className={styles.topDescContainer}>
-      <TopDescColumn
-        emoji={data.emojiOne.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc1Title")}
-        desc={<Trans i18nKey="pricing:topDesc1Desc" />}
-      />
-      <TopDescSpliter />
-      <TopDescColumn
-        emoji={data.emojiTwo.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc2Title")}
-        desc={<Trans i18nKey="pricing:topDesc2Desc" />}
-      />
+      <div className={styles.topDescTitle}>{t("pricing:topDesc1Title")}</div>
+      <Padding y={10} />
+      <div className={styles.topDescDesc}>{t("pricing:topDesc1Desc")}</div>
     </div>
   );
 };

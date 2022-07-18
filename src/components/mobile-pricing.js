@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
 // js
@@ -18,37 +17,15 @@ import * as styles from "./mobile-pricing.module.css";
 // img
 import iconCheck from "../images/icon-check.svg";
 
-const TopDescColumn = ({ emoji, title, desc }) => (
-  <>
-    <GatsbyImage
-      className={styles.topDescIcon}
-      image={emoji}
-      alt={title}
-    />
-    <Padding y={10} />
-    <h3 className={styles.topDescTitle}>{title}</h3>
-    <Padding y={5} />
-    <p className={styles.topDescDesc}>{desc}</p>
-  </>
-);
-
-const Top = ({ data }) => {
+const Top = () => {
   const { t } = useI18next();
   return (
     <MobileBaseContainer className={styles.topContentContainer}>
       <h1 className={styles.topTitle}>{t("pricing:topTitle")}</h1>
       <Padding y={30} />
-      <TopDescColumn
-        emoji={data.emojiOneSmall.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc1Title")}
-        desc={<Trans i18nKey="pricing:topDesc1Desc" />}
-      />
-      <Padding y={30} />
-      <TopDescColumn
-        emoji={data.emojiTwoSmall.childImageSharp.gatsbyImageData}
-        title={t("pricing:topDesc2Title")}
-        desc={<Trans i18nKey="pricing:topDesc2Desc" />}
-      />
+      <h3 className={styles.topDescTitle}>{t("pricing:topDesc1Title")}</h3>
+      <Padding y={5} />
+      <p className={styles.topDescDesc}>{t("pricing:topDesc1Desc")}</p>
     </MobileBaseContainer>
   );
 };
