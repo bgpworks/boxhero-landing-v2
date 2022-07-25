@@ -155,11 +155,11 @@ export const StartNowButton = ({ className, children }) => (
   </ExternalLinkWithQuery>
 );
 
-export const AppInstallButton = ({ label }) => (
+export const AppInstallButton = ({ className, label }) => (
   <AppDownloadLink>
     <button
       type="button"
-      className={styles.appDownloadButton}
+      className={cn(styles.appDownloadButton, className)}
     >
       <img
         className={styles.appDownloadIcon}

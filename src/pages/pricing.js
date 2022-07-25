@@ -23,7 +23,6 @@ export default function PricingPage({ data, location }) {
       <Media at="xs">
         <MobilePricing
           data={data}
-          language={language}
           t={t}
         />
       </Media>
@@ -31,7 +30,6 @@ export default function PricingPage({ data, location }) {
       <Media greaterThan="xs">
         <DesktopPricing
           data={data}
-          language={language}
           t={t}
         />
       </Media>

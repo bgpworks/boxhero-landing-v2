@@ -1,220 +1,235 @@
-import React, { useState } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Trans } from "gatsby-plugin-react-i18next";
+import React from "react";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
   DropDownQNA,
-  Switch,
+  StartNowButton,
   Ribbon,
-  ExternalLinkWithQuery,
 } from "./common";
-import * as constants from "./constants";
 // css
 import * as styles from "./desktop-pricing.module.css";
+// image
+import iconCheck from "../images/icon-check.svg";
+import iconVolt from "../images/volt.svg";
 
-const Top = ({ title, children }) => (
-  <DesktopBaseContainer className={styles.topContentContainer}>
-    <div className={styles.topTitle}>{title}</div>
-    <Padding y={40} />
+const BizCell = ({ children }) => (
+  <td className={styles.bizCell}>{children}</td>
+);
+
+const FreeCell = ({ children }) => (
+  <td className={styles.freeCell}>{children}</td>
+);
+
+const LimitRow = ({ headerLabel, children }) => (
+  <tr className={styles.limitRow}>
+    <th>{headerLabel}</th>
     {children}
-  </DesktopBaseContainer>
+  </tr>
 );
 
-const TopDescColumn = ({ emoji, title, desc }) => (
-  <div className={styles.topDescColumn}>
-    <GatsbyImage
-      image={emoji}
-      alt={title}
-      style={{ margin: "0 auto" }}
-    />
-
-    <Padding y={10} />
-    <div className={styles.topDescTitle}>{title}</div>
-    <Padding y={10} />
-    <div className={styles.topDescDesc}>{desc}</div>
-  </div>
+const ExtensionRow = ({ children }) => (
+  <tr className={styles.extensionRow}>{children}</tr>
 );
 
-const TopDescSpliter = () => <div className={styles.vl} />;
-
-const TopDesc = ({ data, t }) => (
-  <div className={styles.topDescContainer}>
-    <TopDescColumn
-      emoji={data.emojiOne.childImageSharp.gatsbyImageData}
-      title={t("pricing:topDesc1Title")}
-      desc={<Trans i18nKey="pricing:topDesc1Desc" />}
-    />
-    <TopDescSpliter />
-    <TopDescColumn
-      emoji={data.emojiTwo.childImageSharp.gatsbyImageData}
-      title={t("pricing:topDesc2Title")}
-      desc={<Trans i18nKey="pricing:topDesc2Desc" />}
-    />
-  </div>
+const Divider = () => (
+  <div className={styles.divider} />
 );
 
-const PriceTable = ({ t }) => {
-  const [isYearly, setIsYearly] = useState(true);
+const FeatureLimitRow = ({ headerLabel, children }) => (
+  <tr className={styles.featureLimitRow}>
+    <th>{headerLabel}</th>
+    {children}
+  </tr>
+);
+
+const CheckIcon = () => (
+  <img
+    className={styles.checkIcon}
+    src={iconCheck}
+    alt="available"
+  />
+);
+
+const EmptyRow = () => (
+  <tr>
+    <th> </th>
+    <FreeCell><Padding y={36} /></FreeCell>
+    <BizCell><Padding y={36} /></BizCell>
+  </tr>
+);
+
+const PriceTable = () => {
+  const { t } = useI18next();
+  return (
+    <table className={styles.priceTable}>
+      <tr className={styles.planTitleRow}>
+        <th rowSpan={4}> </th>
+        <FreeCell>{t("pricing:freePlanTitle")}</FreeCell>
+        <BizCell>
+          <Ribbon>{t("pricing:recommandRibbon")}</Ribbon>
+          {t("pricing:bizPlanTitle")}
+        </BizCell>
+      </tr>
+
+      <tr className={styles.priceRow}>
+        <FreeCell>{t("pricing:freePlanPrice")}</FreeCell>
+        <BizCell>$18</BizCell>
+      </tr>
+
+      <tr className={styles.priceUnitRow}>
+        <FreeCell>{t("pricing:freePlanPriceUnit")}</FreeCell>
+        <BizCell><Trans i18nKey="pricing:bizPlanPriceUnit" /></BizCell>
+      </tr>
+
+      <tr className={styles.startButtonRow}>
+        <FreeCell>
+          <StartNowButton className={styles.startButton}>
+            {t("pricing:startNowButton")}
+          </StartNowButton>
+        </FreeCell>
+        <BizCell>
+          <StartNowButton className={styles.startButton}>
+            <img
+              className={styles.voltIcon}
+              src={iconVolt}
+              alt={t("pricing:startTrialButton")}
+            />
+            {t("pricing:startTrialButton")}
+          </StartNowButton>
+        </BizCell>
+      </tr>
+
+      <LimitRow headerLabel={t("pricing:headerMember")}>
+        <FreeCell>{t("pricing:limitMemberFree")}</FreeCell>
+        <BizCell>{t("pricing:limitMemberBiz")}</BizCell>
+      </LimitRow>
+
+      <LimitRow headerLabel={t("pricing:headerProduct")}>
+        <FreeCell>{t("pricing:limitItemFree")}</FreeCell>
+        <BizCell>{t("pricing:limitItemBiz")}</BizCell>
+      </LimitRow>
+
+      <LimitRow headerLabel={t("pricing:headerLocation")}>
+        <FreeCell>
+          <Trans
+            i18nKey="pricing:limitLocationFree"
+            components={{ small: <small /> }}
+          />
+        </FreeCell>
+        <BizCell>
+          <Trans
+            i18nKey="pricing:limitLocationBiz"
+            components={{ small: <small /> }}
+          />
+        </BizCell>
+      </LimitRow>
+
+      <ExtensionRow>
+        <th rowSpan={3}>{t("pricing:headerExtension")}</th>
+        <FreeCell>-</FreeCell>
+        <BizCell>
+          <Trans
+            i18nKey="pricing:limitMemberBizExtensible"
+            components={{ small: <small /> }}
+          />
+        </BizCell>
+      </ExtensionRow>
+      <ExtensionRow>
+        <FreeCell>-</FreeCell>
+        <BizCell>
+          <Trans
+            i18nKey="pricing:limitItemBizExtensible"
+            components={{ small: <small /> }}
+          />
+        </BizCell>
+      </ExtensionRow>
+      <ExtensionRow>
+        <FreeCell>-</FreeCell>
+        <BizCell>
+          <Trans
+            i18nKey="pricing:limitLocationBizExtensible"
+            components={{ small: <small /> }}
+          />
+        </BizCell>
+      </ExtensionRow>
+
+      <tr className={styles.dividerRow}>
+        <th> </th>
+        <FreeCell><Divider /></FreeCell>
+        <BizCell><Divider /></BizCell>
+      </tr>
+
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureTx")}>
+        <FreeCell><CheckIcon /></FreeCell>
+        <BizCell><CheckIcon /></BizCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureExcel")}>
+        <FreeCell><CheckIcon /></FreeCell>
+        <BizCell><CheckIcon /></BizCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureHistory")}>
+        <FreeCell>{t("pricing:limitHistoryFree")}</FreeCell>
+        <BizCell>{t("pricing:limitHistoryBiz")}</BizCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureMobile")}>
+        <FreeCell><CheckIcon /></FreeCell>
+        <BizCell><CheckIcon /></BizCell>
+      </FeatureLimitRow>
+
+      <EmptyRow />
+
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureLabel")}>
+        <FreeCell>-</FreeCell>
+        <BizCell><CheckIcon /></BizCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureAnalysis")}>
+        <FreeCell>-</FreeCell>
+        <BizCell><CheckIcon /></BizCell>
+      </FeatureLimitRow>
+      <FeatureLimitRow headerLabel={t("pricing:headerLowStock")}>
+        <FreeCell>-</FreeCell>
+        <BizCell><CheckIcon /></BizCell>
+      </FeatureLimitRow>
+
+      <EmptyRow />
+
+      <FeatureLimitRow headerLabel={t("pricing:headerFeatureSales")}>
+        <FreeCell>-</FreeCell>
+        <BizCell><CheckIcon /></BizCell>
+      </FeatureLimitRow>
+    </table>
+  );
+};
+
+const TopDesc = () => {
+  const { t } = useI18next();
+  return (
+    <div className={styles.topDescContainer}>
+      <div>{t("pricing:topDesc1Title")}</div>
+      <Padding y={6} />
+      <div>{t("pricing:topDesc1Desc")}</div>
+    </div>
+  );
+};
+
+const Top = ({ data }) => {
+  const { t } = useI18next();
 
   return (
-    <>
-      <div className={styles.switchContainer}>
-        <button
-          type="button"
-          className={`${styles.billingCycleButton} ${isYearly ? "" : styles.active
-          }`}
-          onClick={() => setIsYearly(false)}
-        >
-          {t("pricing:switchLabelMonthly")}
-        </button>
-        <Padding x={35} />
-        <Switch
-          isActive={isYearly}
-          onChange={(active) => setIsYearly(active)}
-        />
-        <Padding x={35} />
-        <button
-          type="button"
-          className={`${styles.billingCycleButton} ${isYearly ? styles.active : ""
-          }`}
-          onClick={() => setIsYearly(true)}
-        >
-          {t("pricing:switchLabelYearly")}
-          <div className={styles.yearlyPlanSaveLabel}>
-            {t("pricing:yearlyPlanSaveLabel")}
-          </div>
-        </button>
-      </div>
-      <Padding y={60} />
-      <table className={styles.pricingTable}>
-        <thead>
-          <tr>
-            <th>
-              <strong>{t("pricing:freePlanTitle")}</strong>
-              <br />
-              <small>For Personal</small>
-            </th>
-            <th>
-              <strong>{t("pricing:bizPlanTitle")}</strong>
-              <br />
-              <small>For Teams &amp; Businesses</small>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div className={styles.price}>{t("pricing:freePlanPrice")}</div>
-              <small>{t("pricing:freePlanPriceUnit")}</small>
-            </td>
-            <td className={styles.priceWrapper}>
-              <Ribbon>
-                <Trans
-                  i18nKey="pricing:recommandRibbon"
-                  components={{ small: <small /> }}
-                />
-              </Ribbon>
-              <div className={styles.price}>{isYearly ? "$16.6" : "$20"}</div>
-              <small>{t("pricing:bizPlanPriceUnit")}</small>
-            </td>
-          </tr>
+    <DesktopBaseContainer className={styles.topContentContainer}>
+      <div className={styles.topTitle}>{t("pricing:topTitle")}</div>
 
-          <tr className={styles.planDescription}>
-            <td>
-              <Trans i18nKey="pricing:freePlanDesc" />
-            </td>
-            <td>
-              <strong>
-                <Trans i18nKey="pricing:bizPlanDesc" />
-              </strong>
-            </td>
-          </tr>
+      <Padding y={25} />
 
-          <tr className={styles.startButtonRow}>
-            <td>
-              <ExternalLinkWithQuery href={constants.urlStart}>
-                <button
-                  type="button"
-                  className={styles.startButton}
-                >
-                  {t("pricing:startNowButton")}
-                </button>
-              </ExternalLinkWithQuery>
-            </td>
-            <td>
-              <ExternalLinkWithQuery href={constants.urlStart}>
-                <button
-                  type="button"
-                  className={styles.startButton}
-                >
-                  {t("pricing:startTrialButton")}
-                </button>
-              </ExternalLinkWithQuery>
-            </td>
-          </tr>
+      <TopDesc data={data} />
 
-          <tr className={styles.sectionTitleRow}>
-            <td>{t("pricing:headerLimit")}</td>
-            <td>{t("pricing:headerLimit")}</td>
-          </tr>
+      <Padding y={100} />
 
-          <tr>
-            <td>
-              <Trans i18nKey="pricing:limitMemberFree" />
-            </td>
-            <td>
-              <Trans i18nKey="pricing:limitMemberBiz" />
-            </td>
-          </tr>
-          <tr className={styles.paddingBottom40}>
-            <td>
-              <Trans i18nKey="pricing:limitItemFree" />
-            </td>
-            <td>
-              <Trans i18nKey="pricing:limitItemBiz" />
-            </td>
-          </tr>
-
-          <tr className={styles.sectionTitleRow}>
-            <td />
-            <td>{t("pricing:headerExtension")}</td>
-          </tr>
-          <tr>
-            <td />
-            <td className={styles.multiLine}>
-              <Trans
-                i18nKey="pricing:limitMemberBizExtensible"
-                components={{ small: <small /> }}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className={styles.verticalAlignBottom}>
-              <Trans
-                i18nKey="pricing:extensionDescription"
-                components={{ small: <small /> }}
-              />
-            </td>
-            <td className={styles.multiLine}>
-              <Trans
-                i18nKey="pricing:limitItemBizExtensible"
-                components={{ small: <small /> }}
-              />
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={2}>
-              <Trans i18nKey="pricing:footerDescription" />
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </>
+      <PriceTable />
+    </DesktopBaseContainer>
   );
 };
 
@@ -230,12 +245,6 @@ const Faq = ({ t }) => {
       question: t("pricing:faq2Question"),
       answer: {
         i18nKey: "pricing:faq2Answer",
-        components: {
-          ul: <ul />,
-          li: <li />,
-          // eslint-disable-next-line
-          faqModeLink: <a href="/help/faq/about-mode" target="_blank" />,
-        },
       },
     },
     {
@@ -254,36 +263,6 @@ const Faq = ({ t }) => {
       question: t("pricing:faq5Question"),
       answer: {
         i18nKey: "pricing:faq5Answer",
-      },
-    },
-    {
-      question: t("pricing:faq6Question"),
-      answer: {
-        i18nKey: "pricing:faq6Answer",
-      },
-    },
-    {
-      question: t("pricing:faq7Question"),
-      answer: {
-        i18nKey: "pricing:faq7Answer",
-      },
-    },
-    {
-      question: t("pricing:faq8Question"),
-      answer: {
-        i18nKey: "pricing:faq8Answer",
-        components: {
-          faqPaymentLink: (
-            // eslint-disable-next-line
-            <a href={constants.urlFaqPaymentDomestic} target="_blank" />
-          ),
-        },
-      },
-    },
-    {
-      question: t("pricing:faq9Question"),
-      answer: {
-        i18nKey: "pricing:faq9Answer",
       },
     },
   ];
@@ -309,7 +288,11 @@ const Faq = ({ t }) => {
 
       <Padding y={60} />
 
-      <a href="/help/start/pricing">
+      <a
+        href={t("url:supportPayment")}
+        target="_blank"
+        rel="noreferrer"
+      >
         <button
           type="button"
           className={styles.buttonShowMore}
@@ -349,22 +332,9 @@ const DirectContact = ({ t }) => (
   </div>
 );
 
-const DesktopPricing = ({ data, language, t }) => (
+const DesktopPricing = ({ data, t }) => (
   <DesktopLayout>
-    <Top title={t("pricing:topTitle")}>
-      <TopDesc
-        data={data}
-        t={t}
-      />
-
-      <Padding y={60} />
-
-      <PriceTable
-        data={data}
-        language={language}
-        t={t}
-      />
-    </Top>
+    <Top data={data} />
 
     <Faq t={t} />
 

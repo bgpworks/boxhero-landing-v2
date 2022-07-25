@@ -11,29 +11,9 @@
   text-align: center;
 }
 
-.vl {
-  border-left: 2px solid var(--color-gray4);
-  margin: 46px 14px 0;
-}
-
 .topDescContainer {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.topDescColumn {
-  width: 480px;
   text-align: center;
-}
-
-.topDescTitle {
   font-size: var(--font-size-h5);
-}
-
-.topDescDesc {
-  font-size: var(--font-size-b16);
-  color: var(--color-gray1);
   line-height: 1.5;
 }
 
@@ -49,133 +29,107 @@
   text-decoration: underline;
 }
 
-/* pricing table */
+/* Price Table */
 
-.switchContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.billingCycleButton {
-  background-color: transparent;
-  font-size: var(--font-size-b16);
-  font-weight: bold;
-  line-height: 1;
-  color: var(--color-gray2);
-
-  position: relative;
-}
-
-.billingCycleButton.active {
-  color: var(--color-gray1);
-}
-
-.yearlyPlanSaveLabel {
-  font-size: var(--font-size-b14);
-  color: var(--color-primary);
-  white-space: nowrap;
-  font-weight: normal;
-
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 26px);
-  transform: translate(0, -50%);
-}
-
-.pricingTable {
-  --each-h-border-spacing: 30px;
-  --inner-content-width: 378px;
-
-  margin: 0px auto;
-  border-spacing: var(--each-h-border-spacing) 0px;
+.priceTable {
+  border-spacing: 30px 0px;
   border-collapse: separate;
-  color: var(--color-black);
-  line-height: normal;
-
-  font-size: var(--font-size-b18);
-
-  width: calc(
-    (var(--inner-content-width) * 2) + (var(--each-h-border-spacing) * 3)
-  );
+  font-size: var(--font-size-b16);
+  line-height: 1.37;
+  max-width: 948px;
+  table-layout: fixed;
+  margin: 0 auto;
 }
 
-.pricingTable small {
-  font-size: var(--font-size-b14);
-  font-weight: normal;
-}
-
-.pricingTable thead strong {
-  font-size: var(--font-size-h4);
-}
-
-.pricingTable td,
-.pricingTable th {
-  border: none;
-  padding: 0 26px;
-  text-align: center;
-}
-
-.pricingTable td.multiLine {
-  line-height: 1.3;
-}
-
-.pricingTable td.verticalAlignBottom {
-  vertical-align: bottom;
-  letter-spacing: -0.2px;
-}
-
-.pricingTable tbody tr:first-child td {
-  padding-top: 30px;
-  padding-bottom: 14px;
-}
-
-.pricingTable tbody tr:last-child td {
-  padding-bottom: 30px;
-}
-
-.pricingTable thead th {
-  padding-bottom: 30px;
-  width: 50%;
-}
-
-.pricingTable tbody td:nth-child(1) {
-  background-color: var(--color-orange-20);
-}
-
-.pricingTable tbody td:nth-child(2) {
-  background-color: var(--color-light-blue-20);
-}
-
-.pricingTable tbody tr:first-child td {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.pricingTable tbody tr:last-child td {
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-
-.pricingTable tfoot {
+.priceTable td,
+.priceTable th {
+  padding: 0 16px;
   vertical-align: top;
 }
 
-.pricingTable tfoot td {
-  padding-top: 30px;
-  font-size: var(--font-size-b14);
-  color: var(--color-gray1);
+.priceTable tr:first-child td,
+.priceTable tr:first-child th {
+  padding-top: 36px;
+}
+
+.priceTable tr:last-child td,
+.priceTable tr:first-child th {
+  padding-bottom: 36px;
+}
+
+.priceTable tr:first-child td {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-width: 1px 1px 0 1px;
+}
+
+.priceTable tr:last-child td {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-width: 0 1px 1px 1px;
+}
+
+.priceTable td {
   text-align: center;
-  line-height: 1.45;
+  border-style: solid;
+  border-width: 0 1px 0 1px;
+}
+
+.priceTable th {
+  font-weight: 500;
+}
+
+.bizCell {
+  border-color: var(--color-light-blue-60);
+  background-color: var(--color-light-blue-20);
+}
+
+.freeCell {
+  border-color: var(--color-gray4);
+  background-color: var(--color-gray5);
+}
+
+.planTitleRow th,
+.planTitleRow td {
+  font-size: var(--font-size-h5);
+  font-weight: bold;
+}
+
+.planTitleRow .bizCell {
+  position: relative;
+}
+
+.priceRow td {
+  font-weight: bold;
+  padding-top: 12px;
+  line-height: 70px;
+}
+
+.priceRow .bizCell {
+  font-size: 48px;
+}
+
+.priceRow .freeCell {
+  font-size: 40px;
+}
+
+.priceUnitRow td {
+  font-size: var(--font-size-b14);
+  font-weight: normal;
+  line-height: 1.8;
+  padding-top: 2px;
 }
 
 .startButtonRow > td {
-  padding: 30px 0;
+  padding-top: 32px;
+  padding-bottom: 38px;
 }
 
 .startButton {
-  width: calc(100% - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   height: 44px;
   border-radius: 6px;
   background-color: var(--color-primary);
@@ -184,31 +138,49 @@
   color: white;
 }
 
-.sectionTitleRow td,
-.sectionTitleRow ~ tr:not(.paddingBottom40) td {
-  padding-bottom: 16px;
+.voltIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
-.paddingBottom40 td {
-  padding-bottom: 40px;
-}
-
-.sectionTitleRow > td {
-  color: var(--color-gray2);
-  font-size: var(--font-size-b16);
+.limitRow td {
+  padding-bottom: 24px;
   font-weight: bold;
 }
 
-.price {
-  font-size: 52px;
-  font-weight: bold;
-  line-height: normal;
+.extensionRow td {
+  font-weight: 500;
 }
 
-.priceWrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
+.limitRow small,
+.extensionRow small {
+  font-size: var(--font-size-b12);
+  font-weight: 500;
+  color: var(--color-gray1);
+}
+
+.extensionRow + .extensionRow td {
+  padding-top: 16px;
+}
+
+.checkIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.dividerRow td {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.divider {
+  height: 1px;
+  background-color: var(--color-gray3);
+}
+
+.featureLimitRow td {
+  padding-bottom: 24px;
+  font-weight: 500;
 }
 
 /* faq */
