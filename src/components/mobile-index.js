@@ -346,7 +346,7 @@ const KeyFeatures = ({ data }) => {
         keyFeatureData={[
           { title: <Trans i18nKey="index:keyFeature4Menu1Mobile" />, img: data.featureAllInOne },
           { title: t("index:keyFeature4Menu2"), img: data.featureQuantity },
-          { title: <Trans i18nKey="index:keyFeature4Menu3Mobile" />, img: data.featureIntegration },
+          { title: <Trans i18nKey="index:keyFeature4Menu3Mobile" />, img: data.featureSalesAnalysis },
         ]}
       />
     </>
