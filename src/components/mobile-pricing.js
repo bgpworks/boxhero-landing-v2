@@ -163,11 +163,11 @@ const BusinessPlan = () => {
 
 const PriceTable = () => (
   <MobileBaseContainer className={styles.priceTableContentContainer}>
-    <FreePlan />
+    <BusinessPlan />
 
     <Padding y={20} />
 
-    <BusinessPlan />
+    <FreePlan />
   </MobileBaseContainer>
 );
 
