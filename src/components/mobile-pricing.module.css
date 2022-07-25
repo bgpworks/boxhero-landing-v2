@@ -51,9 +51,15 @@
 
 .planPrice {
   margin: 0;
-  height: 68px;
-  font-size: var(--font-size-46);
   font-weight: bold;
+}
+
+.freePlanContainer .planPrice {
+  font-size: 40px;
+}
+
+.bizPlanContainer .planPrice {
+  font-size: 50px;
 }
 
 .startButton {
@@ -164,6 +170,7 @@
 
 .planPriceUnit {
   font-size: var(--font-size-mobile-small);
+  line-height: 1.8;
 }
 
 .extensionsTitle {

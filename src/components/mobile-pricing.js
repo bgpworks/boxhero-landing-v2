@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 import cn from "classnames";
 // js
@@ -7,9 +7,9 @@ import {
   MobileBaseContainer,
   Padding,
   DropDownQNA,
-  Switch,
   AppDownloadLink,
   AppInstallButton,
+  Ribbon,
 } from "./common";
 // css
 import * as styles from "./mobile-pricing.module.css";
@@ -61,7 +61,7 @@ const FreePlan = () => {
     <article className={styles.freePlanContainer}>
       <h2 className={styles.planTitle}>{t("pricing:freePlanTitle")}</h2>
 
-      <Padding y={12} />
+      <Padding y={16} />
 
       <h3 className={styles.planPrice}>{t("pricing:freePlanPrice")}</h3>
 
@@ -113,47 +113,16 @@ const Extension = ({ i18nKey }) => (
 
 const BusinessPlan = () => {
   const { t } = useI18next();
-  const [isYearly, setIsYearly] = useState(true);
-
   return (
     <article className={styles.bizPlanContainer}>
+      <Ribbon>{t("pricing:recommandRibbon")}</Ribbon>
       <h2 className={styles.planTitle}>{t("pricing:bizPlanTitle")}</h2>
 
-      <div className={styles.switchContainer}>
-        <button
-          type="button"
-          className={cn(
-            styles.billingCycleButton,
-            { [styles.active]: !isYearly },
-          )}
-          onClick={() => setIsYearly(false)}
-        >
-          {t("pricing:switchLabelMonthly")}
-        </button>
-        <Switch
-          isActive={isYearly}
-          onChange={(active) => setIsYearly(active)}
-        />
-        <button
-          type="button"
-          className={cn(
-            styles.billingCycleButton,
-            { [styles.active]: isYearly },
-          )}
-          onClick={() => setIsYearly(true)}
-        >
-          <div className={styles.labelYearly}>
-            {t("pricing:switchLabelYearly")}
-            <span className={styles.yearlyPlanSaveLabel}>
-              {t("pricing:yearlyPlanSaveLabel")}
-            </span>
-          </div>
-        </button>
-      </div>
+      <Padding y={16} />
 
-      <h3 className={styles.planPrice}>{isYearly ? "$18" : "$20"}</h3>
+      <h3 className={styles.planPrice}>$18</h3>
       <span className={styles.planPriceUnit}>
-        {t("pricing:bizPlanPriceUnit")}
+        <Trans i18nKey="pricing:bizPlanPriceUnit" />
       </span>
 
       <AppInstallButton
@@ -187,7 +156,6 @@ const BusinessPlan = () => {
         <SupportFeature>{t("pricing:headerFeatureAnalysis")}</SupportFeature>
         <SupportFeature>{t("pricing:headerLowStock")}</SupportFeature>
         <SupportFeature>{t("pricing:headerFeatureSales")}</SupportFeature>
-        <SupportFeature>{t("pricing:limitIntegrationBizMobile")}</SupportFeature>
       </SupportFeatures>
     </article>
   );
