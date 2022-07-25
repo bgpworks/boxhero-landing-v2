@@ -29,41 +29,6 @@
   text-decoration: underline;
 }
 
-/* Switch */
-
-.switchContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.billingCycleButton {
-  background-color: transparent;
-  font-size: var(--font-size-b16);
-  font-weight: bold;
-  line-height: 1;
-  color: var(--color-gray2);
-
-  position: relative;
-}
-
-.billingCycleButton.active {
-  color: var(--color-gray1);
-}
-
-.yearlyPlanSaveLabel {
-  font-size: var(--font-size-b14);
-  color: var(--color-primary);
-  white-space: nowrap;
-  font-weight: normal;
-
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 26px);
-  transform: translate(0, -50%);
-}
-
 /* Price Table */
 
 .priceTable {
@@ -130,16 +95,28 @@
   font-weight: bold;
 }
 
+.planTitleRow .bizCell {
+  position: relative;
+}
+
 .priceRow td {
-  font-size: 48px;
   font-weight: bold;
   padding-top: 12px;
-  line-height: 1.5;
+  line-height: 70px;
+}
+
+.priceRow .bizCell {
+  font-size: 48px;
+}
+
+.priceRow .freeCell {
+  font-size: 40px;
 }
 
 .priceUnitRow td {
   font-size: var(--font-size-b14);
   font-weight: normal;
+  line-height: 1.8;
   padding-top: 2px;
 }
 

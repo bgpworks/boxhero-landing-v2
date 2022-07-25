@@ -1,57 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
-import cn from "classnames";
 // js
 import DesktopLayout from "./desktop-layout";
 import {
   DesktopBaseContainer,
   Padding,
   DropDownQNA,
-  Switch,
   StartNowButton,
+  Ribbon,
 } from "./common";
 // css
 import * as styles from "./desktop-pricing.module.css";
 // image
 import iconCheck from "../images/icon-check.svg";
 import iconVolt from "../images/volt.svg";
-
-const SwitchContainer = ({ isYearly, setIsYearly }) => {
-  const { t } = useI18next();
-  return (
-    <div className={styles.switchContainer}>
-      <button
-        type="button"
-        className={cn(
-          styles.billingCycleButton,
-          { [styles.active]: !isYearly },
-        )}
-        onClick={() => setIsYearly(false)}
-      >
-        {t("pricing:switchLabelMonthly")}
-      </button>
-      <Padding x={35} />
-      <Switch
-        isActive={isYearly}
-        onChange={(active) => setIsYearly(active)}
-      />
-      <Padding x={35} />
-      <button
-        type="button"
-        className={cn(
-          styles.billingCycleButton,
-          { [styles.active]: isYearly },
-        )}
-        onClick={() => setIsYearly(true)}
-      >
-        {t("pricing:switchLabelYearly")}
-        <div className={styles.yearlyPlanSaveLabel}>
-          {t("pricing:yearlyPlanSaveLabel")}
-        </div>
-      </button>
-    </div>
-  );
-};
 
 const BizCell = ({ children }) => (
   <td className={styles.bizCell}>{children}</td>
@@ -94,32 +56,40 @@ const CheckIcon = () => (
 const EmptyRow = () => (
   <tr>
     <th> </th>
-    <BizCell><Padding y={36} /></BizCell>
     <FreeCell><Padding y={36} /></FreeCell>
+    <BizCell><Padding y={36} /></BizCell>
   </tr>
 );
 
-const PriceTable = ({ isYearly }) => {
+const PriceTable = () => {
   const { t } = useI18next();
   return (
     <table className={styles.priceTable}>
       <tr className={styles.planTitleRow}>
         <th rowSpan={4}> </th>
-        <BizCell>{t("pricing:bizPlanTitle")}</BizCell>
         <FreeCell>{t("pricing:freePlanTitle")}</FreeCell>
+        <BizCell>
+          <Ribbon>{t("pricing:recommandRibbon")}</Ribbon>
+          {t("pricing:bizPlanTitle")}
+        </BizCell>
       </tr>
 
       <tr className={styles.priceRow}>
-        <BizCell>{isYearly ? "$18" : "$20"}</BizCell>
         <FreeCell>{t("pricing:freePlanPrice")}</FreeCell>
+        <BizCell>$18</BizCell>
       </tr>
 
       <tr className={styles.priceUnitRow}>
-        <BizCell>{t("pricing:bizPlanPriceUnit")}</BizCell>
         <FreeCell>{t("pricing:freePlanPriceUnit")}</FreeCell>
+        <BizCell><Trans i18nKey="pricing:bizPlanPriceUnit" /></BizCell>
       </tr>
 
       <tr className={styles.startButtonRow}>
+        <FreeCell>
+          <StartNowButton className={styles.startButton}>
+            {t("pricing:startNowButton")}
+          </StartNowButton>
+        </FreeCell>
         <BizCell>
           <StartNowButton className={styles.startButton}>
             <img
@@ -130,114 +100,105 @@ const PriceTable = ({ isYearly }) => {
             {t("pricing:startTrialButton")}
           </StartNowButton>
         </BizCell>
-        <FreeCell>
-          <StartNowButton className={styles.startButton}>
-            {t("pricing:startNowButton")}
-          </StartNowButton>
-        </FreeCell>
       </tr>
 
       <LimitRow headerLabel={t("pricing:headerMember")}>
-        <BizCell>{t("pricing:limitMemberBiz")}</BizCell>
         <FreeCell>{t("pricing:limitMemberFree")}</FreeCell>
+        <BizCell>{t("pricing:limitMemberBiz")}</BizCell>
       </LimitRow>
 
       <LimitRow headerLabel={t("pricing:headerProduct")}>
-        <BizCell>{t("pricing:limitItemBiz")}</BizCell>
         <FreeCell>{t("pricing:limitItemFree")}</FreeCell>
+        <BizCell>{t("pricing:limitItemBiz")}</BizCell>
       </LimitRow>
 
       <LimitRow headerLabel={t("pricing:headerLocation")}>
-        <BizCell>
-          <Trans
-            i18nKey="pricing:limitLocationBiz"
-            components={{ small: <small /> }}
-          />
-        </BizCell>
         <FreeCell>
           <Trans
             i18nKey="pricing:limitLocationFree"
             components={{ small: <small /> }}
           />
         </FreeCell>
+        <BizCell>
+          <Trans
+            i18nKey="pricing:limitLocationBiz"
+            components={{ small: <small /> }}
+          />
+        </BizCell>
       </LimitRow>
 
       <ExtensionRow>
         <th rowSpan={3}>{t("pricing:headerExtension")}</th>
+        <FreeCell>-</FreeCell>
         <BizCell>
           <Trans
             i18nKey="pricing:limitMemberBizExtensible"
             components={{ small: <small /> }}
           />
         </BizCell>
-        <FreeCell>-</FreeCell>
       </ExtensionRow>
       <ExtensionRow>
+        <FreeCell>-</FreeCell>
         <BizCell>
           <Trans
             i18nKey="pricing:limitItemBizExtensible"
             components={{ small: <small /> }}
           />
         </BizCell>
-        <FreeCell>-</FreeCell>
       </ExtensionRow>
       <ExtensionRow>
+        <FreeCell>-</FreeCell>
         <BizCell>
           <Trans
             i18nKey="pricing:limitLocationBizExtensible"
             components={{ small: <small /> }}
           />
         </BizCell>
-        <FreeCell>-</FreeCell>
       </ExtensionRow>
 
       <tr className={styles.dividerRow}>
         <th> </th>
-        <BizCell><Divider /></BizCell>
         <FreeCell><Divider /></FreeCell>
+        <BizCell><Divider /></BizCell>
       </tr>
 
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureTx")}>
-        <BizCell><CheckIcon /></BizCell>
         <FreeCell><CheckIcon /></FreeCell>
+        <BizCell><CheckIcon /></BizCell>
       </FeatureLimitRow>
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureExcel")}>
-        <BizCell><CheckIcon /></BizCell>
         <FreeCell><CheckIcon /></FreeCell>
+        <BizCell><CheckIcon /></BizCell>
       </FeatureLimitRow>
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureHistory")}>
-        <BizCell>{t("pricing:limitHistoryBiz")}</BizCell>
         <FreeCell>{t("pricing:limitHistoryFree")}</FreeCell>
+        <BizCell>{t("pricing:limitHistoryBiz")}</BizCell>
       </FeatureLimitRow>
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureMobile")}>
-        <BizCell><CheckIcon /></BizCell>
         <FreeCell><CheckIcon /></FreeCell>
+        <BizCell><CheckIcon /></BizCell>
       </FeatureLimitRow>
 
       <EmptyRow />
 
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureLabel")}>
-        <BizCell><CheckIcon /></BizCell>
         <FreeCell>-</FreeCell>
+        <BizCell><CheckIcon /></BizCell>
       </FeatureLimitRow>
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureAnalysis")}>
-        <BizCell><CheckIcon /></BizCell>
         <FreeCell>-</FreeCell>
+        <BizCell><CheckIcon /></BizCell>
       </FeatureLimitRow>
       <FeatureLimitRow headerLabel={t("pricing:headerLowStock")}>
-        <BizCell><CheckIcon /></BizCell>
         <FreeCell>-</FreeCell>
+        <BizCell><CheckIcon /></BizCell>
       </FeatureLimitRow>
 
       <EmptyRow />
 
       <FeatureLimitRow headerLabel={t("pricing:headerFeatureSales")}>
+        <FreeCell>-</FreeCell>
         <BizCell><CheckIcon /></BizCell>
-        <FreeCell>-</FreeCell>
-      </FeatureLimitRow>
-      <FeatureLimitRow headerLabel={t("pricing:headerFeatureIntegration")}>
-        <BizCell>{t("pricing:limitIntegrationBiz")}</BizCell>
-        <FreeCell>-</FreeCell>
       </FeatureLimitRow>
     </table>
   );
@@ -256,7 +217,6 @@ const TopDesc = () => {
 
 const Top = ({ data }) => {
   const { t } = useI18next();
-  const [isYearly, setIsYearly] = useState(true);
 
   return (
     <DesktopBaseContainer className={styles.topContentContainer}>
@@ -268,14 +228,7 @@ const Top = ({ data }) => {
 
       <Padding y={100} />
 
-      <SwitchContainer
-        isYearly={isYearly}
-        setIsYearly={setIsYearly}
-      />
-
-      <Padding y={60} />
-
-      <PriceTable isYearly={isYearly} />
+      <PriceTable />
     </DesktopBaseContainer>
   );
 };
