@@ -75,6 +75,13 @@ const MobileFooterMenus = ({ t, onChangeIsShowLangPopup }) => (
       <Link to="/about/">{t("footer:footerMenuServiceAbout")}</Link>
       <Link to="/features/">{t("footer:footerMenuServiceFeatures")}</Link>
       <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
+      <a
+        href={t("url:introDeck")}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {t("footer:footerMenuServiceIntroDeck")}
+      </a>
     </FooterMenu>
 
     <FooterMenu title={t("footer:footerMenuUseCases")}>

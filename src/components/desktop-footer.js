@@ -115,6 +115,15 @@ const DesktopFooterMenus = ({ t }) => (
       <div>
         <Link to="/pricing/">{t("footer:footerMenuServicePricing")}</Link>
       </div>
+      <div>
+        <a
+          href={t("url:introDeck")}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("footer:footerMenuServiceIntroDeck")}
+        </a>
+      </div>
     </div>
     <div className={styles.footerMenusColumn}>
       <div className={styles.footerMenuLabel}>{t("footer:footerMenuUseCases")}</div>
