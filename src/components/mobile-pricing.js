@@ -104,10 +104,7 @@ const Extensions = ({ children }) => (
 
 const Extension = ({ i18nKey }) => (
   <li className={styles.extension}>
-    <Trans
-      i18nKey={i18nKey}
-      components={{ small: <small /> }}
-    />
+    <Trans i18nKey={i18nKey} />
   </li>
 );
 

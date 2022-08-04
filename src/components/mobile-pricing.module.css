@@ -184,10 +184,6 @@
   list-style-type: none;
   font-weight: 500;
   line-height: 1.37;
-}
-.extension small {
-  font-size: var(--font-size-b12);
-  font-weight: 500;
   color: var(--color-gray1);
 }
 

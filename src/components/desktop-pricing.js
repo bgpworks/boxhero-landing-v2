@@ -113,47 +113,22 @@ const PriceTable = () => {
       </LimitRow>
 
       <LimitRow headerLabel={t("pricing:headerLocation")}>
-        <FreeCell>
-          <Trans
-            i18nKey="pricing:limitLocationFree"
-            components={{ small: <small /> }}
-          />
-        </FreeCell>
-        <BizCell>
-          <Trans
-            i18nKey="pricing:limitLocationBiz"
-            components={{ small: <small /> }}
-          />
-        </BizCell>
+        <FreeCell>{t("pricing:limitLocationFree")}</FreeCell>
+        <BizCell>{t("pricing:limitItemBiz")}</BizCell>
       </LimitRow>
 
       <ExtensionRow>
         <th rowSpan={3}>{t("pricing:headerExtension")}</th>
         <FreeCell>-</FreeCell>
-        <BizCell>
-          <Trans
-            i18nKey="pricing:limitMemberBizExtensible"
-            components={{ small: <small /> }}
-          />
-        </BizCell>
+        <BizCell>{t("pricing:limitMemberBizExtensible")}</BizCell>
       </ExtensionRow>
       <ExtensionRow>
         <FreeCell>-</FreeCell>
-        <BizCell>
-          <Trans
-            i18nKey="pricing:limitItemBizExtensible"
-            components={{ small: <small /> }}
-          />
-        </BizCell>
+        <BizCell>{t("pricing:limitItemBizExtensible")}</BizCell>
       </ExtensionRow>
       <ExtensionRow>
         <FreeCell>-</FreeCell>
-        <BizCell>
-          <Trans
-            i18nKey="pricing:limitLocationBizExtensible"
-            components={{ small: <small /> }}
-          />
-        </BizCell>
+        <BizCell>{t("pricing:limitLocationBizExtensible")}</BizCell>
       </ExtensionRow>
 
       <tr className={styles.dividerRow}>

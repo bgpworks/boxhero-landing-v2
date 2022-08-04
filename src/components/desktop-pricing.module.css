@@ -151,12 +151,7 @@
 
 .extensionRow td {
   font-weight: 500;
-}
-
-.limitRow small,
-.extensionRow small {
-  font-size: var(--font-size-b12);
-  font-weight: 500;
+  font-size: var(--font-size-b14);
   color: var(--color-gray1);
 }
 
