@@ -184,6 +184,7 @@
   list-style-type: none;
   font-weight: 500;
   line-height: 1.37;
+  color: var(--color-gray1);
 }
 
 .extension + .extension {
