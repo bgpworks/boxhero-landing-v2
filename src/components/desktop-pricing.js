@@ -114,7 +114,7 @@ const PriceTable = () => {
 
       <LimitRow headerLabel={t("pricing:headerLocation")}>
         <FreeCell>{t("pricing:limitLocationFree")}</FreeCell>
-        <BizCell>{t("pricing:limitItemBiz")}</BizCell>
+        <BizCell>{t("pricing:limitLocationBiz")}</BizCell>
       </LimitRow>
 
       <ExtensionRow>
