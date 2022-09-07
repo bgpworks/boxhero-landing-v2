@@ -66,6 +66,11 @@ export const ConsultingButton = ({ className, transparent = true }) => {
   const { t, language } = useI18next();
   const consultingIcon = transparent ? svgConsulting : svgConsultingDark;
 
+  // 컨설팅 버튼 잠시 제거
+  if (true) {
+    return null;
+  }
+
   return (
     <a
       href={language === "ko" ? urlConsultingKo : urlConsultingEn}
