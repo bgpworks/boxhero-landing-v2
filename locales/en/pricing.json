@@ -1,5 +1,5 @@
 {
-  "bizPlanPriceUnit": "1 team/mo. for annual subscription<br/>* $20/mo. for monthly subscription",
+  "bizPlanPriceUnit": "<strong>1 team</strong>/mo. for annual subscription<br/>* $20/mo. for monthly subscription",
   "bizPlanTitle": "Business Plan",
   "directContactDesc": "Feel free to reach out.",
   "directContactInquiryButon": "1:1 Inquiry",
@@ -24,7 +24,7 @@
   "headerFeatureAnalysis": "Analysis & Reports",
   "headerFeatureExcel": "Excel Import/Export",
   "headerFeatureHistory": "History Access",
-  "headerFeatureLabel": "Barcode Labels",
+  "headerFeatureLabel": "Print Barcode Labels",
   "headerFeatureMobile": "Mobile App",
   "headerFeatureSales": "Purchase & Sales Orders",
   "headerFeatureTx": "Stock In/Out/Adjust/Transfer",
