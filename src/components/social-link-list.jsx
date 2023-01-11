@@ -6,6 +6,7 @@ import svgIconNaverBlog from "../images/icon-naverblog.svg";
 import svgIconYoutube from "../images/icon-youtube.svg";
 import svgIconTwitter from "../images/icon-twitter.svg";
 import svgIconInstagram from "../images/icon-instagram.svg";
+import svgIconLinkedin from "../images/icon-linkedin.svg";
 import {
   socialLinkListContainer,
   socialLinkWrapper,
@@ -57,6 +58,10 @@ export default function SocialLinkList() {
       <SocialLink
         icon={svgIconTwitter}
         link={t("url:twitter")}
+      />
+      <SocialLink
+        icon={svgIconLinkedin}
+        link={t("url:linkedin")}
       />
     </ul>
   );
